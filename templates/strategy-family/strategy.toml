@@ -1,0 +1,15 @@
+schema_version = 1
+id = "replace-me"
+title = "Replace Me"
+platform = "joinquant"
+market = "CN-A"
+status = "research"
+baseline = "baseline.py"
+
+[execution]
+language = "python3"
+frequency = "daily"
+
+[research]
+primary_benchmark = "000300.XSHG"
+owner = ""

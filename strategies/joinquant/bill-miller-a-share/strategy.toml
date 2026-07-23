@@ -1,0 +1,17 @@
+schema_version = 1
+id = "bill-miller-a-share"
+title = "比尔·米勒风格 A 股量化策略"
+platform = "joinquant"
+market = "CN-A"
+status = "research"
+baseline = "baseline.py"
+
+[execution]
+language = "python3"
+frequency = "daily"
+rebalance = "monthly"
+
+[research]
+primary_benchmark = "000300.XSHG"
+source_repository = "D:/code/trading-os"
+source_commit = "910607409"

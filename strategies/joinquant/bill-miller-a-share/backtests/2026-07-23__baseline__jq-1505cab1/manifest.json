@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "strategy_id": "bill-miller-a-share",
+  "variant": "baseline",
+  "platform": "joinquant",
+  "archived_at": "2026-07-23T00:00:00+08:00",
+  "source_file": "source.py",
+  "source_sha256": "3738ce52a7365c2ee086f3bdb5ce13e9d0d4348df948ce2ef35a235da1d4afd5",
+  "source_origin": {
+    "repository": "D:/code/trading-os",
+    "path": "strategies/joinquant/bill_miller_quant.py",
+    "commit": "910607409"
+  },
+  "run": {
+    "backtest_id": "1505cab15998de0c836d5497c293dee0",
+    "url": "https://www.joinquant.com/algorithm/backtest/detail?backtestId=1505cab15998de0c836d5497c293dee0",
+    "initial_cash": 10000000,
+    "frequency": "daily",
+    "python": "Python3"
+  },
+  "period": {
+    "configured_start": "2009-01-01",
+    "first_trade_day": "2009-01-05",
+    "end": "2025-12-31"
+  },
+  "benchmark": {
+    "code": "000300.XSHG",
+    "name": "沪深300"
+  },
+  "costs": {
+    "slippage": {
+      "model": "FixedSlippage",
+      "value": 0.002
+    },
+    "stock_order_cost": {
+      "close_tax": 0.001,
+      "open_commission": 0.0003,
+      "close_commission": 0.0003,
+      "minimum_commission": 5
+    }
+  },
+  "metrics": {
+    "strategy_return": 3.0775166247582,
+    "annual_strategy_return": 0.08880196177894,
+    "benchmark_return": 1.5471136918777,
+    "annual_benchmark_return": 0.058227873943518,
+    "excess_return": 0.60083809284237,
+    "alpha": 0.033857271480889,
+    "beta": 0.81988115258853,
+    "sharpe": 0.22491588904747,
+    "sortino": 0.2847125532071,
+    "information_ratio": 0.24941062991526,
+    "algorithm_volatility": 0.21697872029237,
+    "benchmark_volatility": 0.22383206324934,
+    "max_drawdown": 0.47655682039366,
+    "max_drawdown_peak": "2015-06-12",
+    "max_drawdown_trough": "2024-02-05",
+    "win_ratio": 0.56092648539778,
+    "profit_loss_ratio": 1.441931353349,
+    "average_trade_return": 0.065445700915984,
+    "average_position_days": 176.81947743468,
+    "daily_turnover_rate": 0.0085141157562577
+  },
+  "diagnostics": {
+    "rebalance_count": 204,
+    "average_retained_cash": 0.1600426470588235,
+    "maximum_retained_cash": 0.5999,
+    "months_cash_over_20_percent": 71,
+    "months_cash_over_30_percent": 26,
+    "average_target_holdings": 18.504901960784313,
+    "cash_benchmark_monthly_return_correlation": -0.01638726723542378
+  }
+}

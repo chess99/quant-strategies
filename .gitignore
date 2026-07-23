@@ -1,0 +1,26 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+.idea/
+.vscode/
+Thumbs.db
+.DS_Store
+
+# 临时导出和中间文件
+*.tmp
+*.part
+downloads/
+scratch/
+
+# 回测归档中的压缩包允许显式纳入版本控制
+!strategies/**/backtests/**/*.zip
+!strategies/**/backtests/**/*.gz

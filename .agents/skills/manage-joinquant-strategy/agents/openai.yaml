@@ -1,0 +1,4 @@
+interface:
+  display_name: "管理聚宽量化策略"
+  short_description: "创建、修改、测试并归档可复现的聚宽策略族、小变体和回测"
+  default_prompt: "Use $manage-joinquant-strategy to create or update a JoinQuant strategy family and archive its backtest reproducibly."

@@ -11,6 +11,7 @@ quant-strategies/
   AGENTS.md
   docs/
     architecture/
+    data-sources/
     platforms/joinquant/
   strategies/
     {platform}/{strategy-family}/
@@ -40,3 +41,5 @@ pytest -q
 ```
 
 开始工作前先阅读 [AGENTS.md](AGENTS.md)。新增策略、变体或回测归档时，还应按仓库内的 `manage-joinquant-strategy` skill 执行。
+
+本地数据源验收记录见 [docs/data-sources/qlib-community-cn-audit-2026-07-23.md](docs/data-sources/qlib-community-cn-audit-2026-07-23.md)。

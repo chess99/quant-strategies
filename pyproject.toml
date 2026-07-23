@@ -16,7 +16,7 @@ dev = [
 [tool.pytest.ini_options]
 testpaths = ["strategies"]
 python_files = ["test_*.py"]
-addopts = "-ra"
+addopts = "-ra --import-mode=importlib"
 
 [tool.ruff]
 line-length = 100

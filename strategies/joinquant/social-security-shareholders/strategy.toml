@@ -1,0 +1,16 @@
+schema_version = 1
+id = "social-security-shareholders"
+title = "全国社保基金流通股东策略"
+platform = "joinquant"
+market = "CN-A"
+status = "research"
+baseline = "baseline.py"
+
+[execution]
+language = "python3"
+frequency = "daily"
+rebalance = "quarterly-disclosure"
+
+[research]
+primary_benchmark = "000300.XSHG"
+data_source = "finance.STK_SHAREHOLDER_FLOATING_TOP10"

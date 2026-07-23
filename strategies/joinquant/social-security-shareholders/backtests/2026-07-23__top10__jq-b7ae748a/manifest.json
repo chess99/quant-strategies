@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "strategy_id": "social-security-shareholders",
+  "variant": "top10",
+  "platform": "joinquant",
+  "archived_at": "2026-07-23T00:00:00+08:00",
+  "source_file": "source.py",
+  "source_sha256": "683df62d785e3125c24a59d853f28bbcc911855858fedf6754e5eb89dc97ba39",
+  "source_origin": {
+    "repository": "legacy-local-prototype",
+    "base_commit": "54b7ebd",
+    "transformation": "聚宽页面手工把 g.stock_count 从 100 改为 10"
+  },
+  "run": {
+    "backtest_id": "b7ae748a91be6516026e678c26851ed0",
+    "url": "https://www.joinquant.com/algorithm/backtest/detail?backtestId=b7ae748a91be6516026e678c26851ed0",
+    "initial_cash": 1000000,
+    "frequency": "daily",
+    "python": "Python3"
+  },
+  "period": {
+    "configured_start": "2019-01-01",
+    "first_trade_day": "2019-01-02",
+    "end": "2026-07-14"
+  },
+  "benchmark": {
+    "code": "000300.XSHG",
+    "name": "沪深300"
+  },
+  "costs": {
+    "slippage": {
+      "model": "FixedSlippage",
+      "value": 0.002
+    },
+    "stock_order_cost": {
+      "close_tax": 0.001,
+      "open_commission": 0.0003,
+      "close_commission": 0.0003,
+      "minimum_commission": 5
+    }
+  },
+  "metrics": {
+    "strategy_return": 0.4918,
+    "annual_strategy_return": 0.0563,
+    "benchmark_return": 0.5932,
+    "excess_return": -0.0636,
+    "alpha": -0.002,
+    "beta": 0.711,
+    "sharpe": 0.105,
+    "sortino": 0.138,
+    "information_ratio": -0.101,
+    "algorithm_volatility": 0.155,
+    "benchmark_volatility": 0.190,
+    "max_drawdown": 0.3480,
+    "max_drawdown_peak": "2021-02-18",
+    "max_drawdown_trough": "2024-02-05",
+    "win_ratio": 0.495,
+    "profit_loss_ratio": 1.422,
+    "turnover": null
+  },
+  "diagnostics": {
+    "profitable_days": 951,
+    "losing_days": 972,
+    "daily_win_ratio": 0.527,
+    "excess_max_drawdown": 0.2805,
+    "excess_sharpe": -0.521
+  }
+}

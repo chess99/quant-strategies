@@ -29,6 +29,7 @@ quant-strategies/
 当前策略族：
 
 - `strategies/joinquant/bill-miller-a-share/`：比尔·米勒风格的 A 股纯量化选股策略。
+- `strategies/joinquant/ktv-macd-resonance/`：KTV（Stochastic RSI 透明代理）与 MACD 共振策略。
 - `strategies/joinquant/social-security-shareholders/`：基于全国社保基金前十大流通股东披露的 A 股策略。
 
 ## 常用命令

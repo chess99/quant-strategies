@@ -1,0 +1,16 @@
+schema_version = 1
+id = "ktv-macd-resonance"
+title = "KTV + MACD 共振透明代理策略"
+platform = "joinquant"
+market = "CN-A"
+status = "research"
+baseline = "baseline.py"
+
+[execution]
+language = "python3"
+frequency = "daily"
+entry_scan = "weekly"
+
+[research]
+primary_benchmark = "000300.XSHG"
+formula_status = "transparent-proxy"

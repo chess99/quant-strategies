@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "strategy_id": "ktv-macd-resonance",
+  "variant": "baseline",
+  "platform": "joinquant",
+  "engine": "local-qlib-daily-v1",
+  "run_id": "local-qlib-2019-2025-v1",
+  "archived_at": "2026-07-24",
+  "source_file": "source.py",
+  "source_sha256": "6a37b6f6ae4161625725a147fd83f3a1c16a23924acedd47a8fd852a2b4416ac",
+  "engine_file": "engine.py",
+  "engine_sha256": "7402ed5c249e0042bb3627e69fdcaf801104a73acdcfe06289e30498de4f61ba",
+  "period": {
+    "start": "2019-01-01",
+    "end": "2025-12-31"
+  },
+  "benchmark": "SZ399300",
+  "initial_cash": 1000000.0,
+  "costs": {
+    "commission_rate": 0.0003,
+    "minimum_commission": 5.0,
+    "sell_tax_rate": 0.001,
+    "fixed_slippage_per_share": 0.002
+  },
+  "data_fingerprint": {
+    "root": "D:\\code\\_open-source\\_data\\qlib\\cn_data",
+    "calendar_first": "2000-01-04",
+    "calendar_last": "2026-07-23",
+    "calendar_rows": 6434,
+    "files": {
+      "calendars/day.txt": {
+        "size": 70774,
+        "sha256": "6bfe26c7ec40e1c1f433794d80632a281d78213edda2889009e69085753bc99d"
+      },
+      "instruments/all.txt": {
+        "size": 189751,
+        "sha256": "9c3f6c7e13bde3380c06d83a24ee38bc26c31f1339f4b1aa9e3252d0e385622f"
+      },
+      "instruments/csi300.txt": {
+        "size": 502138,
+        "sha256": "d6da9986c9aa1479787de88394cc5c8ab008c2fdcdad4b6199aaad714ce06d33"
+      },
+      "instruments/csi500.txt": {
+        "size": 697593,
+        "sha256": "7f743de9d04082e826b32a1881a911f725704e553ff2c6f83c47d0acc75fc92c"
+      }
+    }
+  },
+  "excluded_symbols": [
+    "SH600745",
+    "SZ302132"
+  ],
+  "metrics": {
+    "total_return": -0.031927349531674976,
+    "annualized_return": -0.00480122806243688,
+    "benchmark_total_return": 0.5378539562225342,
+    "benchmark_annualized_return": 0.06591781813737518,
+    "annualized_excess_return": -0.06634568350061842,
+    "max_drawdown": -0.46700273513942403,
+    "max_drawdown_peak": "2021-01-08",
+    "max_drawdown_trough": "2025-05-26",
+    "sharpe": 0.04698811074556539,
+    "calmar": -0.01028094206129964,
+    "annualized_volatility": 0.15584532902987652,
+    "turnover": 257.84142247280175,
+    "longest_underwater_trading_days": 1207,
+    "trade_count": 3314,
+    "average_holding_days": 8.825200291332848,
+    "daily_win_rate": 0.45615067686874633,
+    "average_cash_ratio": 0.593706655458424,
+    "final_equity": 968072.650468325,
+    "runtime_seconds": 493.4537146000075,
+    "excluded_symbol_count": 2
+  },
+  "artifacts": {
+    "equity": "raw/equity.csv",
+    "trades": "raw/trades.csv",
+    "yearly": "raw/yearly.csv",
+    "anomalies": "raw/anomalies.csv",
+    "config": "config.json"
+  }
+}

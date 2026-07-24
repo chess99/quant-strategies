@@ -22,6 +22,12 @@
 统一诊断与结论见
 [`2026-07-24__right-only-diagnostics-study.md`](2026-07-24__right-only-diagnostics-study.md)。
 
+最终路径诊断：
+
+- [`2026-07-24__right-only-trade-paths.csv`](2026-07-24__right-only-trade-paths.csv)：770个持仓回合的 MFE、MAE、入场特征和退出后10日路径。
+- [`2026-07-24__right-low-extension__local-qlib-2019-2025-v1/`](2026-07-24__right-low-extension__local-qlib-2019-2025-v1/)：保持信号不变，反转 MA20/MA60 趋势间距排序。
+- [`2026-07-24__right-only-path-study.md`](2026-07-24__right-only-path-study.md)：路径诊断、排序控制和停止继续调参的证据。
+
 后续聚宽或本地回测继续新建：
 
 ```text

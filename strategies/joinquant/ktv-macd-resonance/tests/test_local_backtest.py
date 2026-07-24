@@ -411,6 +411,49 @@ def test_right_filter_controls_remove_only_one_requested_filter():
     )["kind"] == "right"
 
 
+def test_low_extension_mode_keeps_signal_but_reverses_trend_gap_ranking():
+    local = load_module()
+
+    class FakeLogic:
+        @staticmethod
+        def is_right_entry(frame):
+            return True
+
+        @staticmethod
+        def _finite_number(value):
+            return float(value)
+
+    low_extension = pd.DataFrame(
+        {
+            "close": [100.0],
+            "ma20": [102.0],
+            "ma60": [100.0],
+        }
+    )
+    high_extension = pd.DataFrame(
+        {
+            "close": [100.0],
+            "ma20": [115.0],
+            "ma60": [100.0],
+        }
+    )
+
+    low = local.entry_signal_for_mode(
+        FakeLogic(),
+        low_extension,
+        "right-low-extension",
+    )
+    high = local.entry_signal_for_mode(
+        FakeLogic(),
+        high_extension,
+        "right-low-extension",
+    )
+
+    assert low["kind"] == "right"
+    assert high["kind"] == "right"
+    assert low["score"] > high["score"]
+
+
 def test_exit_reason_classification_preserves_baseline_priority():
     local = load_module()
 

@@ -124,7 +124,8 @@ python tools/run_ktv_macd_local_backtest.py `
 
 默认会创建新的不可变归档；目标目录已存在时拒绝覆盖。只做诊断试跑可添加 `--no-archive`。
 `--entry-mode` 还支持 `ktv-entry-only`、`macd-entry-only`、`left-only`
-、`right-only`、`right-no-volume` 和 `right-no-trend`。这些模式只改变入场确认层，退出、仓位和成本保持基线不变。
+、`right-only`、`right-no-volume`、`right-no-trend` 和
+`right-low-extension`。这些模式只改变入场确认或候选排序层，退出、仓位和成本保持基线不变。
 
 成本敏感性使用 `--cost-multiplier` 同时缩放佣金、最低佣金、卖出税和固定滑点。成本倍数不是1时必须用 `--variant` 提供独立归档名称，例如：
 
@@ -199,4 +200,9 @@ python tools/run_ktv_macd_local_backtest.py `
 - 762个已完成回合中，持有不超过10日的407个回合合计亏损约222万元；超过10日的355个回合合计盈利约237万元。策略依赖少数长趋势覆盖大量快速失败。
 
 完整诊断见
-[`backtests/2026-07-24__right-only-diagnostics-study.md`](backtests/2026-07-24__right-only-diagnostics-study.md)。现阶段继续调指标周期的过拟合风险很高，下一步应先做逐持仓 MFE/MAE 路径诊断。
+[`backtests/2026-07-24__right-only-diagnostics-study.md`](backtests/2026-07-24__right-only-diagnostics-study.md)。由于继续调指标周期的过拟合风险很高，本轮随后转向逐持仓 MFE/MAE 路径诊断。
+
+MFE/MAE 路径诊断已经完成。10日内失败回合的 MFE 中位数仅 +2.06%，退出后10日中位收益为 -1.01%；硬止损后10日中位收益为 -2.25%，不支持简单放松退出。反转趋势间距排序只把累计收益从 +14.91% 提高到 +16.14%，且2022—2025累计表现反而更差。
+
+最终研究结论见
+[`backtests/2026-07-24__right-only-path-study.md`](backtests/2026-07-24__right-only-path-study.md)。在没有新时间样本、分钟数据或独立经济假设前，本策略停止继续做样本内参数搜索，保留 `right-only` 作为研究对照，不提升任何实验变体。

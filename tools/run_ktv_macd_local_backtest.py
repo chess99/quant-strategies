@@ -47,6 +47,7 @@ def parse_args():
             "right-only",
             "right-no-volume",
             "right-no-trend",
+            "right-low-extension",
         ),
         default="baseline",
         help="只改变入场确认层；所有模式沿用基线退出规则",

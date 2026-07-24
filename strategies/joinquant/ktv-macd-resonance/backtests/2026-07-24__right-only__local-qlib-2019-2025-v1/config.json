@@ -1,0 +1,26 @@
+{
+  "start_date": "2019-01-01",
+  "end_date": "2025-12-31",
+  "initial_cash": 1000000.0,
+  "max_positions": 10,
+  "target_gross_exposure": 0.95,
+  "min_listing_days": 250,
+  "history_count": 160,
+  "min_signal_rows": 125,
+  "board_lot": 100,
+  "commission_rate": 0.0003,
+  "minimum_commission": 5.0,
+  "sell_tax_rate": 0.001,
+  "fixed_slippage_per_share": 0.002,
+  "anomaly_adjusted_return": 0.3,
+  "benchmark_symbol": "SZ399300",
+  "entry_mode": "right-only",
+  "markets": [
+    "csi300",
+    "csi500"
+  ],
+  "excluded_symbols": [
+    "SZ302132"
+  ],
+  "verbose": true
+}

@@ -214,3 +214,143 @@ def test_default_known_bad_symbol_is_excluded():
     local = load_module()
 
     assert "SZ302132" in local.BacktestConfig().excluded_symbols
+
+
+def test_entry_controls_change_only_the_requested_confirmation_layer():
+    local = load_module()
+
+    class FakeLogic:
+        @staticmethod
+        def entry_signal(frame):
+            return {"kind": "right", "score": 203.0}
+
+        @staticmethod
+        def is_left_entry(frame):
+            return bool(frame.attrs["baseline_left"])
+
+        @staticmethod
+        def is_right_entry(frame):
+            return bool(frame.attrs["baseline_right"])
+
+        @staticmethod
+        def _last_values(frame, column, count):
+            return frame[column].dropna().tail(count)
+
+        @staticmethod
+        def crossed_up_recent(first, second, lookback=3):
+            return bool(first.attrs.get("crossed_up", False))
+
+        @staticmethod
+        def _green_histogram_shrinking(frame):
+            return bool(frame.attrs["macd_turning"])
+
+        @staticmethod
+        def _macd_crossed_up_recent(frame):
+            return False
+
+        @staticmethod
+        def _not_in_downtrend(frame):
+            return True
+
+        @staticmethod
+        def _stage_low_not_falling_knife(frame):
+            return True
+
+        @staticmethod
+        def _moderate_volume(frame):
+            return True
+
+        @staticmethod
+        def _bull_trend(frame):
+            return True
+
+        @staticmethod
+        def _red_histogram_reexpanding(frame):
+            return bool(frame.attrs["red_reexpanding"])
+
+        @staticmethod
+        def _finite_number(value):
+            return float(value)
+
+    frame = pd.DataFrame(
+        {
+            "close": np.linspace(80.0, 70.0, 130),
+            "v": [10.0] * 130,
+            "k": [60.0] * 130,
+            "t": [55.0] * 130,
+            "diff": [1.2] * 130,
+            "dea": [1.0] * 130,
+            "ma20": [101.0] * 130,
+            "ma60": [100.0] * 130,
+        }
+    )
+    frame["k"].attrs["crossed_up"] = True
+    frame.attrs.update(
+        {
+            "baseline_left": False,
+            "baseline_right": False,
+            "macd_turning": False,
+            "red_reexpanding": False,
+        }
+    )
+
+    assert local.entry_signal_for_mode(FakeLogic(), frame, "baseline") == {
+        "kind": "right",
+        "score": 203.0,
+    }
+    assert local.entry_signal_for_mode(FakeLogic(), frame, "ktv-entry-only")[
+        "kind"
+    ] == "right"
+    assert (
+        local.entry_signal_for_mode(FakeLogic(), frame, "macd-entry-only") is None
+    )
+
+    frame["k"].attrs["crossed_up"] = False
+    frame.attrs["macd_turning"] = True
+    frame.attrs["red_reexpanding"] = True
+    assert (
+        local.entry_signal_for_mode(FakeLogic(), frame, "ktv-entry-only") is None
+    )
+    assert local.entry_signal_for_mode(FakeLogic(), frame, "macd-entry-only")[
+        "kind"
+    ] == "right"
+
+
+def test_left_and_right_controls_reuse_the_unmodified_baseline_predicates():
+    local = load_module()
+
+    class FakeLogic:
+        @staticmethod
+        def entry_signal(frame):
+            return {"kind": "right", "score": 202.0}
+
+        @staticmethod
+        def is_left_entry(frame):
+            return bool(frame.attrs["left"])
+
+        @staticmethod
+        def is_right_entry(frame):
+            return bool(frame.attrs["right"])
+
+        @staticmethod
+        def _finite_number(value):
+            return float(value)
+
+    frame = pd.DataFrame(
+        {
+            "close": np.linspace(100.0, 80.0, 60),
+            "ma20": [102.0] * 60,
+            "ma60": [100.0] * 60,
+        }
+    )
+    frame.attrs.update({"left": True, "right": True})
+
+    left = local.entry_signal_for_mode(FakeLogic(), frame, "left-only")
+    right = local.entry_signal_for_mode(FakeLogic(), frame, "right-only")
+
+    assert left["kind"] == "left"
+    assert 100.0 <= left["score"] < 200.0
+    assert right["kind"] == "right"
+    assert right["score"] >= 200.0
+    with pytest.raises(ValueError, match="unsupported entry mode"):
+        local.entry_signal_for_mode(FakeLogic(), frame, "unknown")

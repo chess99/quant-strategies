@@ -1,4 +1,4 @@
-"""运行 KTV + MACD 基线的本地 Qlib 日线回测并归档结果。"""
+"""运行 KTV + MACD 基线或入场控制实验的本地 Qlib 日线回测。"""
 
 from __future__ import annotations
 
@@ -38,6 +38,18 @@ def parse_args():
     parser.add_argument("--end", default="2025-12-31")
     parser.add_argument("--initial-cash", type=float, default=1_000_000.0)
     parser.add_argument(
+        "--entry-mode",
+        choices=(
+            "baseline",
+            "ktv-entry-only",
+            "macd-entry-only",
+            "left-only",
+            "right-only",
+        ),
+        default="baseline",
+        help="只改变入场确认层；所有模式沿用基线退出规则",
+    )
+    parser.add_argument(
         "--run-id",
         default="local-qlib-2019-2025-v1",
         help="稳定运行标识；归档目录已存在时不会覆盖",
@@ -58,6 +70,7 @@ def main():
         start_date=args.start,
         end_date=args.end,
         initial_cash=args.initial_cash,
+        entry_mode=args.entry_mode,
         verbose=args.verbose,
     )
     backtester = engine.LocalBacktester(
@@ -76,6 +89,7 @@ def main():
         target = engine.archive_result(
             result,
             run_id=args.run_id,
+            variant=args.entry_mode,
             archived_at=args.archived_at,
         )
         print(f"归档完成：{target}")

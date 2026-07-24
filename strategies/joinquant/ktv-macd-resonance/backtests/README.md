@@ -11,6 +11,17 @@
 五组结果的统一口径比较与研究结论见
 [`2026-07-24__entry-ablation-study.md`](2026-07-24__entry-ablation-study.md)。
 
+右侧信号第二层诊断：
+
+- [`2026-07-24__right-only-attribution__local-qlib-2019-2025-v1/`](2026-07-24__right-only-attribution__local-qlib-2019-2025-v1/)：基准成本精确复现，并增加逐回合退出归因。
+- [`2026-07-24__right-no-volume__local-qlib-2019-2025-v1/`](2026-07-24__right-no-volume__local-qlib-2019-2025-v1/)：右侧信号移除成交额过滤。
+- [`2026-07-24__right-no-trend__local-qlib-2019-2025-v1/`](2026-07-24__right-no-trend__local-qlib-2019-2025-v1/)：右侧信号移除均线趋势过滤。
+- [`2026-07-24__right-only-zero-cost__local-qlib-2019-2025-v1/`](2026-07-24__right-only-zero-cost__local-qlib-2019-2025-v1/)：零成本敏感性。
+- [`2026-07-24__right-only-double-cost__local-qlib-2019-2025-v1/`](2026-07-24__right-only-double-cost__local-qlib-2019-2025-v1/)：双倍成本敏感性。
+
+统一诊断与结论见
+[`2026-07-24__right-only-diagnostics-study.md`](2026-07-24__right-only-diagnostics-study.md)。
+
 后续聚宽或本地回测继续新建：
 
 ```text

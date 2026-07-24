@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "strategy_id": "ktv-macd-resonance",
+  "variant": "right-no-trend",
+  "experiment": {
+    "entry_mode": "right-no-trend",
+    "entry_control": "只允许完整双指标右侧入场，但移除 MA20/MA60/MA120 多头趋势过滤；KTV、MACD、成交额与退出规则保持不变。",
+    "exit_logic": "baseline unchanged"
+  },
+  "platform": "joinquant",
+  "engine": "local-qlib-daily-v1",
+  "run_id": "local-qlib-2019-2025-v1",
+  "archived_at": "2026-07-24",
+  "source_file": "source.py",
+  "source_sha256": "6a37b6f6ae4161625725a147fd83f3a1c16a23924acedd47a8fd852a2b4416ac",
+  "engine_file": "engine.py",
+  "engine_sha256": "10af8244f085d7bf8b6ad3f9a2f789111504f9f4f0df8cff0a97c7c1fb6d476f",
+  "period": {
+    "start": "2019-01-01",
+    "end": "2025-12-31"
+  },
+  "benchmark": "SZ399300",
+  "initial_cash": 1000000.0,
+  "costs": {
+    "commission_rate": 0.0003,
+    "minimum_commission": 5.0,
+    "sell_tax_rate": 0.001,
+    "fixed_slippage_per_share": 0.002
+  },
+  "data_fingerprint": {
+    "root": "D:\\code\\_open-source\\_data\\qlib\\cn_data",
+    "calendar_first": "2000-01-04",
+    "calendar_last": "2026-07-23",
+    "calendar_rows": 6434,
+    "files": {
+      "calendars/day.txt": {
+        "size": 70774,
+        "sha256": "6bfe26c7ec40e1c1f433794d80632a281d78213edda2889009e69085753bc99d"
+      },
+      "instruments/all.txt": {
+        "size": 189751,
+        "sha256": "9c3f6c7e13bde3380c06d83a24ee38bc26c31f1339f4b1aa9e3252d0e385622f"
+      },
+      "instruments/csi300.txt": {
+        "size": 502138,
+        "sha256": "d6da9986c9aa1479787de88394cc5c8ab008c2fdcdad4b6199aaad714ce06d33"
+      },
+      "instruments/csi500.txt": {
+        "size": 697593,
+        "sha256": "7f743de9d04082e826b32a1881a911f725704e553ff2c6f83c47d0acc75fc92c"
+      }
+    }
+  },
+  "excluded_symbols": [
+    "SH600745",
+    "SZ302132"
+  ],
+  "metrics": {
+    "total_return": -0.4908863084504751,
+    "annualized_return": -0.09528035177719496,
+    "benchmark_total_return": 0.5378539562225342,
+    "benchmark_annualized_return": 0.06591781813737518,
+    "annualized_excess_return": -0.1512294542521616,
+    "max_drawdown": -0.6055198578401366,
+    "max_drawdown_peak": "2019-03-12",
+    "max_drawdown_trough": "2025-04-07",
+    "sharpe": -0.5465308517795376,
+    "calmar": -0.15735297619644695,
+    "annualized_volatility": 0.15981893696337843,
+    "turnover": 229.16007200770323,
+    "longest_underwater_trading_days": 1654,
+    "trade_count": 3253,
+    "average_holding_days": 12.149632052330336,
+    "daily_win_rate": 0.44496762801648027,
+    "average_cash_ratio": 0.535105747892192,
+    "final_equity": 509113.69154952496,
+    "runtime_seconds": 404.7338104000082,
+    "excluded_symbol_count": 2,
+    "completed_round_trips": 1223,
+    "open_round_trips": 7,
+    "round_trip_win_rate": 0.32542927228127555,
+    "round_trip_profit_factor": 0.7972725694269905,
+    "round_trip_net_pnl": -498078.842551964,
+    "round_trip_gross_pnl": -367287.7426763724,
+    "transaction_cost_total": 131104.79271938905
+  },
+  "artifacts": {
+    "equity": "raw/equity.csv",
+    "trades": "raw/trades.csv",
+    "round_trips": "raw/round_trips.csv",
+    "yearly": "raw/yearly.csv",
+    "anomalies": "raw/anomalies.csv",
+    "config": "config.json"
+  }
+}

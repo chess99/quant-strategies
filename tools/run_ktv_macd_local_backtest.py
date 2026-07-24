@@ -45,9 +45,22 @@ def parse_args():
             "macd-entry-only",
             "left-only",
             "right-only",
+            "right-no-volume",
+            "right-no-trend",
         ),
         default="baseline",
         help="只改变入场确认层；所有模式沿用基线退出规则",
+    )
+    parser.add_argument(
+        "--cost-multiplier",
+        type=float,
+        default=1.0,
+        help="同时缩放佣金、最低佣金、卖出税和固定滑点",
+    )
+    parser.add_argument(
+        "--variant",
+        default=None,
+        help="归档变体名；成本不是基准值时必须显式提供",
     )
     parser.add_argument(
         "--run-id",
@@ -60,6 +73,10 @@ def parse_args():
     args = parser.parse_args()
     if not args.data_dir:
         parser.error("--data-dir 或 QLIB_CN_DATA_DIR 必须提供")
+    if args.cost_multiplier < 0.0:
+        parser.error("--cost-multiplier 不能为负数")
+    if args.cost_multiplier != 1.0 and not args.variant:
+        parser.error("成本倍数不是 1 时必须提供 --variant")
     return args
 
 
@@ -73,6 +90,10 @@ def main():
         entry_mode=args.entry_mode,
         verbose=args.verbose,
     )
+    config.commission_rate *= args.cost_multiplier
+    config.minimum_commission *= args.cost_multiplier
+    config.sell_tax_rate *= args.cost_multiplier
+    config.fixed_slippage_per_share *= args.cost_multiplier
     backtester = engine.LocalBacktester(
         data=engine.QlibBinDataPortal(args.data_dir),
         config=config,
@@ -89,7 +110,7 @@ def main():
         target = engine.archive_result(
             result,
             run_id=args.run_id,
-            variant=args.entry_mode,
+            variant=args.variant or args.entry_mode,
             archived_at=args.archived_at,
         )
         print(f"归档完成：{target}")

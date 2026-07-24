@@ -354,3 +354,176 @@ def test_left_and_right_controls_reuse_the_unmodified_baseline_predicates():
     assert right["score"] >= 200.0
     with pytest.raises(ValueError, match="unsupported entry mode"):
         local.entry_signal_for_mode(FakeLogic(), frame, "unknown")
+
+
+def test_right_filter_controls_remove_only_one_requested_filter():
+    local = load_module()
+
+    class FakeLogic:
+        @staticmethod
+        def _finite_number(value):
+            return float(value)
+
+        @staticmethod
+        def crossed_up_recent(first, second, lookback=3):
+            return True
+
+        @staticmethod
+        def _bull_trend(frame):
+            return bool(frame.attrs["trend"])
+
+        @staticmethod
+        def _red_histogram_reexpanding(frame):
+            return True
+
+        @staticmethod
+        def _moderate_volume(frame):
+            return bool(frame.attrs["volume"])
+
+    frame = pd.DataFrame(
+        {
+            "close": np.linspace(100.0, 110.0, 130),
+            "k": [60.0] * 130,
+            "t": [55.0] * 130,
+            "diff": [1.2] * 130,
+            "dea": [1.0] * 130,
+            "ma20": [102.0] * 130,
+            "ma60": [100.0] * 130,
+        }
+    )
+
+    frame.attrs.update({"trend": True, "volume": False})
+    assert local.entry_signal_for_mode(
+        FakeLogic(), frame, "right-no-volume"
+    )["kind"] == "right"
+    assert (
+        local.entry_signal_for_mode(FakeLogic(), frame, "right-no-trend")
+        is None
+    )
+
+    frame.attrs.update({"trend": False, "volume": True})
+    assert (
+        local.entry_signal_for_mode(FakeLogic(), frame, "right-no-volume")
+        is None
+    )
+    assert local.entry_signal_for_mode(
+        FakeLogic(), frame, "right-no-trend"
+    )["kind"] == "right"
+
+
+def test_exit_reason_classification_preserves_baseline_priority():
+    local = load_module()
+
+    class FakeLogic:
+        HARD_STOP_LOSS = 0.08
+
+        @staticmethod
+        def _finite_number(value):
+            return float(value)
+
+        @staticmethod
+        def _resonance_full_exit(frame):
+            return bool(frame.attrs["resonance"])
+
+        @staticmethod
+        def _trend_invalid(frame):
+            return bool(frame.attrs["trend_invalid"])
+
+        @staticmethod
+        def _take_profit_signal(frame):
+            return bool(frame.attrs["take_profit"])
+
+    frame = pd.DataFrame({"close": [91.0]})
+    frame.attrs.update(
+        {"resonance": True, "trend_invalid": True, "take_profit": True}
+    )
+
+    assert (
+        local.classify_exit_reason(
+            FakeLogic(), frame, "full", avg_cost=100.0, half_reduced=False
+        )
+        == "exit_hard_stop"
+    )
+    frame.iloc[-1, frame.columns.get_loc("close")] = 100.0
+    assert (
+        local.classify_exit_reason(
+            FakeLogic(), frame, "full", avg_cost=100.0, half_reduced=False
+        )
+        == "exit_resonance"
+    )
+    frame.attrs["resonance"] = False
+    assert (
+        local.classify_exit_reason(
+            FakeLogic(), frame, "full", avg_cost=100.0, half_reduced=False
+        )
+        == "exit_trend_invalid"
+    )
+    assert (
+        local.classify_exit_reason(
+            FakeLogic(), frame, "half", avg_cost=100.0, half_reduced=False
+        )
+        == "exit_take_profit_half"
+    )
+
+
+def test_round_trip_attribution_handles_partial_exit_and_open_position():
+    local = load_module()
+    trades = pd.DataFrame(
+        [
+            {
+                "date": "2025-01-02",
+                "symbol": "SZ000001",
+                "side": "buy",
+                "reason": "entry_right",
+                "kind": "right",
+                "score": 201.0,
+                "gross": 10_000.0,
+                "costs": 5.0,
+            },
+            {
+                "date": "2025-01-10",
+                "symbol": "SZ000001",
+                "side": "sell",
+                "reason": "exit_take_profit_half",
+                "kind": None,
+                "score": np.nan,
+                "gross": 6_000.0,
+                "costs": 8.0,
+            },
+            {
+                "date": "2025-01-20",
+                "symbol": "SZ000001",
+                "side": "sell",
+                "reason": "exit_trend_invalid",
+                "kind": None,
+                "score": np.nan,
+                "gross": 5_000.0,
+                "costs": 7.0,
+            },
+            {
+                "date": "2025-02-03",
+                "symbol": "SZ000002",
+                "side": "buy",
+                "reason": "entry_right",
+                "kind": "right",
+                "score": 202.0,
+                "gross": 8_000.0,
+                "costs": 5.0,
+            },
+        ]
+    )
+
+    round_trips, summary = local.build_round_trip_attribution(trades)
+    closed = round_trips.loc[round_trips["status"] == "closed"].iloc[0]
+    opened = round_trips.loc[round_trips["status"] == "open"].iloc[0]
+
+    assert closed["gross_pnl"] == pytest.approx(1_000.0)
+    assert closed["total_costs"] == pytest.approx(20.0)
+    assert closed["net_pnl"] == pytest.approx(980.0)
+    assert closed["holding_days"] == 18
+    assert bool(closed["had_partial_exit"])
+    assert closed["exit_reason"] == "exit_trend_invalid"
+    assert np.isnan(opened["net_pnl"])
+    assert summary["completed_round_trips"] == 1
+    assert summary["open_round_trips"] == 1
+    assert summary["round_trip_win_rate"] == pytest.approx(1.0)

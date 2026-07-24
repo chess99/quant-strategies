@@ -124,7 +124,17 @@ python tools/run_ktv_macd_local_backtest.py `
 
 默认会创建新的不可变归档；目标目录已存在时拒绝覆盖。只做诊断试跑可添加 `--no-archive`。
 `--entry-mode` 还支持 `ktv-entry-only`、`macd-entry-only`、`left-only`
-和 `right-only`。这些模式只改变入场确认层，退出、仓位和成本保持基线不变。
+、`right-only`、`right-no-volume` 和 `right-no-trend`。这些模式只改变入场确认层，退出、仓位和成本保持基线不变。
+
+成本敏感性使用 `--cost-multiplier` 同时缩放佣金、最低佣金、卖出税和固定滑点。成本倍数不是1时必须用 `--variant` 提供独立归档名称，例如：
+
+```powershell
+python tools/run_ktv_macd_local_backtest.py `
+  --entry-mode right-only `
+  --cost-multiplier 2 `
+  --variant right-only-double-cost `
+  --run-id local-qlib-2019-2025-v2
+```
 
 ### 第一版对齐范围
 
@@ -180,3 +190,13 @@ python tools/run_ktv_macd_local_backtest.py `
 该结果不是小样本“没有触发”的问题：策略产生了大量交易，但全周期年化收益约 -0.48%、年化几何超额约 -6.63%，换手约 257.84 倍，最长水下期 1207 个交易日。前两年盈利，2022—2025 连续走弱，说明当前透明代理至少存在明显的市场阶段依赖。因此本轮先完成单指标和左右侧信号对照，没有直接开始参数寻优。
 
 入场消融实验表明，KTV 与 MACD 的双重确认确实过滤了大量坏交易：任意移除一侧确认后，累计亏损扩大至 61%—67%。但左侧抄底分支本身仍是明显拖累；`right-only` 在收益、回撤、换手和水下期上均优于完整基线。它的年化收益仍只有 2.08%，低于沪深300的 6.59%，因此只能作为下一轮诊断候选，不能提升为新基线。
+
+第二层诊断进一步表明：
+
+- 移除成交额过滤后累计收益降至 +6.58%，最大回撤扩大至 -41.73%。
+- 移除均线趋势过滤后累计收益降至 -49.09%，最大回撤扩大至 -60.55%。
+- 零成本、基准成本、双倍成本的累计收益分别为 +30.81%、+14.91%、-0.66%，策略对交易摩擦高度敏感。
+- 762个已完成回合中，持有不超过10日的407个回合合计亏损约222万元；超过10日的355个回合合计盈利约237万元。策略依赖少数长趋势覆盖大量快速失败。
+
+完整诊断见
+[`backtests/2026-07-24__right-only-diagnostics-study.md`](backtests/2026-07-24__right-only-diagnostics-study.md)。现阶段继续调指标周期的过拟合风险很高，下一步应先做逐持仓 MFE/MAE 路径诊断。

@@ -1,0 +1,20 @@
+schema_version = 1
+id = "oneil-canslim-a-share"
+title = "欧奈尔 CAN SLIM 风格 A 股策略"
+platform = "joinquant"
+market = "CN-A"
+status = "research"
+baseline = "baseline.py"
+
+[execution]
+language = "python3"
+frequency = "daily"
+watchlist_refresh = "weekly"
+
+[research]
+primary_benchmark = "000300.XSHG"
+market_signal_index = "000001.XSHG"
+pivot_rule = "local-generic-base-exact-high-proxy"
+follow_through_rule = "ibd-old-1.7pct-day4-plus-proxy"
+source_repository = "D:/code/trading-os"
+source_book_notes = "D:/code/ai-reading/books/金钱投资/价值投资/威廉·欧奈尔-笑傲股市.md"

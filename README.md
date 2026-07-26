@@ -21,6 +21,7 @@ quant-strategies/
       variants/
       tests/
       backtests/
+  studies/
   templates/
     strategy-family/
   tools/
@@ -33,6 +34,11 @@ quant-strategies/
 - `strategies/joinquant/ktv-macd-resonance/`：KTV（Stochastic RSI 透明代理）与 MACD 共振策略。
 - `strategies/joinquant/oneil-canslim-a-share/`：欧奈尔 CAN SLIM 风格的 A 股成长突破策略。
 - `strategies/joinquant/social-security-shareholders/`：基于全国社保基金前十大流通股东披露的 A 股策略。
+
+跨策略研究：
+
+- `studies/joinquant-index-timing-replication/`：用本地 Qlib 日线数据独立复现聚宽
+  MACD、基础 RSRS 和成交量加权 RSRS 指数择时结果。
 
 ## 常用命令
 

@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "study_id": "joinquant-index-timing-replication",
+  "run_id": "local-qlib-comparison-v1",
+  "archived_at": "2026-07-27",
+  "engine": "local-qlib-daily-index-timing-v1",
+  "engine_file": "engine.py",
+  "engine_sha256": "58c3c219ad1b0ac9078aa947a563cbcc4e9b01df0d02ed4995d8559e1ac2a4fc",
+  "qlib": {
+    "provider_uri": "D:\\code\\_open-source\\_data\\qlib\\cn_data",
+    "qlib_version": "0.9.7",
+    "requested_start": "2005-01-04",
+    "requested_end": "2020-05-13",
+    "symbols": [
+      "SH000300",
+      "SZ399300"
+    ],
+    "rows": {
+      "SH000300": 3731,
+      "SZ399300": 3731
+    },
+    "first_date": {
+      "SH000300": "2005-01-04",
+      "SZ399300": "2005-01-04"
+    },
+    "last_date": {
+      "SH000300": "2020-05-13",
+      "SZ399300": "2020-05-13"
+    }
+  },
+  "success_threshold_pp": 5.0,
+  "strategies": [
+    {
+      "spec": {
+        "strategy_id": "macd-market-timing",
+        "name": "MACD——大盘择时",
+        "signal_kind": "macd",
+        "symbol": "SZ399300",
+        "start_date": "2005-07-01",
+        "end_date": "2018-02-01",
+        "initial_cash": 10000000.0,
+        "source_path": "joinquant_post_crawler/sources/2020年度精选策略/76 MACD——大盘择时.py",
+        "post_url": "https://www.joinquant.com/post/11102",
+        "execution_field": "open",
+        "costs": {
+          "buy_commission": 0.0,
+          "sell_commission": 0.0,
+          "sell_tax": 0.0,
+          "minimum_commission": 0.0,
+          "slippage": 0.0
+        },
+        "jq_total_return": 11.08913827,
+        "jq_annualized_return": 0.22534374,
+        "jq_benchmark_total_return": 3.83210157,
+        "jq_benchmark_annualized_return": 0.13706185,
+        "jq_max_drawdown": 0.30022293,
+        "jq_sharpe": 0.96858476409965
+      },
+      "source_sha256": "1f7cb3ca001187d3c75b395132ad712617a27e283c10e9dee2e0f0f205f026ce",
+      "execution_field": "open",
+      "local_metrics": {
+        "trading_days": 3066,
+        "total_return": 11.960182545047427,
+        "annualized_return": 0.23231494507110018,
+        "max_drawdown": 0.29504276907774407,
+        "sharpe": 1.190106239510226,
+        "annualized_volatility": 0.19101733378289437,
+        "turnover": 103.04767776190772,
+        "longest_underwater_trading_days": 1296,
+        "average_cash_ratio": 0.4262883235485975,
+        "trade_count": 99,
+        "benchmark_total_return": 3.8473000526428223,
+        "benchmark_annualized_return": 0.1373530471162847,
+        "annualized_return_delta_pp": 0.6971205071100189,
+        "max_drawdown_delta_pp": -0.5180160922255928,
+        "sharpe_delta": 0.22152147541057599,
+        "benchmark_annualized_delta_pp": 0.029119711628469713,
+        "comparison": "接近"
+      }
+    },
+    {
+      "spec": {
+        "strategy_id": "rsrs-standard",
+        "name": "RSRS——大盘择时",
+        "signal_kind": "rsrs-standard",
+        "symbol": "SH000300",
+        "start_date": "2008-07-01",
+        "end_date": "2018-02-01",
+        "initial_cash": 100000000.0,
+        "source_path": "joinquant_post_crawler/sources/2020年度精选策略/93 RSRS——大盘择时.py",
+        "post_url": "https://www.joinquant.com/post/11115",
+        "execution_field": "open",
+        "costs": {
+          "buy_commission": 0.0003,
+          "sell_commission": 0.0003,
+          "sell_tax": 0.001,
+          "minimum_commission": 5.0,
+          "slippage": 0.0
+        },
+        "jq_total_return": 3.03761235,
+        "jq_annualized_return": 0.16102088,
+        "jq_benchmark_total_return": 0.52083642,
+        "jq_benchmark_annualized_return": 0.04587126,
+        "jq_max_drawdown": 0.29143794,
+        "jq_sharpe": 0.70643443962257
+      },
+      "source_sha256": "6b69b4d1b037db1cd2138cf73d2f8e1433c5333dc422e70f8f7c0fc6ce51ce79",
+      "execution_field": "open",
+      "local_metrics": {
+        "trading_days": 2337,
+        "total_return": 3.540431937844761,
+        "annualized_return": 0.1756899561861902,
+        "max_drawdown": 0.3013244216558739,
+        "sharpe": 1.0212092071973502,
+        "annualized_volatility": 0.1731561910153164,
+        "turnover": 80.20208294944275,
+        "longest_underwater_trading_days": 574,
+        "average_cash_ratio": 0.5207531022678648,
+        "trade_count": 79,
+        "benchmark_total_return": 0.5168272256851196,
+        "benchmark_annualized_return": 0.04557597702670435,
+        "annualized_return_delta_pp": 1.4669076186190204,
+        "max_drawdown_delta_pp": 0.9886481655873913,
+        "sharpe_delta": 0.3147747675747802,
+        "benchmark_annualized_delta_pp": -0.029528297329564634,
+        "comparison": "接近"
+      }
+    },
+    {
+      "spec": {
+        "strategy_id": "rsrs-volume-right-skew",
+        "name": "RSRS 成交量加权右偏标准分",
+        "signal_kind": "rsrs-volume-right-skew",
+        "symbol": "SH000300",
+        "start_date": "2014-01-01",
+        "end_date": "2020-05-13",
+        "initial_cash": 10000000.0,
+        "source_path": "joinquant_post_crawler/sources/2025年度精选策略/67.RSRS择时改进-【成交量加权-钝化-右偏】.py",
+        "post_url": "https://www.joinquant.com/post/27399",
+        "execution_field": "open",
+        "costs": {
+          "buy_commission": 0.0003,
+          "sell_commission": 0.0003,
+          "sell_tax": 0.001,
+          "minimum_commission": 5.0,
+          "slippage": 0.00246
+        },
+        "jq_total_return": 2.65363086,
+        "jq_annualized_return": 0.23259567,
+        "jq_benchmark_total_return": 0.7030909,
+        "jq_benchmark_annualized_return": 0.089734,
+        "jq_max_drawdown": 0.1422977,
+        "jq_sharpe": 1.1611795796101
+      },
+      "source_sha256": "36a0bbb302f7901ca74af5d917b24eaaf1caa6f752bade22c833c089bf7384cf",
+      "execution_field": "open",
+      "local_metrics": {
+        "trading_days": 1549,
+        "total_return": 2.3162337700501516,
+        "annualized_return": 0.21347053264340832,
+        "max_drawdown": 0.13491452336785115,
+        "sharpe": 1.2388503068260674,
+        "annualized_volatility": 0.16757834728762858,
+        "turnover": 24.004186045535107,
+        "longest_underwater_trading_days": 258,
+        "average_cash_ratio": 0.3395739186571982,
+        "trade_count": 26,
+        "benchmark_total_return": 0.7079237699508667,
+        "benchmark_annualized_return": 0.0902324954892002,
+        "annualized_return_delta_pp": -1.9125137356591688,
+        "max_drawdown_delta_pp": -0.7383176632148852,
+        "sharpe_delta": 0.07767072721596735,
+        "benchmark_annualized_delta_pp": 0.04984954892002097,
+        "comparison": "接近"
+      }
+    }
+  ],
+  "sensitivity": {
+    "strategy_id": "rsrs-volume-right-skew",
+    "execution_field": "close",
+    "metrics": {
+      "trading_days": 1549,
+      "total_return": 2.2912237576867627,
+      "annualized_return": 0.211988819484078,
+      "max_drawdown": 0.16169096546847617,
+      "sharpe": 1.234667596855813,
+      "annualized_volatility": 0.16708993456246563,
+      "turnover": 23.909222616768208,
+      "longest_underwater_trading_days": 259,
+      "average_cash_ratio": 0.3395739186571982,
+      "trade_count": 26,
+      "benchmark_total_return": 0.7079237699508667,
+      "benchmark_annualized_return": 0.0902324954892002,
+      "annualized_return_delta_pp": -2.060685051592201,
+      "max_drawdown_delta_pp": 1.9393265468476169,
+      "sharpe_delta": 0.07348801724571286,
+      "benchmark_annualized_delta_pp": 0.04984954892002097,
+      "comparison": "接近"
+    }
+  },
+  "artifacts": {
+    "comparison": "raw/comparison.csv",
+    "report": "report.md"
+  }
+}

@@ -1725,10 +1725,6 @@ def _format_entry_samples(evaluations):
         reasons = evaluation.get("breakout_reasons", [])
         if blocker == "no_breakout" and reasons:
             detail += "[%s]" % "+".join(reasons)
-        elif blocker == "diagnostic_error":
-            error = str(evaluation.get("diagnostic_error", "unknown"))
-            error = " ".join(error.replace("\r", " ").replace("\n", " ").split())
-            detail += "[%s]" % error[:80]
         elif evaluation.get("breakout", False):
             pivot = _finite_number(evaluation.get("pivot", np.nan))
             price = _finite_number(evaluation.get("current_price", np.nan))
@@ -1748,7 +1744,6 @@ def _log_entry_funnel(
     order_rejected,
 ):
     summary = _summarize_entry_funnel(evaluations)
-    watchlist_gap = watchlist_size - already_held - summary["watchlist"]
     market_ready = (
         summary["cash_ready"]
         if market_state == MARKET_CONFIRMED
@@ -1764,8 +1759,7 @@ def _log_entry_funnel(
         "history_ready=%d breakout=%d buyable=%d buy_zone=%d "
         "board_lot=%d cash_ready=%d market_ready=%d slot_ready=%d slots=%d "
         "submitted=%d order_rejected=%d blockers=%s outcomes=%s "
-        "watchlist_gap=%d candidate_gap=%d outcome_gap=%d "
-        "breakout_reason_hits=%s samples=%s",
+        "candidate_gap=%d outcome_gap=%d breakout_reason_hits=%s samples=%s",
         observation_date,
         market_state,
         watchlist_size,
@@ -1784,7 +1778,6 @@ def _log_entry_funnel(
         order_rejected,
         _format_counts(summary["blockers"]),
         _format_counts(summary["outcomes"]),
-        watchlist_gap,
         summary["candidate_gap"],
         summary["outcome_gap"],
         _format_counts(summary["breakout_reasons"]),
@@ -1892,12 +1885,9 @@ def daily_trade(context):
         if exit_signals:
             _log(
                 "info",
-                "O'Neil exits %s market=%s correction_reason=%s "
-                "transition_distributions=%d signals=%s",
+                "O'Neil exits %s market=%s signals=%s",
                 observation_date,
                 market["state"],
-                market.get("correction_reason") or "-",
-                market.get("transition_distribution_days", 0),
                 exit_signals,
             )
             return
@@ -1991,7 +1981,7 @@ def daily_trade(context):
                     available_cash,
                 )
             except Exception as exc:
-                if market_allows_entries and available_slots > 0:
+                if market_allows_entries:
                     raise
                 evaluation = {
                     "code": code,
@@ -2006,8 +1996,7 @@ def daily_trade(context):
                     "pivot": np.nan,
                     "current_price": np.nan,
                     "target_value": np.nan,
-                    "diagnostic_error": "%s: %s"
-                    % (type(exc).__name__, str(exc)),
+                    "diagnostic_error": str(exc),
                 }
             evaluations.append(evaluation)
             if evaluation["blocker"] != "ready":

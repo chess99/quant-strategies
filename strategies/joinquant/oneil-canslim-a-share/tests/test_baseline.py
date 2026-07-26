@@ -462,6 +462,91 @@ def test_base_breakout_requires_pivot_proximity_and_fifty_day_volume_expansion()
     assert 0.05 <= setup["base_depth"] <= 0.35
 
 
+def test_entry_candidate_evaluation_explains_breakout_buy_zone_and_board_lot():
+    strategy = load_strategy()
+
+    def snapshot(price=102.0, high_limit=110.0):
+        return SimpleNamespace(
+            paused=False,
+            is_st=False,
+            name="候选股",
+            last_price=price,
+            high_limit=high_limit,
+            low_limit=90.0,
+        )
+
+    ready = strategy._evaluate_entry_candidate(
+        "000001.XSHE",
+        make_price_frame(),
+        LazyCurrentData({"000001.XSHE": snapshot()}),
+        total_value=1e6,
+        available_cash=1e6,
+    )
+    quiet = strategy._evaluate_entry_candidate(
+        "000002.XSHE",
+        make_price_frame(final_volume=120.0),
+        LazyCurrentData({"000002.XSHE": snapshot()}),
+        total_value=1e6,
+        available_cash=1e6,
+    )
+    extended = strategy._evaluate_entry_candidate(
+        "000003.XSHE",
+        make_price_frame(),
+        LazyCurrentData({"000003.XSHE": snapshot(price=106.0)}),
+        total_value=1e6,
+        available_cash=1e6,
+    )
+    no_lot = strategy._evaluate_entry_candidate(
+        "000004.XSHE",
+        make_price_frame(),
+        LazyCurrentData({"000004.XSHE": snapshot()}),
+        total_value=1e5,
+        available_cash=1e5,
+    )
+
+    assert ready["blocker"] == "ready"
+    assert ready["target_value"] == 81600.0
+    assert quiet["blocker"] == "no_breakout"
+    assert "volume" in quiet["breakout_reasons"]
+    assert extended["blocker"] == "extended"
+    assert no_lot["blocker"] == "board_lot"
+
+    summary = strategy._summarize_entry_funnel(
+        [ready, quiet, extended, no_lot]
+    )
+    assert summary["watchlist"] == 4
+    assert summary["history_ready"] == 4
+    assert summary["breakout"] == 3
+    assert summary["buyable"] == 3
+    assert summary["buy_zone"] == 2
+    assert summary["board_lot"] == 1
+    assert summary["cash_ready"] == 1
+    assert summary["blockers"] == {
+        "board_lot": 1,
+        "extended": 1,
+        "no_breakout": 1,
+        "ready": 1,
+    }
+    assert summary["breakout_reasons"]["volume"] == 1
+    samples = strategy._format_entry_samples([ready, quiet, extended, no_lot])
+    assert "000001.XSHE:ready" in samples
+    assert "000002.XSHE:no_breakout[volume]" in samples
+    assert "000003.XSHE:extended" in samples
+    crowded = [dict(quiet, code="QUIET%02d" % index) for index in range(8)]
+    crowded.append(dict(ready, code="DEEP_SIGNAL"))
+    assert "DEEP_SIGNAL:ready" in strategy._format_entry_samples(crowded)
+    diagnostic_error = dict(
+        quiet,
+        code="BROKEN",
+        blocker="diagnostic_error",
+        diagnostic_error="KeyError: missing\nline " + "x" * 120,
+    )
+    formatted_error = strategy._format_entry_samples([diagnostic_error])
+    assert formatted_error.startswith("BROKEN:diagnostic_error[KeyError: missing line")
+    assert "\n" not in formatted_error
+    assert len(formatted_error) <= 105
+
+
 def test_market_state_requires_a_day_four_or_later_follow_through():
     strategy = load_strategy()
 
@@ -499,7 +584,9 @@ def test_five_recent_distribution_days_invalidate_a_confirmed_market():
     state = strategy.classify_market_regime(market)
 
     assert state["state"] == strategy.MARKET_CORRECTION
-    assert state["distribution_days"] >= strategy.MAX_DISTRIBUTION_DAYS
+    assert state["distribution_days"] == 0
+    assert state["correction_reason"] == "distribution_days"
+    assert state["transition_distribution_days"] == strategy.MAX_DISTRIBUTION_DAYS
 
 
 def test_four_distribution_days_pause_new_risk_without_declaring_a_correction():
@@ -608,6 +695,24 @@ def test_candidate_scoring_uses_hard_c_a_l_and_base_gates():
     assert not weak["eligible"]
     assert "current_eps_growth" in weak["veto_reasons"]
     assert ranked.loc[ranked["code"] == "GOOD", "score"].iloc[0] > weak["score"]
+
+
+def test_candidate_veto_summary_counts_reason_occurrences():
+    strategy = load_strategy()
+    ranked = pd.DataFrame(
+        {
+            "veto_reasons": [
+                ["current_eps_growth", "roe"],
+                ["roe"],
+                [],
+            ]
+        }
+    )
+
+    assert strategy.summarize_candidate_vetoes(ranked) == {
+        "current_eps_growth": 1,
+        "roe": 2,
+    }
 
 
 def test_exit_priority_keeps_the_hard_stop_above_every_hold_exception():
@@ -993,15 +1098,25 @@ def test_daily_trade_sells_first_and_does_not_assume_cash_was_released(monkeypat
         "classify_market_regime",
         lambda _prices: {
             "state": strategy.MARKET_CORRECTION,
-            "distribution_days": strategy.MAX_DISTRIBUTION_DAYS,
+            "distribution_days": 0,
+            "correction_reason": "distribution_days",
+            "transition_distribution_days": strategy.MAX_DISTRIBUTION_DAYS,
         },
     )
     orders = []
+    logs = []
     monkeypatch.setattr(
         strategy,
         "order_target_value",
         lambda code, value: orders.append((code, value)) or object(),
         raising=False,
+    )
+    monkeypatch.setattr(
+        strategy,
+        "_log",
+        lambda level, message, *args: logs.append(
+            (level, message % args if args else message)
+        ),
     )
     context = SimpleNamespace(
         current_dt=dt.datetime(2026, 7, 16, 10, 0),
@@ -1017,6 +1132,9 @@ def test_daily_trade_sells_first_and_does_not_assume_cash_was_released(monkeypat
     assert orders == [(held, 0)]
     assert strategy.g.pending_exits[held]["reason"] == "market_correction"
     assert candidate not in strategy.g.entry_dates
+    exit_log = next(message for _level, message in logs if "O'Neil exits" in message)
+    assert "correction_reason=distribution_days" in exit_log
+    assert "transition_distributions=5" in exit_log
 
 
 def test_blocked_exit_also_prevents_new_orders(monkeypatch):
@@ -1195,3 +1313,356 @@ def test_daily_trade_enters_only_a_confirmed_breakout_inside_the_buy_zone(monkey
     assert strategy.g.entry_pivots[candidate] == 100.0
     assert strategy.g.pyramid_stages[candidate] == 1
     assert candidate not in strategy.g.pending_entries
+
+
+def test_daily_trade_logs_entry_funnel_even_when_market_blocks_risk(monkeypatch):
+    strategy = load_strategy()
+    candidate = "000002.XSHE"
+    strategy.g = SimpleNamespace(
+        watchlist=[candidate],
+        candidate_meta={candidate: {"score": 92.0}},
+        entry_dates={},
+        entry_prices={},
+        entry_pivots={},
+        pyramid_stages={},
+        power_hold_until={},
+        market_state=strategy.MARKET_UNKNOWN,
+        watchlist_date=dt.date(2026, 7, 13),
+    )
+    snapshots = LazyCurrentData(
+        {
+            candidate: SimpleNamespace(
+                paused=False,
+                is_st=False,
+                name="候选股",
+                last_price=102.0,
+                high_limit=110.0,
+                low_limit=90.0,
+            )
+        }
+    )
+    candidate_history = make_price_frame()
+    candidate_history["code"] = candidate
+
+    monkeypatch.setattr(
+        strategy,
+        "_previous_trade_day",
+        lambda _date: dt.date(2026, 7, 15),
+    )
+    monkeypatch.setattr(strategy, "get_current_data", lambda: snapshots, raising=False)
+    monkeypatch.setattr(
+        strategy,
+        "_fetch_price_history",
+        lambda codes, *_args, **_kwargs: (
+            make_confirmed_market()
+            if codes == [strategy.MARKET_INDEX]
+            else candidate_history
+        ),
+    )
+    monkeypatch.setattr(
+        strategy,
+        "classify_market_regime",
+        lambda _prices: {
+            "state": strategy.MARKET_RALLY_ATTEMPT,
+            "distribution_days": 0,
+        },
+    )
+    orders = []
+    logs = []
+    monkeypatch.setattr(
+        strategy,
+        "order_target_value",
+        lambda code, value: orders.append((code, value)) or object(),
+        raising=False,
+    )
+    monkeypatch.setattr(
+        strategy,
+        "_log",
+        lambda level, message, *args: logs.append(
+            (level, message % args if args else message)
+        ),
+    )
+    context = SimpleNamespace(
+        current_dt=dt.datetime(2026, 7, 16, 10, 0),
+        portfolio=SimpleNamespace(
+            positions={},
+            total_value=1e6,
+            available_cash=1e6,
+        ),
+    )
+
+    strategy.daily_trade(context)
+
+    assert orders == []
+    funnel_logs = [message for _level, message in logs if "entry funnel" in message]
+    assert len(funnel_logs) == 1
+    assert "market=rally_attempt" in funnel_logs[0]
+    assert "breakout=1" in funnel_logs[0]
+    assert "cash_ready=1" in funnel_logs[0]
+    assert "market_ready=0" in funnel_logs[0]
+    assert "already_held=0" in funnel_logs[0]
+    assert "outcomes=market_blocked:1" in funnel_logs[0]
+    assert "watchlist_gap=0" in funnel_logs[0]
+    assert "candidate_gap=0" in funnel_logs[0]
+    assert "outcome_gap=0" in funnel_logs[0]
+    assert "submitted=0" in funnel_logs[0]
+
+
+def test_market_blocked_diagnostics_do_not_abort_on_snapshot_failure(monkeypatch):
+    strategy = load_strategy()
+    candidate = "000002.XSHE"
+    strategy.g = SimpleNamespace(
+        watchlist=[candidate],
+        candidate_meta={},
+        entry_dates={},
+        entry_prices={},
+        entry_pivots={},
+        pyramid_stages={},
+        power_hold_until={},
+        market_state=strategy.MARKET_UNKNOWN,
+        watchlist_date=dt.date(2026, 7, 13),
+    )
+    candidate_history = make_price_frame()
+    candidate_history["code"] = candidate
+    logs = []
+
+    monkeypatch.setattr(
+        strategy,
+        "_previous_trade_day",
+        lambda _date: dt.date(2026, 7, 15),
+    )
+    monkeypatch.setattr(
+        strategy,
+        "get_current_data",
+        lambda: LazyCurrentData({}),
+        raising=False,
+    )
+    monkeypatch.setattr(
+        strategy,
+        "_fetch_price_history",
+        lambda codes, *_args, **_kwargs: (
+            make_confirmed_market()
+            if codes == [strategy.MARKET_INDEX]
+            else candidate_history
+        ),
+    )
+    monkeypatch.setattr(
+        strategy,
+        "classify_market_regime",
+        lambda _prices: {
+            "state": strategy.MARKET_RALLY_ATTEMPT,
+            "distribution_days": 0,
+        },
+    )
+    monkeypatch.setattr(
+        strategy,
+        "_log",
+        lambda level, message, *args: logs.append(
+            (level, message % args if args else message)
+        ),
+    )
+    context = SimpleNamespace(
+        current_dt=dt.datetime(2026, 7, 16, 10, 0),
+        portfolio=SimpleNamespace(
+            positions={},
+            total_value=1e6,
+            available_cash=1e6,
+        ),
+    )
+
+    strategy.daily_trade(context)
+
+    messages = [message for _level, message in logs]
+    assert not any("daily trade aborted" in message for message in messages)
+    funnel = next(message for message in messages if "entry funnel" in message)
+    assert "blockers=diagnostic_error:1" in funnel
+    assert "outcomes=-" in funnel
+    assert "watchlist_gap=0" in funnel
+    assert "diagnostic_error[KeyError:" in funnel
+
+
+def test_daily_trade_final_outcomes_are_mutually_exclusive(monkeypatch):
+    strategy = load_strategy()
+    candidates = ["000001.XSHE", "000002.XSHE", "000003.XSHE"]
+    monkeypatch.setattr(strategy, "MAX_POSITIONS", 1)
+    strategy.g = SimpleNamespace(
+        watchlist=candidates,
+        candidate_meta={code: {"score": 90.0} for code in candidates},
+        entry_dates={},
+        entry_prices={},
+        entry_pivots={},
+        pyramid_stages={},
+        power_hold_until={},
+        market_state=strategy.MARKET_UNKNOWN,
+        watchlist_date=dt.date(2026, 7, 13),
+    )
+    snapshots = LazyCurrentData(
+        {
+            code: SimpleNamespace(
+                paused=False,
+                is_st=False,
+                name="候选股",
+                last_price=102.0,
+                high_limit=110.0,
+                low_limit=90.0,
+            )
+            for code in candidates
+        }
+    )
+    histories = []
+    for code in candidates:
+        history = make_price_frame()
+        history["code"] = code
+        histories.append(history)
+    combined_history = pd.concat(histories, ignore_index=True)
+    logs = []
+    orders = []
+
+    monkeypatch.setattr(
+        strategy,
+        "_previous_trade_day",
+        lambda _date: dt.date(2026, 7, 15),
+    )
+    monkeypatch.setattr(strategy, "get_current_data", lambda: snapshots, raising=False)
+    monkeypatch.setattr(
+        strategy,
+        "_fetch_price_history",
+        lambda codes, *_args, **_kwargs: (
+            make_confirmed_market()
+            if codes == [strategy.MARKET_INDEX]
+            else combined_history
+        ),
+    )
+    monkeypatch.setattr(
+        strategy,
+        "classify_market_regime",
+        lambda _prices: {
+            "state": strategy.MARKET_CONFIRMED,
+            "distribution_days": 0,
+        },
+    )
+
+    def submit(code, value):
+        orders.append((code, value))
+        return None if code == candidates[0] else object()
+
+    monkeypatch.setattr(strategy, "order_target_value", submit, raising=False)
+    monkeypatch.setattr(
+        strategy,
+        "_log",
+        lambda level, message, *args: logs.append(
+            (level, message % args if args else message)
+        ),
+    )
+    context = SimpleNamespace(
+        current_dt=dt.datetime(2026, 7, 16, 10, 0),
+        portfolio=SimpleNamespace(
+            positions={},
+            total_value=1e6,
+            available_cash=1e6,
+        ),
+    )
+
+    strategy.daily_trade(context)
+
+    assert [code for code, _value in orders] == candidates[:2]
+    funnel = next(message for _level, message in logs if "entry funnel" in message)
+    assert "submitted=1" in funnel
+    assert "order_rejected=1" in funnel
+    assert "outcomes=order_rejected:1,slot_blocked:1,submitted:1" in funnel
+    assert "watchlist_gap=0" in funnel
+    assert "candidate_gap=0" in funnel
+    assert "outcome_gap=0" in funnel
+
+
+def test_full_portfolio_keeps_snapshot_failures_diagnostic_only(monkeypatch):
+    strategy = load_strategy()
+    held_codes = ["HOLD%02d.XSHE" % index for index in range(strategy.MAX_POSITIONS)]
+    candidate = "BROKEN.XSHE"
+    strategy.g = SimpleNamespace(
+        watchlist=[candidate],
+        candidate_meta={},
+        entry_dates={code: dt.date(2026, 7, 1) for code in held_codes},
+        entry_prices={code: 100.0 for code in held_codes},
+        entry_pivots={code: 100.0 for code in held_codes},
+        pyramid_stages={code: 1 for code in held_codes},
+        power_hold_until={},
+        market_state=strategy.MARKET_CONFIRMED,
+        watchlist_date=dt.date(2026, 7, 13),
+    )
+    snapshots = LazyCurrentData(
+        {
+            code: SimpleNamespace(
+                paused=False,
+                is_st=False,
+                name="持仓股",
+                last_price=100.0,
+                high_limit=110.0,
+                low_limit=90.0,
+            )
+            for code in held_codes
+        }
+    )
+    candidate_history = make_price_frame()
+    candidate_history["code"] = candidate
+    logs = []
+    orders = []
+
+    monkeypatch.setattr(
+        strategy,
+        "_previous_trade_day",
+        lambda _date: dt.date(2026, 7, 15),
+    )
+    monkeypatch.setattr(strategy, "get_current_data", lambda: snapshots, raising=False)
+    monkeypatch.setattr(
+        strategy,
+        "_fetch_price_history",
+        lambda codes, *_args, **_kwargs: (
+            make_confirmed_market()
+            if codes == [strategy.MARKET_INDEX]
+            else candidate_history
+        ),
+    )
+    monkeypatch.setattr(
+        strategy,
+        "classify_market_regime",
+        lambda _prices: {
+            "state": strategy.MARKET_CONFIRMED,
+            "distribution_days": 0,
+        },
+    )
+    monkeypatch.setattr(
+        strategy,
+        "order_target_value",
+        lambda code, value: orders.append((code, value)) or object(),
+        raising=False,
+    )
+    monkeypatch.setattr(
+        strategy,
+        "_log",
+        lambda level, message, *args: logs.append(
+            (level, message % args if args else message)
+        ),
+    )
+    positions = {
+        code: SimpleNamespace(avg_cost=100.0, value=100000.0)
+        for code in held_codes
+    }
+    context = SimpleNamespace(
+        current_dt=dt.datetime(2026, 7, 16, 10, 0),
+        portfolio=SimpleNamespace(
+            positions=positions,
+            total_value=1e6,
+            available_cash=4e5,
+        ),
+    )
+
+    strategy.daily_trade(context)
+
+    messages = [message for _level, message in logs]
+    assert orders == []
+    assert not any("daily trade aborted" in message for message in messages)
+    funnel = next(message for message in messages if "entry funnel" in message)
+    assert "slots=0" in funnel
+    assert "blockers=diagnostic_error:1" in funnel
+    assert "diagnostic_error[KeyError:" in funnel

@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "strategy_id": "oneil-canslim-a-share",
+  "variant": "baseline",
+  "platform": "joinquant",
+  "archived_at": "2026-07-26T00:00:00+08:00",
+  "source_file": "source.py",
+  "source_sha256": "1949686f00cb13f4392b82f4e2beb9e822b2b2a8b5790e36d9a207ee36da220e",
+  "source_origin": {
+    "repository": "D:/code/quant-strategies",
+    "path": "strategies/joinquant/oneil-canslim-a-share/baseline.py",
+    "state": "working-tree diagnostic snapshot uploaded to JoinQuant",
+    "note": "Archived before later logging-only boundary fixes."
+  },
+  "run": {
+    "backtest_id": "dccc1ad0390a0e8efb4235b4fb3617a4",
+    "url": "https://www.joinquant.com/algorithm/backtest/detail?backtestId=dccc1ad0390a0e8efb4235b4fb3617a4",
+    "initial_cash": 10000000,
+    "frequency": "daily",
+    "python": "Python3",
+    "runtime_seconds": 144
+  },
+  "period": {
+    "configured_start": "2026-04-13",
+    "first_trade_day": "2026-04-13",
+    "end": "2026-05-08"
+  },
+  "benchmark": {
+    "code": "000300.XSHG",
+    "name": "沪深300"
+  },
+  "costs": {
+    "slippage": {
+      "model": "FixedSlippage",
+      "value": 0.002
+    },
+    "stock_order_cost": {
+      "close_tax": 0.001,
+      "open_commission": 0.0003,
+      "close_commission": 0.0003,
+      "minimum_commission": 5
+    }
+  },
+  "metrics": {
+    "strategy_return": 0.0,
+    "annual_strategy_return": 0.0,
+    "benchmark_return": 0.0508,
+    "excess_return": -0.0483,
+    "alpha": -0.04,
+    "beta": 0.0,
+    "sharpe": 0.0,
+    "sortino": 0.0,
+    "information_ratio": -10.755,
+    "algorithm_volatility": 0.0,
+    "benchmark_volatility": 0.1,
+    "max_drawdown": 0.0,
+    "max_drawdown_peak": "2026-04-13",
+    "max_drawdown_trough": "2026-04-13",
+    "win_ratio": 0.0,
+    "profit_loss_ratio": 0.0,
+    "turnover": null,
+    "longest_underwater_trading_days": null,
+    "trade_count": 0
+  },
+  "diagnostics": {
+    "daily_excess_return": -0.0029,
+    "excess_max_drawdown": 0.0539,
+    "excess_sharpe": -5.641,
+    "daily_win_ratio": 0.412,
+    "profitable_count": 0,
+    "losing_count": 0,
+    "trading_days_logged": 17,
+    "confirmed_uptrend_days": 17,
+    "weekly_scans": 4,
+    "price_candidate_occurrences": 350,
+    "eligible_occurrences": 6,
+    "entry_candidate_day_occurrences": 26,
+    "breakout_occurrences": 0,
+    "submitted_orders": 0,
+    "error_log_entries": 0
+  }
+}

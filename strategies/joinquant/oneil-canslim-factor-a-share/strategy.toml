@@ -1,0 +1,22 @@
+schema_version = 1
+id = "oneil-canslim-factor-a-share"
+title = "欧奈尔 CANSLIM 券商月频因子 A 股策略"
+platform = "joinquant"
+market = "CN-A"
+status = "research"
+baseline = "baseline.py"
+
+[execution]
+language = "python3"
+frequency = "monthly"
+signal_boundary = "previous-trading-day"
+execution = "next-open"
+
+[research]
+primary_benchmark = "000300.XSHG"
+local_universe = ["historical-csi300", "historical-csi500"]
+baseline_model = "huachuang-2019-available"
+preferred_next_experiment = "huachuang-2-risk-scaled"
+institutional_filter = "unavailable-not-proxied"
+consensus_forecast = "unavailable"
+

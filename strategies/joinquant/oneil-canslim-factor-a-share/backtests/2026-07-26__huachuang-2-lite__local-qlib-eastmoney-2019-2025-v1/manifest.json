@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "strategy_id": "oneil-canslim-factor-a-share",
+  "variant": "huachuang-2-lite",
+  "platform": "joinquant",
+  "archived_at": "2026-07-26",
+  "source_file": "source.py",
+  "source_sha256": "8f251d7eed759c24898dc19f82696d4d29f0270c81921897de7f98165d03b08d",
+  "period": {
+    "start": "2019-01-01",
+    "end": "2025-12-31"
+  },
+  "benchmark": "沪深300/SZ399300",
+  "costs": {
+    "commission_each_side": 0.0013,
+    "sell_tax": 0.0,
+    "fixed_slippage_per_share": 0.002
+  },
+  "metrics": {
+    "total_return": 1.9223231288782765,
+    "annualized_return": 0.1724059020190687,
+    "benchmark_total_return": 0.5378539562225342,
+    "benchmark_annualized_return": 0.06591781813737518,
+    "annualized_excess_return": 0.09990271489013547,
+    "max_drawdown": -0.5231167834556649,
+    "max_drawdown_peak": "2021-09-15",
+    "max_drawdown_trough": "2024-02-05",
+    "sharpe": 0.7385128744749437,
+    "calmar": 0.3295744037883281,
+    "annualized_volatility": 0.2620832440705527,
+    "turnover": 76.68630715805784,
+    "longest_underwater_trading_days": 1039,
+    "trade_count": 3228,
+    "average_holding_days": 72.79162303664921,
+    "daily_win_rate": 0.5320776927604474,
+    "average_cash_ratio": 0.03325794530764129,
+    "final_equity": 2922323.1288782763,
+    "runtime_seconds": 2.978849799997988,
+    "model": "huachuang-2-lite",
+    "rebalance_count": 84,
+    "average_candidate_count": 35.023809523809526,
+    "semiconductor_selection_rows": 184,
+    "unique_semiconductors_selected": 33,
+    "semiconductor_buy_events": 133,
+    "unique_semiconductors_bought": 33,
+    "transaction_cost_total": 202764.93014856527
+  },
+  "config": {
+    "start_date": "2019-01-01",
+    "end_date": "2025-12-31",
+    "model": "huachuang-2-lite",
+    "initial_cash": 1000000.0,
+    "markets": [
+      "csi300",
+      "csi500"
+    ],
+    "benchmark_symbol": "SZ399300",
+    "board_lot": 100,
+    "commission_rate": 0.0013,
+    "minimum_commission": 0.0,
+    "sell_tax_rate": 0.0,
+    "fixed_slippage_per_share": 0.002,
+    "min_listing_days": 250,
+    "verbose": false
+  },
+  "model_description": "华创CANSLIM 2.0轻量复刻：季度利润增速和9-1动量均取横截面前20%，选择综合得分前30；缺失基金基础池、业绩预告快报和一致预期。",
+  "data": {
+    "qlib": {
+      "root": "D:\\code\\_open-source\\_data\\qlib\\cn_data",
+      "calendar_first": "2000-01-04",
+      "calendar_last": "2026-07-23",
+      "calendar_rows": 6434,
+      "files": {
+        "calendars/day.txt": {
+          "size": 70774,
+          "sha256": "6bfe26c7ec40e1c1f433794d80632a281d78213edda2889009e69085753bc99d"
+        },
+        "instruments/all.txt": {
+          "size": 189751,
+          "sha256": "9c3f6c7e13bde3380c06d83a24ee38bc26c31f1339f4b1aa9e3252d0e385622f"
+        },
+        "instruments/csi300.txt": {
+          "size": 502138,
+          "sha256": "d6da9986c9aa1479787de88394cc5c8ab008c2fdcdad4b6199aaad714ce06d33"
+        },
+        "instruments/csi500.txt": {
+          "size": 697593,
+          "sha256": "7f743de9d04082e826b32a1881a911f725704e553ff2c6f83c47d0acc75fc92c"
+        }
+      }
+    },
+    "financials": {
+      "root": "D:\\code\\_open-source\\_data\\oneil",
+      "financials": {
+        "rows": 99713,
+        "symbols": 1310,
+        "first_report": "1988-12-31",
+        "last_report": "2026-06-30",
+        "sha256": "1aaeb1347a989a66d1a80babc98b0f17a0c01bfd00332bf446c7242cb4252b1f"
+      },
+      "industries": {
+        "rows": 1310,
+        "sha256": "b00eb59283e764c9e2e0a641d4e6ab0d555fcda23cc7dd091df106965683510b"
+      }
+    }
+  },
+  "limitations": [
+    "股票池仅为观察日历史沪深300与中证500成分交集。",
+    "财务缓存按公告日可见，但历史报告修订版本可能回填。",
+    "行业为当前东方财富分类，不是点时分类。",
+    "机构持仓、分析师一致预期和业绩预告/快报不可用。"
+  ],
+  "run_id": "local-qlib-eastmoney-2019-2025-v1"
+}

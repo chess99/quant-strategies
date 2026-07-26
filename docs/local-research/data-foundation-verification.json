@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "verified_at": "2026-07-27T07:44:37+08:00",
+  "status": "passed_with_findings",
+  "quality": {
+    "security_master": "B",
+    "trading_calendar": "A",
+    "qlib_daily_features": "B"
+  },
+  "security_master": {
+    "rows": 6125,
+    "asset_type_counts": {
+      "stock": 6115,
+      "etf": 4,
+      "index": 6,
+      "fund": 0
+    },
+    "exchange_counts": {
+      "XSHG": 2464,
+      "XSHE": 3083,
+      "XBSE": 578
+    },
+    "active_stock_at_source_end": 5530,
+    "ended_stock_before_source_end": 585,
+    "lifecycle_status_counts": {
+      "active": 5540,
+      "code_migrated": 252,
+      "delisted": 333
+    },
+    "lifecycle_quality_counts": {
+      "A": 5716,
+      "B": 409,
+      "C": 0
+    },
+    "duplicate_symbols": 0,
+    "time_inversions": 0,
+    "invalid_symbols": 0
+  },
+  "trading_calendar": {
+    "sessions": 6434,
+    "start": "2000-01-04",
+    "end": "2026-07-23",
+    "duplicate_dates": 0,
+    "strictly_increasing": true
+  },
+  "qlib_daily_features": {
+    "expected_instruments": 6121,
+    "successful_instruments": 6121,
+    "failed_instruments": 0,
+    "feature_directories": 6121,
+    "unknown_feature_symbols": 0,
+    "missing_feature_symbols": 0,
+    "finite_close_observations": 17133661,
+    "ohlc_violations": 0,
+    "nonpositive_factors": 0,
+    "observations_outside_security_interval": 0,
+    "reported_absolute_returns_over_30_percent": 6777,
+    "reported_absolute_returns_over_50_percent": 1921,
+    "reported_absolute_returns_over_100_percent": 56
+  },
+  "normalized_dataset_coverage": {
+    "daily_market_state": {
+      "covered_stocks": 1309,
+      "target_stocks": 6115,
+      "coverage_ratio": 0.2141,
+      "partitioning_compliant": false
+    },
+    "daily_valuation": {
+      "covered_stocks": 1258,
+      "target_stocks": 6115,
+      "coverage_ratio": 0.2057,
+      "partitioning_compliant": false,
+      "rows_outside_security_interval": 1726
+    },
+    "fundamentals_pit": {
+      "covered_stocks": 1310,
+      "target_stocks": 6115,
+      "coverage_ratio": 0.2142
+    },
+    "industry_membership": {
+      "covered_stocks": 1310,
+      "target_stocks": 6115,
+      "coverage_ratio": 0.2142
+    },
+    "index_membership": {
+      "covered_stocks": 5761,
+      "target_stocks": 6115,
+      "coverage_ratio": 0.9421,
+      "unknown_source_symbol": "SHT00018"
+    },
+    "etf_daily": {
+      "covered_etfs": 4,
+      "target_etfs": 4,
+      "coverage_ratio": 1.0
+    }
+  },
+  "artifacts": {
+    "external_report": "D:/code/_open-source/_data/quant-research/manifests/platform_coverage.json",
+    "external_report_bytes": 1758511,
+    "external_report_sha256": "fb6b6bba6bc3c102f2523590e44fbe8db385ff513576634effc04958ae13f328",
+    "security_master_manifest_sha256": "09893346883fe85e0224b2cc85365af68be03e6b850c3c714e35231c6ced08bd",
+    "trading_calendar_manifest_sha256": "97ffb56c8e39b1e243e8cd2cb169ddc7c851dbe550db70d9a3e972cba968b294"
+  },
+  "validation": {
+    "focused_tests_passed": 18,
+    "full_tests_passed": 166,
+    "repository_validator": "passed",
+    "ruff": "passed",
+    "end_to_end_build": "passed"
+  },
+  "findings_routed_to_later_iterations": [
+    "估值和市场状态仍是百万行单文件，将在迭代3按年或证券迁移为分区Parquet。",
+    "估值、市场状态、财务和行业仍只覆盖约21%的股票，不可冒充全市场。",
+    "Qlib的CSI300来源含特殊代码SHT00018，未映射到证券主表，保留为显式来源异常。",
+    "旧实现误把3个SH000指数当股票；全量审计后实际Qlib构成为6115只股票和6个指数。",
+    "异常收益未删除；完整样本与逐证券状态保存在外部机器可读报告。"
+  ]
+}

@@ -8,6 +8,10 @@ from enum import Enum
 from typing import Iterable
 
 
+class DataQualityError(RuntimeError):
+    """数据质量低于策略声明的最低要求。"""
+
+
 class QualityGrade(str, Enum):
     """点时与来源质量；A 最严格，C 仅允许代理研究。"""
 
@@ -39,6 +43,20 @@ class AssetType(str, Enum):
     UNKNOWN = "unknown"
 
 
+def require_quality(
+    dataset: str,
+    actual: "QualityGrade | str",
+    minimum: "QualityGrade | str",
+) -> None:
+    actual_grade = QualityGrade(actual)
+    minimum_grade = QualityGrade(minimum)
+    if not actual_grade.meets(minimum_grade):
+        raise DataQualityError(
+            f"{dataset} quality {actual_grade.value} is below required "
+            f"{minimum_grade.value}"
+        )
+
+
 @dataclass(frozen=True)
 class DatasetManifest:
     schema_version: int
@@ -54,6 +72,13 @@ class DatasetManifest:
     date_range: dict | None = None
     source_files: list[dict] = field(default_factory=list)
     notes: list[str] = field(default_factory=list)
+    primary_key: list[str] = field(default_factory=list)
+    date_fields: dict[str, str] = field(default_factory=dict)
+    partitioning: dict | None = None
+    coverage: dict = field(default_factory=dict)
+    failures: list[dict] = field(default_factory=list)
+    limitations: list[str] = field(default_factory=list)
+    checks: dict = field(default_factory=dict)
 
     def to_dict(self) -> dict:
         payload = asdict(self)

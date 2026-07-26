@@ -7,6 +7,7 @@ import json
 import os
 import tempfile
 from pathlib import Path
+from typing import Iterable
 
 import pandas as pd
 
@@ -77,6 +78,46 @@ class ResearchDataStore:
             "bytes": target.stat().st_size,
             "sha256": sha256_file(target),
         }
+
+    def write_partitioned_parquet(
+        self,
+        dataset: str,
+        frame: pd.DataFrame,
+        partition_columns: Iterable[str],
+        filename: str = "part-00000.parquet",
+    ) -> list[dict]:
+        """按 Hive 风格分区写入；调用方可逐批传入，避免全市场一次驻留内存。"""
+
+        columns = list(partition_columns)
+        if not columns:
+            raise ValueError("at least one partition column is required")
+        missing = set(columns).difference(frame.columns)
+        if missing:
+            raise ValueError(f"partition columns are missing: {sorted(missing)}")
+        files = []
+        grouped = frame.groupby(columns, sort=True, dropna=False)
+        for values, partition in grouped:
+            if not isinstance(values, tuple):
+                values = (values,)
+            partition_values = {
+                column: value.item() if hasattr(value, "item") else value
+                for column, value in zip(columns, values)
+            }
+            segments = []
+            for column, value in partition_values.items():
+                text = str(value)
+                if text in {"", ".", ".."} or any(char in text for char in r"\/:"):
+                    raise ValueError(f"unsafe partition value for {column}: {value!r}")
+                segments.append(f"{column}={text}")
+            relative_name = "/".join([*segments, filename])
+            artifact = self.write_parquet(
+                dataset,
+                partition.reset_index(drop=True),
+                filename=relative_name,
+            )
+            artifact["partition_values"] = partition_values
+            files.append(artifact)
+        return files
 
     def read_parquet(self, dataset: str, filename: str = "data.parquet") -> pd.DataFrame:
         path = self.normalized_path(dataset, filename)
@@ -161,3 +202,23 @@ class ResearchDataStore:
         if not path.is_file():
             raise FileNotFoundError(f"manifest does not exist: {path}")
         return json.loads(path.read_text(encoding="utf-8"))
+
+    def write_json_report(self, name: str, payload: dict) -> Path:
+        self.initialize()
+        target = self.manifest_dir / f"{name}.json"
+        text = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
+        handle, temporary_name = tempfile.mkstemp(
+            prefix=f".{target.name}.",
+            suffix=".tmp",
+            dir=target.parent,
+            text=True,
+        )
+        os.close(handle)
+        temporary = Path(temporary_name)
+        try:
+            temporary.write_text(text, encoding="utf-8")
+            temporary.replace(target)
+        finally:
+            if temporary.exists():
+                temporary.unlink()
+        return target

@@ -17,6 +17,7 @@ primary_benchmark = "000300.XSHG"
 local_universe = ["historical-csi300", "historical-csi500"]
 baseline_model = "huachuang-2019-available"
 preferred_next_experiment = "huachuang-2-risk-scaled"
+research_candidate = "quality-growth-momentum-h18"
+candidate_universe = "historical-all-a"
 institutional_filter = "unavailable-not-proxied"
 consensus_forecast = "unavailable"
-

@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "study": "oneil-canslim-a-share-rebuild",
+  "stage": "holding-ablation",
+  "candidate_model": "h18 quality-growth-momentum with direct entry",
+  "period": "2010-01-01/2021-12-31",
+  "models": [
+    "monthly-control",
+    "hard-stop-8pct",
+    "trend-exit-50d",
+    "winner-hold-50d"
+  ],
+  "costs": {
+    "commission": 0.0003,
+    "minimum_commission": 5.0,
+    "stamp_tax": "0.1% in this period",
+    "slippage_rate": 0.001,
+    "maximum_volume_ratio": 0.1
+  },
+  "metrics": {
+    "monthly-control": {
+      "total_return": 4.367877567463409,
+      "annualized_return": 0.15623933351675778,
+      "maximum_drawdown": 0.5198897566266705,
+      "sharpe": 0.6882655832123635,
+      "annualized_volatility": 0.26063205066537715,
+      "longest_underwater_trading_days": 1146,
+      "yearly_returns": {
+        "2010": 0.18811217635906474,
+        "2011": -0.23929547187012645,
+        "2012": 0.33313276647043777,
+        "2013": 0.2613439111636249,
+        "2014": 0.17245082256588407,
+        "2015": 0.30242231711188716,
+        "2016": 0.01320524558518077,
+        "2017": 0.1937180428245613,
+        "2018": -0.2989079297589422,
+        "2019": 0.5047613547232126,
+        "2020": 0.7003125057598196,
+        "2021": 0.0661176900814997
+      },
+      "annualized_turnover": 7.873420271578244
+    },
+    "hard-stop-8pct": {
+      "total_return": 2.5227903343257725,
+      "annualized_return": 0.11492491249193448,
+      "maximum_drawdown": 0.46250464837421856,
+      "sharpe": 0.6049542323927485,
+      "annualized_volatility": 0.220079149589294,
+      "longest_underwater_trading_days": 1149,
+      "yearly_returns": {
+        "2010": 0.14225802522805897,
+        "2011": -0.21417245450403444,
+        "2012": 0.281597512346798,
+        "2013": 0.2203789541566934,
+        "2014": 0.17136512793361613,
+        "2015": 0.20987126147709878,
+        "2016": 0.06033658794346275,
+        "2017": 0.17607610393147133,
+        "2018": -0.34149066391835825,
+        "2019": 0.4838753030086218,
+        "2020": 0.6074772669450665,
+        "2021": -0.09607133900029174
+      },
+      "annualized_turnover": 11.018621652200709
+    },
+    "trend-exit-50d": {
+      "total_return": 0.8306495806830771,
+      "annualized_return": 0.05362604675115756,
+      "maximum_drawdown": 0.4294790348990889,
+      "sharpe": 0.4311626462199197,
+      "annualized_volatility": 0.1459487849527244,
+      "longest_underwater_trading_days": 1603,
+      "yearly_returns": {
+        "2010": 0.02730447806063796,
+        "2011": -0.13373356467389774,
+        "2012": 0.22141363457675078,
+        "2013": 0.1383347612441126,
+        "2014": 0.16401796229217958,
+        "2015": 0.2199581724191051,
+        "2016": -0.08691210905598012,
+        "2017": 0.03659092647168616,
+        "2018": -0.16587936108149326,
+        "2019": 0.12871605951153708,
+        "2020": 0.2488850932559168,
+        "2021": -0.06381618738853845
+      },
+      "annualized_turnover": 17.65204630688213
+    },
+    "winner-hold-50d": {
+      "total_return": 0.9854978526511078,
+      "annualized_return": 0.06104298186504664,
+      "maximum_drawdown": 0.4374362597633259,
+      "sharpe": 0.47124147918112363,
+      "annualized_volatility": 0.1495733587127641,
+      "longest_underwater_trading_days": 1597,
+      "yearly_returns": {
+        "2010": -0.0009534645739111003,
+        "2011": -0.13291767429067602,
+        "2012": 0.21248944108902457,
+        "2013": 0.1210292959149617,
+        "2014": 0.13191244586771544,
+        "2015": 0.23883317408721383,
+        "2016": -0.07533153809174176,
+        "2017": 0.05640756190585794,
+        "2018": -0.15187125111901834,
+        "2019": 0.15589112286236717,
+        "2020": 0.2901064973798726,
+        "2021": -0.0266232723067108
+      },
+      "annualized_turnover": 15.145951638426302
+    }
+  },
+  "source_file": "source.py",
+  "source_sha256": "25cad5b5ceff5ae66e145e5ed6d3c31d62c5461302701d7163920b787daa4124",
+  "engine_file": "engine.py",
+  "engine_sha256": "06b5a1f59248f65be39d4c6be9e0e0ddfe5a90116f8084b9e9c02824043963dc",
+  "selection_inputs": [
+    {
+      "path": "D:\\code\\quant-strategies\\studies\\oneil-canslim-a-share-rebuild\\results\\2026-07-27__selection-alpha__quality-backward-confirmation-v4\\raw\\selections.csv",
+      "sha256": "98c6791a4d1fb94707c2c4ddb01cdbfc1292f1667d8949799a50a695ea25554a"
+    },
+    {
+      "path": "D:\\code\\quant-strategies\\studies\\oneil-canslim-a-share-rebuild\\results\\2026-07-27__selection-alpha__quality-acceleration-v3\\raw\\selections.csv",
+      "sha256": "b7787ad9f75aa4c300424466835183b9ddf64076c6719e1246cbc0f624ba5e60"
+    }
+  ],
+  "limitations": [
+    "historical ST is unavailable and treated as unknown",
+    "price limits use non-ST board-rule approximations",
+    "2018-2021 is selection validation, not a pristine final holdout",
+    "2022-2025 is intentionally excluded from this model-selection experiment"
+  ]
+}

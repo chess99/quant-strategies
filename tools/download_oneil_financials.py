@@ -23,8 +23,10 @@ ENGINE_PATH = (
 )
 DEFAULT_QLIB_DIR = Path("D:/code/_open-source/_data/qlib/cn_data")
 DEFAULT_OUTPUT_DIR = Path("D:/code/_open-source/_data/oneil")
+DEFAULT_RESEARCH_DATA_ROOT = Path("D:/code/_open-source/_data/quant-research")
 FINANCIAL_URL = "https://datacenter.eastmoney.com/securities/api/data/get"
 INDUSTRY_URL = "https://datacenter-web.eastmoney.com/api/data/v1/get"
+ALL_A_BOARDS = {"main", "chinext", "star", "beijing"}
 
 
 def load_engine():
@@ -73,15 +75,42 @@ def fetch_symbol(code):
     return result.get("data") or []
 
 
-def load_or_fetch_symbol(symbol, raw_dir, engine):
+def load_or_fetch_symbol(symbol, raw_dir, engine, seed_raw_dirs=()):
     path = raw_dir / f"{symbol.lower()}.json.gz"
     if path.is_file():
         with gzip.open(path, "rt", encoding="utf-8") as handle:
-            return symbol, json.load(handle), True
+            return symbol, json.load(handle), "output"
+    for seed_raw_dir in seed_raw_dirs:
+        seed_path = Path(seed_raw_dir) / path.name
+        if seed_path.is_file():
+            with gzip.open(seed_path, "rt", encoding="utf-8") as handle:
+                return symbol, json.load(handle), "seed"
     rows = fetch_symbol(engine.eastmoney_code(symbol))
     with gzip.open(path, "wt", encoding="utf-8") as handle:
         json.dump(rows, handle, ensure_ascii=False)
-    return symbol, rows, False
+    return symbol, rows, "network"
+
+
+def select_all_a_universe(security_master, start_date, end_date):
+    """从证券主表选择区间内真实 A 股，显式排除指数和基金代码。"""
+    frame = security_master.copy()
+    required = {"symbol", "asset_type", "board", "start_date", "end_date"}
+    missing = required.difference(frame.columns)
+    if missing:
+        raise ValueError(f"security master is missing columns: {sorted(missing)}")
+    frame["symbol"] = frame["symbol"].astype("string").str.upper()
+    frame["start_date"] = pd.to_datetime(frame["start_date"], errors="coerce")
+    frame["end_date"] = pd.to_datetime(frame["end_date"], errors="coerce")
+    start = pd.Timestamp(start_date).normalize()
+    end = pd.Timestamp(end_date).normalize()
+    mask = (
+        frame["asset_type"].eq("stock")
+        & frame["board"].isin(ALL_A_BOARDS)
+        & frame["start_date"].le(end)
+        & frame["end_date"].ge(start)
+        & frame["symbol"].str.fullmatch(r"(?:SH|SZ|BJ)\d{6}", na=False)
+    )
+    return sorted(frame.loc[mask, "symbol"].drop_duplicates().tolist())
 
 
 def fetch_industries(report_date="2025-12-31"):
@@ -175,6 +204,28 @@ def build_parser():
     )
     parser.add_argument("--qlib-dir", type=Path, default=DEFAULT_QLIB_DIR)
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR)
+    parser.add_argument(
+        "--universe",
+        choices=("historical-csi300-csi500", "all-a"),
+        default="historical-csi300-csi500",
+    )
+    parser.add_argument(
+        "--security-master",
+        type=Path,
+        default=DEFAULT_RESEARCH_DATA_ROOT / "normalized" / "security_master" / "data.parquet",
+    )
+    parser.add_argument(
+        "--seed-raw-dir",
+        action="append",
+        type=Path,
+        default=[],
+        help="可重复指定只读种子缓存目录；命中后不复制到输出目录。",
+    )
+    parser.add_argument(
+        "--skip-industry",
+        action="store_true",
+        help="不下载当前行业快照；全A历史研究通常应使用此项避免误用当前行业。",
+    )
     parser.add_argument("--workers", type=int, default=16)
     parser.add_argument("--start-date", default="2019-01-01")
     parser.add_argument("--end-date", default="2025-12-31")
@@ -186,61 +237,82 @@ def main():
     engine = load_engine()
     common = engine.load_common_engine()
     data = common.QlibBinDataPortal(args.qlib_dir)
-    universe = data.symbols_during(
-        engine.DEFAULT_MARKETS, args.start_date, args.end_date
-    )
+    if args.universe == "all-a":
+        security_master = pd.read_parquet(args.security_master)
+        universe = select_all_a_universe(
+            security_master, args.start_date, args.end_date
+        )
+    else:
+        universe = data.symbols_during(
+            engine.DEFAULT_MARKETS, args.start_date, args.end_date
+        )
     args.output_dir.mkdir(parents=True, exist_ok=True)
     raw_dir = args.output_dir / "raw"
     raw_dir.mkdir(exist_ok=True)
 
     payloads = {}
     failures = {}
-    cached = 0
+    cache_sources = {"output": 0, "seed": 0, "network": 0}
     with ThreadPoolExecutor(max_workers=args.workers) as executor:
         futures = {
             executor.submit(
-                load_or_fetch_symbol, symbol, raw_dir, engine
+                load_or_fetch_symbol,
+                symbol,
+                raw_dir,
+                engine,
+                tuple(args.seed_raw_dir),
             ): symbol
             for symbol in universe
         }
         for number, future in enumerate(as_completed(futures), 1):
             symbol = futures[future]
             try:
-                _, rows, was_cached = future.result()
+                _, rows, cache_source = future.result()
                 payloads[symbol] = rows
-                cached += int(was_cached)
+                cache_sources[cache_source] += 1
             except Exception as exc:
                 failures[symbol] = str(exc)
             if number % 50 == 0 or number == len(futures):
                 print(
                     f"财务下载：{number}/{len(futures)}，"
-                    f"成功 {len(payloads)}，失败 {len(failures)}，缓存 {cached}",
+                    f"成功 {len(payloads)}，失败 {len(failures)}，"
+                    f"输出缓存 {cache_sources['output']}，种子缓存 {cache_sources['seed']}，"
+                    f"网络 {cache_sources['network']}",
                     flush=True,
                 )
 
     financials = normalize_financials(payloads, engine)
     financials.to_parquet(args.output_dir / "financials.parquet", index=False)
-    industry_rows = fetch_industries()
-    industries = normalize_industries(industry_rows, universe)
-    industries.to_csv(
-        args.output_dir / "industries.csv",
-        index=False,
-        encoding="utf-8-sig",
-    )
+    industries = pd.DataFrame()
+    if not args.skip_industry:
+        industry_rows = fetch_industries()
+        industries = normalize_industries(industry_rows, universe)
+        industries.to_csv(
+            args.output_dir / "industries.csv",
+            index=False,
+            encoding="utf-8-sig",
+        )
     metadata = {
         "created_at": datetime.now(timezone.utc).isoformat(),
         "source": "Eastmoney datacenter public HTTPS API",
         "qlib_dir": str(args.qlib_dir.resolve()),
         "period": {"start": args.start_date, "end": args.end_date},
+        "universe_mode": args.universe,
+        "security_master": str(args.security_master.resolve()) if args.universe == "all-a" else None,
         "universe_symbols": len(universe),
         "successful_symbols": len(payloads),
         "failed_symbols": failures,
+        "cache_sources": cache_sources,
         "financial_rows": len(financials),
         "industry_rows": len(industries),
         "notes": [
             "NOTICE_DATE controls point-in-time visibility.",
             "Latest available historical revision may be backfilled.",
-            "Industry is a current classification proxy.",
+            (
+                "Current industry snapshot was intentionally skipped."
+                if args.skip_industry
+                else "Industry is a current classification proxy."
+            ),
         ],
     }
     (args.output_dir / "metadata.json").write_text(

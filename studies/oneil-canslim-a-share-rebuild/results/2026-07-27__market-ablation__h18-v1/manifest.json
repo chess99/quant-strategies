@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "study": "oneil-canslim-a-share-rebuild",
+  "stage": "market-ablation",
+  "candidate_model": "h18 quality-growth-momentum, direct monthly entry and exit",
+  "period": "2010-01-01/2021-12-31",
+  "models": [
+    "market-control",
+    "market-block-new",
+    "market-scale-50",
+    "market-cash"
+  ],
+  "market_rule": "all-A MA200 breadth >=50% and >=50% of available CSI300/500/1000/ChiNext/STAR50 above MA200",
+  "metrics": {
+    "market-control": {
+      "total_return": 4.367877567463409,
+      "annualized_return": 0.15623933351675778,
+      "maximum_drawdown": 0.5198897566266705,
+      "sharpe": 0.6882655832123635,
+      "annualized_volatility": 0.26063205066537715,
+      "longest_underwater_trading_days": 1146,
+      "yearly_returns": {
+        "2010": 0.18811217635906474,
+        "2011": -0.23929547187012645,
+        "2012": 0.33313276647043777,
+        "2013": 0.2613439111636249,
+        "2014": 0.17245082256588407,
+        "2015": 0.30242231711188716,
+        "2016": 0.01320524558518077,
+        "2017": 0.1937180428245613,
+        "2018": -0.2989079297589422,
+        "2019": 0.5047613547232126,
+        "2020": 0.7003125057598196,
+        "2021": 0.0661176900814997
+      },
+      "annualized_turnover": 7.873420271578244
+    },
+    "market-block-new": {
+      "total_return": 1.0837965496061757,
+      "annualized_return": 0.06548159231693518,
+      "maximum_drawdown": 0.4448702112689418,
+      "sharpe": 0.4475509850103195,
+      "annualized_volatility": 0.1769098540622509,
+      "longest_underwater_trading_days": 1360,
+      "yearly_returns": {
+        "2010": 0.042715129168177546,
+        "2011": -0.08682376525118174,
+        "2012": 0.0036954070213806034,
+        "2013": 0.13479133686617284,
+        "2014": 0.10981779028544114,
+        "2015": 0.1670192995141917,
+        "2016": 0.03552374915627565,
+        "2017": 0.0818363544943741,
+        "2018": -0.008396160222648552,
+        "2019": 0.20053141845194622,
+        "2020": 0.24449139810232912,
+        "2021": -0.10615522499609764
+      },
+      "annualized_turnover": 4.013829015603725
+    },
+    "market-scale-50": {
+      "total_return": 2.1952973045278426,
+      "annualized_return": 0.10556630217579777,
+      "maximum_drawdown": 0.48305401134794435,
+      "sharpe": 0.5969577192732001,
+      "annualized_volatility": 0.20278955400051207,
+      "longest_underwater_trading_days": 1237,
+      "yearly_returns": {
+        "2010": 0.0990757234218187,
+        "2011": -0.1711566121240563,
+        "2012": 0.18379485264180895,
+        "2013": 0.16884636739536463,
+        "2014": 0.14793304754267922,
+        "2015": 0.27078244257830586,
+        "2016": 0.012421570682514593,
+        "2017": 0.0930014793303553,
+        "2018": -0.15221703573307455,
+        "2019": 0.32347751252656987,
+        "2020": 0.43594695811764694,
+        "2021": -0.02530722268451069
+      },
+      "annualized_turnover": 6.442877032006485
+    },
+    "market-cash": {
+      "total_return": 0.4256343770926836,
+      "annualized_return": 0.031109491011051205,
+      "maximum_drawdown": 0.4195492252149211,
+      "sharpe": 0.2680160025711524,
+      "annualized_volatility": 0.16613700268170387,
+      "longest_underwater_trading_days": 1603,
+      "yearly_returns": {
+        "2010": -0.005072383061782038,
+        "2011": -0.09077987900661988,
+        "2012": 0.0,
+        "2013": 0.012451759082598768,
+        "2014": 0.10512155040617066,
+        "2015": 0.2237863080194622,
+        "2016": 0.022367720260291435,
+        "2017": 0.008245237854489718,
+        "2018": -0.007387148337900551,
+        "2019": 0.12219699323567856,
+        "2020": 0.14096637229646292,
+        "2021": -0.12145803636008046
+      },
+      "annualized_turnover": 4.498203797970992
+    }
+  },
+  "source_file": "source.py",
+  "source_sha256": "f142d9efaf77814a4359178d026f323e723554a4fe800d40753178469fd40b1a",
+  "selection_inputs": [
+    {
+      "path": "D:\\code\\quant-strategies\\studies\\oneil-canslim-a-share-rebuild\\results\\2026-07-27__selection-alpha__quality-backward-confirmation-v4\\raw\\selections.csv",
+      "sha256": "98c6791a4d1fb94707c2c4ddb01cdbfc1292f1667d8949799a50a695ea25554a"
+    },
+    {
+      "path": "D:\\code\\quant-strategies\\studies\\oneil-canslim-a-share-rebuild\\results\\2026-07-27__selection-alpha__quality-acceleration-v3\\raw\\selections.csv",
+      "sha256": "b7787ad9f75aa4c300424466835183b9ddf64076c6719e1246cbc0f624ba5e60"
+    }
+  ],
+  "limitations": [
+    "historical ST is unavailable and treated as unknown",
+    "breadth uses securities with valid Qlib close and 200-day history on each observation date",
+    "2018-2021 is selection validation, not a pristine final holdout"
+  ]
+}

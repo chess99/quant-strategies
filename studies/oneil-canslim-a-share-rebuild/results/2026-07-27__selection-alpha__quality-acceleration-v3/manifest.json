@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "study": "oneil-canslim-a-share-rebuild",
+  "stage": "selection-alpha",
+  "models": [
+    "growth-momentum",
+    "quality-growth-momentum",
+    "growth-acceleration-momentum"
+  ],
+  "period": {
+    "start": "2015-01-01",
+    "end": "2021-12-31"
+  },
+  "benchmark": "SH000905",
+  "execution": "previous-session signal, next monthly open",
+  "costs": {
+    "commission": 0.0003,
+    "minimum_commission": 5.0,
+    "stamp_tax": "0.1% before 2023-08-28, 0.05% thereafter",
+    "slippage_rate": 0.001,
+    "maximum_volume_ratio": 0.1
+  },
+  "metrics": {
+    "growth-momentum": {
+      "total_return": 1.0394414525943025,
+      "annualized_return": 0.11108156826720594,
+      "maximum_drawdown": 0.6002037390920598,
+      "sharpe": 0.4953750132203685,
+      "annualized_volatility": 0.311146304801919,
+      "longest_underwater_trading_days": 1240,
+      "yearly_returns": {
+        "2015": 0.5647504944437991,
+        "2016": -0.19008293795840903,
+        "2017": 0.05694767439829285,
+        "2018": -0.307525969504575,
+        "2019": 0.405834323927464,
+        "2020": 0.5262573651039195,
+        "2021": 0.024723516685295044
+      },
+      "benchmark_total_return": 0.3585696220397949,
+      "benchmark_annualized_return": 0.046332181242259685,
+      "annualized_excess_return": 0.06474938702494626,
+      "positive_excess_year_ratio": 0.7142857142857143
+    },
+    "quality-growth-momentum": {
+      "total_return": 2.1106979052916865,
+      "annualized_return": 0.18261852408030288,
+      "maximum_drawdown": 0.5457156193257047,
+      "sharpe": 0.7172874451462653,
+      "annualized_volatility": 0.2950823896901265,
+      "longest_underwater_trading_days": 1196,
+      "yearly_returns": {
+        "2015": 0.3578700976624407,
+        "2016": -0.001069453481223337,
+        "2017": 0.17715567218745876,
+        "2018": -0.30022396071189816,
+        "2019": 0.5101001606541049,
+        "2020": 0.7298016085439627,
+        "2021": 0.06578425604009652
+      },
+      "benchmark_total_return": 0.3585696220397949,
+      "benchmark_annualized_return": 0.046332181242259685,
+      "annualized_excess_return": 0.1362863428380432,
+      "positive_excess_year_ratio": 0.7142857142857143
+    },
+    "growth-acceleration-momentum": {
+      "total_return": 1.0370185022945742,
+      "annualized_return": 0.1108863702863272,
+      "maximum_drawdown": 0.5955668291017873,
+      "sharpe": 0.49941534686795025,
+      "annualized_volatility": 0.3036963961891071,
+      "longest_underwater_trading_days": 1240,
+      "yearly_returns": {
+        "2015": 0.5948646360241014,
+        "2016": -0.15940342560557574,
+        "2017": 0.04529739579572056,
+        "2018": -0.3012442937486628,
+        "2019": 0.33360889258170956,
+        "2020": 0.6147710624812743,
+        "2021": -0.03399615962119262
+      },
+      "benchmark_total_return": 0.3585696220397949,
+      "benchmark_annualized_return": 0.046332181242259685,
+      "annualized_excess_return": 0.06455418904406751,
+      "positive_excess_year_ratio": 0.8571428571428571
+    }
+  },
+  "source_file": "source.py",
+  "source_sha256": "bef435bb5e59f21e5f3b1339a174d020532d5a7ec181d25f13d013dbc6f0230c",
+  "data_files": [
+    {
+      "path": "D:\\code\\_open-source\\_data\\oneil-all-a\\financials.parquet",
+      "sha256": "f49a2af599d30c42cf584419888ed93ae04a9dbb2c9abce7521e3ee47bd0b982"
+    },
+    {
+      "path": "D:\\code\\_open-source\\_data\\oneil-rebuild\\monthly-price-features.parquet",
+      "sha256": "76c6f05f4812142aba5a1a3b4c512d9c88fbd18808071ff50b8a6fc3e583f435"
+    },
+    {
+      "path": "D:\\code\\_open-source\\_data\\quant-research\\manifests\\security_master.json",
+      "sha256": "31e9df725f0d92bc043d8c206e1050d40d3b012cb72180a9946fccd314221be5"
+    }
+  ],
+  "limitations": [
+    "historical ST is unavailable and treated as unknown",
+    "price limits are derived under non-ST board rules",
+    "financial revisions may be backfilled despite notice-date control",
+    "earnings previews, quick reports, consensus and historical industry are unavailable",
+    "2024-2025 is excluded from model selection"
+  ]
+}

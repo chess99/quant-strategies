@@ -1,0 +1,2 @@
+model,total_return,annualized_return,maximum_drawdown,sharpe,annualized_volatility,longest_underwater_trading_days,yearly_returns,benchmark_total_return,benchmark_annualized_return,annualized_excess_return,positive_excess_year_ratio
+quality-growth-momentum,0.19750163071498283,0.04207697684897904,0.5374703786133465,0.2868621308543358,0.28302520986690094,1001,"{'2022': -0.27997588085296243, '2023': -0.19013766103230434, '2024': 0.08537392662971799, '2025': 0.38642589822360973, '2026': 0.36471453996729886}",0.0516507625579834,0.011582896038836,0.030494080810143043,0.6

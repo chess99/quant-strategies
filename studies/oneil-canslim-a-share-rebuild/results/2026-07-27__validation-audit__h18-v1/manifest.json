@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "study": "oneil-canslim-a-share-rebuild",
+  "stage": "validation-and-overfitting-audit",
+  "rolling_stitched": {
+    "total_return": 2.607478183922574,
+    "annualized_return": 0.12207859049968572,
+    "maximum_drawdown": 0.5832382859421588,
+    "sharpe": 0.5491813179061671,
+    "positive_excess_year_ratio": 0.6666666666666666,
+    "benchmark_total_return": 0.45405274853043087,
+    "benchmark_annualized_return": 0.03417902495317393,
+    "annualized_excess_return": 0.0878995655465118
+  },
+  "deflated_sharpe": {
+    "daily_sharpe": 0.04335665640820815,
+    "annualized_sharpe": 0.6882655832123622,
+    "deflated_threshold_daily": 0.038920628496141904,
+    "probability": 0.5934068510317526,
+    "trials": 30,
+    "observations": 2917,
+    "skew": -0.5850206412034663,
+    "kurtosis": 5.5561637500663235
+  },
+  "pbo": 0.2987012987012987,
+  "pbo_splits": 924,
+  "source_file": "source.py",
+  "source_sha256": "8e5ec4a5c33730857280151d1147d32f5c8bd7b34fedc0744696f689e7644e4d",
+  "limitations": [
+    "rolling windows audit a fixed rule; early windows are not pristine researcher-level OOS",
+    "PBO uses highly correlated local parameter-neighborhood configurations and is diagnostic",
+    "2026 is a partial year through 2026-07-23"
+  ]
+}

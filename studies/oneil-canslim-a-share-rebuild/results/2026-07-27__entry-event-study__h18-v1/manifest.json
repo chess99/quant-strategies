@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "study": "oneil-canslim-a-share-rebuild",
+  "stage": "entry-event-study",
+  "candidate_model": "h18 quality-growth-momentum",
+  "period": "2010-01-01/2021-12-31",
+  "entry_rules": {
+    "direct": "h18-control",
+    "new-high-20": "h20",
+    "new-high-55": "h21",
+    "new-high-55-volume-1.4": "h22"
+  },
+  "horizons": [
+    5,
+    20,
+    60,
+    120
+  ],
+  "execution": "signal close; next-session open; pivot and volume mean exclude signal day",
+  "source_file": "source.py",
+  "source_sha256": "31a295a4d6f1d74a04bc1861bc151791546162310d73b2c661e6da496affb276",
+  "selection_inputs": [
+    {
+      "path": "D:\\code\\quant-strategies\\studies\\oneil-canslim-a-share-rebuild\\results\\2026-07-27__selection-alpha__quality-backward-confirmation-v4\\raw\\selections.csv",
+      "sha256": "98c6791a4d1fb94707c2c4ddb01cdbfc1292f1667d8949799a50a695ea25554a"
+    },
+    {
+      "path": "D:\\code\\quant-strategies\\studies\\oneil-canslim-a-share-rebuild\\results\\2026-07-27__selection-alpha__quality-acceleration-v3\\raw\\selections.csv",
+      "sha256": "b7787ad9f75aa4c300424466835183b9ddf64076c6719e1246cbc0f624ba5e60"
+    }
+  ],
+  "qlib_dir": "D:\\code\\_open-source\\_data\\qlib\\cn_data",
+  "limitations": [
+    "events are candidate-month observations and are not statistically independent",
+    "event returns do not include trading costs; portfolio experiments are required before promotion",
+    "historical ST and exact price-limit states remain unavailable",
+    "2018-2021 entry validation follows prior selection-model research and is not a pristine final holdout"
+  ]
+}

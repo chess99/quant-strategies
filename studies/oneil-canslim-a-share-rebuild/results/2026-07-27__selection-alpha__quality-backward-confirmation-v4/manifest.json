@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "study": "oneil-canslim-a-share-rebuild",
+  "stage": "selection-alpha",
+  "models": [
+    "growth-momentum",
+    "quality-growth-momentum"
+  ],
+  "period": {
+    "start": "2010-01-01",
+    "end": "2014-12-31"
+  },
+  "benchmark": "SH000905",
+  "execution": "previous-session signal, next monthly open",
+  "costs": {
+    "commission": 0.0003,
+    "minimum_commission": 5.0,
+    "stamp_tax": "0.1% before 2023-08-28, 0.05% thereafter",
+    "slippage_rate": 0.001,
+    "maximum_volume_ratio": 0.1
+  },
+  "metrics": {
+    "growth-momentum": {
+      "total_return": 1.2506914454079232,
+      "annualized_return": 0.18373315948610136,
+      "maximum_drawdown": 0.40015034601914634,
+      "sharpe": 0.7708867461205531,
+      "annualized_volatility": 0.26427228392489976,
+      "longest_underwater_trading_days": 532,
+      "yearly_returns": {
+        "2010": 0.20678787115470998,
+        "2011": -0.3304213962904178,
+        "2012": 0.4648115771841237,
+        "2013": 0.47460700677499745,
+        "2014": 0.28951203355765287
+      },
+      "benchmark_total_return": 0.18006157875061035,
+      "benchmark_annualized_return": 0.03502413293574502,
+      "annualized_excess_return": 0.14870902655035634,
+      "positive_excess_year_ratio": 0.8
+    },
+    "quality-growth-momentum": {
+      "total_return": 0.7835855263985363,
+      "annualized_return": 0.12784452313653882,
+      "maximum_drawdown": 0.33693926550947406,
+      "sharpe": 0.64649993180673,
+      "annualized_volatility": 0.22557811460976757,
+      "longest_underwater_trading_days": 592,
+      "yearly_returns": {
+        "2010": 0.18789403370340074,
+        "2011": -0.23906225119611713,
+        "2012": 0.332347742264937,
+        "2013": 0.2618632178171518,
+        "2014": 0.17364630977968165
+      },
+      "benchmark_total_return": 0.18006157875061035,
+      "benchmark_annualized_return": 0.03502413293574502,
+      "annualized_excess_return": 0.0928203902007938,
+      "positive_excess_year_ratio": 0.8
+    }
+  },
+  "source_file": "source.py",
+  "source_sha256": "bef435bb5e59f21e5f3b1339a174d020532d5a7ec181d25f13d013dbc6f0230c",
+  "data_files": [
+    {
+      "path": "D:\\code\\_open-source\\_data\\oneil-all-a\\financials.parquet",
+      "sha256": "f49a2af599d30c42cf584419888ed93ae04a9dbb2c9abce7521e3ee47bd0b982"
+    },
+    {
+      "path": "D:\\code\\_open-source\\_data\\oneil-rebuild\\monthly-price-features-2010-2014.parquet",
+      "sha256": "d20fe2ba422f667792cb6461e9284c9842f078ef3235170444e7dc64b41b8569"
+    },
+    {
+      "path": "D:\\code\\_open-source\\_data\\quant-research\\manifests\\security_master.json",
+      "sha256": "31e9df725f0d92bc043d8c206e1050d40d3b012cb72180a9946fccd314221be5"
+    }
+  ],
+  "limitations": [
+    "historical ST is unavailable and treated as unknown",
+    "price limits are derived under non-ST board rules",
+    "financial revisions may be backfilled despite notice-date control",
+    "earnings previews, quick reports, consensus and historical industry are unavailable",
+    "2024-2025 is excluded from model selection"
+  ]
+}

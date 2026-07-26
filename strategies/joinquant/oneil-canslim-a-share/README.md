@@ -73,10 +73,32 @@
 ## 文件
 
 - `baseline.py`：可直接复制到聚宽的自包含基线。
+- `local_backtest.py`：复用基线纯函数的本地 Qlib + 东方财富研究级执行层。
 - `research/quantification.md`：资料校对、规则翻译和未量化边界。
 - `tests/`：财务口径、价格信号、市场状态、风控和平台兼容性测试。
 - `variants/`：一次只改变一个假设的实验版本。
-- `backtests/`：不可变回测归档；当前尚无有效回测。
+- `backtests/`：不可变回测归档。
+
+## 本地回测
+
+本地执行层使用 Qlib 历史行情和指数成分，并从东方财富公开接口建立带公告日的财务缓存。
+首次运行先下载缓存：
+
+```powershell
+D:\code\_open-source\_venvs\qlib\Scripts\python.exe tools\download_oneil_financials.py
+```
+
+之后可完全离线回测：
+
+```powershell
+D:\code\_open-source\_venvs\qlib\Scripts\python.exe tools\run_oneil_local_backtest.py `
+  --start-date 2019-01-01 `
+  --end-date 2025-12-31 `
+  --run-id local-qlib-eastmoney-2019-2025-v2
+```
+
+本地数据不含上证综指，`M` 使用沪深300代理；行业使用当前东方财富行业代理。该结果只适合
+研究筛错和实验排序，不能替代聚宽完整 A 股股票池、历史申万行业和官方撮合。
 
 ## 变体
 
@@ -89,7 +111,14 @@
 
 ## 回测索引
 
-尚无。首次聚宽回测必须新增不可变目录，并保存平台实际运行的 `source.py`。
+- 2026-07-26，`baseline`，本地 Qlib + 东方财富，2019—2025：
+  累计收益 0.65%，年化 0.10%，最大回撤 -3.44%，Sharpe 0.061，32 笔成交，
+  平均现金 99.06%。同期沪深300累计 53.79%。低回撤主要来自极低暴露，不构成风控有效的
+  证据；完整归档见
+  [`backtests/2026-07-26__baseline__local-qlib-eastmoney-2019-2025-v1/`](backtests/2026-07-26__baseline__local-qlib-eastmoney-2019-2025-v1/)。
+
+当前仍无聚宽官方回测。首次聚宽运行必须新增独立不可变目录，并保存平台实际运行的
+`source.py`，不能覆盖本地归档。
 
 ## 已知限制
 

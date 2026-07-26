@@ -1,0 +1,18 @@
+{
+  "start_date": "2019-01-01",
+  "end_date": "2025-12-31",
+  "initial_cash": 1000000.0,
+  "markets": [
+    "csi300",
+    "csi500"
+  ],
+  "benchmark_symbol": "SZ399300",
+  "market_symbol": "SZ399300",
+  "board_lot": 100,
+  "commission_rate": 0.0003,
+  "minimum_commission": 5.0,
+  "sell_tax_rate": 0.001,
+  "fixed_slippage_per_share": 0.002,
+  "max_positions": 6,
+  "verbose": false
+}

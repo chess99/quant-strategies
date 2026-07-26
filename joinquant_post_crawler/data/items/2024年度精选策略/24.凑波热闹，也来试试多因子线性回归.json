@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略/24.凑波热闹，也来试试多因子线性回归.txt",
+    "category": "2024年度精选策略",
+    "file_name": "24.凑波热闹，也来试试多因子线性回归.txt",
+    "strategy_name": "凑波热闹，也来试试多因子线性回归",
+    "declared_title": "凑波热闹，也来试试多因子线性回归",
+    "declared_author": "Plisking",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 14199,
+    "sha256": "0c475fdbbadaf6bb7d688c0cf3cf0e514434c13b14ce7ec567924ddfc47a57b3",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/42371",
+      "https://www.joinquant.com/post/42310",
+      "https://www.joinquant.com/post/40407",
+      "https://www.joinquant.com/view/community/detail/30684f8d65a74eef0d704239f0eec8be"
+    ],
+    "primary_url": "https://www.joinquant.com/post/42371",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:10:03+08:00",
+    "requested_url": "https://www.joinquant.com/post/42371",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/e55265d68c0af4165d4f4e4515bd93eb",
+    "community_id": "e55265d68c0af4165d4f4e4515bd93eb",
+    "post": {
+      "postId": "7fcdeec44af5f5264fb31cb2fb0a9577",
+      "uniqueKey": "e55265d68c0af4165d4f4e4515bd93eb",
+      "title": "凑波热闹，也来试试多因子线性回归",
+      "content": "看到wywy1995大佬的思路，一下子茅塞顿开\n\n刚开始也是很怀疑过拟合和未来函数的问题（要讨论这两个问题的朋友，可以先去原作者的这个帖子，[回答wywy1995策略的一些问题](https://www.joinquant.com/view/community/detail/c1521e4ce037af3ef0c18fe32d8a878d?type=1)）\n\n\n后头看到讨论和反复思考，其实我们人去总结，总是想一些逻辑去自圆其说而已。现在无非使用大数据做拟合，让机器帮你“总结”\n\n至于过拟合问题，自己做了之后才感觉应该是不存在的。因为一个因子组合只用了三五个因子，而且我看了线性回归后的score（累积误差），分数也就0.0几，应该是谈不上过度拟合的。\n\n于是自己也倒腾了一下，效果确实不错，当然主要是小市值这个核心思路是很好。\n\n首先策略使用的chalengr4的3支股票持仓版本，因为个人投资者多了不好操作\n\n因子的组合目前没有更换，因子的权重是自己训练的，训练数据时间是**2018-1-1到2020-1-1**，策略回测周期从2020年开始。避免未来函数。\n\n收益率比wywy1995的参数略低，不过初次尝试就能获得相当效果，再次感谢大佬的思路分享。\n\n做的改进：\n1、sklearn的线性回归函数比较多，LinearRegression回归的分数不够高，去文档里面选了一圈，使用的BayesianRidge。简单回测后，发现收益率会提高，说明收益率确实来自于回归的预测！后续打算还是用ML模型来做，毕竟个人感觉这个问题应该不是线性的。\n\n2、由于回归预测的就是收益率，在得分里面，直接过滤了负分。对比回测收益有提高哟。\n\n\n后续思路，优化训练参数，寻找因子组合，更改训练模型。。。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2023-05-12 21:52:35",
+      "modTime": "2023-05-13 07:55:18",
+      "lastActiveTime": "2026-04-13 11:31:26",
+      "lastPubTime": "2023-05-13 07:55:18",
+      "backtestId": "520cbb404a8403ea8a70800a1dc53188",
+      "backtestName": "线性回归多因子 20y share",
+      "replyCount": "83",
+      "viewCount": "5310",
+      "collectionCount": "104",
+      "likeCount": "42",
+      "disLikeCount": "0",
+      "backtestCloneCount": "376",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "11",
+      "followersCount": "157",
+      "followingCount": "21",
+      "author": {
+        "userId": "6f1bd8257ec414bbf1148e4fe473d078",
+        "alias": "Plisking",
+        "vipType": "VIP",
+        "headImgKey": "56d4845b93bc18a01603d74ce60ddb27"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "13",
+          "name": "机器学习"
+        },
+        {
+          "id": "4",
+          "name": "多因子"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "520cbb404a8403ea8a70800a1dc53188",
+        "backtest_name": "线性回归多因子 20y share",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=520cbb404a8403ea8a70800a1dc53188&postId=e55265d68c0af4165d4f4e4515bd93eb&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2020-01-01",
+          "end_date": "2023-05-11",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "aa131737b1991bb4d9002146b9e3806c",
+            "28573348"
+          ],
+          "numeric_backtest_id": "28573348",
+          "numeric_post_id": "42371",
+          "python_version": 3,
+          "clone_count": 376
+        },
+        "stats": {
+          "trading_days": 812,
+          "benchmark_volatility": 0.20593342397506,
+          "algorithm_volatility": 0.33370158746209,
+          "treasury_return": 0.13424657534247,
+          "algorithm_return": 16.066986714,
+          "benchmark_return": 0.16834989350109,
+          "annual_algo_return": 1.3952929498136,
+          "annual_bm_return": 0.049070008863013,
+          "sharpe": 4.0613919763495,
+          "excess_return_sharpe": "4.012",
+          "sortino": 6.3694721697673,
+          "information": 4.3623274883222,
+          "beta": 0.69007431424131,
+          "alpha": 1.3490339696673,
+          "excess_return": 13.607770162803,
+          "avg_excess_return": "0.35%",
+          "max_drawdown": 0.24771163814131,
+          "max_drawdown_period": [
+            "2020-12-15",
+            "2021-01-13"
+          ],
+          "excess_return_max_drawdown": "27.45%",
+          "excess_return_max_drawdown_period": [
+            "2020-12-15",
+            "2021-01-13"
+          ],
+          "max_leverage": 0,
+          "period_label": "2023-05",
+          "__version": 101,
+          "win_ratio": 0.57777777777778,
+          "profit_loss_ratio": 4.7134297142328,
+          "win_count": 78,
+          "lose_count": 57,
+          "day_win_ratio": 0.53448275862069,
+          "avg_trade_return": 0.051165065055965,
+          "avg_position_days": 22.313432835821,
+          "turnover_rate": 0.08195311277802,
+          "report_done_seconds": 557.01305913925,
+          "report_done_cpu_seconds": 397.82
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 1606.698671,
+          "benchmark_return_percent": 16.834989,
+          "annual_algo_return_percent": 139.529295,
+          "annual_bm_return_percent": 4.907001,
+          "max_drawdown_percent": 24.771164,
+          "algorithm_volatility_percent": 33.370159,
+          "benchmark_volatility_percent": 20.593342,
+          "win_ratio_percent": 57.777778,
+          "day_win_ratio_percent": 53.448276,
+          "avg_trade_return_percent": 5.116507,
+          "turnover_rate_percent": 8.195311,
+          "sharpe": 4.0613919763495,
+          "sortino": 6.3694721697673,
+          "information": 4.3623274883222,
+          "alpha": 1.3490339696673,
+          "beta": 0.69007431424131,
+          "profit_loss_ratio": 4.7134297142328,
+          "avg_position_days": 22.313432835821,
+          "trading_days": 812,
+          "win_count": 78,
+          "lose_count": 57,
+          "max_drawdown_period": [
+            "2020-12-15",
+            "2021-01-13"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-12-15",
+            "2021-01-13"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/42371",
+      "https://www.joinquant.com/community/post/detailV2?postId=42371",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=520cbb404a8403ea8a70800a1dc53188&postId=e55265d68c0af4165d4f4e4515bd93eb&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=520cbb404a8403ea8a70800a1dc53188"
+    ]
+  }
+}

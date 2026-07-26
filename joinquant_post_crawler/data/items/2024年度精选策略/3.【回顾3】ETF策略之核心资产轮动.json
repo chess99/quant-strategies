@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略/3.【回顾3】ETF策略之核心资产轮动.txt",
+    "category": "2024年度精选策略",
+    "file_name": "3.【回顾3】ETF策略之核心资产轮动.txt",
+    "strategy_name": "【回顾3】ETF策略之核心资产轮动",
+    "declared_title": "【回顾3】ETF策略之核心资产轮动",
+    "declared_author": "wywy1995",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 3083,
+    "sha256": "437a3f19f060e4c661e55e70a0713a48a348fd8efb4006587f9055c98b9cbb65",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/42673",
+      "https://www.joinquant.com/view/community/detail/a31a822d1cfa7e83b1dda228d4562a70",
+      "https://www.joinquant.com/post/26142"
+    ],
+    "primary_url": "https://www.joinquant.com/post/42673",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:10:08+08:00",
+    "requested_url": "https://www.joinquant.com/post/42673",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/1b1aea4e33780bb81e2883e1ca0e0e69",
+    "community_id": "1b1aea4e33780bb81e2883e1ca0e0e69",
+    "post": {
+      "postId": "5bafbce3b2068f262e075995448e007e",
+      "uniqueKey": "1b1aea4e33780bb81e2883e1ca0e0e69",
+      "title": "【回顾3】ETF策略之核心资产轮动",
+      "content": "这篇文章是对之前[etf策略](https://www.joinquant.com/view/community/detail/70111684c3fb07f8860e00b6f37ebd5f)的反思与改进。在展示新策略之前，先回顾一下老策略在发布后的表现。\n\n从发布回测的结束日(2021-08-31)到昨日(2023-05-31)的收益曲线\n![Img](https://image.joinquant.com/22893c200d6209ac575d8988e802c36f) \n\n最近一年的收益曲线\n![Img](https://image.joinquant.com/bf0db4b4820fc1e07c92479ca65413eb) \n\n从两张图中可以看出，策略是明显跑赢沪深300的，尤其是最近一年。但如果不幸在最高点附近入场，21个月的时间才刚刚解套。\n\n这个策略一共只选择了三个ETF做轮动，分别是上证180(510180)，创业板ETF(159915)与纳指ETF(513100)。从ETF选择的角度看，其大幅回撤的主要原因是美国2022年以来的加息，造成了中美股市的同步下跌（相关性加强），从而削弱了动量与轮动效应。而最近半年的上涨，则是因为美股在人工智能浪潮的加持下率先走出熊市，只要上述三个标的中至少有一个能维持超过设定阈值时间的上涨，那么策略就可以实现盈利。\n\n**1**.从早期回测（2016年，2018年）以及策略发布后的实践结果这两方面来看，美股仍然存在与A股的轮动效应，其背后的逻辑是不同国家与市场背后的经济周期与政策差异造成的时空错位，这种现象未来还有很大可能反复出现。因此，在新策略的股票池中继续保留纳指ETF做为配置美股这一核心资产的手段。当然，如果你选择其它国家的ETF，比如日经225或德国30等，可能也存在意想不到的盈利机会，不过我更倾向于在世界前两大经济体之间做选择。\n\n**2**.关于国内选择哪些ETF好，这是个仁者见仁智者见智的话题，大家的普遍共识是，选择ETF应该尽量避免“未来”视角。所以，我当初根据市场的两种主要风格选择了具有“成长股，科技股，题材性，中小盘”属性的创业板ETF，以及具有“价值股，蓝筹股，防御性，中大盘”属性的上证180ETF。几乎所有股票，都可以划分到这两大阵营中，体现在指数的分时图上，就是俗称的“黄白线”，或者说是“个股”与“权重”的关系。那么在这个框架下，可以选择你所青睐的ETF做替代，比如用新能源ETF取代创业板ETF，用消费ETF或银行ETF取代上证180ETF。这里不讨论哪个ETF最好，因为策略的核心目标是通过在上述两大”风格阵营“间的切换，尽量保证轮动的有效性，这是“道“的范畴，而具体选择哪个标的是”术“的范畴。\n\n**3**.更新后的策略，继续保留创业板ETF，因为创业板代表我国科技行业的未来，是一个拥有市梦率的指数，如果牛市来临，我相信创业板指会有更大的涨幅。当然，你也可以选择双创，创成长，创50等等，但是为了回测方便，我还是使用上市时间比较久的159915。由于我本身持有一篮子小盘股，所以在成长阵营里不使用国证2000等小型股ETF，另一方面也是为了符合这个策略拥抱核心资产的初衷。\n\n**4**.将上证180ETF替换成红利ETF(510880)，因为红利ETF有大多数ETF所不具备的一个bug级别的属性，就是它高且规律的分红。这次注册制改革以来，上市公司的分红属性与ROE受到更高的重视，如果这是未来的大势所趋，那么使用红利ETF做为价值股的代表将是正确的选择。另外，红利ETF在熊市具有更好的防御性，回到轮动效应上，我希望的是牛市有创业板主打进攻，在熊市有红利ETF可以降低回撤。\n\n红利ETF与对应指数，复权前后对比，长期分红是其超额收益的来源。\n复权前\n![Img](https://image.joinquant.com/0103e67693526c10d5ac8e77ab680348) \n复权后\n![Img](https://image.joinquant.com/f621a901dd00e148a80b2b8593fc0a10) \n\n**5**.加入黄金ETF(518880)。回到这篇文章的标题，既然是核心资产，怎么能少了大宗商品呢。但是由于我对商品的知识有限，所以暂且使用黄金做代表，如果你有更好的品种，可以改写后跟大家分享。这一部分的思想，就是如果股票市场不好，那么策略可以寄希望于在商品市场中找到机会。\n\nETF轮动如果只是局限于几个行业或者宽基之间，多少有点大材小用了。通过反思过去策略的表现，可以看出，如果只是在几个宽基ETF之间轮动，仅仅是一轮股票小熊市，策略都会在这段时间内失效，更不用提多类资产极端共线性下跌的情形了。\n最后总结，新版的ETF轮动策略的思想核心是，通过使用被国内外学者及投资人广泛印证长期有效的动量法，捕捉具备核心资产属性且相关性较弱的大宗商品，海外资产，国内价值股与成长股之间的轮动效应，从而获取超额收益。\n说到核心资产，策略有意避免了”债券“这个重要角色，因为从风险的角度来说，债券有些过于保守了。当然如果你执意加入类似国债etf的基金，也未尝不可，只是收益会有所降低，毕竟收益与风险是成比例的。\n\n**6**.代码中主要参数的解释。新版代码大幅删减了原版中冗余的部分，仅保留了最重要的动量识别函数get_rank(原作者慕长风)与交易函数trade。在initialize中几个重要参数的解释如下：\n滑点参考了壶铃大佬的文章，设定更接近实盘；\n一个重要的参数是股票池etf_pool，其选定思路已经在上文详细说明，另外这四个etf具有上市时间长（可供10年以上回测）与份额大（易成交，滑点相对较小）的优点；\n另一个参数是识别动量需要的天数m_days，大概一个月（20-30天）即可，这也是大多数轮动策略观察动量的时间窗口。我粗略选择25天这个中间值，效果虽然不是最优，但也相当不错了；\n最后是调仓时间刻意避开了9:30，防止早盘极速拉升造成回测失真的情况。\n其实，通过改变滑点，动量天数与交易时间还可以提高收益，但是为了接近实盘效果，刻意做低了回测曲线。\n![Img](https://image.joinquant.com/bdf005597c39ba935efb67edaeb44bd2) \n\n**7**.其他说明。本策略**不含未来函数**，使用attribute_history只能获取历史数据。本策略**无过度拟合**，全部代码只有60多行，但是我鼓励大家用不同的数学方法去拟合，这是发现规律的过程，无可厚非。\n\n**不择时**，十年收益年年为正，且任意一年跑赢活期存款。\n![Img](https://image.joinquant.com/6aaed8a5eab6c4a5e6a6b0d0fab7abde) \n择时本身会带来不确定性，所以我一般不择时，除非特别确定的时候。原版是2016跟2022年收益为负，23年收益较高，改写后，由于使用了红利etf代替上证180，在2022年防御性增强，但代价是牺牲了一些今年的收益。这里再特别提示一个风险，关于这个策略的”后视镜“，其实也是我看到了这四类资产之间差异性，以及他们总体历史表现较好，那么未来可能出现覆巢之下无完卵的极端情况，所有资产一起下跌，就像老策略中2022年上半年那样。所以，老策略可以说是毁誉参半吧，做错了的地方在于全押注了股票，做对的地方在于至少有一个体现出了差异性，最后把收益曲线拉回来了。所以如果为未来着想，你觉得如果大盘股，小盘股，美股，商品，债券全面下跌，通过etf还能投什么资产呢？欢迎你把改进后的代码与大家分享。\n\n**2023/06/11更新**\n看到评论区有人觉得用红利etf不好，那就改回上证180吧，收益还更高。其实我觉得无所谓，只要能代表大盘蓝筹就好。另外还添加了可以直观看到etf评分的曲线。比如，从回测界面下方的副图里可以看出，最近持仓的纳指虽然评分远高于其它品种，但是在6月9日出现了拐点。\n之前的回测是用滑点跟交易时间故意做低收益的，新回测发一个理论上的表现，可以跟同期小市值策略对比一下。(其实是为了图好看）\n现在注册制加IPO吸血严重的背景下，虽然我不认为小市值会失效，但是收益降低是在所难免了，如果将来小市值的平均年化只有30%，那么对其它策略的优势也就不明显了。这时候多一种盈利模式感觉更安心，这也是为什么我开始重新考虑etf轮动，其背后的动量因子与小市值的反转因子正好是硬币的两面。当然，动量因子还有其它的很多应用场景，以后有机会再讨论。\n\n**本人热爱分享，但水平有限，发帖仅为个人投资记录，不构成投资建议，本文内容非教学，请勿较真儿，不代写不卖课不卖策略不加微信，有问题请使用论坛问答。**",
+      "type": 1,
+      "status": "0",
+      "addTime": "2023-06-01 18:13:37",
+      "modTime": "2023-06-13 09:18:23",
+      "lastActiveTime": "2026-07-25 17:41:55",
+      "lastPubTime": "2023-06-13 09:18:23",
+      "backtestId": "4dfe6a9b38d90f0599b962569851e873",
+      "backtestName": "最高评分核心资产轮动-Clone",
+      "replyCount": "336",
+      "viewCount": "76332",
+      "collectionCount": "1104",
+      "likeCount": "621",
+      "disLikeCount": "0",
+      "backtestCloneCount": "3752",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "37",
+      "followersCount": "9584",
+      "followingCount": "39",
+      "author": {
+        "userId": "60e65eb6ec355941eed5e458a33939cd",
+        "alias": "wywy1995",
+        "introduction": "从历史中发现规律比画出美丽的图形更重要",
+        "vipType": "VIP",
+        "headImgKey": "6784510f0c6abdbcf9a1fed9081a4658"
+      },
+      "tags": [
+        {
+          "id": "12",
+          "name": "基金"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "4dfe6a9b38d90f0599b962569851e873",
+        "backtest_name": "最高评分核心资产轮动-Clone",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=4dfe6a9b38d90f0599b962569851e873&postId=1b1aea4e33780bb81e2883e1ca0e0e69&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2014-01-01",
+          "end_date": "2023-06-09",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "d97e08c97f84bc73bf1ca924bd6a8b20",
+            "28965593"
+          ],
+          "numeric_backtest_id": "28965593",
+          "numeric_post_id": "42673",
+          "python_version": 3,
+          "clone_count": 3220
+        },
+        "stats": {
+          "trading_days": 2297,
+          "benchmark_volatility": 0.22321278121653,
+          "algorithm_volatility": 0.2462835037251,
+          "treasury_return": 0.37753424657534,
+          "algorithm_return": 16.9517931592,
+          "benchmark_return": 0.64663115925546,
+          "annual_algo_return": 0.36928580156554,
+          "annual_bm_return": 0.055780965093528,
+          "sharpe": 1.337019315484,
+          "excess_return_sharpe": "1.077",
+          "sortino": 1.7778187738977,
+          "information": 1.3189815887754,
+          "beta": 0.54175133769811,
+          "alpha": 0.32073644261596,
+          "excess_return": 9.9021337646235,
+          "avg_excess_return": "0.12%",
+          "max_drawdown": 0.3061222076398,
+          "max_drawdown_period": [
+            "2020-02-13",
+            "2020-03-17"
+          ],
+          "excess_return_max_drawdown": "25.93%",
+          "excess_return_max_drawdown_period": [
+            "2020-02-13",
+            "2020-03-17"
+          ],
+          "max_leverage": 0,
+          "period_label": "2023-06",
+          "__version": 101,
+          "win_ratio": 0.55147058823529,
+          "profit_loss_ratio": 2.8744195611636,
+          "win_count": 75,
+          "lose_count": 61,
+          "day_win_ratio": 0.52677405311276,
+          "avg_trade_return": 0.023489387985575,
+          "avg_position_days": 574.25,
+          "turnover_rate": 0.058738605119068,
+          "report_done_seconds": 298.76470303535,
+          "report_done_cpu_seconds": 264.12
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 1695.179316,
+          "benchmark_return_percent": 64.663116,
+          "annual_algo_return_percent": 36.92858,
+          "annual_bm_return_percent": 5.578097,
+          "max_drawdown_percent": 30.612221,
+          "algorithm_volatility_percent": 24.62835,
+          "benchmark_volatility_percent": 22.321278,
+          "win_ratio_percent": 55.147059,
+          "day_win_ratio_percent": 52.677405,
+          "avg_trade_return_percent": 2.348939,
+          "turnover_rate_percent": 5.873861,
+          "sharpe": 1.337019315484,
+          "sortino": 1.7778187738977,
+          "information": 1.3189815887754,
+          "alpha": 0.32073644261596,
+          "beta": 0.54175133769811,
+          "profit_loss_ratio": 2.8744195611636,
+          "avg_position_days": 574.25,
+          "trading_days": 2297,
+          "win_count": 75,
+          "lose_count": 61,
+          "max_drawdown_period": [
+            "2020-02-13",
+            "2020-03-17"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-02-13",
+            "2020-03-17"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/42673",
+      "https://www.joinquant.com/community/post/detailV2?postId=42673",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=4dfe6a9b38d90f0599b962569851e873&postId=1b1aea4e33780bb81e2883e1ca0e0e69&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=4dfe6a9b38d90f0599b962569851e873"
+    ]
+  }
+}

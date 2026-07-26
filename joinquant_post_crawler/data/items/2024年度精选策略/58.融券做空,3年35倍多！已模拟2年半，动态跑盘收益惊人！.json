@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略/58.融券做空,3年35倍多！已模拟2年半，动态跑盘收益惊人！.txt",
+    "category": "2024年度精选策略",
+    "file_name": "58.融券做空,3年35倍多！已模拟2年半，动态跑盘收益惊人！.txt",
+    "strategy_name": "融券做空,3年35倍多！已模拟2年半，动态跑盘收益惊人！",
+    "declared_title": "融券做空,3年35倍多！已模拟2年半，动态跑盘收益惊人！",
+    "declared_author": "naruto",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 6206,
+    "sha256": "0111ad25c9187b894a8bf728f86dd572d045c9bee898ecae92b5befa1cea8db5",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/41913"
+    ],
+    "primary_url": "https://www.joinquant.com/post/41913",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:10:31+08:00",
+    "requested_url": "https://www.joinquant.com/post/41913",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/bc841918244581ae67593c335c30f50a",
+    "community_id": "bc841918244581ae67593c335c30f50a",
+    "post": {
+      "postId": "cbdbe59c8f9c7bdd4b7004b37b83c64e",
+      "uniqueKey": "bc841918244581ae67593c335c30f50a",
+      "title": "融券做空,3年35倍多！已模拟2年半，动态跑盘收益惊人！",
+      "content": "在大A，融券做空的策略并不流行，\n也可能是做空的人少，\n导致做空的策略收益特别牛！\n这个策略2年前写的，\n当时回测下来很牛气，\n就放入到模拟盘自动运行，\n时至今日，\n已经自动跑了2年多了，\n收益惊人，\n回撤小，收益奇高，\n分享出来给大家研究！\n同学们记得点赞哈",
+      "type": 1,
+      "status": "0",
+      "addTime": "2023-04-12 16:23:02",
+      "modTime": "2023-04-12 16:25:59",
+      "lastActiveTime": "2026-03-18 16:36:16",
+      "lastPubTime": "2023-04-12 16:25:59",
+      "backtestId": "122a70bd1523189fe0686321f0162e99",
+      "backtestName": "融资融券-前一日尾盘做空隔日开盘平3",
+      "replyCount": "41",
+      "viewCount": "2744",
+      "collectionCount": "66",
+      "likeCount": "34",
+      "disLikeCount": "0",
+      "backtestCloneCount": "261",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "88",
+      "followersCount": "357",
+      "followingCount": "53",
+      "author": {
+        "userId": "0851becebc99801c100c78e76afc7526",
+        "alias": "naruto",
+        "introduction": "简简单单的一个python爱好者"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "122a70bd1523189fe0686321f0162e99",
+        "backtest_name": "融资融券-前一日尾盘做空隔日开盘平3",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=122a70bd1523189fe0686321f0162e99&postId=bc841918244581ae67593c335c30f50a&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2020-01-01",
+          "end_date": "2023-04-11",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "9a0071be3905f5ba8c9257897482ca23",
+            "28220888"
+          ],
+          "numeric_backtest_id": "28220888",
+          "numeric_post_id": "41913",
+          "python_version": 3,
+          "clone_count": 247
+        },
+        "stats": {
+          "trading_days": 793,
+          "benchmark_volatility": 0.2008221831138,
+          "algorithm_volatility": 0.30894692693519,
+          "treasury_return": 0.13095890410959,
+          "algorithm_return": 35.021441165212,
+          "benchmark_return": 0.00087145863134563,
+          "annual_algo_return": 2.0954167708052,
+          "annual_bm_return": 0.00027465282106909,
+          "sharpe": 6.6529769083488,
+          "excess_return_sharpe": "5.370",
+          "sortino": 10.701386414401,
+          "information": 5.4992766213812,
+          "beta": -0.11619082305171,
+          "alpha": 2.0508010500204,
+          "excess_return": 34.990077301705,
+          "avg_excess_return": "0.48%",
+          "max_drawdown": 0.18806075202875,
+          "max_drawdown_period": [
+            "2021-08-20",
+            "2022-01-18"
+          ],
+          "excess_return_max_drawdown": "19.55%",
+          "excess_return_max_drawdown_period": [
+            "2021-08-20",
+            "2022-01-18"
+          ],
+          "max_leverage": 0,
+          "period_label": "2023-04",
+          "__version": 101,
+          "win_ratio": 0.65935483870968,
+          "profit_loss_ratio": 2.2314469704477,
+          "win_count": 511,
+          "lose_count": 264,
+          "day_win_ratio": 0.56998738965952,
+          "avg_trade_return": 0.020395542779768,
+          "avg_position_days": 1.7593818984547,
+          "turnover_rate": 0.24081192618926,
+          "report_done_seconds": 3262.212690115,
+          "report_done_cpu_seconds": 2937.15
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 3502.144117,
+          "benchmark_return_percent": 0.087146,
+          "annual_algo_return_percent": 209.541677,
+          "annual_bm_return_percent": 0.027465,
+          "max_drawdown_percent": 18.806075,
+          "algorithm_volatility_percent": 30.894693,
+          "benchmark_volatility_percent": 20.082218,
+          "win_ratio_percent": 65.935484,
+          "day_win_ratio_percent": 56.998739,
+          "avg_trade_return_percent": 2.039554,
+          "turnover_rate_percent": 24.081193,
+          "sharpe": 6.6529769083488,
+          "sortino": 10.701386414401,
+          "information": 5.4992766213812,
+          "alpha": 2.0508010500204,
+          "beta": -0.11619082305171,
+          "profit_loss_ratio": 2.2314469704477,
+          "avg_position_days": 1.7593818984547,
+          "trading_days": 793,
+          "win_count": 511,
+          "lose_count": 264,
+          "max_drawdown_period": [
+            "2021-08-20",
+            "2022-01-18"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2021-08-20",
+            "2022-01-18"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/41913",
+      "https://www.joinquant.com/community/post/detailV2?postId=41913",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=122a70bd1523189fe0686321f0162e99&postId=bc841918244581ae67593c335c30f50a&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=122a70bd1523189fe0686321f0162e99"
+    ]
+  }
+}

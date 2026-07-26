@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略/64.基于XGBoost6m滚动选股策略.txt",
+    "category": "2024年度精选策略",
+    "file_name": "64.基于XGBoost6m滚动选股策略.txt",
+    "strategy_name": "基于XGBoost6m滚动选股策略",
+    "declared_title": "基于XGBoost_6m滚动选股策略",
+    "declared_author": "雨汪",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 32149,
+    "sha256": "40f4497d3324f9e00b69cbd44b44e9cf787d244e0425bf2d2f2a317a7debee6e",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/42706"
+    ],
+    "primary_url": "https://www.joinquant.com/post/42706",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:10:36+08:00",
+    "requested_url": "https://www.joinquant.com/post/42706",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/a0174c41e053debf645d68b0e295c95c",
+    "community_id": "a0174c41e053debf645d68b0e295c95c",
+    "post": {
+      "postId": "1a27b49622bb4289821042710140323d",
+      "uniqueKey": "a0174c41e053debf645d68b0e295c95c",
+      "title": "基于XGBoost_6m滚动选股策略",
+      "content": "**概述**\n这段时间在尝试使用机器学习进行因子合成，并使用合成后的因子进行选股操作。该策略是在论坛诸多大佬的基础上做的一些工作，包括@西安交大元老师量化小组 《支持向量机模型（SVM）在多因子选股模型领域的应用》、@quant.show 《基于随机森林和XGBoost的多因子模型分析》、 @cgzol XGBoost《模型多因子策略分享》以及@wywy1995 大佬的机器学习系列。\n\n**主要工作**\n\n- 1.使用月度数据滚动合成训练数据更新模型，滑动窗口6个月。滚动训练的方式将最新信息包含进来，能够相对迅速地适应新的市场环境，一定程度上避免模型失效的风险\n\n- 2.为了加快速度以及避开聚宽函数最大运行30分钟的限制，做了一些工程上的优化\n\n**回测效果**\n回测了19年到现在的表现，由于比较耗时，分成了两段测试，整体年化大概在34%左右。\n![Img](https://image.joinquant.com/2d71702d6092d996b9e0bdad92bf886f) \n![Img](https://image.joinquant.com/878550781f82fe6cb5fb91fb324162b5) \n对于代码以及策略中可能存在的问题，欢迎大家指正，共同交流进步",
+      "type": 1,
+      "status": "0",
+      "addTime": "2023-06-03 19:53:42",
+      "modTime": "2023-06-03 19:54:39",
+      "lastActiveTime": "2025-11-11 21:07:15",
+      "lastPubTime": "2023-06-03 19:54:39",
+      "backtestId": "f3a33582cb5a327eb76e73a995582ef2",
+      "backtestName": "DIY-xgb6m滚动选股-全A-小市值-开板止盈-10只",
+      "replyCount": "57",
+      "viewCount": "3577",
+      "collectionCount": "93",
+      "likeCount": "37",
+      "disLikeCount": "0",
+      "backtestCloneCount": "257",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "3",
+      "followersCount": "99",
+      "followingCount": "11",
+      "author": {
+        "userId": "5d798ea74364028a6cc96ffd2f868fc4",
+        "alias": "雨汪",
+        "introduction": "步履不停",
+        "vipType": "VIP"
+      },
+      "tags": [
+        {
+          "id": "13",
+          "name": "机器学习"
+        },
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "f3a33582cb5a327eb76e73a995582ef2",
+        "backtest_name": "DIY-xgb6m滚动选股-全A-小市值-开板止盈-10只",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=f3a33582cb5a327eb76e73a995582ef2&postId=a0174c41e053debf645d68b0e295c95c&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2021-11-01",
+          "end_date": "2023-05-31",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "e25058b17d80451a3f81b668fa80838a",
+            "28837106"
+          ],
+          "numeric_backtest_id": "28837106",
+          "numeric_post_id": "42706",
+          "python_version": 3,
+          "clone_count": 225
+        },
+        "stats": {
+          "trading_days": 385,
+          "benchmark_volatility": 0.18736691913975,
+          "algorithm_volatility": 0.21088528753342,
+          "treasury_return": 0.063123287671233,
+          "algorithm_return": 0.3916447372,
+          "benchmark_return": -0.1387967248131,
+          "annual_algo_return": 0.2393679118901,
+          "annual_bm_return": -0.09247034233906,
+          "sharpe": 0.94538558958743,
+          "excess_return_sharpe": "2.158",
+          "sortino": 1.2513546355516,
+          "information": 2.2012379778925,
+          "beta": 0.80972760189794,
+          "alpha": 0.30663280451491,
+          "excess_return": 0.61593061394011,
+          "avg_excess_return": "0.13%",
+          "max_drawdown": 0.2118539217112,
+          "max_drawdown_period": [
+            "2022-01-19",
+            "2022-04-28"
+          ],
+          "excess_return_max_drawdown": "8.78%",
+          "excess_return_max_drawdown_period": [
+            "2022-04-25",
+            "2022-06-17"
+          ],
+          "max_leverage": 0,
+          "period_label": "2023-05",
+          "__version": 101,
+          "win_ratio": 0.58273381294964,
+          "profit_loss_ratio": 1.7350479326255,
+          "win_count": 81,
+          "lose_count": 58,
+          "day_win_ratio": 0.52727272727273,
+          "avg_trade_return": 0.025515739613573,
+          "avg_position_days": 35.825242718447,
+          "turnover_rate": 0.034194324689024,
+          "report_done_seconds": 6861.6716294289,
+          "report_done_cpu_seconds": 6218.58
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 39.164474,
+          "benchmark_return_percent": -13.879672,
+          "annual_algo_return_percent": 23.936791,
+          "annual_bm_return_percent": -9.247034,
+          "max_drawdown_percent": 21.185392,
+          "algorithm_volatility_percent": 21.088529,
+          "benchmark_volatility_percent": 18.736692,
+          "win_ratio_percent": 58.273381,
+          "day_win_ratio_percent": 52.727273,
+          "avg_trade_return_percent": 2.551574,
+          "turnover_rate_percent": 3.419432,
+          "sharpe": 0.94538558958743,
+          "sortino": 1.2513546355516,
+          "information": 2.2012379778925,
+          "alpha": 0.30663280451491,
+          "beta": 0.80972760189794,
+          "profit_loss_ratio": 1.7350479326255,
+          "avg_position_days": 35.825242718447,
+          "trading_days": 385,
+          "win_count": 81,
+          "lose_count": 58,
+          "max_drawdown_period": [
+            "2022-01-19",
+            "2022-04-28"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2022-04-25",
+            "2022-06-17"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/42706",
+      "https://www.joinquant.com/community/post/detailV2?postId=42706",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=f3a33582cb5a327eb76e73a995582ef2&postId=a0174c41e053debf645d68b0e295c95c&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=f3a33582cb5a327eb76e73a995582ef2"
+    ]
+  }
+}

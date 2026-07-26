@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略/85.【深度解析 七】BBI指标-大盘涨跌-宽基轮动模型.txt",
+    "category": "2024年度精选策略",
+    "file_name": "85.【深度解析 七】BBI指标-大盘涨跌-宽基轮动模型.txt",
+    "strategy_name": "【深度解析 七】BBI指标-大盘涨跌-宽基轮动模型",
+    "declared_title": "【深度解析 七】BBI指标-大盘涨跌-宽基轮动 模型",
+    "declared_author": "加百力",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 12864,
+    "sha256": "921cc7e8cc59bb397e5ca7ff9d0accaa4be8828f47bd4d640ceab103feada358",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/44521",
+      "https://www.joinquant.com/post/32543"
+    ],
+    "primary_url": "https://www.joinquant.com/post/44521",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:10:48+08:00",
+    "requested_url": "https://www.joinquant.com/post/44521",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/1f61bc3c51daba7bd5d64073576953bf",
+    "community_id": "1f61bc3c51daba7bd5d64073576953bf",
+    "post": {
+      "postId": "b959a45390e3e660123d9bae2a3d0a15",
+      "uniqueKey": "1f61bc3c51daba7bd5d64073576953bf",
+      "title": "【深度解析 七】BBI指标-大盘涨跌-宽基轮动 模型",
+      "content": "##【深度解析 七】BBI指标-大盘涨跌-宽基轮动 模型\n运行周期：每日运行\n持仓数量：1 只ETF基金\n交易对象：一组宽基ETF基金\n筛股部分：无\n排序方式：BBI指标降序排列。选最小的一只\n择时部分：大盘上涨才交易\n止损部分：无\n资金分配：全仓买入选中的ETF基金\n参考文章：https://www.joinquant.com/post/32543\n\n##模型特点\n模型收益与 滑点和交易成本 设置密切相关\n\n模型收益与 每日交易时间 设置密切相关\n\n##加百力分析\n并非只有高收益的模型才值得研究\n\n模型收益与 滑点和交易成本 密切相关，或许说明交易过于频繁\n\n该模型的设计思路和代码都有一些值得学习、借鉴的地方\n\n\n##宽友提问/补充\n欢迎大家提问讨论。热点问题和讨论放在这个部分\n\n\n##深度解析 系列\n我们希望通过对一些经典模型的修改和详细注释，让大家了解量化交易模型的基本结构、设计原理、重要API函数的使用方法。\n\n对代码和注释有疑问的朋友欢迎讨论。也希望各位对错误之处不吝赐教。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2023-10-21 20:49:01",
+      "modTime": "2023-10-21 20:49:01",
+      "lastActiveTime": "2026-03-19 16:37:16",
+      "lastPubTime": "2023-10-21 20:49:01",
+      "backtestId": "024d2de368dc5f090a0dd9c56a6e03a8",
+      "backtestName": "07-宽基轮动模型-2010年至今",
+      "replyCount": "77",
+      "viewCount": "15210",
+      "collectionCount": "58",
+      "likeCount": "48",
+      "disLikeCount": "0",
+      "backtestCloneCount": "140",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "237",
+      "followersCount": "997",
+      "followingCount": "9",
+      "author": {
+        "userId": "edb4ea87866f2bddabb3f64a8638ec41",
+        "alias": "加百力",
+        "introduction": "十八年实战，十六年量化研究。科技公司总裁，985大学导师",
+        "headImgKey": "9b605f8d52bf3d37a3abea2812df9488"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "024d2de368dc5f090a0dd9c56a6e03a8",
+        "backtest_name": "07-宽基轮动模型-2010年至今",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=024d2de368dc5f090a0dd9c56a6e03a8&postId=1f61bc3c51daba7bd5d64073576953bf&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2010-01-01",
+          "end_date": "2023-10-20",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "bac47e12d63873b4ffcf0737ee3415d7",
+            "30627117"
+          ],
+          "numeric_backtest_id": "30627117",
+          "numeric_post_id": "44521",
+          "python_version": 3,
+          "clone_count": 137
+        },
+        "stats": {
+          "trading_days": 3351,
+          "benchmark_volatility": 0.22085535478709,
+          "algorithm_volatility": 0.20809155706551,
+          "treasury_return": 0.552,
+          "algorithm_return": 11.345472543322,
+          "benchmark_return": -0.018203530517265,
+          "annual_algo_return": 0.2062337950609,
+          "annual_bm_return": -0.0013696411103158,
+          "sharpe": 0.79884930174542,
+          "excess_return_sharpe": "0.855",
+          "sortino": 1.2297979169117,
+          "information": 1.0676714361288,
+          "beta": 0.55630937723902,
+          "alpha": 0.18924811434358,
+          "excess_return": 11.574370480092,
+          "avg_excess_return": "0.08%",
+          "max_drawdown": 0.40828424085068,
+          "max_drawdown_period": [
+            "2015-06-12",
+            "2017-05-10"
+          ],
+          "excess_return_max_drawdown": "23.10%",
+          "excess_return_max_drawdown_period": [
+            "2016-01-28",
+            "2017-11-22"
+          ],
+          "max_leverage": 0,
+          "period_label": "2023-10",
+          "__version": 101,
+          "win_ratio": 0.47695724597446,
+          "profit_loss_ratio": 1.2653455823058,
+          "win_count": 859,
+          "lose_count": 942,
+          "day_win_ratio": 0.50999701581617,
+          "avg_trade_return": 0.0014663577443526,
+          "avg_position_days": 175.64285714286,
+          "turnover_rate": 0.53375658258423,
+          "report_done_seconds": 646.91007637978,
+          "report_done_cpu_seconds": 615.25
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 1134.547254,
+          "benchmark_return_percent": -1.820353,
+          "annual_algo_return_percent": 20.62338,
+          "annual_bm_return_percent": -0.136964,
+          "max_drawdown_percent": 40.828424,
+          "algorithm_volatility_percent": 20.809156,
+          "benchmark_volatility_percent": 22.085535,
+          "win_ratio_percent": 47.695725,
+          "day_win_ratio_percent": 50.999702,
+          "avg_trade_return_percent": 0.146636,
+          "turnover_rate_percent": 53.375658,
+          "sharpe": 0.79884930174542,
+          "sortino": 1.2297979169117,
+          "information": 1.0676714361288,
+          "alpha": 0.18924811434358,
+          "beta": 0.55630937723902,
+          "profit_loss_ratio": 1.2653455823058,
+          "avg_position_days": 175.64285714286,
+          "trading_days": 3351,
+          "win_count": 859,
+          "lose_count": 942,
+          "max_drawdown_period": [
+            "2015-06-12",
+            "2017-05-10"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2016-01-28",
+            "2017-11-22"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/44521",
+      "https://www.joinquant.com/community/post/detailV2?postId=44521",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=024d2de368dc5f090a0dd9c56a6e03a8&postId=1f61bc3c51daba7bd5d64073576953bf&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=024d2de368dc5f090a0dd9c56a6e03a8"
+    ]
+  }
+}

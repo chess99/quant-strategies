@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略/79.SVR选股的小市值策略.txt",
+    "category": "2024年度精选策略",
+    "file_name": "79.SVR选股的小市值策略.txt",
+    "strategy_name": "SVR选股的小市值策略",
+    "declared_title": "SVR选股的小市值策略",
+    "declared_author": "南澳",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 10364,
+    "sha256": "7f84435b97b9ef8a1176ae1d31c38911c04c427ca3248a03ee766008acef25c9",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/41611",
+      "https://www.joinquant.com/post/41457"
+    ],
+    "primary_url": "https://www.joinquant.com/post/41611",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:10:44+08:00",
+    "requested_url": "https://www.joinquant.com/post/41611",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/b4a7f574a266526f9190aa10cb5b2682",
+    "community_id": "b4a7f574a266526f9190aa10cb5b2682",
+    "post": {
+      "postId": "952645658552a198023ca6232abe4d19",
+      "uniqueKey": "b4a7f574a266526f9190aa10cb5b2682",
+      "title": "SVR选股的小市值策略",
+      "content": "基于wywy1995大佬的框架 和 aqa兄的随机随林小市值策略（链接：https://www.joinquant.com/view/community/detail/372e154f5293fe2f25fc4d08bd95ea75 ），想到SVM方案在股票预测方面有着比随机森林更好的预测性能，便在随机森林选股的小市值策略上小改推出了下面基于SVM的小市值策略，收益和回撤都控制的还可以，抛砖引玉启发大佬们的进一步改进",
+      "type": 1,
+      "status": "0",
+      "addTime": "2023-03-28 08:15:52",
+      "modTime": "2023-03-28 08:26:28",
+      "lastActiveTime": "2025-06-10 21:35:11",
+      "lastPubTime": "2023-03-28 08:26:28",
+      "backtestId": "e011452fee9de42908b4b57c82cd884f",
+      "backtestName": "SVM选股的小市值策略",
+      "replyCount": "81",
+      "viewCount": "1914",
+      "collectionCount": "26",
+      "likeCount": "19",
+      "disLikeCount": "0",
+      "backtestCloneCount": "149",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "12",
+      "followersCount": "323",
+      "followingCount": "803",
+      "author": {
+        "userId": "4ffd2352170131f85fbed6f7198e16ef",
+        "alias": "南澳",
+        "introduction": "数据分析师，量化编程交易爱好者",
+        "headImgKey": "dbb102af5140b5c91362c9e3e9cd830b"
+      },
+      "tags": [
+        {
+          "id": "13",
+          "name": "机器学习"
+        },
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "e011452fee9de42908b4b57c82cd884f",
+        "backtest_name": "SVM选股的小市值策略",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=e011452fee9de42908b4b57c82cd884f&postId=b4a7f574a266526f9190aa10cb5b2682&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2019-01-01",
+          "end_date": "2023-03-26",
+          "base_capital": 20000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "3d52eb946900da1382e09a908d09101e",
+            "27993986"
+          ],
+          "numeric_backtest_id": "27993986",
+          "numeric_post_id": "41611",
+          "python_version": 3,
+          "clone_count": 138
+        },
+        "stats": {
+          "trading_days": 1026,
+          "benchmark_volatility": 0.23725133009662,
+          "algorithm_volatility": 0.24923486730267,
+          "treasury_return": 0.16898630136986,
+          "algorithm_return": 4.126968085,
+          "benchmark_return": 0.69887461131982,
+          "annual_algo_return": 0.48925129310971,
+          "annual_bm_return": 0.13784261327716,
+          "sharpe": 1.8025218460471,
+          "excess_return_sharpe": "1.319",
+          "sortino": 2.6392433170775,
+          "information": 1.7328019628166,
+          "beta": 0.68646016687383,
+          "alpha": 0.38208623647209,
+          "excess_return": 2.0178613835526,
+          "avg_excess_return": "0.12%",
+          "max_drawdown": 0.2378054739973,
+          "max_drawdown_period": [
+            "2019-09-23",
+            "2020-02-04"
+          ],
+          "excess_return_max_drawdown": "23.79%",
+          "excess_return_max_drawdown_period": [
+            "2019-08-14",
+            "2020-02-17"
+          ],
+          "max_leverage": 0,
+          "period_label": "2023-03",
+          "__version": 101,
+          "win_ratio": 0.69105691056911,
+          "profit_loss_ratio": 3.6049777664033,
+          "win_count": 85,
+          "lose_count": 38,
+          "day_win_ratio": 0.50389863547758,
+          "avg_trade_return": 0.076384309491399,
+          "avg_position_days": 102.15555555556,
+          "turnover_rate": 0.023816378704376,
+          "report_done_seconds": 222.46354103088,
+          "report_done_cpu_seconds": 170.14
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 412.696808,
+          "benchmark_return_percent": 69.887461,
+          "annual_algo_return_percent": 48.925129,
+          "annual_bm_return_percent": 13.784261,
+          "max_drawdown_percent": 23.780547,
+          "algorithm_volatility_percent": 24.923487,
+          "benchmark_volatility_percent": 23.725133,
+          "win_ratio_percent": 69.105691,
+          "day_win_ratio_percent": 50.389864,
+          "avg_trade_return_percent": 7.638431,
+          "turnover_rate_percent": 2.381638,
+          "sharpe": 1.8025218460471,
+          "sortino": 2.6392433170775,
+          "information": 1.7328019628166,
+          "alpha": 0.38208623647209,
+          "beta": 0.68646016687383,
+          "profit_loss_ratio": 3.6049777664033,
+          "avg_position_days": 102.15555555556,
+          "trading_days": 1026,
+          "win_count": 85,
+          "lose_count": 38,
+          "max_drawdown_period": [
+            "2019-09-23",
+            "2020-02-04"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2019-08-14",
+            "2020-02-17"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/41611",
+      "https://www.joinquant.com/community/post/detailV2?postId=41611",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=e011452fee9de42908b4b57c82cd884f&postId=b4a7f574a266526f9190aa10cb5b2682&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=e011452fee9de42908b4b57c82cd884f"
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略/99.波动率交易的前言——期权定价.txt",
+    "category": "2024年度精选策略",
+    "file_name": "99.波动率交易的前言——期权定价.txt",
+    "strategy_name": "波动率交易的前言——期权定价",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 47095,
+    "sha256": "824126b72655d3adac4f414e1a3e2defaf210b4f3c8ff7f52c355022b00e2938",
+    "joinquant_urls": [],
+    "primary_url": null,
+    "url_selection_method": "none"
+  },
+  "remote": null
+}

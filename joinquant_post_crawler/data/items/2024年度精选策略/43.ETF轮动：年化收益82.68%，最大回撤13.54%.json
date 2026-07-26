@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略/43.ETF轮动：年化收益82.68%，最大回撤13.54%.txt",
+    "category": "2024年度精选策略",
+    "file_name": "43.ETF轮动：年化收益82.68%，最大回撤13.54%.txt",
+    "strategy_name": "ETF轮动：年化收益82.68%，最大回撤13.54%",
+    "declared_title": "ETF轮动：年化收益82.68%，最大回撤13.54%",
+    "declared_author": "小武子",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 4923,
+    "sha256": "a8dbf037d749327d94a1fb613ad27fec615c7a278541b0d169933a0832c910dd",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/43083",
+      "https://www.joinquant.com/post/42673",
+      "https://www.joinquant.com/view/community/detail/a31a822d1cfa7e83b1dda228d4562a70",
+      "https://www.joinquant.com/post/26142"
+    ],
+    "primary_url": "https://www.joinquant.com/post/43083",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "post_without_backtest",
+    "collected_at": "2026-07-27T02:10:21+08:00",
+    "requested_url": "https://www.joinquant.com/post/43083",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/693d84fdb57c5f3985f4d98dc4353ac0",
+    "community_id": "693d84fdb57c5f3985f4d98dc4353ac0",
+    "post": {
+      "postId": "0303ef65a654a69b02b89ad5ceb1aaa5",
+      "uniqueKey": "693d84fdb57c5f3985f4d98dc4353ac0",
+      "title": "删除",
+      "content": "<p>删</p>",
+      "type": 1,
+      "status": "0",
+      "addTime": "2023-07-01 01:30:16",
+      "modTime": "2026-03-27 23:36:13",
+      "lastActiveTime": "2026-03-27 23:36:13",
+      "lastPubTime": "2026-03-27 23:36:13",
+      "replyCount": "94",
+      "viewCount": "5895",
+      "collectionCount": "91",
+      "likeCount": "58",
+      "disLikeCount": "0",
+      "backtestCloneCount": "349",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "4",
+      "followersCount": "44",
+      "followingCount": "45",
+      "author": {
+        "userId": "4bfbeb27f2aad8f7ae9799a350d2369d",
+        "alias": "小武子",
+        "vipType": "VIP"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        }
+      ]
+    },
+    "backtests": [],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 4,
+    "request_urls": [
+      "https://www.joinquant.com/post/43083",
+      "https://www.joinquant.com/community/post/detailV2?postId=43083",
+      "https://www.joinquant.com/community/post/replyList?page=1&postId=693d84fdb57c5f3985f4d98dc4353ac0",
+      "https://www.joinquant.com/community/post/replyList?page=2&postId=693d84fdb57c5f3985f4d98dc4353ac0",
+      "https://www.joinquant.com/community/post/replyList?page=3&postId=693d84fdb57c5f3985f4d98dc4353ac0"
+    ]
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略/41.人工智能强化学习DQN交易智能体（回馈社区公开训练代码）.txt",
+    "category": "2024年度精选策略",
+    "file_name": "41.人工智能强化学习DQN交易智能体（回馈社区公开训练代码）.txt",
+    "strategy_name": "人工智能强化学习DQN交易智能体（回馈社区公开训练代码）",
+    "declared_title": "人工智能强化学习DQN交易智能体（回馈社区公开训练代码）",
+    "declared_author": "MarioC",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 3976,
+    "sha256": "bf4f31552297e6ad232bb780917d926e40a27b55ca48719305f37777d29262b3",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/44758"
+    ],
+    "primary_url": "https://www.joinquant.com/post/44758",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:10:18+08:00",
+    "requested_url": "https://www.joinquant.com/post/44758",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/805b669d7879b8ca1c784ce6b053617c",
+    "community_id": "805b669d7879b8ca1c784ce6b053617c",
+    "post": {
+      "postId": "a6171d1275c751f26ef712881468eaea",
+      "uniqueKey": "805b669d7879b8ca1c784ce6b053617c",
+      "title": "人工智能强化学习DQN交易智能体（回馈社区公开训练代码）",
+      "content": "无广告！！！\n求别封号\n\n\n\n因为之前使用有监督学习的深度学习或传统算法容易出现过拟合问题。也许在金融市场中，每次盈利并非绝对正确，每次亏损也不一定完全错误。这意味着我们的标签并非客观事实，这也是许多人工智能算法难以有效利用的原因。\n\n因此，我在网络上找到了一个简单的强化学习股票操作的示例，并在此基础上进行了一些微调以在聚宽上重新实现，以便各位聚宽老哥可以使用。\n\n首先，让我解释一下建模的思路：当模型发出买入指令时，我们会一次性全部买入；当模型发出卖出指令时，则会一次性全部卖出。模型只对一支股票进行操作。我们选择了Q-learning模型。（如果您对Q-learning和DeepQ不熟悉，建议先了解这两个模型，以免后续难以理解）\n\n总结一下，这个版本的强化学习还存在许多漏洞，需要许多地方进行完善：\n1、训练效果不太好。\n2、奖励函数我随意修改了一些，可以进一步精细化。\n3、可以尝试分批次进行买卖，而不是一次性全部买入或卖出。\n\n请注意：这个模型仍然相当初级！学习和娱乐的话还可以，但如果想要实际应用，建议进行充分优化。\n\n关于优化方向，我大致提出了一些想法：\n1、在大型数据集中使用transformer进行无监督学习预训练，然后在需要使用时进行股票迁移学习微调（类似阿尔法狗的方法）。\n2、Q网络可以更复杂一些，因为强化学习学习的不是拟合标签，而是博弈规则。\n\n个人的实战计划目前主要包括三个方面：\n1、利用树模型选择可投资的优质股票（详情请参阅我之前发布的一些关于小市值xgboots选股的内容）。\n2、利用强化学习确定优质股票的加仓、减仓和平仓点等。\n3、引入人为的强制买卖点。\n\n该策略正在不断开发和完善中，预计明年二月份可以开始分享特定股票的信息。\n\n将研究复制到研究环境中，改动里面的：'000065.XSHE'变成自己想要的个股。然后就可以训练了，训练过程中，会保存出模型，然后运行回测，就可以跑通了。\ndate='2022-11-01'\nby_date = '2018-01-01'\ndf= get_price('000065.XSHE',\nstart_date=by_date,\nend_date=date,\nfrequency='1d', )\n\n\n\n这个训练大概流程图如下\n\n![Img](https://image.joinquant.com/e909eb417837774fa3f1709b2c2aba6c) \n\n训练过程的loss变化如下\n![Img](https://image.joinquant.com/2ed09222a5377872a661f7a02b8db68e) \n训练过程的reword变化如下\n![Img](https://image.joinquant.com/0d9f2991e4734839c9d3184cf3ab50c4)",
+      "type": 1,
+      "status": "0",
+      "addTime": "2023-11-04 15:16:24",
+      "modTime": "2024-06-14 19:28:11",
+      "lastActiveTime": "2026-06-16 19:19:24",
+      "lastPubTime": "2024-06-14 19:28:11",
+      "backtestId": "fe23c39870fe4d2bc738ba3d5846ef08",
+      "backtestName": "DQN交易智能体-V1.0",
+      "replyCount": "110",
+      "viewCount": "12012",
+      "collectionCount": "247",
+      "likeCount": "123",
+      "disLikeCount": "0",
+      "backtestCloneCount": "411",
+      "notebookCloneCount": "235",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "62",
+      "followersCount": "4970",
+      "followingCount": "36",
+      "author": {
+        "userId": "69797f97f29bd5d539f9b34dcbe87d8e",
+        "alias": "MarioC",
+        "introduction": "人工智能爱好者，gzh：Mario量化",
+        "headImgKey": "44901f16b2618622495468b8b1a70019"
+      },
+      "tags": [
+        {
+          "id": "13",
+          "name": "机器学习"
+        },
+        {
+          "id": "14",
+          "name": "函数"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "fe23c39870fe4d2bc738ba3d5846ef08",
+        "backtest_name": "DQN交易智能体-V1.0",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=fe23c39870fe4d2bc738ba3d5846ef08&postId=805b669d7879b8ca1c784ce6b053617c&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2018-01-01",
+          "end_date": "2022-11-01",
+          "base_capital": 10000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "97ced133f6e0c6cddbfe8c49fad1fa4d",
+            "30821925"
+          ],
+          "numeric_backtest_id": "30821925",
+          "numeric_post_id": "44758",
+          "python_version": 3,
+          "clone_count": 411
+        },
+        "stats": {
+          "trading_days": 1172,
+          "benchmark_volatility": 0.42402605562669,
+          "algorithm_volatility": 0.18192845746072,
+          "treasury_return": 0.19331506849315,
+          "algorithm_return": 1.55321042,
+          "benchmark_return": -0.24148657498363,
+          "annual_algo_return": 0.22133803062123,
+          "annual_bm_return": -0.057253571356823,
+          "sharpe": 0.99675462075737,
+          "excess_return_sharpe": "0.660",
+          "sortino": 1.9462226290002,
+          "information": 0.71827615124541,
+          "beta": 0.17369367717784,
+          "alpha": 0.19823036104888,
+          "excess_return": 2.366071496948,
+          "avg_excess_return": "0.13%",
+          "max_drawdown": 0.19469094172866,
+          "max_drawdown_period": [
+            "2022-03-10",
+            "2022-06-20"
+          ],
+          "excess_return_max_drawdown": "43.03%",
+          "excess_return_max_drawdown_period": [
+            "2021-10-28",
+            "2022-08-29"
+          ],
+          "max_leverage": 0,
+          "period_label": "2022-11",
+          "__version": 101,
+          "win_ratio": 0.6140350877193,
+          "profit_loss_ratio": 2.1586219095782,
+          "win_count": 70,
+          "lose_count": 44,
+          "day_win_ratio": 0.48378839590444,
+          "avg_trade_return": 0.016898240617245,
+          "avg_position_days": 125,
+          "turnover_rate": 0.079598896788917,
+          "report_done_seconds": 70.035645961761,
+          "report_done_cpu_seconds": 59.18
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 155.321042,
+          "benchmark_return_percent": -24.148657,
+          "annual_algo_return_percent": 22.133803,
+          "annual_bm_return_percent": -5.725357,
+          "max_drawdown_percent": 19.469094,
+          "algorithm_volatility_percent": 18.192846,
+          "benchmark_volatility_percent": 42.402606,
+          "win_ratio_percent": 61.403509,
+          "day_win_ratio_percent": 48.37884,
+          "avg_trade_return_percent": 1.689824,
+          "turnover_rate_percent": 7.95989,
+          "sharpe": 0.99675462075737,
+          "sortino": 1.9462226290002,
+          "information": 0.71827615124541,
+          "alpha": 0.19823036104888,
+          "beta": 0.17369367717784,
+          "profit_loss_ratio": 2.1586219095782,
+          "avg_position_days": 125,
+          "trading_days": 1172,
+          "win_count": 70,
+          "lose_count": 44,
+          "max_drawdown_period": [
+            "2022-03-10",
+            "2022-06-20"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2021-10-28",
+            "2022-08-29"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/44758",
+      "https://www.joinquant.com/community/post/detailV2?postId=44758",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=fe23c39870fe4d2bc738ba3d5846ef08&postId=805b669d7879b8ca1c784ce6b053617c&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=fe23c39870fe4d2bc738ba3d5846ef08"
+    ]
+  }
+}

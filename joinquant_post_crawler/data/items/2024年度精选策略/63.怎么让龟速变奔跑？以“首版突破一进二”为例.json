@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略/63.怎么让龟速变奔跑？以“首版突破一进二”为例.txt",
+    "category": "2024年度精选策略",
+    "file_name": "63.怎么让龟速变奔跑？以“首版突破一进二”为例.txt",
+    "strategy_name": "怎么让龟速变奔跑？以“首版突破一进二”为例",
+    "declared_title": "怎么让龟速变奔跑？以“首版突破一进二”为例",
+    "declared_author": "jqz1226",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 8419,
+    "sha256": "9b28fd781369d8360a956f93c0255195f5d2959884d15ab18d05d02f428fe0ef",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/45733",
+      "https://www.joinquant.com/post/45724"
+    ],
+    "primary_url": "https://www.joinquant.com/post/45733",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:10:35+08:00",
+    "requested_url": "https://www.joinquant.com/post/45733",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/002488c5cef3f9716dd03a0a1f3f6d32",
+    "community_id": "002488c5cef3f9716dd03a0a1f3f6d32",
+    "post": {
+      "postId": "83da9ad1fb93796e57d84e2c6dcb28fa",
+      "uniqueKey": "002488c5cef3f9716dd03a0a1f3f6d32",
+      "title": "怎么让龟速变奔跑？以“首版突破一进二”为例",
+      "content": "文章：https://www.joinquant.com/post/45724\n标题：首版突破一进二\n作者：klaus5\n\n在社区看到这个世界上最慢的龟速策略：`回测一天花25分钟，回测一个月10个小时，简直是天下奇观！`\n\n当一堂公开课吧，想学习如何提速的同学，可以对比一下原策略和我修改后的策略，体会一下。\n\n![Img](https://image.joinquant.com/93cb177f3429794460fc1217cf732581) \n\n我改了一下，`回测速度提升了20倍，测了5个月，花了80分钟`。\n\n声明：`本策略没有任何价值`，只是把它当运行效率的反面教材，作为代码提速的案例。\n\n下面按照执行顺序来剖析：\n## 1. before_market_open\n选出可以去打板的股票池，经过了两步：简单过滤和进一步筛选。\n### 1.1）简单过滤\n过滤：次新（上市30天以上）、ST、停牌，创业板、科创板，以及流通市值大于150亿的股票。\n过滤流通市值的时候，原代码是这样的：\n```\ndef filter_stock_by_days(context, stock_list, days):\n    tmpList = []\n    for stock in stock_list :\n        ......\n        market_cap = get_circulating_market_cap(stock)\n        market_cap_num = market_cap['circulating_market_cap'].values\n        if ...... market_cap_num &lt; 150:\n            tmpList.append(stock)\n    return tmpList\n\n# 获取个股流通市 值数据\ndef get_circulating_market_cap(stock_list):\n    query_list = [stock_list]\n    q = query(valuation.code,valuation.circulating_market_cap).filter(valuation.code.in_(query_list))\n    market_cap = get_fundamentals(q)\n    market_cap.set_index('code', inplace=True)\n    return market_cap\n```\n显然，这段过滤流通市值的代码，有两处可以改进：\n`原则1. 能成批处理的，绝不用循环去one-by-one`\n`原则2. 能一步到位的，尽量少用中间变量`\n于是，改成无循环的一步到位：\n```\n    # 过滤掉：流通市值&gt;=150\n    stock_list = get_fundamentals(\n        query(\n            valuation.code\n        ).filter(\n            valuation.code.in_(stock_list),\n            valuation.circulating_market_cap &lt; 150\n        )\n    )['code'].tolist()\n```\n###1.2）进一步筛选：pick_high_limit函数\n原pick_high_limit函数充斥着`大量无用的废话`。\n`原则3. 绝不写无用的废代码`\n无用的废代码包括：\n- A）调试过程中写的log\n- B）注释掉了的代码行\nA,B两类虽然不影响执行，但影响阅读，去掉，给程序洗去污垢，这样看起来简短了不少。\n\n重要的是第三类废代码：\n- `C）获取不用的数据`\n这种空耗时间去取数，取来了却不用，做无用功，徒耗时间和资源，是大忌。\n而原pick_high_limit函数中一大堆这样的`第一种空耗资源的代码`，其特征是`C1.给变量赋值，但这个变量后来却再也没有用过`。\n比如第一遍清理，就可以发现，如下8条变量赋值，是没有用的:\n\n```\ndf_money = df_panel['money']\n_open = (df_open[stock].values)\n_pre_close = (df_pre_close[stock].values)\n_low = (df_low[stock].values)\nsum_plus_max_50 = (df_panel_50.loc[:, 'close'] == df_panel_50.loc[:, 'high_limit']).sum()\nrate_50 = (high_alldayy_50 - low_allday_50) / low_allday_50\nsum_plus_max_500 = (df_panel_500.loc[:, 'close'] == df_panel_500.loc[:, 'high_limit']).sum()\nsum_plus_max_10 = (df_panel_10.loc[:, 'close'] == df_panel_10.loc[:, 'high_limit']).sum()\n```\n但第一遍清理掉这8条无用的计算赋值语句后，又会新出现不再被使用的变量赋值，比如下面这4条语句：\n```\ndf_open = df_panel['open']\ndf_low = df_panel['low']\ndf_pre_close = df_panel['pre_close']\nlow_allday_50 = df_panel_50.loc[:, \"close\"].min()\n```\n一口气清理掉了12条无用的计算赋值语句，那这些计算所需的时间，是不是节省下来了？\n清理掉A\\B\\C三类废代码之后，该函数从47行减肥到26行，一眼就能看清代码逻辑了，而不至于被杂草挡住视线。\n\n原pick_high_limit函数中还充斥着`第二种空耗资源的代码`，其特征是`C2. get超过自己所需的数据`。比如：\n```\ndf_panel = get_price(stocks, count=1, end_date=end_date, \n     fields=['open', 'close', 'high_limit', 'money', 'pre_close', 'low'])\ndf_close = df_panel['close']\ndf_high_limit = df_panel['high_limit']\n```\n可以看到取了6个字段的数据，只用了其中2个：close和high_limit。\n类似这样的获取超过自己所需的数据的代码，在这个函数里，比比皆是，每一条get_price语句都是如此。\n聚宽是免费的，不按数据量算你的钱，但也不能这么糟蹋吧？而且这样，也是损人不利己，自己等待取数的时间，也变长了。\n\n原pick_high_limit函数中还充斥着`第三种空耗资源的代码`，其特征是`C3. 反复获取同样的数据`。比如：\n```\ndf_panel_500 = get_price(stock, count = 300,end_date=end_date, frequency='daily', fields=['open', 'close','high_limit','money','low'],skip_paused=True)\ndf_panel_50 = get_price(stock, count = 50,end_date=end_date, frequency='daily', fields=['open', 'close','high_limit','money','low'],skip_paused=True)\ndf_panel_10 = get_price(stock, count = 10,end_date=end_date, frequency='daily', fields=['open', 'close','high_limit','money','low'],skip_paused=True)\n```\n分别取了300条、50条、10条数据，很明显，后面的50条和10条是300条其中的一部分，那就应该只取一次，去反复利用。\nget_price是很费资源和时间的。想想，如果要筛选2000只股票，每一只股票要get_price同样的数据3遍，这就要调用6000次get_price！\n而我是这样做的：\n```\n    df_day_300 = get_price(stock_list, end_date=end_date, frequency='daily',\n                           fields=['close'], count=300, panel=False)\n    # 过去300个交易日close的最大值\n    s_high_300 = df_day_300.groupby('code')['close'].apply(lambda x: x.max())  \n    # 过去300个交易日close的振幅\n    s_rate_300 = df_day_300.groupby('code')['close'].apply(lambda x: x.max() / x.min() - 1)\n   \n    # 过去50个交易日close的最大值\n    s_high_50 = df_day_300.groupby('code')['close'].apply(lambda x: x[-50:].max())  \n\n    # 过去10个交易日close的最大值\n    s_high_10 = df_day_300.groupby('code')['close'].apply(lambda x: x[-10:].max())  \n    # 过去10个交易日close的振幅\n    s_rate_10 = df_day_300.groupby('code')['close'].apply(lambda x: x[-10:].max() / x[-10:].min() - 1)\n```\n我`只调用了1次get_price。1次get_price：6000次get_price`，你说，谁的速度会快？\n\n今天先写到这里，明天再接着批。\n\n罄竹难书啊！\n\nP.S. 代码更正：\n```\ndef function_buy(context, stock):\n    ......\n    if len(stock_owner) &lt;  20:\n        open_cash = context.portfolio.available_cash / (20 - len(stock_owner))\n```\n`请将其中的20改为g.max_stock_num`",
+      "type": 1,
+      "status": "0",
+      "addTime": "2023-12-29 13:02:46",
+      "modTime": "2023-12-30 21:15:39",
+      "lastActiveTime": "2025-06-28 23:30:04",
+      "lastPubTime": "2023-12-30 21:15:39",
+      "backtestId": "5114e785beddeae7885fa7e2370c19e1",
+      "backtestName": "首版突破一进二(改)",
+      "replyCount": "44",
+      "viewCount": "6623",
+      "collectionCount": "121",
+      "likeCount": "96",
+      "disLikeCount": "0",
+      "backtestCloneCount": "292",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "114",
+      "followersCount": "7737",
+      "followingCount": "24",
+      "author": {
+        "userId": "ed9f4ba49e0940787557e93c792aca5d",
+        "alias": "jqz1226 ZUEL",
+        "headImgKey": "f8ad1df3e2e743d648263f8a8032baa9"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "5114e785beddeae7885fa7e2370c19e1",
+        "backtest_name": "首版突破一进二(改)",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=5114e785beddeae7885fa7e2370c19e1&postId=002488c5cef3f9716dd03a0a1f3f6d32&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2023-08-01",
+          "end_date": "2023-12-28",
+          "base_capital": 2000000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "47495411ed263b619d86520c8153a149",
+            "31741001"
+          ],
+          "numeric_backtest_id": "31741001",
+          "numeric_post_id": "45733",
+          "python_version": 3,
+          "clone_count": 292
+        },
+        "stats": {
+          "trading_days": 102,
+          "benchmark_volatility": 0.12883754178862,
+          "algorithm_volatility": 0.1609562019126,
+          "treasury_return": 0.016328767123288,
+          "algorithm_return": 0.19855473245,
+          "benchmark_return": -0.14947571756301,
+          "annual_algo_return": 0.5587946250532,
+          "annual_bm_return": -0.3275445424737,
+          "sharpe": 3.2232036969592,
+          "excess_return_sharpe": "5.804",
+          "sortino": 5.0496968217162,
+          "information": 4.0365812614453,
+          "beta": -0.17193429622459,
+          "alpha": 0.45560111281179,
+          "excess_return": 0.40919519548085,
+          "avg_excess_return": "0.35%",
+          "max_drawdown": 0.07892854625,
+          "max_drawdown_period": [
+            "2023-08-01",
+            "2023-10-12"
+          ],
+          "excess_return_max_drawdown": "8.17%",
+          "excess_return_max_drawdown_period": [
+            "2023-12-18",
+            "2023-12-28"
+          ],
+          "max_leverage": 0,
+          "period_label": "2023-12",
+          "__version": 101,
+          "win_ratio": 0.42014742014742,
+          "profit_loss_ratio": 1.2099571975094,
+          "win_count": 342,
+          "lose_count": 472,
+          "day_win_ratio": 0.66666666666667,
+          "avg_trade_return": 0.0061526346755715,
+          "avg_position_days": 2.1283095723014,
+          "turnover_rate": 0.40120465825726,
+          "report_done_seconds": 4828.2573537827,
+          "report_done_cpu_seconds": 4823.35
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 19.855473,
+          "benchmark_return_percent": -14.947572,
+          "annual_algo_return_percent": 55.879463,
+          "annual_bm_return_percent": -32.754454,
+          "max_drawdown_percent": 7.892855,
+          "algorithm_volatility_percent": 16.09562,
+          "benchmark_volatility_percent": 12.883754,
+          "win_ratio_percent": 42.014742,
+          "day_win_ratio_percent": 66.666667,
+          "avg_trade_return_percent": 0.615263,
+          "turnover_rate_percent": 40.120466,
+          "sharpe": 3.2232036969592,
+          "sortino": 5.0496968217162,
+          "information": 4.0365812614453,
+          "alpha": 0.45560111281179,
+          "beta": -0.17193429622459,
+          "profit_loss_ratio": 1.2099571975094,
+          "avg_position_days": 2.1283095723014,
+          "trading_days": 102,
+          "win_count": 342,
+          "lose_count": 472,
+          "max_drawdown_period": [
+            "2023-08-01",
+            "2023-10-12"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2023-12-18",
+            "2023-12-28"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/45733",
+      "https://www.joinquant.com/community/post/detailV2?postId=45733",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=5114e785beddeae7885fa7e2370c19e1&postId=002488c5cef3f9716dd03a0a1f3f6d32&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=5114e785beddeae7885fa7e2370c19e1"
+    ]
+  }
+}

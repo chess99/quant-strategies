@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略/19.高股息低市盈率高增长的价投策略.txt",
+    "category": "2024年度精选策略",
+    "file_name": "19.高股息低市盈率高增长的价投策略.txt",
+    "strategy_name": "高股息低市盈率高增长的价投策略",
+    "declared_title": "高股息低市盈率高增长的价投策略",
+    "declared_author": "芹菜1303",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 10232,
+    "sha256": "9431a8e7d65d08f08fc46a12ca260569ce6871824c5172ad1f6afda8c95ead83",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/45552"
+    ],
+    "primary_url": "https://www.joinquant.com/post/45552",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:09:59+08:00",
+    "requested_url": "https://www.joinquant.com/post/45552",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/ef2d8378748d8d2065c71202b2c0031b",
+    "community_id": "ef2d8378748d8d2065c71202b2c0031b",
+    "post": {
+      "postId": "6ebd1351c748899cf7359ff08d88800e",
+      "uniqueKey": "ef2d8378748d8d2065c71202b2c0031b",
+      "title": "高股息低市盈率高增长的价投策略",
+      "content": "本策略主打一个稳；\n高分红，低市盈率，高增长；\n拿着放心增幅稳定；\n没有暴涨暴跌，也不会有超高收益，但都能跑赢ETF300；\n适合中老年投资者，拿走不谢，顺便收割点积分，呵呵。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2023-12-17 13:33:19",
+      "modTime": "2023-12-18 12:24:20",
+      "lastActiveTime": "2026-06-27 18:58:23",
+      "lastPubTime": "2023-12-18 12:24:20",
+      "backtestId": "a876a6444284b0f7483d8ab16beb9565",
+      "backtestName": "高股息-低市盈率长期价值投资策略",
+      "replyCount": "362",
+      "viewCount": "25699",
+      "collectionCount": "483",
+      "likeCount": "248",
+      "disLikeCount": "1",
+      "backtestCloneCount": "2036",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "8",
+      "followersCount": "448",
+      "followingCount": "28",
+      "author": {
+        "userId": "15d6625b6eef8b516e0b0ec3b1d9c062",
+        "alias": "芹菜1303",
+        "vipType": "VIP",
+        "headImgKey": "b68e09532b35a96efd96d88cc6a572f3"
+      },
+      "tags": [
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "a876a6444284b0f7483d8ab16beb9565",
+        "backtest_name": "高股息-低市盈率长期价值投资策略",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=a876a6444284b0f7483d8ab16beb9565&postId=ef2d8378748d8d2065c71202b2c0031b&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2013-01-01",
+          "end_date": "2023-01-01",
+          "base_capital": 200000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "def62db0658da342dad9e1a087054ed1",
+            "31537019"
+          ],
+          "numeric_backtest_id": "31537019",
+          "numeric_post_id": "45552",
+          "python_version": 3,
+          "clone_count": 1641
+        },
+        "stats": {
+          "trading_days": 2430,
+          "benchmark_volatility": 0.22611479942354,
+          "algorithm_volatility": 0.21711440762083,
+          "treasury_return": 0.39967123287671,
+          "algorithm_return": 20.271716764775,
+          "benchmark_return": 0.5345646960899,
+          "annual_algo_return": 0.36963611709037,
+          "annual_bm_return": 0.045043287652113,
+          "sharpe": 1.5182599842293,
+          "excess_return_sharpe": "1.866",
+          "sortino": 2.0762631762521,
+          "information": 2.2533806394737,
+          "beta": 0.75806959234233,
+          "alpha": 0.32581295407587,
+          "excess_return": 12.861726924238,
+          "avg_excess_return": "0.11%",
+          "max_drawdown": 0.21720211733503,
+          "max_drawdown_period": [
+            "2018-06-06",
+            "2018-10-18"
+          ],
+          "excess_return_max_drawdown": "21.45%",
+          "excess_return_max_drawdown_period": [
+            "2020-11-18",
+            "2021-02-10"
+          ],
+          "max_leverage": 0,
+          "period_label": "2022-12",
+          "__version": 101,
+          "win_ratio": 0.63581488933602,
+          "profit_loss_ratio": 2.3676752019455,
+          "win_count": 316,
+          "lose_count": 181,
+          "day_win_ratio": 0.52674897119342,
+          "avg_trade_return": 0.070904824099291,
+          "avg_position_days": 109.23115577889,
+          "turnover_rate": 0.021994274387014,
+          "report_done_seconds": 938.69525074959,
+          "report_done_cpu_seconds": 860.32
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 2027.171676,
+          "benchmark_return_percent": 53.45647,
+          "annual_algo_return_percent": 36.963612,
+          "annual_bm_return_percent": 4.504329,
+          "max_drawdown_percent": 21.720212,
+          "algorithm_volatility_percent": 21.711441,
+          "benchmark_volatility_percent": 22.61148,
+          "win_ratio_percent": 63.581489,
+          "day_win_ratio_percent": 52.674897,
+          "avg_trade_return_percent": 7.090482,
+          "turnover_rate_percent": 2.199427,
+          "sharpe": 1.5182599842293,
+          "sortino": 2.0762631762521,
+          "information": 2.2533806394737,
+          "alpha": 0.32581295407587,
+          "beta": 0.75806959234233,
+          "profit_loss_ratio": 2.3676752019455,
+          "avg_position_days": 109.23115577889,
+          "trading_days": 2430,
+          "win_count": 316,
+          "lose_count": 181,
+          "max_drawdown_period": [
+            "2018-06-06",
+            "2018-10-18"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-11-18",
+            "2021-02-10"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/45552",
+      "https://www.joinquant.com/community/post/detailV2?postId=45552",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=a876a6444284b0f7483d8ab16beb9565&postId=ef2d8378748d8d2065c71202b2c0031b&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=a876a6444284b0f7483d8ab16beb9565"
+    ]
+  }
+}

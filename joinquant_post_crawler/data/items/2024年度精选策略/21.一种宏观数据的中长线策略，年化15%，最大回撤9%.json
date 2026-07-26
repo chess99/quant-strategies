@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略/21.一种宏观数据的中长线策略，年化15%，最大回撤9%.txt",
+    "category": "2024年度精选策略",
+    "file_name": "21.一种宏观数据的中长线策略，年化15%，最大回撤9%.txt",
+    "strategy_name": "一种宏观数据的中长线策略，年化15%，最大回撤9%",
+    "declared_title": "一种宏观数据的中长线策略，年化15%，最大回撤9%",
+    "declared_author": "Acne Studio",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 15022,
+    "sha256": "5d55e30ef811ceda9ef64f13f874d38ae84204dcbf2fb248274188563d08c88b",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/40154"
+    ],
+    "primary_url": "https://www.joinquant.com/post/40154",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:06+08:00",
+    "requested_url": "https://www.joinquant.com/post/40154",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/582e3e434ad3426612b4036e9ac18d31",
+    "community_id": "582e3e434ad3426612b4036e9ac18d31",
+    "post": {
+      "postId": "281ff4ee09c513bf9b7a95207b019ad7",
+      "uniqueKey": "582e3e434ad3426612b4036e9ac18d31",
+      "title": "一种宏观数据的中长线策略，年化15%，最大回撤9%",
+      "content": "我们都知道，股市的表现取决两个因素，一个是国家放水的量，一个经济周期如何演绎。在我看来，国家放水的量难以使用某些指标去计算，因为更新频率过慢，难以捕捉相对准确的时间点。但是，经济周期这个指标我们却可以使用制造业的PMI来衡量。\n\nPMI如何解读？以下三种方式同时用上，你就能大概了解当下经济的扩张与收缩阶段了。\n\n    （1）比荣枯线（扩散指数）\n    50%被称为“荣枯线”，PMI高于（低于）50%，说明境况改善\n    的企业占据多数，反映经济总体较上月扩张（收缩）。\n    （2）比前值（环比指标） \n    由于调查问卷上的问题多是相对于上个月的变化，所以PMI具有环比意义。 \n    假定PMI&gt;50%，如果高于（低于）前值，说明经济扩张的节奏加快（放缓）。反之亦然。\n    （3）比同期（季节性）\n    发布的指数为季调后的数据，但是仍存在季节性。 \n    当月PMI需要和历时同期比较，剔除季节性的变化更能反映经济\n脉冲趋势\n\n![Img]( https://image.joinquant.com/9e18031edd30c637ab6b66bdda0792f5) \n\n    ** 以上这张图片来源于海通证券，此处引用方便大家理解**\n\n制造业的PMI只是一个值，我们该怎么分析美林时钟上面的四个阶段呢？我们先来看一个PMI的计算方法：\n\n    制造业PMI = 新订单指数×30% + 生产指数×25% + 从业人员指数×20% +（100-供应商配送时间指数）×15% + 主要原材料库存×10%\n    注：供应商配送时间指数为逆指数，合成指数时反向运算\n\n从这条计算公式可以看出，新订单指数和生产指数两者加起来的权重占据了一半以上PMI的权重。因此我们可以使用两个数据来分析当前阶段下，PMI指数是否迎来曙光。\n我们将这个两个数据类比供需模式，通过画图，就可以清晰的知道如何分析PMI指数\n\n![Img]( https://image.joinquant.com/9974a31f7121fecea7135539a58ef595) \n\n当经济进入复苏的时候，新订单量（需求）会快速增加，但此时生产量（供给）还不能够及时的跟上。而刀了过热的时候，新订单量和生产量会进入各自的高峰。随后会新订单量快速下降，但是生产商没有更上市场节奏形成了滞涨。当他们选择去产能的时候，经济就会陷入衰退。\n\n有分析还不够，还需要验证这个周期是否有未来预期。未来预期可以使用库存分析方法，通过原材料库存指数和产成品库存指数来验证这个值是否值得对未来有所期待。\n\n    制造业PMI库存指标包含两个：原材料库存和产成品库存。\n    主动去库：需求开始回落，企业预期转弱，首先会去化原材料库存，但是产成品库存则会堆积。\n    被动去库：需求触底反弹，但企业仍然谨慎，原材料库存继续下行，产成品库存也将去化。\n    主动补库：需求持续回升，企业预期开始乐观，产成品库存继续去化，但是原材料库存开始补充。\n    被动补库：需求开始下滑，但企业仍然乐观，原材料库存堆积，产成品库存也会跟着回补。\n\n具体的四象限图就不和大家画了，各位同学可以自行脑补。\n\n以上说明了我们是如何量化宏观周期的，但是我们都知道，美林时钟在进入到过热阶段后，经济数据扩张速度会有所放缓，也就是说对经济的支撑力度就变弱了。那么我们怎么能知道经济扩张速度放缓呢？我们可以计算供需格局来获取该信息了。计算方式如下：\n\n    PMI供需格局得分=新订单指数百分位×2/3 + 生产指数百分位×1/3\n\n所谓物极必反，利用正太分布来分析这个得分，如果这个得分超过97分，则可以认为经济扩张苏在未来有极大的概率减弱。此时需要果断卖出股票类标的。\n然后通过制造业PMI的库存指标来验证这个想法，如果库存指标处于滞涨状态，则一切都要小心谨慎。（我的做法是这时候卖出所有股票类标的，全仓买入债券）\n\n当然，美林时钟处于滞涨和衰退阶段并不代表股市不会上涨，参考2014—2015以及2019年。美林时钟处于复苏阶段也只是为股市托了个最重要的底而已。\n那么在策略中怎么防止股市在滞涨和衰退阶段中上涨呢？大家可以翻一下我前面的文章。\nhttps://www.joinquant.com/view/community/detail/d0758cd6c8da95b329736401fed2ba78\n\n有了以上介绍，现在来构建我们的思路：\n（**本思路中仅使用沪深300etf和国债etf做股债搭配**）\n（**思路中“股票类标的”和“沪深300etf”等价**）\n\n1.根据经济周期(使用制造业PMI的分项数据计算)来定投\n\n1.1.判断PMI的值是否符合条件（1是利用拟合函数计算斜率，2是PMI值大于等于50，3是PMI同比上涨）\n\n1.2.如果PMI满足条件，计算当前供需格局（生产指数与新订单指数的百分位）\n    \n1.3.如果供需格局处于复苏状态，计算当前库存格局（原材料库存指数产成品库存指数的百分位）\n    \n1.4.判断当前信息是否有效（供需格局在复苏阶段，库存格局在复苏或者过热阶段）\n    \n1.5.如果有效则启动长线玩法，记录成交时指数点位，全仓卖出债券，且直至卖出前不再执行1.1、1.2、1.3、1.4步骤\n\n1.6.检查当前价格是否比记录价格低2%，如果是，则买入一笔沪深300ETF（依据1248定投法则）\n    \n1.7.指定每周第一个交易日定投一笔沪深300ETF\n    \n2.根据年K图的移动平均线来定投\n    \n2.1.将月K线图转换成年K线图\n    \n2.2.计算年K图的移动平均线：ma10\n    \n2.3.如果跌破年K图的ma10，则记录当前ma10的价格，全仓卖出债券，并且买入一个基数的沪深300ETF，尔后根据1248定投法则定投\n\n2.4.启动中线玩法（更改mode的值），直至卖出前不再执行2.1、2.2、2.3步骤\n\n2.5.如果当前价格比记录的价格低5%以上，则继续买入一笔沪深300ETF（依据1248定投法则买入）\n2.6.指定每周第一个交易日定投一笔沪深300ETF\n     \n3.右侧买入（仅针对1和2）\n    \n3.1.计算日K图的ma5、ma10、ma20、ma30\n    \n3.2.如果ma5&gt;ma10&gt;ma20&gt;ma30,则卖出所有债券，全仓买入股票类标的\n    \n4.股票类标的止盈操作\n    \n4.1.如果mode==1（长线玩法）\n    \n4.1.1.计算当前供需格局及其得分(1/3*供 + 2/3*需)\n    \n4.1.2.如果极度过热（正态分布中均值+2倍标准差，在这里百分位大于97%），则需要计算库存格局\n    \n4.1.3.如果库存格局是滞涨状态，启用中线玩    \n4.2.如果mode==2（中线玩法）\n    \n4.2.1.计算日K图ma5、ma20、ma120移动平均线\n    \n4.2.2.当前价格大于ma120 且 前一天ma5&gt;ma20,后当天ma5&lt; ma20，则卖出沪深300ETF\n，全仓买入债券\n\n可以发现，这样构建指标具有领先性。与之而来的另外一个问题是无法吃到每一个经济周期的最后一笔利润。如果各位有什么好的方法，可以自行补充。\n\n需要注意的是供需格局得分过高的月份库存格局未必处于滞涨状态，但是后面的每一个月必须验证滞涨状态，以及时卖出。\n\n温馨提示：\n1.该模型在使用数据时是这个月第一个交易日获取上一个月的PMI数据。\n2.使用该模型时如果过了复苏阶段的所有条件则会引致空仓操作。满足条件的数据月有（复苏阶段2016年4月和2020年1月）\n3.PMI不能反应月末发生的事件，如2020年1月的疫情\n4.PMI数据的的口径在2012年前后发生变化，2012年前的数据不能用于和现有数据进行对比。因此为了数据可比性与策略可行性，选择2016年作为策略回测起点。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2022-12-12 18:31:43",
+      "modTime": "2022-12-12 21:03:59",
+      "lastActiveTime": "2025-04-02 11:32:31",
+      "lastPubTime": "2022-12-12 21:03:59",
+      "backtestId": "6cd63f758f5e454940dd1ba949740699",
+      "backtestName": "宏观经济与股债结合-中长线版",
+      "replyCount": "68",
+      "viewCount": "5021",
+      "collectionCount": "140",
+      "likeCount": "82",
+      "disLikeCount": "0",
+      "backtestCloneCount": "287",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "158",
+      "fileName": "第五讲.pdf",
+      "fileType": "application/pdf",
+      "fileSize": "1720525",
+      "postCount": "3",
+      "followersCount": "81",
+      "followingCount": "0",
+      "author": {
+        "userId": "e5dd65eeab7ccd1b5a0e913218bded7b",
+        "alias": "Acne Studio",
+        "headImgKey": "515f60e1515a85344f29046ebd035a75"
+      },
+      "tags": [
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "264",
+          "name": "研报复现"
+        },
+        {
+          "id": "12",
+          "name": "基金"
+        },
+        {
+          "id": "5",
+          "name": "仓位管理"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "6cd63f758f5e454940dd1ba949740699",
+        "backtest_name": "宏观经济与股债结合-中长线版",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=6cd63f758f5e454940dd1ba949740699&postId=582e3e434ad3426612b4036e9ac18d31&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2016-01-04",
+          "end_date": "2022-12-09",
+          "base_capital": 300000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "595b2ee68bdd6bd7ffbab239c3714544",
+            "26805469"
+          ],
+          "numeric_backtest_id": "26805469",
+          "numeric_post_id": "40154",
+          "python_version": 3,
+          "clone_count": 268
+        },
+        "stats": {
+          "trading_days": 1688,
+          "benchmark_volatility": 0.19742095954241,
+          "algorithm_volatility": 0.10943933045058,
+          "treasury_return": 0.2773698630137,
+          "algorithm_return": 1.6505757965333,
+          "benchmark_return": 0.071624037459023,
+          "annual_algo_return": 0.15530989624849,
+          "annual_bm_return": 0.010297816774076,
+          "sharpe": 1.0536421940242,
+          "excess_return_sharpe": "0.624",
+          "sortino": 1.5025469942305,
+          "information": 0.88758894596401,
+          "beta": 0.3112221526693,
+          "alpha": 0.12455387365104,
+          "excess_return": 1.4734195052383,
+          "avg_excess_return": "0.06%",
+          "max_drawdown": 0.092378375552968,
+          "max_drawdown_period": [
+            "2018-12-04",
+            "2019-01-02"
+          ],
+          "excess_return_max_drawdown": "17.79%",
+          "excess_return_max_drawdown_period": [
+            "2020-03-23",
+            "2021-02-10"
+          ],
+          "max_leverage": 0,
+          "period_label": "2022-12",
+          "__version": 101,
+          "win_ratio": 0.9,
+          "profit_loss_ratio": 226256.87939698,
+          "win_count": 9,
+          "lose_count": 1,
+          "day_win_ratio": 0.5053317535545,
+          "avg_trade_return": 0.10330122402575,
+          "avg_position_days": 839.5,
+          "turnover_rate": 0.005601081820341,
+          "report_done_seconds": 212.03917813301,
+          "report_done_cpu_seconds": 163.17
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 165.05758,
+          "benchmark_return_percent": 7.162404,
+          "annual_algo_return_percent": 15.53099,
+          "annual_bm_return_percent": 1.029782,
+          "max_drawdown_percent": 9.237838,
+          "algorithm_volatility_percent": 10.943933,
+          "benchmark_volatility_percent": 19.742096,
+          "win_ratio_percent": 90.0,
+          "day_win_ratio_percent": 50.533175,
+          "avg_trade_return_percent": 10.330122,
+          "turnover_rate_percent": 0.560108,
+          "sharpe": 1.0536421940242,
+          "sortino": 1.5025469942305,
+          "information": 0.88758894596401,
+          "alpha": 0.12455387365104,
+          "beta": 0.3112221526693,
+          "profit_loss_ratio": 226256.87939698,
+          "avg_position_days": 839.5,
+          "trading_days": 1688,
+          "win_count": 9,
+          "lose_count": 1,
+          "max_drawdown_period": [
+            "2018-12-04",
+            "2019-01-02"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-03-23",
+            "2021-02-10"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/40154",
+      "https://www.joinquant.com/community/post/detailV2?postId=40154",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=6cd63f758f5e454940dd1ba949740699&postId=582e3e434ad3426612b4036e9ac18d31&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=6cd63f758f5e454940dd1ba949740699"
+    ]
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略/26.【深度解析 六】高股息率-低PEG-低股价 模型.txt",
+    "category": "2024年度精选策略",
+    "file_name": "26.【深度解析 六】高股息率-低PEG-低股价 模型.txt",
+    "strategy_name": "【深度解析 六】高股息率-低PEG-低股价 模型",
+    "declared_title": "【深度解析 六】高股息率-低PEG-低股价 模型",
+    "declared_author": "加百力",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 13763,
+    "sha256": "4b6026d94cda1af72dbf51af409214db241c069b7b6d03049ed9c6d17a389687",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/44487"
+    ],
+    "primary_url": "https://www.joinquant.com/post/44487",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:10:05+08:00",
+    "requested_url": "https://www.joinquant.com/post/44487",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/752511dd550d264e85c4b9e303661fff",
+    "community_id": "752511dd550d264e85c4b9e303661fff",
+    "post": {
+      "postId": "3c0432cd21b10c2e2b049402f51835da",
+      "uniqueKey": "752511dd550d264e85c4b9e303661fff",
+      "title": "【深度解析 六】高股息率-低PEG-低股价 模型",
+      "content": "##【深度解析 六】高股息率-低PEG-低股价 模型\n\n运行周期：每月第一个交易日分析行情并调仓\n每日处理前一日涨停股票。如果到今日 14:40 仍然涨停则继续持有。否则卖出平仓\n\n持仓数量：20 只股票\n交易对象：全市场股票（排除科创板、北交所股票）\n筛股部分：过滤 次新股、涨跌停、停牌、ST、退市股票\n选择高股息率、低PEG、低股价股票\n排序方式：市值升序排列\n择时部分：无\n止损部分：无\n资金分配：\n① 初始阶段，每只股票平均分配资金买入\n② 后续阶段，卖出不在待买入列表中的所有股票\n③ 平均分配可用资金，买入未持仓股票\n\n\n##模型特点\n整体表现比较稳定\n收益率高，2010-2016年，7年增长约 13 倍\n同时持仓5-20只股票，表现也不错\n2023年以来收益率约：37%\n每月交易结束后，在日志中输出持仓股票的市值、股价信息\n\n\n##加百力分析\n\n通过股息率、PEG、股价等条件先过滤，然后通过市值排序\n这套模型有一些 小市值 的基因\n\n持仓股票数量多，收益率更高\n\n调整股息率、PEG、股价筛选顺序，总收益率有明显变化\n\n\n\n##宽友提问/补充\n\n欢迎大家提问讨论。热点问题和讨论放在这个部分\n\n\n##深度解析 系列\n\n我们希望通过对一些经典模型的修改和详细注释，让大家了解量化交易模型的基本结构、设计原理、重要API函数的使用方法。\n\n对代码和注释有疑问的朋友欢迎讨论。也希望各位对错误之处不吝赐教。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2023-10-18 12:54:05",
+      "modTime": "2023-10-18 12:54:05",
+      "lastActiveTime": "2026-05-11 00:43:13",
+      "lastPubTime": "2023-10-18 12:54:05",
+      "backtestId": "d0e4756a010fe1e7ee42e95414b1e3bb",
+      "backtestName": "06-高股息率-2010年至今-发布",
+      "replyCount": "149",
+      "viewCount": "18360",
+      "collectionCount": "157",
+      "likeCount": "109",
+      "disLikeCount": "0",
+      "backtestCloneCount": "494",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "237",
+      "followersCount": "997",
+      "followingCount": "9",
+      "author": {
+        "userId": "fab9b97ae3eb7ef8f296cce29ab0b3dd",
+        "alias": "加百力",
+        "introduction": "十八年实战，十六年量化研究。科技公司总裁，985大学导师",
+        "headImgKey": "9b605f8d52bf3d37a3abea2812df9488"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "2977",
+          "name": "加百力作品"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "d0e4756a010fe1e7ee42e95414b1e3bb",
+        "backtest_name": "06-高股息率-2010年至今-发布",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=d0e4756a010fe1e7ee42e95414b1e3bb&postId=752511dd550d264e85c4b9e303661fff&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2010-01-01",
+          "end_date": "2023-10-13",
+          "base_capital": 10000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "5a918ee02803293e551f210d53cdc2f6",
+            "30585376"
+          ],
+          "numeric_backtest_id": "30585376",
+          "numeric_post_id": "44487",
+          "python_version": 3,
+          "clone_count": 484
+        },
+        "stats": {
+          "trading_days": 3346,
+          "benchmark_volatility": 0.22090501617998,
+          "algorithm_volatility": 0.19241341060349,
+          "treasury_return": 0.55123287671233,
+          "algorithm_return": 21.453381868388,
+          "benchmark_return": 0.024535193305884,
+          "annual_algo_return": 0.26171851109577,
+          "annual_bm_return": 0.001812686944163,
+          "sharpe": 1.1523027963611,
+          "excess_return_sharpe": "1.247",
+          "sortino": 1.3283387721713,
+          "information": 1.4837684006289,
+          "beta": 0.56495807470898,
+          "alpha": 0.24329274195811,
+          "excess_return": 20.915676508815,
+          "avg_excess_return": "0.10%",
+          "max_drawdown": 0.31119748639475,
+          "max_drawdown_period": [
+            "2015-06-12",
+            "2015-07-08"
+          ],
+          "excess_return_max_drawdown": "41.55%",
+          "excess_return_max_drawdown_period": [
+            "2019-01-02",
+            "2021-02-10"
+          ],
+          "max_leverage": 0,
+          "period_label": "2023-10",
+          "__version": 101,
+          "win_ratio": 0.61424332344214,
+          "profit_loss_ratio": 3.1507567356308,
+          "win_count": 828,
+          "lose_count": 520,
+          "day_win_ratio": 0.55797967722654,
+          "avg_trade_return": 0.065308248484409,
+          "avg_position_days": 146.97826086957,
+          "turnover_rate": 0.008484029906237,
+          "report_done_seconds": 3707.799656868,
+          "report_done_cpu_seconds": 1042.51
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 2145.338187,
+          "benchmark_return_percent": 2.453519,
+          "annual_algo_return_percent": 26.171851,
+          "annual_bm_return_percent": 0.181269,
+          "max_drawdown_percent": 31.119749,
+          "algorithm_volatility_percent": 19.241341,
+          "benchmark_volatility_percent": 22.090502,
+          "win_ratio_percent": 61.424332,
+          "day_win_ratio_percent": 55.797968,
+          "avg_trade_return_percent": 6.530825,
+          "turnover_rate_percent": 0.848403,
+          "sharpe": 1.1523027963611,
+          "sortino": 1.3283387721713,
+          "information": 1.4837684006289,
+          "alpha": 0.24329274195811,
+          "beta": 0.56495807470898,
+          "profit_loss_ratio": 3.1507567356308,
+          "avg_position_days": 146.97826086957,
+          "trading_days": 3346,
+          "win_count": 828,
+          "lose_count": 520,
+          "max_drawdown_period": [
+            "2015-06-12",
+            "2015-07-08"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2019-01-02",
+            "2021-02-10"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/44487",
+      "https://www.joinquant.com/community/post/detailV2?postId=44487",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=d0e4756a010fe1e7ee42e95414b1e3bb&postId=752511dd550d264e85c4b9e303661fff&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=d0e4756a010fe1e7ee42e95414b1e3bb"
+    ]
+  }
+}

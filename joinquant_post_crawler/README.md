@@ -2,13 +2,15 @@
 
 这个目录独立于仓库中的策略族，用于把本地聚宽源码文件映射回原帖，并采集原帖元数据和回测框中的公开信息。
 
-采集器只扫描源根目录下各分类子目录中的 `.txt` 和 `.py` 文件，不把根层的卖家说明、交流群素材等附带文件当作策略。
+采集器只扫描源根目录下各分类子目录中的 `.txt` 和 `.py` 文件，不把根层的卖家说明、交流群素材等附带文件当作策略。输入目录中的 `2024年度精选策略1` 会统一归档为 `2024年度精选策略`。
 
 ## 输出设计
 
 默认输出到 `joinquant_post_crawler/data/`：
 
 - `items/<原目录>/<原文件名>.json`：每个本地策略文件一个 JSON。
+- `../sources/<年度分类>/<策略名>.py`：统一为 UTF-8 的来源代码快照。
+- `../sources/manifest.jsonl`：来源文件哈希、转码方式和 Python 3 AST 解析状态。
 - `summary.csv`：适合 Excel/WPS 直接查看，使用 UTF-8 BOM。
 - `summary.jsonl`：每行一个策略，适合脚本、DuckDB、Polars 等工具读取。
 - `issues.jsonl`：没有链接、没有回测框或请求失败的条目。
@@ -35,10 +37,14 @@ python joinquant_post_crawler/crawler.py `
 
 默认 4 个工作线程，全局约每秒 5 个请求，并带重试、原子写入和断点复用。再次运行时，已有成功 JSON 会直接复用；需要重新抓取时加 `--refresh`。
 
+源码快照默认同步到 `joinquant_post_crawler/sources/`。采集器只将旧资料中的非代码卖家前言改成 Python 注释、统一转为 UTF-8，并脱敏硬编码邮箱和密码/token；不会自动修复旧式语法、缩进或策略逻辑。每个文件的转换和脱敏数量记录在 manifest 中。它们是可检索的来源归档，不代表已经满足仓库正式策略族的兼容性和回测要求。
+
 常用选项：
 
 ```text
 --output PATH             指定输出目录
+--source-archive PATH     指定 UTF-8 .py 来源快照目录
+--skip-source-archive     不更新来源快照
 --workers 4               并发线程数
 --min-interval 0.20       全局相邻请求最小间隔（秒）
 --max-reply-pages 20      主贴无回测框时最多检查的回复页数

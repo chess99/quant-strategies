@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略/80.【深度解析 一】经典小市值模型.txt",
+    "category": "2024年度精选策略",
+    "file_name": "80.【深度解析 一】经典小市值模型.txt",
+    "strategy_name": "【深度解析 一】经典小市值模型",
+    "declared_title": "【深度解析 一】经典小市值模型",
+    "declared_author": "加百力",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 8595,
+    "sha256": "382e32ecea8d5dc79f4755eaf2d39606c86db188004359e24a38978e7ce1d9de",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/44300"
+    ],
+    "primary_url": "https://www.joinquant.com/post/44300",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "post_without_backtest",
+    "collected_at": "2026-07-27T02:10:46+08:00",
+    "requested_url": "https://www.joinquant.com/post/44300",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/d561c13d33fda85b00090ea36ce9225d",
+    "community_id": "d561c13d33fda85b00090ea36ce9225d",
+    "post": {
+      "postId": "ab04b9a75f91475c40cfa3e2ac01460b",
+      "uniqueKey": "d561c13d33fda85b00090ea36ce9225d",
+      "title": "【深度解析 一】经典小市值模型",
+      "content": "已删除",
+      "type": 1,
+      "status": "0",
+      "addTime": "2023-10-01 23:15:34",
+      "modTime": "2024-06-20 01:43:54",
+      "lastActiveTime": "2025-10-04 17:37:52",
+      "lastPubTime": "2024-06-20 01:43:54",
+      "replyCount": "123",
+      "viewCount": "11659",
+      "collectionCount": "50",
+      "likeCount": "53",
+      "disLikeCount": "0",
+      "backtestCloneCount": "113",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "237",
+      "followersCount": "997",
+      "followingCount": "9",
+      "author": {
+        "userId": "9c139a21f9e42758e146ac60a0d8efd7",
+        "alias": "加百力",
+        "introduction": "十八年实战，十六年量化研究。科技公司总裁，985大学导师",
+        "headImgKey": "9b605f8d52bf3d37a3abea2812df9488"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 6,
+    "request_urls": [
+      "https://www.joinquant.com/post/44300",
+      "https://www.joinquant.com/community/post/detailV2?postId=44300",
+      "https://www.joinquant.com/community/post/replyList?page=1&postId=d561c13d33fda85b00090ea36ce9225d",
+      "https://www.joinquant.com/community/post/replyList?page=2&postId=d561c13d33fda85b00090ea36ce9225d"
+    ]
+  }
+}

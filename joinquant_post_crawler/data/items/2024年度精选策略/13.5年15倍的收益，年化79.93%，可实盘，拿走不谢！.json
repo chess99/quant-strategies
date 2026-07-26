@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略/13.5年15倍的收益，年化79.93%，可实盘，拿走不谢！.txt",
+    "category": "2024年度精选策略",
+    "file_name": "13.5年15倍的收益，年化79.93%，可实盘，拿走不谢！.txt",
+    "strategy_name": "年15倍的收益，年化79.93%，可实盘，拿走不谢！",
+    "declared_title": "5年15倍的收益，年化79.93%，可实盘，拿走不谢！",
+    "declared_author": "langcheng999",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 16498,
+    "sha256": "99ded26ab7e374741ba0c6f5a06f6b63130efd1f8212a01494ba27a0358e4cc7",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/45510"
+    ],
+    "primary_url": "https://www.joinquant.com/post/45510",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:09:54+08:00",
+    "requested_url": "https://www.joinquant.com/post/45510",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/58585f1692b131684e4d1f7964b2a6c2",
+    "community_id": "58585f1692b131684e4d1f7964b2a6c2",
+    "post": {
+      "postId": "da9ee70f2c039f3c3cace0e01f8a4d64",
+      "uniqueKey": "58585f1692b131684e4d1f7964b2a6c2",
+      "title": "5年15倍的收益，年化79.93%，可实盘，拿走不谢！",
+      "content": "**5年15倍的收益，年化79.93%，可实盘，拿走不谢！**\n**核心思路：**小市值策略\n**调仓周期：**每月最后一天选股调仓（原代码是4月份空仓，因为是年报发布月份，我改成了不空仓，每月最后一天调仓）\n**持股数量：**10只\n**选股思路：**\n【大妈选股】原代码是根据股息率来筛选，我改成了根据ROE，ROA来选股。\n如果30天内有涨停且30天内买过的，这些票有点不正常，有点妖，就算选出来也要剔除掉。\n本来我还想加入卖出股票的缓冲池的，就是卖出了，隔一段时间就不再买了，但是回测比这个弱一点，还是不加卖出缓冲池的强！\n\n**为什么要用ROE来选股呢？**\n巴菲特说，如果只要用一个指标来选股的话，我会留下ROE（净资产收益率）,ROE是公司税后利润除以净资产得到的百分比率,也就是股东投入的钱到底能赚多少钱，从长远来看，一只股票的长期收益率等于这家公司的ROE（净资产收益率）\n\n**为什么要用ROA来选股呢？**\n一家公司赚了很多钱，并不代表这家公司的赚钱能强，有可能是这家公司借的钱多，所以随便赚了一些，就会有很高的ROE，所以ROA（总资产回报率）用来衡量这家公司对总资产来说的赚钱能力，ROA是净利润和总资产的比值，总资产 = 股东权益 + 负债。\n\n2019年1月——2013年11月，5年15倍的收益，年化79.93%\n我再附加：2014年1月——2018年12月的收益图，年化56.84%\n![Img](https://image.joinquant.com/786ad937cb22f9dc6841b9e3af279290)\n\n有人问，这么赚钱为什么要分享出来？我说，这个策略核心是小市值，只要小市值策略在市场中有效，坚信小市值的都会赚钱，只不过我们买的是不同的小市值股票。\n话说回来，如果小市值不挣钱，其他策略也白瞎。量化本身就是小市值的天下，因为大市值票没有波动，小市值偶尔年份失效也是正常的，只要回撤不是太大就行。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2023-12-14 15:44:53",
+      "modTime": "2023-12-14 17:24:42",
+      "lastActiveTime": "2026-07-21 15:01:34",
+      "lastPubTime": "2023-12-14 17:24:42",
+      "backtestId": "fb62d1dc82039fc754bca79f1ce89d8a",
+      "backtestName": "无卖出缓冲池",
+      "replyCount": "549",
+      "viewCount": "43463",
+      "collectionCount": "755",
+      "likeCount": "405",
+      "disLikeCount": "2",
+      "backtestCloneCount": "3105",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "7",
+      "followersCount": "666",
+      "followingCount": "0",
+      "author": {
+        "userId": "112741ad80fcb44f11ebbe7bffb42dd4",
+        "alias": "langcheng999",
+        "introduction": "韭菲特",
+        "headImgKey": "ff2ff5d03807857526584282fc3db321"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "3068",
+          "name": "小市值"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "fb62d1dc82039fc754bca79f1ce89d8a",
+        "backtest_name": "无卖出缓冲池",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=fb62d1dc82039fc754bca79f1ce89d8a&postId=58585f1692b131684e4d1f7964b2a6c2&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2019-01-01",
+          "end_date": "2023-11-30",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "d0894c8975ae2813db2779c5b0f21fc1",
+            "31477818"
+          ],
+          "numeric_backtest_id": "31477818",
+          "numeric_post_id": "45510",
+          "python_version": 3,
+          "clone_count": 2915
+        },
+        "stats": {
+          "trading_days": 1193,
+          "benchmark_volatility": 0.19294730939519,
+          "algorithm_volatility": 0.26216033588224,
+          "treasury_return": 0.19649315068493,
+          "algorithm_return": 15.4969622343,
+          "benchmark_return": 0.16127746499925,
+          "annual_algo_return": 0.79934314704839,
+          "annual_bm_return": 0.031828956260801,
+          "sharpe": 2.8964837281467,
+          "excess_return_sharpe": "2.960",
+          "sortino": 3.8527007337872,
+          "information": 3.2358748795433,
+          "beta": 0.66747016789334,
+          "alpha": 0.76479707498486,
+          "excess_return": 13.205874764228,
+          "avg_excess_return": "0.23%",
+          "max_drawdown": 0.20359303644084,
+          "max_drawdown_period": [
+            "2020-12-02",
+            "2021-01-14"
+          ],
+          "excess_return_max_drawdown": "29.51%",
+          "excess_return_max_drawdown_period": [
+            "2020-09-21",
+            "2021-02-10"
+          ],
+          "max_leverage": 0,
+          "period_label": "2023-11",
+          "__version": 101,
+          "win_ratio": 0.69078947368421,
+          "profit_loss_ratio": 5.652603905484,
+          "win_count": 210,
+          "lose_count": 94,
+          "day_win_ratio": 0.57250628667225,
+          "avg_trade_return": 0.10058769042707,
+          "avg_position_days": 87.455223880597,
+          "turnover_rate": 0.027567992023207,
+          "report_done_seconds": 1594.0864524841,
+          "report_done_cpu_seconds": 1536.18
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 1549.696223,
+          "benchmark_return_percent": 16.127746,
+          "annual_algo_return_percent": 79.934315,
+          "annual_bm_return_percent": 3.182896,
+          "max_drawdown_percent": 20.359304,
+          "algorithm_volatility_percent": 26.216034,
+          "benchmark_volatility_percent": 19.294731,
+          "win_ratio_percent": 69.078947,
+          "day_win_ratio_percent": 57.250629,
+          "avg_trade_return_percent": 10.058769,
+          "turnover_rate_percent": 2.756799,
+          "sharpe": 2.8964837281467,
+          "sortino": 3.8527007337872,
+          "information": 3.2358748795433,
+          "alpha": 0.76479707498486,
+          "beta": 0.66747016789334,
+          "profit_loss_ratio": 5.652603905484,
+          "avg_position_days": 87.455223880597,
+          "trading_days": 1193,
+          "win_count": 210,
+          "lose_count": 94,
+          "max_drawdown_period": [
+            "2020-12-02",
+            "2021-01-14"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-09-21",
+            "2021-02-10"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/45510",
+      "https://www.joinquant.com/community/post/detailV2?postId=45510",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=fb62d1dc82039fc754bca79f1ce89d8a&postId=58585f1692b131684e4d1f7964b2a6c2&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=fb62d1dc82039fc754bca79f1ce89d8a"
+    ]
+  }
+}

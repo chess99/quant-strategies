@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略/44.分享一个兼顾业绩增长和PEG指标的股票策略.txt",
+    "category": "2024年度精选策略",
+    "file_name": "44.分享一个兼顾业绩增长和PEG指标的股票策略.txt",
+    "strategy_name": "分享一个兼顾业绩增长和PEG指标的股票策略",
+    "declared_title": "分享一个兼顾业绩增长和PEG指标的股票策略",
+    "declared_author": "芹菜1303",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 16242,
+    "sha256": "58c1d24845c14a450dad3b7c4bec07de081f0eb705e35608e89c96320dfec513",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/42593"
+    ],
+    "primary_url": "https://www.joinquant.com/post/42593",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:10:21+08:00",
+    "requested_url": "https://www.joinquant.com/post/42593",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/88ad2930e1414ec14ac97af0ea8ab8dc",
+    "community_id": "88ad2930e1414ec14ac97af0ea8ab8dc",
+    "post": {
+      "postId": "a0d9e27a4478afa991edbe8d7fe09673",
+      "uniqueKey": "88ad2930e1414ec14ac97af0ea8ab8dc",
+      "title": "分享一个兼顾业绩增长和PEG指标的股票策略",
+      "content": "分享一个兼顾业绩增长和PEG指标的股票策略，选股思路如下。\n回测最近10年的收益，基本能稳定增长，最近4年增长还不错，今年为止的收益也有百分之十几。无未来函数\n如果能修改20日成交金额标准差因子后，就可以在一创运行。一创不支持聚宽因子。\n策略思路如下：\n全市场取票，\n剔除：上市未满250天；\n剔除：科创板；\n剔除：ST，退市股票；\n筛选：净利润增长最大的前50%股票；\n筛选：PEG最小的前50%股票；\n筛选：20日成交金额标准差因子 最小50%股票；\n5因子排序，取10位，买入前4位，卖出不在前10位的股票。\n带有大盘择时判断，规避熊市风险。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2023-05-28 22:47:38",
+      "modTime": "2023-05-29 11:29:02",
+      "lastActiveTime": "2026-03-18 16:11:04",
+      "lastPubTime": "2023-05-29 11:29:02",
+      "backtestId": "7551a8ee54318b365d2b615b6cd86c7d",
+      "backtestName": "PEG-利润增长-技术面-5因子策略",
+      "replyCount": "28",
+      "viewCount": "3407",
+      "collectionCount": "81",
+      "likeCount": "39",
+      "disLikeCount": "0",
+      "backtestCloneCount": "340",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "8",
+      "followersCount": "448",
+      "followingCount": "28",
+      "author": {
+        "userId": "8ec53df44296f690291b689fdf3d23ba",
+        "alias": "芹菜1303",
+        "vipType": "VIP",
+        "headImgKey": "b68e09532b35a96efd96d88cc6a572f3"
+      },
+      "tags": [
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "7551a8ee54318b365d2b615b6cd86c7d",
+        "backtest_name": "PEG-利润增长-技术面-5因子策略",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=7551a8ee54318b365d2b615b6cd86c7d&postId=88ad2930e1414ec14ac97af0ea8ab8dc&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2019-01-01",
+          "end_date": "2023-05-27",
+          "base_capital": 400000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "3552a629c61192188af5b040db0ab211",
+            "28773984"
+          ],
+          "numeric_backtest_id": "28773984",
+          "numeric_post_id": "42593",
+          "python_version": 3,
+          "clone_count": 338
+        },
+        "stats": {
+          "trading_days": 1067,
+          "benchmark_volatility": 0.21748602308533,
+          "algorithm_volatility": 0.23523813504393,
+          "treasury_return": 0.1758904109589,
+          "algorithm_return": 5.708102427,
+          "benchmark_return": 0.58226771408826,
+          "annual_algo_return": 0.56197391971247,
+          "annual_bm_return": 0.11350366547351,
+          "sharpe": 2.2189170969877,
+          "excess_return_sharpe": "1.743",
+          "sortino": 3.125274419775,
+          "information": 2.1700909859148,
+          "beta": 0.63349600175223,
+          "alpha": 0.47540964152087,
+          "excess_return": 3.239549582711,
+          "avg_excess_return": "0.14%",
+          "max_drawdown": 0.16513345880676,
+          "max_drawdown_period": [
+            "2020-12-08",
+            "2021-02-08"
+          ],
+          "excess_return_max_drawdown": "19.87%",
+          "excess_return_max_drawdown_period": [
+            "2020-12-11",
+            "2021-02-10"
+          ],
+          "max_leverage": 0,
+          "period_label": "2023-05",
+          "__version": 101,
+          "win_ratio": 0.63543191800878,
+          "profit_loss_ratio": 2.0078182686796,
+          "win_count": 434,
+          "lose_count": 249,
+          "day_win_ratio": 0.52858481724461,
+          "avg_trade_return": 0.013555072935382,
+          "avg_position_days": 17.366336633663,
+          "turnover_rate": 0.15729936112746,
+          "report_done_seconds": 1145.6468136311,
+          "report_done_cpu_seconds": 945.69
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 570.810243,
+          "benchmark_return_percent": 58.226771,
+          "annual_algo_return_percent": 56.197392,
+          "annual_bm_return_percent": 11.350367,
+          "max_drawdown_percent": 16.513346,
+          "algorithm_volatility_percent": 23.523814,
+          "benchmark_volatility_percent": 21.748602,
+          "win_ratio_percent": 63.543192,
+          "day_win_ratio_percent": 52.858482,
+          "avg_trade_return_percent": 1.355507,
+          "turnover_rate_percent": 15.729936,
+          "sharpe": 2.2189170969877,
+          "sortino": 3.125274419775,
+          "information": 2.1700909859148,
+          "alpha": 0.47540964152087,
+          "beta": 0.63349600175223,
+          "profit_loss_ratio": 2.0078182686796,
+          "avg_position_days": 17.366336633663,
+          "trading_days": 1067,
+          "win_count": 434,
+          "lose_count": 249,
+          "max_drawdown_period": [
+            "2020-12-08",
+            "2021-02-08"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-12-11",
+            "2021-02-10"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/42593",
+      "https://www.joinquant.com/community/post/detailV2?postId=42593",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=7551a8ee54318b365d2b615b6cd86c7d&postId=88ad2930e1414ec14ac97af0ea8ab8dc&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=7551a8ee54318b365d2b615b6cd86c7d"
+    ]
+  }
+}

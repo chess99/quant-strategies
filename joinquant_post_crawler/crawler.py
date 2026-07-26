@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import ast
 import csv
 import hashlib
 import html
@@ -16,6 +17,7 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
+import warnings
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from datetime import datetime, timezone
@@ -26,6 +28,8 @@ from typing import Any, Iterable
 SCHEMA_VERSION = 1
 DEFAULT_SOURCE_ROOT = Path(r"D:\BaiduNetdiskDownload\2020-2026聚宽600条源码")
 DEFAULT_OUTPUT_ROOT = Path(__file__).resolve().parent / "data"
+DEFAULT_SOURCE_ARCHIVE_ROOT = Path(__file__).resolve().parent / "sources"
+CATEGORY_ALIASES = {"2024年度精选策略1": "2024年度精选策略"}
 USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
     "AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -42,6 +46,15 @@ COMMUNITY_ID_RE = re.compile(
 SOURCE_HINT_RE = re.compile(r"克隆自聚宽文章|原文(?:链接)?|文章(?:链接|地址)|来源", re.IGNORECASE)
 TRAILING_URL_PUNCTUATION = ".,;:!?，。；：！？、)]}）】》>\"'"
 SUCCESS_STATUSES = {"ok", "post_without_backtest"}
+EMAIL_ADDRESS_RE = re.compile(
+    r"\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b", re.IGNORECASE
+)
+SECRET_ASSIGNMENT_RE = re.compile(
+    r"(?P<prefix>\b(?:password|passwd|pwd|secret|token|api[_-]?key|"
+    r"access[_-]?key|secret[_-]?key|app[_-]?key)\b\s*[:=]\s*[rubf]*)"
+    r"(?P<quote>[\"'])(?P<value>.*?)(?P=quote)",
+    re.IGNORECASE,
+)
 
 
 class FetchError(RuntimeError):
@@ -222,6 +235,13 @@ def extract_local_header(text: str) -> tuple[str | None, str | None]:
     return value_for("标题"), value_for("作者")
 
 
+def normalize_source_relative_path(relative_path: Path) -> Path:
+    parts = list(relative_path.parts)
+    if parts:
+        parts[0] = CATEGORY_ALIASES.get(parts[0], parts[0])
+    return Path(*parts)
+
+
 def inventory_source_files(source_root: Path, extensions: set[str]) -> list[SourceItem]:
     items: list[SourceItem] = []
     for path in sorted(source_root.rglob("*")):
@@ -238,7 +258,7 @@ def inventory_source_files(source_root: Path, extensions: set[str]) -> list[Sour
         items.append(
             SourceItem(
                 path=path,
-                relative_path=path.relative_to(source_root),
+                relative_path=normalize_source_relative_path(path.relative_to(source_root)),
                 encoding=encoding,
                 sha256=hashlib.sha256(raw).hexdigest(),
                 size=len(raw),
@@ -813,6 +833,120 @@ def atomic_write_json(path: Path, payload: Any, *, indent: int | None = 2) -> No
     os.replace(temp_path, path)
 
 
+def atomic_write_text(path: Path, text: str) -> None:
+    if path.exists() and path.read_text(encoding="utf-8") == text:
+        return
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temp_path = path.with_suffix(path.suffix + ".part")
+    temp_path.write_text(text, encoding="utf-8", newline="\n")
+    os.replace(temp_path, path)
+
+
+def redact_archived_source(text: str) -> tuple[str, int]:
+    redacted_count = 0
+
+    def replace_email(match: re.Match[str]) -> str:
+        nonlocal redacted_count
+        redacted_count += 1
+        return "<redacted-email>"
+
+    def replace_secret(match: re.Match[str]) -> str:
+        nonlocal redacted_count
+        redacted_count += 1
+        return (
+            f"{match.group('prefix')}{match.group('quote')}"
+            f"<redacted-secret>{match.group('quote')}"
+        )
+
+    redacted = EMAIL_ADDRESS_RE.sub(replace_email, text)
+    redacted = SECRET_ASSIGNMENT_RE.sub(replace_secret, redacted)
+    return redacted, redacted_count
+
+
+def prepare_archived_source(text: str) -> tuple[str, list[str], int]:
+    normalized = text.replace("\r\n", "\n").replace("\r", "\n")
+    transformations = ["transcode_utf8"]
+    lines = normalized.splitlines(keepends=True)
+    marker = next(
+        (
+            index
+            for index, line in enumerate(lines)
+            if line.strip() == "原文策略源码如下："
+        ),
+        None,
+    )
+    if (
+        lines
+        and lines[0].strip().startswith("该策略由聚宽用户分享")
+        and marker is not None
+    ):
+        lines[: marker + 1] = [
+            "# " + line if line.strip() else "#\n"
+            for line in lines[: marker + 1]
+        ]
+        normalized = "".join(lines)
+        transformations.append("comment_vendor_preamble")
+    normalized, redacted_count = redact_archived_source(normalized)
+    if redacted_count:
+        transformations.append("redact_credentials")
+    if normalized and not normalized.endswith("\n"):
+        normalized += "\n"
+    return normalized, transformations, redacted_count
+
+
+def python3_parse_result(text: str) -> tuple[bool, dict[str, Any] | None]:
+    try:
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore", SyntaxWarning)
+            ast.parse(text)
+    except SyntaxError as exc:
+        return False, {
+            "line": exc.lineno,
+            "offset": exc.offset,
+            "message": exc.msg,
+        }
+    return True, None
+
+
+def archive_source_items(items: list[SourceItem], archive_root: Path) -> dict[str, int]:
+    manifest: list[dict[str, Any]] = []
+    parse_ok_count = 0
+    for item in items:
+        text, _, _ = decode_source(item.path)
+        archived_text, transformations, redacted_count = prepare_archived_source(text)
+        parse_ok, parse_error = python3_parse_result(archived_text)
+        parse_ok_count += int(parse_ok)
+        archive_path = item.relative_path.with_suffix(".py")
+        atomic_write_text(archive_root / archive_path, archived_text)
+        manifest.append(
+            {
+                "archive_path": archive_path.as_posix(),
+                "strategy_name": item.strategy_name,
+                "source_extension": item.path.suffix.lower(),
+                "source_encoding": item.encoding,
+                "source_size": item.size,
+                "source_sha256": item.sha256,
+                "archive_sha256": hashlib.sha256(
+                    archived_text.encode("utf-8")
+                ).hexdigest(),
+                "transformations": transformations,
+                "redacted_value_count": redacted_count,
+                "python3_ast_parse": parse_ok,
+                "python3_ast_error": parse_error,
+                "primary_url": item.primary_url,
+            }
+        )
+    manifest_text = "".join(
+        json.dumps(row, ensure_ascii=False) + "\n" for row in manifest
+    )
+    atomic_write_text(archive_root / "manifest.jsonl", manifest_text)
+    return {
+        "item_count": len(items),
+        "python3_ast_parse_ok": parse_ok_count,
+        "python3_ast_parse_failed": len(items) - parse_ok_count,
+    }
+
+
 def load_cached_remote(
     output_root: Path,
     items: list[SourceItem],
@@ -963,6 +1097,17 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--source-root", type=Path, default=DEFAULT_SOURCE_ROOT)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT_ROOT)
     parser.add_argument(
+        "--source-archive",
+        type=Path,
+        default=DEFAULT_SOURCE_ARCHIVE_ROOT,
+        help="UTF-8 .py 来源快照目录，默认 joinquant_post_crawler/sources",
+    )
+    parser.add_argument(
+        "--skip-source-archive",
+        action="store_true",
+        help="不更新仓库内的 UTF-8 .py 来源快照",
+    )
+    parser.add_argument(
         "--extensions",
         default=".txt,.py",
         help="逗号分隔的本地源码扩展名，默认 .txt,.py",
@@ -995,7 +1140,15 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
         for value in args.extensions.split(",")
         if value.strip()
     }
-    items = inventory_source_files(source_root, extensions)
+    all_items = inventory_source_files(source_root, extensions)
+    if not args.skip_source_archive:
+        archive_summary = archive_source_items(all_items, args.source_archive.resolve())
+        print(
+            f"归档 {archive_summary['item_count']} 个 UTF-8 .py 来源快照，"
+            f"{archive_summary['python3_ast_parse_ok']} 个通过 Python 3 AST 解析，"
+            f"{archive_summary['python3_ast_parse_failed']} 个保留原始语法问题。"
+        )
+    items = all_items
     if args.limit is not None:
         items = items[: max(0, args.limit)]
     print(

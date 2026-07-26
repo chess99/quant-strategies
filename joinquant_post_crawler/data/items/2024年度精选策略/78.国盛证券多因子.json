@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略/78.国盛证券多因子.txt",
+    "category": "2024年度精选策略",
+    "file_name": "78.国盛证券多因子.txt",
+    "strategy_name": "国盛证券多因子",
+    "declared_title": "国盛证券多因子",
+    "declared_author": "璇天凤舞",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 16039,
+    "sha256": "2b502dd6bd3dd0df36ca650eb2ac836a100f29a5e07aea9047f505cba3854a15",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/43307"
+    ],
+    "primary_url": "https://www.joinquant.com/post/43307",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:10:44+08:00",
+    "requested_url": "https://www.joinquant.com/post/43307",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/60ee661710c0f45f162f5fda803107f4",
+    "community_id": "60ee661710c0f45f162f5fda803107f4",
+    "post": {
+      "postId": "5a008ff01b9e73e5d93a6365f4a18ef8",
+      "uniqueKey": "60ee661710c0f45f162f5fda803107f4",
+      "title": "国盛证券多因子",
+      "content": "## 因子来源：\n本文中计算的因子，来自于国盛证券2019年的两篇多因子研报：\n-  20190116-国盛证券-多因子系列之一：多因子选股体系的思考\n-  20190220-国盛证券-多因子系列之二：Alpha因子高维度与非线性问题——基于Lasso的收益预测模型\n\n## 事件背景：\n背景是因为最近被人委托研究研究股票策略，所以想着翻之前的多因子策略报告，拾人牙慧短期出现结果供使用，本身目的比较粗糙，所以也没有做得很复杂，用了两周断断续续重新研究了下joinquant上怎么获取数据和回侧，然后还原了下国盛证券-多因子系列里2019年两篇文章中的因子。\n\n因为本身是快速研究目的，因此因子计算和回侧是被我分开的，重点其实就在因子回侧部分了，回侧部分只是套了个壳子，直接访问产出的因子计算结果，然后按照诉求选取前10/后10排名的股票进行按周调仓回侧而已。\n## 因子列表：\n一共是9大类，共59个因子，详情如下：\n### 1_波动性\n- 1 ivol 波动性 特质波动率（Fama French 回归的残差波动率）\n- 2 ivr 波动性 特异度（1-Fama French 回归的拟合优度）\n- 3 return_std_1m 波动性 一个月收益率波动率（单位成交量下价格的波动）\n\n### 2_成长\n- 4 yoy_bps 成长 (当期 BPS-去年同期 BPS)/去年同期 BPS 绝对值,其中 BPS 表示每股帐面价值\n- 5 yoy_orps 成长 每股营业收入同比增长率\n- 6 yoy_eps 成长 每股收益同比增速\n- 7 yoy_tot_equity 成长 (当期股东权益-去年同期股东权益)/去年同期股东权益绝对值\n- 8 yoy_total_assets 成长 (当期总资产-去年同期总资产)/去年同期总资产绝对值\n- 9 yoy_orps_q 成长 单季度每股营业收入同比增长率\n- 10 yoy_eps_q 成长 单季度每股收益同比增速\n- 11 yoy_ocfps 成长 每股经营现金流同比增速\n- 12 yoy_ocfps_q 成长 单季度每股经营现金流同比增速\n- 13 yoy_np 成长 净利润同比增速\n- 14 yoy_np_q 成长 单季度净利润同比增速\n- 15 yoy_or 成长 营业收入同比增速\n- 16 yoy_or_q 成长 单季度营业收入同比增速\n- 17 yoy_op 成长 经营利润同比增速\n- 18 yoy_op_q 成长 单季度经营利润同比增速\n- 19 yoy_ocf 成长 经营现金流同比增速\n- 20 yoy_ocf_q 成长 单季度经营现金流同比增速\n- 21 yoy_roe 成长 (当期 ROE-去年同期 ROE)/去年同期 ROE 绝对值\n\n### 3_反转\n- 22 clo_5d_60d 反转 5 日均价/60 日均价\n- 23 mom_1y 反转 1 年的收益率\n- 24 reverse_1m 反转 1 个月的收益率\n- 25 close_max_div_min_1m 反转 1 月最高价/1 月最低价\n- 26 return_max_1m 反转 过去一个月单日最高涨幅\n\n### 4_杠杆\n- 27 current_ratio 杠杆 流动资产/流动负债\n- 28 debt_asset_ratio 杠杆 资产/负债\n- 29 current_liab_ratio 杠杆 流动负债/总资产\n\n### 5_红利\n- 30 dividend_yield_ratio 红利 股息率\n\n### 6_价值\n- 31 bp 价值 股东权益(报告期)/总市值\n- 32 ep 价值 市盈率倒数\n- 33 cfp 价值 市现率倒数\n- 34 sp 价值 市销率倒数\n- 35 fcffp 价值 企业自由现金流 ttm/总市值\n- 36 ocfp 价值 经营现金流_TTM/总市值\n- 37 value_residual 价值 总市值的对数对账面价值对数，净利润对数以及负债合计对数 做横截面回归的取残差\n\n### 7_流动性\n- 38 amt_1m_3m 流动性 过去 1 个月日均成交额/过去三个月日均成交额\n- 39 corr_close_turnover 流动性 收盘价与换手率的相关系数\n- 40 illiq 流动性 每天一个亿成交量能推动的股价涨幅\n- 41 ln_volume_mean_1m 流动性 成交量对数一个月均值\n- 42 turnover_mean_1m 流动性 换手率一个月均值\n\n### 8_盈利\n- 43 roe 盈利 roe_ttm\n- 44 eps_adjust 盈利 扣除非经常损益后的净利润/总股本\n- 45 grossmargin_ratio 盈利 毛利_TTM/TTM 营业总收入\n- 46 grossprofit_assets 盈利 毛利_TTM/总资产\n- 47 grossprofit 盈利 (营业收入-营业支出)/营业收入\n- 48 roa 盈利 roa2_ttm\n- 49 roic 盈利 roic_ttm\n\n### 9_质量\n- 50 safexp_operrev 质量 (销售费用_TTM+管理费用_TTM+财务费用_TTM)/营业收入_TTM\n- 51 adm_exp_ratio 质量 管理费用_TTM/营业收入_TTM\n- 52 bps 质量 (归属母公司股东的权益-其他权益工具)/总股本\n- 53 currency_ratio 质量 经营活动产生的现金净流量/净利润\n- 54 asset_turnover 质量 营业收入_TTM/平均总资产\n- 55 inv_turnover 质量 营业成本_TTM/平均存货\n- 56 fina_exp_ratio 质量 财务费用_TTM/营业收入_TTM\n- 57 fix_ratio 质量 固定资产/归属母公司股东权益\n- 58 networkcap_assets 质量 净运营资本/总资产(其中净营运资本=流动资产-流动负债)\n- 59 moneycap_assets 质量 现金/总资产\n\n## 总结\n**研究部分：**分了9个部分算出每个大类下的所有因子，本身很多财务因子的计算方式比较粗糙，没有特别考虑TTM、季度还是年度、以及是否要计算前后两周期平均值，不过基本框架是搭出来了，也进行了优化。\n另外如果有些因子的计算明显有问题，还希望大家能够帮忙指出。\n\n**回测部分：**回侧部分comment掉的部分，就是单因子逐个回侧的框架，然后现在实际展示的回侧结果，是我根据单因子逐个回侧的结果，选出确实能够获取比较大的alpha收益的一共22个因子，进行每日的一个打分后的融合因子的表现。整体并不理想，所以主要是分享回侧框架的代码了。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2023-07-23 23:53:34",
+      "modTime": "2023-07-23 23:53:34",
+      "lastActiveTime": "2025-10-09 17:45:05",
+      "lastPubTime": "2023-07-23 23:53:34",
+      "backtestId": "9037e438c0ed4360a33716d501d1e2b4",
+      "backtestName": "read_file多因子",
+      "replyCount": "20",
+      "viewCount": "3020",
+      "collectionCount": "91",
+      "likeCount": "49",
+      "disLikeCount": "0",
+      "backtestCloneCount": "132",
+      "notebookCloneCount": "69",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "1",
+      "followersCount": "51",
+      "followingCount": "0",
+      "author": {
+        "userId": "0b834235582fa2b4c08d2c756060e663",
+        "alias": "璇天凤舞",
+        "introduction": "gogogo！"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "295",
+          "name": "研报分享"
+        },
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "264",
+          "name": "研报复现"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "9037e438c0ed4360a33716d501d1e2b4",
+        "backtest_name": "read_file多因子",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=9037e438c0ed4360a33716d501d1e2b4&postId=60ee661710c0f45f162f5fda803107f4&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2015-01-12",
+          "end_date": "2023-07-10",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "94fea29a142d5c7fb2e0a7a890ab5f9e",
+            "29507508"
+          ],
+          "numeric_backtest_id": "29507508",
+          "numeric_post_id": "43307",
+          "python_version": 3,
+          "clone_count": 132
+        },
+        "stats": {
+          "trading_days": 2066,
+          "benchmark_volatility": 0.21140193137084,
+          "algorithm_volatility": 0.30489256047357,
+          "treasury_return": 0.33983561643836,
+          "algorithm_return": 3.185088444416,
+          "benchmark_return": -0.024870564100066,
+          "annual_algo_return": 0.18913311741774,
+          "annual_bm_return": -0.0030429240619351,
+          "sharpe": 0.4891333431885,
+          "excess_return_sharpe": "0.721",
+          "sortino": 0.59810109959194,
+          "information": 0.91181221995196,
+          "beta": 1.0430487533903,
+          "alpha": 0.19402898570281,
+          "excess_return": 3.2918286438083,
+          "avg_excess_return": "0.08%",
+          "max_drawdown": 0.49967830302015,
+          "max_drawdown_period": [
+            "2016-11-22",
+            "2018-10-16"
+          ],
+          "excess_return_max_drawdown": "50.61%",
+          "excess_return_max_drawdown_period": [
+            "2016-11-22",
+            "2018-02-06"
+          ],
+          "max_leverage": 0,
+          "period_label": "2023-07",
+          "__version": 101,
+          "win_ratio": 0.55841660261337,
+          "profit_loss_ratio": 1.2549219207703,
+          "win_count": 1453,
+          "lose_count": 1149,
+          "day_win_ratio": 0.54259438528558,
+          "avg_trade_return": 0.013792790252297,
+          "avg_position_days": 26.586599241466,
+          "turnover_rate": 0.098099092681648,
+          "report_done_seconds": 235.18346619606,
+          "report_done_cpu_seconds": 152.73
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 318.508844,
+          "benchmark_return_percent": -2.487056,
+          "annual_algo_return_percent": 18.913312,
+          "annual_bm_return_percent": -0.304292,
+          "max_drawdown_percent": 49.96783,
+          "algorithm_volatility_percent": 30.489256,
+          "benchmark_volatility_percent": 21.140193,
+          "win_ratio_percent": 55.84166,
+          "day_win_ratio_percent": 54.259439,
+          "avg_trade_return_percent": 1.379279,
+          "turnover_rate_percent": 9.809909,
+          "sharpe": 0.4891333431885,
+          "sortino": 0.59810109959194,
+          "information": 0.91181221995196,
+          "alpha": 0.19402898570281,
+          "beta": 1.0430487533903,
+          "profit_loss_ratio": 1.2549219207703,
+          "avg_position_days": 26.586599241466,
+          "trading_days": 2066,
+          "win_count": 1453,
+          "lose_count": 1149,
+          "max_drawdown_period": [
+            "2016-11-22",
+            "2018-10-16"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2016-11-22",
+            "2018-02-06"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/43307",
+      "https://www.joinquant.com/community/post/detailV2?postId=43307",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=9037e438c0ed4360a33716d501d1e2b4&postId=60ee661710c0f45f162f5fda803107f4&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=9037e438c0ed4360a33716d501d1e2b4"
+    ]
+  }
+}

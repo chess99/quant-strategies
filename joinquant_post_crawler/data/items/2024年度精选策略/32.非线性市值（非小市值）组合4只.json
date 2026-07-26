@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略/32.非线性市值（非小市值）组合4只.txt",
+    "category": "2024年度精选策略",
+    "file_name": "32.非线性市值（非小市值）组合4只.txt",
+    "strategy_name": "非线性市值（非小市值）组合4只",
+    "declared_title": "非线性市值（非小市值）组合4只",
+    "declared_author": "璐璐202006",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 18581,
+    "sha256": "e3bb3402afe70b0933d40f6962edda66c595cf2aed33ba256eae3314752eb970",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/42211"
+    ],
+    "primary_url": "https://www.joinquant.com/post/42211",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:10:11+08:00",
+    "requested_url": "https://www.joinquant.com/post/42211",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/f43482ae9dc4f2d07709b125e5d70a8e",
+    "community_id": "f43482ae9dc4f2d07709b125e5d70a8e",
+    "post": {
+      "postId": "d6545520b9580c6cfedcfa0e6ba25924",
+      "uniqueKey": "f43482ae9dc4f2d07709b125e5d70a8e",
+      "title": "非线性市值（非小市值）组合4只",
+      "content": "写在前面的提示：\n这里的非线性，指的不是因子。\n指的是风险评估里的暴露度分析，非线性市值排第一，社区里的大部分小市值策略，都是市值排第一且是负值。\n\n非线性市值就是指市值与其他相关因素之间的非线性关系。\n非线性关系往往无法用简单的直线来表示，可能需要用曲线或者更复杂的形式来描述。\n举个例子，线性关系可以类似于 y = 2x，这里 y 和 x 之间存在一个固定的比例。而非线性关系可能是 y = x^2，这里 y 和 x 之间的关系是平方的，随着 x 的变化，y 的变化并不是固定比例。在现实世界中，许多现象之间的关系往往都是非线性的，如经济增长、自然科学现象等。\n\n\n五一假期，在GPT-4的辅助下，写的一个策略。\n\n将选股过程绘制成以下逻辑图：\n\n选股逻辑如下：\n\n1 从valuation表中获取符合基本条件的股票（如市盈率、市净率、净利润同比等指标均大于0）。\n\n2 对获取的股票按市值降序排列，选取前N%的股票（N由参数g.stock_selection_percent决定）。\n\n3 对选取的股票进行进一步过滤，去除ST股、暂停交易的股票、涨停股、跌停股以及科创板股票。\n\n4 每月通过自定义函数ffscore_stock筛选得分超过设定分数的股票。\n\n5 每天使用get_stock_rank_m_m函数对筛选后的股票进行排序，主要依据五个因子：当前价格、成交量、涨幅天数、流通市值和总市值，这五个因子各自乘以对应的权重，然后求和得到每个股票的综合评分。\n\n6 根据综合评分排序，选取排名靠前的股票。\n\n7 在每日交易中，该策略会先卖出符合条件的股票，再买入评分排名靠前的股票。\n\n核心参数为\n&gt;    g.score = 7               # 股票评分  \n    g.stock_selection_percent = 0.7  # 设置选取市值最大股票的百分比，1为全部。\n    g.volume_days = 5         # 成交量天数\n    g.increase_days = 60      # 涨幅天数\ng.score_weights = [2,1,2,4,4]# [当前价格，成交量，涨幅天数，流通市值，总市值]\n\n为了得到这组参数，把连续好几天每天180分钟和积分消耗完了，得到如下的回测结果。\n![Img](https://image.joinquant.com/1b0fc3709693ff2c71eb3323ddcfc044) \n![Img](https://image.joinquant.com/9d02c1359de0c52422ebcc7fea78a0aa) \n在此，我毫无保留地分享这个策略，希望各位能够对上述参数进行排列组合，探索更优秀的回测结果。如果有幸您找到了更好的组合，也请与大家分享，共同学习进步。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2023-05-03 21:04:30",
+      "modTime": "2023-05-04 17:23:12",
+      "lastActiveTime": "2026-04-10 09:23:54",
+      "lastPubTime": "2023-05-04 17:23:12",
+      "backtestId": "e0cd55e0a63fad84129473da480089e3",
+      "backtestName": "非线性市值(非小市值)绩优股4只",
+      "replyCount": "42",
+      "viewCount": "3216",
+      "collectionCount": "62",
+      "likeCount": "43",
+      "disLikeCount": "0",
+      "backtestCloneCount": "248",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "92",
+      "followersCount": "1354",
+      "followingCount": "206",
+      "author": {
+        "userId": "780e8d1951971cb7223787a352b9654b",
+        "alias": "璐璐202006",
+        "introduction": "祝自己一切顺利",
+        "headImgKey": "39ae989092594f037844ac10d6d56d09"
+      },
+      "tags": [
+        {
+          "id": "2",
+          "name": "心得"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "e0cd55e0a63fad84129473da480089e3",
+        "backtest_name": "非线性市值(非小市值)绩优股4只",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=e0cd55e0a63fad84129473da480089e3&postId=f43482ae9dc4f2d07709b125e5d70a8e&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2018-01-01",
+          "end_date": "2023-05-03",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "8aed8755e6bd16a805920f5ed5566865",
+            "28472525"
+          ],
+          "numeric_backtest_id": "28472525",
+          "numeric_post_id": "42211",
+          "python_version": 3,
+          "clone_count": 188
+        },
+        "stats": {
+          "trading_days": 1293,
+          "benchmark_volatility": 0.20238590651954,
+          "algorithm_volatility": 0.27306525243173,
+          "treasury_return": 0.21282191780822,
+          "algorithm_return": 3.53598825036,
+          "benchmark_return": -0.00043663247205605,
+          "annual_algo_return": 0.33957405878077,
+          "annual_bm_return": -8.4437236169022e-05,
+          "sharpe": 1.0970786510293,
+          "excess_return_sharpe": "1.245",
+          "sortino": 1.5859098104385,
+          "information": 1.4145525446538,
+          "beta": 0.70640021629296,
+          "alpha": 0.32788971391438,
+          "excess_return": 3.5379696752774,
+          "avg_excess_return": "0.13%",
+          "max_drawdown": 0.24591988425404,
+          "max_drawdown_period": [
+            "2020-08-25",
+            "2021-01-14"
+          ],
+          "excess_return_max_drawdown": "35.30%",
+          "excess_return_max_drawdown_period": [
+            "2020-08-25",
+            "2021-01-13"
+          ],
+          "max_leverage": 0,
+          "period_label": "2023-04",
+          "__version": 101,
+          "win_ratio": 0.64406779661017,
+          "profit_loss_ratio": 2.9574067773942,
+          "win_count": 76,
+          "lose_count": 42,
+          "day_win_ratio": 0.51276102088167,
+          "avg_trade_return": 0.084312473539467,
+          "avg_position_days": 49.730769230769,
+          "turnover_rate": 0.021153411660932,
+          "report_done_seconds": 2845.8261728287,
+          "report_done_cpu_seconds": 1342.38
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 353.598825,
+          "benchmark_return_percent": -0.043663,
+          "annual_algo_return_percent": 33.957406,
+          "annual_bm_return_percent": -0.008444,
+          "max_drawdown_percent": 24.591988,
+          "algorithm_volatility_percent": 27.306525,
+          "benchmark_volatility_percent": 20.238591,
+          "win_ratio_percent": 64.40678,
+          "day_win_ratio_percent": 51.276102,
+          "avg_trade_return_percent": 8.431247,
+          "turnover_rate_percent": 2.115341,
+          "sharpe": 1.0970786510293,
+          "sortino": 1.5859098104385,
+          "information": 1.4145525446538,
+          "alpha": 0.32788971391438,
+          "beta": 0.70640021629296,
+          "profit_loss_ratio": 2.9574067773942,
+          "avg_position_days": 49.730769230769,
+          "trading_days": 1293,
+          "win_count": 76,
+          "lose_count": 42,
+          "max_drawdown_period": [
+            "2020-08-25",
+            "2021-01-14"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-08-25",
+            "2021-01-13"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/42211",
+      "https://www.joinquant.com/community/post/detailV2?postId=42211",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=e0cd55e0a63fad84129473da480089e3&postId=f43482ae9dc4f2d07709b125e5d70a8e&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=e0cd55e0a63fad84129473da480089e3"
+    ]
+  }
+}

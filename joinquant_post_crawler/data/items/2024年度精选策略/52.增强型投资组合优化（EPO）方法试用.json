@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略/52.增强型投资组合优化（EPO）方法试用.txt",
+    "category": "2024年度精选策略",
+    "file_name": "52.增强型投资组合优化（EPO）方法试用.txt",
+    "strategy_name": "增强型投资组合优化（EPO）方法试用",
+    "declared_title": "增强型投资组合优化（EPO）方法试用",
+    "declared_author": "开心果",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 4630,
+    "sha256": "0baad6159f87bc1cef0160f4eef1c69cda21ff018dc91b1d57a0837440148160",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/43949"
+    ],
+    "primary_url": "https://www.joinquant.com/post/43949",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:10:26+08:00",
+    "requested_url": "https://www.joinquant.com/post/43949",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/dcd08e4d7848f5d84afdd1c6afc1a2b7",
+    "community_id": "dcd08e4d7848f5d84afdd1c6afc1a2b7",
+    "post": {
+      "postId": "7bfd90b1398aa4883fc867d3946b90ae",
+      "uniqueKey": "dcd08e4d7848f5d84afdd1c6afc1a2b7",
+      "title": "增强型投资组合优化（EPO）方法试用",
+      "content": "增强型投资组合优化（EPO）方法，由Pedersen、Babu和Levine在2021年提出，为投资组合优化提出了一个统一的理论。EPO方法使用主成分分析（PCA），根据其方差将投资组合从最重要到最不重要的主成分进行排名。值得注意的是，最不重要的主成分成为“问题投资组合”，主要是因为它们的估计风险较低，导致低估了它们的真实风险。这些投资组合提供了高的预期收益（ex-ante）和低的实现夏普比率（ex-post），强调了通过标准方法使用它们所面临的挑战。\n\n“增强组合优化”方法(Enhanced Portfolio Optimization，以下简称“EPO”方法)主要有以下三点开创性的成果：\n\n第一，参数焦点的创新。\n\n传统的均值方差模型(MVO方法)对输入参数(期望收益和协方差矩阵)非常敏感，而其又难以预测。EPO方法则在BL模型（Black and Litterman， 1992）关注对期望收益参数进行收缩的思想基础上，利用贝叶斯分析框架，结合投资者的主观判断，通过提高定价能力强的资产权重、缩减定价能力较弱的资产权重的调整方法，产生了更好的优化效果。\n\n本质上， MVO方法关注参数预测，BL模型侧重于收缩预期收益，EPO方法提供了关注收缩预期风险的新思路。\n\n第二，模型方法的泛化。\n\n本文将各类资产配置优化方法统一在了一个大框架之下，投资者可以通过调整收缩协方差矩阵的权重系数w，从而得到传统的均值方差模型、因子模型以及本文的EPO配置方法。\n\n由于MVO方法会导致低估某些资产的风险从而对其进行高权重配置，为解决该问题，本文利用投资者已有的先验信念、可获取的市场信息求得组合条件期望收益，通过对协方差矩阵赋予w得收缩权重，得到了调整风险和收益的EPO最优组合，即传统理论最优组合和锚定组合(anchor portfolio)的加权。当w=0时，为传统的MVO组合；当w=1时为锚定投资组合。\n\n第三，模型应用的包容。\n\n本文延续了BL模型的思路，投资者可以采用先验信念a、市场信息s以及依据经验获得的收缩系数w来获得优化权重，从而使得运用不同的投资哲学（决定论、非决定论）和不同的市场分析方法（量化、基本面）的机构，都可以采用这种优化方法。\n\n从投资实践来看，无论是通过对各类市场因子的发展方向进行推演而寻求投资机会的决定论投资者（以瑞·达利欧、巴菲特为代表），或是更加关注因投资者错误认知导致的市场预期与经济现实之间缺乏对应而产生的投资机会的非决定论投资者（以索罗斯为代表），均可以基于自身投资哲学选择参数，进而获得相应的优化权重。\n\n此外，EPO方法同样适用于基于数据挖掘进行量化交易的投资者，以及通过对上市公司进行深入研究覆盖进行选股操作的基本面投资者，在EPO的框架下，投资仅需调整模型初始参数，即可获得符合自身投资理念的最优权重组合。\n\n总体而言，EPO方法可以帮助投资者更好的理解金融市场实践中运用的各种投资方法。例如，在EPO的框架下，我们可以将桥水基金的全天候策略（All weather）看作是不考虑资产的二阶相关性(w=1)、以等风险权重作为信念a（a=1/σ）、使用市场基本面信息作为信号s产生的一类投资方法。\n显然，当ω=0，w=1/γ Σ^(-1) s，就是传统的MVO结果；当ω=1，则可以实现锚定的资产组合配置。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2023-09-11 08:58:40",
+      "modTime": "2023-11-04 20:57:05",
+      "lastActiveTime": "2025-05-18 17:42:36",
+      "lastPubTime": "2023-11-04 20:57:05",
+      "backtestId": "b9e0e67042a2c61191510594e3c7e40a",
+      "backtestName": "EPO",
+      "replyCount": "42",
+      "viewCount": "7617",
+      "collectionCount": "176",
+      "likeCount": "81",
+      "disLikeCount": "0",
+      "backtestCloneCount": "449",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "328",
+      "fileName": "SSRN-id3530390.pdf",
+      "fileType": "application/pdf",
+      "fileSize": "945376",
+      "postCount": "72",
+      "followersCount": "2125",
+      "followingCount": "2",
+      "author": {
+        "userId": "8c2a5c6803f9ab43fc07c7bd169c616f",
+        "alias": "开心果",
+        "headImgKey": "c9a997e0c5aa2e77d3ae03f7e34ca7a0"
+      },
+      "tags": [
+        {
+          "id": "5",
+          "name": "仓位管理"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "b9e0e67042a2c61191510594e3c7e40a",
+        "backtest_name": "EPO",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=b9e0e67042a2c61191510594e3c7e40a&postId=dcd08e4d7848f5d84afdd1c6afc1a2b7&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2014-01-01",
+          "end_date": "2023-09-13",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "9713d49dd6c363cd09832b121941904e",
+            "30199375"
+          ],
+          "numeric_backtest_id": "30199375",
+          "numeric_post_id": "43949",
+          "python_version": 3,
+          "clone_count": 378
+        },
+        "stats": {
+          "trading_days": 2363,
+          "benchmark_volatility": 0.22146063320377,
+          "algorithm_volatility": 0.10035187731335,
+          "treasury_return": 0.38805479452055,
+          "algorithm_return": 2.1655959392,
+          "benchmark_return": 0.60369179795968,
+          "annual_algo_return": 0.12965816619584,
+          "annual_bm_return": 0.051238658408814,
+          "sharpe": 0.89343785683133,
+          "excess_return_sharpe": "0.190",
+          "sortino": 1.2123393653184,
+          "information": 0.43578552909151,
+          "beta": 0.27254044612042,
+          "alpha": 0.086595177219307,
+          "excess_return": 0.97394283816096,
+          "avg_excess_return": "0.04%",
+          "max_drawdown": 0.13463924088247,
+          "max_drawdown_period": [
+            "2015-06-12",
+            "2015-07-08"
+          ],
+          "excess_return_max_drawdown": "46.15%",
+          "excess_return_max_drawdown_period": [
+            "2014-03-20",
+            "2015-06-08"
+          ],
+          "max_leverage": 0,
+          "period_label": "2023-09",
+          "__version": 101,
+          "win_ratio": 0.98837209302326,
+          "profit_loss_ratio": 527.71991513948,
+          "win_count": 170,
+          "lose_count": 2,
+          "day_win_ratio": 0.51121455776555,
+          "avg_trade_return": 0.56680635991983,
+          "avg_position_days": 2363,
+          "turnover_rate": 0.00083184315805,
+          "report_done_seconds": 1991.2245018482,
+          "report_done_cpu_seconds": 1388
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 216.559594,
+          "benchmark_return_percent": 60.36918,
+          "annual_algo_return_percent": 12.965817,
+          "annual_bm_return_percent": 5.123866,
+          "max_drawdown_percent": 13.463924,
+          "algorithm_volatility_percent": 10.035188,
+          "benchmark_volatility_percent": 22.146063,
+          "win_ratio_percent": 98.837209,
+          "day_win_ratio_percent": 51.121456,
+          "avg_trade_return_percent": 56.680636,
+          "turnover_rate_percent": 0.083184,
+          "sharpe": 0.89343785683133,
+          "sortino": 1.2123393653184,
+          "information": 0.43578552909151,
+          "alpha": 0.086595177219307,
+          "beta": 0.27254044612042,
+          "profit_loss_ratio": 527.71991513948,
+          "avg_position_days": 2363,
+          "trading_days": 2363,
+          "win_count": 170,
+          "lose_count": 2,
+          "max_drawdown_period": [
+            "2015-06-12",
+            "2015-07-08"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2014-03-20",
+            "2015-06-08"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/43949",
+      "https://www.joinquant.com/community/post/detailV2?postId=43949",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=b9e0e67042a2c61191510594e3c7e40a&postId=dcd08e4d7848f5d84afdd1c6afc1a2b7&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=b9e0e67042a2c61191510594e3c7e40a"
+    ]
+  }
+}

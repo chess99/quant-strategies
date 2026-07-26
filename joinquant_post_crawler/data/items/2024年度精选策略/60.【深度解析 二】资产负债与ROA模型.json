@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略/60.【深度解析 二】资产负债与ROA模型.txt",
+    "category": "2024年度精选策略",
+    "file_name": "60.【深度解析 二】资产负债与ROA模型.txt",
+    "strategy_name": "【深度解析 二】资产负债与ROA模型",
+    "declared_title": "【深度解析 二】资产负债与ROA模型",
+    "declared_author": "加百力",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 14688,
+    "sha256": "ddfdc8a4c318e43b90adfff2afa7c78a9695cb7d25de27b79290a53dc9885146",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/44328"
+    ],
+    "primary_url": "https://www.joinquant.com/post/44328",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:10:33+08:00",
+    "requested_url": "https://www.joinquant.com/post/44328",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/55955b41d5a1d8b9ea4ae28e2c97c1e7",
+    "community_id": "55955b41d5a1d8b9ea4ae28e2c97c1e7",
+    "post": {
+      "postId": "719200086ed57a00fdfbf1185dfdf4a6",
+      "uniqueKey": "55955b41d5a1d8b9ea4ae28e2c97c1e7",
+      "title": "【深度解析 二】资产负债与ROA模型",
+      "content": "##资产负债与ROA模型 介绍\n运行周期：每月运行\n持仓数量：5 只股票\n交易对象：所有上市公司股票\n筛股部分：过滤 次新股、涨跌停、停牌、ST、退市股票\n排序方式：根据 资产负债率、不良资产率、优质资产周转率、ROA 增长量等财务指标过滤、排序股票\n择时部分：无\n止损部分：无\n资金分配：\n① 初始阶段，每只股票等额分配资金买入\n② 后续阶段，卖出不在待买入列表中的所有股票\n③ 买入未持仓股票\n\n\n##模型特点\n\n\n**筛选股票方式与公司 市值无关**\n\n2020年以后上涨迅速\n\n2021年以来表现较好\n\n2023年以来表现较好\n\n\n##深度解析 系列\n\n我们希望通过对一些经典模型的修改和详细注释，让大家了解量化交易模型的基本结构、设计原理、重要API函数的使用方法。\n\n对代码和注释有疑问的朋友欢迎讨论。也希望各位对错误之处不吝赐教。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2023-10-05 18:47:33",
+      "modTime": "2023-10-08 23:46:41",
+      "lastActiveTime": "2025-04-05 21:09:31",
+      "lastPubTime": "2023-10-08 23:46:41",
+      "backtestId": "f48d28ad47f120544db581896bb320de",
+      "backtestName": "资产负债与ROA-5股-2010年至今",
+      "replyCount": "81",
+      "viewCount": "11890",
+      "collectionCount": "76",
+      "likeCount": "56",
+      "disLikeCount": "0",
+      "backtestCloneCount": "211",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "237",
+      "followersCount": "997",
+      "followingCount": "9",
+      "author": {
+        "userId": "029eed9cd1b7f210b471dbb7ae6b5402",
+        "alias": "加百力",
+        "introduction": "十八年实战，十六年量化研究。科技公司总裁，985大学导师",
+        "headImgKey": "9b605f8d52bf3d37a3abea2812df9488"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "f48d28ad47f120544db581896bb320de",
+        "backtest_name": "资产负债与ROA-5股-2010年至今",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=f48d28ad47f120544db581896bb320de&postId=55955b41d5a1d8b9ea4ae28e2c97c1e7&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2010-01-01",
+          "end_date": "2023-09-29",
+          "base_capital": 10000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "ce7dcc658ef92e4272076e17fc451eb3",
+            "30428809"
+          ],
+          "numeric_backtest_id": "30428809",
+          "numeric_post_id": "44328",
+          "python_version": 3,
+          "clone_count": 207
+        },
+        "stats": {
+          "trading_days": 3341,
+          "benchmark_volatility": 0.22102485532317,
+          "algorithm_volatility": 0.27766703340662,
+          "treasury_return": 0.54958904109589,
+          "algorithm_return": 17.586699187015,
+          "benchmark_return": 0.031837300877031,
+          "annual_algo_return": 0.24443361899339,
+          "annual_bm_return": 0.0023479332047569,
+          "sharpe": 0.73625455814918,
+          "excess_return_sharpe": "0.994",
+          "sortino": 0.9959718500672,
+          "information": 1.1971117254787,
+          "beta": 0.87054899880568,
+          "alpha": 0.23721158804495,
+          "excess_return": 17.013207286863,
+          "avg_excess_return": "0.09%",
+          "max_drawdown": 0.45820597746515,
+          "max_drawdown_period": [
+            "2015-06-15",
+            "2016-02-29"
+          ],
+          "excess_return_max_drawdown": "31.14%",
+          "excess_return_max_drawdown_period": [
+            "2017-04-13",
+            "2019-11-18"
+          ],
+          "max_leverage": 0,
+          "period_label": "2023-09",
+          "__version": 101,
+          "win_ratio": 0.52229299363057,
+          "profit_loss_ratio": 2.2597610867141,
+          "win_count": 164,
+          "lose_count": 150,
+          "day_win_ratio": 0.52888356779407,
+          "avg_trade_return": 0.059850819456891,
+          "avg_position_days": 88.174603174603,
+          "turnover_rate": 0.017798710089768,
+          "report_done_seconds": 410.10856366158,
+          "report_done_cpu_seconds": 278.96
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 1758.669919,
+          "benchmark_return_percent": 3.18373,
+          "annual_algo_return_percent": 24.443362,
+          "annual_bm_return_percent": 0.234793,
+          "max_drawdown_percent": 45.820598,
+          "algorithm_volatility_percent": 27.766703,
+          "benchmark_volatility_percent": 22.102486,
+          "win_ratio_percent": 52.229299,
+          "day_win_ratio_percent": 52.888357,
+          "avg_trade_return_percent": 5.985082,
+          "turnover_rate_percent": 1.779871,
+          "sharpe": 0.73625455814918,
+          "sortino": 0.9959718500672,
+          "information": 1.1971117254787,
+          "alpha": 0.23721158804495,
+          "beta": 0.87054899880568,
+          "profit_loss_ratio": 2.2597610867141,
+          "avg_position_days": 88.174603174603,
+          "trading_days": 3341,
+          "win_count": 164,
+          "lose_count": 150,
+          "max_drawdown_period": [
+            "2015-06-15",
+            "2016-02-29"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2017-04-13",
+            "2019-11-18"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/44328",
+      "https://www.joinquant.com/community/post/detailV2?postId=44328",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=f48d28ad47f120544db581896bb320de&postId=55955b41d5a1d8b9ea4ae28e2c97c1e7&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=f48d28ad47f120544db581896bb320de"
+    ]
+  }
+}

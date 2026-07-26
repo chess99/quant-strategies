@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略/47.随机森林量价多因子选股 短线交易.txt",
+    "category": "2024年度精选策略",
+    "file_name": "47.随机森林量价多因子选股 短线交易.txt",
+    "strategy_name": "随机森林量价多因子选股 短线交易",
+    "declared_title": "随机森林量价多因子选股 短线交易",
+    "declared_author": "随云浪",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 6660,
+    "sha256": "714b1ebadf545759d5461636397dc2b0fa46f41e2b068fe0a35d4ca4ddbe71d9",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/43051"
+    ],
+    "primary_url": "https://www.joinquant.com/post/43051",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:10:24+08:00",
+    "requested_url": "https://www.joinquant.com/post/43051",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/39640d293ea591a7966d30542519fb93",
+    "community_id": "39640d293ea591a7966d30542519fb93",
+    "post": {
+      "postId": "5c591bf3dc4bca527f72f886aad85a6b",
+      "uniqueKey": "39640d293ea591a7966d30542519fb93",
+      "title": "随机森林量价多因子选股 短线交易",
+      "content": "本篇文章主要讲述，如何在研究环境中用自己的因子训练机器学习模型，并导出保存选股结果，然后在回测读取选股结果，快速回测\n\n\n###策略主要逻辑\n\n每日收盘后选股，根据随机森林的预测的涨幅进行排序，选择最大的前五只，次日开盘买入，第三日收盘卖出，共计持仓2天\n\n\n![交易记录示例](https://image.joinquant.com/667446423557b12497bd5288305fe4cd) \n\n具体的代码可以参考下方研究中的代码，这里简述一下过程\n\n- 设定股票池沪深300\n- 计算每只股票因子并合并数据\n- 清洗数据，剔除最大最小0.1%的异常数据\n- 划分训练集、测试集，训练模型\n- 评估效果R2、MSE\n- 保存模型\n- 预测并保存选股结果\n\n###优化\n仅仅依靠机器学习和深度学习模型来交易的话，作用不大。选股选出来如何买卖？怎么止盈止损？都是大问题。这里讲一下我测试的结果，针对这个策略那些方法提高策略的收益。\n\n- 组合优化，使用聚宽提供的组合风险最小化函数 比等权效果更好\n\n![Img](https://image.joinquant.com/cf93ea7d0563fe81101c47dd13dc72fc) \n\n- 只买低开的股票，防止开盘追高，风险更小，收益也会减少，实盘中集合竞价直接挂昨日收盘价，低开自动成交\n\n![Img](https://image.joinquant.com/1143ad5963495f9ed7fbe92b143f11c1) \n\n- 因子，短线交易主要以量价为主，市面上还有各种各样的因子可以使用，好的因子拿来喂给模型效果更好的概率比较大，但是不好的因子不一定会使模型变差，有点玄学。 _以我个人经验来讲，把因子的变化率喂给模型比单独只给因子的效果更好，所以我在处理因子的时候用了很多一阶差分_。\n\n- 模型，深度学习的模型总体上是比机器学习的效果好一些，还有就是模型最好隔几个月就用新数据迭代训练一下，否则就会失效，你可以看一下收益曲线近三个月的表现 基本没有什么较大的收益\n\n- 选股数量，过少过多都不行，比如说 每天只选一只，这个肯定是不准的，但是选3 选5 选10 都是可以的，选太多的话就是亏手续费\n\n- 止盈止损，本文没有加任何止盈止损和指标判断，不管大盘怎么涨跌，策略每天都有买卖，所以你可以加一些指标判断，缩小选股的范围，或者选择那天可以做，那天不可以做以及盘中止盈止损。上篇文章我也说了，从今年1月3号开始算交易日 奇数天买入的股票比偶数天更好，看下面的交易记录就能明白了，正常是如上面的交易记录一样 每天都买入一半的仓位，卖出一半的仓位，但是我隔一天买一次的话，我就可以全仓买入，这样的话就是下面的交易记录，那么从什么时候隔一天买那？从1月3号开始效果更好\n\n\n\n**1月3号开始半仓买入+等权 每日都有买卖**\n![Img](https://image.joinquant.com/d6a6d5c8c7910c81d51d39111c95a580) \n\n\n**1月3号开始全仓买入+组合优化 隔天买卖**\n![1月3号开始全仓买入](https://image.joinquant.com/52685eb86b7fee9bed898e947766ab4a) \n\n\n**1月4号开始全仓买入+组合优化**\n![1月4号开始全仓买入](https://image.joinquant.com/6ac485dce3d7d12529c8d4685b61ab6d) \n\n\n**1月3号开始全仓买入+组合优化+低开买入**\n![Img](https://image.joinquant.com/b09896a974f715950db2b5e1ff35d3ec) \n\n\n\n需要注意的是，先运行研究环境的文件 生成选股结果以后再运行回测，根据模型的训练效果不同，大家回测的曲线也是不同的。\n\n本文提供的策略及因子的仅起参考作用。欢迎大家自己深入研究。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2023-06-28 17:27:13",
+      "modTime": "2023-06-28 17:27:13",
+      "lastActiveTime": "2024-11-22 16:06:07",
+      "lastPubTime": "2023-06-28 17:27:13",
+      "backtestId": "15cc937c17efe523d3e5956abd3e59d1",
+      "backtestName": "随机森林选股top5",
+      "replyCount": "34",
+      "viewCount": "3939",
+      "collectionCount": "110",
+      "likeCount": "47",
+      "disLikeCount": "0",
+      "backtestCloneCount": "174",
+      "notebookCloneCount": "105",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "2",
+      "followersCount": "63",
+      "followingCount": "2",
+      "author": {
+        "userId": "d47c000686927a93beb234ab3584fd82",
+        "alias": "随云浪",
+        "introduction": "机器学习 深度学习调包侠",
+        "headImgKey": "49c1828346451f1ba343f225cac90106"
+      },
+      "tags": [
+        {
+          "id": "1395",
+          "name": "本地数据JQData"
+        },
+        {
+          "id": "13",
+          "name": "机器学习"
+        },
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "2758",
+          "name": "深度学习"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "15cc937c17efe523d3e5956abd3e59d1",
+        "backtest_name": "随机森林选股top5",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=15cc937c17efe523d3e5956abd3e59d1&postId=39640d293ea591a7966d30542519fb93&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2022-12-30",
+          "end_date": "2023-06-21",
+          "base_capital": 2000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "bba8cebac0fd269b6a9fa694b4e15d8a",
+            "29175564"
+          ],
+          "numeric_backtest_id": "29175564",
+          "numeric_post_id": "43051",
+          "python_version": 3,
+          "clone_count": 174
+        },
+        "stats": {
+          "trading_days": 114,
+          "benchmark_volatility": 0.13314408982342,
+          "algorithm_volatility": 0.24291032197816,
+          "treasury_return": 0.018958904109589,
+          "algorithm_return": 0.3287794614,
+          "benchmark_return": 0.0019005885860959,
+          "annual_algo_return": 0.86521997861295,
+          "annual_bm_return": 0.0041726831515203,
+          "sharpe": 3.3972207187109,
+          "excess_return_sharpe": "4.282",
+          "sortino": 6.0624368562876,
+          "information": 4.5027401222186,
+          "beta": 1.132850001541,
+          "alpha": 0.86580695455996,
+          "excess_return": 0.32625878908326,
+          "avg_excess_return": "0.26%",
+          "max_drawdown": 0.12694304629292,
+          "max_drawdown_period": [
+            "2023-04-20",
+            "2023-05-12"
+          ],
+          "excess_return_max_drawdown": "8.81%",
+          "excess_return_max_drawdown_period": [
+            "2023-04-20",
+            "2023-05-12"
+          ],
+          "max_leverage": 0,
+          "period_label": "2023-06",
+          "__version": 101,
+          "win_ratio": 0.5175983436853,
+          "profit_loss_ratio": 1.6065778612162,
+          "win_count": 250,
+          "lose_count": 233,
+          "day_win_ratio": 0.56140350877193,
+          "avg_trade_return": 0.0069720009243058,
+          "avg_position_days": 2.9225806451613,
+          "turnover_rate": 0.37408093384863,
+          "report_done_seconds": 13.084492444992,
+          "report_done_cpu_seconds": 14.41
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 32.877946,
+          "benchmark_return_percent": 0.190059,
+          "annual_algo_return_percent": 86.521998,
+          "annual_bm_return_percent": 0.417268,
+          "max_drawdown_percent": 12.694305,
+          "algorithm_volatility_percent": 24.291032,
+          "benchmark_volatility_percent": 13.314409,
+          "win_ratio_percent": 51.759834,
+          "day_win_ratio_percent": 56.140351,
+          "avg_trade_return_percent": 0.6972,
+          "turnover_rate_percent": 37.408093,
+          "sharpe": 3.3972207187109,
+          "sortino": 6.0624368562876,
+          "information": 4.5027401222186,
+          "alpha": 0.86580695455996,
+          "beta": 1.132850001541,
+          "profit_loss_ratio": 1.6065778612162,
+          "avg_position_days": 2.9225806451613,
+          "trading_days": 114,
+          "win_count": 250,
+          "lose_count": 233,
+          "max_drawdown_period": [
+            "2023-04-20",
+            "2023-05-12"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2023-04-20",
+            "2023-05-12"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/43051",
+      "https://www.joinquant.com/community/post/detailV2?postId=43051",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=15cc937c17efe523d3e5956abd3e59d1&postId=39640d293ea591a7966d30542519fb93&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=15cc937c17efe523d3e5956abd3e59d1"
+    ]
+  }
+}

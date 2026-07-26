@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略/62.分享一种K线小碎步后突破的分钟级打法.txt",
+    "category": "2024年度精选策略",
+    "file_name": "62.分享一种K线小碎步后突破的分钟级打法.txt",
+    "strategy_name": "分享一种K线小碎步后突破的分钟级打法",
+    "declared_title": "分享一种K线小碎步后突破的分钟级打法",
+    "declared_author": "画家",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 21780,
+    "sha256": "3c2724114585de0edef9ab0c7baec1351b8f625d565e3c99126e9d89da96ebb3",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/45425"
+    ],
+    "primary_url": "https://www.joinquant.com/post/45425",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:10:33+08:00",
+    "requested_url": "https://www.joinquant.com/post/45425",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/34c6c15b047d55e7da6a70f3ceb4748d",
+    "community_id": "34c6c15b047d55e7da6a70f3ceb4748d",
+    "post": {
+      "postId": "9a3ca4219614ecce1cbd01f962b94380",
+      "uniqueKey": "34c6c15b047d55e7da6a70f3ceb4748d",
+      "title": "分享一种K线小碎步后突破的分钟级打法",
+      "content": "Dog证监会发的股越来越多，且所谓的价值投资这几年也不灵了，（其实是A股市场一直在高位，而指数和一些财经主播可能只是在骗人进场，这完全有可能，同花顺全指确实一直在高位呢）那到底改买什么样的，怎么买卖，很多玩家都在思考。那肯定有人注意到一些股在小阴小阳后第一颗大阳出现后就开始走一波行情。这个尝试性策略就是对该种情况的描述。\n\n简单描述下，具体还得看策略代码。\n选股：\n1 流通盘&lt;   25亿，为了能吃上连板\n2 300日内有过涨停，越爱涨停的股越有机会\n3 最近30日内没有过长阳（大于5%）\n4 15日内涨跌幅都小于2.5%\n5 15日内收在区间最高处（此处可商榷，有的股喜欢调整两天后拔起，所以可以收在相对高处即可）\n6 60日内不要有大于当前价8%以上的股价，让15日形成的坡基本处于一个没有压力的坡，或者大阳后就突破压力的坡\n\n买入监控（分钟级）\n当日出现涨幅达到4%-6%认为打算突破就买入。\n\n卖出（尾盘14:40）\n1 涨停不卖\n2 持股超过特定天数，盈利小于5个点卖出\n3 当日放巨量小于2个点涨幅卖出\n4 当日冲高回落卖出\n5 不满足上述条件15个点止盈\n\n大家可以根据自己对这种打法的见解进行调整，导出交易表格研究下买卖点后找找原因。本策略测试这两年的情况（22年15%，23年90%），回撤不大，可能有利可图。（过去两年大盘不好的情况下也都有盈利，太久远的我觉得没有参考价值，市场在变化，以前2000只，现在都6000只股票了）",
+      "type": 1,
+      "status": "0",
+      "addTime": "2023-12-08 21:02:51",
+      "modTime": "2023-12-08 21:02:51",
+      "lastActiveTime": "2025-12-27 00:34:53",
+      "lastPubTime": "2023-12-08 21:02:51",
+      "backtestId": "44c2a9b5de3120f8c90d5a28cdc6b999",
+      "backtestName": "突破",
+      "replyCount": "77",
+      "viewCount": "4564",
+      "collectionCount": "110",
+      "likeCount": "68",
+      "disLikeCount": "0",
+      "backtestCloneCount": "401",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "6",
+      "followersCount": "66",
+      "followingCount": "1",
+      "author": {
+        "userId": "8d4154a06d199b7f729c20448c5ff980",
+        "alias": "画家",
+        "introduction": "我喜欢画画"
+      },
+      "tags": [
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "44c2a9b5de3120f8c90d5a28cdc6b999",
+        "backtest_name": "突破",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=44c2a9b5de3120f8c90d5a28cdc6b999&postId=34c6c15b047d55e7da6a70f3ceb4748d&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2023-01-01",
+          "end_date": "2023-12-06",
+          "base_capital": 100000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "6b60f9e510aa391244831772ca907cdc",
+            "31397713"
+          ],
+          "numeric_backtest_id": "31397713",
+          "numeric_post_id": "45425",
+          "python_version": 3,
+          "clone_count": 360
+        },
+        "stats": {
+          "trading_days": 225,
+          "benchmark_volatility": 0.13433967998353,
+          "algorithm_volatility": 0.21042291024451,
+          "treasury_return": 0.036931506849315,
+          "algorithm_return": 0.9280952964,
+          "benchmark_return": -0.12192022481487,
+          "annual_algo_return": 1.0740032809176,
+          "annual_bm_return": -0.13451415121853,
+          "sharpe": 4.9139291901063,
+          "excess_return_sharpe": "5.519",
+          "sortino": 9.1002202287873,
+          "information": 4.9265406378786,
+          "beta": 0.059543330355411,
+          "alpha": 1.0443944346753,
+          "excess_return": 1.1958087988002,
+          "avg_excess_return": "0.36%",
+          "max_drawdown": 0.12625848437544,
+          "max_drawdown_period": [
+            "2023-08-02",
+            "2023-10-23"
+          ],
+          "excess_return_max_drawdown": "7.98%",
+          "excess_return_max_drawdown_period": [
+            "2023-08-21",
+            "2023-10-13"
+          ],
+          "max_leverage": 0,
+          "period_label": "2023-12",
+          "__version": 101,
+          "win_ratio": 0.54166666666667,
+          "profit_loss_ratio": 4.488636108932,
+          "win_count": 26,
+          "lose_count": 22,
+          "day_win_ratio": 0.59555555555556,
+          "avg_trade_return": 0.053851286134703,
+          "avg_position_days": 10.82,
+          "turnover_rate": 0.04621917653943,
+          "report_done_seconds": 535.64819192886,
+          "report_done_cpu_seconds": 501.18
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 92.80953,
+          "benchmark_return_percent": -12.192022,
+          "annual_algo_return_percent": 107.400328,
+          "annual_bm_return_percent": -13.451415,
+          "max_drawdown_percent": 12.625848,
+          "algorithm_volatility_percent": 21.042291,
+          "benchmark_volatility_percent": 13.433968,
+          "win_ratio_percent": 54.166667,
+          "day_win_ratio_percent": 59.555556,
+          "avg_trade_return_percent": 5.385129,
+          "turnover_rate_percent": 4.621918,
+          "sharpe": 4.9139291901063,
+          "sortino": 9.1002202287873,
+          "information": 4.9265406378786,
+          "alpha": 1.0443944346753,
+          "beta": 0.059543330355411,
+          "profit_loss_ratio": 4.488636108932,
+          "avg_position_days": 10.82,
+          "trading_days": 225,
+          "win_count": 26,
+          "lose_count": 22,
+          "max_drawdown_period": [
+            "2023-08-02",
+            "2023-10-23"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2023-08-21",
+            "2023-10-13"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/45425",
+      "https://www.joinquant.com/community/post/detailV2?postId=45425",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=44c2a9b5de3120f8c90d5a28cdc6b999&postId=34c6c15b047d55e7da6a70f3ceb4748d&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=44c2a9b5de3120f8c90d5a28cdc6b999"
+    ]
+  }
+}

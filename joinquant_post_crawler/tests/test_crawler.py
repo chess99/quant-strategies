@@ -1,4 +1,5 @@
 import importlib.util
+import json
 import sys
 from pathlib import Path
 
@@ -46,7 +47,7 @@ def test_extract_local_header():
 
 def test_inventory_only_includes_files_below_category_directories(tmp_path):
     (tmp_path / "必看！好评送好礼.txt").write_text("促销说明", encoding="utf-8")
-    category = tmp_path / "2025年度精选策略"
+    category = tmp_path / "2024年度精选策略1"
     category.mkdir()
     strategy = category / "1.示例策略.txt"
     strategy.write_text(
@@ -57,8 +58,54 @@ def test_inventory_only_includes_files_below_category_directories(tmp_path):
     items = crawler.inventory_source_files(tmp_path, {".txt", ".py"})
 
     assert [item.relative_path for item in items] == [
-        Path("2025年度精选策略") / "1.示例策略.txt"
+        Path("2024年度精选策略") / "1.示例策略.txt"
     ]
+
+
+def test_archive_source_items_creates_utf8_python_and_manifest(tmp_path):
+    source_root = tmp_path / "input"
+    category = source_root / "2020年度精选策略"
+    category.mkdir(parents=True)
+    strategy = category / "1.示例策略.txt"
+    strategy.write_text(
+        "该策略由聚宽用户分享，仅供学习交流使用。\n"
+        "原文网址：https://www.joinquant.com/post/123\n\n"
+        "原文策略源码如下：\n\n"
+        "EMAIL = 'owner@example.com'\n"
+        "password = 'not-a-real-secret'\n"
+        "def initialize(context):\n"
+        "    pass\n",
+        encoding="utf-8",
+    )
+    items = crawler.inventory_source_files(source_root, {".txt", ".py"})
+    archive_root = tmp_path / "archive"
+
+    summary = crawler.archive_source_items(items, archive_root)
+
+    archived = archive_root / "2020年度精选策略" / "1.示例策略.py"
+    archived_text = archived.read_text(encoding="utf-8")
+    assert archived_text.startswith("# 该策略由聚宽用户分享")
+    assert "owner@example.com" not in archived_text
+    assert "not-a-real-secret" not in archived_text
+    assert "<redacted-email>" in archived_text
+    assert "<redacted-secret>" in archived_text
+    assert "def initialize(context):" in archived_text
+    assert summary == {
+        "item_count": 1,
+        "python3_ast_parse_ok": 1,
+        "python3_ast_parse_failed": 0,
+    }
+    manifest = json.loads(
+        (archive_root / "manifest.jsonl").read_text(encoding="utf-8")
+    )
+    assert manifest["archive_path"] == "2020年度精选策略/1.示例策略.py"
+    assert manifest["transformations"] == [
+        "transcode_utf8",
+        "comment_vendor_preamble",
+        "redact_credentials",
+    ]
+    assert manifest["redacted_value_count"] == 2
+    assert manifest["python3_ast_parse"] is True
 
 
 def test_parse_summary_page_extracts_configuration_and_duplicate_ids():

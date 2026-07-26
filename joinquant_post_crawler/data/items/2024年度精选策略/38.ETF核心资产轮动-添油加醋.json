@@ -1,0 +1,193 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略/38.ETF核心资产轮动-添油加醋.txt",
+    "category": "2024年度精选策略",
+    "file_name": "38.ETF核心资产轮动-添油加醋.txt",
+    "strategy_name": "ETF核心资产轮动-添油加醋",
+    "declared_title": "ETF核心资产轮动-添油加醋",
+    "declared_author": "hayy",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 4927,
+    "sha256": "0e1415cfcb53c25a34c6b25e1480744b59a046b593332c93c4231335e64a826a",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/44046",
+      "https://www.joinquant.com/post/42673",
+      "https://www.joinquant.com/view/community/detail/a31a822d1cfa7e83b1dda228d4562a70",
+      "https://www.joinquant.com/post/26142"
+    ],
+    "primary_url": "https://www.joinquant.com/post/44046",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:10:16+08:00",
+    "requested_url": "https://www.joinquant.com/post/44046",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/23696793bd901970f0d2b375a2d92440",
+    "community_id": "23696793bd901970f0d2b375a2d92440",
+    "post": {
+      "postId": "92e174464482fde10260aef47961d9fb",
+      "uniqueKey": "23696793bd901970f0d2b375a2d92440",
+      "title": "ETF核心资产轮动-添油加醋",
+      "content": "克隆自聚宽文章：https://www.joinquant.com/post/42673\n标题：【回顾3】ETF策略之核心资产轮动\n作者：wywy1995\n\n#####非常喜欢这个核心资产轮动的策略，简单，优雅，高效\n\n#####但谁又能拒绝一条美丽的收益曲线呢？那就来添油加醋一下\n\n\n#####原策略加上滑点后的表现，总收益612％，最大回撤31％\n![Img](https://image.joinquant.com/aee50f774e8b45f724fc6ecd2c0c34e8) \n\n#####1、加入反转效应\nETF短期动量，长期反转，原策略考虑了短期25天的动量效应，那就加一个200天的反转效应吧，两种效应按一定权重结合作为最后得分\n\n#####2、适中就好\n每期的得分值中，计算分数最大etf的和分数最小的etf得分差值，这个差值不能太大（枪打出头鸟），也不能太小（你们都没区别了我还买什么）\n\n#####3、rsrs顶判断（似乎这个改善效果最好）\n社区里有几篇这个策略加上rsrs择时的策略，但多是用沪深300等市场计算rsrs。ETF其实本身就是一个市场，那就每个ETF计算一个自己的rsrs指标，如果beta值小于均值减两倍的标准差，就可能到顶了，就不买入了\n感谢@乌子羽 提供的思路，直接把rsrs的参数写进去确实不够优雅，现在是滚动计算过去一年的rsrs参数值，总收益得到提升\n已经克隆过的小伙伴下载附件就行，都更新了rsrs值的计算\n\n\n\n####把这些结合到了一起，总收益953％，最大回撤仅23％，确实得到了不小的提升\n\n源码扔附件了\n\n欢迎讨论\n再次感谢原作者提供一个这么好的策略",
+      "type": 1,
+      "status": "0",
+      "addTime": "2023-09-17 13:26:48",
+      "modTime": "2023-09-18 11:40:55",
+      "lastActiveTime": "2025-10-05 22:40:57",
+      "lastPubTime": "2023-09-18 11:40:55",
+      "backtestId": "1ad613189ef5179e4f7a0595e1465aa6",
+      "backtestName": "最高评分核心资产轮动-添油加醋",
+      "replyCount": "75",
+      "viewCount": "7828",
+      "collectionCount": "167",
+      "likeCount": "83",
+      "disLikeCount": "0",
+      "backtestCloneCount": "429",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "641",
+      "fileName": "回测.txt",
+      "fileType": "text/plain",
+      "fileSize": "4797",
+      "postCount": "21",
+      "followersCount": "425",
+      "followingCount": "1",
+      "author": {
+        "userId": "615ae3bcf8278f46bbe18090fe73ef11",
+        "alias": "hayy",
+        "introduction": "广东财经大学",
+        "headImgKey": "3b99f932296f92e8114e343c7bb765ae"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "1ad613189ef5179e4f7a0595e1465aa6",
+        "backtest_name": "最高评分核心资产轮动-添油加醋",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=1ad613189ef5179e4f7a0595e1465aa6&postId=23696793bd901970f0d2b375a2d92440&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2015-09-10",
+          "end_date": "2023-09-10",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "9f44f4e5dbe4df98a43d0f2d2af59d00",
+            "30249125"
+          ],
+          "numeric_backtest_id": "30249125",
+          "numeric_post_id": "44046",
+          "python_version": 3,
+          "clone_count": 417
+        },
+        "stats": {
+          "trading_days": 1947,
+          "benchmark_volatility": 0.2199740136081,
+          "algorithm_volatility": 0.21492972280847,
+          "treasury_return": 0.32,
+          "algorithm_return": 9.5290403946,
+          "benchmark_return": 2.8817131203263,
+          "annual_algo_return": 0.35293661824599,
+          "annual_bm_return": 0.19023353461541,
+          "sharpe": 1.4559950767017,
+          "excess_return_sharpe": "0.422",
+          "sortino": 1.9713964487249,
+          "information": 0.7117352062754,
+          "beta": 0.43734634477871,
+          "alpha": 0.24723253101875,
+          "excess_return": 1.7124725780134,
+          "avg_excess_return": "0.06%",
+          "max_drawdown": 0.22863215635231,
+          "max_drawdown_period": [
+            "2020-02-13",
+            "2020-02-28"
+          ],
+          "excess_return_max_drawdown": "26.36%",
+          "excess_return_max_drawdown_period": [
+            "2019-03-08",
+            "2020-03-02"
+          ],
+          "max_leverage": 0,
+          "period_label": "2023-09",
+          "__version": 101,
+          "win_ratio": 0.55970149253731,
+          "profit_loss_ratio": 3.4079833405038,
+          "win_count": 75,
+          "lose_count": 59,
+          "day_win_ratio": 0.51309707241911,
+          "avg_trade_return": 0.019514980973435,
+          "avg_position_days": 464,
+          "turnover_rate": 0.063252285695455,
+          "report_done_seconds": 724.40516114235,
+          "report_done_cpu_seconds": 713.63
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 952.904039,
+          "benchmark_return_percent": 288.171312,
+          "annual_algo_return_percent": 35.293662,
+          "annual_bm_return_percent": 19.023353,
+          "max_drawdown_percent": 22.863216,
+          "algorithm_volatility_percent": 21.492972,
+          "benchmark_volatility_percent": 21.997401,
+          "win_ratio_percent": 55.970149,
+          "day_win_ratio_percent": 51.309707,
+          "avg_trade_return_percent": 1.951498,
+          "turnover_rate_percent": 6.325229,
+          "sharpe": 1.4559950767017,
+          "sortino": 1.9713964487249,
+          "information": 0.7117352062754,
+          "alpha": 0.24723253101875,
+          "beta": 0.43734634477871,
+          "profit_loss_ratio": 3.4079833405038,
+          "avg_position_days": 464,
+          "trading_days": 1947,
+          "win_count": 75,
+          "lose_count": 59,
+          "max_drawdown_period": [
+            "2020-02-13",
+            "2020-02-28"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2019-03-08",
+            "2020-03-02"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/44046",
+      "https://www.joinquant.com/community/post/detailV2?postId=44046",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=1ad613189ef5179e4f7a0595e1465aa6&postId=23696793bd901970f0d2b375a2d92440&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=1ad613189ef5179e4f7a0595e1465aa6"
+    ]
+  }
+}

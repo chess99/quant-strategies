@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略/97.大周期顶底判断：FED指标+格雷厄姆指数一次搞定.txt",
+    "category": "2024年度精选策略",
+    "file_name": "97.大周期顶底判断：FED指标+格雷厄姆指数一次搞定.txt",
+    "strategy_name": "大周期顶底判断：FED指标+格雷厄姆指数一次搞定",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 7713,
+    "sha256": "2a5937ac10d523f2b872841fc7d95e591d045fffd2a008678818d10ac31f75a3",
+    "joinquant_urls": [
+      "https://www.joinquant.com/view/community/detail/b6186a348b1520a6982b818b8206dfe5"
+    ],
+    "primary_url": "https://www.joinquant.com/view/community/detail/b6186a348b1520a6982b818b8206dfe5",
+    "url_selection_method": "first_community_url"
+  },
+  "remote": {
+    "status": "post_without_backtest",
+    "collected_at": "2026-07-27T02:10:51+08:00",
+    "requested_url": "https://www.joinquant.com/view/community/detail/b6186a348b1520a6982b818b8206dfe5",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/b6186a348b1520a6982b818b8206dfe5",
+    "community_id": "b6186a348b1520a6982b818b8206dfe5",
+    "post": {
+      "postId": "34c4bc2befc65e3ef99f75cffa40b6ee",
+      "uniqueKey": "b6186a348b1520a6982b818b8206dfe5",
+      "title": "1/pe-国债估值模型",
+      "content": "核心原理：市盈率中位数倒数（1/PE ）-10年国债收益率=风险溢价\n\n市盈率的倒数（1/PE），可以看做当前股票的投资报酬率。\n \n当风险溢价这个值为正数且越大时，说明股票市场情绪非常恐慌，大部分投资者在疯狂抛售股票致使股票估值非常低估。\n \n当风险溢价这个值为负数且越大时，说明股票市场情绪趋向乐观起来，大部分投资者看好股市，股票上涨致使估值达到泡沫阶段。\n \n所以风险溢价这个值的大小能更清楚更直观地给我们判断出股票市场究竟是高估了还是低估了。并且，当模型的风险溢价值出现极限值时往往代表着股票市场估值也处于极端状态。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-06-29 10:34:35",
+      "modTime": "2020-06-29 10:34:35",
+      "lastActiveTime": "2023-04-09 14:32:23",
+      "lastPubTime": "2020-06-29 10:34:35",
+      "replyCount": "16",
+      "viewCount": "1591",
+      "collectionCount": "44",
+      "likeCount": "23",
+      "disLikeCount": "0",
+      "backtestCloneCount": "0",
+      "notebookCloneCount": "46",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "3",
+      "followersCount": "14",
+      "followingCount": "3",
+      "author": {
+        "userId": "6cb106719e956542fc8fcc6a52a462c3",
+        "alias": "zzy"
+      },
+      "tags": [
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        }
+      ]
+    },
+    "backtests": [],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/view/community/detail/b6186a348b1520a6982b818b8206dfe5",
+      "https://www.joinquant.com/community/post/detailV2?postId=b6186a348b1520a6982b818b8206dfe5",
+      "https://www.joinquant.com/community/post/replyList?page=1&postId=b6186a348b1520a6982b818b8206dfe5"
+    ]
+  }
+}

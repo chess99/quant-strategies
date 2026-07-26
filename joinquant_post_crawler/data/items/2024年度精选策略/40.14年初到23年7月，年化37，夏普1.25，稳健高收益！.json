@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略/40.14年初到23年7月，年化37，夏普1.25，稳健高收益！.txt",
+    "category": "2024年度精选策略",
+    "file_name": "40.14年初到23年7月，年化37，夏普1.25，稳健高收益！.txt",
+    "strategy_name": "年初到23年7月，年化37，夏普1.25，稳健高收益！",
+    "declared_title": "14年初到23年7月，年化37，夏普1.25，稳健高收益！",
+    "declared_author": "侧耳闻鹿鸣",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 2882,
+    "sha256": "2b2871e404aea9cd8590c5c6656ef28db8d5fb05f621b7307836f3cd72d7a7b0",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/43194"
+    ],
+    "primary_url": "https://www.joinquant.com/post/43194",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:10:18+08:00",
+    "requested_url": "https://www.joinquant.com/post/43194",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/26c5f388627934db4f85e949f9eb18e0",
+    "community_id": "26c5f388627934db4f85e949f9eb18e0",
+    "post": {
+      "postId": "2d1449c366eb32c43a7d1f8d339f3432",
+      "uniqueKey": "26c5f388627934db4f85e949f9eb18e0",
+      "title": "14年初到23年7月，年化37，夏普1.25，稳健高收益！",
+      "content": "从14年一月到23年7月，近十年的时间验证策略，年化收益率为37%，夏普1.25，最大回撤30%，经历了三轮牛熊转化，普遍是牛市跟着上涨，熊市抗跌，攻防兼备。虽然并不保证所有年份都赚钱，但是超额收益率（相比于指数）长期一直在涨，最近有些横盘。并且只需要每周调一次仓，简单好操作，穿越牛熊，是长期量化投资的不二之选！\n\n        具体原理是：在所有主板股票中先选择市净率最低的100只股票（保证了防御属性），再在其中选择前50只年同比净收入增长最快的股票（保证增长属性）。最后在技术上这50只股票中选择400日均线低于2000日均线的股票（保证有反弹动力），每周调一次仓就好了（太勤也没什么用，还交手续费）。\n\n        现在A股正逢难得的底部希望大家抓住机会，最多过两年经济形式好了发大财！如果各位看官满意还请点个赞哈",
+      "type": 1,
+      "status": "0",
+      "addTime": "2023-07-12 12:40:50",
+      "modTime": "2025-08-11 11:55:55",
+      "lastActiveTime": "2026-03-18 20:52:08",
+      "lastPubTime": "2025-08-11 11:55:55",
+      "backtestId": "a0651f13d5e774ef41ef30940b19e64c",
+      "backtestName": "pb100profit50顺接改善版",
+      "replyCount": "110",
+      "viewCount": "4296",
+      "collectionCount": "73",
+      "likeCount": "53",
+      "disLikeCount": "0",
+      "backtestCloneCount": "278",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "2",
+      "followersCount": "47",
+      "followingCount": "1",
+      "author": {
+        "userId": "4e19fe77e07633fcd0b5c1e0089b4237",
+        "alias": "侧耳闻鹿鸣",
+        "introduction": "长期稳健简单的投资才能让我们把时间精力投入到追求高收入上",
+        "headImgKey": "5bee8babf1ab24541a0bbfadc484a381"
+      },
+      "tags": [
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "a0651f13d5e774ef41ef30940b19e64c",
+        "backtest_name": "pb100profit50顺接改善版",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=a0651f13d5e774ef41ef30940b19e64c&postId=26c5f388627934db4f85e949f9eb18e0&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2014-01-01",
+          "end_date": "2025-08-10",
+          "base_capital": 10000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "9c6b42ceed42bae63e3c1028e9f1bd39",
+            "44657539"
+          ],
+          "numeric_backtest_id": "44657539",
+          "numeric_post_id": "43194",
+          "python_version": 3,
+          "clone_count": 263
+        },
+        "stats": {
+          "trading_days": 2822,
+          "benchmark_volatility": 0.20138979906628,
+          "algorithm_volatility": 0.26336473183402,
+          "treasury_return": 0.46421917808219,
+          "algorithm_return": 32.130229387322,
+          "benchmark_return": 0.72061680115963,
+          "annual_algo_return": 0.36356597406196,
+          "annual_bm_return": 0.049250483059392,
+          "sharpe": 1.2285850569616,
+          "excess_return_sharpe": "1.313",
+          "sortino": 1.6031067801684,
+          "information": 1.5970977187853,
+          "beta": 0.87759767530473,
+          "alpha": 0.31544777163359,
+          "excess_return": 18.254856377663,
+          "avg_excess_return": "0.11%",
+          "max_drawdown": 0.35614425081675,
+          "max_drawdown_period": [
+            "2015-06-15",
+            "2015-09-15"
+          ],
+          "excess_return_max_drawdown": "24.57%",
+          "excess_return_max_drawdown_period": [
+            "2024-01-11",
+            "2024-02-07"
+          ],
+          "max_leverage": 0,
+          "period_label": "2025-08",
+          "__version": 101,
+          "win_ratio": 0.56327160493827,
+          "profit_loss_ratio": 2.0535277555808,
+          "win_count": 730,
+          "lose_count": 566,
+          "day_win_ratio": 0.53685329553508,
+          "avg_trade_return": 0.066178585816062,
+          "avg_position_days": 72.620822622108,
+          "turnover_rate": 0.022855234407711,
+          "report_done_seconds": 687.74953055382,
+          "report_done_cpu_seconds": 560.79
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 3213.022939,
+          "benchmark_return_percent": 72.06168,
+          "annual_algo_return_percent": 36.356597,
+          "annual_bm_return_percent": 4.925048,
+          "max_drawdown_percent": 35.614425,
+          "algorithm_volatility_percent": 26.336473,
+          "benchmark_volatility_percent": 20.13898,
+          "win_ratio_percent": 56.32716,
+          "day_win_ratio_percent": 53.68533,
+          "avg_trade_return_percent": 6.617859,
+          "turnover_rate_percent": 2.285523,
+          "sharpe": 1.2285850569616,
+          "sortino": 1.6031067801684,
+          "information": 1.5970977187853,
+          "alpha": 0.31544777163359,
+          "beta": 0.87759767530473,
+          "profit_loss_ratio": 2.0535277555808,
+          "avg_position_days": 72.620822622108,
+          "trading_days": 2822,
+          "win_count": 730,
+          "lose_count": 566,
+          "max_drawdown_period": [
+            "2015-06-15",
+            "2015-09-15"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2024-01-11",
+            "2024-02-07"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/43194",
+      "https://www.joinquant.com/community/post/detailV2?postId=43194",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=a0651f13d5e774ef41ef30940b19e64c&postId=26c5f388627934db4f85e949f9eb18e0&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=a0651f13d5e774ef41ef30940b19e64c"
+    ]
+  }
+}

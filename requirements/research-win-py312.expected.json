@@ -1,0 +1,21 @@
+{
+  "python": "3.12.9",
+  "platform": "win32",
+  "architecture": "64bit",
+  "packages": {
+    "akshare": "1.18.54",
+    "cvxpy": "1.7.5",
+    "lightgbm": "4.6.0",
+    "numpy": "1.26.4",
+    "optuna": "4.6.0",
+    "pandas": "2.2.3",
+    "pyarrow": "19.0.1",
+    "qlib": "0.9.7",
+    "scikit-learn": "1.6.1",
+    "scipy": "1.13.1",
+    "statsmodels": "0.14.4",
+    "TA-Lib": "0.6.8",
+    "torch": "2.6.0",
+    "xgboost": "3.0.5"
+  }
+}

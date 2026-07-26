@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-07-27",
+  "status_values": [
+    "not_started",
+    "in_progress",
+    "blocked",
+    "completed"
+  ],
+  "iterations": [
+    {
+      "id": 0,
+      "name": "独立可复现环境",
+      "status": "completed",
+      "current_evidence": [
+        "CPython 3.12.9独立环境include-system-site-packages=false",
+        "223个精确锁定包与最终pip freeze一致，锁SHA-256为de08778d015ae4e8831709b2bf5ee7cbf24c0153e808c087c3670e0d180eeb2d",
+        "TA-Lib、LightGBM、XGBoost、CVXPY、Optuna和PyTorch真实计算通过",
+        "所有顶层依赖同进程组合导入通过，PyTorch 2.6.0+cpu可用",
+        "从空环境重建通过；补充环境契约测试后156项测试、pip check、仓库验证和Ruff全部通过"
+      ],
+      "remaining": []
+    },
+    {
+      "id": 1,
+      "name": "数据契约与全市场证券主表",
+      "status": "in_progress",
+      "current_evidence": [
+        "证券主表含6118只历史A股、4只ETF、3个指数",
+        "已有A/B/C质量门禁和基础manifest"
+      ],
+      "remaining": [
+        "交易日历数据集",
+        "分区Parquet规范",
+        "自动全平台覆盖率与异常JSON报告",
+        "异常收益、未知证券和未来数据全量检查"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "完整ETF日线与黄金对照",
+      "status": "in_progress",
+      "current_evidence": [
+        "4只ETF、14767行日线",
+        "固定4只ETF轮动年化和回撤对照通过"
+      ],
+      "remaining": [
+        "历史场内ETF主表",
+        "当前上市ETF至少95%覆盖",
+        "退市ETF逐只状态",
+        "逐年ETF数量和幸存者偏差报告",
+        "目标持仓匹配率验收"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "全市场估值与历史交易状态",
+      "status": "in_progress",
+      "current_evidence": [
+        "估值1258只、2430747行，质量B",
+        "市场状态1309只、2067510行",
+        "历史ST仍为unknown，整体质量C"
+      ],
+      "remaining": [
+        "6118只历史A股逐只覆盖状态",
+        "当前上市估值至少95%覆盖",
+        "完整Qlib日期范围停牌状态",
+        "历史ST与名称有效区间",
+        "IPO无涨跌停期和完整规则",
+        "第二数据源抽样核验"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "统一接口与聚宽日频兼容层",
+      "status": "in_progress",
+      "current_evidence": [
+        "已有核心八类本地接口",
+        "已有七类聚宽薄兼容接口和惰性current_data"
+      ],
+      "remaining": [
+        "history常见日频形式",
+        "返回值数据版本与质量追溯",
+        "源码调用形式覆盖报告",
+        "三份不同类型策略共享适配层迁移验收",
+        "query DSL迁移能力报告"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "完整日线撮合器与小市值黄金对照",
+      "status": "in_progress",
+      "current_evidence": [
+        "已有开盘目标权重、先卖后买、费用、整手和拒单账本",
+        "已有CSI300反转机制复现，但收益差未达标准"
+      ],
+      "remaining": [
+        "收盘执行和完整订单API",
+        "T+1与日周月调度",
+        "公司行为模型和账本",
+        "现金比例指标",
+        "全市场小市值黄金对照",
+        "候选持仓成交重合率及收益回撤达标"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "全市场三表、历史行业与价值黄金对照",
+      "status": "in_progress",
+      "current_evidence": [
+        "财务1310只、99642行，公告日控制质量B",
+        "行业仅有2026-07-26当前快照，质量C",
+        "价值链路实验未与聚宽黄金对照"
+      ],
+      "remaining": [
+        "6118只历史A股逐只财务状态",
+        "完整资产负债表利润表现金流量表",
+        "当前上市核心报表至少95%覆盖",
+        "申万一级二级历史有效区间",
+        "全市场价值质量黄金对照",
+        "持仓重合率及收益回撤达标"
+      ]
+    }
+  ]
+}

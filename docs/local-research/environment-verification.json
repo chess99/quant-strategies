@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "verified_at": "2026-07-27T07:01:41+08:00",
+  "status": "passed",
+  "platform": {
+    "os": "Windows",
+    "architecture": "64bit",
+    "python": "3.12.9",
+    "environment": "D:/code/_open-source/_venvs/quant-research-py312",
+    "system_site_packages": false,
+    "base_site_packages_leaked": false,
+    "user_site_enabled": false
+  },
+  "lock": {
+    "path": "requirements/research-win-py312.lock",
+    "sha256": "de08778d015ae4e8831709b2bf5ee7cbf24c0153e808c087c3670e0d180eeb2d",
+    "exact_pin_count": 223,
+    "matches_installed_freeze": true
+  },
+  "key_packages": {
+    "akshare": "1.18.54",
+    "cvxpy": "1.7.5",
+    "lightgbm": "4.6.0",
+    "numpy": "1.26.4",
+    "optuna": "4.6.0",
+    "pandas": "2.2.3",
+    "pyarrow": "19.0.1",
+    "pyqlib": "0.9.7",
+    "scikit-learn": "1.6.1",
+    "scipy": "1.13.1",
+    "statsmodels": "0.14.4",
+    "TA-Lib": "0.6.8",
+    "torch": "2.6.0+cpu",
+    "xgboost": "3.0.5"
+  },
+  "smoke_workloads": {
+    "all_top_level_imports_in_one_process": "passed",
+    "talib_sma": "passed",
+    "lightgbm_fit_predict": "passed",
+    "xgboost_fit_predict": "passed",
+    "cvxpy_solve": "optimal",
+    "optuna_trial": "passed",
+    "torch_tensor": "passed"
+  },
+  "rebuild": {
+    "from_empty_environment": true,
+    "elapsed_seconds": 656.8,
+    "pip_check": "passed",
+    "pytest": {
+      "status": "passed",
+      "passed": 154
+    },
+    "post_change_pytest": {
+      "status": "passed",
+      "passed": 156
+    },
+    "repository_validator": "passed",
+    "ruff": "passed"
+  },
+  "resolved_failures": [
+    {
+      "issue": "PyArrow 14.0.2 followed by CVXPY caused a Windows native access violation",
+      "resolution": "pin PyArrow 19.0.1 and verify combined imports"
+    },
+    {
+      "issue": "the first rebuild script continued after jsonpath build failure",
+      "resolution": "fail fast on every external command and bootstrap pinned build tools"
+    }
+  ]
+}

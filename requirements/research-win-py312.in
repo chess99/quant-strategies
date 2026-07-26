@@ -1,0 +1,23 @@
+# Windows x86-64 / CPython 3.12.9 research environment.
+# Resolve this file in a clean CPython 3.12.9 environment, verify the result,
+# then refresh the transitive lock from `python -m pip freeze --all`.
+
+akshare==1.18.54
+cvxpy==1.7.5
+lightgbm==4.6.0
+numpy==1.26.4
+optuna==4.6.0
+pandas==2.2.3
+pyarrow==19.0.1
+pip-tools==7.5.2
+pyqlib==0.9.7
+pytest==9.0.3
+ruff==0.15.10
+scikit-learn==1.6.1
+scipy==1.13.1
+setuptools==83.0.0
+statsmodels==0.14.4
+TA-Lib==0.6.8
+torch==2.6.0
+wheel==0.47.0
+xgboost==3.0.5

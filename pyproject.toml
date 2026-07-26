@@ -18,6 +18,15 @@ research = [
   "pyqlib==0.9.7",
   "scipy>=1.13",
   "statsmodels>=0.14",
+  "TA-Lib>=0.6.8",
+  "lightgbm>=4.6",
+  "xgboost>=3.0",
+  "cvxpy>=1.7",
+  "optuna>=4.6",
+  "scikit-learn>=1.6",
+]
+torch = [
+  "torch==2.6.0",
 ]
 
 [tool.pytest.ini_options]

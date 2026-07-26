@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/8.因子分析 营业利润TTM.txt",
+    "category": "2025年度精选策略",
+    "file_name": "8.因子分析 营业利润TTM.txt",
+    "strategy_name": "因子分析 营业利润TTM",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 53378,
+    "sha256": "827fac39fc24780e4e7afff455431666b9f530bfd0dac70a59b9e7598c76cd8a",
+    "joinquant_urls": [],
+    "primary_url": null,
+    "url_selection_method": "none"
+  },
+  "remote": null
+}

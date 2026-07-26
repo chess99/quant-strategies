@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/91.欧奈尔 RPS选股战法回测.txt",
+    "category": "2025年度精选策略",
+    "file_name": "91.欧奈尔 RPS选股战法回测.txt",
+    "strategy_name": "欧奈尔 RPS选股战法回测",
+    "declared_title": "欧奈尔 RPS选股战法回测",
+    "declared_author": "子不语19",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 6038,
+    "sha256": "04dbf4e772bc7e4b1d1b186528af82f0e5a33b0f003b6ea9189cad3ac3f5b6cb",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/27255"
+    ],
+    "primary_url": "https://www.joinquant.com/post/27255",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:43+08:00",
+    "requested_url": "https://www.joinquant.com/post/27255",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/9c1d9d2ad4f37ed7a3a3786c18d06c67",
+    "community_id": "9c1d9d2ad4f37ed7a3a3786c18d06c67",
+    "post": {
+      "postId": "652dc62546f764de04c6809c18522b05",
+      "uniqueKey": "9c1d9d2ad4f37ed7a3a3786c18d06c67",
+      "title": "欧奈尔 RPS选股战法回测",
+      "content": "RPS全称是Relative Price Strength，即股价的相对强度。这个指标其实非常简单，就是用个股的涨幅与整体的平均涨幅进行比较，如果相对强度指标测算的结果为70，就意味着在一段时间内（通常来说是半年到一年），股票打败了比较基准中70%的股票。\n\nRPS指标介绍\n\nRPS/RS指标，又称为股价相对强度指标，由美国的美国著名的成长性企业的投资大师，威廉·欧奈尔提出并首先运用于美国早期股票市场的分析。\n\n\n\n\n比如，某个市场共有1000只股票，若某个股票的月涨幅在1000只股票中排名第100位，那么该股的RPS值就是：(1-100/1000)*100=90。\n\nRPS指标衡量了某一给定股票在过去一段时间，相对市场中其他股票的表现。市场内每只股票都被指定了1-00范围内的某一数值，100代表相对强度最高。\nRPS=70则表示该股票比其他70%公司表现好\n\n此指标遵循的是强者恒强的原则。\n\n本策略亦将各参数列在代码上部，欢迎大家测试交流，优化参数。\n\nRPS 和杠杆有点类似，择时要求很高，在股市底部往往能获得超额收益。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-05-07 06:37:41",
+      "modTime": "2020-05-07 06:37:41",
+      "lastActiveTime": "2024-11-14 19:46:02",
+      "lastPubTime": "2020-05-07 06:37:41",
+      "backtestId": "cb0559126651eca878e65b174c7efc59",
+      "backtestName": "RPS选股demo",
+      "replyCount": "60",
+      "viewCount": "8293",
+      "collectionCount": "75",
+      "likeCount": "46",
+      "disLikeCount": "0",
+      "backtestCloneCount": "383",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "2",
+      "followersCount": "73",
+      "followingCount": "1",
+      "author": {
+        "userId": "287e349b0ad594a163eb0e52efe13364",
+        "alias": "子不语19",
+        "headImgKey": "08b1efa6b6dfa45a1756b4d7799609d2"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        },
+        {
+          "id": "792",
+          "name": "欧奈尔"
+        },
+        {
+          "id": "793",
+          "name": "RPS"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "cb0559126651eca878e65b174c7efc59",
+        "backtest_name": "RPS选股demo",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=cb0559126651eca878e65b174c7efc59&postId=9c1d9d2ad4f37ed7a3a3786c18d06c67&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2019-01-01",
+          "end_date": "2020-04-16",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "ac280d0976c6c97a9f330921ef3e2c1a",
+            "16979494"
+          ],
+          "numeric_backtest_id": "16979494",
+          "numeric_post_id": "27255",
+          "python_version": 3,
+          "clone_count": 375
+        },
+        "stats": {
+          "trading_days": 313,
+          "benchmark_volatility": 0.22199160961831,
+          "algorithm_volatility": 0.33453105335888,
+          "treasury_return": 0.051506849315068,
+          "algorithm_return": 1.091729876,
+          "benchmark_return": 0.26297643366051,
+          "annual_algo_return": 0.80299651688647,
+          "annual_bm_return": 0.2049988126755,
+          "sharpe": 2.2807942916676,
+          "excess_return_sharpe": "1.902",
+          "sortino": 3.238839646417,
+          "information": 2.4925870371767,
+          "beta": 1.0514782216095,
+          "alpha": 0.58950385876676,
+          "excess_return": 0.65619074137235,
+          "avg_excess_return": "0.17%",
+          "max_drawdown": 0.24014977239306,
+          "max_drawdown_period": [
+            "2020-02-25",
+            "2020-03-23"
+          ],
+          "excess_return_max_drawdown": "15.04%",
+          "excess_return_max_drawdown_period": [
+            "2020-02-25",
+            "2020-03-16"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-04",
+          "__version": 101,
+          "win_ratio": 0.54545454545455,
+          "profit_loss_ratio": 3.7144629732079,
+          "win_count": 12,
+          "lose_count": 10,
+          "day_win_ratio": 0.54632587859425,
+          "avg_trade_return": 0.16526358049743,
+          "avg_position_days": 60.192307692308,
+          "turnover_rate": 0.012891298752673,
+          "report_done_seconds": 38.505412101746,
+          "report_done_cpu_seconds": 39.49
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 109.172988,
+          "benchmark_return_percent": 26.297643,
+          "annual_algo_return_percent": 80.299652,
+          "annual_bm_return_percent": 20.499881,
+          "max_drawdown_percent": 24.014977,
+          "algorithm_volatility_percent": 33.453105,
+          "benchmark_volatility_percent": 22.199161,
+          "win_ratio_percent": 54.545455,
+          "day_win_ratio_percent": 54.632588,
+          "avg_trade_return_percent": 16.526358,
+          "turnover_rate_percent": 1.28913,
+          "sharpe": 2.2807942916676,
+          "sortino": 3.238839646417,
+          "information": 2.4925870371767,
+          "alpha": 0.58950385876676,
+          "beta": 1.0514782216095,
+          "profit_loss_ratio": 3.7144629732079,
+          "avg_position_days": 60.192307692308,
+          "trading_days": 313,
+          "win_count": 12,
+          "lose_count": 10,
+          "max_drawdown_period": [
+            "2020-02-25",
+            "2020-03-23"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-02-25",
+            "2020-03-16"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/27255",
+      "https://www.joinquant.com/community/post/detailV2?postId=27255",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=cb0559126651eca878e65b174c7efc59&postId=9c1d9d2ad4f37ed7a3a3786c18d06c67&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=cb0559126651eca878e65b174c7efc59"
+    ]
+  }
+}

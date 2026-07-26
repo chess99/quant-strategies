@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/63.【复现】华泰证券-波动率和换手率构建牛熊指标.txt",
+    "category": "2025年度精选策略",
+    "file_name": "63.【复现】华泰证券-波动率和换手率构建牛熊指标.txt",
+    "strategy_name": "【复现】华泰证券-波动率和换手率构建牛熊指标",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 59512,
+    "sha256": "9dbf27618f8d0285ad9f7602954875e6dd8a6604e7c87def544b75e6055caac9",
+    "joinquant_urls": [],
+    "primary_url": null,
+    "url_selection_method": "none"
+  },
+  "remote": null
+}

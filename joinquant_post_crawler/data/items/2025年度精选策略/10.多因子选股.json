@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/10.多因子选股.txt",
+    "category": "2025年度精选策略",
+    "file_name": "10.多因子选股.txt",
+    "strategy_name": "多因子选股",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 55582,
+    "sha256": "48ae1e45825a57fc52ba1b184201b065ad66940b2cdaaa8668cfa0bc7f583393",
+    "joinquant_urls": [],
+    "primary_url": null,
+    "url_selection_method": "none"
+  },
+  "remote": null
+}

@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/12 【均值回归】基于zscore的均值回归策略（胜率100%）.txt",
+    "category": "2020年度精选策略",
+    "file_name": "12 【均值回归】基于zscore的均值回归策略（胜率100%）.txt",
+    "strategy_name": "【均值回归】基于zscore的均值回归策略（胜率100%）",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 3092,
+    "sha256": "b8498c45c66c4f10df7bfd5d413b9b00f17637ac597fad45f92ae5eddb3265be",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/13673"
+    ],
+    "primary_url": "https://www.joinquant.com/post/13673",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:06:26+08:00",
+    "requested_url": "https://www.joinquant.com/post/13673",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/e676a504bc235ac1dd2c69844712eb16",
+    "community_id": "e676a504bc235ac1dd2c69844712eb16",
+    "post": {
+      "postId": "f1897604c44cbd331277b70777f05f50",
+      "uniqueKey": "e676a504bc235ac1dd2c69844712eb16",
+      "title": "【均值回归】基于zscore的均值回归策略（胜率100%）",
+      "content": "对于zscore大家应该都比较熟悉，最初用于配对交易策略，思想是**2支相关程度高的股票的差价在一定范围内波动**，进行低买高卖的操作，具体做法是选取2支相关程度高的股票的某一段时间的价格序列，作差得到差价序列，然后进行正则化处理，公式如下：\r\n\r\n**zscore[i] = (s[i] - mean) / std**\r\n\r\n其中s[i]是序列第i个值，mean是这个序列的均值，std是这个序列的标准差，得到的即为序列第i个值的zscore值。\r\n\r\n而在这个策略中，我把zscore思想用于单支股票，思想是**股价和其均线值的差价在一定范围内波动**，并计算其zscore值，获取买卖信号。具体做法如下：\r\n\r\n - 设定股票池，最大持仓数，zscore上下限（即买卖信号点），zscore窗口大小，均线窗口大小\r\n\r\n - 在每个交易日，根据上述公式计算股票池中每支股票当天的zscore值\r\n\r\n - 若触发上限，则卖出；若触发下限，且未达到最大持仓数，则买入\r\n\r\n回测结果如下，从13年初到18年7月，大概5年半的时间，**年化39.13%，夏普1.756，胜率100%（一共交易15次），最大回撤17.047%**，总体还算满意，属于稳健性投资策略。\r\n\r\n---\r\n\r\n回过头看，问题总结如下：zscore上下限，zscore窗口大小，均线窗口大小的设置都带有一些主观性，所以提出来大家一起讨论一下，看看有没有更合理的指标设置方法。\r\n\r\n另外，对于股票池，我当前只设置了一支股票，因为还不知道如何寻找均值回归特点明显的股票，所以也提出来共同探讨，希望大家积极交流，共享经验！",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-07-08 22:33:07",
+      "modTime": "2018-07-08 22:33:07",
+      "lastActiveTime": "2026-07-05 18:51:08",
+      "lastPubTime": "2018-07-08 22:33:07",
+      "backtestId": "847de0af6402e01f8610b8bb3253e602",
+      "backtestName": "均值回归",
+      "replyCount": "106",
+      "viewCount": "26588",
+      "collectionCount": "252",
+      "likeCount": "150",
+      "disLikeCount": "1",
+      "backtestCloneCount": "1231",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "16",
+      "followersCount": "308",
+      "followingCount": "1",
+      "author": {
+        "userId": "57462f3c509dac7713b1f89ebfef91b6",
+        "alias": "Rookie888",
+        "headImgKey": "6eb9d5c689d68df7043914810999221a"
+      },
+      "tags": [
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "847de0af6402e01f8610b8bb3253e602",
+        "backtest_name": "均值回归",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=847de0af6402e01f8610b8bb3253e602&postId=e676a504bc235ac1dd2c69844712eb16&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2013-01-01",
+          "end_date": "2018-07-07",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "90a1caa5b7b07f597aac3899f19f18a3",
+            "9224325"
+          ],
+          "numeric_backtest_id": "9224325",
+          "numeric_post_id": "13673",
+          "python_version": 2,
+          "clone_count": 1089
+        },
+        "stats": {
+          "information": 1.2736917309257,
+          "benchmark_return": 0.33380262486166,
+          "algorithm_volatility": 0.20002127682219,
+          "annual_bm_return": 0.055250115759707,
+          "__version": 101,
+          "max_drawdown": 0.17046506558779,
+          "sortino": 3.4516554068497,
+          "period_label": "2018-07",
+          "trading_days": 1339,
+          "algorithm_return": 4.863631,
+          "benchmark_volatility": 0.23987795165342,
+          "beta": 0.24276048368599,
+          "excess_return": 4.6434666164384,
+          "annual_algo_return": 0.39130293506464,
+          "sharpe": 1.7563278299485,
+          "alpha": 0.34760080958654,
+          "max_drawdown_period": [
+            "2013-07-16",
+            "2013-07-29"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.22016438356164,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.48693054518297,
+          "avg_position_days": 378,
+          "win_ratio": 1,
+          "win_count": 15,
+          "avg_trade_return": 0.13245879507823,
+          "profit_loss_ratio": 495371,
+          "lose_count": 0,
+          "report_done_seconds": 19.512213945389
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 486.3631,
+          "benchmark_return_percent": 33.380262,
+          "annual_algo_return_percent": 39.130294,
+          "annual_bm_return_percent": 5.525012,
+          "max_drawdown_percent": 17.046507,
+          "algorithm_volatility_percent": 20.002128,
+          "benchmark_volatility_percent": 23.987795,
+          "win_ratio_percent": 100,
+          "day_win_ratio_percent": 48.693055,
+          "avg_trade_return_percent": 13.24588,
+          "sharpe": 1.7563278299485,
+          "sortino": 3.4516554068497,
+          "information": 1.2736917309257,
+          "alpha": 0.34760080958654,
+          "beta": 0.24276048368599,
+          "profit_loss_ratio": 495371,
+          "avg_position_days": 378,
+          "trading_days": 1339,
+          "win_count": 15,
+          "lose_count": 0,
+          "max_drawdown_period": [
+            "2013-07-16",
+            "2013-07-29"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/13673",
+      "https://www.joinquant.com/community/post/detailV2?postId=13673",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=847de0af6402e01f8610b8bb3253e602&postId=e676a504bc235ac1dd2c69844712eb16&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=847de0af6402e01f8610b8bb3253e602"
+    ]
+  }
+}

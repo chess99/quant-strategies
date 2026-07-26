@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/70.超稳的股息率+均线选股策略.txt",
+    "category": "2025年度精选策略",
+    "file_name": "70.超稳的股息率+均线选股策略.txt",
+    "strategy_name": "超稳的股息率+均线选股策略",
+    "declared_title": "超稳的股息率+均线选股策略",
+    "declared_author": "策略人生",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 6151,
+    "sha256": "d519c60fc103d030fd4b84482543c90765853fae863a880123a4f1ba90f235cb",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/27782",
+      "https://www.joinquant.com/post/21179"
+    ],
+    "primary_url": "https://www.joinquant.com/post/27782",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:29+08:00",
+    "requested_url": "https://www.joinquant.com/post/27782",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/efd4958d8d4f0b684b7245d9f95df080",
+    "community_id": "efd4958d8d4f0b684b7245d9f95df080",
+    "post": {
+      "postId": "629c457a5bd9804536f82d45ad94a813",
+      "uniqueKey": "efd4958d8d4f0b684b7245d9f95df080",
+      "title": "超稳的股息率+均线选股策略",
+      "content": "这篇策略借鉴了宽客“只看年报来投资“，他写得非常好，本人复现了一下也修改了一下，这篇主要是记录一下学习过程。\n首先解释一下股息率，股息率（Dividend Yield Ratio），是一年的总派息额与当时市价的比例，例如股价100元，每年平均每股挣10元，每股分红4元。股息率就是4% （投资人每投资100元，每年可以拿到4元红利）。\n\n所以股息率一方面代表了股票的质量因素（亏损的公司都自顾不暇了，哪还能股民发钱呢），另一方面也代表了企业一定的价格因素。由此，该策略根据公司的股息率进行选股。首先是选股要求，公司的股息必须稳定，在三年内每年的股息率超过2%，然后三年累计超过10%。第二是每次选出的股票必须超过十只，这个可以很大程度上防止股市高估。这里稍微解释一下，如果选出的股票太少，暗含着目前股价高企，很导致算出的股息率过低，这样符合要求的股票就少了，所以添加了10只股票的过滤条件。第三是每月进行一次调仓，把仓位中不满足要求的股票卖掉，然后买入新的满足要求的股票，而且股息越高的股票，购买的优先级越高\n\n下面是13年开始到现在的回测图，收益还可以，不过在15年大牛市跑输了沪深300指数，但是在2018年还是比较抗跌的，而且回测20%左右不算太大![Img]( https://image.joinquant.com/501bd66b8e16d16514c277a8398496c7) \n下面这个图添加了30日均线进场的过滤条件，可见效果更好，收益提高了，而且更重要的是回撤降到了17%左右。\n![Img]( https://image.joinquant.com/39cbf960e9c8e207b63f45e45d6fe9f7) \n---\n\n谈一下今日的大市看法\n\n市场已经连续4天超过100只涨停了，行情火爆，这段时间得益于地摊政策，整个板块一直在涨。前几天说车子摆地摊，然后汽车板块高呼了几天，这里面港股五菱宏光特别猛，可能摆摊的都喜欢它。然后今天各种农产品也在涨，还有啤酒，我看网上的说法是农产品很适合摆烧烤摊卖，例如什么马铃薯，韭菜，金针菇....配上啤酒效果可能更好，逻辑好像没毛病。\n总之这些炒股有点无厘头，不过市场愿意，看来市场的风险偏好还是挺高的。\n个人觉得这两天上证指数有点疲弱，可能要回调了，差不多的成交量没有造成继续的上涨，上面缺口的压力还是挺大的，不过我还是倾向于先补图中表示1的缺口，2的缺口是个隐患，后面可能还是要补。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-06-05 00:44:39",
+      "modTime": "2020-06-05 00:44:39",
+      "lastActiveTime": "2025-11-28 17:24:45",
+      "lastPubTime": "2020-06-05 00:44:39",
+      "backtestId": "a8066ad94d8ae1dfe04aa2d0c919b948",
+      "backtestName": "股息+均线策略",
+      "replyCount": "47",
+      "viewCount": "8125",
+      "collectionCount": "113",
+      "likeCount": "54",
+      "disLikeCount": "0",
+      "backtestCloneCount": "648",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "18",
+      "followersCount": "119",
+      "followingCount": "3",
+      "author": {
+        "userId": "4aa6a334516743154af4f3cb04ba0b1e",
+        "alias": "策略人生",
+        "headImgKey": "6b8114b64231f1ccc5bcab89ffbcaf2a"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "a8066ad94d8ae1dfe04aa2d0c919b948",
+        "backtest_name": "股息+均线策略",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=a8066ad94d8ae1dfe04aa2d0c919b948&postId=efd4958d8d4f0b684b7245d9f95df080&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2013-01-01",
+          "end_date": "2020-06-03",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "7c6894634293bf3632d474ff5b325f51",
+            "17263273"
+          ],
+          "numeric_backtest_id": "17263273",
+          "numeric_post_id": "27782",
+          "python_version": 3,
+          "clone_count": 599
+        },
+        "stats": {
+          "trading_days": 1802,
+          "benchmark_volatility": 0.23540448188799,
+          "algorithm_volatility": 0.15824374250413,
+          "treasury_return": 0.29665753424658,
+          "algorithm_return": 2.282911789,
+          "benchmark_return": 0.57896510037853,
+          "annual_algo_return": 0.17929671105011,
+          "annual_bm_return": 0.065420775878429,
+          "sharpe": 0.88026678872613,
+          "excess_return_sharpe": "0.342",
+          "sortino": 1.1924211064244,
+          "information": 0.58930290674194,
+          "beta": 0.38901987743123,
+          "alpha": 0.12940752393368,
+          "excess_return": 1.0791541169675,
+          "avg_excess_return": "0.05%",
+          "max_drawdown": 0.17626859304625,
+          "max_drawdown_period": [
+            "2019-04-17",
+            "2019-08-07"
+          ],
+          "excess_return_max_drawdown": "34.31%",
+          "excess_return_max_drawdown_period": [
+            "2015-02-06",
+            "2015-06-08"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-06",
+          "__version": 101,
+          "win_ratio": 0.67326732673267,
+          "profit_loss_ratio": 3.9317214227061,
+          "win_count": 68,
+          "lose_count": 33,
+          "day_win_ratio": 0.48612652608213,
+          "avg_trade_return": 0.080500628145524,
+          "avg_position_days": 214.75,
+          "turnover_rate": 0.010813992818416,
+          "report_done_seconds": 651.8425848484,
+          "report_done_cpu_seconds": 466.55
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 228.291179,
+          "benchmark_return_percent": 57.89651,
+          "annual_algo_return_percent": 17.929671,
+          "annual_bm_return_percent": 6.542078,
+          "max_drawdown_percent": 17.626859,
+          "algorithm_volatility_percent": 15.824374,
+          "benchmark_volatility_percent": 23.540448,
+          "win_ratio_percent": 67.326733,
+          "day_win_ratio_percent": 48.612653,
+          "avg_trade_return_percent": 8.050063,
+          "turnover_rate_percent": 1.081399,
+          "sharpe": 0.88026678872613,
+          "sortino": 1.1924211064244,
+          "information": 0.58930290674194,
+          "alpha": 0.12940752393368,
+          "beta": 0.38901987743123,
+          "profit_loss_ratio": 3.9317214227061,
+          "avg_position_days": 214.75,
+          "trading_days": 1802,
+          "win_count": 68,
+          "lose_count": 33,
+          "max_drawdown_period": [
+            "2019-04-17",
+            "2019-08-07"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2015-02-06",
+            "2015-06-08"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/27782",
+      "https://www.joinquant.com/community/post/detailV2?postId=27782",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=a8066ad94d8ae1dfe04aa2d0c919b948&postId=efd4958d8d4f0b684b7245d9f95df080&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=a8066ad94d8ae1dfe04aa2d0c919b948"
+    ]
+  }
+}

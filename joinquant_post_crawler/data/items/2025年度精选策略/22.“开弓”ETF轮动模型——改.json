@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/22.“开弓”ETF轮动模型——改.txt",
+    "category": "2025年度精选策略",
+    "file_name": "22.“开弓”ETF轮动模型——改.txt",
+    "strategy_name": "“开弓”ETF轮动模型——改",
+    "declared_title": "“开弓”ETF轮动模型——改",
+    "declared_author": "jqz1226",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 5955,
+    "sha256": "94ebb573284feffd37e6f3eceac23eeca7e3b3773746d5b9cbe7bc7ac534aa8f",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/24591",
+      "https://www.joinquant.com/post/24563"
+    ],
+    "primary_url": "https://www.joinquant.com/post/24591",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:10:57+08:00",
+    "requested_url": "https://www.joinquant.com/post/24591",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/0351d57abf297bae559209c6e998e4bd",
+    "community_id": "0351d57abf297bae559209c6e998e4bd",
+    "post": {
+      "postId": "46ca0369834d7241f7a5af0e179baf49",
+      "uniqueKey": "0351d57abf297bae559209c6e998e4bd",
+      "title": "“开弓”ETF轮动模型——改",
+      "content": "原作品：借鉴鼎级版主明镜台“开弓”ETF轮动模型\n链接：https://www.joinquant.com/post/24563\n原作者：purplefire\n\n原作回测收益不俗，回撤较低，于是想研究一下其逻辑。\n不过打开代码一看，代码写的确实有些惨，让我这个代码控忍不住出手想改。不过其交易逻辑看了很久都没有看懂，还多亏原作者解释。\n本次改写尽量忠实于原作，只是把代码写的清晰简洁了。原作的思路，除了一处逻辑有瑕疵的地方改了，其它都没有改动。\n\n下面解释一下原作的逻辑：\n**1-交易范围**：50ETF、500ETF、深100ETF、中小板、创业板等5只ETF\n**2-择时**：不择\n**3-选股**：每天14:25,  打分公式 = 本周涨幅X40%+近2周涨幅X20%+近3周涨幅X15%+近4周涨幅X20%+近8周涨幅X5%，对5只ETF打分后降序排列选第一名，即得分最高的一只。\n**4-交易**：每天14:30。\n卖出：\n\n```\nif 新入选的code1 != 现持仓的stock，即品种不同：\n   if 新品种强势（类型1：追涨）or 新品种超跌（类型2：抄底）：\n      卖出现持仓stock\nelse:   # 新入选的code1 == 现持仓的stock\n   if stock是类型2抄底买入的：\n      if 今天却下跌了:\n         卖出现持仓stock\n   if stock是类型1追涨买入的:\n      if 不再符合类型1的持仓条件了:\n         卖出现持仓stock\n```\n\n买入：\n\n```\nif 空仓：\n   if 新品种code1超跌:\n      买入code1\n      买入类型=2\n   if 新品种code1强势:\n      买入code1\n      买入类型=1\n```\n\n类型1的追涨，买入条件和持仓条件比较苛刻，代码很长。\n**5- 止损**: 跳空下跌时止损,每天检查4次。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2019-12-23 14:40:00",
+      "modTime": "2019-12-23 14:40:00",
+      "lastActiveTime": "2025-05-20 13:23:35",
+      "lastPubTime": "2019-12-23 14:40:00",
+      "backtestId": "d73e36873e1e62d404490ea189ac4073",
+      "backtestName": "ETF开弓5品种v3-改",
+      "replyCount": "77",
+      "viewCount": "9216",
+      "collectionCount": "160",
+      "likeCount": "100",
+      "disLikeCount": "0",
+      "backtestCloneCount": "619",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "114",
+      "followersCount": "7737",
+      "followingCount": "24",
+      "author": {
+        "userId": "291f2068e55b7793825079cd29cfbfe8",
+        "alias": "jqz1226 ZUEL",
+        "headImgKey": "f8ad1df3e2e743d648263f8a8032baa9"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "d73e36873e1e62d404490ea189ac4073",
+        "backtest_name": "ETF开弓5品种v3-改",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=d73e36873e1e62d404490ea189ac4073&postId=0351d57abf297bae559209c6e998e4bd&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2013-07-01",
+          "end_date": "2019-11-07",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "7604034a06eb6bc319881f08f9e3ff6a",
+            "15813803"
+          ],
+          "numeric_backtest_id": "15813803",
+          "numeric_post_id": "24591",
+          "python_version": 3,
+          "clone_count": 571
+        },
+        "stats": {
+          "trading_days": 1551,
+          "benchmark_volatility": 0.23599911303274,
+          "algorithm_volatility": 0.21187972491833,
+          "treasury_return": 0.25424657534247,
+          "algorithm_return": 3.47008747696,
+          "benchmark_return": 0.81395866656971,
+          "annual_algo_return": 0.27298138765697,
+          "annual_bm_return": 0.10074621223486,
+          "sharpe": 1.0995926474172,
+          "excess_return_sharpe": "0.498",
+          "sortino": 1.593420244009,
+          "information": 0.74485137305585,
+          "beta": 0.4230075619947,
+          "alpha": 0.20728528051909,
+          "excess_return": 1.4642719590811,
+          "avg_excess_return": "0.07%",
+          "max_drawdown": 0.19800497563234,
+          "max_drawdown_period": [
+            "2015-11-25",
+            "2017-04-17"
+          ],
+          "excess_return_max_drawdown": "29.44%",
+          "excess_return_max_drawdown_period": [
+            "2016-01-28",
+            "2017-04-17"
+          ],
+          "max_leverage": 0,
+          "period_label": "2019-11",
+          "__version": 101,
+          "win_ratio": 0.5241935483871,
+          "profit_loss_ratio": 1.9641874954266,
+          "win_count": 65,
+          "lose_count": 59,
+          "day_win_ratio": 0.49323017408124,
+          "avg_trade_return": 0.014356722725084,
+          "avg_position_days": 180.6,
+          "turnover_rate": 0.080166739055649,
+          "report_done_seconds": 79.229958295822
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 347.008748,
+          "benchmark_return_percent": 81.395867,
+          "annual_algo_return_percent": 27.298139,
+          "annual_bm_return_percent": 10.074621,
+          "max_drawdown_percent": 19.800498,
+          "algorithm_volatility_percent": 21.187972,
+          "benchmark_volatility_percent": 23.599911,
+          "win_ratio_percent": 52.419355,
+          "day_win_ratio_percent": 49.323017,
+          "avg_trade_return_percent": 1.435672,
+          "turnover_rate_percent": 8.016674,
+          "sharpe": 1.0995926474172,
+          "sortino": 1.593420244009,
+          "information": 0.74485137305585,
+          "alpha": 0.20728528051909,
+          "beta": 0.4230075619947,
+          "profit_loss_ratio": 1.9641874954266,
+          "avg_position_days": 180.6,
+          "trading_days": 1551,
+          "win_count": 65,
+          "lose_count": 59,
+          "max_drawdown_period": [
+            "2015-11-25",
+            "2017-04-17"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2016-01-28",
+            "2017-04-17"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/24591",
+      "https://www.joinquant.com/community/post/detailV2?postId=24591",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=d73e36873e1e62d404490ea189ac4073&postId=0351d57abf297bae559209c6e998e4bd&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=d73e36873e1e62d404490ea189ac4073"
+    ]
+  }
+}

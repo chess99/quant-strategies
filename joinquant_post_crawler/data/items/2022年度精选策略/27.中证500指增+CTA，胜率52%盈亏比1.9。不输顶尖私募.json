@@ -1,0 +1,178 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/27.中证500指增+CTA，胜率52%盈亏比1.9。不输顶尖私募.txt",
+    "category": "2022年度精选策略",
+    "file_name": "27.中证500指增+CTA，胜率52%盈亏比1.9。不输顶尖私募.txt",
+    "strategy_name": "中证500指增+CTA，胜率52%盈亏比1.9。不输顶尖私募",
+    "declared_title": "中证500指增+CTA，胜率52%盈亏比1.9。不输顶尖私募",
+    "declared_author": "Jacobb75",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 21580,
+    "sha256": "c661bea4502229d0f000cc41d43f1fceae033d7a7be2af5bfea37559b2b42ec7",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/37685"
+    ],
+    "primary_url": "https://www.joinquant.com/post/37685",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:51+08:00",
+    "requested_url": "https://www.joinquant.com/post/37685",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/158f9b2e846870e224d86fc4532bacab",
+    "community_id": "158f9b2e846870e224d86fc4532bacab",
+    "post": {
+      "postId": "b9077ed1fc963d1c34e236812450a504",
+      "uniqueKey": "158f9b2e846870e224d86fc4532bacab",
+      "title": "中证500指增+CTA，胜率52%盈亏比1.9。不输顶尖私募",
+      "content": "#欢迎大家讨论，代码或思路有不足的地方也欢迎大家质疑或者交流，但是如果有什么人非要在这摆谱，那我就祝他发财吧。\n\n#感谢以下作者：\n指数增强思路：https://www.joinquant.com/view/community/detail/2106b2efafda32d5a7d2b57d889205bc\n\nCTA策略,ATR止损思路借鉴自：\nhttps://www.joinquant.com/view/community/detail/c0832835a83fa9688b3c3f21eb49eee9?type=1\n\n#模型设定\n2015.4.16.--2022.5.13.\n自从我国出现500股指期货后，全时间段覆盖。\n股票手续费万三\n期货万0.23，保证金比例15%\n\n#指增部分思路\n###股票池\n中证500\n###交易\n上月底选股，上月最后一个交易日中午买入；次月中卖出（根据PE，PB等，太贵了的就卖）\n每个月中指增调仓的时候，重新分配指增和CTA子账户的资金比例。\n###具体选股思路\n看链接\n\n#CTA部分思路\n###对冲品种\n中证500股指期货IC\n###观察和交易时间\n每日中午11：15\n###核心思路\n区间突破\n###仓位管理\n本策略思路是指增部分占用70%资金量，CTA部分预留30%资金量，模型假设保证金15%。不用复杂的对冲比例来计算的话，我做的比较粗略的估计；假设本CTA策略能够完美对冲指增部分的风险，那么70%*15%=10.5%，10.5%/30%=35%。也就是说，开仓手数占用的保证金=CTA预留资金的35%是能够最好的对冲风险的方式。模型表现也确实如此，35%的资金占用率能够使整个策略最大回撤在20%左右。一旦遇到极端行情，还有剩下的65%的资金用于额外追加。资金分配由一小段代码完成，每个月指增策略调仓卖出股票后，按照7：3重新分配资金到指增和CTA子账户中，为下一个月的对冲做准备。\n###开平仓\n利用EMA作为第一类离场信号；\n空仓状态跌破6日EMA开空，涨超2日EMA开多。当然其他参数也可；\n非空仓状态，如果持有多头仓位，一旦今日观察时没有继续站上2日EMA，直接平仓再反向开空；如果持有空头仓位，站上2日EMA后平仓止盈再开多。\n这个策略思路是，**大胆开空，小心开多**；上涨势头一旦不足，不再观望直接反手做空，下跌趋势如持有空单就让利润奔跑，直到出现较为明确的短期反转信号（2日EMA被突破）。\n###止盈止损\n利用平均真实波幅ATR作为第二类离场信号；\n如持有多（空）单，则IC开仓后从5日中证500指数最高（低）点回撤5倍20日ATR时立场。\n20日ATR基本可以代表前一个月的市场平均波幅。因为是区间突破思路，所以如果选择开仓那大概率是突破了短期市场的震荡范围，突破到极值点后回撤x倍ATR基本可以判断此方向突破结束了。\n5倍ATR止盈比较高了，不过其他的倍数也可以。\n###入场背景\n因为本策略的思路是大胆做空小心做多，根据历史经验“横有多长，竖有多高”来看，一旦大盘长期横盘，那么突破的力度还是很高的。所以改进思路如下：\n如果20日ATR小于50日ATR，表明目前时间大盘低迷；一旦捕捉到明确的入场信号，直接按照正常状态下1.5倍开仓。也就是说，原来给出信号可以开10手空单，如果现在大盘低迷，直接开15手。\n简单解释，就是如果本月波动相比本季度要低，则可以大胆开仓。\n这个思路加进去，盈亏比从1.7左右提高到1.9，还是可以的。\n\n\n#模型效果\n胜率52%\n盈亏比1.9\n年化接近50%\n最大回撤23%\nbeta很低\n\n特别说一句交易频率。CTA部分7年做了380多次交易，平均下来每周1-2次，还算适中。\n除此之外，本CTA策略用到沪深300和上证50股指期货也表现良好。\n问题也有，交易时间选在中午是我的习惯，换个时间模型表现就不好了。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2022-05-14 23:15:43",
+      "modTime": "2022-05-17 11:12:29",
+      "lastActiveTime": "2026-03-25 22:16:11",
+      "lastPubTime": "2022-05-17 11:12:29",
+      "backtestId": "70c37117877fc9b690e1c3fb4ccad525",
+      "backtestName": "中证500指增-CTA-下穿5日均线空上穿2日均线多_ATR止损",
+      "replyCount": "67",
+      "viewCount": "9472",
+      "collectionCount": "226",
+      "likeCount": "59",
+      "disLikeCount": "0",
+      "backtestCloneCount": "671",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "8",
+      "followersCount": "337",
+      "followingCount": "8",
+      "author": {
+        "userId": "43b01cef6c446fd96ab8c45fd6a18c3e",
+        "alias": "Jacobb75"
+      },
+      "tags": [
+        {
+          "id": "7",
+          "name": "期货"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "5",
+          "name": "仓位管理"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "70c37117877fc9b690e1c3fb4ccad525",
+        "backtest_name": "中证500指增-CTA-下穿5日均线空上穿2日均线多_ATR止损",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=70c37117877fc9b690e1c3fb4ccad525&postId=158f9b2e846870e224d86fc4532bacab&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2015-04-16",
+          "end_date": "2022-05-13",
+          "base_capital": 5000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "ccf80ee91de4998282ff574e99918ec9",
+            "24609847"
+          ],
+          "numeric_backtest_id": "24609847",
+          "numeric_post_id": "37685",
+          "python_version": 3,
+          "clone_count": 650
+        },
+        "stats": {
+          "trading_days": 1722,
+          "benchmark_volatility": 0.27192496768754,
+          "algorithm_volatility": 0.24517397468867,
+          "treasury_return": 0.28317808219178,
+          "algorithm_return": 14.28380782528,
+          "benchmark_return": -0.25708243888373,
+          "annual_algo_return": 0.48568509582816,
+          "annual_bm_return": -0.042225749788174,
+          "sharpe": 1.8178319962146,
+          "excess_return_sharpe": "1.772",
+          "sortino": 2.6895700423234,
+          "information": 1.8768144408561,
+          "beta": 0.37146683271218,
+          "alpha": 0.47622923466935,
+          "excess_return": 19.572683464791,
+          "avg_excess_return": "0.19%",
+          "max_drawdown": 0.23344505437835,
+          "max_drawdown_period": [
+            "2015-12-22",
+            "2016-01-28"
+          ],
+          "excess_return_max_drawdown": "25.05%",
+          "excess_return_max_drawdown_period": [
+            "2015-07-08",
+            "2015-08-17"
+          ],
+          "max_leverage": 0,
+          "period_label": "2022-05",
+          "__version": 101,
+          "win_ratio": 0.52678571428571,
+          "profit_loss_ratio": 1.8891164858128,
+          "win_count": 354,
+          "lose_count": 318,
+          "day_win_ratio": 0.52322880371661,
+          "avg_trade_return": -0.62225686936951,
+          "avg_position_days": 85.652892561983,
+          "turnover_rate": 0.20731537167122,
+          "report_done_seconds": 228.97027134895,
+          "report_done_cpu_seconds": 197.49
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 1428.380783,
+          "benchmark_return_percent": -25.708244,
+          "annual_algo_return_percent": 48.56851,
+          "annual_bm_return_percent": -4.222575,
+          "max_drawdown_percent": 23.344505,
+          "algorithm_volatility_percent": 24.517397,
+          "benchmark_volatility_percent": 27.192497,
+          "win_ratio_percent": 52.678571,
+          "day_win_ratio_percent": 52.32288,
+          "avg_trade_return_percent": -62.225687,
+          "turnover_rate_percent": 20.731537,
+          "sharpe": 1.8178319962146,
+          "sortino": 2.6895700423234,
+          "information": 1.8768144408561,
+          "alpha": 0.47622923466935,
+          "beta": 0.37146683271218,
+          "profit_loss_ratio": 1.8891164858128,
+          "avg_position_days": 85.652892561983,
+          "trading_days": 1722,
+          "win_count": 354,
+          "lose_count": 318,
+          "max_drawdown_period": [
+            "2015-12-22",
+            "2016-01-28"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2015-07-08",
+            "2015-08-17"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/37685",
+      "https://www.joinquant.com/community/post/detailV2?postId=37685",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=70c37117877fc9b690e1c3fb4ccad525&postId=158f9b2e846870e224d86fc4532bacab&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=70c37117877fc9b690e1c3fb4ccad525"
+    ]
+  }
+}

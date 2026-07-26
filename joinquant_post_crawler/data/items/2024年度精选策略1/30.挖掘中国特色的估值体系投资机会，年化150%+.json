@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略1/30.挖掘中国特色的估值体系投资机会，年化150%+.txt",
+    "category": "2024年度精选策略1",
+    "file_name": "30.挖掘中国特色的估值体系投资机会，年化150%+.txt",
+    "strategy_name": "挖掘中国特色的估值体系投资机会，年化150%+",
+    "declared_title": "挖掘中国特色的估值体系投资机会，年化150%+",
+    "declared_author": "子匀",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 11871,
+    "sha256": "87c80d57417b34c54d9dd4b49bccb86035691bf35fd33001ec32c2e9796d7aed",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/41763"
+    ],
+    "primary_url": "https://www.joinquant.com/post/41763",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:10:10+08:00",
+    "requested_url": "https://www.joinquant.com/post/41763",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/9c6896590913d41130aefebc1cffd8b3",
+    "community_id": "9c6896590913d41130aefebc1cffd8b3",
+    "post": {
+      "postId": "5787bbc957b16694418f04c851dd6090",
+      "uniqueKey": "9c6896590913d41130aefebc1cffd8b3",
+      "title": "挖掘中国特色的估值体系投资机会，年化150%+",
+      "content": "### “中国特色的估值体系”\n####      11月21日，证监会主席易会满在金融街论坛年会上提出“把握好不同类型上市公司的估值逻辑，探索建立具有中国特色的估值体系”，他指出：“估值高低直接体现市场对上市公司的认可程度。上市公司尤其是国有上市公司，一方面要‘练好内功’，加强专业化战略性整合，提升核心竞争力；另一方面，要进一步强化公众公司意识，主动加强投资者关系管理，让市场更好地认识企业内在价值”。    \n####    2023年3月3日，国资委对国有企业对标开展世界一流企业价值创造行动进行动员部署。   \n####    当前国企估值偏低甚至破净，阻碍其发挥融资功能，也限制了国资优化资本布局的规划。    \n####    市场理解的焦点在于国企估值偏低，通过政策等引导估值回归，直接提升国企估值水平。    \n####    我们的理解是：直接粗暴提升估值与成熟市场估值体系相悖，难以长期维系高估值水平。    \n####    结合监管层讲话，“中国特色估值体系”重视国企改革提质、降本、增效，优化产业布局。    \n####    改善经营效率，提升盈利能力，增加分红回报，重视市值管理，合理激励回购，提估值。  \n####    从逻辑对比来看：直接估值重构有上限，国改价值创造无止境。科学决策，一目了然。   \n   \n      \n###如何挖掘“中特估值”的投资机会？    \n\n1、短期预期先行提估值，带动低估值的金融、建筑、能源、电信等活跃，主题行情为主。    \n2、长期需关注构建中国特色估值体系的配套改革政策对企业基本面的影响，这是渐进的。    \n3、科技创新：自主可控方向，新兴产业提估值，如军工、半导体、电信、数字经济等；     \n4、国企改革：兼并重组强实力，股权激励提效率，回购分红加股息，如军工、金融等。     \n5、能源安全：低估值，高分红，股息率可观，但周期波动大，如煤炭、电力、石油等。    \n\n风险：     \n本文侧重挖掘破净、低PE的估值修复机会，行情已经演绎半年，余下的时机有限，\n政策性投资机会，非长期策略",
+      "type": 1,
+      "status": "0",
+      "addTime": "2023-04-05 09:57:12",
+      "modTime": "2023-04-05 09:57:12",
+      "lastActiveTime": "2026-03-18 15:04:20",
+      "lastPubTime": "2023-04-05 09:57:12",
+      "backtestId": "ae474fe0e5a24dcdca7f9fd9a3e830a7",
+      "backtestName": "中国特色估值体系",
+      "replyCount": "96",
+      "viewCount": "4655",
+      "collectionCount": "73",
+      "likeCount": "48",
+      "disLikeCount": "0",
+      "backtestCloneCount": "334",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "26",
+      "followersCount": "1125",
+      "followingCount": "11",
+      "author": {
+        "userId": "6e5583509f965dd3b3b8eba33d769fd4",
+        "alias": "子匀",
+        "introduction": "1 . 多追求长久有效的东西，少去猜测、拟合市场的变化。两个因素比较可靠，长久的价值和不同周期下的均值回归。 ",
+        "vipType": "VIP",
+        "headImgKey": "39002ac135774423832558583797d3ad"
+      },
+      "tags": [
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "ae474fe0e5a24dcdca7f9fd9a3e830a7",
+        "backtest_name": "中国特色估值体系",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=ae474fe0e5a24dcdca7f9fd9a3e830a7&postId=9c6896590913d41130aefebc1cffd8b3&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2022-11-14",
+          "end_date": "2023-04-04",
+          "base_capital": 500000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "6085730cb7b9e2494b68116b79f93cc7",
+            "28118602"
+          ],
+          "numeric_backtest_id": "28118602",
+          "numeric_post_id": "41763",
+          "python_version": 3,
+          "clone_count": 331
+        },
+        "stats": {
+          "trading_days": 96,
+          "benchmark_volatility": 0.14071136951157,
+          "algorithm_volatility": 0.2353673886024,
+          "treasury_return": 0.015452054794521,
+          "algorithm_return": 0.5471856498,
+          "benchmark_return": 0.083060573745394,
+          "annual_algo_return": 2.1160188386328,
+          "annual_bm_return": 0.23095316058859,
+          "sharpe": 8.8203333986075,
+          "excess_return_sharpe": "7.244",
+          "sortino": 18.306708433879,
+          "information": 9.1168341575233,
+          "beta": 0.81932263638772,
+          "alpha": 1.9195665916728,
+          "excess_return": 0.42853104185077,
+          "avg_excess_return": "0.38%",
+          "max_drawdown": 0.05812348210711,
+          "max_drawdown_period": [
+            "2023-03-23",
+            "2023-03-29"
+          ],
+          "excess_return_max_drawdown": "6.82%",
+          "excess_return_max_drawdown_period": [
+            "2023-03-17",
+            "2023-03-29"
+          ],
+          "max_leverage": 0,
+          "period_label": "2023-04",
+          "__version": 101,
+          "win_ratio": 0.75,
+          "profit_loss_ratio": 10.22134926609,
+          "win_count": 6,
+          "lose_count": 2,
+          "day_win_ratio": 0.65625,
+          "avg_trade_return": 0.15933165195434,
+          "avg_position_days": 42.125,
+          "turnover_rate": 0.02854587913312,
+          "report_done_seconds": 28.210973262787,
+          "report_done_cpu_seconds": 29.73
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 54.718565,
+          "benchmark_return_percent": 8.306057,
+          "annual_algo_return_percent": 211.601884,
+          "annual_bm_return_percent": 23.095316,
+          "max_drawdown_percent": 5.812348,
+          "algorithm_volatility_percent": 23.536739,
+          "benchmark_volatility_percent": 14.071137,
+          "win_ratio_percent": 75.0,
+          "day_win_ratio_percent": 65.625,
+          "avg_trade_return_percent": 15.933165,
+          "turnover_rate_percent": 2.854588,
+          "sharpe": 8.8203333986075,
+          "sortino": 18.306708433879,
+          "information": 9.1168341575233,
+          "alpha": 1.9195665916728,
+          "beta": 0.81932263638772,
+          "profit_loss_ratio": 10.22134926609,
+          "avg_position_days": 42.125,
+          "trading_days": 96,
+          "win_count": 6,
+          "lose_count": 2,
+          "max_drawdown_period": [
+            "2023-03-23",
+            "2023-03-29"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2023-03-17",
+            "2023-03-29"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/41763",
+      "https://www.joinquant.com/community/post/detailV2?postId=41763",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=ae474fe0e5a24dcdca7f9fd9a3e830a7&postId=9c6896590913d41130aefebc1cffd8b3&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=ae474fe0e5a24dcdca7f9fd9a3e830a7"
+    ]
+  }
+}

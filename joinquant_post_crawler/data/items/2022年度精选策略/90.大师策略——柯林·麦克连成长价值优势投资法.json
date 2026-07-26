@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/90.大师策略——柯林·麦克连成长价值优势投资法.txt",
+    "category": "2022年度精选策略",
+    "file_name": "90.大师策略——柯林·麦克连成长价值优势投资法.txt",
+    "strategy_name": "大师策略——柯林·麦克连成长价值优势投资法",
+    "declared_title": "大师策略——柯林·麦克连成长价值优势投资法",
+    "declared_author": "BAFE",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 10723,
+    "sha256": "ac69d107b4d9d97cb381fa853cd9ecddf7a6e5201da8e24fad82199409c69311",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/35642"
+    ],
+    "primary_url": "https://www.joinquant.com/post/35642",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:40+08:00",
+    "requested_url": "https://www.joinquant.com/post/35642",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/0b10e3d5192f1a36c21920813341835f",
+    "community_id": "0b10e3d5192f1a36c21920813341835f",
+    "post": {
+      "postId": "37dd1423a30fb15817b77bac6aaed2b4",
+      "uniqueKey": "0b10e3d5192f1a36c21920813341835f",
+      "title": "大师策略——柯林·麦克连成长价值优势投资法",
+      "content": "#背景\n\n​\t柯林．麦克连(Colin McLean)是英国知名的价值型投资大师，投资经历长达25年，毕业于英国格拉斯哥大学经济统计系，曾在FS保险公司(FS Assurance Ltd.)担任管理FS分离基金的工作， 1979年至1984年的绩效每年皆超越卫斯理．法伯管理基金指数(Willis Faber Managed Fund Index)，并曾在全球知名的传奇性投资大师坦伯顿爵士(Sir John Templeton)旗下的坦伯顿国际欧洲分公司担任总经理，他所管理的坦伯顿全球成长基金(Templeton Global Growth)1988至1990年初的表现亦大幅超越摩根史坦利世界指数(Morgan Stanley Capital World Index)，1990年自行创立苏格兰价值管理公司(Scottish Value Management Ltd)，1991年发行苏格兰价值信托基金(Scottish Value Trust plc)，至2002年四月底止，累积报酬率达399.3%，大幅超越同期金融时报世界指数(FTSE World Index)115.8%的表现达283.5%，由于优越的操作绩效有目共睹，使苏格兰价值管理公司增长至4个信托基金、8个共同基金及1个避险基金的庞大规模。\n\n###六个比率\n\n在做投资时，柯林·麦克连特别重视六个比率：\n每股销售成长率：公司过去和未来每股销售成长率能够增加。\n现金流量：公司每年必需能够产生正的自由现金流量。\n边际获利：寻找边际获利至少10至15%的公司。\n可运用资本报酬率：经过调整的可运用资本报酬率至少达两位数。\n税负：税负比低得不寻常的公司最可疑，代表该公司是资本密集产业，或是热衷购并，或是作帐技巧高明。\n经济价值：发现市场价格低于其经济价值的股票，以高估/低估指数(股价营收比*边际获利乘数)低于1者为准。\n\n###选股标准\n年度营收成长率&gt; 前一年度营收成长率。\n预估营收成长率&gt; 年度营收成长率。（没有实现）\n最近三年每股自由现金流量皆&gt; 0。\n近四季营业利益率&gt;= 10 %。\n最近四季可运用资本报酬率&gt;= 10 %。\n最近年度有效税率&gt;= 5 %。\n高估/低估指数(股价营收比*边际获利乘数) &lt; = 1。（没有实现）\n\n最近闲来无事，准备把我了解的大师策略写一遍。\n这个策略有两个条件还没实现，不知道各位有什么好办法实现。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-11-30 21:37:48",
+      "modTime": "2021-11-30 21:37:48",
+      "lastActiveTime": "2023-03-29 23:05:36",
+      "lastPubTime": "2021-11-30 21:37:48",
+      "backtestId": "62e8d1168db64e73243182df68d3062e",
+      "backtestName": "柯林麦克连",
+      "replyCount": "15",
+      "viewCount": "2426",
+      "collectionCount": "63",
+      "likeCount": "34",
+      "disLikeCount": "0",
+      "backtestCloneCount": "214",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "39",
+      "followersCount": "1496",
+      "followingCount": "2",
+      "author": {
+        "userId": "7147eaaab6bab3cdf222ae10fae619ba",
+        "alias": "BAFE1",
+        "introduction": "从事智能投顾产品研发，公司策略组组长",
+        "headImgKey": "4080027518ea7ba941a410589086f3d1"
+      },
+      "tags": [
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "62e8d1168db64e73243182df68d3062e",
+        "backtest_name": "柯林麦克连",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=62e8d1168db64e73243182df68d3062e&postId=0b10e3d5192f1a36c21920813341835f&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2011-05-01",
+          "end_date": "2021-11-24",
+          "base_capital": 10000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "5283cea7ac7dce6afe3b5a07e54bafc3",
+            "22680879"
+          ],
+          "numeric_backtest_id": "22680879",
+          "numeric_post_id": "35642",
+          "python_version": 3,
+          "clone_count": 214
+        },
+        "stats": {
+          "trading_days": 2571,
+          "benchmark_volatility": 0.22578675735727,
+          "algorithm_volatility": 0.25991978654051,
+          "treasury_return": 0.42279452054795,
+          "algorithm_return": 3.6903781535966,
+          "benchmark_return": 0.53995965822245,
+          "annual_algo_return": 0.16216340894599,
+          "annual_bm_return": 0.042877058798496,
+          "sharpe": 0.47000426774722,
+          "excess_return_sharpe": "0.495",
+          "sortino": 0.59421594674966,
+          "information": 0.79380935766653,
+          "beta": 0.94112680180893,
+          "alpha": 0.11945573180034,
+          "excess_return": 2.0457798868645,
+          "avg_excess_return": "0.05%",
+          "max_drawdown": 0.48281790995113,
+          "max_drawdown_period": [
+            "2015-06-12",
+            "2015-09-15"
+          ],
+          "excess_return_max_drawdown": "33.76%",
+          "excess_return_max_drawdown_period": [
+            "2014-10-28",
+            "2015-01-05"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-11",
+          "__version": 101,
+          "win_ratio": 0.53969526864475,
+          "profit_loss_ratio": 2.0715834514255,
+          "win_count": 673,
+          "lose_count": 574,
+          "day_win_ratio": 0.54181252430961,
+          "avg_trade_return": 0.088351656391089,
+          "avg_position_days": 215.84758364312,
+          "turnover_rate": 0.0093475534088772,
+          "report_done_seconds": 137.42040252686,
+          "report_done_cpu_seconds": 101.82
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 369.037815,
+          "benchmark_return_percent": 53.995966,
+          "annual_algo_return_percent": 16.216341,
+          "annual_bm_return_percent": 4.287706,
+          "max_drawdown_percent": 48.281791,
+          "algorithm_volatility_percent": 25.991979,
+          "benchmark_volatility_percent": 22.578676,
+          "win_ratio_percent": 53.969527,
+          "day_win_ratio_percent": 54.181252,
+          "avg_trade_return_percent": 8.835166,
+          "turnover_rate_percent": 0.934755,
+          "sharpe": 0.47000426774722,
+          "sortino": 0.59421594674966,
+          "information": 0.79380935766653,
+          "alpha": 0.11945573180034,
+          "beta": 0.94112680180893,
+          "profit_loss_ratio": 2.0715834514255,
+          "avg_position_days": 215.84758364312,
+          "trading_days": 2571,
+          "win_count": 673,
+          "lose_count": 574,
+          "max_drawdown_period": [
+            "2015-06-12",
+            "2015-09-15"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2014-10-28",
+            "2015-01-05"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/35642",
+      "https://www.joinquant.com/community/post/detailV2?postId=35642",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=62e8d1168db64e73243182df68d3062e&postId=0b10e3d5192f1a36c21920813341835f&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=62e8d1168db64e73243182df68d3062e"
+    ]
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/3.截止到21年12月依然有效的小市值适配因子.txt",
+    "category": "2022年度精选策略",
+    "file_name": "3.截止到21年12月依然有效的小市值适配因子.txt",
+    "strategy_name": "截止到21年12月依然有效的小市值适配因子",
+    "declared_title": "截止到21年12月依然有效的小市值适配因子",
+    "declared_author": "wywy1995",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 8999,
+    "sha256": "6ed91e4a9c90aad1c6c1b75780726507746ca9fa46f59feae2166841b7630b79",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/35690"
+    ],
+    "primary_url": "https://www.joinquant.com/post/35690",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:52+08:00",
+    "requested_url": "https://www.joinquant.com/post/35690",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/4bfc7f373333fb65f45ef434ec1b9773",
+    "community_id": "4bfc7f373333fb65f45ef434ec1b9773",
+    "post": {
+      "postId": "f7b34d3e7b34a2c277c8fdfbf1737b19",
+      "uniqueKey": "4bfc7f373333fb65f45ef434ec1b9773",
+      "title": "截止到21年12月依然有效的小市值适配因子",
+      "content": "之前写过一个peg搭配小市值的策略，虽然收益很高，但有个明显的缺点，就是在回撤幅度太大。我一向不太会择时，所以当时的解决方案是又写了个与大盘股结合进行轮动的策略，主要是为了避免2017年小盘股的下跌。但这样做又有个新的问题，就是总体收益少了一半，而回撤只减少了10%。\n\n那么有没有一个小盘策略能符合以下三点呢：\n1.与不加任何修饰的小市值因子策略相比，近10年收益相差不大，且最近一年能跑赢基准（纯小市值因子最近一年明显跑输基准）；\n\n2.不择时不止损的情况下回撤控制在40%以内。毕竟小盘策略属于高风险高收益，所以想控制在30%以内很难，之前的小盘策略回撤甚至达到50%多，与大盘轮动也会有40%多的回撤。\n\n3.交易次数不要太频繁，一年交易不要超过30次，这样受滑点的影响较低。\n\n尝试了一圈下来，发现其实满足上述三条中至少两条的策略还是很多的！核心选股思路是，先用某个分层性质较好的因子选出最优的10%，在其中用小市值进行轮动即可。下图总结了我筛选了将近200个因子后保留的适合小盘轮动的因子：\n![Img]( https://image.joinquant.com/df7c7bd5520ccd52c69e81033e7b0ae4) \n![Img]( https://image.joinquant.com/cf474c770d69881643e1d137724da02b) \n![Img]( https://image.joinquant.com/15e8c619a2d895ca599ee19493e0d5d0) \n测试时间包含了15,16年股灾，18年熊市，没有选择15年之前是因为之前无论什么牛鬼蛇神策略全赚钱，没有区分度。因子数据来源于聚宽因子看板，可以根据图中的关键词搜索因子相关的信息。\n因为这个策略本身没什么技术含量（穷举测试纯体力劳动），所以我把核心的选股代码写在这里，有能力的可以直接移植过去，节省积分。\n```\n#1-1 选股模块\ndef get_factor_filter_list(context,stock_list,jqfactor,sort,p1,p2):\n    yesterday = context.previous_date\n    score_list = get_factor_values(stock_list, jqfactor, end_date=yesterday, count=1)[jqfactor].iloc[0].tolist()\n    df = pd.DataFrame(columns=['code','score'])\n    df['code'] = stock_list\n    df['score'] = score_list\n    df = df.dropna()\n    df.sort_values(by='score', ascending=sort, inplace=True)\n    filter_list = list(df.code)[int(p1*len(stock_list)):int(p2*len(stock_list))]\n    return filter_list\n\n#1-2 选股模块\ndef get_stock_list(context):\n    initial_list = get_all_securities().index.tolist()\n    initial_list = filter_new_stock(context,initial_list)\n    initial_list = filter_kcb_stock(context, initial_list)\n    initial_list = filter_st_stock(initial_list)\n    growth_list = get_factor_filter_list(context, initial_list, 'sales_growth', False, 0, 0.1)\n    q = query(valuation.code,valuation.circulating_market_cap,indicator.eps).filter(valuation.code.in_(growth_list)).order_by(valuation.circulating_market_cap.asc())\n    df = get_fundamentals(q)\n    df = df[df['eps']&gt;0]\n    final_list = list(df.code)\n    return final_list\n\n```\n下面的回测以上图中一个我比较满意的因子——5年营业收入增长率为例，依旧是没有择时和止损，每周最多交易一次，截止到本文发表前一天，收益是创了新高的，目前看还有效。不过鉴于本人的策略经常刚一发表就是最高点，各位朋友权当看个乐呵，不要实盘！不要实盘！不要实盘！",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-12-04 13:55:09",
+      "modTime": "2021-12-04 14:02:12",
+      "lastActiveTime": "2026-04-29 16:29:43",
+      "lastPubTime": "2021-12-04 14:02:12",
+      "backtestId": "158f528611f933c25c601fcde350e32b",
+      "backtestName": "sales_growth-cap_全市场",
+      "replyCount": "270",
+      "viewCount": "14317",
+      "collectionCount": "306",
+      "likeCount": "179",
+      "disLikeCount": "0",
+      "backtestCloneCount": "871",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "37",
+      "followersCount": "9584",
+      "followingCount": "39",
+      "author": {
+        "userId": "11fa3b32bc577ef00cc99ce671f70de3",
+        "alias": "wywy1995",
+        "introduction": "从历史中发现规律比画出美丽的图形更重要",
+        "vipType": "VIP",
+        "headImgKey": "6784510f0c6abdbcf9a1fed9081a4658"
+      },
+      "tags": [
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "158f528611f933c25c601fcde350e32b",
+        "backtest_name": "sales_growth-cap_全市场",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=158f528611f933c25c601fcde350e32b&postId=4bfc7f373333fb65f45ef434ec1b9773&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2008-09-30",
+          "end_date": "2021-12-03",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "4d9b7f119db781eb50da6074841117a5",
+            "22728262"
+          ],
+          "numeric_backtest_id": "22728262",
+          "numeric_post_id": "35690",
+          "python_version": 3,
+          "clone_count": 819
+        },
+        "stats": {
+          "trading_days": 3204,
+          "benchmark_volatility": 0.27563241693425,
+          "algorithm_volatility": 0.34629587167988,
+          "treasury_return": 0.52668493150685,
+          "algorithm_return": 210.42516330532,
+          "benchmark_return": 2.4185018726592,
+          "annual_algo_return": 0.51853946297419,
+          "annual_bm_return": 0.10066170456076,
+          "sharpe": 1.3818803575474,
+          "excess_return_sharpe": "1.575",
+          "sortino": 1.8037718733631,
+          "information": 1.9471985755084,
+          "beta": 0.98612978533609,
+          "alpha": 0.41871914927757,
+          "excess_return": 60.847315339002,
+          "avg_excess_return": "0.14%",
+          "max_drawdown": 0.3911967925344,
+          "max_drawdown_period": [
+            "2017-04-13",
+            "2018-10-18"
+          ],
+          "excess_return_max_drawdown": "23.40%",
+          "excess_return_max_drawdown_period": [
+            "2017-02-07",
+            "2018-01-16"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-12",
+          "__version": 101,
+          "win_ratio": 0.65441176470588,
+          "profit_loss_ratio": 2.7891336155194,
+          "win_count": 267,
+          "lose_count": 141,
+          "day_win_ratio": 0.5021847690387,
+          "avg_trade_return": 0.074487320472679,
+          "avg_position_days": 113.58156028369,
+          "turnover_rate": 0.035964614332394,
+          "report_done_seconds": 818.83314585686,
+          "report_done_cpu_seconds": 724.53
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 21042.516331,
+          "benchmark_return_percent": 241.850187,
+          "annual_algo_return_percent": 51.853946,
+          "annual_bm_return_percent": 10.06617,
+          "max_drawdown_percent": 39.119679,
+          "algorithm_volatility_percent": 34.629587,
+          "benchmark_volatility_percent": 27.563242,
+          "win_ratio_percent": 65.441176,
+          "day_win_ratio_percent": 50.218477,
+          "avg_trade_return_percent": 7.448732,
+          "turnover_rate_percent": 3.596461,
+          "sharpe": 1.3818803575474,
+          "sortino": 1.8037718733631,
+          "information": 1.9471985755084,
+          "alpha": 0.41871914927757,
+          "beta": 0.98612978533609,
+          "profit_loss_ratio": 2.7891336155194,
+          "avg_position_days": 113.58156028369,
+          "trading_days": 3204,
+          "win_count": 267,
+          "lose_count": 141,
+          "max_drawdown_period": [
+            "2017-04-13",
+            "2018-10-18"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2017-02-07",
+            "2018-01-16"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/35690",
+      "https://www.joinquant.com/community/post/detailV2?postId=35690",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=158f528611f933c25c601fcde350e32b&postId=4bfc7f373333fb65f45ef434ec1b9773&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=158f528611f933c25c601fcde350e32b"
+    ]
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/60.ETF动量轮动RSRS择时-v2.txt",
+    "category": "2022年度精选策略",
+    "file_name": "60.ETF动量轮动RSRS择时-v2.txt",
+    "strategy_name": "ETF动量轮动RSRS择时-v2",
+    "declared_title": "ETF动量轮动RSRS择时-v2",
+    "declared_author": "Deemoo",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 10774,
+    "sha256": "7de6da9d4efc8e504a73e535393f2dcaf6d46d91de8ceb5618a05bd4acc6c9c6",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/37480",
+      "https://www.joinquant.com/post/36113"
+    ],
+    "primary_url": "https://www.joinquant.com/post/37480",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:17+08:00",
+    "requested_url": "https://www.joinquant.com/post/37480",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/a2056dfe0f25a73748c1dc1f53746791",
+    "community_id": "a2056dfe0f25a73748c1dc1f53746791",
+    "post": {
+      "postId": "c18adaafa2160594a29347f614f81b33",
+      "uniqueKey": "a2056dfe0f25a73748c1dc1f53746791",
+      "title": "ETF动量轮动RSRS择时-v2",
+      "content": "本策略是基于莫急莫急最后公布的策略上进行升级。\n\n\n### 前期提要\n据 [莫急莫急](https://www.joinquant.com/user/243405a1addf02e1a3aff5a1f5a200b4) 所说，参考了 [萌新王富贵](https://www.joinquant.com/user/a4c6bbb57ae32361f703d9ac4bd51cab)  的策略 \n[《8年13倍的ETF动量轮动策略，有滑点，无未来函数，回撤小！》](https://www.joinquant.com/view/community/detail/a1c27c25642ad7b6a1f4fc17a9076871)\n并进行多次升级魔改，提升收益率降低回测。\n大佬最后公开的策略是[《动量ETF轮动RSRS择时-升级》](\nhttps://www.joinquant.com/view/community/detail/990a766705e3c0a96aa486eb41e2637a?type=1&page=1)，之后的策略没公开。\n\n### 原策略\n策略地址：[《动量ETF轮动RSRS择时-升级》](\nhttps://www.joinquant.com/view/community/detail/990a766705e3c0a96aa486eb41e2637a?type=1&page=1)\n回测时间：2018.1.1 - 2021.10.29\n策略收益：793.73%\n最大回测：16.933%\n\n![Img]( https://image.joinquant.com/5092982a345b7e1d03ee64d52833b252) \n\n### 升级思路\n趋势因子的特点是无法及时判断趋势的变向，往往趋势变向一段时间后才能跟上，趋势因子剧烈下跌时，往往容易出现价格暴跌。\n与个股的K线图相似，为防止暴跌，因此基于动量因子的均线策略就出现了。\n若跌破均线，则卖出。\n\n### 目前策略的效果\n目前的策略大幅提升收益，降低回测。\n回测时间：2018.1.1 - 2021.10.29\n策略收益：896.44%\n最大回测：13.69%\n\n![Img]( https://image.joinquant.com/2b3515754a7912d9f15754a7f7af3605) \n\n首次发文，请大家多多支持，赏我积分哈。\n我是站在巨人的肩膀上，想到了这个思路，参数方面没有细致的调优，应该有进一步优化空间，在此希望能抛砖引玉~\n\n俗话说，予人玫瑰，手有余香\n我是Deemoo，祝君安好，再见~",
+      "type": 1,
+      "status": "0",
+      "addTime": "2022-04-27 21:27:42",
+      "modTime": "2022-04-27 22:35:25",
+      "lastActiveTime": "2023-08-31 10:12:13",
+      "lastPubTime": "2022-04-27 22:35:25",
+      "backtestId": "7af4337d6f61340a215a90a5b369ddab",
+      "backtestName": "ETF动量轮动RSRS择时-v2",
+      "replyCount": "63",
+      "viewCount": "2215",
+      "collectionCount": "38",
+      "likeCount": "29",
+      "disLikeCount": "0",
+      "backtestCloneCount": "188",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "2",
+      "followersCount": "52",
+      "followingCount": "2",
+      "author": {
+        "userId": "7baa410e533bc722e025b990832eb227",
+        "alias": "Deemoo",
+        "introduction": "好好生活~"
+      },
+      "tags": [
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "12",
+          "name": "基金"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "7af4337d6f61340a215a90a5b369ddab",
+        "backtest_name": "ETF动量轮动RSRS择时-v2",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=7af4337d6f61340a215a90a5b369ddab&postId=a2056dfe0f25a73748c1dc1f53746791&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2018-01-01",
+          "end_date": "2021-10-29",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "4efd191152cd95d7a1fde946930bd771",
+            "24395161"
+          ],
+          "numeric_backtest_id": "24395161",
+          "numeric_post_id": "37480",
+          "python_version": 3,
+          "clone_count": 186
+        },
+        "stats": {
+          "trading_days": 928,
+          "benchmark_volatility": 0.28654384701933,
+          "algorithm_volatility": 0.23157215558871,
+          "treasury_return": 0.15298630136986,
+          "algorithm_return": 8.964423326,
+          "benchmark_return": 0.91177359997718,
+          "annual_algo_return": 0.85771706942281,
+          "annual_bm_return": 0.19074293079305,
+          "sharpe": 3.5311545437921,
+          "excess_return_sharpe": "2.265",
+          "sortino": 6.2627374368304,
+          "information": 2.9302707531124,
+          "beta": 0.5110647052861,
+          "alpha": 0.7406776779231,
+          "excess_return": 4.2121356452035,
+          "avg_excess_return": "0.19%",
+          "max_drawdown": 0.13693020449845,
+          "max_drawdown_period": [
+            "2018-06-12",
+            "2018-08-15"
+          ],
+          "excess_return_max_drawdown": "14.18%",
+          "excess_return_max_drawdown_period": [
+            "2019-09-26",
+            "2020-01-20"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-10",
+          "__version": 101,
+          "win_ratio": 0.56544502617801,
+          "profit_loss_ratio": 2.84594282461,
+          "win_count": 108,
+          "lose_count": 83,
+          "day_win_ratio": 0.54202586206897,
+          "avg_trade_return": 0.013387326284093,
+          "avg_position_days": 136,
+          "turnover_rate": 0.18978908571096,
+          "report_done_seconds": 68.799745082855,
+          "report_done_cpu_seconds": 63.8
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 896.442333,
+          "benchmark_return_percent": 91.17736,
+          "annual_algo_return_percent": 85.771707,
+          "annual_bm_return_percent": 19.074293,
+          "max_drawdown_percent": 13.69302,
+          "algorithm_volatility_percent": 23.157216,
+          "benchmark_volatility_percent": 28.654385,
+          "win_ratio_percent": 56.544503,
+          "day_win_ratio_percent": 54.202586,
+          "avg_trade_return_percent": 1.338733,
+          "turnover_rate_percent": 18.978909,
+          "sharpe": 3.5311545437921,
+          "sortino": 6.2627374368304,
+          "information": 2.9302707531124,
+          "alpha": 0.7406776779231,
+          "beta": 0.5110647052861,
+          "profit_loss_ratio": 2.84594282461,
+          "avg_position_days": 136,
+          "trading_days": 928,
+          "win_count": 108,
+          "lose_count": 83,
+          "max_drawdown_period": [
+            "2018-06-12",
+            "2018-08-15"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2019-09-26",
+            "2020-01-20"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/37480",
+      "https://www.joinquant.com/community/post/detailV2?postId=37480",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=7af4337d6f61340a215a90a5b369ddab&postId=a2056dfe0f25a73748c1dc1f53746791&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=7af4337d6f61340a215a90a5b369ddab"
+    ]
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/62.【复现】北向资金交易能力一定强吗.txt",
+    "category": "2025年度精选策略",
+    "file_name": "62.【复现】北向资金交易能力一定强吗.txt",
+    "strategy_name": "【复现】北向资金交易能力一定强吗",
+    "declared_title": "【复现】北向资金交易能力一定强吗",
+    "declared_author": "Hugo2046",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 6195,
+    "sha256": "b0727d2bdc0100366aaf0d36a8d157e1ba8549c98bae012c4eca6327fec4996c",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/29573"
+    ],
+    "primary_url": "https://www.joinquant.com/post/29573",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:22+08:00",
+    "requested_url": "https://www.joinquant.com/post/29573",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/c11731e00f6de8e489ed64cec1621c33",
+    "community_id": "c11731e00f6de8e489ed64cec1621c33",
+    "post": {
+      "postId": "d0318ec15d5d9c210db6d895177c7bf9",
+      "uniqueKey": "c11731e00f6de8e489ed64cec1621c33",
+      "title": "【复现】北向资金交易能力一定强吗",
+      "content": "平平无奇的一篇",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-09-28 21:01:11",
+      "modTime": "2020-09-28 21:01:11",
+      "lastActiveTime": "2023-02-17 10:44:49",
+      "lastPubTime": "2020-09-28 21:01:11",
+      "backtestId": "bf75168b9ca49ab83c0956ea1be7554e",
+      "backtestName": "北流择时",
+      "replyCount": "34",
+      "viewCount": "4952",
+      "collectionCount": "111",
+      "likeCount": "83",
+      "disLikeCount": "0",
+      "backtestCloneCount": "105",
+      "notebookCloneCount": "60",
+      "fileDownloadCount": "219",
+      "fileName": "20200624-安信证券-金融工程主题报告：北向资金交易能力一定强吗.pdf",
+      "fileType": "application/pdf",
+      "fileSize": "1596306",
+      "postCount": "81",
+      "followersCount": "4227",
+      "followingCount": "26",
+      "author": {
+        "userId": "4bf58b43b84e8b13fa697b595348d191",
+        "alias": "Hugo2046",
+        "introduction": "联系邮箱:shen.lan123@gmail.com 坐标成都 纸上谈兵小能手",
+        "headImgKey": "144aa02c502f7e0f6bb2d55c98cab33c"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "295",
+          "name": "研报分享"
+        },
+        {
+          "id": "264",
+          "name": "研报复现"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "bf75168b9ca49ab83c0956ea1be7554e",
+        "backtest_name": "北流择时",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=bf75168b9ca49ab83c0956ea1be7554e&postId=c11731e00f6de8e489ed64cec1621c33&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2017-01-01",
+          "end_date": "2020-09-28",
+          "base_capital": 200000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "6f4754ead54a0868a13abec2db311f4a",
+            "18406821"
+          ],
+          "numeric_backtest_id": "18406821",
+          "numeric_post_id": "29573",
+          "python_version": 3,
+          "clone_count": 105
+        },
+        "stats": {
+          "trading_days": 912,
+          "benchmark_volatility": 0.19371989926289,
+          "algorithm_volatility": 0.16044177211111,
+          "treasury_return": 0.14947945205479,
+          "algorithm_return": 1.13408968815,
+          "benchmark_return": 0.38422893102281,
+          "annual_algo_return": 0.23096215326708,
+          "annual_bm_return": 0.093221871843391,
+          "sharpe": 1.1902271506627,
+          "excess_return_sharpe": "0.723",
+          "sortino": 1.8049681795385,
+          "information": 1.181203489703,
+          "beta": 0.66179700976311,
+          "alpha": 0.15574007762713,
+          "excess_return": 0.541717298578,
+          "avg_excess_return": "0.05%",
+          "max_drawdown": 0.16699092222047,
+          "max_drawdown_period": [
+            "2018-01-24",
+            "2018-08-17"
+          ],
+          "excess_return_max_drawdown": "8.19%",
+          "excess_return_max_drawdown_period": [
+            "2017-08-02",
+            "2017-11-22"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-09",
+          "__version": 101,
+          "win_ratio": 0.65714285714286,
+          "profit_loss_ratio": 3.871078983525,
+          "win_count": 23,
+          "lose_count": 12,
+          "day_win_ratio": 0.49890350877193,
+          "avg_trade_return": 0.024900311752789,
+          "avg_position_days": 757,
+          "turnover_rate": 0.03901657207795,
+          "report_done_seconds": 127.02898216248,
+          "report_done_cpu_seconds": 91.59
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 113.408969,
+          "benchmark_return_percent": 38.422893,
+          "annual_algo_return_percent": 23.096215,
+          "annual_bm_return_percent": 9.322187,
+          "max_drawdown_percent": 16.699092,
+          "algorithm_volatility_percent": 16.044177,
+          "benchmark_volatility_percent": 19.37199,
+          "win_ratio_percent": 65.714286,
+          "day_win_ratio_percent": 49.890351,
+          "avg_trade_return_percent": 2.490031,
+          "turnover_rate_percent": 3.901657,
+          "sharpe": 1.1902271506627,
+          "sortino": 1.8049681795385,
+          "information": 1.181203489703,
+          "alpha": 0.15574007762713,
+          "beta": 0.66179700976311,
+          "profit_loss_ratio": 3.871078983525,
+          "avg_position_days": 757,
+          "trading_days": 912,
+          "win_count": 23,
+          "lose_count": 12,
+          "max_drawdown_period": [
+            "2018-01-24",
+            "2018-08-17"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2017-08-02",
+            "2017-11-22"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/29573",
+      "https://www.joinquant.com/community/post/detailV2?postId=29573",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=bf75168b9ca49ab83c0956ea1be7554e&postId=c11731e00f6de8e489ed64cec1621c33&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=bf75168b9ca49ab83c0956ea1be7554e"
+    ]
+  }
+}

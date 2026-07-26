@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/99.计算每日全A市场个股创新高比例(改).txt",
+    "category": "2022年度精选策略",
+    "file_name": "99.计算每日全A市场个股创新高比例(改).txt",
+    "strategy_name": "计算每日全A市场个股创新高比例(改)",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 1495,
+    "sha256": "4fa9607c4645b2ffec91e29924b0dd3e5e477b96884efa1c0892a1932cb8905e",
+    "joinquant_urls": [],
+    "primary_url": null,
+    "url_selection_method": "none"
+  },
+  "remote": null
+}

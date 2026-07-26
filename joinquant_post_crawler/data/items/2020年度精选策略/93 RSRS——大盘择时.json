@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/93 RSRS——大盘择时.txt",
+    "category": "2020年度精选策略",
+    "file_name": "93 RSRS——大盘择时.txt",
+    "strategy_name": "RSRS——大盘择时",
+    "declared_title": "【量化课堂】RSRS(阻力支撑相对强度)择时策略（上）",
+    "declared_author": "JoinQuant量化课堂",
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 5153,
+    "sha256": "f5b43560a8f6f5d1d5eb415f723ff0b191e184eb533ac67a37ead20a99bca41b",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/11115",
+      "https://www.joinquant.com/post/10246"
+    ],
+    "primary_url": "https://www.joinquant.com/post/11115",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:30+08:00",
+    "requested_url": "https://www.joinquant.com/post/11115",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/6a0161a5fd87b1a6e128db84ce5fbb50",
+    "community_id": "6a0161a5fd87b1a6e128db84ce5fbb50",
+    "post": {
+      "postId": "c042a8467c6cd51eb04a271b0323d132",
+      "uniqueKey": "6a0161a5fd87b1a6e128db84ce5fbb50",
+      "title": "RSRS——大盘择时",
+      "content": "##**RSRS的大盘择时效果**\r\n\r\nRSRS的大盘择时效果非常好，本文代码克隆自聚宽“量化课堂”\r\n\r\n笔者在之上重新调参试验，发现18,600 和18,480都是局部最优点，其他的局部最优点暂时还没找到。\r\n\r\n基于原文调参可能出现未来函数问题，笔者也重新尝试用16年牛市之前的数据进行调参寻找局部最优解，然后应用到股灾之后。笔者当时尝试的股灾前的数据调出的参数局部最优解的确在大牛市和股灾中同样表现非凡，不过由于要遍历全部参数不太现实，笔者只是用梯度下降法寻找局部最优参数而已。虽然逻辑上没法肯定的确定RSRS在其他时候都这么有效，但笔者证明其无效的检验方法均告失败，所以目前笔者还是相信RSRS的实用性的。\r\n\r\n最近大盘择时因子测试的6个技术指标包括：MACD，布林带，KDJ（stoch），RSRS，DMI，乖离率。这六个因子中RSRS表现最好，预测能力最强且灵敏度最高；MACD最可靠，依赖参数设置小，基本上一定范围的MACD参数都能从05-18年获得800%-1100%的收益，而其他指标往往参数稍一变动收益就会大幅下降；乖离率也很有特色，只有在牛市时提醒买入，在股灾和震荡行情都会一直提示空仓。\r\n\r\n下一步笔者会研读新的更复杂的研报，下一个研究目标是广发证券写的LLT模型。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-02-11 10:38:10",
+      "modTime": "2018-02-11 10:38:10",
+      "lastActiveTime": "2026-02-14 10:41:26",
+      "lastPubTime": "2018-02-11 10:38:10",
+      "backtestId": "ba0e731c9ef3d3f353a3c413e2c7c4f5",
+      "backtestName": "RSRS_stdratio-Clone",
+      "replyCount": "11",
+      "viewCount": "7864",
+      "collectionCount": "67",
+      "likeCount": "17",
+      "disLikeCount": "0",
+      "backtestCloneCount": "425",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "8",
+      "followersCount": "217",
+      "followingCount": "3",
+      "author": {
+        "userId": "b269afc00fe6323f3859dd6e6d109804",
+        "alias": "Max_Bai",
+        "introduction": "预测18年是黄金的舞台，无可阻挡",
+        "headImgKey": "67077897f9fd3c433a2afe17796c1985"
+      },
+      "tags": []
+    },
+    "backtests": [
+      {
+        "backtest_id": "ba0e731c9ef3d3f353a3c413e2c7c4f5",
+        "backtest_name": "RSRS_stdratio-Clone",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=ba0e731c9ef3d3f353a3c413e2c7c4f5&postId=6a0161a5fd87b1a6e128db84ce5fbb50&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2008-07-01",
+          "end_date": "2018-02-01",
+          "base_capital": 100000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "85a370f604d48acc6c7b98d6d51b0ee9",
+            "7533788"
+          ],
+          "numeric_backtest_id": "7533788",
+          "numeric_post_id": "11115",
+          "python_version": 2,
+          "clone_count": 272
+        },
+        "stats": {
+          "information": 0.41730495615282,
+          "benchmark_return": 0.52083641525469,
+          "algorithm_volatility": 0.17131226645697,
+          "annual_bm_return": 0.045871264734163,
+          "__version": 101,
+          "max_drawdown": 0.2914379442,
+          "sortino": 1.0521084488852,
+          "period_label": "2018-02",
+          "trading_days": 2337,
+          "algorithm_return": 3.0376123486,
+          "benchmark_volatility": 0.26442097298105,
+          "beta": 0.42015962261421,
+          "excess_return": 2.6538315266822,
+          "annual_algo_return": 0.161020884955,
+          "sharpe": 0.70643443962257,
+          "alpha": 0.11855401658003,
+          "max_drawdown_period": [
+            "2008-07-01",
+            "2008-11-04"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.38378082191781,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.49507916131793,
+          "avg_position_days": 1113,
+          "win_ratio": 0.52083333333333,
+          "win_count": 25,
+          "avg_trade_return": 0.033915283917508,
+          "profit_loss_ratio": 4.8230538032383,
+          "lose_count": 23,
+          "report_done_seconds": 50.966185808182
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 303.761235,
+          "benchmark_return_percent": 52.083642,
+          "annual_algo_return_percent": 16.102088,
+          "annual_bm_return_percent": 4.587126,
+          "max_drawdown_percent": 29.143794,
+          "algorithm_volatility_percent": 17.131227,
+          "benchmark_volatility_percent": 26.442097,
+          "win_ratio_percent": 52.083333,
+          "day_win_ratio_percent": 49.507916,
+          "avg_trade_return_percent": 3.391528,
+          "sharpe": 0.70643443962257,
+          "sortino": 1.0521084488852,
+          "information": 0.41730495615282,
+          "alpha": 0.11855401658003,
+          "beta": 0.42015962261421,
+          "profit_loss_ratio": 4.8230538032383,
+          "avg_position_days": 1113,
+          "trading_days": 2337,
+          "win_count": 25,
+          "lose_count": 23,
+          "max_drawdown_period": [
+            "2008-07-01",
+            "2008-11-04"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/11115",
+      "https://www.joinquant.com/community/post/detailV2?postId=11115",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=ba0e731c9ef3d3f353a3c413e2c7c4f5&postId=6a0161a5fd87b1a6e128db84ce5fbb50&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=ba0e731c9ef3d3f353a3c413e2c7c4f5"
+    ]
+  }
+}

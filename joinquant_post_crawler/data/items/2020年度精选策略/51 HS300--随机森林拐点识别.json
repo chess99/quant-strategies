@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/51 HS300--随机森林拐点识别.txt",
+    "category": "2020年度精选策略",
+    "file_name": "51 HS300--随机森林拐点识别.txt",
+    "strategy_name": "HS300--随机森林拐点识别",
+    "declared_title": "二八轮动小市值优化版 v2.0.7 [更新于2016.11.16]",
+    "declared_author": "Morningstar",
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 30161,
+    "sha256": "28b6333c10cf48b6ccc53a3bdfb3ae7dd15a09eabca0362efbb3c425dce8882d",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/12666",
+      "https://www.joinquant.com/post/1667"
+    ],
+    "primary_url": "https://www.joinquant.com/post/12666",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:06:55+08:00",
+    "requested_url": "https://www.joinquant.com/post/12666",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/b68eab419ecae247692adc82d3f0c7ee",
+    "community_id": "b68eab419ecae247692adc82d3f0c7ee",
+    "post": {
+      "postId": "8257edb75321c88c6f3033be74ee79f4",
+      "uniqueKey": "b68eab419ecae247692adc82d3f0c7ee",
+      "title": "HS300--随机森林拐点识别",
+      "content": "貌似出现了效果",
+      "type": 1,
+      "status": "1",
+      "addTime": "2018-05-16 14:29:12",
+      "modTime": "2018-05-16 14:29:12",
+      "lastActiveTime": "2020-10-19 19:13:54",
+      "lastPubTime": "2018-05-16 14:29:12",
+      "backtestId": "d65bcbb4a671acde9a05e183ea6ebad4",
+      "backtestName": "随机森林拐点识别",
+      "replyCount": "12",
+      "viewCount": "2978",
+      "collectionCount": "9",
+      "likeCount": "6",
+      "disLikeCount": "0",
+      "backtestCloneCount": "150",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "13",
+      "followersCount": "227",
+      "followingCount": "2",
+      "author": {
+        "userId": "5c6d23033222f9143cf8b89d0e23e1c1",
+        "alias": "跟随哔哔做量化",
+        "headImgKey": "50da215593a9f203177ff94345cf213a"
+      },
+      "tags": [
+        {
+          "id": "13",
+          "name": "机器学习"
+        },
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "d65bcbb4a671acde9a05e183ea6ebad4",
+        "backtest_name": "随机森林拐点识别",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=d65bcbb4a671acde9a05e183ea6ebad4&postId=b68eab419ecae247692adc82d3f0c7ee&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2015-01-21",
+          "end_date": "2016-12-23",
+          "base_capital": 1000000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "5ef464f67479f846c1add6e0d64ad956",
+            "8595527"
+          ],
+          "numeric_backtest_id": "8595527",
+          "numeric_post_id": "12666",
+          "python_version": 2,
+          "clone_count": 153
+        },
+        "stats": {
+          "information": 1.6036886001891,
+          "benchmark_return": -0.02609455447848,
+          "algorithm_volatility": 0.2394877654904,
+          "annual_bm_return": -0.013936507218259,
+          "__version": 101,
+          "max_drawdown": 0.12098848979101,
+          "sortino": 2.370634098917,
+          "period_label": "2016-12",
+          "trading_days": 471,
+          "algorithm_return": 1.01125029,
+          "benchmark_volatility": 0.31704232782038,
+          "beta": 0.37074501670112,
+          "excess_return": 0.93431878315068,
+          "annual_algo_return": 0.44902352089386,
+          "sharpe": 1.7079098803077,
+          "alpha": 0.4290202121633,
+          "max_drawdown_period": [
+            "2016-08-16",
+            "2016-12-05"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.076931506849315,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.47983014861996,
+          "avg_position_days": 12.165137614679,
+          "win_ratio": 0.52,
+          "win_count": 143,
+          "avg_trade_return": 0.015779947033747,
+          "profit_loss_ratio": 1.8123839449045,
+          "lose_count": 132,
+          "report_done_seconds": 79.224039077759
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 101.125029,
+          "benchmark_return_percent": -2.609455,
+          "annual_algo_return_percent": 44.902352,
+          "annual_bm_return_percent": -1.393651,
+          "max_drawdown_percent": 12.098849,
+          "algorithm_volatility_percent": 23.948777,
+          "benchmark_volatility_percent": 31.704233,
+          "win_ratio_percent": 52.0,
+          "day_win_ratio_percent": 47.983015,
+          "avg_trade_return_percent": 1.577995,
+          "sharpe": 1.7079098803077,
+          "sortino": 2.370634098917,
+          "information": 1.6036886001891,
+          "alpha": 0.4290202121633,
+          "beta": 0.37074501670112,
+          "profit_loss_ratio": 1.8123839449045,
+          "avg_position_days": 12.165137614679,
+          "trading_days": 471,
+          "win_count": 143,
+          "lose_count": 132,
+          "max_drawdown_period": [
+            "2016-08-16",
+            "2016-12-05"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/12666",
+      "https://www.joinquant.com/community/post/detailV2?postId=12666",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=d65bcbb4a671acde9a05e183ea6ebad4&postId=b68eab419ecae247692adc82d3f0c7ee&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=d65bcbb4a671acde9a05e183ea6ebad4"
+    ]
+  }
+}

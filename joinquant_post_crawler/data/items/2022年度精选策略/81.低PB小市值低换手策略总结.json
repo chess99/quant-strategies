@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/81.低PB小市值低换手策略总结.txt",
+    "category": "2022年度精选策略",
+    "file_name": "81.低PB小市值低换手策略总结.txt",
+    "strategy_name": "低PB小市值低换手策略总结",
+    "declared_title": "低PB小市值低换手策略总结",
+    "declared_author": "QuantYY",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 3506,
+    "sha256": "86717283069149897158bf81d70693f91c037bd397b709a8536bf5ccb2b4ede3",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/35317"
+    ],
+    "primary_url": "https://www.joinquant.com/post/35317",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:35+08:00",
+    "requested_url": "https://www.joinquant.com/post/35317",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/670cbc2e5d8a32d66e2f49e9a512031e",
+    "community_id": "670cbc2e5d8a32d66e2f49e9a512031e",
+    "post": {
+      "postId": "ab4a716f5a0edf0ec811c408d3404fbc",
+      "uniqueKey": "670cbc2e5d8a32d66e2f49e9a512031e",
+      "title": "低PB小市值低换手策略总结",
+      "content": "经过一周的考验，修正了若干bug，包含引入未来函数，错误的股票池，没有排除st，停牌逻辑等问题，将代码重新梳理后，形成现在的最终策略代码\n\n策略总结：\n\n1、PB因子长期有效，PB因子存在周期性，周期大概是8年左右，基本跟朱格拉周期一致，体现在估值的周期变化\n\n2、换手率也是长期有效因子，结合低换手率，得到最终的策略\n\n3、只用低PB低换手率组合，年化收益 ：30.14%， Sharpe：1.043， 最大回撤：46.07%； 只用小市值低换手率组合，年化收益 ：25.78%， Sharpe：0.915，最大回撤：51.74%。 两者结合后，一定程度上起到了互补的作用，所有指标均得到提升（这是包含st的回测结果）\n\n4、虽然ROE也是长期有效因子，但此策略加入ROE后，策略变差，最终没有引入ROE\n\n----\n\n策略代码里还是被发现了一个错误，排除st的代码有错误，属于python的小坑，这里纠正一下\n\n$$\ndef can_buy(day, stock):\n    ext = get_extras('is_st', [stock], start_date=day, end_date=day, df=False)\n    #if ext[stock][0] is True :  \n    #原来用is True判断，这样写是错误的，get_extras返回的结果类型是&lt; class 'numpy.bool_'&gt; 而不是&lt; class 'bool'&gt;， 用is 比较是不正确的， 改为 ==  就可以了\n    if ext[stock][0] == True :\n        return False\n$$\n\nst 被过滤后，收益会减少很多， 增大股票数量，收益仍然可观\n\n---\n\n没过滤st ，年化收益 ：35.25%， Sharpe：1.283，最大回撤：44.262%\n$$\n    ## 没过滤st的参数 ##\n    #低PB，低换手\n    filter([{'by':'pb_ratio', 'asc':True, 'count':43}, {'by':'turnover_ratio', 'asc':True, 'count':16}], context.current_dt, data, result)\n    #小市值，低换手\n    filter([{'by':'market_cap', 'asc':True, 'count':70}, {'by':'turnover_ratio', 'asc':True, 'count':16}], context.current_dt, data, result)\n\n$$\n\n过滤st后，年化收益 ：35.34%， Sharpe：1.133，最大回撤：54.09%\n\n$$\n    ## 过滤st后的参数 ##\n    #低PB，低换手\n    filter([{'by':'pb_ratio', 'asc':True, 'count':70}, {'by':'turnover_ratio', 'asc':True, 'count':35}], context.current_dt, data, result)\n    #小市值，低换手\n    filter([{'by':'market_cap', 'asc':True, 'count':70}, {'by':'turnover_ratio', 'asc':True, 'count':35}], context.current_dt, data, result)\n\n$$\n\n贴出的回测是过滤了ST的新策略代码和参数， 上面都有贴出差异",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-11-07 20:55:57",
+      "modTime": "2021-11-09 07:42:01",
+      "lastActiveTime": "2026-03-23 22:18:29",
+      "lastPubTime": "2021-11-09 07:42:01",
+      "backtestId": "88fc65a872a9cdc955d45e0eaa4deea2",
+      "backtestName": "低PB小市值低换手-无st-7035-7035",
+      "replyCount": "121",
+      "viewCount": "3086",
+      "collectionCount": "46",
+      "likeCount": "26",
+      "disLikeCount": "0",
+      "backtestCloneCount": "169",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "51",
+      "followersCount": "197",
+      "followingCount": "0",
+      "author": {
+        "userId": "069e7bbeec6c894ccbee51cd7850b8ed",
+        "alias": "QuantYY",
+        "introduction": "Stay hungry, stay foolish!"
+      },
+      "tags": [
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "88fc65a872a9cdc955d45e0eaa4deea2",
+        "backtest_name": "低PB小市值低换手-无st-7035-7035",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=88fc65a872a9cdc955d45e0eaa4deea2&postId=670cbc2e5d8a32d66e2f49e9a512031e&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2005-01-05",
+          "end_date": "2021-11-06",
+          "base_capital": 2000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "83dc8133bd343af9faacf1305c627598",
+            "22433987"
+          ],
+          "numeric_backtest_id": "22433987",
+          "numeric_post_id": "35317",
+          "python_version": 3,
+          "clone_count": 268
+        },
+        "stats": {
+          "trading_days": 4091,
+          "benchmark_volatility": 0.26478846191315,
+          "algorithm_volatility": 0.27674827180111,
+          "treasury_return": 0.67375342465753,
+          "algorithm_return": 140.53596337368,
+          "benchmark_return": 3.82570133041,
+          "annual_algo_return": 0.35343978759551,
+          "annual_bm_return": 0.10096169641709,
+          "sharpe": 1.1325808307875,
+          "excess_return_sharpe": "0.988",
+          "sortino": 1.4228478021405,
+          "information": 1.3277663135501,
+          "beta": 0.78833220111479,
+          "alpha": 0.26538171927533,
+          "excess_return": 28.329615258567,
+          "avg_excess_return": "0.09%",
+          "max_drawdown": 0.54088227758496,
+          "max_drawdown_period": [
+            "2008-05-14",
+            "2008-11-04"
+          ],
+          "excess_return_max_drawdown": "47.05%",
+          "excess_return_max_drawdown_period": [
+            "2016-12-19",
+            "2021-02-10"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-11",
+          "__version": 101,
+          "win_ratio": 0.55165760392914,
+          "profit_loss_ratio": 1.5171530924731,
+          "win_count": 3145,
+          "lose_count": 2556,
+          "day_win_ratio": 0.54338792471278,
+          "avg_trade_return": 0.025448345797141,
+          "avg_position_days": 169.129395218,
+          "turnover_rate": 0.045937018037887,
+          "report_done_seconds": 225.40435647964,
+          "report_done_cpu_seconds": 172.34
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 14053.596337,
+          "benchmark_return_percent": 382.570133,
+          "annual_algo_return_percent": 35.343979,
+          "annual_bm_return_percent": 10.09617,
+          "max_drawdown_percent": 54.088228,
+          "algorithm_volatility_percent": 27.674827,
+          "benchmark_volatility_percent": 26.478846,
+          "win_ratio_percent": 55.16576,
+          "day_win_ratio_percent": 54.338792,
+          "avg_trade_return_percent": 2.544835,
+          "turnover_rate_percent": 4.593702,
+          "sharpe": 1.1325808307875,
+          "sortino": 1.4228478021405,
+          "information": 1.3277663135501,
+          "alpha": 0.26538171927533,
+          "beta": 0.78833220111479,
+          "profit_loss_ratio": 1.5171530924731,
+          "avg_position_days": 169.129395218,
+          "trading_days": 4091,
+          "win_count": 3145,
+          "lose_count": 2556,
+          "max_drawdown_period": [
+            "2008-05-14",
+            "2008-11-04"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2016-12-19",
+            "2021-02-10"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/35317",
+      "https://www.joinquant.com/community/post/detailV2?postId=35317",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=88fc65a872a9cdc955d45e0eaa4deea2&postId=670cbc2e5d8a32d66e2f49e9a512031e&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=88fc65a872a9cdc955d45e0eaa4deea2"
+    ]
+  }
+}

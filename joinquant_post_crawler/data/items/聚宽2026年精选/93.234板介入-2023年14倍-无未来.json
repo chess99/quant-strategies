@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/93.234板介入-2023年14倍-无未来.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "93.234板介入-2023年14倍-无未来.txt",
+    "strategy_name": "板介入-2023年14倍-无未来",
+    "declared_title": "234板介入-2023年14倍-无未来",
+    "declared_author": "Clarence.罗",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 43674,
+    "sha256": "dadd640e2cd91f1582fc5a64c685cca7dc1bc0bf5faecc9b29f71f07398c635c",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/47559"
+    ],
+    "primary_url": "https://www.joinquant.com/post/47559",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:12:47+08:00",
+    "requested_url": "https://www.joinquant.com/post/47559",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/c636ce933dba1bca24e39c4c59879a07",
+    "community_id": "c636ce933dba1bca24e39c4c59879a07",
+    "post": {
+      "postId": "1cb3061def9b3790973757ab48cdeec4",
+      "uniqueKey": "c636ce933dba1bca24e39c4c59879a07",
+      "title": "234板介入-2023年14倍-无未来",
+      "content": "七拼八凑，搞了一个二三年14倍的策略出来。专门做2-4板的——向干首板、龙头的兄弟们致敬！\n\n策略中用了上次展示的”自由流通市值“、”真实换手率“。\n\n但是这个策略今年巨亏。欢迎魔改、交流。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2024-04-11 01:40:01",
+      "modTime": "2024-04-11 01:40:01",
+      "lastActiveTime": "2026-05-27 00:56:07",
+      "lastPubTime": "2024-04-11 01:40:01",
+      "backtestId": "3e472f531ee5fc9f8e9ffcdc59d0d960",
+      "backtestName": "2023年12倍-无未来",
+      "replyCount": "100",
+      "viewCount": "7540",
+      "collectionCount": "57",
+      "likeCount": "51",
+      "disLikeCount": "0",
+      "backtestCloneCount": "439",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "47",
+      "followersCount": "967",
+      "followingCount": "168",
+      "author": {
+        "userId": "6eadd75837d5c92e5c7763d2296263d2",
+        "alias": "Clarence.罗",
+        "vipType": "VIP"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "14",
+          "name": "函数"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "3e472f531ee5fc9f8e9ffcdc59d0d960",
+        "backtest_name": "2023年12倍-无未来",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=3e472f531ee5fc9f8e9ffcdc59d0d960&postId=c636ce933dba1bca24e39c4c59879a07&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2023-01-01",
+          "end_date": "2024-01-01",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "8b09e9ad155099057abac06ddeeb4314",
+            "33608878"
+          ],
+          "numeric_backtest_id": "33608878",
+          "numeric_post_id": "47559",
+          "python_version": 3,
+          "clone_count": 438
+        },
+        "stats": {
+          "trading_days": 242,
+          "benchmark_volatility": 0.13447452888575,
+          "algorithm_volatility": 0.75606724822427,
+          "treasury_return": 0.039452054794521,
+          "algorithm_return": 15.115137931,
+          "benchmark_return": -0.11378153387591,
+          "annual_algo_return": 16.666177509565,
+          "annual_bm_return": -0.1173132517422,
+          "sharpe": 21.990342193256,
+          "excess_return_sharpe": "24.841",
+          "sortino": 42.266346973462,
+          "information": 21.943673242496,
+          "beta": 0.13090635003596,
+          "alpha": 16.646770813163,
+          "excess_return": 17.184159490019,
+          "avg_excess_return": "1.32%",
+          "max_drawdown": 0.24880815371284,
+          "max_drawdown_period": [
+            "2023-08-31",
+            "2023-09-08"
+          ],
+          "excess_return_max_drawdown": "24.93%",
+          "excess_return_max_drawdown_period": [
+            "2023-08-31",
+            "2023-09-11"
+          ],
+          "max_leverage": 0,
+          "period_label": "2023-12",
+          "__version": 101,
+          "win_ratio": 0.75555555555556,
+          "profit_loss_ratio": 3.7713643702749,
+          "win_count": 34,
+          "lose_count": 11,
+          "day_win_ratio": 0.62396694214876,
+          "avg_trade_return": 0.062887326014845,
+          "avg_position_days": 1.8139534883721,
+          "turnover_rate": 0.18547669212342,
+          "report_done_seconds": 1289.4536466599,
+          "report_done_cpu_seconds": 735.47
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 1511.513793,
+          "benchmark_return_percent": -11.378153,
+          "annual_algo_return_percent": 1666.617751,
+          "annual_bm_return_percent": -11.731325,
+          "max_drawdown_percent": 24.880815,
+          "algorithm_volatility_percent": 75.606725,
+          "benchmark_volatility_percent": 13.447453,
+          "win_ratio_percent": 75.555556,
+          "day_win_ratio_percent": 62.396694,
+          "avg_trade_return_percent": 6.288733,
+          "turnover_rate_percent": 18.547669,
+          "sharpe": 21.990342193256,
+          "sortino": 42.266346973462,
+          "information": 21.943673242496,
+          "alpha": 16.646770813163,
+          "beta": 0.13090635003596,
+          "profit_loss_ratio": 3.7713643702749,
+          "avg_position_days": 1.8139534883721,
+          "trading_days": 242,
+          "win_count": 34,
+          "lose_count": 11,
+          "max_drawdown_period": [
+            "2023-08-31",
+            "2023-09-08"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2023-08-31",
+            "2023-09-11"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/47559",
+      "https://www.joinquant.com/community/post/detailV2?postId=47559",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=3e472f531ee5fc9f8e9ffcdc59d0d960&postId=c636ce933dba1bca24e39c4c59879a07&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=3e472f531ee5fc9f8e9ffcdc59d0d960"
+    ]
+  }
+}

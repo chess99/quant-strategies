@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/37.ETF动量轮动RSRS择时-魔改4-低通滤波.txt",
+    "category": "2023年度精选策略",
+    "file_name": "37.ETF动量轮动RSRS择时-魔改4-低通滤波.txt",
+    "strategy_name": "ETF动量轮动RSRS择时-魔改4-低通滤波",
+    "declared_title": "ETF动量轮动RSRS择时-魔改4-低通滤波",
+    "declared_author": "莫急莫急",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 8324,
+    "sha256": "344b7d6ce450c51142b2070edef0a4eacb4ce9ce6f41779b0353207ee5ea46cb",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/35338"
+    ],
+    "primary_url": "https://www.joinquant.com/post/35338",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:09:08+08:00",
+    "requested_url": "https://www.joinquant.com/post/35338",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/3b2a7c93049c2ff7a219259f90bd7359",
+    "community_id": "3b2a7c93049c2ff7a219259f90bd7359",
+    "post": {
+      "postId": "4766da3217300fca342e01da08f6887e",
+      "uniqueKey": "3b2a7c93049c2ff7a219259f90bd7359",
+      "title": "ETF动量轮动RSRS择时-魔改4-低通滤波",
+      "content": "前面说不折腾ETF了，打肿脸再搞一搞。\n\n这次的思路是低通滤波，目的是为了过滤短期高频噪声。\n如果采用同样的数据量，合适参数下收益能超过纯动量因子，这个还有待进一步研究。\n\n但是这里出现个奇怪的现象，在前面版本中，收益率数据支取了前20天数据进行拟合，在这个版本中采用原来的模型测试时，数据取了前250天的，而这个变化导致回测收益率从546%下降到434%，这个原因还没想清楚，因为拟合的都是当前日期前面20天的数据，按说应该一样才对。\n![Img]( https://image.joinquant.com/2b7c23d79a7a7e227be2cb4e4fbcd477) \n\n低通滤波是一种比较典型的思路，移动平均线MA就是一种低通滤波，但MA相对较为滞后。LLT低通滤波前期试了下，好像效果很差，就没去折腾了。\n\n另外，本测量在2018年之前的全时段回测中，在2016年大半年是跑输市场的，2015牛市也没赶上创业板的涨幅，可以看出市场不走趋势的时候，这个策略比较吃亏，虽然吃亏不大，大伙心里有个数。\n\n另一个优化思路：找成分股质地更好的ETF或者波动性更强的产品加入备选池，大伙可以多尝试尝试。\n\n备注：根据与做过私募朋友的交流，目前这个策略还没发现明显的过拟合和缺陷，但还需要经过实盘验证，细节上也需要经过推敲，凡事均需要辩证的去看。这种策略私募大概率是看不上的，不过对咱韭菜来说其实很好了，个人观点，勿喷。\n\n后面大概率不会再搞ETF轮动了，因为暂时想不到啥好点子了；搞这个版本4是为了测试FFT低通滤波的效果，看以后会不会有更好的思路。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-11-08 18:26:17",
+      "modTime": "2021-11-08 18:26:17",
+      "lastActiveTime": "2024-04-04 10:45:11",
+      "lastPubTime": "2021-11-08 18:26:17",
+      "backtestId": "71313b278ca03dc426a37665398a4a0b",
+      "backtestName": "11.ETF动量轮动RSRS择时-魔改4低通滤波",
+      "replyCount": "299",
+      "viewCount": "8011",
+      "collectionCount": "123",
+      "likeCount": "75",
+      "disLikeCount": "0",
+      "backtestCloneCount": "533",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "19",
+      "followersCount": "1787",
+      "followingCount": "13",
+      "author": {
+        "userId": "077660408f7ab43da4460973745d1ef9",
+        "alias": "莫急莫急"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "71313b278ca03dc426a37665398a4a0b",
+        "backtest_name": "11.ETF动量轮动RSRS择时-魔改4低通滤波",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=71313b278ca03dc426a37665398a4a0b&postId=3b2a7c93049c2ff7a219259f90bd7359&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2018-01-01",
+          "end_date": "2021-10-29",
+          "base_capital": 100000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "11a5efb5cfd3630480860cada43c2335",
+            "22431440"
+          ],
+          "numeric_backtest_id": "22431440",
+          "numeric_post_id": "35338",
+          "python_version": 3,
+          "clone_count": 1047
+        },
+        "stats": {
+          "trading_days": 928,
+          "benchmark_volatility": 0.20987650858278,
+          "algorithm_volatility": 0.26376443711813,
+          "treasury_return": 0.15298630136986,
+          "algorithm_return": 5.1244248298,
+          "benchmark_return": 0.21780021583537,
+          "annual_algo_return": 0.62941863969929,
+          "annual_bm_return": 0.054517744074533,
+          "sharpe": 2.2346402954819,
+          "excess_return_sharpe": "2.772",
+          "sortino": 3.3965803269519,
+          "information": 3.1670826588279,
+          "beta": 0.91569041361181,
+          "alpha": 0.57612488062297,
+          "excess_return": 4.0290883103505,
+          "avg_excess_return": "0.18%",
+          "max_drawdown": 0.20669789529826,
+          "max_drawdown_period": [
+            "2021-02-10",
+            "2021-03-25"
+          ],
+          "excess_return_max_drawdown": "16.41%",
+          "excess_return_max_drawdown_period": [
+            "2020-08-13",
+            "2020-12-29"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-10",
+          "__version": 101,
+          "win_ratio": 0.62857142857143,
+          "profit_loss_ratio": 2.9981190555802,
+          "win_count": 44,
+          "lose_count": 26,
+          "day_win_ratio": 0.53771551724138,
+          "avg_trade_return": 0.027276462426862,
+          "avg_position_days": 195.75,
+          "turnover_rate": 0.071284074112776,
+          "report_done_seconds": 74.624042034149,
+          "report_done_cpu_seconds": 71
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 512.442483,
+          "benchmark_return_percent": 21.780022,
+          "annual_algo_return_percent": 62.941864,
+          "annual_bm_return_percent": 5.451774,
+          "max_drawdown_percent": 20.66979,
+          "algorithm_volatility_percent": 26.376444,
+          "benchmark_volatility_percent": 20.987651,
+          "win_ratio_percent": 62.857143,
+          "day_win_ratio_percent": 53.771552,
+          "avg_trade_return_percent": 2.727646,
+          "turnover_rate_percent": 7.128407,
+          "sharpe": 2.2346402954819,
+          "sortino": 3.3965803269519,
+          "information": 3.1670826588279,
+          "alpha": 0.57612488062297,
+          "beta": 0.91569041361181,
+          "profit_loss_ratio": 2.9981190555802,
+          "avg_position_days": 195.75,
+          "trading_days": 928,
+          "win_count": 44,
+          "lose_count": 26,
+          "max_drawdown_period": [
+            "2021-02-10",
+            "2021-03-25"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-08-13",
+            "2020-12-29"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/35338",
+      "https://www.joinquant.com/community/post/detailV2?postId=35338",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=71313b278ca03dc426a37665398a4a0b&postId=3b2a7c93049c2ff7a219259f90bd7359&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=71313b278ca03dc426a37665398a4a0b"
+    ]
+  }
+}

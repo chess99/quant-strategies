@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/77.龙头弱转强战法.txt",
+    "category": "2022年度精选策略",
+    "file_name": "77.龙头弱转强战法.txt",
+    "strategy_name": "龙头弱转强战法",
+    "declared_title": "龙头弱转强战法",
+    "declared_author": "oupian",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 10723,
+    "sha256": "6d9d2f306860bf4c51b39574bfa774100f751c1ba386fbca44b0e026e22f1d97",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/37189"
+    ],
+    "primary_url": "https://www.joinquant.com/post/37189",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:31+08:00",
+    "requested_url": "https://www.joinquant.com/post/37189",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/e6521f1c8405d64652b1da953ca2d545",
+    "community_id": "e6521f1c8405d64652b1da953ca2d545",
+    "post": {
+      "postId": "eb91bd6b28bfaf0c340c29baaec040a7",
+      "uniqueKey": "e6521f1c8405d64652b1da953ca2d545",
+      "title": "龙头弱转强战法",
+      "content": "龙头弱转强战法，8个月收益61.8%，超额收益81.8%（2021-9-1至2022-4-1日）\n\n1.只做龙头。通过统计近20日的涨幅；找出涨得最好的，且回调不超过10%的龙头。 选出前3支跟踪。\n2.龙头昨日未涨停，今日高开，说明弱转强，介入。\n3.介入后第二天盘中跌破前一日收盘价，或者尾盘不涨停，就卖出。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2022-04-05 21:00:36",
+      "modTime": "2022-04-05 21:02:18",
+      "lastActiveTime": "2026-04-14 09:15:09",
+      "lastPubTime": "2022-04-05 21:02:18",
+      "backtestId": "67666f8924a504d5405ce08bf4b564b0",
+      "backtestName": "龙头弱转强-1",
+      "replyCount": "68",
+      "viewCount": "4100",
+      "collectionCount": "44",
+      "likeCount": "29",
+      "disLikeCount": "0",
+      "backtestCloneCount": "262",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "12",
+      "followersCount": "84",
+      "followingCount": "47",
+      "author": {
+        "userId": "0e46d96ae944699eccf5ca9dcd34ab09",
+        "alias": "oupian",
+        "introduction": "就是喜欢写代码"
+      },
+      "tags": [
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "67666f8924a504d5405ce08bf4b564b0",
+        "backtest_name": "龙头弱转强-1",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=67666f8924a504d5405ce08bf4b564b0&postId=e6521f1c8405d64652b1da953ca2d545&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2021-09-01",
+          "end_date": "2022-04-02",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "bfe74f64df69edfce2dfe1351199159d",
+            "24136743"
+          ],
+          "numeric_backtest_id": "24136743",
+          "numeric_post_id": "37189",
+          "python_version": 3,
+          "clone_count": 257
+        },
+        "stats": {
+          "trading_days": 140,
+          "benchmark_volatility": 0.18006895486121,
+          "algorithm_volatility": 0.28390768144902,
+          "treasury_return": 0.023232876712329,
+          "algorithm_return": 0.6183304854,
+          "benchmark_return": -0.11017331826761,
+          "annual_algo_return": 1.3622959911709,
+          "annual_bm_return": -0.18815340871215,
+          "sharpe": 4.6574857870067,
+          "excess_return_sharpe": "5.818",
+          "sortino": 6.9761134459297,
+          "information": 4.8464813341027,
+          "beta": 0.16475748440101,
+          "alpha": 1.3598859728478,
+          "excess_return": 0.81870303354952,
+          "avg_excess_return": "0.45%",
+          "max_drawdown": 0.11045208578042,
+          "max_drawdown_period": [
+            "2022-02-16",
+            "2022-03-08"
+          ],
+          "excess_return_max_drawdown": "7.06%",
+          "excess_return_max_drawdown_period": [
+            "2021-09-30",
+            "2021-10-08"
+          ],
+          "max_leverage": 0,
+          "period_label": "2022-04",
+          "__version": 101,
+          "win_ratio": 0.63636363636364,
+          "profit_loss_ratio": 3.0109610405814,
+          "win_count": 28,
+          "lose_count": 16,
+          "day_win_ratio": 0.61428571428571,
+          "avg_trade_return": 0.037268304393029,
+          "avg_position_days": 2.2962962962963,
+          "turnover_rate": 0.09682667291015,
+          "report_done_seconds": 178.07804226875,
+          "report_done_cpu_seconds": 180.97
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 61.833049,
+          "benchmark_return_percent": -11.017332,
+          "annual_algo_return_percent": 136.229599,
+          "annual_bm_return_percent": -18.815341,
+          "max_drawdown_percent": 11.045209,
+          "algorithm_volatility_percent": 28.390768,
+          "benchmark_volatility_percent": 18.006895,
+          "win_ratio_percent": 63.636364,
+          "day_win_ratio_percent": 61.428571,
+          "avg_trade_return_percent": 3.72683,
+          "turnover_rate_percent": 9.682667,
+          "sharpe": 4.6574857870067,
+          "sortino": 6.9761134459297,
+          "information": 4.8464813341027,
+          "alpha": 1.3598859728478,
+          "beta": 0.16475748440101,
+          "profit_loss_ratio": 3.0109610405814,
+          "avg_position_days": 2.2962962962963,
+          "trading_days": 140,
+          "win_count": 28,
+          "lose_count": 16,
+          "max_drawdown_period": [
+            "2022-02-16",
+            "2022-03-08"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2021-09-30",
+            "2021-10-08"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/37189",
+      "https://www.joinquant.com/community/post/detailV2?postId=37189",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=67666f8924a504d5405ce08bf4b564b0&postId=e6521f1c8405d64652b1da953ca2d545&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=67666f8924a504d5405ce08bf4b564b0"
+    ]
+  }
+}

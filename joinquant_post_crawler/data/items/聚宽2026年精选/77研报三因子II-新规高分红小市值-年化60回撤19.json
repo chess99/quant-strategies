@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/77研报三因子II-新规高分红小市值-年化60回撤19.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "77研报三因子II-新规高分红小市值-年化60回撤19.txt",
+    "strategy_name": "研报三因子II-新规高分红小市值-年化60回撤19",
+    "declared_title": "研报三因子II-新规高分红小市值-年化60回撤19",
+    "declared_author": "xiaohui1108",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 10544,
+    "sha256": "5e3e86be6940c14c218dfa0d23bc4deba9e0faf95c56878f8d9ab67895cf77d6",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/47618"
+    ],
+    "primary_url": "https://www.joinquant.com/post/47618",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:12:33+08:00",
+    "requested_url": "https://www.joinquant.com/post/47618",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/448130b690411e3f234ef38ba0d0c41a",
+    "community_id": "448130b690411e3f234ef38ba0d0c41a",
+    "post": {
+      "postId": "0c667c417d77b48d957d3314422af30f",
+      "uniqueKey": "448130b690411e3f234ef38ba0d0c41a",
+      "title": "研报三因子II-新规高分红小市值-年化60回撤19",
+      "content": "书接上一回，看了昨天的新规，有感而发，继续利用研报图里的因子表现手搓了这个小市值，出来的年化和回撤都不错，就分享给大家哈。\n[来自研报的策略+有用的研报图](https://www.joinquant.com/view/community/detail/280d2789bfa25ffdea9261f4e5cc3e31)\n\n昨天收盘后，出了新规，好多好复杂。大家比较关心的是ST和退市那条。\n中午的时候看到分析**分红ST规则如下：**\n一、是有约束前提，只针对有盈利和未分配利润均为正的公司;\n二、是触发有条件，只有同时不满足比例要求(三年分红累计达30%，相当于年均10%) 和金额要求(主板5000万元，两创3000万元)的才会被ST，两者仅符合其一不会被ST;\n三、是对创新企业有例外，两创板块那些研发投入规模大、强度高(三年累计3亿元或者研发强度15%) 的公司也不适用。\n\n这小市值策略，大概就是根据研报图**高PE、高增速、高分红这三因子组合而成**。今年的时间就懒得回撤了，新年前那段时间除了市值TOP1000，余下的股票基本都给背刺了~\n\n![Img](https://image.joinquant.com/8fcf47570dc11840aa006b982a8286c8) \n最后恳请各位看官老爷们点个免费的赞，谢谢ღ( ´･ᴗ･` )比心",
+      "type": 1,
+      "status": "0",
+      "addTime": "2024-04-13 17:08:41",
+      "modTime": "2024-04-16 09:42:50",
+      "lastActiveTime": "2026-03-19 21:05:03",
+      "lastPubTime": "2024-04-16 09:42:50",
+      "backtestId": "9d5205003c135f6e22fd22acba5aca73",
+      "backtestName": "研报三因子小市值-高分红/高PE/高增长-",
+      "replyCount": "63",
+      "viewCount": "2870",
+      "collectionCount": "70",
+      "likeCount": "79",
+      "disLikeCount": "0",
+      "backtestCloneCount": "285",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "12",
+      "followersCount": "158",
+      "followingCount": "85",
+      "author": {
+        "userId": "7ae520e5893a4176c1eaebe42e4d5da6",
+        "alias": "xiaohui1108",
+        "vipType": "VIP",
+        "headImgKey": "1a13acd81916b5c9cb79df34c49a278f"
+      },
+      "tags": [
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "264",
+          "name": "研报复现"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "9d5205003c135f6e22fd22acba5aca73",
+        "backtest_name": "研报三因子小市值-高分红/高PE/高增长-",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=9d5205003c135f6e22fd22acba5aca73&postId=448130b690411e3f234ef38ba0d0c41a&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2019-01-01",
+          "end_date": "2024-01-01",
+          "base_capital": 150000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "8c5996c283795a501d70e0235102961f",
+            "33741762"
+          ],
+          "numeric_backtest_id": "33741762",
+          "numeric_post_id": "47618",
+          "python_version": 3,
+          "clone_count": 149
+        },
+        "stats": {
+          "trading_days": 1214,
+          "benchmark_volatility": 0.22709792069269,
+          "algorithm_volatility": 0.23973149222046,
+          "treasury_return": 0.19967123287671,
+          "algorithm_return": 8.92370617312,
+          "benchmark_return": 0.52527451323272,
+          "annual_algo_return": 0.60415326721753,
+          "annual_bm_return": 0.090829826724745,
+          "sharpe": 2.3532714120794,
+          "excess_return_sharpe": "2.584",
+          "sortino": 3.2504505182438,
+          "information": 3.1041310429128,
+          "beta": 0.79205586694885,
+          "alpha": 0.52389320474421,
+          "excess_return": 5.5061771419017,
+          "avg_excess_return": "0.16%",
+          "max_drawdown": 0.19324172266572,
+          "max_drawdown_period": [
+            "2020-01-14",
+            "2020-02-04"
+          ],
+          "excess_return_max_drawdown": "12.53%",
+          "excess_return_max_drawdown_period": [
+            "2020-12-14",
+            "2021-01-13"
+          ],
+          "max_leverage": 0,
+          "period_label": "2023-12",
+          "__version": 101,
+          "win_ratio": 0.70327552986513,
+          "profit_loss_ratio": 3.3474635411062,
+          "win_count": 365,
+          "lose_count": 154,
+          "day_win_ratio": 0.54036243822076,
+          "avg_trade_return": 0.048477109053357,
+          "avg_position_days": 67.012121212121,
+          "turnover_rate": 0.04462906683342,
+          "report_done_seconds": 948.18027663231,
+          "report_done_cpu_seconds": 278.82
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 892.370617,
+          "benchmark_return_percent": 52.527451,
+          "annual_algo_return_percent": 60.415327,
+          "annual_bm_return_percent": 9.082983,
+          "max_drawdown_percent": 19.324172,
+          "algorithm_volatility_percent": 23.973149,
+          "benchmark_volatility_percent": 22.709792,
+          "win_ratio_percent": 70.327553,
+          "day_win_ratio_percent": 54.036244,
+          "avg_trade_return_percent": 4.847711,
+          "turnover_rate_percent": 4.462907,
+          "sharpe": 2.3532714120794,
+          "sortino": 3.2504505182438,
+          "information": 3.1041310429128,
+          "alpha": 0.52389320474421,
+          "beta": 0.79205586694885,
+          "profit_loss_ratio": 3.3474635411062,
+          "avg_position_days": 67.012121212121,
+          "trading_days": 1214,
+          "win_count": 365,
+          "lose_count": 154,
+          "max_drawdown_period": [
+            "2020-01-14",
+            "2020-02-04"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-12-14",
+            "2021-01-13"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/47618",
+      "https://www.joinquant.com/community/post/detailV2?postId=47618",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=9d5205003c135f6e22fd22acba5aca73&postId=448130b690411e3f234ef38ba0d0c41a&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=9d5205003c135f6e22fd22acba5aca73"
+    ]
+  }
+}

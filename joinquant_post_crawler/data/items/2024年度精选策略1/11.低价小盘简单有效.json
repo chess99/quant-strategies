@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略1/11.低价小盘简单有效.txt",
+    "category": "2024年度精选策略1",
+    "file_name": "11.低价小盘简单有效.txt",
+    "strategy_name": "低价小盘简单有效",
+    "declared_title": "低价小盘简单有效",
+    "declared_author": "wywy1995",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 9255,
+    "sha256": "0725ff574a71d84f02aadba7b650f39f2ec1f174efe380e066636a65aa0a319a",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/39788"
+    ],
+    "primary_url": "https://www.joinquant.com/post/39788",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:46+08:00",
+    "requested_url": "https://www.joinquant.com/post/39788",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/daf08c7b1b0520b5238ecf3506cd7d34",
+    "community_id": "daf08c7b1b0520b5238ecf3506cd7d34",
+    "post": {
+      "postId": "572ac92535e755d2a710e5ef1bd80e7e",
+      "uniqueKey": "daf08c7b1b0520b5238ecf3506cd7d34",
+      "title": "低价小盘简单有效",
+      "content": "这个策略选股非常简单，只需要四个步骤，即使不会编程的人也可以拿炒股软件手动完成。\n\n\n###选股思路\n\n- 1.全市场选股，过滤250天之内新股，过滤科创北交所股票，过滤st股票，过滤最近一季度eps小于0的股票\n\n- 2.使用不复权价格因子选出最小10%股票\n\n- 3.在上一项选择后的股票中按市值从小到大排序选择10只股票每周轮动\n\n- 4.每天检查如果持仓中有昨日涨停的股票到今日14:00没有继续涨停则提前卖出\n\n### 不复权价格因子介绍\n其实这个因子基本上就是昨日收盘价的意思，不过我还是结合图片简单说明下。如下图中博汇股份为例，它在5月30日发生了除权，如果我在这一天取昨日收盘价，不复权价格就是昨天（5月27日）真实交易时的价格，如图1所示。前复权价格是炒股软件里最常见的，也是大家平时用数据获取函数默认取到的价格，实际上是把5月30日之前的价格按照股权变动比例向下平移，如图2所示。\n\n图1\n![Img]( https://image.joinquant.com/24515972fd3b36577c4f385e9d2cb19b) \n\n图2\n![Img]( https://image.joinquant.com/2f7e613f66ec7b1bd2f5eadf887d0b88) \n\n图3：代码展示\n![Img]( https://image.joinquant.com/f7f45b8b8fcfada6b4b48be1c559a932) \n![Img]( https://image.joinquant.com/84544f1b772104e4c30a0e58e1e45377) \n\n如果您耐心看完上图，应该就明白这个因子是多么简单了。我在代码中保留了两种(不复权和前复权)选股方法的代码，您可以自行比较，会发现区别不大。\n\n理性的来说，股价应该与企业质量没有关系，机构投资者无论从流动性还是价值性的角度都不会仅仅因为交易价格低而买入股票，那么是谁在炒作低价股？最可能是那些，资金较小无法参与高价股或投资知识不足者，他们把买股票看做超市里挑选打折的蔬菜，便宜的就是好的，只要价格低就有向上想象的空间。游资也喜欢利用这种人性的弱点，反复炒作低价股。有人说这种现象是中国股市的特色，是不成熟的体现，未来将会消失。难道成熟市场就不存在这类“错误”的定价行为吗？看看即使像美国那样的市场，也发生过“游戏驿站”事件，散户拉高股价甚至锤爆了做空的对冲基金。\n\n\n###收益来源\n老规矩先把小盘轮动部分的收益剔除掉，这部分我之前的随机选股文章中有验证过，按最近5年算，年化超过25%我就有95%的把握说超出的部分与小盘轮动无关了。有趣的是，**只用**低价小盘轮动的收益是年化27%，刚过95%置信区间，过不了99%测试。所以这里可以说小盘轮动是大腿，低价因子就是根腿毛儿。那么低价因子到底有没有优化的效果？有！关键是它特别适合前面选股思路中的第四条，即涨停不连板就卖出（以下简称HL优化)。HL优化后的年化可以达到42%，这项优化在大多数小盘股策略中都有效，其提升平均在年化5%左右，然而在这个策略里达到了惊人的15%。\n关于HL优化的合理性，我尝试做出以下解释，低价股之所以价格低，往往是基本面薄弱的体现，加之不受主流基金(国家队外资等)青睐，很多低价股常年低位徘徊，走不出趋势，但是它们又很容易在低位突然连拉几个涨停，给人一种几元股要翻十倍的错觉，当股民情绪高涨的时候，拉抬股价的幕后主使们可能已经准备获利了结了。那么利用这一点，简单设定一个涨停打开卖出就可以大幅提高收益，主力跑我也跑。同时，您还可以设定个有主力刚跑路迹象的股票一段时间内放黑名单，收益会更高（这点我验证过，但是没有包含在回测代码里)。\n结合前面我对低价股投资群体的猜测，不难发现，低价股是操纵市场和割韭菜的重灾区，不过我们可以利用这一点赚阿尔法。（声明：我可没鼓励您拉板打板，割韭菜跟被割了都是不好的）\n图4：对比HL优化前后效果，优化前很平庸，优化后收益显著提高\n![Img]( https://image.joinquant.com/5e616c334d2df4639c472aa1214dec3c) \n\n\n###风险提示\n1.这个策略也是高度依赖小盘因子的有效性。\n2.低价股会面临更大的滑点，对于只有2元的股票来说1分钱的价差就会产生0.5%的滑点，主要因为这一点不建议您实盘玩低价小盘，除非做出点个性化的改变，否则本来小盘流动性就差，每个股票再差个2分钱，年化打5折不过分吧。\n**3.数据准确性以及回测框架等问题**",
+      "type": 1,
+      "status": "0",
+      "addTime": "2022-11-11 15:48:55",
+      "modTime": "2022-11-25 00:26:07",
+      "lastActiveTime": "2026-04-29 16:29:26",
+      "lastPubTime": "2022-11-25 00:26:07",
+      "backtestId": "cfd5db464226f93b8cdf6b0d843b3e69",
+      "backtestName": "不复权价格低小市值轮动",
+      "replyCount": "266",
+      "viewCount": "20096",
+      "collectionCount": "315",
+      "likeCount": "176",
+      "disLikeCount": "0",
+      "backtestCloneCount": "790",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "37",
+      "followersCount": "9584",
+      "followingCount": "39",
+      "author": {
+        "userId": "d748bf101d7d298fad376bf315449f2a",
+        "alias": "wywy1995",
+        "introduction": "从历史中发现规律比画出美丽的图形更重要",
+        "vipType": "VIP",
+        "headImgKey": "6784510f0c6abdbcf9a1fed9081a4658"
+      },
+      "tags": [
+        {
+          "id": "2",
+          "name": "心得"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "21",
+          "name": "讨论"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "cfd5db464226f93b8cdf6b0d843b3e69",
+        "backtest_name": "不复权价格低小市值轮动",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=cfd5db464226f93b8cdf6b0d843b3e69&postId=daf08c7b1b0520b5238ecf3506cd7d34&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2008-01-01",
+          "end_date": "2022-11-10",
+          "base_capital": 25000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "8210fdaaa95aa7817894727d14954a59",
+            "26442067"
+          ],
+          "numeric_backtest_id": "26442067",
+          "numeric_post_id": "39788",
+          "python_version": 3,
+          "clone_count": 790
+        },
+        "stats": {
+          "trading_days": 3613,
+          "benchmark_volatility": 0.29380853851275,
+          "algorithm_volatility": 0.31556518595072,
+          "treasury_return": 0.5946301369863,
+          "algorithm_return": 449.04569808224,
+          "benchmark_return": 0.23083919476108,
+          "annual_algo_return": 0.52612801315651,
+          "annual_bm_return": 0.014475216727964,
+          "sharpe": 1.5404995062808,
+          "excess_return_sharpe": "2.713",
+          "sortino": 1.934163170967,
+          "information": 3.0075749300594,
+          "beta": 0.90915936980204,
+          "alpha": 0.50933410903044,
+          "excess_return": 364.64134453778,
+          "avg_excess_return": "0.17%",
+          "max_drawdown": 0.50236816063528,
+          "max_drawdown_period": [
+            "2008-03-06",
+            "2008-11-04"
+          ],
+          "excess_return_max_drawdown": "19.46%",
+          "excess_return_max_drawdown_period": [
+            "2020-03-16",
+            "2020-05-13"
+          ],
+          "max_leverage": 0,
+          "period_label": "2022-11",
+          "__version": 101,
+          "win_ratio": 0.66802999318337,
+          "profit_loss_ratio": 2.3427559496606,
+          "win_count": 980,
+          "lose_count": 487,
+          "day_win_ratio": 0.54027124273457,
+          "avg_trade_return": 0.049452862279802,
+          "avg_position_days": 99.256484149856,
+          "turnover_rate": 0.046566317648404,
+          "report_done_seconds": 9915.5853993893,
+          "report_done_cpu_seconds": 939.68
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 44904.569808,
+          "benchmark_return_percent": 23.083919,
+          "annual_algo_return_percent": 52.612801,
+          "annual_bm_return_percent": 1.447522,
+          "max_drawdown_percent": 50.236816,
+          "algorithm_volatility_percent": 31.556519,
+          "benchmark_volatility_percent": 29.380854,
+          "win_ratio_percent": 66.802999,
+          "day_win_ratio_percent": 54.027124,
+          "avg_trade_return_percent": 4.945286,
+          "turnover_rate_percent": 4.656632,
+          "sharpe": 1.5404995062808,
+          "sortino": 1.934163170967,
+          "information": 3.0075749300594,
+          "alpha": 0.50933410903044,
+          "beta": 0.90915936980204,
+          "profit_loss_ratio": 2.3427559496606,
+          "avg_position_days": 99.256484149856,
+          "trading_days": 3613,
+          "win_count": 980,
+          "lose_count": 487,
+          "max_drawdown_period": [
+            "2008-03-06",
+            "2008-11-04"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-03-16",
+            "2020-05-13"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/39788",
+      "https://www.joinquant.com/community/post/detailV2?postId=39788",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=cfd5db464226f93b8cdf6b0d843b3e69&postId=daf08c7b1b0520b5238ecf3506cd7d34&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=cfd5db464226f93b8cdf6b0d843b3e69"
+    ]
+  }
+}

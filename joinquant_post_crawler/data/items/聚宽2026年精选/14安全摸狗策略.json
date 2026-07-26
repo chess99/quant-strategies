@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/14安全摸狗策略.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "14安全摸狗策略.txt",
+    "strategy_name": "安全摸狗策略",
+    "declared_title": "安全摸狗策略",
+    "declared_author": "MarioC",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 3464,
+    "sha256": "8ffe96d2d9b40e5339b08ca061eb0e25eb3f006e3849c679b4820addd1828248",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/49263",
+      "https://www.joinquant.com/post/42673",
+      "https://www.joinquant.com/view/community/detail/a31a822d1cfa7e83b1dda228d4562a70",
+      "https://www.joinquant.com/post/26142"
+    ],
+    "primary_url": "https://www.joinquant.com/post/49263",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:52+08:00",
+    "requested_url": "https://www.joinquant.com/post/49263",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/25c6eea8bf1b3ea5a3911ac95103e1e1",
+    "community_id": "25c6eea8bf1b3ea5a3911ac95103e1e1",
+    "post": {
+      "postId": "f128d82380d521aaae0665cbc134f52c",
+      "uniqueKey": "25c6eea8bf1b3ea5a3911ac95103e1e1",
+      "title": "安全摸狗策略",
+      "content": "偷鸡=投机\n摸狗=投资（ETF策略之核心资产轮动）\n![Img](https://image.joinquant.com/7554d6a218915c1c7fe42d5eddda68bd) \n这个逻辑没毛病吧。\n先看下创始人Y神的baseline：15-至今\nhttps://www.joinquant.com/post/42673\n![Img](https://image.joinquant.com/10aabec31253b29b5e8da82fc4fdd9c5) \n养家大哥的带上止损的核心资产轮动：15-至今\nhttps://www.joinquant.com/post/47966\n![Img](https://image.joinquant.com/1a9518eb52ea13963177dac07eb96743) \nhayy大神的ETF核心资产轮动-添油加醋：15-至今\nhttps://www.joinquant.com/post/44046\n![Img](https://image.joinquant.com/a2961616b987b3719d106218db07fa39) \nAlan zhang大神的ETF核心资产轮动-RSRS指标结合研究：15-至今\nhttps://www.joinquant.com/post/45127\n![Img](https://image.joinquant.com/7a8774338eed20a4ccef1044954f0daf) \n我自己：安全摸狗策略：15-至今\n![Img](https://image.joinquant.com/ae36f37029e597bee38f92ded8f700f6)",
+      "type": 1,
+      "status": "0",
+      "addTime": "2024-07-26 10:02:32",
+      "modTime": "2024-07-26 10:02:31",
+      "lastActiveTime": "2026-07-13 11:16:18",
+      "lastPubTime": "2024-07-26 10:02:31",
+      "backtestId": "d8e33049cdb6aede221b981310b00cba",
+      "backtestName": "核资轮V1.1",
+      "replyCount": "71",
+      "viewCount": "20847",
+      "collectionCount": "392",
+      "likeCount": "169",
+      "disLikeCount": "0",
+      "backtestCloneCount": "1406",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "62",
+      "followersCount": "4970",
+      "followingCount": "36",
+      "author": {
+        "userId": "03beac1072aeac2d7e465e64987a5ecb",
+        "alias": "MarioC",
+        "introduction": "人工智能爱好者，gzh：Mario量化",
+        "headImgKey": "44901f16b2618622495468b8b1a70019"
+      },
+      "tags": [
+        {
+          "id": "13",
+          "name": "机器学习"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "d8e33049cdb6aede221b981310b00cba",
+        "backtest_name": "核资轮V1.1",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=d8e33049cdb6aede221b981310b00cba&postId=25c6eea8bf1b3ea5a3911ac95103e1e1&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2015-01-01",
+          "end_date": "2024-07-25",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "25760846ef4f8375cb6bc793777b981e",
+            "35715861"
+          ],
+          "numeric_backtest_id": "35715861",
+          "numeric_post_id": "49263",
+          "python_version": 3,
+          "clone_count": 1221
+        },
+        "stats": {
+          "trading_days": 2325,
+          "benchmark_volatility": 0.21803558925225,
+          "algorithm_volatility": 0.21401917834819,
+          "treasury_return": 0.38235616438356,
+          "algorithm_return": 10.5546839032,
+          "benchmark_return": -0.038042278631463,
+          "annual_algo_return": 0.30099330362667,
+          "annual_bm_return": -0.0041617221647924,
+          "sharpe": 1.2194855883526,
+          "excess_return_sharpe": "1.142",
+          "sortino": 1.687845045002,
+          "information": 1.3156616610346,
+          "beta": 0.41594238394087,
+          "alpha": 0.27936203562283,
+          "excess_return": 11.01163382395,
+          "avg_excess_return": "0.12%",
+          "max_drawdown": 0.21291452073717,
+          "max_drawdown_period": [
+            "2015-05-12",
+            "2015-09-30"
+          ],
+          "excess_return_max_drawdown": "18.78%",
+          "excess_return_max_drawdown_period": [
+            "2015-03-06",
+            "2015-04-20"
+          ],
+          "max_leverage": 0,
+          "period_label": "2024-07",
+          "__version": 101,
+          "win_ratio": 0.51497005988024,
+          "profit_loss_ratio": 2.6255581768125,
+          "win_count": 86,
+          "lose_count": 81,
+          "day_win_ratio": 0.52645161290323,
+          "avg_trade_return": 0.01673223669604,
+          "avg_position_days": 546.75,
+          "turnover_rate": 0.066404986446705,
+          "report_done_seconds": 58.498717784882,
+          "report_done_cpu_seconds": 53.8
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 1055.46839,
+          "benchmark_return_percent": -3.804228,
+          "annual_algo_return_percent": 30.09933,
+          "annual_bm_return_percent": -0.416172,
+          "max_drawdown_percent": 21.291452,
+          "algorithm_volatility_percent": 21.401918,
+          "benchmark_volatility_percent": 21.803559,
+          "win_ratio_percent": 51.497006,
+          "day_win_ratio_percent": 52.645161,
+          "avg_trade_return_percent": 1.673224,
+          "turnover_rate_percent": 6.640499,
+          "sharpe": 1.2194855883526,
+          "sortino": 1.687845045002,
+          "information": 1.3156616610346,
+          "alpha": 0.27936203562283,
+          "beta": 0.41594238394087,
+          "profit_loss_ratio": 2.6255581768125,
+          "avg_position_days": 546.75,
+          "trading_days": 2325,
+          "win_count": 86,
+          "lose_count": 81,
+          "max_drawdown_period": [
+            "2015-05-12",
+            "2015-09-30"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2015-03-06",
+            "2015-04-20"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/49263",
+      "https://www.joinquant.com/community/post/detailV2?postId=49263",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=d8e33049cdb6aede221b981310b00cba&postId=25c6eea8bf1b3ea5a3911ac95103e1e1&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=d8e33049cdb6aede221b981310b00cba"
+    ]
+  }
+}

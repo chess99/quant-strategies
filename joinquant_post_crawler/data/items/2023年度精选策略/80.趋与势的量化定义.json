@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/80.趋与势的量化定义.txt",
+    "category": "2023年度精选策略",
+    "file_name": "80.趋与势的量化定义.txt",
+    "strategy_name": "趋与势的量化定义",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 27319,
+    "sha256": "47f4244f0dd45f37cbb6c30c781d47ca7b20b9324ce69587906961a324f8dadd",
+    "joinquant_urls": [],
+    "primary_url": null,
+    "url_selection_method": "none"
+  },
+  "remote": null
+}

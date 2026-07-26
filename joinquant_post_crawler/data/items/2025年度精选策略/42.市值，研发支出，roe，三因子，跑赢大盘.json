@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/42.市值，研发支出，roe，三因子，跑赢大盘.txt",
+    "category": "2025年度精选策略",
+    "file_name": "42.市值，研发支出，roe，三因子，跑赢大盘.txt",
+    "strategy_name": "市值，研发支出，roe，三因子，跑赢大盘",
+    "declared_title": "市值，研发支出，roe，三因子，跑赢大盘",
+    "declared_author": "zyljq",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 12178,
+    "sha256": "41a720e4dfa7deb9189f3b10a0d6d40d9f0e0e1709ec48fe3be1cf5c0837aa6b",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/28499",
+      "https://www.joinquant.com/post/1399"
+    ],
+    "primary_url": "https://www.joinquant.com/post/28499",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:09+08:00",
+    "requested_url": "https://www.joinquant.com/post/28499",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/44a2bc58f1c257c66ca175d8691e9f92",
+    "community_id": "44a2bc58f1c257c66ca175d8691e9f92",
+    "post": {
+      "postId": "a432e86a3abaac9bbb24fc93d25b8eb2",
+      "uniqueKey": "44a2bc58f1c257c66ca175d8691e9f92",
+      "title": "市值，研发支出，roe，三因子，跑赢大盘",
+      "content": "市值，研发支出，roe，三因子，跑赢大盘",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-07-20 00:34:40",
+      "modTime": "2020-07-20 00:34:40",
+      "lastActiveTime": "2025-04-01 19:03:09",
+      "lastPubTime": "2020-07-20 00:34:40",
+      "backtestId": "2bf2d32e965218b12384bfd25c537e9f",
+      "backtestName": "市值研发ROE三因子",
+      "replyCount": "108",
+      "viewCount": "7036",
+      "collectionCount": "55",
+      "likeCount": "33",
+      "disLikeCount": "0",
+      "backtestCloneCount": "229",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "4",
+      "followersCount": "117",
+      "followingCount": "12",
+      "author": {
+        "userId": "faa7f04c80e507cc6ca1b0a10fcf1c92",
+        "alias": "zyljq",
+        "introduction": "vx17866148858 https://github.com/tomcat123a/-chanlun"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "4",
+          "name": "多因子"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "2bf2d32e965218b12384bfd25c537e9f",
+        "backtest_name": "市值研发ROE三因子",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=2bf2d32e965218b12384bfd25c537e9f&postId=44a2bc58f1c257c66ca175d8691e9f92&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2016-07-01",
+          "end_date": "2020-07-18",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "790bed81ed7f3591affdeb7a34d7c2e7",
+            "17706374"
+          ],
+          "numeric_backtest_id": "17706374",
+          "numeric_post_id": "28499",
+          "python_version": 3,
+          "clone_count": 209
+        },
+        "stats": {
+          "trading_days": 985,
+          "benchmark_volatility": 0.18518000829125,
+          "algorithm_volatility": 0.19905426212129,
+          "treasury_return": 0.16186301369863,
+          "algorithm_return": 1.3309438002,
+          "benchmark_return": 0.44096869926948,
+          "annual_algo_return": 0.23960175781531,
+          "annual_bm_return": 0.097154153516595,
+          "sharpe": 1.0027504846577,
+          "excess_return_sharpe": "0.860",
+          "sortino": 1.4805824473884,
+          "information": 1.3636123072864,
+          "beta": 0.9186151067224,
+          "alpha": 0.14709908898304,
+          "excess_return": 0.61762278485417,
+          "avg_excess_return": "0.05%",
+          "max_drawdown": 0.2815325881986,
+          "max_drawdown_period": [
+            "2018-01-26",
+            "2019-01-03"
+          ],
+          "excess_return_max_drawdown": "13.48%",
+          "excess_return_max_drawdown_period": [
+            "2018-06-25",
+            "2019-03-07"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-07",
+          "__version": 101,
+          "win_ratio": 0.61068702290076,
+          "profit_loss_ratio": 3.052674272456,
+          "win_count": 80,
+          "lose_count": 51,
+          "day_win_ratio": 0.50659898477157,
+          "avg_trade_return": 0.10263785457862,
+          "avg_position_days": 173.40425531915,
+          "turnover_rate": 0.012418216069081,
+          "report_done_seconds": 147.9499309063,
+          "report_done_cpu_seconds": 135.98
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 133.09438,
+          "benchmark_return_percent": 44.09687,
+          "annual_algo_return_percent": 23.960176,
+          "annual_bm_return_percent": 9.715415,
+          "max_drawdown_percent": 28.153259,
+          "algorithm_volatility_percent": 19.905426,
+          "benchmark_volatility_percent": 18.518001,
+          "win_ratio_percent": 61.068702,
+          "day_win_ratio_percent": 50.659898,
+          "avg_trade_return_percent": 10.263785,
+          "turnover_rate_percent": 1.241822,
+          "sharpe": 1.0027504846577,
+          "sortino": 1.4805824473884,
+          "information": 1.3636123072864,
+          "alpha": 0.14709908898304,
+          "beta": 0.9186151067224,
+          "profit_loss_ratio": 3.052674272456,
+          "avg_position_days": 173.40425531915,
+          "trading_days": 985,
+          "win_count": 80,
+          "lose_count": 51,
+          "max_drawdown_period": [
+            "2018-01-26",
+            "2019-01-03"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2018-06-25",
+            "2019-03-07"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/28499",
+      "https://www.joinquant.com/community/post/detailV2?postId=28499",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=2bf2d32e965218b12384bfd25c537e9f&postId=44a2bc58f1c257c66ca175d8691e9f92&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=2bf2d32e965218b12384bfd25c537e9f"
+    ]
+  }
+}

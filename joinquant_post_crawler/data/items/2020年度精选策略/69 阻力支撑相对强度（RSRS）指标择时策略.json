@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/69 阻力支撑相对强度（RSRS）指标择时策略.txt",
+    "category": "2020年度精选策略",
+    "file_name": "69 阻力支撑相对强度（RSRS）指标择时策略.txt",
+    "strategy_name": "阻力支撑相对强度（RSRS）指标择时策略",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 2648,
+    "sha256": "6ec26b602a0e8649adaee009fdd7ffce2e38a1a5ff93fd52b919a78d64e16117",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/14750"
+    ],
+    "primary_url": "https://www.joinquant.com/post/14750",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:10+08:00",
+    "requested_url": "https://www.joinquant.com/post/14750",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/b9f5ab4a375b1aa6a476974916f09762",
+    "community_id": "b9f5ab4a375b1aa6a476974916f09762",
+    "post": {
+      "postId": "17830a34e87be8eb1d99d47229d2d11d",
+      "uniqueKey": "b9f5ab4a375b1aa6a476974916f09762",
+      "title": "阻力支撑相对强度（RSRS）指标择时策略",
+      "content": "基于阻力支撑强度（RSRS）指标择时，当日最高价与最低价分别对应阻力位与支撑位。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-09-26 09:10:42",
+      "modTime": "2018-09-26 09:10:42",
+      "lastActiveTime": "2018-09-26 09:56:22",
+      "lastPubTime": "2018-09-26 09:10:42",
+      "backtestId": "2fb9bd2fdf74eb85e8c3e219e141ab14",
+      "backtestName": "这是一个简单的策略-10",
+      "replyCount": "1",
+      "viewCount": "3048",
+      "collectionCount": "5",
+      "likeCount": "4",
+      "disLikeCount": "0",
+      "backtestCloneCount": "106",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "3",
+      "followersCount": "38",
+      "followingCount": "12",
+      "author": {
+        "userId": "1569a70ecfc3a7b73dbd12dd993ae316",
+        "alias": "冰_柠檬",
+        "introduction": "菜鸟一枚 请求各位大神多多指教",
+        "headImgKey": "8470ba73300613771d943e547d5f9f45"
+      },
+      "tags": []
+    },
+    "backtests": [
+      {
+        "backtest_id": "2fb9bd2fdf74eb85e8c3e219e141ab14",
+        "backtest_name": "这是一个简单的策略-10",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=2fb9bd2fdf74eb85e8c3e219e141ab14&postId=b9f5ab4a375b1aa6a476974916f09762&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2014-01-01",
+          "end_date": "2017-12-31",
+          "base_capital": 100000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "e397d2dcd5547f1661d8e85e575000d0",
+            "10141668"
+          ],
+          "numeric_backtest_id": "10141668",
+          "numeric_post_id": "14750",
+          "python_version": 2,
+          "clone_count": 106
+        },
+        "stats": {
+          "information": 0.32844729812928,
+          "benchmark_return": 0.72995923650639,
+          "algorithm_volatility": 0.15446431810071,
+          "annual_bm_return": 0.15056165218681,
+          "__version": 101,
+          "max_drawdown": 0.16641254570438,
+          "sortino": 1.88429195331,
+          "period_label": "2017-12",
+          "trading_days": 977,
+          "algorithm_return": 1.1692009,
+          "benchmark_volatility": 0.2499591612785,
+          "beta": 0.34204000272488,
+          "excess_return": 1.0095296671233,
+          "annual_algo_return": 0.21914171141352,
+          "sharpe": 1.1597611255223,
+          "alpha": 0.14132520359827,
+          "max_drawdown_period": [
+            "2015-12-22",
+            "2017-02-07"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.15967123287671,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.46264073694985,
+          "avg_position_days": 399,
+          "win_ratio": 0.58620689655172,
+          "win_count": 34,
+          "avg_trade_return": 0.015027145095906,
+          "profit_loss_ratio": 3.1671891751549,
+          "lose_count": 24,
+          "report_done_seconds": 4561.7224290371
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 116.92009,
+          "benchmark_return_percent": 72.995924,
+          "annual_algo_return_percent": 21.914171,
+          "annual_bm_return_percent": 15.056165,
+          "max_drawdown_percent": 16.641255,
+          "algorithm_volatility_percent": 15.446432,
+          "benchmark_volatility_percent": 24.995916,
+          "win_ratio_percent": 58.62069,
+          "day_win_ratio_percent": 46.264074,
+          "avg_trade_return_percent": 1.502715,
+          "sharpe": 1.1597611255223,
+          "sortino": 1.88429195331,
+          "information": 0.32844729812928,
+          "alpha": 0.14132520359827,
+          "beta": 0.34204000272488,
+          "profit_loss_ratio": 3.1671891751549,
+          "avg_position_days": 399,
+          "trading_days": 977,
+          "win_count": 34,
+          "lose_count": 24,
+          "max_drawdown_period": [
+            "2015-12-22",
+            "2017-02-07"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/14750",
+      "https://www.joinquant.com/community/post/detailV2?postId=14750",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=2fb9bd2fdf74eb85e8c3e219e141ab14&postId=b9f5ab4a375b1aa6a476974916f09762&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=2fb9bd2fdf74eb85e8c3e219e141ab14"
+    ]
+  }
+}

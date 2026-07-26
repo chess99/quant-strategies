@@ -1,0 +1,178 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/21.策略coding吐槽帖——以“网红”ETF轮动为例.txt",
+    "category": "2025年度精选策略",
+    "file_name": "21.策略coding吐槽帖——以“网红”ETF轮动为例.txt",
+    "strategy_name": "策略coding吐槽帖——以“网红”ETF轮动为例",
+    "declared_title": "策略coding吐槽帖——以“网红”ETF轮动为例",
+    "declared_author": "jqz1226",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 10314,
+    "sha256": "f57070e964dfe28091e7d55f63a96219387f453fa3698ba2abdb48d24c13805f",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/24417",
+      "https://www.joinquant.com/post/24321",
+      "https://www.joinquant.com/view/community/detail/6d4d808cf982be5db2d0225264cfe8d4",
+      "https://www.joinquant.com/post/22857",
+      "https://www.joinquant.com/view/community/detail/c9827c6126003147912f1b47967052d9"
+    ],
+    "primary_url": "https://www.joinquant.com/post/24417",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:10:57+08:00",
+    "requested_url": "https://www.joinquant.com/post/24417",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/177edab03367da01e96210469dd5290d",
+    "community_id": "177edab03367da01e96210469dd5290d",
+    "post": {
+      "postId": "dad57c6dfd98477eb9cea2deccdc0928",
+      "uniqueKey": "177edab03367da01e96210469dd5290d",
+      "title": "策略coding吐槽帖——以“网红”ETF轮动为例",
+      "content": "网红“ETF轮动”有各种版本，例如：\n'\n克隆自聚宽文章：https://www.joinquant.com/post/24321\n标题：无杠杆，稳定盈利的etf轮动，06年开始3000%收益\n作者：热爱大自然\n'\n克隆自聚宽文章：https://www.joinquant.com/post/22857\n标题：无杠杆，回撤更小的etf轮动\n作者：智习\n'\n各种版本的代码惨不忍睹，忍不住操刀，动手重写。我改写这个策略，不是想提高它的收益（尽管确实看起来是提高了，2014-1-1至2019-10-1收益940%，最大回撤21.29%；自2006-1-1至2019-10-1收益为3420.75%，这是在尽量忠实于原作的基础上，改了一些逻辑错误达到的。），而是这个策略的**槽点**太多，让我这个程序控不能忍受。下面以`热爱大自然`的版本为例，逐一剖析一下原来的代码存在的各种问题：\n'\n- **initialize()**\n\n```python\ndef initialize(context):\n    set_params()\n\t...\n    run_daily(ETFtrade1, time='11:30')\n    if g.signal == 'sell_the_stocks':\n        run_daily(ETFtrade2, time='13:00')\n    else:\n        run_daily(ETFtrade2, time='14:40')\n```\n\n这段大概的意思是说：如果g.signal的信号是卖出股票，则13:00卖出；否则，14:40买入。\n\n各位看官一看就笑了。initialize只会在策略开始运行的时候执行一次，以后永远都不会再执行，所以，g.signal最初始的状态，决定了运行哪一个定时器。由于g.signal开始的时候根本没有赋值，所以，一定会运行14:40这个定时器。\n'\n- **initialize的调用的函数set_params()**\n\n```python\ndef set_params():\n    ...\n    g.df = pd.DataFrame()\n    g.ETFList = {\n        ...\n        '399632.XSHE':'159901.XSHE',#深100etf\n        '000016.XSHG':'510050.XSHG',#上证50\n        ...\n    }\n\n    g.IdxList=dict(zip(g.ETFList.values(),g.ETFList.keys()))\n```\n\n这个set_params()函数里面有一堆全局变量g.xxxx，看的眼花缭乱，明显属于滥用。\n\n比如g.df = pd.DataFrame()，这把我惊呆了，居然用全局变量去保存一个DataFrame，不可思议。\n\n再比如g.IdxList，我的python语言功底不好，我看了一会没有看懂这个g.IdxList是干什么的，在Notebook里面运行了一下，发现居然是把g.ETFList的Key、Value调换了一下。这个g.IdxList有存在的必要么？\n'\n- **before_trading_start()**\n\n```python\n# 每天开盘前要做的事情\ndef before_trading_start(context):\n    set_slip_fee(context) \n\n# 根据不同的时间段设置滑点与手续费\ndef set_slip_fee(context):\n    # 将滑点设置为0\n    set_slippage(FixedSlippage(0)) \n    # 设置手续费\n    set_commission(PerTrade(buy_cost=0.0005, sell_cost=0.0005, min_cost=5))\n```\n\n又让我倒吸一口冷气，第一，至少可以消灭set_slip_fee()函数，set_slip_fee()的函数体可以直接写到before_trading_start()里面吧。第二，before_trading_start是每天都需要运行的函数，难道滑点和手续费每天有变化么？如果没有，那就应该写到initialize()中，免得每天执行一遍，浪费时间。\n'\n- **ETFtrade1()**\n\n```python\ndef initialize(context):\n    ...\n    run_daily(ETFtrade1, time='11:30')\n    \n# 每日交易时\ndef ETFtrade1(context):\n    g.signal = get_signal(context)\n```\n\n这个ETFtrade1(）就是去调用一个get_signal()函数以给g.signal赋值信号，显然没有存在的价值。可以改为：\n\n```\ndef initialize(context):\n    ...\n    run_daily(get_signal, time='11:30')\n```\n\n在get_signal()的函数体里面对g.signal赋值，就可以了。\n'\n- **ETFtrade2()**\n\n   ```python\ndef ETFtrade2(context):\n    if g.signal == 'sell_the_stocks':\n\t\t...\n\t\tlog.info(\"正在卖出 %s\" % stock)\n        ...\n    elif g.signal == 'KEEP':\n        log.info(\"交易信号:持仓不变\")\n    elif g.signal == 'BUY':\n\t\t...\n        g.last = list(context.portfolio.positions.keys())\n\t\t...\n        for code in g.last:#先进行清仓处理，如果持仓股票不在购买清单中\n            if code not in g.buy:\n                log.info(\"正在清空 %s\" % code)\n                ...\n                g.clear.append(code)\n        for code in g.clear:#从g.last删除已经卖出的标的\n            g.last.remove(code)\n        g.clear = [] #清除临时列表\n        for code in g.last:#如果持仓在购买清单中判断调仓\n            if code in g.buy:\n\t\t\t\t...\n\t\t\t\tlog.info(\"正在调仓 %s\" % position.security)\n        for code in g.buy:\n            if code not in g.last:\n                log.info(\"正在买入 %s\" % code)\n\t\t\t\t...\n        g.buy = []\n\t\t...\n   ```\n\nget_signal()函数给g.signal赋值信号，总共三种：清仓sell_the_stocks，保持空仓:KEEP，买入BUY。其实没有必要三种信号，两种信号就够了：清仓CLEAR、买入BUY。发出CLEAR清仓信号时，如果现在就是空仓，那么什么都不做，就是KEEP空仓了。\n\n这段代码里面看见了大量的g.buy, g.last, g.clear，以及对他们的操作。能少用全局变量就尽量少用。完全可以去掉g.last, g.clear。交易就是三个动作，卖出、调整、买入，用集合set操作很简单：\n\n   ```python\n   holdings = set(context.portfolio.positions.keys())  # 现在持仓的\n   targets = set(g.buy)  # 想买入的目标\n   # 1. 现持仓，却不在targets中的，卖出\n   sells = holdings - targets\n   # 2. 现持仓，且在targets中，调整仓位的重量\n   adjusts = holdings & targets\n   # 3. 新的，买入\n   purchases = targets - holdings\n   ```\n- **get_signal()**\n\n```python\n#获取信号\ndef get_signal(context):\n    i=0 # 计数器初始化\n    # 创建保持计算结果的DataFrame\n    g.df = pd.DataFrame()\n    for k in g.ETFList.values():\n        security = k# key()以指数计算交易信号，values()以基金计算交易信号\n    \t# 获取股票的收盘价\n        close_data = attribute_history(security, g.lag1, '1d', ['close'],df=False)\n    \t# 获取股票现价\n        current_data = get_current_data()\n        current_price = current_data[security].last_price\n    \t# 获取股票的阶段收盘价涨幅\n        cp_increase = (current_price/close_data['close'][g.lag2-g.lag1]-1)*100\n    \t# 取得平均价格\n        ma_n1 = close_data['close'].mean()\n    \t# 计算前一收盘价与均值差值    \n        pre_price = (current_price/ma_n1-1)*100\n        g.df.loc[i,'股票代码'] = security # 把标的股票代码添加到DataFrame\n        # 把标的股票名称添加到DataFrame\n        g.df.loc[i,'股票名称'] = get_security_info(security).display_name \n        g.df.loc[i,'周期涨幅%'] = cp_increase # 把计算结果添加到DataFrame\n        g.df.loc[i,'均线差值%'] = pre_price # 把计算结果添加到DataFrame\n        i=i+1\n    ...\n```\n\n计数器i是无用的；g.df完全是个局部变量，用不着全局变量；`for k in g.ETFList.values()`以dict的values来循环，是罕见的；字段名用中文且还带%号；current_data = get_current_data()不应该放在循环体里面去反复调用；`股票名称`字段是没有用的；往dataframe里面添加一行也有简化的写法。\n\n```python\ndef get_signal(context):\n\tcurrent_data = get_current_data()\n    # 创建保持计算结果的DataFrame\n    df = pd.DataFrame(columns=['股票代码','周期涨幅','均线差值'])\n    for idx in g.ETFList:\n        security = g.ETFList[idx]\n\t\t...\n        df.append({'股票代码':security,'周期涨幅':cp_increase,'均线差值':pre_price},ignore_index=True)\n    ...\n```\n\n继续吐槽get_signal()函数\n\n```python\ndef get_signal(context):\n\t...\n    #删除不符合要求的标的\n    for t in g.df.index:\n        if g.df.loc[t,'周期涨幅%'] &lt; 0.1 or g.df.loc[t,'均线差值%'] &lt; 0:\n            g.df=g.df.drop(t)\n    # 表不为空,持有排名前三名的股\n    if g.df.shape[0] &gt; 12 :\n        g.buy.append(str(g.df.iloc[0,0]))\n        g.buy.append(str(g.df.iloc[1,0]))\n        g.buy.append(str(g.df.iloc[2,0]))\n        log.info(\"交易信号:持有 %s\" % (g.buy))\n        return 'BUY'\n    # 表不为空,持有排名前两名的股\n    if g.df.shape[0] &gt; 12 :# 表不为空,持有排名前两名的股\n        g.buy.append(str(g.df.iloc[0,0]))\n        g.buy.append(str(g.df.iloc[1,0]))\n        log.info(\"交易信号:持有 %s\" % (g.buy))\n        return 'BUY'    \n    else: # 持第一名的股\n        g.buy.append(str(g.df.iloc[0,0]))                \n        log.info(\"交易信号:持有 %s\" % (g.buy))\n        return 'BUY'\n```\n\n删除不符合要求的标的时，是在循环体里面去drop()，这是危险的行为，完全可以用过滤；g.df.shape[0]，何必这么麻烦，len(g.df)就可以了；if g.df.shape[0] &gt; 12出现了两次，所以第二次的代码永远不会被执行。且g.ETFList给出的就7只基金，怎么可能达到12行？所以永远只会买1只基金而不是宣称的3只；g.buy.append(str(g.df.iloc[...,...])) 被不断重复地抄写。\n\n```python\ndef get_signal(context):\n\t...\n\t# 过滤掉不符合要求的\n    df = df[(df['周期涨幅'] &gt;= 0.1) & (df['均线差值'] &gt; 0)]\n\t...\n    # 大盘符合要求， 有基金品种也符合要求，买\n    g.buy = list(df['股票代码'].iloc[:3].values)  # 买入满足条件的前3名基金\n    g.signal = 'BUY'\n    return\n```\n'\n- **EmotionMonitor()**\n\n```python\n# 大盘行情监控函数\ndef EmotionMonitor(context):\n    try:\n        volume = attribute_history(g.target_market,100, '1d', ('volume'))['volume'].values\n        v_ma_lag0 = talib.MA(volume,g.lag0)\n        vol = volume / v_ma_lag0 - 1\n        g.emotion_rate = round(vol[-1] * 100,2)\n        for i in range(30):\n            if vol[-1]&gt;=0:\n                if vol[-1-i]&lt; 0:\n                    return 1 if (i &gt;= 3) else 0\n            else:\n                if vol[-1-i]&gt;=0:\n                    return -1 if (i &gt;= g.lag) else 0\n    except:\n        return 1\n```\n\n试图用try...except...去处理数据为nan的问题；取100个1d没有必要，够用就好；`for i in range(30)`循环晦涩难懂，而且一定要把range(30)循环完成，才会结束循环，做了很多无用功。\n\n```python\n# 大盘行情监控函数\ndef EmotionMonitor():\n    _cnt = g.lag0 + max(g.lag, 3)\t# 数据长度够用就可以了\n    volume = attribute_history(security=g.target_market, count=_cnt, unit='1d', fields='volume')['volume']\n    v_ma_lag0 = talib.MA(volume, g.lag0)  # 前 g.lag0 - 1 个会变成nan\n    # 最后一天的成交量比成交量均值高%\n    g.emotion_rate = round((volume[-1] / v_ma_lag0[-1] - 1) * 100, 2)  # \n    #\n    vol = (volume - v_ma_lag0)\n    if vol[-1] &gt;= 0:\n        ret_val = 1 if (vol[-3:] &gt;= 0).all() else 0  # 大盘成交量，最近3天都站在均线之上\n    else:\n        ret_val = -1 if (vol[-g.lag:] &lt; 0).all() else 0  # 大盘成交量，最近g.lag天都在均线之下\n    #\n    return ret_val\n```\n\n直接截取vol的最后3天，看看是不是都&gt;=0，all()函数就可以了，没必要去循环。\n'\n这个策略的coding可以从头吐槽到尾，几十个槽点，确实罕见。只有读过网红etf轮动代码的人，才能体会到这些槽点。而且，这个策略的槽点绝对不只我忍不住说出来的这些，比如还有成交量的问题，备选ETF自动增减的问题。\n'\n这个帖子愿为初学者教材，可静心去对比一下两种写法，看看有何区别，以帮助自己迅速提高编程水平。\n‘\n我的水平很有限，欢迎各位看官吐槽，以提高我的水平。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2019-12-14 01:52:27",
+      "modTime": "2019-12-14 01:52:27",
+      "lastActiveTime": "2025-04-20 19:43:13",
+      "lastPubTime": "2019-12-14 01:52:27",
+      "backtestId": "ed70163b572543725482652eefa48c31",
+      "backtestName": "稳定盈利的etf轮动",
+      "replyCount": "152",
+      "viewCount": "15319",
+      "collectionCount": "293",
+      "likeCount": "204",
+      "disLikeCount": "0",
+      "backtestCloneCount": "800",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "114",
+      "followersCount": "7737",
+      "followingCount": "24",
+      "author": {
+        "userId": "d9cca7c90a946c236a89840feabc5f41",
+        "alias": "jqz1226 ZUEL",
+        "headImgKey": "f8ad1df3e2e743d648263f8a8032baa9"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "ed70163b572543725482652eefa48c31",
+        "backtest_name": "稳定盈利的etf轮动",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=ed70163b572543725482652eefa48c31&postId=177edab03367da01e96210469dd5290d&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2014-01-01",
+          "end_date": "2019-10-01",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "d0e51b44879f603fae9033e5d122b01f",
+            "15725610"
+          ],
+          "numeric_backtest_id": "15725610",
+          "numeric_post_id": "24417",
+          "python_version": 3,
+          "clone_count": 776
+        },
+        "stats": {
+          "trading_days": 1403,
+          "benchmark_volatility": 0.24019930124828,
+          "algorithm_volatility": 0.29506067456953,
+          "treasury_return": 0.22980821917808,
+          "algorithm_return": 9.4045504659599,
+          "benchmark_return": 0.63711626030565,
+          "annual_algo_return": 0.51795399784701,
+          "annual_bm_return": 0.091809183773353,
+          "sharpe": 1.6198498784845,
+          "excess_return_sharpe": "1.318",
+          "sortino": 2.5307870867623,
+          "information": 1.6143058300856,
+          "beta": 0.6505765758577,
+          "alpha": 0.44424815646976,
+          "excess_return": 5.3554133070655,
+          "avg_excess_return": "0.15%",
+          "max_drawdown": 0.21293268493859,
+          "max_drawdown_period": [
+            "2015-12-22",
+            "2016-03-10"
+          ],
+          "excess_return_max_drawdown": "26.37%",
+          "excess_return_max_drawdown_period": [
+            "2016-01-28",
+            "2017-04-24"
+          ],
+          "max_leverage": 0,
+          "period_label": "2019-09",
+          "__version": 101,
+          "win_ratio": 0.6063829787234,
+          "profit_loss_ratio": 1.8707511617645,
+          "win_count": 228,
+          "lose_count": 148,
+          "day_win_ratio": 0.51176051318603,
+          "avg_trade_return": 0.007610614874099,
+          "avg_position_days": 156.66666666667,
+          "turnover_rate": 0.2620179027843,
+          "report_done_seconds": 205.39008641243
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 940.455047,
+          "benchmark_return_percent": 63.711626,
+          "annual_algo_return_percent": 51.7954,
+          "annual_bm_return_percent": 9.180918,
+          "max_drawdown_percent": 21.293268,
+          "algorithm_volatility_percent": 29.506067,
+          "benchmark_volatility_percent": 24.01993,
+          "win_ratio_percent": 60.638298,
+          "day_win_ratio_percent": 51.176051,
+          "avg_trade_return_percent": 0.761061,
+          "turnover_rate_percent": 26.20179,
+          "sharpe": 1.6198498784845,
+          "sortino": 2.5307870867623,
+          "information": 1.6143058300856,
+          "alpha": 0.44424815646976,
+          "beta": 0.6505765758577,
+          "profit_loss_ratio": 1.8707511617645,
+          "avg_position_days": 156.66666666667,
+          "trading_days": 1403,
+          "win_count": 228,
+          "lose_count": 148,
+          "max_drawdown_period": [
+            "2015-12-22",
+            "2016-03-10"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2016-01-28",
+            "2017-04-24"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/24417",
+      "https://www.joinquant.com/community/post/detailV2?postId=24417",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=ed70163b572543725482652eefa48c31&postId=177edab03367da01e96210469dd5290d&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=ed70163b572543725482652eefa48c31"
+    ]
+  }
+}

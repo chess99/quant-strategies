@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/40高股息策略.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "40高股息策略.txt",
+    "strategy_name": "高股息策略",
+    "declared_title": "高股息策略",
+    "declared_author": "雨汪",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 9082,
+    "sha256": "db94d586057d8d00eb7e61af212d2e534d371a8af44fa0fe7b5b460a5850fc84",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/50715"
+    ],
+    "primary_url": "https://www.joinquant.com/post/50715",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:12:10+08:00",
+    "requested_url": "https://www.joinquant.com/post/50715",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/02885f20596e40cabfd160531c5128d8",
+    "community_id": "02885f20596e40cabfd160531c5128d8",
+    "post": {
+      "postId": "a9f8da9d99c10f011fa19363b9cb7f1e",
+      "uniqueKey": "02885f20596e40cabfd160531c5128d8",
+      "title": "高股息策略",
+      "content": "**更新**\n之前净利润增长率条件写错了，更新了一下\n\n\n**概述**\n红利因子能经得起时间的考验，是一种长期有效的因子。牛市跑的慢，但熊市很抗跌，跟小市值搭配起来可以很好的平滑收益曲线。\n**选股策略**\n1.连续5年分红\n2.当期扣非净利润增长不能为负\n3.每个行业最多选取股息率最高的2只股票\n4.股息率排序，保留股息率大于3%的股票\n5.最多持股10只，单只股票买入时最大仓位10%\n6.股息率高于4%时买入，低于3%时卖出\n7.w大涨停打开卖出策略\n**效果**\n效果还可以，2014年到现在年化收益22.38%，最大回撤22.57%。15年熊市相对比较抗跌，近10年来只有18年是亏损的。不过19～20年小牛比较拖后腿，没跑赢沪深300.\n欢迎大家讨论～",
+      "type": 1,
+      "status": "0",
+      "addTime": "2024-11-22 22:05:38",
+      "modTime": "2024-11-23 10:27:07",
+      "lastActiveTime": "2025-12-01 15:57:47",
+      "lastPubTime": "2024-11-23 10:27:07",
+      "backtestId": "d48ba924f03a46d6ffc4b39f50f8462d",
+      "backtestName": "DIY-高股息-行业top2-10只",
+      "replyCount": "54",
+      "viewCount": "6448",
+      "collectionCount": "147",
+      "likeCount": "84",
+      "disLikeCount": "0",
+      "backtestCloneCount": "398",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "3",
+      "followersCount": "99",
+      "followingCount": "11",
+      "author": {
+        "userId": "39e1d84e31405935c8470e39578a82c6",
+        "alias": "雨汪",
+        "introduction": "步履不停",
+        "vipType": "VIP"
+      },
+      "tags": [
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "d48ba924f03a46d6ffc4b39f50f8462d",
+        "backtest_name": "DIY-高股息-行业top2-10只",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=d48ba924f03a46d6ffc4b39f50f8462d&postId=02885f20596e40cabfd160531c5128d8&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2014-01-01",
+          "end_date": "2024-11-21",
+          "base_capital": 500000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "1642ecdf3ee3eb1c6f41452aea190561",
+            "37439766"
+          ],
+          "numeric_backtest_id": "37439766",
+          "numeric_post_id": "50715",
+          "python_version": 3,
+          "clone_count": 388
+        },
+        "stats": {
+          "trading_days": 2648,
+          "benchmark_volatility": 0.2191656899572,
+          "algorithm_volatility": 0.19156156278255,
+          "treasury_return": 0.43572602739726,
+          "algorithm_return": 7.4902222548,
+          "benchmark_return": 0.71212387823333,
+          "annual_algo_return": 0.22377073185212,
+          "annual_bm_return": 0.052078780493049,
+          "sharpe": 0.95932988425621,
+          "excess_return_sharpe": "0.837",
+          "sortino": 1.3241285677958,
+          "information": 1.1728841533273,
+          "beta": 0.65892456331809,
+          "alpha": 0.17581172669032,
+          "excess_return": 3.9588831525209,
+          "avg_excess_return": "0.06%",
+          "max_drawdown": 0.22570879602588,
+          "max_drawdown_period": [
+            "2024-05-09",
+            "2024-09-18"
+          ],
+          "excess_return_max_drawdown": "30.56%",
+          "excess_return_max_drawdown_period": [
+            "2018-12-24",
+            "2021-02-10"
+          ],
+          "max_leverage": 0,
+          "period_label": "2024-11",
+          "__version": 101,
+          "win_ratio": 0.59193548387097,
+          "profit_loss_ratio": 1.8100969733227,
+          "win_count": 367,
+          "lose_count": 253,
+          "day_win_ratio": 0.50415407854985,
+          "avg_trade_return": 0.040103324049546,
+          "avg_position_days": 96.087121212121,
+          "turnover_rate": 0.024801882045233,
+          "report_done_seconds": 1382.9223296642,
+          "report_done_cpu_seconds": 696.91
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 749.022225,
+          "benchmark_return_percent": 71.212388,
+          "annual_algo_return_percent": 22.377073,
+          "annual_bm_return_percent": 5.207878,
+          "max_drawdown_percent": 22.57088,
+          "algorithm_volatility_percent": 19.156156,
+          "benchmark_volatility_percent": 21.916569,
+          "win_ratio_percent": 59.193548,
+          "day_win_ratio_percent": 50.415408,
+          "avg_trade_return_percent": 4.010332,
+          "turnover_rate_percent": 2.480188,
+          "sharpe": 0.95932988425621,
+          "sortino": 1.3241285677958,
+          "information": 1.1728841533273,
+          "alpha": 0.17581172669032,
+          "beta": 0.65892456331809,
+          "profit_loss_ratio": 1.8100969733227,
+          "avg_position_days": 96.087121212121,
+          "trading_days": 2648,
+          "win_count": 367,
+          "lose_count": 253,
+          "max_drawdown_period": [
+            "2024-05-09",
+            "2024-09-18"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2018-12-24",
+            "2021-02-10"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/50715",
+      "https://www.joinquant.com/community/post/detailV2?postId=50715",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=d48ba924f03a46d6ffc4b39f50f8462d&postId=02885f20596e40cabfd160531c5128d8&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=d48ba924f03a46d6ffc4b39f50f8462d"
+    ]
+  }
+}

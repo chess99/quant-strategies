@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/65 8只基金按PE调仓.txt",
+    "category": "2020年度精选策略",
+    "file_name": "65 8只基金按PE调仓.txt",
+    "strategy_name": "8只基金按PE调仓",
+    "declared_title": "低回撤，PE分仓",
+    "declared_author": "桑梓",
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 4903,
+    "sha256": "99d0c34bbdfdc8087de6c28d7a2be4b863c3efef01cf52b4576aea0d60c174c1",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/11700"
+    ],
+    "primary_url": "https://www.joinquant.com/post/11700",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:07+08:00",
+    "requested_url": "https://www.joinquant.com/post/11700",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/6860631d11632e1776293c867a27b19e",
+    "community_id": "6860631d11632e1776293c867a27b19e",
+    "post": {
+      "postId": "7d7137c7d01a5f563c28ae84063834c9",
+      "uniqueKey": "6860631d11632e1776293c867a27b19e",
+      "title": "8只基金按PE调仓",
+      "content": "回撤很小",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-03-29 09:47:43",
+      "modTime": "2018-03-29 09:47:43",
+      "lastActiveTime": "2024-11-23 20:28:10",
+      "lastPubTime": "2018-03-29 09:47:43",
+      "backtestId": "3ce233c3c85f0db0d85e17e4ffef1d82",
+      "backtestName": "凯信2",
+      "replyCount": "2",
+      "viewCount": "1867",
+      "collectionCount": "6",
+      "likeCount": "4",
+      "disLikeCount": "0",
+      "backtestCloneCount": "64",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "1",
+      "followersCount": "1",
+      "followingCount": "0",
+      "author": {
+        "userId": "1848b8472eb32f94104b74f5333eb7f3",
+        "alias": "王麻子"
+      },
+      "tags": []
+    },
+    "backtests": [
+      {
+        "backtest_id": "3ce233c3c85f0db0d85e17e4ffef1d82",
+        "backtest_name": "凯信2",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=3ce233c3c85f0db0d85e17e4ffef1d82&postId=6860631d11632e1776293c867a27b19e&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2013-06-06",
+          "end_date": "2015-03-12",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "02b5d69ed1a25786465cc580406cc859",
+            "8034111"
+          ],
+          "numeric_backtest_id": "8034111",
+          "numeric_post_id": "11700",
+          "python_version": 2,
+          "clone_count": 64
+        },
+        "stats": {
+          "information": -0.24585532310305,
+          "benchmark_return": 0.40315925670337,
+          "algorithm_volatility": 0.11780500349616,
+          "annual_bm_return": 0.21878462213711,
+          "__version": 101,
+          "max_drawdown": 0.082201761688379,
+          "sortino": 1.8326628537167,
+          "period_label": "2015-03",
+          "trading_days": 428,
+          "algorithm_return": 0.33950168,
+          "benchmark_volatility": 0.21681284918362,
+          "beta": 0.46049928202323,
+          "excess_return": 0.26892633753425,
+          "annual_algo_return": 0.18617591625342,
+          "sharpe": 1.2408294377597,
+          "alpha": 0.063845726122483,
+          "max_drawdown_period": [
+            "2014-02-17",
+            "2014-05-19"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.070575342465753,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.54672897196262,
+          "avg_position_days": 359.42857142857,
+          "win_ratio": 0.78260869565217,
+          "win_count": 18,
+          "avg_trade_return": 0.19533542962491,
+          "profit_loss_ratio": 114.0886224336,
+          "lose_count": 5,
+          "report_done_seconds": 14.311670064926
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 33.950168,
+          "benchmark_return_percent": 40.315926,
+          "annual_algo_return_percent": 18.617592,
+          "annual_bm_return_percent": 21.878462,
+          "max_drawdown_percent": 8.220176,
+          "algorithm_volatility_percent": 11.7805,
+          "benchmark_volatility_percent": 21.681285,
+          "win_ratio_percent": 78.26087,
+          "day_win_ratio_percent": 54.672897,
+          "avg_trade_return_percent": 19.533543,
+          "sharpe": 1.2408294377597,
+          "sortino": 1.8326628537167,
+          "information": -0.24585532310305,
+          "alpha": 0.063845726122483,
+          "beta": 0.46049928202323,
+          "profit_loss_ratio": 114.0886224336,
+          "avg_position_days": 359.42857142857,
+          "trading_days": 428,
+          "win_count": 18,
+          "lose_count": 5,
+          "max_drawdown_period": [
+            "2014-02-17",
+            "2014-05-19"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/11700",
+      "https://www.joinquant.com/community/post/detailV2?postId=11700",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=3ce233c3c85f0db0d85e17e4ffef1d82&postId=6860631d11632e1776293c867a27b19e&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=3ce233c3c85f0db0d85e17e4ffef1d82"
+    ]
+  }
+}

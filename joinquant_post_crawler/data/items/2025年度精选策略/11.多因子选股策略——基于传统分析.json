@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/11.多因子选股策略——基于传统分析.txt",
+    "category": "2025年度精选策略",
+    "file_name": "11.多因子选股策略——基于传统分析.txt",
+    "strategy_name": "多因子选股策略——基于传统分析",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 41128,
+    "sha256": "99a405ef6299b51fc38c53c328cf851ccdaecc64358820eec359f4a645d935d8",
+    "joinquant_urls": [],
+    "primary_url": null,
+    "url_selection_method": "none"
+  },
+  "remote": null
+}

@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/7.股债波动平衡.txt",
+    "category": "2025年度精选策略",
+    "file_name": "7.股债波动平衡.txt",
+    "strategy_name": "股债波动平衡",
+    "declared_title": "股债波动平衡",
+    "declared_author": "囚徒",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 6992,
+    "sha256": "e467280305088b5c1516b83e5cf70e6f798bd1344ea27fed9cdbec0e65e28f49",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/28893"
+    ],
+    "primary_url": "https://www.joinquant.com/post/28893",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:27+08:00",
+    "requested_url": "https://www.joinquant.com/post/28893",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/ca98873e716ccb60902f337b2af8512b",
+    "community_id": "ca98873e716ccb60902f337b2af8512b",
+    "post": {
+      "postId": "f14389da10e6d91abccadd4f4d8ea8c5",
+      "uniqueKey": "ca98873e716ccb60902f337b2af8512b",
+      "title": "股债波动平衡",
+      "content": "股债平衡可以明显降低回撤，如果再考虑上波动率呢？\n\n精选日成交量4000万以上的明星基金，尽量考虑不相关的基金，然后用国债来进行波动平衡。\n\n结果似乎还可以。\n\n代码是用旧代码改的，改得有点乱，大家将就看。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-08-16 13:19:34",
+      "modTime": "2020-08-16 13:19:34",
+      "lastActiveTime": "2023-12-13 11:38:35",
+      "lastPubTime": "2020-08-16 13:19:34",
+      "backtestId": "7b013c3b098e625ad2842c904ccea30d",
+      "backtestName": "基金定投组合_20波2",
+      "replyCount": "15",
+      "viewCount": "4355",
+      "collectionCount": "73",
+      "likeCount": "38",
+      "disLikeCount": "0",
+      "backtestCloneCount": "291",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "31",
+      "followersCount": "744",
+      "followingCount": "26",
+      "author": {
+        "userId": "5d319eb2d24fbf8e88e61962fd8c087b",
+        "alias": "囚徒",
+        "introduction": "囚徒，不得自由者；财务不独立，终难自由。",
+        "headImgKey": "634e7bca35fa442aefbba7d053168779"
+      },
+      "tags": [
+        {
+          "id": "12",
+          "name": "基金"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "5",
+          "name": "仓位管理"
+        },
+        {
+          "id": "958",
+          "name": "股债平衡"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "7b013c3b098e625ad2842c904ccea30d",
+        "backtest_name": "基金定投组合_20波2",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=7b013c3b098e625ad2842c904ccea30d&postId=ca98873e716ccb60902f337b2af8512b&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2014-06-01",
+          "end_date": "2020-07-31",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "42ef0fab824022f04a53f8eef1faf5d4",
+            "17962162"
+          ],
+          "numeric_backtest_id": "17962162",
+          "numeric_post_id": "28893",
+          "python_version": 3,
+          "clone_count": 176
+        },
+        "stats": {
+          "trading_days": 1505,
+          "benchmark_volatility": 0.24250513984469,
+          "algorithm_volatility": 0.068572624076491,
+          "treasury_return": 0.24657534246575,
+          "algorithm_return": 1.1875873187,
+          "benchmark_return": 1.177202452167,
+          "annual_algo_return": 0.1388660779521,
+          "annual_bm_return": 0.1379662221154,
+          "sharpe": 1.4417718336376,
+          "excess_return_sharpe": "-0.192",
+          "sortino": 1.8255568944958,
+          "information": 0.0044718864089737,
+          "beta": 0.1957141185122,
+          "alpha": 0.079692705146817,
+          "excess_return": 0.0047698212551099,
+          "avg_excess_return": "0.01%",
+          "max_drawdown": 0.084382235325559,
+          "max_drawdown_period": [
+            "2020-03-05",
+            "2020-03-23"
+          ],
+          "excess_return_max_drawdown": "46.23%",
+          "excess_return_max_drawdown_period": [
+            "2014-06-25",
+            "2015-06-08"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-07",
+          "__version": 101,
+          "win_ratio": 0.78301886792453,
+          "profit_loss_ratio": 10.339713913156,
+          "win_count": 664,
+          "lose_count": 184,
+          "day_win_ratio": 0.4890365448505,
+          "avg_trade_return": 0.076704321357767,
+          "avg_position_days": 1505,
+          "turnover_rate": 0.0085576271721071,
+          "report_done_seconds": 2399.5629048347,
+          "report_done_cpu_seconds": 2389.62
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 118.758732,
+          "benchmark_return_percent": 117.720245,
+          "annual_algo_return_percent": 13.886608,
+          "annual_bm_return_percent": 13.796622,
+          "max_drawdown_percent": 8.438224,
+          "algorithm_volatility_percent": 6.857262,
+          "benchmark_volatility_percent": 24.250514,
+          "win_ratio_percent": 78.301887,
+          "day_win_ratio_percent": 48.903654,
+          "avg_trade_return_percent": 7.670432,
+          "turnover_rate_percent": 0.855763,
+          "sharpe": 1.4417718336376,
+          "sortino": 1.8255568944958,
+          "information": 0.0044718864089737,
+          "alpha": 0.079692705146817,
+          "beta": 0.1957141185122,
+          "profit_loss_ratio": 10.339713913156,
+          "avg_position_days": 1505,
+          "trading_days": 1505,
+          "win_count": 664,
+          "lose_count": 184,
+          "max_drawdown_period": [
+            "2020-03-05",
+            "2020-03-23"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2014-06-25",
+            "2015-06-08"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/28893",
+      "https://www.joinquant.com/community/post/detailV2?postId=28893",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=7b013c3b098e625ad2842c904ccea30d&postId=ca98873e716ccb60902f337b2af8512b&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=7b013c3b098e625ad2842c904ccea30d"
+    ]
+  }
+}

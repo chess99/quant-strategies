@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/44.！！！最易上手的网格策略v2.0，设置几个参数就可以直接使用.txt",
+    "category": "2022年度精选策略",
+    "file_name": "44.！！！最易上手的网格策略v2.0，设置几个参数就可以直接使用.txt",
+    "strategy_name": "！！！最易上手的网格策略v2.0，设置几个参数就可以直接使用",
+    "declared_title": "！！！最易上手的网格策略v2.0，设置几个参数就可以直接使用",
+    "declared_author": "xfera16",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 13624,
+    "sha256": "2e578f7c150cee870542ea7a5c9468ae3e039d39f146120ca139b2a755a2139c",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/36074"
+    ],
+    "primary_url": "https://www.joinquant.com/post/36074",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:03+08:00",
+    "requested_url": "https://www.joinquant.com/post/36074",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/580d47e2dad25d238339078831ddd004",
+    "community_id": "580d47e2dad25d238339078831ddd004",
+    "post": {
+      "postId": "e745b695f03fb90ef5a883496477b737",
+      "uniqueKey": "580d47e2dad25d238339078831ddd004",
+      "title": "！！！最易上手的网格策略v2.0，设置几个参数就可以直接使用",
+      "content": "### 绝对良心出品，即使完全不会编程的人也可以上手操作网格策略。\n\n本人观察到现有的网格策略，要么就加上未来函数无法运行，要么就是代码较为复杂，考虑到许多新手不太会编码，又想验证网格策略的效果，加上网格策略这一相对而言简单的策略，已经可以适应大部分的交易者，并且跑赢许多市场参与者，因此写下本策略，供更多感兴趣的人使用。\n\n花了几天的时间优化网格策略代码，将分红，拆分的情况都考虑了进去，现在只要调整参数就可以直接使用，唯一要注意的是要选择基金规模大一些的，以免出现成交量太大，超过了当天的成交量无法交易的情况，其他的情况基本都可以顺利跑完，并且完美回测。\n\n**使用者只需要改动以下参数即可。**有不懂的随时在评论区咨询。\n\n   \\# 设置交易的基金（最好就是一支，规模要大以免回测的成交量超过基金的成交量）\n    g.ETF = ['510500.XSHG']\n    \n   \\#  设置网格大小\n    g.net_range = 0.05\n    \n   \\# 设置每一个网格投资金额\n    g.per_share = 20000\n    \n   \\#  判断第一次买入时参考的过去天数，和上下限\n   \\#  即会自动计算该基金过去g.days日均值（ma(g.days)，如果当前价格在（ma(g.days)-g.down, ma(g.days)+g.up)范围内\n   \\#  那么就作为第一次建仓时的基准价格买入，之后网格的涨跌就参考这个价格\n    \\# 如果不明白什么意思，这里也可以不用改，仅仅是影响初始买入价格，但是这里设置的是大体上在历史均值附近第一次建仓，所以影响不大。\n    g.days = 60\n    g.down = 0.2\n    g.up = 0.2",
+      "type": 1,
+      "status": "0",
+      "addTime": "2022-01-03 00:54:53",
+      "modTime": "2022-01-03 00:54:53",
+      "lastActiveTime": "2025-04-02 09:21:28",
+      "lastPubTime": "2022-01-03 00:54:53",
+      "backtestId": "e970bf551305c7f78606b84eb559bd31",
+      "backtestName": "最易上手的网格策略v2.0",
+      "replyCount": "135",
+      "viewCount": "9384",
+      "collectionCount": "78",
+      "likeCount": "33",
+      "disLikeCount": "0",
+      "backtestCloneCount": "272",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "6",
+      "followersCount": "47",
+      "followingCount": "1",
+      "author": {
+        "userId": "94fd5ac9afe8c0b7dbdcec9638736110",
+        "alias": "xfera16",
+        "introduction": "BE THE BEST FOREVER",
+        "headImgKey": "c8e09550614e62aa9fe1128894376368"
+      },
+      "tags": [
+        {
+          "id": "12",
+          "name": "基金"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "1804",
+          "name": "网格"
+        },
+        {
+          "id": "1805",
+          "name": "etf"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "e970bf551305c7f78606b84eb559bd31",
+        "backtest_name": "最易上手的网格策略v2.0",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=e970bf551305c7f78606b84eb559bd31&postId=580d47e2dad25d238339078831ddd004&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2020-01-01",
+          "end_date": "2021-12-31",
+          "base_capital": 100000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "527f39dc58d7d2ba976bb9c27c117ea1",
+            "23058722"
+          ],
+          "numeric_backtest_id": "23058722",
+          "numeric_post_id": "36074",
+          "python_version": 3,
+          "clone_count": 322
+        },
+        "stats": {
+          "trading_days": 486,
+          "benchmark_volatility": 0.20703607925594,
+          "algorithm_volatility": 0.069789897243734,
+          "treasury_return": 0.079890410958904,
+          "algorithm_return": 0.1954493733,
+          "benchmark_return": 0.20597425169288,
+          "annual_algo_return": 0.096181071903463,
+          "annual_bm_return": 0.1011349648518,
+          "sharpe": 0.80500293197534,
+          "excess_return_sharpe": "-0.269",
+          "sortino": 1.0799299361022,
+          "information": -0.030174004938683,
+          "beta": 0.24239855845389,
+          "alpha": 0.041362044552258,
+          "excess_return": -0.0087272828404981,
+          "avg_excess_return": "0.00%",
+          "max_drawdown": 0.059328222806432,
+          "max_drawdown_period": [
+            "2020-03-05",
+            "2020-03-23"
+          ],
+          "excess_return_max_drawdown": "29.92%",
+          "excess_return_max_drawdown_period": [
+            "2020-03-19",
+            "2021-02-10"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-12",
+          "__version": 101,
+          "win_ratio": 0.94444444444444,
+          "profit_loss_ratio": 41.533252696301,
+          "win_count": 17,
+          "lose_count": 1,
+          "day_win_ratio": 0.46296296296296,
+          "avg_trade_return": 0.058677769011909,
+          "avg_position_days": 485,
+          "turnover_rate": 0.0069799876490005,
+          "report_done_seconds": 365.04620218277,
+          "report_done_cpu_seconds": 365.57
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 19.544937,
+          "benchmark_return_percent": 20.597425,
+          "annual_algo_return_percent": 9.618107,
+          "annual_bm_return_percent": 10.113496,
+          "max_drawdown_percent": 5.932822,
+          "algorithm_volatility_percent": 6.97899,
+          "benchmark_volatility_percent": 20.703608,
+          "win_ratio_percent": 94.444444,
+          "day_win_ratio_percent": 46.296296,
+          "avg_trade_return_percent": 5.867777,
+          "turnover_rate_percent": 0.697999,
+          "sharpe": 0.80500293197534,
+          "sortino": 1.0799299361022,
+          "information": -0.030174004938683,
+          "alpha": 0.041362044552258,
+          "beta": 0.24239855845389,
+          "profit_loss_ratio": 41.533252696301,
+          "avg_position_days": 485,
+          "trading_days": 486,
+          "win_count": 17,
+          "lose_count": 1,
+          "max_drawdown_period": [
+            "2020-03-05",
+            "2020-03-23"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-03-19",
+            "2021-02-10"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/36074",
+      "https://www.joinquant.com/community/post/detailV2?postId=36074",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=e970bf551305c7f78606b84eb559bd31&postId=580d47e2dad25d238339078831ddd004&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=e970bf551305c7f78606b84eb559bd31"
+    ]
+  }
+}

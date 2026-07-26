@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/27 RSRS指标择时（30分钟线）.txt",
+    "category": "2020年度精选策略",
+    "file_name": "27 RSRS指标择时（30分钟线）.txt",
+    "strategy_name": "RSRS指标择时（30分钟线）",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 2450,
+    "sha256": "e51bf7c2e0c0b730f3061cebfa2e1337572b60faad89acdb0f8e561e8192923b",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/14756"
+    ],
+    "primary_url": "https://www.joinquant.com/post/14756",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:06:36+08:00",
+    "requested_url": "https://www.joinquant.com/post/14756",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/3b4395290fe390882f03ec617ab5018d",
+    "community_id": "3b4395290fe390882f03ec617ab5018d",
+    "post": {
+      "postId": "eb92177f05106a1af2e57cb2949f7a9c",
+      "uniqueKey": "3b4395290fe390882f03ec617ab5018d",
+      "title": "RSRS指标择时（30分钟线）",
+      "content": "一：RSRS指标的构建过程：\n1，取前N日的最高价序列与最低价序列。\n2，将两列数据按前述OLS线性回归模型拟合出当日的斜率值（Beta）。\n3，取前M日的斜率时间序列，计算当日斜率的标准分z。\n4，将z与拟合方程的决定系数相乘，作为当日RSRS指标值。\n二：策略\n1，若RSRS指标上穿阈值S，则开仓买入\n2，若RSRS指标下穿阈值-S，则平仓卖出\n三：阈值S的确定\n计算出beat的均值，标准差，均值加减标准差即为合理的阈值区间。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-09-26 15:37:45",
+      "modTime": "2018-09-26 15:37:45",
+      "lastActiveTime": "2018-09-28 16:09:44",
+      "lastPubTime": "2018-09-26 15:37:45",
+      "backtestId": "cfc8400bc11071241002e3cc2e0fdf9f",
+      "backtestName": "RSRS（30分钟）指标择时策略",
+      "replyCount": "1",
+      "viewCount": "3823",
+      "collectionCount": "25",
+      "likeCount": "8",
+      "disLikeCount": "0",
+      "backtestCloneCount": "250",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "1",
+      "followersCount": "12",
+      "followingCount": "0",
+      "author": {
+        "userId": "1e9fe5482f6604852ae1ca1e5e7683d8",
+        "alias": "风述量化",
+        "introduction": "上海风述信息科技有限公司，专注于金融大数据分析的系统服务商 ",
+        "headImgKey": "61597991d5270f657e5b975d524fdead"
+      },
+      "tags": [
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "cfc8400bc11071241002e3cc2e0fdf9f",
+        "backtest_name": "RSRS（30分钟）指标择时策略",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=cfc8400bc11071241002e3cc2e0fdf9f&postId=3b4395290fe390882f03ec617ab5018d&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2014-07-01",
+          "end_date": "2016-02-29",
+          "base_capital": 100000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "5a67cbb35d16ee86a2525918434e611e",
+            "10152545"
+          ],
+          "numeric_backtest_id": "10152545",
+          "numeric_post_id": "14756",
+          "python_version": 2,
+          "clone_count": 251
+        },
+        "stats": {
+          "information": 1.4480717021461,
+          "benchmark_return": 0.32901144417995,
+          "algorithm_volatility": 0.17179164234575,
+          "annual_bm_return": 0.19141889440845,
+          "__version": 101,
+          "max_drawdown": 0.058033391448491,
+          "sortino": 8.2587885117666,
+          "period_label": "2016-02",
+          "trading_days": 406,
+          "algorithm_return": 1.2554603,
+          "benchmark_volatility": 0.3538355441324,
+          "beta": 0.21717719613214,
+          "excess_return": 1.1888301630137,
+          "annual_algo_return": 0.65009653262207,
+          "sharpe": 3.5513749347258,
+          "alpha": 0.57721180169302,
+          "max_drawdown_period": [
+            "2015-11-11",
+            "2015-12-11"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.066630136986301,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.45320197044335,
+          "avg_position_days": 141,
+          "win_ratio": 0.575,
+          "win_count": 23,
+          "avg_trade_return": 0.022334066373243,
+          "profit_loss_ratio": 4.5507109525117,
+          "lose_count": 17,
+          "report_done_seconds": 598.56648206711
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 125.54603,
+          "benchmark_return_percent": 32.901144,
+          "annual_algo_return_percent": 65.009653,
+          "annual_bm_return_percent": 19.141889,
+          "max_drawdown_percent": 5.803339,
+          "algorithm_volatility_percent": 17.179164,
+          "benchmark_volatility_percent": 35.383554,
+          "win_ratio_percent": 57.5,
+          "day_win_ratio_percent": 45.320197,
+          "avg_trade_return_percent": 2.233407,
+          "sharpe": 3.5513749347258,
+          "sortino": 8.2587885117666,
+          "information": 1.4480717021461,
+          "alpha": 0.57721180169302,
+          "beta": 0.21717719613214,
+          "profit_loss_ratio": 4.5507109525117,
+          "avg_position_days": 141,
+          "trading_days": 406,
+          "win_count": 23,
+          "lose_count": 17,
+          "max_drawdown_period": [
+            "2015-11-11",
+            "2015-12-11"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/14756",
+      "https://www.joinquant.com/community/post/detailV2?postId=14756",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=cfc8400bc11071241002e3cc2e0fdf9f&postId=3b4395290fe390882f03ec617ab5018d&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=cfc8400bc11071241002e3cc2e0fdf9f"
+    ]
+  }
+}

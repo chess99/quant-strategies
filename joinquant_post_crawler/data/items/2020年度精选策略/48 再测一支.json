@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/48 再测一支.txt",
+    "category": "2020年度精选策略",
+    "file_name": "48 再测一支.txt",
+    "strategy_name": "再测一支",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 3292,
+    "sha256": "1a2b900672a34892cbe16484cf2e9f0fabc3cc684c19f59b2fba729713454da6",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/14860"
+    ],
+    "primary_url": "https://www.joinquant.com/post/14860",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:06:54+08:00",
+    "requested_url": "https://www.joinquant.com/post/14860",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/1fdf07d5744a94a3d6ebe543d9c1c546",
+    "community_id": "1fdf07d5744a94a3d6ebe543d9c1c546",
+    "post": {
+      "postId": "02d6f63f3b9165b06ab72965fa22e4a8",
+      "uniqueKey": "1fdf07d5744a94a3d6ebe543d9c1c546",
+      "title": "再测一支",
+      "content": "伊利表现还可以",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-10-12 13:06:29",
+      "modTime": "2018-10-12 13:06:29",
+      "lastActiveTime": "2019-10-31 21:15:12",
+      "lastPubTime": "2018-10-12 13:06:29",
+      "backtestId": "b6770c18d0c2390c468cf10953cd85fa",
+      "backtestName": "tick回测多指标止盈止损",
+      "replyCount": "9",
+      "viewCount": "2035",
+      "collectionCount": "3",
+      "likeCount": "1",
+      "disLikeCount": "0",
+      "backtestCloneCount": "60",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "8",
+      "followersCount": "39",
+      "followingCount": "0",
+      "author": {
+        "userId": "8452d185156724e62367ccea771a766b",
+        "alias": "leonardo1001",
+        "introduction": "保守的冒险主义者",
+        "headImgKey": "7682b7101f6113ad1221c0bb3a667f50"
+      },
+      "tags": []
+    },
+    "backtests": [
+      {
+        "backtest_id": "b6770c18d0c2390c468cf10953cd85fa",
+        "backtest_name": "tick回测多指标止盈止损",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=b6770c18d0c2390c468cf10953cd85fa&postId=1fdf07d5744a94a3d6ebe543d9c1c546&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2018-01-01",
+          "end_date": "2018-10-09",
+          "base_capital": 500000,
+          "frequency_code": "tick",
+          "frequency_label": "TICK",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "1bb4ced785ab783135f2836f21e6a2ee",
+            "10312986"
+          ],
+          "numeric_backtest_id": "10312986",
+          "numeric_post_id": "14860",
+          "python_version": 2,
+          "clone_count": 219
+        },
+        "stats": {
+          "information": 2.9671025005833,
+          "benchmark_return": -0.18411997469516,
+          "algorithm_volatility": 0.22819156364619,
+          "annual_bm_return": -0.24041552094102,
+          "__version": 101,
+          "max_drawdown": 0.11277971718055,
+          "sortino": 2.9025629477731,
+          "period_label": "2018-10",
+          "trading_days": 185,
+          "algorithm_return": 0.3160201,
+          "benchmark_volatility": 0.20078297682872,
+          "beta": 0.47559912232063,
+          "excess_return": 0.28533516849315,
+          "annual_algo_return": 0.44932429011986,
+          "sharpe": 1.7937748599441,
+          "alpha": 0.54268966576449,
+          "max_drawdown_period": [
+            "2018-02-22",
+            "2018-03-26"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.030684931506849,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.54054054054054,
+          "avg_position_days": 47,
+          "win_ratio": 0.63636363636364,
+          "win_count": 7,
+          "avg_trade_return": 0.028376672049542,
+          "profit_loss_ratio": 3.3215131005273,
+          "lose_count": 4,
+          "report_done_seconds": 180.42500495911
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 31.60201,
+          "benchmark_return_percent": -18.411997,
+          "annual_algo_return_percent": 44.932429,
+          "annual_bm_return_percent": -24.041552,
+          "max_drawdown_percent": 11.277972,
+          "algorithm_volatility_percent": 22.819156,
+          "benchmark_volatility_percent": 20.078298,
+          "win_ratio_percent": 63.636364,
+          "day_win_ratio_percent": 54.054054,
+          "avg_trade_return_percent": 2.837667,
+          "sharpe": 1.7937748599441,
+          "sortino": 2.9025629477731,
+          "information": 2.9671025005833,
+          "alpha": 0.54268966576449,
+          "beta": 0.47559912232063,
+          "profit_loss_ratio": 3.3215131005273,
+          "avg_position_days": 47,
+          "trading_days": 185,
+          "win_count": 7,
+          "lose_count": 4,
+          "max_drawdown_period": [
+            "2018-02-22",
+            "2018-03-26"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/14860",
+      "https://www.joinquant.com/community/post/detailV2?postId=14860",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=b6770c18d0c2390c468cf10953cd85fa&postId=1fdf07d5744a94a3d6ebe543d9c1c546&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=b6770c18d0c2390c468cf10953cd85fa"
+    ]
+  }
+}

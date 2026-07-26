@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/55 中小板-中证500配对交易.txt",
+    "category": "2020年度精选策略",
+    "file_name": "55 中小板-中证500配对交易.txt",
+    "strategy_name": "中小板-中证500配对交易",
+    "declared_title": "招行_海天配对策略（学习招行伊利配对）",
+    "declared_author": "维络",
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 3735,
+    "sha256": "4ae6210e9d2960ddd37c4c42797b71d09893208a947dde42d0bd4af998471ef0",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/11764",
+      "https://www.joinquant.com/post/11736",
+      "https://www.joinquant.com/post/1810"
+    ],
+    "primary_url": "https://www.joinquant.com/post/11764",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:06:58+08:00",
+    "requested_url": "https://www.joinquant.com/post/11764",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/ea1ba0946735159a68888edde190cd45",
+    "community_id": "ea1ba0946735159a68888edde190cd45",
+    "post": {
+      "postId": "3df7fa4f6565919a2ed3261270bab06e",
+      "uniqueKey": "ea1ba0946735159a68888edde190cd45",
+      "title": "中小板-中证500配对交易",
+      "content": "均值回归策略，价差/标准差，分界线+2.1/-2.1外存在套利空间，回到1.95/-1.95内反向平仓\r\n2.1外已经是极小概率了，所以牺牲了收益获取了稳定性。\r\n但是谁能解释下，牛市的时候为何这么多套利机会？为何牛市的时候价差/标准差常常处于+2.1/-2.1外呢？",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-04-01 18:44:50",
+      "modTime": "2018-04-01 18:44:50",
+      "lastActiveTime": "2018-04-01 18:44:50",
+      "lastPubTime": "2018-04-01 18:44:50",
+      "backtestId": "a9724d478a96b17dc3dbdde7d12f08e3",
+      "backtestName": "招行_海天配对策略-改进版",
+      "replyCount": "0",
+      "viewCount": "1893",
+      "collectionCount": "12",
+      "likeCount": "8",
+      "disLikeCount": "0",
+      "backtestCloneCount": "88",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "3",
+      "followersCount": "16",
+      "followingCount": "2",
+      "author": {
+        "userId": "eb0e82a7b8f2c35828d402c09d9b5986",
+        "alias": "翼、轸"
+      },
+      "tags": [
+        {
+          "id": "11",
+          "name": "轮动"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "a9724d478a96b17dc3dbdde7d12f08e3",
+        "backtest_name": "招行_海天配对策略-改进版",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=a9724d478a96b17dc3dbdde7d12f08e3&postId=ea1ba0946735159a68888edde190cd45&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2014-01-01",
+          "end_date": "2018-03-31",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "43b503ac797cea022b7533ca38110fa5",
+            "8071839"
+          ],
+          "numeric_backtest_id": "8071839",
+          "numeric_post_id": "11764",
+          "python_version": 2,
+          "clone_count": 326
+        },
+        "stats": {
+          "information": 0.48619758973382,
+          "benchmark_return": 0.68366013071894,
+          "algorithm_volatility": 0.15768637672932,
+          "annual_bm_return": 0.13396089027636,
+          "__version": 101,
+          "max_drawdown": 0.090520476942998,
+          "sortino": 2.5239706880442,
+          "period_label": "2018-03",
+          "trading_days": 1036,
+          "algorithm_return": 1.87777285,
+          "benchmark_volatility": 0.32667911392173,
+          "beta": 0.13048519861083,
+          "excess_return": 1.7081290143836,
+          "annual_algo_return": 0.29055401145795,
+          "sharpe": 1.5889388586056,
+          "alpha": 0.23829350602859,
+          "max_drawdown_period": [
+            "2015-06-12",
+            "2018-02-09"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.16964383561644,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.48455598455598,
+          "avg_position_days": 210,
+          "win_ratio": 0.80952380952381,
+          "win_count": 17,
+          "avg_trade_return": 0.073799231377838,
+          "profit_loss_ratio": 25.176111333345,
+          "lose_count": 4,
+          "report_done_seconds": 8.5625829696655
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 187.777285,
+          "benchmark_return_percent": 68.366013,
+          "annual_algo_return_percent": 29.055401,
+          "annual_bm_return_percent": 13.396089,
+          "max_drawdown_percent": 9.052048,
+          "algorithm_volatility_percent": 15.768638,
+          "benchmark_volatility_percent": 32.667911,
+          "win_ratio_percent": 80.952381,
+          "day_win_ratio_percent": 48.455598,
+          "avg_trade_return_percent": 7.379923,
+          "sharpe": 1.5889388586056,
+          "sortino": 2.5239706880442,
+          "information": 0.48619758973382,
+          "alpha": 0.23829350602859,
+          "beta": 0.13048519861083,
+          "profit_loss_ratio": 25.176111333345,
+          "avg_position_days": 210,
+          "trading_days": 1036,
+          "win_count": 17,
+          "lose_count": 4,
+          "max_drawdown_period": [
+            "2015-06-12",
+            "2018-02-09"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/11764",
+      "https://www.joinquant.com/community/post/detailV2?postId=11764",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=a9724d478a96b17dc3dbdde7d12f08e3&postId=ea1ba0946735159a68888edde190cd45&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=a9724d478a96b17dc3dbdde7d12f08e3"
+    ]
+  }
+}

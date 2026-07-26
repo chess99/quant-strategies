@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/38.ETF动量轮动RSRS择时-魔改3-北向资金择时-再优化.txt",
+    "category": "2022年度精选策略",
+    "file_name": "38.ETF动量轮动RSRS择时-魔改3-北向资金择时-再优化.txt",
+    "strategy_name": "ETF动量轮动RSRS择时-魔改3-北向资金择时-再优化",
+    "declared_title": "ETF动量轮动RSRS择时-魔改3-北向资金择时-再优化",
+    "declared_author": "nixun",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 9993,
+    "sha256": "8350192d07fab400037254802531366a4358d1661c80c72b3f20a8f5e10302b2",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/35394",
+      "https://www.joinquant.com/post/35376",
+      "https://www.joinquant.com/post/35279"
+    ],
+    "primary_url": "https://www.joinquant.com/post/35394",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:58+08:00",
+    "requested_url": "https://www.joinquant.com/post/35394",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/477790804654f5e263e3c588c1f1b4da",
+    "community_id": "477790804654f5e263e3c588c1f1b4da",
+    "post": {
+      "postId": "a761cd0016c6f77050b319e2e8f17f77",
+      "uniqueKey": "477790804654f5e263e3c588c1f1b4da",
+      "title": "ETF动量轮动RSRS择时-魔改3-北向资金择时-再优化",
+      "content": "站在巨人的肩膀，参考\n [年化108%最大回撤10%的ETF动量轮动RSRS择时](https://www.joinquant.com/view/community/detail/b6f06a6f89a0505cce29b956d3864489?type=1)\n@莫急莫急 大佬的[ ETF动量轮动RSRS择时-魔改3小优化](https://www.joinquant.com/view/community/detail/29b074f390c55695296fe0d37aab7793) \n\n针对回撤大的特点，参考北向资金流向，提前判断，控制回撤.\n之前回撤20%， 修改后回撤10%.\n\n\n\n***为了防止有些小人说骗积分，特在附件里直接贴上源代码，无须克隆\n**\n*\n***对附件中的进行了再优化，和原策略越来越接近同时回撤小，波动小。***\n19-01-01 到现在，收益300%，原策略362%",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-11-13 09:00:10",
+      "modTime": "2021-11-14 13:30:28",
+      "lastActiveTime": "2026-06-18 20:35:50",
+      "lastPubTime": "2021-11-14 13:30:28",
+      "backtestId": "74f8c0b1fef58a582055086c3e1bbbef",
+      "backtestName": "ETF动量轮动RSRS择时-魔改3-加北向资金择时",
+      "replyCount": "170",
+      "viewCount": "6244",
+      "collectionCount": "101",
+      "likeCount": "63",
+      "disLikeCount": "0",
+      "backtestCloneCount": "247",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "780",
+      "fileName": "etf.txt",
+      "fileType": "text/plain",
+      "fileSize": "9578",
+      "postCount": "3",
+      "followersCount": "32",
+      "followingCount": "87",
+      "author": {
+        "userId": "3b6657a510496e9955c6bd2820ce71cf",
+        "alias": "nixun"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        },
+        {
+          "id": "1721",
+          "name": "ETF轮动"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "74f8c0b1fef58a582055086c3e1bbbef",
+        "backtest_name": "ETF动量轮动RSRS择时-魔改3-加北向资金择时",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=74f8c0b1fef58a582055086c3e1bbbef&postId=477790804654f5e263e3c588c1f1b4da&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2017-01-01",
+          "end_date": "2021-11-11",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "477c05ac9dad99cdd096588216899c86",
+            "22494167"
+          ],
+          "numeric_backtest_id": "22494167",
+          "numeric_post_id": "35394",
+          "python_version": 3,
+          "clone_count": 244
+        },
+        "stats": {
+          "trading_days": 1181,
+          "benchmark_volatility": 0.19192699948802,
+          "algorithm_volatility": 0.19924784089828,
+          "treasury_return": 0.19430136986301,
+          "algorithm_return": 6.3982587958,
+          "benchmark_return": 0.47991891434648,
+          "annual_algo_return": 0.5275016685036,
+          "annual_bm_return": 0.08651772702617,
+          "sharpe": 2.4467099181891,
+          "excess_return_sharpe": "1.994",
+          "sortino": 3.9195518544699,
+          "information": 2.4144951201806,
+          "beta": 0.58608770643377,
+          "alpha": 0.46023820056232,
+          "excess_return": 3.999097399243,
+          "avg_excess_return": "0.14%",
+          "max_drawdown": 0.11421549158994,
+          "max_drawdown_period": [
+            "2020-07-23",
+            "2020-12-29"
+          ],
+          "excess_return_max_drawdown": "18.85%",
+          "excess_return_max_drawdown_period": [
+            "2020-07-16",
+            "2021-01-13"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-11",
+          "__version": 101,
+          "win_ratio": 0.61538461538462,
+          "profit_loss_ratio": 3.0075163183623,
+          "win_count": 88,
+          "lose_count": 55,
+          "day_win_ratio": 0.50381033022862,
+          "avg_trade_return": 0.015795578778349,
+          "avg_position_days": 175.75,
+          "turnover_rate": 0.12513538740961,
+          "report_done_seconds": 177.46458029747,
+          "report_done_cpu_seconds": 126.01
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 639.82588,
+          "benchmark_return_percent": 47.991891,
+          "annual_algo_return_percent": 52.750167,
+          "annual_bm_return_percent": 8.651773,
+          "max_drawdown_percent": 11.421549,
+          "algorithm_volatility_percent": 19.924784,
+          "benchmark_volatility_percent": 19.1927,
+          "win_ratio_percent": 61.538462,
+          "day_win_ratio_percent": 50.381033,
+          "avg_trade_return_percent": 1.579558,
+          "turnover_rate_percent": 12.513539,
+          "sharpe": 2.4467099181891,
+          "sortino": 3.9195518544699,
+          "information": 2.4144951201806,
+          "alpha": 0.46023820056232,
+          "beta": 0.58608770643377,
+          "profit_loss_ratio": 3.0075163183623,
+          "avg_position_days": 175.75,
+          "trading_days": 1181,
+          "win_count": 88,
+          "lose_count": 55,
+          "max_drawdown_period": [
+            "2020-07-23",
+            "2020-12-29"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-07-16",
+            "2021-01-13"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/35394",
+      "https://www.joinquant.com/community/post/detailV2?postId=35394",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=74f8c0b1fef58a582055086c3e1bbbef&postId=477790804654f5e263e3c588c1f1b4da&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=74f8c0b1fef58a582055086c3e1bbbef"
+    ]
+  }
+}

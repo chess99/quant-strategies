@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/61BiLSTM for ETF.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "61BiLSTM for ETF.txt",
+    "strategy_name": "BiLSTM for ETF",
+    "declared_title": "BiLSTM for ETF",
+    "declared_author": "MarioC",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 5585,
+    "sha256": "d2ec23cd11a70eccbb1e863373d50c4f1a29a2ac6d7f1421ac6d65ee275fb9bf",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/49226"
+    ],
+    "primary_url": "https://www.joinquant.com/post/49226",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:12:22+08:00",
+    "requested_url": "https://www.joinquant.com/post/49226",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/4fb5d5b5b002e82e9f96fd3fcb26ff13",
+    "community_id": "4fb5d5b5b002e82e9f96fd3fcb26ff13",
+    "post": {
+      "postId": "7d9f23b5ba5db2c6262178719487e53a",
+      "uniqueKey": "4fb5d5b5b002e82e9f96fd3fcb26ff13",
+      "title": "BiLSTM for ETF",
+      "content": "BiLSTM简介\nBiLSTM全称：Bi-directional Long Short-Term Memory，由前向LSTM与后向LSTM组合而成。\n为什么要有LSTM和BiLSTM：\n将词的表示组合成句子的表示，可以采用相加的方法，即将所有词的表示进行加和，或者取平均等方法，但是这些方法没有考虑到词语在句子中前后顺序。\n如句子“我不觉得他好”。“不”字是对后面“好”的否定，即该句子的情感极性是贬义。使用LSTM模型可以更好的捕捉到较长距离的依赖关系。\n因为LSTM通过训练过程可以学到应该记忆哪些信息和遗忘哪些信息。\n但是利用LSTM对句子进行建模还存在一个问题：无法编码从后到前的信息。在更细粒度的分类时，如对于强程度的褒义、弱程度的褒义、中性、弱程度的贬义、强程度的贬义的五分类任务需要注意情感词、程度词、否定词之间的交互。举一个例子，“这个餐厅脏得不行，没有隔壁好”，这里的“不行”是对“脏”的程度的一种修饰，通过BiLSTM可以更好的捕捉双向的语义依赖。\n\n![Img](https://image.joinquant.com/c71375e1515c3a43ad95691278ca4063) \n\nLeNet是一种CV的网络，而BiLSTM是一种NLP的网络。\n它们都非常古典。\n在研究中，我还将这两个网络进行了融合创建了自己的ETF神经网络，效果还不错，就不公开了。\n训练集是18-24，回测是样本外24至今。\nBiLSTM样本外：\n![Img](https://image.joinquant.com/30a3a7ae6f6a1961a94a698943efd535) \nLeNet样本外：\n![Img](https://image.joinquant.com/12223464f10e826be9c3b3339756a925)",
+      "type": 1,
+      "status": "0",
+      "addTime": "2024-07-23 14:31:05",
+      "modTime": "2024-07-23 15:35:10",
+      "lastActiveTime": "2025-06-08 09:45:38",
+      "lastPubTime": "2024-07-23 15:35:10",
+      "backtestId": "8446817bc6d5aad96f73c3b15e7286ee",
+      "backtestName": "BiLSTM-ETF",
+      "replyCount": "30",
+      "viewCount": "5851",
+      "collectionCount": "94",
+      "likeCount": "65",
+      "disLikeCount": "0",
+      "backtestCloneCount": "230",
+      "notebookCloneCount": "148",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "62",
+      "followersCount": "4970",
+      "followingCount": "36",
+      "author": {
+        "userId": "2dc1cabdd9f274c6eccfc4f71d2da208",
+        "alias": "MarioC",
+        "introduction": "人工智能爱好者，gzh：Mario量化",
+        "headImgKey": "44901f16b2618622495468b8b1a70019"
+      },
+      "tags": [
+        {
+          "id": "13",
+          "name": "机器学习"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "8446817bc6d5aad96f73c3b15e7286ee",
+        "backtest_name": "BiLSTM-ETF",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=8446817bc6d5aad96f73c3b15e7286ee&postId=4fb5d5b5b002e82e9f96fd3fcb26ff13&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2024-01-01",
+          "end_date": "2024-07-22",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "09cb591d17e15a9c3e6fcb84b3d59879",
+            "35670862"
+          ],
+          "numeric_backtest_id": "35670862",
+          "numeric_post_id": "49226",
+          "python_version": 3,
+          "clone_count": 230
+        },
+        "stats": {
+          "trading_days": 133,
+          "benchmark_volatility": 0.20014947066674,
+          "algorithm_volatility": 0.15699092231996,
+          "treasury_return": 0.02213698630137,
+          "algorithm_return": 0.2020419746,
+          "benchmark_return": -0.087992654840839,
+          "annual_algo_return": 0.41326913563711,
+          "annual_bm_return": -0.15897500631757,
+          "sharpe": 2.3776478927639,
+          "excess_return_sharpe": "3.614",
+          "sortino": 3.7638038036499,
+          "information": 3.2495327303208,
+          "beta": 0.42055360469837,
+          "alpha": 0.45694879178885,
+          "excess_return": 0.31801786573355,
+          "avg_excess_return": "0.21%",
+          "max_drawdown": 0.097819210823645,
+          "max_drawdown_period": [
+            "2024-05-20",
+            "2024-06-27"
+          ],
+          "excess_return_max_drawdown": "7.67%",
+          "excess_return_max_drawdown_period": [
+            "2024-02-05",
+            "2024-03-01"
+          ],
+          "max_leverage": 0,
+          "period_label": "2024-07",
+          "__version": 101,
+          "win_ratio": 0.55714285714286,
+          "profit_loss_ratio": 1.9445507519936,
+          "win_count": 39,
+          "lose_count": 31,
+          "day_win_ratio": 0.54887218045113,
+          "avg_trade_return": 0.0089995656625668,
+          "avg_position_days": 7.8235294117647,
+          "turnover_rate": 0.17963433445048,
+          "report_done_seconds": 24.546836137772,
+          "report_done_cpu_seconds": 27.18
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 20.204197,
+          "benchmark_return_percent": -8.799265,
+          "annual_algo_return_percent": 41.326914,
+          "annual_bm_return_percent": -15.897501,
+          "max_drawdown_percent": 9.781921,
+          "algorithm_volatility_percent": 15.699092,
+          "benchmark_volatility_percent": 20.014947,
+          "win_ratio_percent": 55.714286,
+          "day_win_ratio_percent": 54.887218,
+          "avg_trade_return_percent": 0.899957,
+          "turnover_rate_percent": 17.963433,
+          "sharpe": 2.3776478927639,
+          "sortino": 3.7638038036499,
+          "information": 3.2495327303208,
+          "alpha": 0.45694879178885,
+          "beta": 0.42055360469837,
+          "profit_loss_ratio": 1.9445507519936,
+          "avg_position_days": 7.8235294117647,
+          "trading_days": 133,
+          "win_count": 39,
+          "lose_count": 31,
+          "max_drawdown_period": [
+            "2024-05-20",
+            "2024-06-27"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2024-02-05",
+            "2024-03-01"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/49226",
+      "https://www.joinquant.com/community/post/detailV2?postId=49226",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=8446817bc6d5aad96f73c3b15e7286ee&postId=4fb5d5b5b002e82e9f96fd3fcb26ff13&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=8446817bc6d5aad96f73c3b15e7286ee"
+    ]
+  }
+}

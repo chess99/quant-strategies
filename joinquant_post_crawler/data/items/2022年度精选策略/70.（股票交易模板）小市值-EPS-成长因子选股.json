@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/70.（股票交易模板）小市值-EPS-成长因子选股.txt",
+    "category": "2022年度精选策略",
+    "file_name": "70.（股票交易模板）小市值-EPS-成长因子选股.txt",
+    "strategy_name": "（股票交易模板）小市值-EPS-成长因子选股",
+    "declared_title": "（股票交易模板）小市值-EPS-成长因子选股",
+    "declared_author": "大蠢驴小疯子",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 7939,
+    "sha256": "043305b1c6654d67350aaa2f751427059b39ca6e56f6e11fed31f7f4dd7d1831",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/36426"
+    ],
+    "primary_url": "https://www.joinquant.com/post/36426",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:26+08:00",
+    "requested_url": "https://www.joinquant.com/post/36426",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/e393d67adb81a0aa703e8d7eb1e56d90",
+    "community_id": "e393d67adb81a0aa703e8d7eb1e56d90",
+    "post": {
+      "postId": "77fe9dde956a45fbb93b4daa42799e24",
+      "uniqueKey": "e393d67adb81a0aa703e8d7eb1e56d90",
+      "title": "（股票交易模板）小市值-EPS-成长因子选股",
+      "content": "第一次尝试发布文章（部分内容借鉴自社区）。\n目的：构建一个容易修改策略的模板\n策略：小市值+EPS+成长因子选股\n\n缺陷（未来改进方向）：\n（1）未加入择时\n（2）选股因子未做更多的尝试\n（3）止损止盈策略\n\n长时间测试：\n![Img]( https://image.joinquant.com/176bb63e5ee22b9eb4c4d2c9ef8cd744)",
+      "type": 1,
+      "status": "0",
+      "addTime": "2022-01-30 14:51:45",
+      "modTime": "2022-01-30 22:52:34",
+      "lastActiveTime": "2025-04-03 14:55:33",
+      "lastPubTime": "2022-01-30 22:52:34",
+      "backtestId": "73f36905224ec2e81b002e8c297396a5",
+      "backtestName": "自建模板--小市值-EPS-成长因子选股",
+      "replyCount": "19",
+      "viewCount": "2101",
+      "collectionCount": "35",
+      "likeCount": "20",
+      "disLikeCount": "0",
+      "backtestCloneCount": "224",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "9",
+      "followersCount": "92",
+      "followingCount": "8",
+      "author": {
+        "userId": "670996ac250f14a5b81c30ab092d81bf",
+        "alias": "大蠢驴小疯子",
+        "introduction": "大蠢驴小疯子",
+        "headImgKey": "f9223c78f40589c2c7830b4b6f291b9d"
+      },
+      "tags": [
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "73f36905224ec2e81b002e8c297396a5",
+        "backtest_name": "自建模板--小市值-EPS-成长因子选股",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=73f36905224ec2e81b002e8c297396a5&postId=e393d67adb81a0aa703e8d7eb1e56d90&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2021-01-01",
+          "end_date": "2021-12-31",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "b31f0ca0223f8c009406356ab20ced4d",
+            "23403441"
+          ],
+          "numeric_backtest_id": "23403441",
+          "numeric_post_id": "36426",
+          "python_version": 3,
+          "clone_count": 208
+        },
+        "stats": {
+          "trading_days": 243,
+          "benchmark_volatility": 0.18512286945372,
+          "algorithm_volatility": 0.30892773881816,
+          "treasury_return": 0.039561643835616,
+          "algorithm_return": 0.5736064156,
+          "benchmark_return": -0.051987127947207,
+          "annual_algo_return": 0.59429257010387,
+          "annual_bm_return": -0.053443959119125,
+          "sharpe": 1.794246681196,
+          "excess_return_sharpe": "1.897",
+          "sortino": 3.1136768381796,
+          "information": 1.9100662152685,
+          "beta": 0.214561798437,
+          "alpha": 0.57434207402555,
+          "excess_return": 0.65989984101437,
+          "avg_excess_return": "0.23%",
+          "max_drawdown": 0.18323384767664,
+          "max_drawdown_period": [
+            "2021-01-21",
+            "2021-02-08"
+          ],
+          "excess_return_max_drawdown": "21.75%",
+          "excess_return_max_drawdown_period": [
+            "2021-01-04",
+            "2021-02-10"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-12",
+          "__version": 101,
+          "win_ratio": 0.72727272727273,
+          "profit_loss_ratio": 7.1905593520628,
+          "win_count": 24,
+          "lose_count": 9,
+          "day_win_ratio": 0.54320987654321,
+          "avg_trade_return": 0.05973469922742,
+          "avg_position_days": 67.5,
+          "turnover_rate": 0.030580783557806,
+          "report_done_seconds": 37.845034360886,
+          "report_done_cpu_seconds": 35.68
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 57.360642,
+          "benchmark_return_percent": -5.198713,
+          "annual_algo_return_percent": 59.429257,
+          "annual_bm_return_percent": -5.344396,
+          "max_drawdown_percent": 18.323385,
+          "algorithm_volatility_percent": 30.892774,
+          "benchmark_volatility_percent": 18.512287,
+          "win_ratio_percent": 72.727273,
+          "day_win_ratio_percent": 54.320988,
+          "avg_trade_return_percent": 5.97347,
+          "turnover_rate_percent": 3.058078,
+          "sharpe": 1.794246681196,
+          "sortino": 3.1136768381796,
+          "information": 1.9100662152685,
+          "alpha": 0.57434207402555,
+          "beta": 0.214561798437,
+          "profit_loss_ratio": 7.1905593520628,
+          "avg_position_days": 67.5,
+          "trading_days": 243,
+          "win_count": 24,
+          "lose_count": 9,
+          "max_drawdown_period": [
+            "2021-01-21",
+            "2021-02-08"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2021-01-04",
+            "2021-02-10"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/36426",
+      "https://www.joinquant.com/community/post/detailV2?postId=36426",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=73f36905224ec2e81b002e8c297396a5&postId=e393d67adb81a0aa703e8d7eb1e56d90&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=73f36905224ec2e81b002e8c297396a5"
+    ]
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/81 申万行业轮动策略.txt",
+    "category": "2020年度精选策略",
+    "file_name": "81 申万行业轮动策略.txt",
+    "strategy_name": "申万行业轮动策略",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 5742,
+    "sha256": "355c5ddc3578c92e3c9b2714f155f9b52ebcafb4b1e7f698d57065efac5f9975",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/13107"
+    ],
+    "primary_url": "https://www.joinquant.com/post/13107",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:20+08:00",
+    "requested_url": "https://www.joinquant.com/post/13107",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/a62bdd030ef0fba37e7dc6ca060298cc",
+    "community_id": "a62bdd030ef0fba37e7dc6ca060298cc",
+    "post": {
+      "postId": "ee42a4495dd40b0f3c1eeb56e711bc38",
+      "uniqueKey": "a62bdd030ef0fba37e7dc6ca060298cc",
+      "title": "申万行业轮动策略",
+      "content": "鉴于一些小伙伴在询问平台上行业指数的行情数据的问题，这里就用申万一级行业的数据做了内容，进行行业指数获取的方法示例给大家做参考。\r\n目前平台暂无提供直接的API获取行业数据，以下的内容都是调用了聚源数据库进行的操作，具体数据源可以参考这个链接\r\nhttps://www.joinquant.com/help/data/data?name=jy#nodeId=17\r\n在开始之前先用研究展示下一些数据统计、行业涨跌幅统计操作，如下内容即是回顾下上周的市场情况\r\n5月底创出3041低点后，市场开始回升，上周接连走出三连阳后，周四高开低走收阴，周五一根阴线将一周的回升全部拉回去且逼近3041低点，感慨我大A股上升的道路总是曲径悠长，下跌的时候猝不及防。下面的图是获取市场周五的行情数据，其中可以看到以上证50、中证500，中证1000代表的大中小市值全线下跌，板块方面唯次新股收阳、从数据来看这也符合5日收益次新最高，还有值得注意的是各指数均是价跌量涨，这不是筑底的特征。\r\n![1.jpeg][1]\r\n下面两张图，就是对上周和上上周申万行业涨跌幅进行的统计，可以看到非周期性行业，食品饮料、家用电器连续两周走势还行\r\n![1.png][2]\r\n![Unknown-3.png][3]\r\n这篇帖子里面的这个策略，就是基于申万行业涨跌幅进行的定期轮换策略\r\n策略思路：\r\n选股：统计申万一级行业指数，固定时间选取涨幅最大的指数，选取指数成分股中流通市值最大的5只股票作为操作标的\r\n择时：轮动模型，固定调仓周期开盘操作，默认开盘卖出不在股票池中股票，买入选出的股票\r\n仓位：平均分配仓位\r\n![行业.jpeg][4]\r\n\r\n\r\n  [1]: https://image.joinquant.com/0cbc47c36360a95fadabd500c19bcccc\r\n  [2]: https://image.joinquant.com/e885c7603936bbf82b78152e0e77d3a4\r\n  [3]: https://image.joinquant.com/7b167d345e6e7f76cbd50aa5b5f83ca2\r\n  [4]: https://image.joinquant.com/c7ebf28359c6afc1f86c06f621de9934",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-06-11 00:09:22",
+      "modTime": "2018-06-11 00:09:22",
+      "lastActiveTime": "2021-11-03 11:26:41",
+      "lastPubTime": "2018-06-11 00:09:22",
+      "backtestId": "848bb3e9fa98098d57562f8ff381b049",
+      "backtestName": "行业轮动策略",
+      "replyCount": "20",
+      "viewCount": "10970",
+      "collectionCount": "143",
+      "likeCount": "48",
+      "disLikeCount": "0",
+      "backtestCloneCount": "474",
+      "notebookCloneCount": "161",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "3",
+      "followersCount": "128",
+      "followingCount": "1",
+      "author": {
+        "userId": "9214fb2af8f4c99153001fcf5ea6a992",
+        "alias": "JoinQuant聚宽-客服小A",
+        "headImgKey": "1b775e16ecdeec77f0de6697d2da9a0c"
+      },
+      "tags": []
+    },
+    "backtests": [
+      {
+        "backtest_id": "848bb3e9fa98098d57562f8ff381b049",
+        "backtest_name": "行业轮动策略",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=848bb3e9fa98098d57562f8ff381b049&postId=a62bdd030ef0fba37e7dc6ca060298cc&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2017-06-09",
+          "end_date": "2018-06-09",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "4aafbebd1686300e3e07143bdb213dd1",
+            "8906674"
+          ],
+          "numeric_backtest_id": "8906674",
+          "numeric_post_id": "13107",
+          "python_version": 2,
+          "clone_count": 472
+        },
+        "stats": {
+          "information": 0.96286177499699,
+          "benchmark_return": 0.06139924570173,
+          "algorithm_volatility": 0.27600104723306,
+          "annual_bm_return": 0.062428146419092,
+          "__version": 101,
+          "max_drawdown": 0.19189526334435,
+          "sortino": 1.3157636145778,
+          "period_label": "2018-06",
+          "trading_days": 246,
+          "algorithm_return": 0.28390374,
+          "benchmark_volatility": 0.14291828246269,
+          "beta": 1.0077216821068,
+          "excess_return": 0.24401332904109,
+          "annual_algo_return": 0.28913149680611,
+          "sharpe": 0.9026469258131,
+          "alpha": 0.22653016737013,
+          "max_drawdown_period": [
+            "2017-08-07",
+            "2017-12-15"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.039890410958904,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.48373983739837,
+          "avg_position_days": 19.21875,
+          "win_ratio": 0.45714285714286,
+          "win_count": 48,
+          "avg_trade_return": 0.017177381956005,
+          "profit_loss_ratio": 1.509681280052,
+          "lose_count": 57,
+          "report_done_seconds": 161.63319897652
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 28.390374,
+          "benchmark_return_percent": 6.139925,
+          "annual_algo_return_percent": 28.91315,
+          "annual_bm_return_percent": 6.242815,
+          "max_drawdown_percent": 19.189526,
+          "algorithm_volatility_percent": 27.600105,
+          "benchmark_volatility_percent": 14.291828,
+          "win_ratio_percent": 45.714286,
+          "day_win_ratio_percent": 48.373984,
+          "avg_trade_return_percent": 1.717738,
+          "sharpe": 0.9026469258131,
+          "sortino": 1.3157636145778,
+          "information": 0.96286177499699,
+          "alpha": 0.22653016737013,
+          "beta": 1.0077216821068,
+          "profit_loss_ratio": 1.509681280052,
+          "avg_position_days": 19.21875,
+          "trading_days": 246,
+          "win_count": 48,
+          "lose_count": 57,
+          "max_drawdown_period": [
+            "2017-08-07",
+            "2017-12-15"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/13107",
+      "https://www.joinquant.com/community/post/detailV2?postId=13107",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=848bb3e9fa98098d57562f8ff381b049&postId=a62bdd030ef0fba37e7dc6ca060298cc&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=848bb3e9fa98098d57562f8ff381b049"
+    ]
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/09 商品期货 多品种日频双均线模型 作为给入门者的小礼物.txt",
+    "category": "2020年度精选策略",
+    "file_name": "09 商品期货 多品种日频双均线模型 作为给入门者的小礼物.txt",
+    "strategy_name": "商品期货 多品种日频双均线模型 作为给入门者的小礼物",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 14573,
+    "sha256": "f9cd21141068d0de24a6c474e60249d354aed0f1ae3a0eb00a8637a77847936e",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/15556"
+    ],
+    "primary_url": "https://www.joinquant.com/post/15556",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:06:23+08:00",
+    "requested_url": "https://www.joinquant.com/post/15556",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/278273615d13ca04edac76a96b6e985e",
+    "community_id": "278273615d13ca04edac76a96b6e985e",
+    "post": {
+      "postId": "e9989a69353e6d60b65a61af02055956",
+      "uniqueKey": "278273615d13ca04edac76a96b6e985e",
+      "title": "商品期货 多品种日频双均线模型 作为给入门者的小礼物",
+      "content": "听说聚宽量化平台能做期货了，有管理员在群里喊了一句，结果很多小白们说“股票模型都没做好，期货不好做啊”，还有诸如“期货都是带杠杆的，容易爆仓”之类的话，这种人我能说什么呢……你们以为python就只能做股票？这个市场主要的可以被数量化交易的，远远不止股票，衍生品才是主力军。\n\n ![未命名-1.png][1]\n\n\n没有在二级市场上谈笑风生的经验，根本没权力评价期货交易。商品期货的动量效应非常强，是做量化最好的选择，非常容易使用现有的分析工具把握。而且做中低频模型，如果你能够忍受回撤，就一定能获得收益。\n\n\n\n**动量效应，是商品期货模型的永久核心**\n\n\n\n什么是动量效应？简单说就是波动方向和之前一致，并且维持下去，我们做方向性交易因此可以获得盈利。我们一定要明白动量是可以分析观测，并且把握的，而反转则是更倾向于随机的。随机波动非常可怕，这是我们大部分利润被消耗的核心原因，所以做模型，选品种，选周期一定要尽可能避免随机波动，且数据量尽可能大，这样才能准确观测把握动量波动。\n\n![未命名-2.png][2]\n\n \n某期货品种的动量效应非常之强，实际上很多品种都是这样\n\n对于资产价格来说，也存在类似的效应。当资产价格严重偏离其价值时，也会进入非稳定平衡态或者直接进入非平衡态。\n\n大部分实证研究结论是中国股市的动量策略利润，只存在于形成期和持有期在4周以内的周期策略中，是非常稀少的；而西方国家股市的动量策略利润一般存在于形成期、持有期为中期（3-12个月）的策略中。\n\n既然股票市场动量很少，那么股票模型的构建不能以时间序列为主，而是截面回归分析为主，此时期货时间序列模型的优势就产生了。这种模型相对容易开发，绩效容易分析。\n\n ![未命名-3.png][3]\n\n知道这一点之后，我们要坚信做动量交易，也就是通俗意义上的追涨杀跌，其实是没有错误的，这就是市场上主要的波动特征。如果你偏要做什么反转策略，做什么马丁格尔，去外汇市场做吧，因为主要经济体的汇率都相对稳定，做反方向可以补仓降低成本，但是期货市场，如果你做错方向，及时止损是必须的，所以我们接下来这个模型虽然很简单，但是止损规则也非常刚性，百分比固定区间止损。\n\n也有人说了，止损应该用波动率方法，和目前波动率正相关的一个止损区间，比如ATR止损才是更好的，对，我也明白，但是我一看聚宽社区里很多navie的小白，真担心讲点复杂的他们听不懂。\n\n\n\n**通过简单的方法表达动量**\n\n\n\n问题来了，表达基本的动量效应，我们用什么工具，回答是：均线类，斜率类，趋势类指标。均线类模型原理简单透彻，它衡量了价格近期均值，然后用当前价格是否高于或者低于均值，来做出信号判断。\n\n这里可以在均线的计算方面做一些文章，比如说使用等权计算的MA或者使用权重随时间变化的WMA和EMA，还可以使用自适应变化的AMA。另一种方案是在规则方面做文章，使用单均线规则，使用双均线规则，或者使用多重均线规则，甚至构建出震荡规则或打分规则。\n\n但是双均线，真的对于期货很有效，也很简单。双均线信号生成规则是利用两条均线的交叉来选择买卖点，它来自于对单均线策略的改进。而单均线策略本质上又是对于价差的数学变化处理。\n\n移动均线（Moving Average）是一个非常古老的方法，也有很多投资者把移动均线作为衡量买卖时机的准则，特别是20日线已经成为行业内公认的强弱分界法则。但是简单的股价穿越均线法择时容易产生假信号太多的弊病。大家可以构造这样的系统去测试，会发现此问题非常严峻。\n\n对于投资决策而言，更多情况之下需要中长波趋势的判断，在这种情况下，我们采用快均线穿越慢均线，也就是所谓的双移动均线（Double MA）来进行择时，这种方式可以明显降低交易的频率，更容易把握中长波的趋势。 \n\n![未命名-4.png][4]\n\n \n双均线容易产生较好绩效的原因是，其短期均线实质上用来降低噪音，表达一个短期趋势。长期均线来表达中长期趋势。所以这种系统一定程度上降低了噪音，带来了绩效提升，这种提升是以更慢的更谨慎的进场性能牺牲，抵消了更低了错误信号性能消耗。\n\n参数是均线的一个重要属性，对性能起到决定性作用。\n\n移动平均线的特点就是有一定滞后性，其变化滞后于市场的变化，一般时间窗口 越长，滞后性就越明显。不过，尽管短期的均线能减小时滞的程度，但其敏感性 更强，更容易受到市场噪音的干扰，产生虚假信号。因此，时间窗口长短的选择， 对于移动平均线最为重要，往往需要在滞后性和灵敏性之间作出平衡，常用的均线周期数是 5、10、20、40、60 等，这些周期用于日线上可以 近似转化为周、月、季等时间窗口。\n\n\n\n**日频双均线（多品种同参数）模型实现**\n\n\n\n如果你知道参数对于均线系统有多重要，就应该明白如果我们给各品种做参数优化，是一定可以做出来好的模型绩效，但是有一个巨大的问题是，样本内表现较好的参数，往往意味着样本外快速衰退……\n\n所以到底应该如何做优化呢？\n\n我的答案是，不优化。选择有常规经济意义的参数，所以在我们接下来的模型中，选择了5和20这个参数组合，5大概做了近期的短期趋势描述，20做了中期趋势描述。这样你也可以理解为，双均线的短周期参数，实际上在降噪。降噪是一个很重要的事，单均线和双均线的差异就在这里。\n\n模型头部，我们首先定义了模型运行的初始环境，你可以看到我们设定的手续费和冲击成本，还是挺严格的，因为实际上期货的冲击成本并不高，大概在万分之5以内，对于千万元以内的资金，多品种手续费也大概是万分之1左右：\n\n \n ![5.png][5]\n\n\n紧接着就是设定了初始参数\n\n ![6.png][6]\n\n18个品种，涵盖农产品、黑色工业品、化工品、有色金属、贵金属。我不太喜欢交易太新的品种比如苹果，也不喜欢太贵的品种，比如原油。前者动量在短期内呈现爆发后，这个品种的中期基本面属性还需要观察，原油呢，占用保证金太多，一手太贵，开户交易还要考试，数据也太短，难以有统计说服力。\n\n然后就是各种逻辑了，比如说**移仓换月部分**：\n\n ![7.png][7]\n![8.png][8]\n\n我为什么要着重说这部分逻辑，因为现在很多行业内的软件，在回测的时候，都是通过指数合约回测，并生成绩效。或者通过主力合约回测，然后交易者自己去除了每一个换月的跳空。这里存在不小偏差。\n\n聚宽这个平台，保存了历史上所有的真实合约数据，我们可以在指数合约，如CU8888.XSGE这个铜期货指数合约上生成数据，然后在主力合约去映射交易。这样就保证了回测和实盘的一致性，这种基于python的回测软件，在采用了真实数据后，可以说对于用户比较负责。所以我们特意做了这个移仓换月函数，以后也希望聚宽的IT工程师，把这个做成系统函数，别让我们自己写了，写一次真够费事。\n\n![9.png][9]\n \n\n真正用于交易部分的逻辑，双均线金叉死叉，非常简单，你说你看不懂我真不相信。上过小学应该都明白均值的计算，这种简单有效的东西，在期货市场上并不失效，在股票个股上，则大都是反转风险因子，只有在股票指数上，才是有效的动量因子。\n\n \n\n追踪止损一定不需要多讲，这个模块添加非常到位，比起硬止损（直接在开仓价位做一个幅度的止损）要更有道理，因为买入后应该看重的是市场价格变化，而不是你自己的持仓成本，你那点钱没人在乎，但是一个市场高点会影响很多人的判断。\n\n止损后，必须防止重新入场，这是规矩。但是依然很多小白们不知道，可惜啊，期货市场上庄家割的就是你们。因为止损后主要的信号逻辑（如双均线本体）还是之前多单或者空单状态，止损是防止较快的市场变化，你必须确保系统在快速出场后，不重新冲入火场。所以必须要防止重新入场，这部分逻辑就不截图了，自己进去看吧。\n\n ![10.png][10]\n\n最终绩效如图，其实是非常简单的一个模型原理，即可获得如此绩效，你现在应该明白为什么要做期货了。需要注意的是，本模型的开仓头寸，也是简单的等资金分配，没有使用波动率倒数，或者其他更科学的方法，就是为了让你明白简单的动量因子在期货的有效性。\n\n ![11.png][11]\n\n至于为什么要用python而不是用其他平台，我觉得编程语言的开放性，是主要问题，开放的语言更利于我们了解模型细节，了解模型函数的内部逻辑，进行更复杂的数据合成，数据机器学习计算等等。\n\n\n  [1]: https://image.joinquant.com/0673d92068cd7a910d9a1541f318b726\n  [2]: https://image.joinquant.com/76a13cfd9b2eaeb753522d493226bc3b\n  [3]: https://image.joinquant.com/c28d761fffdde96d0228f1fcc0326c81\n  [4]: https://image.joinquant.com/4e1d4cea544966cfe1389e3916e3c9dc\n  [5]: https://image.joinquant.com/3b70f6509052f74d3fe1449955cf7fb8\n  [6]: https://image.joinquant.com/ba0e9117e61b4e8d9ed5a09cbaad95e2\n  [7]: https://image.joinquant.com/3665a092263abd5c7dfef673d02970a0\n  [8]: https://image.joinquant.com/2a0b6f26ca802c079766fbecd43642d1\n  [9]: https://image.joinquant.com/c57264c64f45d48ac5a6d24b3a8344c7\n  [10]: https://image.joinquant.com/0050155e71a7b4a8fad2b8750c6a0ec9\n  [11]: https://image.joinquant.com/fcf71d821b50e54e343d7e08c7971c81",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-12-07 12:40:27",
+      "modTime": "2018-12-07 12:40:27",
+      "lastActiveTime": "2026-06-26 13:42:35",
+      "lastPubTime": "2018-12-07 12:40:27",
+      "backtestId": "41aa593a0c0402fbe01dc8a6b8a3aea4",
+      "backtestName": "期货日频多品种，MA双均线 百分比追踪止损",
+      "replyCount": "130",
+      "viewCount": "27769",
+      "collectionCount": "489",
+      "likeCount": "269",
+      "disLikeCount": "0",
+      "backtestCloneCount": "1751",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "31",
+      "followersCount": "1943",
+      "followingCount": "11",
+      "author": {
+        "userId": "f4f1da746d52d6bc9196c20aaf6429ea",
+        "alias": "cicikml",
+        "introduction": "我要+1s，我要+=1s...",
+        "headImgKey": "addaf492004a535fea1e488c2597eac0"
+      },
+      "tags": [
+        {
+          "id": "7",
+          "name": "期货"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "41aa593a0c0402fbe01dc8a6b8a3aea4",
+        "backtest_name": "期货日频多品种，MA双均线 百分比追踪止损",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=41aa593a0c0402fbe01dc8a6b8a3aea4&postId=278273615d13ca04edac76a96b6e985e&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2012-01-01",
+          "end_date": "2018-11-25",
+          "base_capital": 18000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "e30006b98c86316b1b783a61dda7c75f",
+            "10961477"
+          ],
+          "numeric_backtest_id": "10961477",
+          "numeric_post_id": "15556",
+          "python_version": 2,
+          "clone_count": 1715
+        },
+        "stats": {
+          "information": 0.72664588495648,
+          "benchmark_return": 0.21900632411857,
+          "algorithm_volatility": 0.19747086892375,
+          "annual_bm_return": 0.029980615197476,
+          "__version": 101,
+          "max_drawdown": 0.2856323388918,
+          "sortino": 1.1810913353641,
+          "period_label": "2018-11",
+          "trading_days": 1676,
+          "algorithm_return": 2.1234219322222,
+          "benchmark_volatility": 0.074096415854067,
+          "beta": -0.10273976281715,
+          "excess_return": 1.8478054938661,
+          "annual_algo_return": 0.185172108492,
+          "sharpe": 0.7351570856158,
+          "alpha": 0.14414271927382,
+          "max_drawdown_period": [
+            "2016-11-11",
+            "2017-06-12"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.27561643835616,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.48389021479714,
+          "avg_position_days": 52.992409867173,
+          "win_ratio": 0.40213219616205,
+          "win_count": 943,
+          "avg_trade_return": 0.062334040432145,
+          "profit_loss_ratio": 1.1503790593989,
+          "lose_count": 1402,
+          "report_done_seconds": 417.25264692307
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 212.342193,
+          "benchmark_return_percent": 21.900632,
+          "annual_algo_return_percent": 18.517211,
+          "annual_bm_return_percent": 2.998062,
+          "max_drawdown_percent": 28.563234,
+          "algorithm_volatility_percent": 19.747087,
+          "benchmark_volatility_percent": 7.409642,
+          "win_ratio_percent": 40.21322,
+          "day_win_ratio_percent": 48.389021,
+          "avg_trade_return_percent": 6.233404,
+          "sharpe": 0.7351570856158,
+          "sortino": 1.1810913353641,
+          "information": 0.72664588495648,
+          "alpha": 0.14414271927382,
+          "beta": -0.10273976281715,
+          "profit_loss_ratio": 1.1503790593989,
+          "avg_position_days": 52.992409867173,
+          "trading_days": 1676,
+          "win_count": 943,
+          "lose_count": 1402,
+          "max_drawdown_period": [
+            "2016-11-11",
+            "2017-06-12"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/15556",
+      "https://www.joinquant.com/community/post/detailV2?postId=15556",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=41aa593a0c0402fbe01dc8a6b8a3aea4&postId=278273615d13ca04edac76a96b6e985e&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=41aa593a0c0402fbe01dc8a6b8a3aea4"
+    ]
+  }
+}

@@ -1,0 +1,191 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/22带上止损的核心资产轮动才更安心，低回撤，高收益率.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "22带上止损的核心资产轮动才更安心，低回撤，高收益率.txt",
+    "strategy_name": "带上止损的核心资产轮动才更安心，低回撤，高收益率",
+    "declared_title": "带上止损的核心资产轮动才更安心，低回撤，高收益率",
+    "declared_author": "养家大哥",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 5077,
+    "sha256": "c16bb1d73b4d7f6aa007272426bca766b828452d410890dfd74497a3f4299dc3",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/47966",
+      "https://www.joinquant.com/post/42673",
+      "https://www.joinquant.com/view/community/detail/a31a822d1cfa7e83b1dda228d4562a70",
+      "https://www.joinquant.com/post/26142"
+    ],
+    "primary_url": "https://www.joinquant.com/post/47966",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:57+08:00",
+    "requested_url": "https://www.joinquant.com/post/47966",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/4637ae4563ef2e79717be59dbedf9b3e",
+    "community_id": "4637ae4563ef2e79717be59dbedf9b3e",
+    "post": {
+      "postId": "4dd4b0e1092db8a5ebebfa02ec3545b2",
+      "uniqueKey": "4637ae4563ef2e79717be59dbedf9b3e",
+      "title": "带上止损的核心资产轮动才更安心，低回撤，高收益率",
+      "content": "wywy1995 原有的“ETF策略之核心资产轮动”策略是非常有效的策略，原作：https://www.joinquant.com/view/community/detail/1b1aea4e33780bb81e2883e1ca0e0e69?type=1\n\n核心资产，如同一颗坚实的磐石，不为持续的阴跌所动摇，能通过轮动方式获得有效收益。然而，情绪波动却如风暴般来袭，可能引发大幅度杀跌。在这个波澜壮阔的金融海洋中，我们需要坚定的信念和冷静的头脑，以应对市场的涨涨跌跌。\n\n投资，就像是在航行的船上，我们需要稳定的舵手，明晰的方向。不要被情绪所左右，而是要紧握着自己的策略，坚定地前行。因为，风平浪静时，坚决的持有；风起云涌时，快速空仓躲避到安全的港湾。\n\n![Img](https://image.joinquant.com/7cf65001780a2d9481171c699d30f226)",
+      "type": 1,
+      "status": "0",
+      "addTime": "2024-05-02 13:36:34",
+      "modTime": "2024-05-02 16:40:48",
+      "lastActiveTime": "2026-06-03 15:58:43",
+      "lastPubTime": "2024-05-02 16:40:48",
+      "backtestId": "85242b4ed37e64373f06c53758693b96",
+      "backtestName": "核心资产轮动_止损",
+      "replyCount": "49",
+      "viewCount": "15001",
+      "collectionCount": "241",
+      "likeCount": "101",
+      "disLikeCount": "1",
+      "backtestCloneCount": "1053",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "41",
+      "followersCount": "1736",
+      "followingCount": "32",
+      "author": {
+        "userId": "b168380457d86ea342ba21d2ba75ccf1",
+        "alias": "养家大哥",
+        "introduction": "数学是我的心爱",
+        "vipType": "VIP"
+      },
+      "tags": [
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "5",
+          "name": "仓位管理"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "85242b4ed37e64373f06c53758693b96",
+        "backtest_name": "核心资产轮动_止损",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=85242b4ed37e64373f06c53758693b96&postId=4637ae4563ef2e79717be59dbedf9b3e&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2018-01-01",
+          "end_date": "2024-05-01",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "ecfd81a23da2e0e8d81fac5351d33e87",
+            "34105544"
+          ],
+          "numeric_backtest_id": "34105544",
+          "numeric_post_id": "47966",
+          "python_version": 3,
+          "clone_count": 1049
+        },
+        "stats": {
+          "trading_days": 1535,
+          "benchmark_volatility": 0.19427782247104,
+          "algorithm_volatility": 0.21637521888326,
+          "treasury_return": 0.25315068493151,
+          "algorithm_return": 4.2059966336,
+          "benchmark_return": -0.10579902501953,
+          "annual_algo_return": 0.30826114596136,
+          "annual_bm_return": -0.018047650664261,
+          "sharpe": 1.2397960697435,
+          "excess_return_sharpe": "1.346",
+          "sortino": 1.68831336881,
+          "information": 1.504208978853,
+          "beta": 0.49681267716468,
+          "alpha": 0.29709995469099,
+          "excess_return": 4.8219536538905,
+          "avg_excess_return": "0.12%",
+          "max_drawdown": 0.18061013021258,
+          "max_drawdown_period": [
+            "2020-02-13",
+            "2020-03-17"
+          ],
+          "excess_return_max_drawdown": "14.05%",
+          "excess_return_max_drawdown_period": [
+            "2020-09-03",
+            "2020-11-13"
+          ],
+          "max_leverage": 0,
+          "period_label": "2024-04",
+          "__version": 101,
+          "win_ratio": 0.53125,
+          "profit_loss_ratio": 2.5590962841395,
+          "win_count": 51,
+          "lose_count": 45,
+          "day_win_ratio": 0.53159609120521,
+          "avg_trade_return": 0.018870480245275,
+          "avg_position_days": 373.5,
+          "turnover_rate": 0.06013321385824,
+          "report_done_seconds": 212.23887491226,
+          "report_done_cpu_seconds": 212.63
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 420.599663,
+          "benchmark_return_percent": -10.579903,
+          "annual_algo_return_percent": 30.826115,
+          "annual_bm_return_percent": -1.804765,
+          "max_drawdown_percent": 18.061013,
+          "algorithm_volatility_percent": 21.637522,
+          "benchmark_volatility_percent": 19.427782,
+          "win_ratio_percent": 53.125,
+          "day_win_ratio_percent": 53.159609,
+          "avg_trade_return_percent": 1.887048,
+          "turnover_rate_percent": 6.013321,
+          "sharpe": 1.2397960697435,
+          "sortino": 1.68831336881,
+          "information": 1.504208978853,
+          "alpha": 0.29709995469099,
+          "beta": 0.49681267716468,
+          "profit_loss_ratio": 2.5590962841395,
+          "avg_position_days": 373.5,
+          "trading_days": 1535,
+          "win_count": 51,
+          "lose_count": 45,
+          "max_drawdown_period": [
+            "2020-02-13",
+            "2020-03-17"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-09-03",
+            "2020-11-13"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/47966",
+      "https://www.joinquant.com/community/post/detailV2?postId=47966",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=85242b4ed37e64373f06c53758693b96&postId=4637ae4563ef2e79717be59dbedf9b3e&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=85242b4ed37e64373f06c53758693b96"
+    ]
+  }
+}

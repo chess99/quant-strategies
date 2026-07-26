@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/72.【股指期货】收盘折溢价策略.txt",
+    "category": "2025年度精选策略",
+    "file_name": "72.【股指期货】收盘折溢价策略.txt",
+    "strategy_name": "【股指期货】收盘折溢价策略",
+    "declared_title": "【股指期货】收盘折溢价策略",
+    "declared_author": "魔术先生",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 9537,
+    "sha256": "b2051102a114a49d6179cc5c451485eb0ef0f08406ad22f36a6c48c768bdd60c",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/30028"
+    ],
+    "primary_url": "https://www.joinquant.com/post/30028",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:30+08:00",
+    "requested_url": "https://www.joinquant.com/post/30028",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/5dd4507230b7885a4e640b985d451efb",
+    "community_id": "5dd4507230b7885a4e640b985d451efb",
+    "post": {
+      "postId": "c2c6ce3637e6fa0868019935f7048f07",
+      "uniqueKey": "5dd4507230b7885a4e640b985d451efb",
+      "title": "【股指期货】收盘折溢价策略",
+      "content": "来自海通研报：短周期交易策略研究之二——基于日内收\n益分布特征的股指期货交易策略（见附件）\n\n研报中提到了影响日内收益的4个因子，分别为：①收盘折溢价；②买卖单不平衡度；③尾盘涨幅；④尾盘基差变化率。本文仅使用折溢价作为单因子构建沪深300期指日线策略，逻辑虽然简单，但跑出的效果却很惊艳。\n\n![Img]( https://image.joinquant.com/a6234e6167749c8584ddd60eeafa72c1) \n调整了一下逻辑和部分参数，我先模拟试试，聚宽和米筐都上了，同时还用快期手动交易测试，过段时间贴结果看看",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-11-04 11:13:36",
+      "modTime": "2020-11-04 11:13:36",
+      "lastActiveTime": "2024-03-14 22:59:33",
+      "lastPubTime": "2020-11-04 11:13:36",
+      "backtestId": "baee0daeb7fd16f730b0b6dbe2a0a0b9",
+      "backtestName": "收盘折溢价",
+      "replyCount": "28",
+      "viewCount": "3845",
+      "collectionCount": "51",
+      "likeCount": "35",
+      "disLikeCount": "0",
+      "backtestCloneCount": "203",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "241",
+      "fileName": "20191225-海通证券-金融工程专题报告：短周期交易策略研究之二，基于日内收益分布特征的股指期货交易策略.pdf",
+      "fileType": "application/pdf",
+      "fileSize": "1163032",
+      "postCount": "15",
+      "followersCount": "341",
+      "followingCount": "1",
+      "author": {
+        "userId": "128ef0c846df4e5908a0ac859c7185b2",
+        "alias": "魔术先生",
+        "headImgKey": "a45600e1d6bd4cc623cf3bee47666032"
+      },
+      "tags": [
+        {
+          "id": "264",
+          "name": "研报复现"
+        },
+        {
+          "id": "7",
+          "name": "期货"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "baee0daeb7fd16f730b0b6dbe2a0a0b9",
+        "backtest_name": "收盘折溢价",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=baee0daeb7fd16f730b0b6dbe2a0a0b9&postId=5dd4507230b7885a4e640b985d451efb&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2017-01-03",
+          "end_date": "2019-06-30",
+          "base_capital": 10000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "dd0d5f984f6ec018303d1ff279a7f596",
+            "18715537"
+          ],
+          "numeric_backtest_id": "18715537",
+          "numeric_post_id": "30028",
+          "python_version": 3,
+          "clone_count": 203
+        },
+        "stats": {
+          "trading_days": 605,
+          "benchmark_volatility": 0.18605328017755,
+          "algorithm_volatility": 0.21432385216307,
+          "treasury_return": 0.099287671232877,
+          "algorithm_return": 1.714971869688,
+          "benchmark_return": 0.15573943832173,
+          "annual_algo_return": 0.51092140425503,
+          "annual_bm_return": 0.061634880582227,
+          "sharpe": 2.1972421618137,
+          "excess_return_sharpe": "1.675",
+          "sortino": 2.8567945147831,
+          "information": 1.9738667513626,
+          "beta": 0.41514008547244,
+          "alpha": 0.46193989808094,
+          "excess_return": 1.3491210731984,
+          "avg_excess_return": "0.15%",
+          "max_drawdown": 0.10216225849549,
+          "max_drawdown_period": [
+            "2018-02-08",
+            "2018-03-30"
+          ],
+          "excess_return_max_drawdown": "17.77%",
+          "excess_return_max_drawdown_period": [
+            "2019-01-30",
+            "2019-03-18"
+          ],
+          "max_leverage": 0,
+          "period_label": "2019-06",
+          "__version": 101,
+          "win_ratio": 0.57692307692308,
+          "profit_loss_ratio": 1.7711686859663,
+          "win_count": 165,
+          "lose_count": 121,
+          "day_win_ratio": 0.50082644628099,
+          "avg_trade_return": -59.455216420237,
+          "avg_position_days": 10,
+          "turnover_rate": 1.2725329848991,
+          "report_done_seconds": 28.50802731514,
+          "report_done_cpu_seconds": 23.67
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 171.497187,
+          "benchmark_return_percent": 15.573944,
+          "annual_algo_return_percent": 51.09214,
+          "annual_bm_return_percent": 6.163488,
+          "max_drawdown_percent": 10.216226,
+          "algorithm_volatility_percent": 21.432385,
+          "benchmark_volatility_percent": 18.605328,
+          "win_ratio_percent": 57.692308,
+          "day_win_ratio_percent": 50.082645,
+          "avg_trade_return_percent": -5945.521642,
+          "turnover_rate_percent": 127.253298,
+          "sharpe": 2.1972421618137,
+          "sortino": 2.8567945147831,
+          "information": 1.9738667513626,
+          "alpha": 0.46193989808094,
+          "beta": 0.41514008547244,
+          "profit_loss_ratio": 1.7711686859663,
+          "avg_position_days": 10,
+          "trading_days": 605,
+          "win_count": 165,
+          "lose_count": 121,
+          "max_drawdown_period": [
+            "2018-02-08",
+            "2018-03-30"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2019-01-30",
+            "2019-03-18"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/30028",
+      "https://www.joinquant.com/community/post/detailV2?postId=30028",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=baee0daeb7fd16f730b0b6dbe2a0a0b9&postId=5dd4507230b7885a4e640b985d451efb&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=baee0daeb7fd16f730b0b6dbe2a0a0b9"
+    ]
+  }
+}

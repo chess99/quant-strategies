@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/66.ETF动量轮动MA乖离择时.txt",
+    "category": "2022年度精选策略",
+    "file_name": "66.ETF动量轮动MA乖离择时.txt",
+    "strategy_name": "ETF动量轮动MA乖离择时",
+    "declared_title": "ETF动量轮动MA乖离择时",
+    "declared_author": "莫急莫急",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 5518,
+    "sha256": "a15036fa8a6ac1e3c648fe71e1a4f3644fd52d5ff8122b9a96a26e2948630630",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/35235"
+    ],
+    "primary_url": "https://www.joinquant.com/post/35235",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:21+08:00",
+    "requested_url": "https://www.joinquant.com/post/35235",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/116f28c9a329f4563be6be724059f916",
+    "community_id": "116f28c9a329f4563be6be724059f916",
+    "post": {
+      "postId": "2f06d024c08afcaea8a83406b01179c1",
+      "uniqueKey": "116f28c9a329f4563be6be724059f916",
+      "title": "ETF动量轮动MA乖离择时",
+      "content": "换了个择时标准：相对移动均线的乖离。\n结果好像大差不差，45%年化、20%最大回撤，尚可接受。\n\n思考：\n1、MA乖离择时因子与RSRS择时因子构造方法不太一样，但是思路一样，都是找出某个ETF的主升浪尽可能多持有一段时间。从结果看，二者达到了目的，不过RSRS更好一点。\n2、对于轮动问题，核心问题还是在于如何判断阶段性最强势的那个或者那几个，然后根据市场状况尽可能拿到它的主升浪涨幅，所以，除了动量因子衡量强弱，还有什么好的思路可以表征相对强势度呢？从本质上考虑，动量因子其实就是在赚趋势的钱，择时是为了更好的抓住趋势。\n3、根据备选池的思路，是否可以考虑构建一个沪深300指数的优选股池，比如质地好、流动性好等等，然后根据同样的思路，构建一个策略呢？\n\n轮动策略的核心还是股市行情的轮动特性，在泥沙俱下的情况下，比如21年春节那段行情，轮动也是很差的行情，因为所有的都差。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-11-01 14:42:13",
+      "modTime": "2021-11-01 14:42:13",
+      "lastActiveTime": "2024-09-28 22:25:11",
+      "lastPubTime": "2021-11-01 14:42:13",
+      "backtestId": "7412d580fe2ad180e62c002a0ce1c7e0",
+      "backtestName": "10.ETF动量轮动MA乖离择时",
+      "replyCount": "80",
+      "viewCount": "4108",
+      "collectionCount": "51",
+      "likeCount": "26",
+      "disLikeCount": "0",
+      "backtestCloneCount": "210",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "19",
+      "followersCount": "1787",
+      "followingCount": "13",
+      "author": {
+        "userId": "3f259c25dffecad9e34995bc04377157",
+        "alias": "莫急莫急"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "7412d580fe2ad180e62c002a0ce1c7e0",
+        "backtest_name": "10.ETF动量轮动MA乖离择时",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=7412d580fe2ad180e62c002a0ce1c7e0&postId=116f28c9a329f4563be6be724059f916&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2018-01-01",
+          "end_date": "2021-10-29",
+          "base_capital": 100000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "c666fd33ca4db14703871465fa9925f1",
+            "22338976"
+          ],
+          "numeric_backtest_id": "22338976",
+          "numeric_post_id": "35235",
+          "python_version": 3,
+          "clone_count": 208
+        },
+        "stats": {
+          "trading_days": 928,
+          "benchmark_volatility": 0.28654384701933,
+          "algorithm_volatility": 0.29188222334185,
+          "treasury_return": 0.15298630136986,
+          "algorithm_return": 3.0655716528,
+          "benchmark_return": 0.91177359997718,
+          "annual_algo_return": 0.45913429100417,
+          "annual_bm_return": 0.19074293079305,
+          "sharpe": 1.4359705987072,
+          "excess_return_sharpe": "1.122",
+          "sortino": 2.260449284708,
+          "information": 1.6265887856387,
+          "beta": 0.85300956318992,
+          "alpha": 0.29054912945443,
+          "excess_return": 1.126596817138,
+          "avg_excess_return": "0.09%",
+          "max_drawdown": 0.19549606731355,
+          "max_drawdown_period": [
+            "2021-02-10",
+            "2021-03-25"
+          ],
+          "excess_return_max_drawdown": "12.76%",
+          "excess_return_max_drawdown_period": [
+            "2020-08-31",
+            "2020-12-21"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-10",
+          "__version": 101,
+          "win_ratio": 0.58,
+          "profit_loss_ratio": 2.5733006571206,
+          "win_count": 29,
+          "lose_count": 21,
+          "day_win_ratio": 0.51508620689655,
+          "avg_trade_return": 0.033149112089734,
+          "avg_position_days": 232,
+          "turnover_rate": 0.05746581986364,
+          "report_done_seconds": 98.519429922104,
+          "report_done_cpu_seconds": 92.84
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 306.557165,
+          "benchmark_return_percent": 91.17736,
+          "annual_algo_return_percent": 45.913429,
+          "annual_bm_return_percent": 19.074293,
+          "max_drawdown_percent": 19.549607,
+          "algorithm_volatility_percent": 29.188222,
+          "benchmark_volatility_percent": 28.654385,
+          "win_ratio_percent": 58.0,
+          "day_win_ratio_percent": 51.508621,
+          "avg_trade_return_percent": 3.314911,
+          "turnover_rate_percent": 5.746582,
+          "sharpe": 1.4359705987072,
+          "sortino": 2.260449284708,
+          "information": 1.6265887856387,
+          "alpha": 0.29054912945443,
+          "beta": 0.85300956318992,
+          "profit_loss_ratio": 2.5733006571206,
+          "avg_position_days": 232,
+          "trading_days": 928,
+          "win_count": 29,
+          "lose_count": 21,
+          "max_drawdown_period": [
+            "2021-02-10",
+            "2021-03-25"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-08-31",
+            "2020-12-21"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/35235",
+      "https://www.joinquant.com/community/post/detailV2?postId=35235",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=7412d580fe2ad180e62c002a0ce1c7e0&postId=116f28c9a329f4563be6be724059f916&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=7412d580fe2ad180e62c002a0ce1c7e0"
+    ]
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/90.一个月轮动股票换仓，内日做T，相对高频交易.txt",
+    "category": "2023年度精选策略",
+    "file_name": "90.一个月轮动股票换仓，内日做T，相对高频交易.txt",
+    "strategy_name": "一个月轮动股票换仓，内日做T，相对高频交易",
+    "declared_title": "一个月轮动股票换仓，内日做T，相对高频交易",
+    "declared_author": "Pengpengpeng",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 18645,
+    "sha256": "b090b10b4b22f6363bfedcf35a7560e7e7bdd492aeb23fc30da04dc3a92f1e0e",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/34847",
+      "https://www.joinquant.com/post/34748"
+    ],
+    "primary_url": "https://www.joinquant.com/post/34847",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:09:47+08:00",
+    "requested_url": "https://www.joinquant.com/post/34847",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/c9057661c94e39afb0ff060d1ea3cc86",
+    "community_id": "c9057661c94e39afb0ff060d1ea3cc86",
+    "post": {
+      "postId": "b7b2d664272d15bba80339b6efa5aa5e",
+      "uniqueKey": "c9057661c94e39afb0ff060d1ea3cc86",
+      "title": "一个月轮动股票换仓，内日做T，相对高频交易",
+      "content": "欢迎大家交流：最近回测耗费太多积分了，回点血，回复必回。\n前言：顺T，逆T\n 根据前一个交易日的收盘价、最高价和最低价数据通过一定方式计算出六个价位，从大到小依次为：突破买入价、观察卖出价、反转卖出价、反转买入、观察买入价、突破卖出价。以此来形成当前交易日盘中交易的触发条件。\n\n**代码实现逻辑**\nhigh# 前一日的最高价\nlow# 前一日的最低价\nclose# 前一日的收盘价\npivot = (high + low+ close) / 3\nbBreak = high + 2 *(pivot - low) # 突破买入价\nsSetup = pivot + (high - low) # 观察卖出价\nsEnter = 2* pivot - low # 反转卖出价\nbEnter = 2 *pivot - high # 反转买入价\nbSetup = pivot - (high - low) # 观察买入价\nsBreak = low - 2* (high - pivot) # 突破卖出价\n当日内最高价超过观察卖出价后跌破反转卖出价: 卖出\n盘中价格跌破突破卖出价: 卖出\n当日最低价低于观察买入价后超过反转买入价: 买入\n盘中价格超过突破买入价: 买入\n** 这里我们做逆T，先卖后买，闲置股票不浪费**\n## 具体思想\n* 1 .当日内最高价超过观察卖出价后跌破反转卖出价: 卖出\n* 2.买入条件：\n1当日最低价低于观察买入价后超过反转买入价: 买入\n2.比卖出价低3%买入\n3.卖出当天14：50后，比卖出价低2%买入\n4.卖出第二天，比卖出价低2%买入，超过14：50后，低1%也买入\n[Link](https://www.joinquant.com/algorithm/backtest/detail?backtestId=b2da2e25aaf34b5af0b1ce5eb5391dc1)![Img]( https://image.joinquant.com/7ca11faf720245b54449799c3301c046) \n5.卖出第三天，低1%买入，超过14：50，直接买回\n** 回测太慢了**所以只回测了两个月，然后发出来挣一点积分，毕竟做T的策略还是很少的。\n选股策略参考：[【复现】FFScore财务模型】](https://www.joinquant.com/view/community/detail/c4bb321a8124ed575a66a88caf100b9f)\n整体t两个月胜率没有明显变化，0.6左右，收益提高了1.2%很少，最大回撤减少了一点。\n原来的策略代码没有改动，就是加了一个get_T,所以这里一下可以得到两个策略",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-10-05 23:29:39",
+      "modTime": "2021-10-05 23:29:39",
+      "lastActiveTime": "2025-08-29 14:45:47",
+      "lastPubTime": "2021-10-05 23:29:39",
+      "backtestId": "f8ef3bd77e1cc152b8a23995d3bb67ee",
+      "backtestName": "FFSCore-Clone",
+      "replyCount": "121",
+      "viewCount": "5226",
+      "collectionCount": "92",
+      "likeCount": "53",
+      "disLikeCount": "0",
+      "backtestCloneCount": "307",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "29",
+      "followersCount": "270",
+      "followingCount": "64",
+      "author": {
+        "userId": "8ceff75c02078318f1fea8f26c0d1539",
+        "alias": "Pengpengpeng",
+        "introduction": "每天一个小策略，挣积分，欢迎大家一起讨论",
+        "vipType": "VIP",
+        "headImgKey": "9194a4a6e0e71c2b1a75591c96d259c3"
+      },
+      "tags": [
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "f8ef3bd77e1cc152b8a23995d3bb67ee",
+        "backtest_name": "FFSCore-Clone",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=f8ef3bd77e1cc152b8a23995d3bb67ee&postId=c9057661c94e39afb0ff060d1ea3cc86&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2021-04-01",
+          "end_date": "2021-08-01",
+          "base_capital": 100000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "06e3dae6f0d66b5db025b2295fb875b5",
+            "22049704"
+          ],
+          "numeric_backtest_id": "22049704",
+          "numeric_post_id": "34847",
+          "python_version": 3,
+          "clone_count": 306
+        },
+        "stats": {
+          "trading_days": 82,
+          "benchmark_volatility": 0.12735576134132,
+          "algorithm_volatility": 0.17036307520066,
+          "treasury_return": 0.013150684931507,
+          "algorithm_return": 0.1450798,
+          "benchmark_return": 0.082066558257262,
+          "annual_algo_return": 0.51139261977137,
+          "annual_bm_return": 0.2718410880323,
+          "sharpe": 2.7669882057255,
+          "excess_return_sharpe": "1.094",
+          "sortino": 4.0100410468523,
+          "information": 1.7671794442556,
+          "beta": 0.8282527958155,
+          "alpha": 0.27936959042371,
+          "excess_return": 0.05823416430522,
+          "avg_excess_return": "0.07%",
+          "max_drawdown": 0.068382489855135,
+          "max_drawdown_period": [
+            "2021-07-22",
+            "2021-07-28"
+          ],
+          "excess_return_max_drawdown": "4.16%",
+          "excess_return_max_drawdown_period": [
+            "2021-04-22",
+            "2021-05-31"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-07",
+          "__version": 101,
+          "win_ratio": 0.61111111111111,
+          "profit_loss_ratio": 2.8600742421118,
+          "win_count": 44,
+          "lose_count": 28,
+          "day_win_ratio": 0.48780487804878,
+          "avg_trade_return": 0.023915229844454,
+          "avg_position_days": 34,
+          "turnover_rate": 0.089464431358895,
+          "report_done_seconds": 1511.2817618847,
+          "report_done_cpu_seconds": 1497.8
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 14.50798,
+          "benchmark_return_percent": 8.206656,
+          "annual_algo_return_percent": 51.139262,
+          "annual_bm_return_percent": 27.184109,
+          "max_drawdown_percent": 6.838249,
+          "algorithm_volatility_percent": 17.036308,
+          "benchmark_volatility_percent": 12.735576,
+          "win_ratio_percent": 61.111111,
+          "day_win_ratio_percent": 48.780488,
+          "avg_trade_return_percent": 2.391523,
+          "turnover_rate_percent": 8.946443,
+          "sharpe": 2.7669882057255,
+          "sortino": 4.0100410468523,
+          "information": 1.7671794442556,
+          "alpha": 0.27936959042371,
+          "beta": 0.8282527958155,
+          "profit_loss_ratio": 2.8600742421118,
+          "avg_position_days": 34,
+          "trading_days": 82,
+          "win_count": 44,
+          "lose_count": 28,
+          "max_drawdown_period": [
+            "2021-07-22",
+            "2021-07-28"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2021-04-22",
+            "2021-05-31"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/34847",
+      "https://www.joinquant.com/community/post/detailV2?postId=34847",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=f8ef3bd77e1cc152b8a23995d3bb67ee&postId=c9057661c94e39afb0ff060d1ea3cc86&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=f8ef3bd77e1cc152b8a23995d3bb67ee"
+    ]
+  }
+}

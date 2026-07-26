@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/40.RSI学习贴.txt",
+    "category": "2022年度精选策略",
+    "file_name": "40.RSI学习贴.txt",
+    "strategy_name": "RSI学习贴",
+    "declared_title": "RSI学习贴",
+    "declared_author": "蚂蚁量化",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 6336,
+    "sha256": "5674dbc6d55fbe6cd6d86867831b0e95c8ab8dade4cf49e1da1c02a244544c03",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/35994",
+      "https://www.joinquant.com/post/34794",
+      "https://www.joinquant.com/post/34021"
+    ],
+    "primary_url": "https://www.joinquant.com/post/35994",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:02+08:00",
+    "requested_url": "https://www.joinquant.com/post/35994",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/ec1ca06893f1e2ce8aba600f4b2d6cb8",
+    "community_id": "ec1ca06893f1e2ce8aba600f4b2d6cb8",
+    "post": {
+      "postId": "f59eeaac1782d9a0a3a57257e6e098e3",
+      "uniqueKey": "ec1ca06893f1e2ce8aba600f4b2d6cb8",
+      "title": "RSI学习贴",
+      "content": "克隆自聚宽文章：https://www.joinquant.com/post/34794\n标题：关于rsi策略有效性,年化依然有56%的收益\n作者：潜水的白鱼\n\n克隆自聚宽文章：https://www.joinquant.com/post/34021\n标题：RSRS+RSI择时策略，股票池从基金重仓股中选取。\n作者：Yeah_CD\n\n克隆自聚宽文章：https://www.joinquant.com/post/34021\n标题：RSRS+RSI择时策略，股票池从基金重仓股中选取。\n作者：Yeah_CD\n\n\n学习以上帖子后的作业：\n**注意哈，原策略有固定股票池，我没有做修改。**\n\n变化一\n增加语句避免取RSI空值出错中断程序：\n        try:\n            rsi = talib.RSI(prices['close'].values, timeperiod=6)[-1] #6日周期\n            rsi = int(rsi)\n        except:\n            rsi = 100\n变化二\nRSI 落入15到25区间买入\n变化三\nRSI小于10时，行情极冷，卖出\n###",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-12-28 08:51:07",
+      "modTime": "2022-02-04 08:10:04",
+      "lastActiveTime": "2023-11-16 13:38:32",
+      "lastPubTime": "2022-02-04 08:10:04",
+      "backtestId": "dfe171f42e6332cda6b739bca65e4016",
+      "backtestName": "RSI_学习贴",
+      "replyCount": "68",
+      "viewCount": "4337",
+      "collectionCount": "94",
+      "likeCount": "32",
+      "disLikeCount": "0",
+      "backtestCloneCount": "271",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "60",
+      "followersCount": "3872",
+      "followingCount": "5",
+      "author": {
+        "userId": "0e456e01c66429ce17704257397cce5a",
+        "alias": "蚂蚁量化",
+        "introduction": "交易模型，就是参与者的行为模型。WX: JQ2016-001",
+        "vipType": "VIP",
+        "headImgKey": "b902612ea09bdf430a87e71b42da8d1c"
+      },
+      "tags": [
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "dfe171f42e6332cda6b739bca65e4016",
+        "backtest_name": "RSI_学习贴",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=dfe171f42e6332cda6b739bca65e4016&postId=ec1ca06893f1e2ce8aba600f4b2d6cb8&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2020-01-01",
+          "end_date": "2021-12-27",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "83c41516c52a9529628c20853ec8d025",
+            "22995201"
+          ],
+          "numeric_backtest_id": "22995201",
+          "numeric_post_id": "35994",
+          "python_version": 3,
+          "clone_count": 271
+        },
+        "stats": {
+          "trading_days": 482,
+          "benchmark_volatility": 0.20746794935548,
+          "algorithm_volatility": 0.24149831703173,
+          "treasury_return": 0.079452054794521,
+          "algorithm_return": 2.653228176,
+          "benchmark_return": 0.2008358191467,
+          "annual_algo_return": 0.95814483993209,
+          "annual_bm_return": 0.099577769850604,
+          "sharpe": 3.8018684818059,
+          "excess_return_sharpe": "3.829",
+          "sortino": 6.130292265163,
+          "information": 4.468922578173,
+          "beta": 0.7487230027585,
+          "alpha": 0.87353759319189,
+          "excess_return": 2.0422378461328,
+          "avg_excess_return": "0.24%",
+          "max_drawdown": 0.12669756313434,
+          "max_drawdown_period": [
+            "2020-09-03",
+            "2020-09-10"
+          ],
+          "excess_return_max_drawdown": "10.14%",
+          "excess_return_max_drawdown_period": [
+            "2020-11-13",
+            "2021-01-13"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-12",
+          "__version": 101,
+          "win_ratio": 0.72340425531915,
+          "profit_loss_ratio": 5.7234434639767,
+          "win_count": 34,
+          "lose_count": 13,
+          "day_win_ratio": 0.58713692946058,
+          "avg_trade_return": 0.19834480980959,
+          "avg_position_days": 119.66666666667,
+          "turnover_rate": 0.013292460943072,
+          "report_done_seconds": 56.662828922272,
+          "report_done_cpu_seconds": 59.37
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 265.322818,
+          "benchmark_return_percent": 20.083582,
+          "annual_algo_return_percent": 95.814484,
+          "annual_bm_return_percent": 9.957777,
+          "max_drawdown_percent": 12.669756,
+          "algorithm_volatility_percent": 24.149832,
+          "benchmark_volatility_percent": 20.746795,
+          "win_ratio_percent": 72.340426,
+          "day_win_ratio_percent": 58.713693,
+          "avg_trade_return_percent": 19.834481,
+          "turnover_rate_percent": 1.329246,
+          "sharpe": 3.8018684818059,
+          "sortino": 6.130292265163,
+          "information": 4.468922578173,
+          "alpha": 0.87353759319189,
+          "beta": 0.7487230027585,
+          "profit_loss_ratio": 5.7234434639767,
+          "avg_position_days": 119.66666666667,
+          "trading_days": 482,
+          "win_count": 34,
+          "lose_count": 13,
+          "max_drawdown_period": [
+            "2020-09-03",
+            "2020-09-10"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-11-13",
+            "2021-01-13"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/35994",
+      "https://www.joinquant.com/community/post/detailV2?postId=35994",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=dfe171f42e6332cda6b739bca65e4016&postId=ec1ca06893f1e2ce8aba600f4b2d6cb8&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=dfe171f42e6332cda6b739bca65e4016"
+    ]
+  }
+}

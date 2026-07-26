@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/87.北上净买入策略.txt",
+    "category": "2022年度精选策略",
+    "file_name": "87.北上净买入策略.txt",
+    "strategy_name": "北上净买入策略",
+    "declared_title": "北上净买入策略",
+    "declared_author": "daa",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 5579,
+    "sha256": "1a47761ddc0c9eec361669d2324e235782e372ac094b88c5708abe044e70adf9",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/35902",
+      "https://www.joinquant.com/post/31797"
+    ],
+    "primary_url": "https://www.joinquant.com/post/35902",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:39+08:00",
+    "requested_url": "https://www.joinquant.com/post/35902",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/56d12e5080d8799bfa22d34d8966e3db",
+    "community_id": "56d12e5080d8799bfa22d34d8966e3db",
+    "post": {
+      "postId": "19106d7b6a5600f4a03bc5afb915e554",
+      "uniqueKey": "56d12e5080d8799bfa22d34d8966e3db",
+      "title": "北上净买入策略",
+      "content": "我看了论坛很多个北上资金策略,自己也想了一套策略\n\n1、选择每个月第七天净买入最多的沪深股票各一支\n2、持仓时间:一个月\n3、止损:16%止损\n4、2017年之前没有沪港通的数据,所以只能从17年开始回测,4年接近7倍的收益, 2018年跌11%,比沪深300好很多\n\n\n![Img]( https://image.joinquant.com/73c9b8cc8795361f0e400bc03ecdb51f) \n![Img]( https://image.joinquant.com/8cc54e72503d00962b490d7e514b225e)",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-12-20 19:55:48",
+      "modTime": "2021-12-20 19:55:48",
+      "lastActiveTime": "2023-02-27 09:56:11",
+      "lastPubTime": "2021-12-20 19:55:48",
+      "backtestId": "8705d21bf402c19d5c684aa818d6c2ca",
+      "backtestName": "北上每月净买入策略--个人开发版",
+      "replyCount": "95",
+      "viewCount": "2605",
+      "collectionCount": "54",
+      "likeCount": "30",
+      "disLikeCount": "0",
+      "backtestCloneCount": "225",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "6",
+      "followersCount": "40",
+      "followingCount": "95",
+      "author": {
+        "userId": "60e3b9daf18d886167cefa3381cbf031",
+        "alias": "daa",
+        "introduction": "静以修身",
+        "vipType": "VIP",
+        "headImgKey": "37e89287a9ae4b298f11f5221628e93b"
+      },
+      "tags": [
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "1788",
+          "name": "北上资金"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "8705d21bf402c19d5c684aa818d6c2ca",
+        "backtest_name": "北上每月净买入策略--个人开发版",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=8705d21bf402c19d5c684aa818d6c2ca&postId=56d12e5080d8799bfa22d34d8966e3db&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2017-01-01",
+          "end_date": "2021-12-19",
+          "base_capital": 100000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "56a4f3c404e41cdae9a6586bbb4952b0",
+            "22906472"
+          ],
+          "numeric_backtest_id": "22906472",
+          "numeric_post_id": "35902",
+          "python_version": 3,
+          "clone_count": 221
+        },
+        "stats": {
+          "trading_days": 1207,
+          "benchmark_volatility": 0.19062244362254,
+          "algorithm_volatility": 0.33101088784638,
+          "treasury_return": 0.19824657534247,
+          "algorithm_return": 6.89256640208,
+          "benchmark_return": 0.49687016627997,
+          "annual_algo_return": 0.53403907393996,
+          "annual_bm_return": 0.087138889177236,
+          "sharpe": 1.4925160835472,
+          "excess_return_sharpe": "1.482",
+          "sortino": 2.2857694362429,
+          "information": 1.7865858585773,
+          "beta": 1.1466864264504,
+          "alpha": 0.43998554956248,
+          "excess_return": 4.2727127441484,
+          "avg_excess_return": "0.15%",
+          "max_drawdown": 0.32050040289752,
+          "max_drawdown_period": [
+            "2018-01-26",
+            "2019-01-03"
+          ],
+          "excess_return_max_drawdown": "21.85%",
+          "excess_return_max_drawdown_period": [
+            "2021-02-04",
+            "2021-03-05"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-12",
+          "__version": 101,
+          "win_ratio": 0.63934426229508,
+          "profit_loss_ratio": 2.1091674809998,
+          "win_count": 78,
+          "lose_count": 44,
+          "day_win_ratio": 0.51615575807788,
+          "avg_trade_return": 0.040462582641254,
+          "avg_position_days": 48.04,
+          "turnover_rate": 0.052342701751335,
+          "report_done_seconds": 281.1415014267,
+          "report_done_cpu_seconds": 274.24
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 689.25664,
+          "benchmark_return_percent": 49.687017,
+          "annual_algo_return_percent": 53.403907,
+          "annual_bm_return_percent": 8.713889,
+          "max_drawdown_percent": 32.05004,
+          "algorithm_volatility_percent": 33.101089,
+          "benchmark_volatility_percent": 19.062244,
+          "win_ratio_percent": 63.934426,
+          "day_win_ratio_percent": 51.615576,
+          "avg_trade_return_percent": 4.046258,
+          "turnover_rate_percent": 5.23427,
+          "sharpe": 1.4925160835472,
+          "sortino": 2.2857694362429,
+          "information": 1.7865858585773,
+          "alpha": 0.43998554956248,
+          "beta": 1.1466864264504,
+          "profit_loss_ratio": 2.1091674809998,
+          "avg_position_days": 48.04,
+          "trading_days": 1207,
+          "win_count": 78,
+          "lose_count": 44,
+          "max_drawdown_period": [
+            "2018-01-26",
+            "2019-01-03"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2021-02-04",
+            "2021-03-05"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/35902",
+      "https://www.joinquant.com/community/post/detailV2?postId=35902",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=8705d21bf402c19d5c684aa818d6c2ca&postId=56d12e5080d8799bfa22d34d8966e3db&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=8705d21bf402c19d5c684aa818d6c2ca"
+    ]
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/71 【投资学】CAPM单因子回归模型+ROE股票池（含止损）.txt",
+    "category": "2020年度精选策略",
+    "file_name": "71 【投资学】CAPM单因子回归模型+ROE股票池（含止损）.txt",
+    "strategy_name": "【投资学】CAPM单因子回归模型+ROE股票池（含止损）",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 8216,
+    "sha256": "6a812af5a6d5ef36b7893d4de3b3d61023a9bec85f257cfd3f815f67ca9127e5",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/13973"
+    ],
+    "primary_url": "https://www.joinquant.com/post/13973",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:11+08:00",
+    "requested_url": "https://www.joinquant.com/post/13973",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/d89e822ca0702651366fed931199793d",
+    "community_id": "d89e822ca0702651366fed931199793d",
+    "post": {
+      "postId": "949a8c24eb5a9fb1e7d7714cd0c1aa71",
+      "uniqueKey": "d89e822ca0702651366fed931199793d",
+      "title": "【投资学】CAPM单因子回归模型+ROE股票池（含止损）",
+      "content": "**一.策略名称：**\r\nCAPM单因子回归模型+ROE股票池（含止损）\r\n\r\n**二.策略思路：**\r\n**1.确定股票池**\r\n由于ROE是直接反映股东投资收益的财务指标，从价值投资的角度来看，ROE对股票的估值有着非常重要的影响，所以，选择ROE作为筛选指标。在后续的研究中，通过不断地调节ROE的范围，发现限定条件为ROE在10%以上时，效果最佳，而在降低指标到5%以上或者是15%以上都难以获得更优的收益。\r\n因此，将ROE大于10%作为筛选条件，建立本次投资策略的股票池。\r\n**2.确定投资模型**\r\n结合网站的其他投资者的分享，利用代码实现了本学期学习的CAPM和APT模型两个模型。在进行实际预测时，发现APT的多因子模型相对复杂，且实际回报率不佳。\r\n因此，在本次策略中采用CAPM模型，以沪深300作为市场的回报率股票收益率，进行单因子回归，以获得α值。\r\n**3.交易策略**\r\n\t选取α值最大的前16支股票进行交易，每隔10天进行一次交易，交易金额根据股票的α值来确定。\r\n**4.止损策略**\r\n\t为了保证策略有一定的风险控制能力，在本策略中还加上了止损函数，止损点设置在30%。\r\n\r\n**三.程序逻辑：**\r\n1.进行初始化，设置相关的参数\r\n2.剔除停牌股票，设置可行股票池\r\n3.根据不同的时间段，设置滑点与手续费\r\n4.将股票价格转化为收益率，输入为121天的股票收盘价，获得120天回报率\r\n（第5~8步，每隔10天执行一次）\r\n5.计算股票超额收益以及市场收益，通过简单回归方程计算出股票池中各支股票的α值\r\n6.对股票的α值进行排序，选择α值最高的15支股票\r\n7.根据股票的α值，按比例计算出购入股票的价值\r\n8.判断目前持有的股票的市值是否符合前面计算出对应的股票市值，当不符合时，通过“order_target_value”函数来进行调整\r\n（每天收盘前，执行第9步）\r\n9. 止损函数，如果股票收盘价格除以平均成本小于0.7，即亏损超过30%时，卖出该只个股，进行止损\r\n\r\n**四.回测指标：**\r\n夏普指数为1.102，年回报率达到30%以上，接近表现优异的优质基金，α值为0.304表明组合有较高的超额收益。且最大回撤在15%左右，具有较为良好的风险控制能力。\r\n\r\n**五.策略开发心得：**\r\n**1.\t充分结合多种策略的优势**\r\n不同的交易策略中都有相对突出的部分，选股策略、估值策略、交易策略、止损策略等策略的不同组合都会产生不一样的投资效果，因此，可以通过参考各类投资策略中最有价值的部分来进行组合，形成一个更加成熟、高回报、稳健的策略。\r\n\r\n**2.\t投资组合中的股票数量要适中**\r\n不同的数量会使收益率有非常巨大的差别，其中16个股票数量收益率最高。数量更少的股票组合分散化程度不足；数量更多的股票，进一步分散的效果不明显，反而可能纳入质量较差的个股，降低组合回报率。\r\n\r\n**3.\t要有风险控制意识，设置合理的止损幅度（不宜过小）**\r\n因为目前宏观环境较为不确定，要建立起合理的止损区间。但止损区间不宜过小，过小的止损区间会导致过早卖出，错过价格反弹的时机，降低收益。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-07-26 19:07:54",
+      "modTime": "2018-07-26 19:07:54",
+      "lastActiveTime": "2023-05-05 20:30:24",
+      "lastPubTime": "2018-07-26 19:07:54",
+      "backtestId": "a5df3ac58766fc2e789701b0ecd967f5",
+      "backtestName": "【投资学】CAPM单因子回归模型+ROE股票池（含止损）",
+      "replyCount": "4",
+      "viewCount": "4512",
+      "collectionCount": "31",
+      "likeCount": "14",
+      "disLikeCount": "0",
+      "backtestCloneCount": "212",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "1",
+      "followersCount": "4",
+      "followingCount": "1",
+      "author": {
+        "userId": "9b89cce12be4760a7e138e8cd204e3fe",
+        "alias": "Summy",
+        "introduction": "佛系",
+        "headImgKey": "953176a7ea37c7c269045f72d2bc6f4a"
+      },
+      "tags": []
+    },
+    "backtests": [
+      {
+        "backtest_id": "a5df3ac58766fc2e789701b0ecd967f5",
+        "backtest_name": "【投资学】CAPM单因子回归模型+ROE股票池（含止损）",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=a5df3ac58766fc2e789701b0ecd967f5&postId=d89e822ca0702651366fed931199793d&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2017-06-01",
+          "end_date": "2018-06-30",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "7e19eb855602b173b827527fa4b3d827",
+            "9470430"
+          ],
+          "numeric_backtest_id": "9470430",
+          "numeric_post_id": "13973",
+          "python_version": 2,
+          "clone_count": 206
+        },
+        "stats": {
+          "information": 1.5429841499257,
+          "benchmark_return": 0.0051806751697605,
+          "algorithm_volatility": 0.24498648929143,
+          "annual_bm_return": 0.0048682983494051,
+          "__version": 101,
+          "max_drawdown": 0.14668564781968,
+          "sortino": 1.5633705477323,
+          "period_label": "2018-06",
+          "trading_days": 266,
+          "algorithm_return": 0.3327533,
+          "benchmark_volatility": 0.14871327114225,
+          "beta": 0.97322100663804,
+          "excess_return": 0.28968480684931,
+          "annual_algo_return": 0.30992376465838,
+          "sharpe": 1.1017904107246,
+          "alpha": 0.30411467470368,
+          "max_drawdown_period": [
+            "2017-12-01",
+            "2018-06-19"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.043068493150685,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.57894736842105,
+          "avg_position_days": 46.675324675325,
+          "win_ratio": 0.67883211678832,
+          "win_count": 93,
+          "avg_trade_return": 0.086314379155135,
+          "profit_loss_ratio": 1.9840888524588,
+          "lose_count": 44,
+          "report_done_seconds": 15.266523838043
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 33.27533,
+          "benchmark_return_percent": 0.518068,
+          "annual_algo_return_percent": 30.992376,
+          "annual_bm_return_percent": 0.48683,
+          "max_drawdown_percent": 14.668565,
+          "algorithm_volatility_percent": 24.498649,
+          "benchmark_volatility_percent": 14.871327,
+          "win_ratio_percent": 67.883212,
+          "day_win_ratio_percent": 57.894737,
+          "avg_trade_return_percent": 8.631438,
+          "sharpe": 1.1017904107246,
+          "sortino": 1.5633705477323,
+          "information": 1.5429841499257,
+          "alpha": 0.30411467470368,
+          "beta": 0.97322100663804,
+          "profit_loss_ratio": 1.9840888524588,
+          "avg_position_days": 46.675324675325,
+          "trading_days": 266,
+          "win_count": 93,
+          "lose_count": 44,
+          "max_drawdown_period": [
+            "2017-12-01",
+            "2018-06-19"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/13973",
+      "https://www.joinquant.com/community/post/detailV2?postId=13973",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=a5df3ac58766fc2e789701b0ecd967f5&postId=d89e822ca0702651366fed931199793d&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=a5df3ac58766fc2e789701b0ecd967f5"
+    ]
+  }
+}

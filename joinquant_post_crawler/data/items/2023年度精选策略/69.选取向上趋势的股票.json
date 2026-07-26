@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/69.选取向上趋势的股票.txt",
+    "category": "2023年度精选策略",
+    "file_name": "69.选取向上趋势的股票.txt",
+    "strategy_name": "选取向上趋势的股票",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 3537,
+    "sha256": "9dd7b93bfa071ac0d745b3de07edfc38113e2cba87ee4024abfc8f52ad63b090",
+    "joinquant_urls": [],
+    "primary_url": null,
+    "url_selection_method": "none"
+  },
+  "remote": null
+}

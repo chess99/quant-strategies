@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/30.ETF宽基轮动修改版-1.0.txt",
+    "category": "2025年度精选策略",
+    "file_name": "30.ETF宽基轮动修改版-1.0.txt",
+    "strategy_name": "ETF宽基轮动修改版-1.0",
+    "declared_title": "ETF宽基轮动修改版-1.0",
+    "declared_author": "几米哥",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 5781,
+    "sha256": "6448ae64f0343d555e7fc857850e149cf1fb8b0cdf666f74920bc778ac54b427",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/29165",
+      "https://www.joinquant.com/post/22833"
+    ],
+    "primary_url": "https://www.joinquant.com/post/29165",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:02+08:00",
+    "requested_url": "https://www.joinquant.com/post/29165",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/28343f32b3dcc441f5273c996a64a9a5",
+    "community_id": "28343f32b3dcc441f5273c996a64a9a5",
+    "post": {
+      "postId": "c4bb8e4a2d84004152d12404d49b5859",
+      "uniqueKey": "28343f32b3dcc441f5273c996a64a9a5",
+      "title": "ETF宽基轮动修改版-1.0",
+      "content": "### 前言\n随着ETF产品的日渐丰富，懒得选股的本人，最近想研究下ETF轮动的可行性，就在社区搜索了一下相关的帖子，看到智习的这篇ETF轮动策略，就克隆了一下，做出了一些相关改动，希望能够给大家的实现提供更多的选项。\n\n### 设计思路\n\n基本思想和部分代码均来源于聚宽这篇帖子，感谢原作者，我会标注一下我改动的地方，方便大家对比！\n\n[尚有潜力可挖的ETF轮动策略](https://www.joinquant.com/post/22833)\n\n该策略的主要目的，就是争取轮动持有股票组合中的强势品种（**我在原来的A股三个指数的基础上，加了港股，美股和黄金，因为相关性和A股比较低。这里的出发点是，如果A股找不到强势品种，看看其他市场有无强势品种。同时，我持有的强势品种不一定只有一个，根据强势品种的判断条件，可以最多持有四种，且根据他们的强势程度分配权重**），实在找不到强势品种时，才持有债券。\n\n### 策略理论依据\n\n股债轮动策略的理论基础是动量效应，而且是绝对动量和相对动量的结合。\n\n### 股票组合\n\n沪深300，中证500，创业板（使用指数计算交易信号，买卖指数跟踪的ETF。）**除了原来的三个A股指数，还添加了纳指ETF，标普500ETF，黄金ETF，恒生ETF**\n\n### 买卖条件\n\n【买入条件】（两个条件全部满足才买入）\n1、近13个交易日涨幅排名第一（不管涨幅的正负），主要用于判断哪个指数更强势。\n2、当前价大于近13个交易日均线，主要用于过滤假突破信号。\n\n【卖出条件】（两个条件满足一个就卖出）\n1、近13个交易日涨幅排名不是第一。\n2、当前价小于近13个交易日均线。\n\n*注意：这个策略的实现基本忠实白云飞的算法，除了加入13日涨幅大于0这个条件。*\n\n**原来代码里的判断条件，稍显复杂，我把上面的策略逻辑简化成：只有满足两个买入条件（涨幅为正，且排名第一，并受到均线支撑）的标的，才进入buy_list，然后只用buy_list去处理买卖动作，不在buy_list的就卖掉，然后买入buy_list的ETF产品。同时，当所有股票都不满足买入条件时，空仓持有债券，债券ETF的购买操作，我也实现了一下！**\n\n\n\n### 主要修改的地方\n\n智习的帖子最后提了很多可能改进的地方，我就尝试着用不同的方法解决一下：\n\n- 不同的交易时间对结果有多大的影响？**根据自身习惯，我把交易时间改成了10:30和14:30，貌似影响不大。**\n\n- 调整比价和均线周期天数，对结果有多大的影响？**原帖的天数是13，13，改了以后影响比较大，有点像magic number，所以我就改成比价周期20，均线周期10，至少是5的倍数，也比较常用，看起来没那么magic！**\n\n- 如何过滤震荡造成的反复打脸？单纯比较当日11:30收盘价和13日前收盘价，在震荡行情中会产生趋势误判。**趋势策略的一个大问题，就是震荡行情不好解决，太多假信号，这里我也没有太好的办法，不过我用前面体到的大类资产配置来缓解，相当于每次你多赌几个标的，成功的概率可能会提高。同时针对10日均线，我设置了一个偏离阈值g.ma_threshold来界定假突破，如果跌倒MA一下某个允许的范围再反弹，不算突破。**\n\n- 如何过滤不必要的调仓？当排名第一的基金和持仓基金涨幅几乎相同时，是否要调仓？**这里就是我用大类资产配置的另一个好处，就是如果发现前几个品种都差不多强势，没必要只买一个，把另一个换掉，产生无畏的调仓。多取几个标的，在前几名还是那几个标的的情况下，不需要大范围调仓。**\n\n- **多取几个标的，在多个资产都强势时，权重1/n是可以的，还能一定程度减小组合的回撤和风险，但是如果出现一个很强势，其他几个只是一般强势的话，就会导致策略不能以最大权重去追那个最好的标的，收益会下降，所以我又把权重设置按照强势程度进行了归一化调整，就是越强势的标的，越买的多，这样一定程度可以客服多资产配置因为分散化而失去的收益。**\n\n- 主要的log形式如下，涨幅大的，如果选进buy_list，给的权重也会越高，满足几个就买几个，只要不超过4个资产。\n![Img]( https://image.joinquant.com/34a8a5ef489004e53c8b74a426c6488f) \n- 是否要设置涨幅阈值，当涨幅高于一个设定值时，我们才认为这个指数处于上升趋势？**这个问题我也实现了一下，设了一个g.mtm_threshold作为强势检测的阈值，目前设为2%，就是过于一个月，连2%涨幅都没有的标的就不考虑在内。**\n\n### 进一步改进的想法\n\n- 纳入爆发力更强的行业基金是不是对收益带来正面影响？这次主要做的宽基ETF，下一阶段的实验目标就是行业ETF。\n\n- 简单均线可能不是最适合的判断强弱的技术指标，感觉反应还是有点慢，且太容易假摔，下一阶段会试试其他的技术指标。\n\n- 趋势跟踪策略，暴跌的时候总是跑不掉，震荡的时候反复亏损，所以我估计一定要加入合适的止损函数，这也是下一阶段的实验目标之一。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-09-01 15:15:27",
+      "modTime": "2020-09-01 15:15:27",
+      "lastActiveTime": "2026-04-11 14:29:09",
+      "lastPubTime": "2020-09-01 15:15:27",
+      "backtestId": "d743efc8895e14cd261a6292497e9d1f",
+      "backtestName": "ETF轮动宽基版v1",
+      "replyCount": "41",
+      "viewCount": "6546",
+      "collectionCount": "154",
+      "likeCount": "66",
+      "disLikeCount": "0",
+      "backtestCloneCount": "386",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "2",
+      "followersCount": "49",
+      "followingCount": "11",
+      "author": {
+        "userId": "df778fdd8116379e0b72e252fde71637",
+        "alias": "几米哥"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "12",
+          "name": "基金"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "d743efc8895e14cd261a6292497e9d1f",
+        "backtest_name": "ETF轮动宽基版v1",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=d743efc8895e14cd261a6292497e9d1f&postId=28343f32b3dcc441f5273c996a64a9a5&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2015-01-01",
+          "end_date": "2020-08-31",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "69d58e453a271832e6785425241ae956",
+            "18126905"
+          ],
+          "numeric_backtest_id": "18126905",
+          "numeric_post_id": "29165",
+          "python_version": 3,
+          "clone_count": 384
+        },
+        "stats": {
+          "trading_days": 1380,
+          "benchmark_volatility": 0.2452612371232,
+          "algorithm_volatility": 0.20057741836933,
+          "treasury_return": 0.22630136986301,
+          "algorithm_return": 2.346569081,
+          "benchmark_return": 0.36293969493732,
+          "annual_algo_return": 0.24461833541589,
+          "annual_bm_return": 0.057698065896388,
+          "sharpe": 1.0201464206659,
+          "excess_return_sharpe": "0.597",
+          "sortino": 1.2780183339739,
+          "information": 0.82339212634965,
+          "beta": 0.40604507838787,
+          "alpha": 0.19743212286168,
+          "excess_return": 1.455405102244,
+          "avg_excess_return": "0.08%",
+          "max_drawdown": 0.2017221739389,
+          "max_drawdown_period": [
+            "2015-06-12",
+            "2015-08-06"
+          ],
+          "excess_return_max_drawdown": "30.11%",
+          "excess_return_max_drawdown_period": [
+            "2016-02-29",
+            "2018-02-05"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-08",
+          "__version": 101,
+          "win_ratio": 0.68614845119813,
+          "profit_loss_ratio": 1.8832220547012,
+          "win_count": 1174,
+          "lose_count": 537,
+          "day_win_ratio": 0.51086956521739,
+          "avg_trade_return": 0.026059185612908,
+          "avg_position_days": 449,
+          "turnover_rate": 0.18209873981602,
+          "report_done_seconds": 298.63315010071,
+          "report_done_cpu_seconds": 284.87
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 234.656908,
+          "benchmark_return_percent": 36.293969,
+          "annual_algo_return_percent": 24.461834,
+          "annual_bm_return_percent": 5.769807,
+          "max_drawdown_percent": 20.172217,
+          "algorithm_volatility_percent": 20.057742,
+          "benchmark_volatility_percent": 24.526124,
+          "win_ratio_percent": 68.614845,
+          "day_win_ratio_percent": 51.086957,
+          "avg_trade_return_percent": 2.605919,
+          "turnover_rate_percent": 18.209874,
+          "sharpe": 1.0201464206659,
+          "sortino": 1.2780183339739,
+          "information": 0.82339212634965,
+          "alpha": 0.19743212286168,
+          "beta": 0.40604507838787,
+          "profit_loss_ratio": 1.8832220547012,
+          "avg_position_days": 449,
+          "trading_days": 1380,
+          "win_count": 1174,
+          "lose_count": 537,
+          "max_drawdown_period": [
+            "2015-06-12",
+            "2015-08-06"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2016-02-29",
+            "2018-02-05"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/29165",
+      "https://www.joinquant.com/community/post/detailV2?postId=29165",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=d743efc8895e14cd261a6292497e9d1f&postId=28343f32b3dcc441f5273c996a64a9a5&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=d743efc8895e14cd261a6292497e9d1f"
+    ]
+  }
+}

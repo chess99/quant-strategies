@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/32.追高概率涨停策略, 2022年化350%.txt",
+    "category": "2022年度精选策略",
+    "file_name": "32.追高概率涨停策略, 2022年化350%.txt",
+    "strategy_name": "追高概率涨停策略, 2022年化350%",
+    "declared_title": "追高概率涨停策略, 2022年化350%",
+    "declared_author": "养家大哥",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 13716,
+    "sha256": "85182e7dd841dd6c35edcc0ca3b23a66e7aa48e61cbbba69d89a76df4c61850a",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/39553"
+    ],
+    "primary_url": "https://www.joinquant.com/post/39553",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:55+08:00",
+    "requested_url": "https://www.joinquant.com/post/39553",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/9252101779ecf959bf3eebb769b171fb",
+    "community_id": "9252101779ecf959bf3eebb769b171fb",
+    "post": {
+      "postId": "bb4e32e4cfcf65fce3a917ab5994eec4",
+      "uniqueKey": "9252101779ecf959bf3eebb769b171fb",
+      "title": "追高概率涨停策略, 2022年化350%",
+      "content": "1. 过去出现涨停的股票，有更高的概率涨停\n2. 当下价格相对过去一段时间还未出现大涨的股票\n3. 过去一段时间还未出现高成交量的股票\n4. 最近出现价格波动较大的股票\n5. 集合竞价放量的股票\n\n该策略没有未来函数，且它未使用小市值因子，该策略适合大资金，并且流动性非常高，可以快速完成买入和卖出交易。大家可以在本基础上继续修改发展自己的策略。该策略是本人多个实盘策略之一， 不过我有很多策略，各位拿去修改自己的擅长的参数，祝各位赚到大钱，如果喜欢，请多多点赞。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2022-10-23 15:13:03",
+      "modTime": "2022-10-23 15:28:29",
+      "lastActiveTime": "2026-04-30 01:03:05",
+      "lastPubTime": "2022-10-23 15:28:29",
+      "backtestId": "83c153628a73df8ec4d6d15ab131ccb8",
+      "backtestName": "追高概率涨停策略V6",
+      "replyCount": "52",
+      "viewCount": "4931",
+      "collectionCount": "93",
+      "likeCount": "58",
+      "disLikeCount": "0",
+      "backtestCloneCount": "461",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "41",
+      "followersCount": "1736",
+      "followingCount": "32",
+      "author": {
+        "userId": "b0098b546d3f8eef418631abc08bf8db",
+        "alias": "养家大哥",
+        "introduction": "数学是我的心爱",
+        "vipType": "VIP"
+      },
+      "tags": [
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "83c153628a73df8ec4d6d15ab131ccb8",
+        "backtest_name": "追高概率涨停策略V6",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=83c153628a73df8ec4d6d15ab131ccb8&postId=9252101779ecf959bf3eebb769b171fb&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2022-01-01",
+          "end_date": "2022-10-21",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "6bc3e086a0569c97c2e147d21206e18b",
+            "26262078"
+          ],
+          "numeric_backtest_id": "26262078",
+          "numeric_post_id": "39553",
+          "python_version": 3,
+          "clone_count": 586
+        },
+        "stats": {
+          "trading_days": 192,
+          "benchmark_volatility": 0.20234533860689,
+          "algorithm_volatility": 0.45523721909078,
+          "treasury_return": 0.031780821917808,
+          "algorithm_return": 2.2189162229,
+          "benchmark_return": -0.24238670382987,
+          "annual_algo_return": 3.5822660836691,
+          "annual_bm_return": -0.30332421841935,
+          "sharpe": 7.7811434019913,
+          "excess_return_sharpe": "12.517",
+          "sortino": 12.864390849698,
+          "information": 8.8026505722304,
+          "beta": 0.65138986010892,
+          "alpha": 3.7659039982772,
+          "excess_return": 3.2487588842121,
+          "avg_excess_return": "0.79%",
+          "max_drawdown": 0.2606991700821,
+          "max_drawdown_period": [
+            "2022-07-05",
+            "2022-09-29"
+          ],
+          "excess_return_max_drawdown": "18.75%",
+          "excess_return_max_drawdown_period": [
+            "2022-05-23",
+            "2022-09-29"
+          ],
+          "max_leverage": 0,
+          "period_label": "2022-10",
+          "__version": 101,
+          "win_ratio": 0.39622641509434,
+          "profit_loss_ratio": 1.9937763559155,
+          "win_count": 42,
+          "lose_count": 64,
+          "day_win_ratio": 0.58854166666667,
+          "avg_trade_return": 0.043360805362468,
+          "avg_position_days": 5.2871287128713,
+          "turnover_rate": 0.17934646578682,
+          "report_done_seconds": 704.18554663658,
+          "report_done_cpu_seconds": 643.83
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 221.891622,
+          "benchmark_return_percent": -24.23867,
+          "annual_algo_return_percent": 358.226608,
+          "annual_bm_return_percent": -30.332422,
+          "max_drawdown_percent": 26.069917,
+          "algorithm_volatility_percent": 45.523722,
+          "benchmark_volatility_percent": 20.234534,
+          "win_ratio_percent": 39.622642,
+          "day_win_ratio_percent": 58.854167,
+          "avg_trade_return_percent": 4.336081,
+          "turnover_rate_percent": 17.934647,
+          "sharpe": 7.7811434019913,
+          "sortino": 12.864390849698,
+          "information": 8.8026505722304,
+          "alpha": 3.7659039982772,
+          "beta": 0.65138986010892,
+          "profit_loss_ratio": 1.9937763559155,
+          "avg_position_days": 5.2871287128713,
+          "trading_days": 192,
+          "win_count": 42,
+          "lose_count": 64,
+          "max_drawdown_period": [
+            "2022-07-05",
+            "2022-09-29"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2022-05-23",
+            "2022-09-29"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/39553",
+      "https://www.joinquant.com/community/post/detailV2?postId=39553",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=83c153628a73df8ec4d6d15ab131ccb8&postId=9252101779ecf959bf3eebb769b171fb&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=83c153628a73df8ec4d6d15ab131ccb8"
+    ]
+  }
+}

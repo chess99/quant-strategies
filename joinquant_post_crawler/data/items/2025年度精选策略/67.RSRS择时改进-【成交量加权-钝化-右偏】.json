@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/67.RSRS择时改进-【成交量加权-钝化-右偏】.txt",
+    "category": "2025年度精选策略",
+    "file_name": "67.RSRS择时改进-【成交量加权-钝化-右偏】.txt",
+    "strategy_name": "RSRS择时改进-【成交量加权-钝化-右偏】",
+    "declared_title": "RSRS择时改进-【成交量加权-钝化-右偏】",
+    "declared_author": "uuyue",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 7927,
+    "sha256": "491607d7f0c7157c5e9a03e77053c35415158db73583f19790f88996bcebc144",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/27399"
+    ],
+    "primary_url": "https://www.joinquant.com/post/27399",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:25+08:00",
+    "requested_url": "https://www.joinquant.com/post/27399",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/566ae9a1ab08d2a4bf4135beac15e78b",
+    "community_id": "566ae9a1ab08d2a4bf4135beac15e78b",
+    "post": {
+      "postId": "3d2fe3574159bd0e71d6e13bbe966a42",
+      "uniqueKey": "566ae9a1ab08d2a4bf4135beac15e78b",
+      "title": "RSRS择时改进-【成交量加权-钝化-右偏】",
+      "content": "光大证券2019年底出了RSRS改进的新研报：技术择时系列报告之六：RSRS择时，回顾与改进-20191117。\n研报中测试了3种优化方法：1. 时间加权，2.成交量加权，3.钝化。\n研报结论是：上证50、沪深300适合钝化RSRS，中证500、创业板指适合成交额加权钝化RSRS。\n但研报对比的是无偏标准分的3种优化方法，右偏标准分需要自己动手实现和测试。\n\n论坛中有人已经实现了这次的部分改进，但没有成交量加权-钝化的改进的策略（有研究），故发此贴。参考帖子：\nRSRS择时策略-钝化改进（策略）https://www.joinquant.com/post/24525\n【复现】RSRS择时改进（研究）\nhttps://www.joinquant.com/view/community/detail/32b60d05f16c7d719d7fb836687504d6?type=1\n\n研报中成交量加权的构造方式：\n![Img]( https://image.joinquant.com/37d76aae4bbf979a6e88e734acb25b9e) \n\n\n\n研报中钝化的构造方式：\n![Img]( https://image.joinquant.com/8a6247a58f1d9d6b6562dcd02af7c882) \n\n我的测试结果，最优参数肯定会有些过拟合，请不要直接使用，目的只是为了看单一策略的最大效果：\n![Img]( https://image.joinquant.com/2d5785b33143a452b44146bc46696281)",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-05-14 19:34:51",
+      "modTime": "2020-05-14 19:34:51",
+      "lastActiveTime": "2026-06-11 10:27:31",
+      "lastPubTime": "2020-05-14 19:34:51",
+      "backtestId": "699dde7e1329fd9104381add5498aa50",
+      "backtestName": "RSRS-成交量加权-右偏标准分-14_00-截至今日",
+      "replyCount": "44",
+      "viewCount": "5299",
+      "collectionCount": "132",
+      "likeCount": "49",
+      "disLikeCount": "0",
+      "backtestCloneCount": "297",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "142",
+      "fileName": "【6已看】【已复现】光大证券-技术择时系列报告之六：RSRS择时，回顾与改进-20191117.pdf",
+      "fileType": "application/pdf",
+      "fileSize": "2264137",
+      "postCount": "4",
+      "followersCount": "98",
+      "followingCount": "65",
+      "author": {
+        "userId": "8d1c2fa0ba80082298ac4812ee50ef74",
+        "alias": "uuyue",
+        "headImgKey": "7a442c374d7e5ce348d744a526597b4f"
+      },
+      "tags": [
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "264",
+          "name": "研报复现"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "699dde7e1329fd9104381add5498aa50",
+        "backtest_name": "RSRS-成交量加权-右偏标准分-14_00-截至今日",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=699dde7e1329fd9104381add5498aa50&postId=566ae9a1ab08d2a4bf4135beac15e78b&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2014-01-01",
+          "end_date": "2020-05-13",
+          "base_capital": 10000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "d31d92afc199e3d1e264acaeb60118c5",
+            "17047613"
+          ],
+          "numeric_backtest_id": "17047613",
+          "numeric_post_id": "27399",
+          "python_version": 3,
+          "clone_count": 238
+        },
+        "stats": {
+          "trading_days": 1549,
+          "benchmark_volatility": 0.23807363706211,
+          "algorithm_volatility": 0.16586208633588,
+          "treasury_return": 0.25457534246575,
+          "algorithm_return": 2.65363085718,
+          "benchmark_return": 0.70309090440894,
+          "annual_algo_return": 0.23259566768476,
+          "annual_bm_return": 0.089734001624064,
+          "sharpe": 1.1611795796101,
+          "excess_return_sharpe": "0.524",
+          "sortino": 1.5677752598494,
+          "information": 0.84233985682011,
+          "beta": 0.48893540974604,
+          "alpha": 0.16827895322239,
+          "excess_return": 1.1452940930643,
+          "avg_excess_return": "0.06%",
+          "max_drawdown": 0.14229769578185,
+          "max_drawdown_period": [
+            "2018-01-24",
+            "2018-10-18"
+          ],
+          "excess_return_max_drawdown": "17.05%",
+          "excess_return_max_drawdown_period": [
+            "2015-09-29",
+            "2015-12-22"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-05",
+          "__version": 101,
+          "win_ratio": 0.84615384615385,
+          "profit_loss_ratio": 41.253750163837,
+          "win_count": 11,
+          "lose_count": 2,
+          "day_win_ratio": 0.47062621045836,
+          "avg_trade_return": 0.13304470539859,
+          "avg_position_days": 1013,
+          "turnover_rate": 0.0076568658244649,
+          "report_done_seconds": 45.005877017975,
+          "report_done_cpu_seconds": 56.45
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 265.363086,
+          "benchmark_return_percent": 70.30909,
+          "annual_algo_return_percent": 23.259567,
+          "annual_bm_return_percent": 8.9734,
+          "max_drawdown_percent": 14.22977,
+          "algorithm_volatility_percent": 16.586209,
+          "benchmark_volatility_percent": 23.807364,
+          "win_ratio_percent": 84.615385,
+          "day_win_ratio_percent": 47.062621,
+          "avg_trade_return_percent": 13.304471,
+          "turnover_rate_percent": 0.765687,
+          "sharpe": 1.1611795796101,
+          "sortino": 1.5677752598494,
+          "information": 0.84233985682011,
+          "alpha": 0.16827895322239,
+          "beta": 0.48893540974604,
+          "profit_loss_ratio": 41.253750163837,
+          "avg_position_days": 1013,
+          "trading_days": 1549,
+          "win_count": 11,
+          "lose_count": 2,
+          "max_drawdown_period": [
+            "2018-01-24",
+            "2018-10-18"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2015-09-29",
+            "2015-12-22"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/27399",
+      "https://www.joinquant.com/community/post/detailV2?postId=27399",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=699dde7e1329fd9104381add5498aa50&postId=566ae9a1ab08d2a4bf4135beac15e78b&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=699dde7e1329fd9104381add5498aa50"
+    ]
+  }
+}

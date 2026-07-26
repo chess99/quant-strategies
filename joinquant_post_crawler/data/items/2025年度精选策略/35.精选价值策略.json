@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/35.精选价值策略.txt",
+    "category": "2025年度精选策略",
+    "file_name": "35.精选价值策略.txt",
+    "strategy_name": "精选价值策略",
+    "declared_title": "精选价值策略",
+    "declared_author": "BAFE",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 13862,
+    "sha256": "4c26a8f0fd82b21144224aa9977f9c7d2854fba59924c795e869496be5aa2a45",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/29574"
+    ],
+    "primary_url": "https://www.joinquant.com/post/29574",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:05+08:00",
+    "requested_url": "https://www.joinquant.com/post/29574",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/8a43c0f7254fd869befeb9171531de5f",
+    "community_id": "8a43c0f7254fd869befeb9171531de5f",
+    "post": {
+      "postId": "0838d20efd914c6cde0f04f58dc479e2",
+      "uniqueKey": "8a43c0f7254fd869befeb9171531de5f",
+      "title": "精选价值策略",
+      "content": "本策略改编自霍华·罗斯曼审慎致富投资法，在仓位上通过逐月进行风险平价调整持仓个股的仓位，从而达到价值精选+风险平衡策略的完美结合，使得策略的成功率小幅提升的同时，盈亏比却损失不大，策略的波动率相较于一般的价值投资策略出现大幅的下降，比市场整体波动都要小50%的不错效果。\n\n&gt; 背景：\n\n　　霍华．罗斯曼(Howard Rothman)是华尔街著名的投资分析公司-远见投资顾问公司(Vision Investment Advisor, VIA)的首席投资分析师，其领导的蓝酬股成长操作帐户(Blue Chip Growth Account)，自西元1997年成立以来，至2001年止，累积投资报酬率达49.27%，是标准普尔500指数(S&P500)的2倍以上，且历年操作绩效均优于标准普尔500指数。\n\n　　霍华．罗斯曼目前(2002/12)为远见投资顾问公司之总裁，曾为国家折扣券商协会(the National Introducing Brokers Association)的主席及创始会员；他于1990年一月被折扣券商会员(Introducing Broker membership)推荐进入国家期货协会董事会(the National Futures Association Board of Directors)担任董事，并被连任达3届！目前担任期货产业协会的纪律委员会(the Law and Compliance Division of the Futures Industry Association)会员。\n\n　　霍华．罗斯曼的投资方式，强调『在正确时机买入并紧握持股』，与『选择优质股票并长期持有』（…”buy right and hold tight” and ”buy strong and hold long”..） 。他认为只要在适当价格买入稳定且持续成长获利的公司股票，不需经常更换持股，投资报酬率必然指日可期。由此可见，霍华．罗斯曼的投资哲学虽然简单，却充分显现首席投资分析师的谨慎风范。\n\n\n&gt; \n###投资程序：\n\n　　霍华．罗斯曼强调其投资风格在于为投资大众建立均衡、且以成长为导向的投资组合。选股方式偏好大型股，管理良好且为领导产业趋势，以及产生实际报酬率的公司；不仅重视公司产生现金的能力，也强调有稳定成长能力的重要。\n\n&gt; 总市值大于等于50亿美元。\n\n&gt; 良好的财务结构。\n\n&gt; 较高的股东权益报酬。\n\n&gt; 拥有良好且持续的自由现金流量。\n\n&gt; 稳定持续的营收成长率。\n\n&gt; 优于比较指数的盈余报酬率。\n\n\n&gt; \n###选股标准：\n\n\n&gt; 总市值≧市场平均值*1.0。\n\n&gt; 最近一季流动比率≧市场平均值。\n\n&gt; 近四季股东权益报酬率≧市场平均值。\n\n&gt; 近五年自由现金流量均为正值。\n\n&gt; 近四季营收成长率介于6%至30%。\n\n&gt; 近四季盈余成长率介于8%至50%。\n\n\n###策略周期：\n\n\n&gt; 进入股池的个股平均分配资金。最大不超过5只。\n\n\n&gt; 逐月进行持仓价值再平衡。\n\n\n&gt; 5月，9月、11月月初为选股月，更新持仓股池。\n\n# 回测结果：\n![Img]( https://image.joinquant.com/98752ca7a794d980ec4fc5e696b7bdc0)\n最近更新：2020,10.12，修订statDate_value函数获取报告时间错误，但对结果影响不大，也说明价值股的长期稳定性较好。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-09-28 21:52:14",
+      "modTime": "2020-09-28 21:52:14",
+      "lastActiveTime": "2026-05-02 11:07:17",
+      "lastPubTime": "2020-09-28 21:52:14",
+      "backtestId": "2cc192227fd81a788563deddbe3a2e51",
+      "backtestName": "价值精选策略-68",
+      "replyCount": "27",
+      "viewCount": "4423",
+      "collectionCount": "83",
+      "likeCount": "45",
+      "disLikeCount": "0",
+      "backtestCloneCount": "223",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "39",
+      "followersCount": "1496",
+      "followingCount": "2",
+      "author": {
+        "userId": "e9314b0a744ae24ae7624f4701542a5d",
+        "alias": "BAFE1",
+        "introduction": "从事智能投顾产品研发，公司策略组组长",
+        "headImgKey": "4080027518ea7ba941a410589086f3d1"
+      },
+      "tags": [
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "2cc192227fd81a788563deddbe3a2e51",
+        "backtest_name": "价值精选策略-68",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=2cc192227fd81a788563deddbe3a2e51&postId=8a43c0f7254fd869befeb9171531de5f&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2012-12-01",
+          "end_date": "2020-09-26",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "6979e374af9e81c79caf100ca0572361",
+            "18490805"
+          ],
+          "numeric_backtest_id": "18490805",
+          "numeric_post_id": "29574",
+          "python_version": 3,
+          "clone_count": 223
+        },
+        "stats": {
+          "trading_days": 1903,
+          "benchmark_volatility": 0.23591527779884,
+          "algorithm_volatility": 0.17156857951927,
+          "treasury_return": 0.31265753424658,
+          "algorithm_return": 2.748918046204,
+          "benchmark_return": 1.1358634549414,
+          "annual_algo_return": 0.18958340152338,
+          "annual_bm_return": 0.10483282604193,
+          "sharpe": 0.87185778388155,
+          "excess_return_sharpe": "0.193",
+          "sortino": 1.2589841803591,
+          "information": 0.44952684683532,
+          "beta": 0.44511953538187,
+          "alpha": 0.1207250441181,
+          "excess_return": 0.75522364855799,
+          "avg_excess_return": "0.04%",
+          "max_drawdown": 0.23052620564479,
+          "max_drawdown_period": [
+            "2018-06-12",
+            "2018-10-30"
+          ],
+          "excess_return_max_drawdown": "45.89%",
+          "excess_return_max_drawdown_period": [
+            "2014-03-18",
+            "2015-06-08"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-09",
+          "__version": 101,
+          "win_ratio": 0.80978260869565,
+          "profit_loss_ratio": 4.3839262103192,
+          "win_count": 149,
+          "lose_count": 35,
+          "day_win_ratio": 0.49290593799264,
+          "avg_trade_return": 0.22690861145737,
+          "avg_position_days": 256.5,
+          "turnover_rate": 0.0048360070008378,
+          "report_done_seconds": 313.97563314438,
+          "report_done_cpu_seconds": 225.92
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 274.891805,
+          "benchmark_return_percent": 113.586345,
+          "annual_algo_return_percent": 18.95834,
+          "annual_bm_return_percent": 10.483283,
+          "max_drawdown_percent": 23.052621,
+          "algorithm_volatility_percent": 17.156858,
+          "benchmark_volatility_percent": 23.591528,
+          "win_ratio_percent": 80.978261,
+          "day_win_ratio_percent": 49.290594,
+          "avg_trade_return_percent": 22.690861,
+          "turnover_rate_percent": 0.483601,
+          "sharpe": 0.87185778388155,
+          "sortino": 1.2589841803591,
+          "information": 0.44952684683532,
+          "alpha": 0.1207250441181,
+          "beta": 0.44511953538187,
+          "profit_loss_ratio": 4.3839262103192,
+          "avg_position_days": 256.5,
+          "trading_days": 1903,
+          "win_count": 149,
+          "lose_count": 35,
+          "max_drawdown_period": [
+            "2018-06-12",
+            "2018-10-30"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2014-03-18",
+            "2015-06-08"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/29574",
+      "https://www.joinquant.com/community/post/detailV2?postId=29574",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=2cc192227fd81a788563deddbe3a2e51&postId=8a43c0f7254fd869befeb9171531de5f&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=2cc192227fd81a788563deddbe3a2e51"
+    ]
+  }
+}

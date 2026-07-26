@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/78首板低开策略-终极版 最大回撤15%，年化50%.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "78首板低开策略-终极版 最大回撤15%，年化50%.txt",
+    "strategy_name": "首板低开策略-终极版 最大回撤15%，年化50%",
+    "declared_title": "首板低开策略-终极版  最大回撤15%，年化50%",
+    "declared_author": "蓝猫量化",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 14659,
+    "sha256": "317641ff8498a7e2893c410aa1a45ab00e0582684d65a3f1fb84efd8e05115ba",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/49434"
+    ],
+    "primary_url": "https://www.joinquant.com/post/49434",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:12:34+08:00",
+    "requested_url": "https://www.joinquant.com/post/49434",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/f9b8116068a79c843a8ab9e0d457b129",
+    "community_id": "f9b8116068a79c843a8ab9e0d457b129",
+    "post": {
+      "postId": "b587a382ba8074be8cc1abacc5a59c76",
+      "uniqueKey": "f9b8116068a79c843a8ab9e0d457b129",
+      "title": "首板低开策略-终极版  最大回撤15%，年化50%",
+      "content": "感谢W神提供的原策略。站在巨人的肩膀了进行了一些魔改，原帖大家可以看：@wywy1995 \n下面说一下我的改动：\n1.重新整理了策略思路，用自己的风格重写了代码，基本每一句关键代码都添加了注释，方便大家阅读魔改。策略构建方式不是运行最快的，但是是最便于大家阅读和修改的，但核心都是双低。\n2.降低近3年最大回撤 将原最大回撤由19%降低到15%，收益由150%提高到300%\n3.增加了ST股，提高了出手频次。这也是主要的改动，主要之前W神的策略出手频次太低了，我又耐不住寂寞，就想着能不能空仓的时候打打野，这也是写这版策略的最初思路。\n4.针对ST容易连续跌停的情况添加了止损和风控函数。另外说一下策略在当日跌停或涨停的情况下，是继续持有的，所以不存在跌停情况下也强制卖出。\n5.现在的策略是主板ST都有的情况下，均等划分资金买入。你也可以试着主板为主，ST为辅助，有主板开仓就不买ST了，现在的策略代码上稍微修改一些买入代码就行。\n6.策略模拟数据是21年初到24年初，近3年的数据，针对今年开始小市值失效和频繁ST的情况，测试了数据集外（今年1-8月的情况）表现好像也还行，而且感觉还挺不错。\n\n最后说一下搞这个花了我100积分，欢迎大家克隆讨论，给我也回回血。最后，引用W神的一句话：如有意见，欢迎你写出更好的策略分享给大家，既赚积分又造福大众，少动嘴多动手",
+      "type": 1,
+      "status": "0",
+      "addTime": "2024-08-11 17:46:07",
+      "modTime": "2024-08-11 17:46:07",
+      "lastActiveTime": "2024-08-15 14:58:18",
+      "lastPubTime": "2024-08-11 17:46:07",
+      "backtestId": "4306ee82ac3663e2c08b2ee64bb76f9b",
+      "backtestName": "涨停低开-ST-主板",
+      "replyCount": "12",
+      "viewCount": "2906",
+      "collectionCount": "63",
+      "likeCount": "35",
+      "disLikeCount": "0",
+      "backtestCloneCount": "273",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "14",
+      "followersCount": "46",
+      "followingCount": "10",
+      "author": {
+        "userId": "644c2cc233802e8289ae67e297cf0e7a",
+        "alias": "蓝猫量化",
+        "headImgKey": "8638b12ce3c40046cd29cdbf36d2a089"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "4306ee82ac3663e2c08b2ee64bb76f9b",
+        "backtest_name": "涨停低开-ST-主板",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=4306ee82ac3663e2c08b2ee64bb76f9b&postId=f9b8116068a79c843a8ab9e0d457b129&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2021-01-01",
+          "end_date": "2024-08-10",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "ab5bd708087aefe78ac0de70a0291c8a",
+            "35947683"
+          ],
+          "numeric_backtest_id": "35947683",
+          "numeric_post_id": "49434",
+          "python_version": 3,
+          "clone_count": 251
+        },
+        "stats": {
+          "trading_days": 874,
+          "benchmark_volatility": 0.17089859886647,
+          "algorithm_volatility": 0.28500467860768,
+          "treasury_return": 0.1438904109589,
+          "algorithm_return": 3.288856103,
+          "benchmark_return": -0.36068996352151,
+          "annual_algo_return": 0.51661626066798,
+          "annual_bm_return": -0.12011585367797,
+          "sharpe": 1.672310303804,
+          "excess_return_sharpe": "2.060",
+          "sortino": 2.859651269497,
+          "information": 1.9275315009589,
+          "beta": 0.022468490099526,
+          "alpha": 0.48021382214112,
+          "excess_return": 5.7085699555482,
+          "avg_excess_return": "0.24%",
+          "max_drawdown": 0.15658672986576,
+          "max_drawdown_period": [
+            "2021-11-26",
+            "2022-01-25"
+          ],
+          "excess_return_max_drawdown": "23.81%",
+          "excess_return_max_drawdown_period": [
+            "2022-10-31",
+            "2023-01-30"
+          ],
+          "max_leverage": 0,
+          "period_label": "2024-08",
+          "__version": 101,
+          "win_ratio": 0.63473053892216,
+          "profit_loss_ratio": 2.0638475392574,
+          "win_count": 106,
+          "lose_count": 61,
+          "day_win_ratio": 0.54233409610984,
+          "avg_trade_return": 0.019072970642132,
+          "avg_position_days": 1.3424657534247,
+          "turnover_rate": 0.1286755137849,
+          "report_done_seconds": 1560.393707037,
+          "report_done_cpu_seconds": 1559.59
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 328.88561,
+          "benchmark_return_percent": -36.068996,
+          "annual_algo_return_percent": 51.661626,
+          "annual_bm_return_percent": -12.011585,
+          "max_drawdown_percent": 15.658673,
+          "algorithm_volatility_percent": 28.500468,
+          "benchmark_volatility_percent": 17.08986,
+          "win_ratio_percent": 63.473054,
+          "day_win_ratio_percent": 54.23341,
+          "avg_trade_return_percent": 1.907297,
+          "turnover_rate_percent": 12.867551,
+          "sharpe": 1.672310303804,
+          "sortino": 2.859651269497,
+          "information": 1.9275315009589,
+          "alpha": 0.48021382214112,
+          "beta": 0.022468490099526,
+          "profit_loss_ratio": 2.0638475392574,
+          "avg_position_days": 1.3424657534247,
+          "trading_days": 874,
+          "win_count": 106,
+          "lose_count": 61,
+          "max_drawdown_period": [
+            "2021-11-26",
+            "2022-01-25"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2022-10-31",
+            "2023-01-30"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/49434",
+      "https://www.joinquant.com/community/post/detailV2?postId=49434",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=4306ee82ac3663e2c08b2ee64bb76f9b&postId=f9b8116068a79c843a8ab9e0d457b129&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=4306ee82ac3663e2c08b2ee64bb76f9b"
+    ]
+  }
+}

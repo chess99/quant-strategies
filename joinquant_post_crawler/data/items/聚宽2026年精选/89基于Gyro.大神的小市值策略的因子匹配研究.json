@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/89基于Gyro.大神的小市值策略的因子匹配研究.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "89基于Gyro.大神的小市值策略的因子匹配研究.txt",
+    "strategy_name": "基于Gyro.大神的小市值策略的因子匹配研究",
+    "declared_title": "基于Gyro^.^大神的小市值策略的因子匹配研究",
+    "declared_author": "热情的刀",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 6289,
+    "sha256": "224ac31588d5edec82d5268ab1f2387464916aacde134836e964fc6cb06692b2",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/45272",
+      "https://www.joinquant.com/post/44563"
+    ],
+    "primary_url": "https://www.joinquant.com/post/45272",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:10:32+08:00",
+    "requested_url": "https://www.joinquant.com/post/45272",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/eac946e1dd6819cfb9419dda6b76fdf9",
+    "community_id": "eac946e1dd6819cfb9419dda6b76fdf9",
+    "post": {
+      "postId": "0156ed0d6ce61b158a0be203c10827a9",
+      "uniqueKey": "eac946e1dd6819cfb9419dda6b76fdf9",
+      "title": "基于Gyro^.^大神的小市值策略的因子匹配研究",
+      "content": "**原贴：**\nhttps://www.joinquant.com/post/44563\n作者：Gyro^.^\n\n**目标设定：**\n在G神策略的基础上尝试做以下改进：\n   1. 降低持股数量\n   2. 从股票池剔除68,8等股票\n   3. 选择新的基本面因子带入到模型中，提高胜率，降低回撤。\n\n**怎么做：\n**\n    从聚宽获取基本面指标（40余个），并将所有基本面指标逐一去极值后分成十份，将每份都带入到模型中进行选股，并根据选股结果计算收益，以判断因子的优劣。\n\n**步骤：**\n1. 开发环境的准备\n    Vscode ,python\n\n2. 数据的获取\n   获取哪些数据：\n                      1.与市值相关的指标库\n\t              2. 日线量价数据\n\t              3. 财务指标库\n\t              4.财务本报表库\n                      5.ST\n3. 原始数据的整理和计算\n4. 分因子计算持股\n5. 分因子计算收益\n6. 结果验证及回测\n\n\n![Img](https://image.joinquant.com/fba3cf81a51ecb9c42b1bb7cfaa083d3) \n稍微详细的处理过程在B站视频分享：\nhttps://space.bilibili.com/3546581500430434?spm_id_from=333.788.0.0\n请感兴趣的同学过去围观，并狠狠的投币点赞！\n\n**缺积分，请各位狠狠的克隆，谢谢！**",
+      "type": 1,
+      "status": "0",
+      "addTime": "2023-12-01 09:49:04",
+      "modTime": "2023-12-01 09:49:04",
+      "lastActiveTime": "2025-08-03 21:22:53",
+      "lastPubTime": "2023-12-01 09:49:04",
+      "backtestId": "44a1b1eb5b142258df5941fceccace9f",
+      "backtestName": "小市值研究--因子测试",
+      "replyCount": "87",
+      "viewCount": "4711",
+      "collectionCount": "83",
+      "likeCount": "55",
+      "disLikeCount": "0",
+      "backtestCloneCount": "292",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "13",
+      "followersCount": "300",
+      "followingCount": "11",
+      "author": {
+        "userId": "d070e7f7ecba508f7091e660b0dd7b3d",
+        "alias": "热情的刀"
+      },
+      "tags": [
+        {
+          "id": "1395",
+          "name": "本地数据JQData"
+        },
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "44a1b1eb5b142258df5941fceccace9f",
+        "backtest_name": "小市值研究--因子测试",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=44a1b1eb5b142258df5941fceccace9f&postId=eac946e1dd6819cfb9419dda6b76fdf9&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2023-01-01",
+          "end_date": "2023-11-03",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "397c1c99a850281de0aef3844363105b",
+            "31263270"
+          ],
+          "numeric_backtest_id": "31263270",
+          "numeric_post_id": "45272",
+          "python_version": 3,
+          "clone_count": 292
+        },
+        "stats": {
+          "trading_days": 202,
+          "benchmark_volatility": 0.13691422144761,
+          "algorithm_volatility": 0.22733585458656,
+          "treasury_return": 0.033315068493151,
+          "algorithm_return": 0.687523675884,
+          "benchmark_return": -0.074255546113652,
+          "annual_algo_return": 0.91095229250661,
+          "annual_bm_return": -0.09107382043071,
+          "sharpe": 3.8311259527915,
+          "excess_return_sharpe": "4.705",
+          "sortino": 7.9960196870927,
+          "information": 4.4421732458139,
+          "beta": 0.52131840657924,
+          "alpha": 0.9392834877178,
+          "excess_return": 0.82288283640225,
+          "avg_excess_return": "0.31%",
+          "max_drawdown": 0.1218200313579,
+          "max_drawdown_period": [
+            "2023-03-24",
+            "2023-04-25"
+          ],
+          "excess_return_max_drawdown": "11.35%",
+          "excess_return_max_drawdown_period": [
+            "2023-03-22",
+            "2023-04-25"
+          ],
+          "max_leverage": 0,
+          "period_label": "2023-11",
+          "__version": 101,
+          "win_ratio": 0.85714285714286,
+          "profit_loss_ratio": 30.686806125239,
+          "win_count": 24,
+          "lose_count": 4,
+          "day_win_ratio": 0.57920792079208,
+          "avg_trade_return": 0.098916452435979,
+          "avg_position_days": 38.615384615385,
+          "turnover_rate": 0.030544523797382,
+          "report_done_seconds": 176.99199318886,
+          "report_done_cpu_seconds": 127.77
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 68.752368,
+          "benchmark_return_percent": -7.425555,
+          "annual_algo_return_percent": 91.095229,
+          "annual_bm_return_percent": -9.107382,
+          "max_drawdown_percent": 12.182003,
+          "algorithm_volatility_percent": 22.733585,
+          "benchmark_volatility_percent": 13.691422,
+          "win_ratio_percent": 85.714286,
+          "day_win_ratio_percent": 57.920792,
+          "avg_trade_return_percent": 9.891645,
+          "turnover_rate_percent": 3.054452,
+          "sharpe": 3.8311259527915,
+          "sortino": 7.9960196870927,
+          "information": 4.4421732458139,
+          "alpha": 0.9392834877178,
+          "beta": 0.52131840657924,
+          "profit_loss_ratio": 30.686806125239,
+          "avg_position_days": 38.615384615385,
+          "trading_days": 202,
+          "win_count": 24,
+          "lose_count": 4,
+          "max_drawdown_period": [
+            "2023-03-24",
+            "2023-04-25"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2023-03-22",
+            "2023-04-25"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/45272",
+      "https://www.joinquant.com/community/post/detailV2?postId=45272",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=44a1b1eb5b142258df5941fceccace9f&postId=eac946e1dd6819cfb9419dda6b76fdf9&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=44a1b1eb5b142258df5941fceccace9f"
+    ]
+  }
+}

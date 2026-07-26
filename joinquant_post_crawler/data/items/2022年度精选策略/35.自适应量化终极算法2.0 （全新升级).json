@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/35.自适应量化终极算法2.0 （全新升级).txt",
+    "category": "2022年度精选策略",
+    "file_name": "35.自适应量化终极算法2.0 （全新升级).txt",
+    "strategy_name": "自适应量化终极算法2.0 （全新升级)",
+    "declared_title": "自适应量化终极算法2.0 （全新升级）",
+    "declared_author": "JinnyKoo",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 12194,
+    "sha256": "37fa7f251f745ed580dbebb3d057401573c7df9ed76351e76df2f326fe80053f",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/38623"
+    ],
+    "primary_url": "https://www.joinquant.com/post/38623",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:56+08:00",
+    "requested_url": "https://www.joinquant.com/post/38623",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/e982211db6295a82036db522b21ea844",
+    "community_id": "e982211db6295a82036db522b21ea844",
+    "post": {
+      "postId": "4637bc15a8ca4a9d04952e0800a20743",
+      "uniqueKey": "e982211db6295a82036db522b21ea844",
+      "title": "自适应量化终极算法2.0 （全新升级）",
+      "content": "相对于（[1.0版本](https://www.joinquant.com/view/community/detail/0e16e4f33cb4e4d241bab8f0f2ca5f7e)）升级了\n\n- 用Dynamic Time Warping （DTW）代替简单的K-means， 以更好的适应时间序列数据， 并做了优化。\n\n- 全市场选股。\n\n算法思路参考 [《量化技术分析终极算法1.0 》](https://www.joinquant.com/view/community/detail/cbcd0bd305924e5124033ab60028e03a)\n\n\n参考\n\n- 1. [Time Series Classification and Clustering](https://nbviewer.org/github/alexminnaar/time-series-classification-and-clustering/blob/master/Time Series Classification and Clustering.ipynb)",
+      "type": 1,
+      "status": "0",
+      "addTime": "2022-07-30 09:23:44",
+      "modTime": "2022-07-30 09:24:43",
+      "lastActiveTime": "2022-08-23 21:59:09",
+      "lastPubTime": "2022-07-30 09:24:43",
+      "backtestId": "308f540e74a9ebee2aa84828c27f88ea",
+      "backtestName": "utlimate strategy 2.0",
+      "replyCount": "82",
+      "viewCount": "3167",
+      "collectionCount": "52",
+      "likeCount": "31",
+      "disLikeCount": "0",
+      "backtestCloneCount": "226",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "17",
+      "followersCount": "214",
+      "followingCount": "0",
+      "author": {
+        "userId": "0331e01eef5ec5cb885fd4fdc0569b94",
+        "alias": "JinnyKoo",
+        "introduction": "xding.info",
+        "headImgKey": "aa8e5ba3f625364d8704559e96922d0a"
+      },
+      "tags": [
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "13",
+          "name": "机器学习"
+        },
+        {
+          "id": "8",
+          "name": "事件驱动"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "308f540e74a9ebee2aa84828c27f88ea",
+        "backtest_name": "utlimate strategy 2.0",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=308f540e74a9ebee2aa84828c27f88ea&postId=e982211db6295a82036db522b21ea844&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2022-01-01",
+          "end_date": "2022-07-28",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "6d1f568cdcc3203475540e8cb1a35f8c",
+            "25455673"
+          ],
+          "numeric_backtest_id": "25455673",
+          "numeric_post_id": "38623",
+          "python_version": 3,
+          "clone_count": 223
+        },
+        "stats": {
+          "trading_days": 137,
+          "benchmark_volatility": 0.21746494581642,
+          "algorithm_volatility": 0.33485056801594,
+          "treasury_return": 0.022465753424658,
+          "algorithm_return": 0.300230105,
+          "benchmark_return": -0.1446652781067,
+          "annual_algo_return": 0.61460424498327,
+          "annual_bm_return": -0.24809881248876,
+          "sharpe": 1.7160020016926,
+          "excess_return_sharpe": "3.618",
+          "sortino": 2.2878732444243,
+          "information": 2.8231336341713,
+          "beta": 0.69817329143144,
+          "alpha": 0.77574714115603,
+          "excess_return": 0.52014184823681,
+          "avg_excess_return": "0.32%",
+          "max_drawdown": 0.17834797498264,
+          "max_drawdown_period": [
+            "2022-03-02",
+            "2022-04-28"
+          ],
+          "excess_return_max_drawdown": "12.74%",
+          "excess_return_max_drawdown_period": [
+            "2022-01-17",
+            "2022-01-27"
+          ],
+          "max_leverage": 0,
+          "period_label": "2022-07",
+          "__version": 101,
+          "win_ratio": 0.57647058823529,
+          "profit_loss_ratio": 1.9025975770274,
+          "win_count": 49,
+          "lose_count": 36,
+          "day_win_ratio": 0.58394160583942,
+          "avg_trade_return": 0.019448399180843,
+          "avg_position_days": 7.1686746987952,
+          "turnover_rate": 0.12074127628785,
+          "report_done_seconds": 4179.7877993584,
+          "report_done_cpu_seconds": 4180.19
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 30.023011,
+          "benchmark_return_percent": -14.466528,
+          "annual_algo_return_percent": 61.460424,
+          "annual_bm_return_percent": -24.809881,
+          "max_drawdown_percent": 17.834797,
+          "algorithm_volatility_percent": 33.485057,
+          "benchmark_volatility_percent": 21.746495,
+          "win_ratio_percent": 57.647059,
+          "day_win_ratio_percent": 58.394161,
+          "avg_trade_return_percent": 1.94484,
+          "turnover_rate_percent": 12.074128,
+          "sharpe": 1.7160020016926,
+          "sortino": 2.2878732444243,
+          "information": 2.8231336341713,
+          "alpha": 0.77574714115603,
+          "beta": 0.69817329143144,
+          "profit_loss_ratio": 1.9025975770274,
+          "avg_position_days": 7.1686746987952,
+          "trading_days": 137,
+          "win_count": 49,
+          "lose_count": 36,
+          "max_drawdown_period": [
+            "2022-03-02",
+            "2022-04-28"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2022-01-17",
+            "2022-01-27"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/38623",
+      "https://www.joinquant.com/community/post/detailV2?postId=38623",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=308f540e74a9ebee2aa84828c27f88ea&postId=e982211db6295a82036db522b21ea844&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=308f540e74a9ebee2aa84828c27f88ea"
+    ]
+  }
+}

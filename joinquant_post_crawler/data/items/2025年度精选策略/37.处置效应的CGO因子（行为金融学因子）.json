@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/37.处置效应的CGO因子（行为金融学因子）.txt",
+    "category": "2025年度精选策略",
+    "file_name": "37.处置效应的CGO因子（行为金融学因子）.txt",
+    "strategy_name": "处置效应的CGO因子（行为金融学因子）",
+    "declared_title": "处置效应的CGO因子（行为金融学因子）",
+    "declared_author": "BAFE",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 9026,
+    "sha256": "bdd2afe74b8cb9c64406ca3652f79280747be21a75e467b608d68fe5675e15b4",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/27009"
+    ],
+    "primary_url": "https://www.joinquant.com/post/27009",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:05+08:00",
+    "requested_url": "https://www.joinquant.com/post/27009",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/42afd6119b58f3f3a07f65d00e757111",
+    "community_id": "42afd6119b58f3f3a07f65d00e757111",
+    "post": {
+      "postId": "5e7167215cd05dc3382d61f463609b13",
+      "uniqueKey": "42afd6119b58f3f3a07f65d00e757111",
+      "title": "处置效应的CGO因子（行为金融学因子）",
+      "content": "**前景理论与行为金融**\n\n- 传统的因子研究均基于历史上有效市场风格的选取、回测，但今年以来风格因子全面失效，风格因子逐渐从Alpha因子转为风险因子。\n行为金融学则是从微观个体行为以及产生这种行为的心理等动因来解释、 研究和预测市场的发展。其挖掘的是 市场波动的更深层次的驱动因素。\n自20世纪80年代起，行为金融学逐步发展，越来越多的结论在市场上得 到了定量化的论证。这些学术成果都 可以尝试转化为有效的Alpha因子。\n市场风格可能随时失效，但个体的非理性行为永远存在——挖掘行为金融因子!\n处置效应(Disposition Effect)\n投资者在处置股票时，倾向卖出盈利的股票、继续持有亏损的股票，也就是所谓的“出赢保亏”效应。\n当投资者处于盈利状态时是风险回避者，而处于亏损状态时则是风险偏好者。\n假如:A持有某只股票，买入价为10元，投资者B持有同一只股票，买入价为20元。该股昨日收盘价为16元，今 天跌到15元。请问:AB两位投资者， 谁的感觉更差?\n\n**如何解释处置效应?**\n\n    **前景理论(Prospect Theory)**\n    Kahneman和Tversky用前景理论解释处置效应\n    “参照依赖”是前景理论四个原理之一。前景理论四原理包括： \n    第一，确定效应，处于收益状态时，多数人是风险厌恶者；第二，反射效应，处于损失状态时，多数人是风险喜好者；第三，损失规避，多数人对损失比对收益更敏感；第四，参照依赖，多数人对得失的判断往往由参照点决定。\n     前景理论最重要也最有用的发现之一是：当我们做有关收益和有关损失的决策时表现出的不对称性。对此，就连传统经济学的坚定捍卫者——保罗·萨缪尔森也不得不承认：“增加100元收入所带来的效用，小于失去100元所带来的效用。”\n    假设有这样一个游戏，投一枚硬币，正面为赢，反面为输。如果赢了可以获得50000元，输了失去50000元。请问你是否愿意赌一把？请作出你的选择。A.愿意；B.不愿意。\n    从整体上来说，这个赌局输赢的可能性相同，就是说这个游戏的结果期望值为零，是绝对公平的赌局。你会选择参与这个赌局吗？但大量类似实验的结果证明，多数人不愿意玩这个游戏。为什么人们会作出这样的选择呢？\n      根据参照依赖原理，人们对损失要比对相同数量的收益敏感得多，因此即使股票账户有涨有跌，人们也会更加频繁地为每日的损失而痛苦，最终将股票抛掉。一般人因为这种损失规避，会放弃本可以获利的投资。这其实也可以用前景理论的第三个原理即损失规避来解释：大多数人对损失和获得的敏感程度不对称，面对损失的痛苦感要大大超过面对获得的快乐感。虽然出现正反面的概率是相同的，但是人们对“失”比对“得”敏感。想到可能会输掉50000元，这种不舒服的程度超过了想到有同样可能赢来50000元的快乐。\n    总结下来就是，人们不仅看重财富的绝对量，更加看重的是财富的变化量。当人们面临条件相当的盈利前景时更加倾向于兑现盈利(风险规避)；而面临条件相当的损失前景时更加倾向于风险偏好。人们对损失和获得的敏感程度是不同的，人们对损失比对获得更敏感。前期的决策的实际结果会影响后期的风险态度和决策。前期盈利可以使人的风险偏好增强，还可以降低后期的损失;而前期的损失会加剧以后亏损的痛苦，风险厌恶程度也相应提高\n**前景理论：价值函数**\n    前景理论使用S形的价值函数描述投资者在不同盈亏程度下的效用。\n传统效用理论:效用函数——全局凹函数\n前景理论:投资者的风险偏好存在突变：投资者在处于亏损状态时，是风险偏好的，而处于盈利状态时则是风险厌恶的。\n![Img]( https://image.joinquant.com/4f914d931c56151b417541974a693d08) \n另外，通过价值函数的斜率阐释了投资者的行为随着盈亏状态的非对称变化(处置效应)：\n投资者在处于高度盈利状态A时效用增加缓慢，风险规避，从而倾向于抛售获利股票。\n在处于深度亏损状态B时，由于效用函数平缓下降， 有过度自信的惜售心理，甚至“越跌越补”，股价则有较大的反转可能。\n参考价格与CGO因子\n参考价格(Reference Price)的定义\n投资者行为发生突变的参考价格点在哪里?所有的投资者 的参考价格都一致吗?\n显然投资者心中的参考价格与过去买入的成本价有关，并且与昨日的市价有关。如果以均线作为参考价格(RP)， 只包含了股价最近的信息，却丢失了过往的交易信息。\n以Grinblatt(2005)提出的以260周交易数据定义的参考 价格(RP)计算公式为基础，考虑到A股市场短线交易者 众多，我们提出了如下的基于过去100日成交均价按照换 手率加权平均的RP的算法:\n![Img]( https://image.joinquant.com/62dc75693f9f26693b09fc9c69bd0a5c) \n\n策略的核心就是衡量在某只股票上多数投资者盈利还是亏损。这里需要计算一个大多数投资者的成本价，研报中叫参考价格（Reference Price），将其与最新价对比即可。如何计算这个成本价呢？类似于筹码分布，这里用股票每日均价、换手率来计算。一天的均价相当于当日所有开仓投资者的平均成本。计算方法为：往前推N个交易日，每日成交均价乘以当日换手率并连乘后续日期的“不换手率”，即为当天成本“延续”到现在的比例，把所有\"N个交易日延续到现在的成本\"根据比例加权平均即为成本价。\n![Img]( https://image.joinquant.com/47ed534899b07d648c54709a6bf757ee) \n这里RP即为参考价格，k是归一化权重，作用是让权重之和为1，V是换手率，P是价格。例如某只股票昨天的成交均价是5元，换手率是10%，那么认为有10%的资金开仓成本价是5元。前天成交均价是6元，换手率是20%，那么前天有20%的资金成本价是6元，（而昨日换手率是10%，说明有10%的部分卖出去了，剩下90%不动），进而延续到今天的部分是20%*(1-10%)=18%，每一天都以此类推。最后把权重归一化，对均价求加权平均，即为所有投资者平均的成本价。\n这里的参数N从直觉上来讲不敏感，因为越往前延续到今天的比例越低，权重不断递减。研报里N=100。正是因为N不敏感，所以研报里只剔除停牌日在50%以上的个股（停牌日换手率为0不影响计算）。这里也是这么处理的。\n#数据总结\n由于这个因子计算时间实在是太久，我回测了一个全市场十年的用212分钟做回测。本做因子分析也用了三个小时，没有做各分类指数的测试，以及市值中性化的对照。数据整体分为5天（一周）和22天（一个月）两个持仓周期进行分析。因子分析的具体数据如下：\n因子收益分布：我们把因子按大小分成了十组，数据来看，第10组收益最高，但收益最低的却不是第一组，是第二组，因子收益分布并不是单调函数，而是凹函数特征。这给后面多空对冲测试组带来了一定的困惑。累积收益情况来看，第10组和第1组表现相对较好，在下跌市场中第10组更优，市场表现出处置效应，但是在上涨市场，第1组表现更好，体现出强者恒强的特性。具体的情况大家可以查看研究数据和回撤！在此不做过多的赘述！\n本文回撤代码大量参考了《行为金融因子（一）-基于处置效应的CGO因子》，我仅做了部分的优化，和修订，感谢cufewxy楼主的分享。参考了广发证券研报《资本利得突出量CGO与风险偏好》，但结论和研报有很大的出入，整体还是个不错的因子。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-04-22 14:32:05",
+      "modTime": "2020-04-22 14:32:05",
+      "lastActiveTime": "2022-06-10 12:36:06",
+      "lastPubTime": "2020-04-22 14:32:05",
+      "backtestId": "a3f916fbec3a2e4f6bd092b3b6841aa0",
+      "backtestName": "基于处置效应的CGO因子",
+      "replyCount": "14",
+      "viewCount": "5454",
+      "collectionCount": "90",
+      "likeCount": "47",
+      "disLikeCount": "0",
+      "backtestCloneCount": "141",
+      "notebookCloneCount": "58",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "39",
+      "followersCount": "1496",
+      "followingCount": "2",
+      "author": {
+        "userId": "ec49cefc47403a3e3b1c12222366eda5",
+        "alias": "BAFE1",
+        "introduction": "从事智能投顾产品研发，公司策略组组长",
+        "headImgKey": "4080027518ea7ba941a410589086f3d1"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "295",
+          "name": "研报分享"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "a3f916fbec3a2e4f6bd092b3b6841aa0",
+        "backtest_name": "基于处置效应的CGO因子",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=a3f916fbec3a2e4f6bd092b3b6841aa0&postId=42afd6119b58f3f3a07f65d00e757111&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2010-01-01",
+          "end_date": "2020-01-01",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "f40503e1779c2d3028143fe80ef6ebef",
+            "16850930"
+          ],
+          "numeric_backtest_id": "16850930",
+          "numeric_post_id": "27009",
+          "python_version": 3,
+          "clone_count": 141
+        },
+        "stats": {
+          "trading_days": 2431,
+          "benchmark_volatility": 0.26737238236024,
+          "algorithm_volatility": 0.31847766710492,
+          "treasury_return": 0.39978082191781,
+          "algorithm_return": 9.023443781643,
+          "benchmark_return": 0.17443804818451,
+          "annual_algo_return": 0.26748526879349,
+          "annual_bm_return": 0.016672818977853,
+          "sharpe": 0.71428954771433,
+          "excess_return_sharpe": "1.111",
+          "sortino": 0.94084602235697,
+          "information": 1.3548565277787,
+          "beta": 0.96971683007705,
+          "alpha": 0.25010602882892,
+          "excess_return": 7.5346722180346,
+          "avg_excess_return": "0.10%",
+          "max_drawdown": 0.45595764692819,
+          "max_drawdown_period": [
+            "2015-06-11",
+            "2016-01-28"
+          ],
+          "excess_return_max_drawdown": "22.59%",
+          "excess_return_max_drawdown_period": [
+            "2013-01-15",
+            "2013-07-24"
+          ],
+          "max_leverage": 0,
+          "period_label": "2019-12",
+          "__version": 101,
+          "win_ratio": 0.57366885485047,
+          "profit_loss_ratio": 1.3100624590135,
+          "win_count": 1573,
+          "lose_count": 1169,
+          "day_win_ratio": 0.51131221719457,
+          "avg_trade_return": 0.012208334207995,
+          "avg_position_days": 17.150877192982,
+          "turnover_rate": 0.10016191645633,
+          "report_done_seconds": 9426.8817560673,
+          "report_done_cpu_seconds": 8164.77
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 902.344378,
+          "benchmark_return_percent": 17.443805,
+          "annual_algo_return_percent": 26.748527,
+          "annual_bm_return_percent": 1.667282,
+          "max_drawdown_percent": 45.595765,
+          "algorithm_volatility_percent": 31.847767,
+          "benchmark_volatility_percent": 26.737238,
+          "win_ratio_percent": 57.366885,
+          "day_win_ratio_percent": 51.131222,
+          "avg_trade_return_percent": 1.220833,
+          "turnover_rate_percent": 10.016192,
+          "sharpe": 0.71428954771433,
+          "sortino": 0.94084602235697,
+          "information": 1.3548565277787,
+          "alpha": 0.25010602882892,
+          "beta": 0.96971683007705,
+          "profit_loss_ratio": 1.3100624590135,
+          "avg_position_days": 17.150877192982,
+          "trading_days": 2431,
+          "win_count": 1573,
+          "lose_count": 1169,
+          "max_drawdown_period": [
+            "2015-06-11",
+            "2016-01-28"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2013-01-15",
+            "2013-07-24"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/27009",
+      "https://www.joinquant.com/community/post/detailV2?postId=27009",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=a3f916fbec3a2e4f6bd092b3b6841aa0&postId=42afd6119b58f3f3a07f65d00e757111&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=a3f916fbec3a2e4f6bd092b3b6841aa0"
+    ]
+  }
+}

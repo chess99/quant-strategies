@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/84.对 二板排板战法 的部分优化.txt",
+    "category": "2023年度精选策略",
+    "file_name": "84.对 二板排板战法 的部分优化.txt",
+    "strategy_name": "对 二板排板战法 的部分优化",
+    "declared_title": "对 二板排板战法 的部分优化",
+    "declared_author": "xloong",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 23769,
+    "sha256": "fc2114de936c72c448c55dc6d4b78c70c308cc153235dde7e5f2bd6140f9c2c4",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/34053",
+      "https://www.joinquant.com/view/community/detail/25e48a8c5048bc2d02f785aeb913afd4"
+    ],
+    "primary_url": "https://www.joinquant.com/post/34053",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:09:43+08:00",
+    "requested_url": "https://www.joinquant.com/post/34053",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/a75b85a9cfb2206d70260cfc08c7f1d9",
+    "community_id": "a75b85a9cfb2206d70260cfc08c7f1d9",
+    "post": {
+      "postId": "5af4393de01c7f929646767a1473e771",
+      "uniqueKey": "a75b85a9cfb2206d70260cfc08c7f1d9",
+      "title": "对 二板排板战法 的部分优化",
+      "content": "<p>策略来自：二板排板战法研究 - 游资小码哥 <br /><a href=\"https://www.joinquant.com/view/community/detail/25e48a8c5048bc2d02f785aeb913afd4?type=1\">https://www.joinquant.com/view/community/detail/25e48a8c5048bc2d02f785aeb913afd4?type=1 </a><br /><br />说是优化，其实只是针对回测效率的优化，对逻辑并没有改动 <br />回测的时候发现回测超级慢，由于积分羞涩，只能用每天的免费60分钟进行回测，这么慢的策略跑不起，于是动了看看代码进行优化的心思</p><p>仔细看了下，能优化的余地还不少，于是改了下，如果有改的不对的地方，请指正</p><p> </p><p>主要优化的地方：</p><p>查看他总的涨停数 count_limit_num_all() 函数，并不参与策略逻辑，仅仅是输出查看，砍掉</p><p>market_run() 中 <i>获取前一天的收盘价 </i>df_panel = get_price 挪到before_market_open 中，只需要每天获取一次，不需要每分钟都重新获取</p><p> </p><p>大的改动就这2条</p><p>其他用不到的数据注释掉之类的小改动 就不赘述了</p>",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-07-29 22:06:28",
+      "modTime": "2021-07-29 22:06:28",
+      "lastActiveTime": "2026-03-24 16:08:40",
+      "lastPubTime": "2021-07-29 22:06:28",
+      "backtestId": "6d1a5b5d8733eb1d7f351e02373eea5b",
+      "backtestName": "二板排板战法研究",
+      "replyCount": "33",
+      "viewCount": "2231",
+      "collectionCount": "35",
+      "likeCount": "23",
+      "disLikeCount": "0",
+      "backtestCloneCount": "168",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "1",
+      "followersCount": "22",
+      "followingCount": "3",
+      "author": {
+        "userId": "de0ab75f97b19c6cd93f233ef3e8d5e4",
+        "alias": "xloong"
+      },
+      "tags": [
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "6d1a5b5d8733eb1d7f351e02373eea5b",
+        "backtest_name": "二板排板战法研究",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=6d1a5b5d8733eb1d7f351e02373eea5b&postId=a75b85a9cfb2206d70260cfc08c7f1d9&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2020-01-01",
+          "end_date": "2021-07-28",
+          "base_capital": 100000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "133e28ab6ce63e47f1651134d19485a9",
+            "21401035"
+          ],
+          "numeric_backtest_id": "21401035",
+          "numeric_post_id": "34053",
+          "python_version": 3,
+          "clone_count": 168
+        },
+        "stats": {
+          "trading_days": 381,
+          "benchmark_volatility": 0.2211875394845,
+          "algorithm_volatility": 0.70085072802404,
+          "treasury_return": 0.062794520547945,
+          "algorithm_return": 9.946905661,
+          "benchmark_return": 0.16206201270328,
+          "annual_algo_return": 3.8078368453311,
+          "annual_bm_return": 0.10357379897736,
+          "sharpe": 5.3760903637127,
+          "excess_return_sharpe": "4.599",
+          "sortino": 9.4303458688765,
+          "information": 5.1408659860362,
+          "beta": 0.21380118466697,
+          "alpha": 3.754244691796,
+          "excess_return": 8.4202422429543,
+          "avg_excess_return": "0.69%",
+          "max_drawdown": 0.48745949457246,
+          "max_drawdown_period": [
+            "2020-07-15",
+            "2021-03-15"
+          ],
+          "excess_return_max_drawdown": "52.71%",
+          "excess_return_max_drawdown_period": [
+            "2020-07-15",
+            "2021-03-18"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-07",
+          "__version": 101,
+          "win_ratio": 0.54838709677419,
+          "profit_loss_ratio": 2.7743088971941,
+          "win_count": 51,
+          "lose_count": 42,
+          "day_win_ratio": 0.51181102362205,
+          "avg_trade_return": 0.040572320559503,
+          "avg_position_days": 1.6413043478261,
+          "turnover_rate": 0.2656544414182,
+          "report_done_seconds": 3424.6033987999,
+          "report_done_cpu_seconds": 3387.34
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 994.690566,
+          "benchmark_return_percent": 16.206201,
+          "annual_algo_return_percent": 380.783685,
+          "annual_bm_return_percent": 10.35738,
+          "max_drawdown_percent": 48.745949,
+          "algorithm_volatility_percent": 70.085073,
+          "benchmark_volatility_percent": 22.118754,
+          "win_ratio_percent": 54.83871,
+          "day_win_ratio_percent": 51.181102,
+          "avg_trade_return_percent": 4.057232,
+          "turnover_rate_percent": 26.565444,
+          "sharpe": 5.3760903637127,
+          "sortino": 9.4303458688765,
+          "information": 5.1408659860362,
+          "alpha": 3.754244691796,
+          "beta": 0.21380118466697,
+          "profit_loss_ratio": 2.7743088971941,
+          "avg_position_days": 1.6413043478261,
+          "trading_days": 381,
+          "win_count": 51,
+          "lose_count": 42,
+          "max_drawdown_period": [
+            "2020-07-15",
+            "2021-03-15"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-07-15",
+            "2021-03-18"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/34053",
+      "https://www.joinquant.com/community/post/detailV2?postId=34053",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=6d1a5b5d8733eb1d7f351e02373eea5b&postId=a75b85a9cfb2206d70260cfc08c7f1d9&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=6d1a5b5d8733eb1d7f351e02373eea5b"
+    ]
+  }
+}

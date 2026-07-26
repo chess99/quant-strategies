@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/93.布林线追龙头战法.txt",
+    "category": "2023年度精选策略",
+    "file_name": "93.布林线追龙头战法.txt",
+    "strategy_name": "布林线追龙头战法",
+    "declared_title": "布林线追龙头战法",
+    "declared_author": "fishsome",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 8011,
+    "sha256": "5c293d961b7f8206530232f820791a2441a7deecf527a01ddec483f122a9892f",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/31867"
+    ],
+    "primary_url": "https://www.joinquant.com/post/31867",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:09:48+08:00",
+    "requested_url": "https://www.joinquant.com/post/31867",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/2aeb4baf972b4a9aad8ab30e2cd1fff7",
+    "community_id": "2aeb4baf972b4a9aad8ab30e2cd1fff7",
+    "post": {
+      "postId": "00e3246d55ea3ad4e79e6c25e5a0e050",
+      "uniqueKey": "2aeb4baf972b4a9aad8ab30e2cd1fff7",
+      "title": "布林线追龙头战法",
+      "content": "**均线ma25 - 60 -200全部上扬时买入\n价格低于布林高点时卖出\n成功躲过15年股灾和18年底阴跌，15年9月有一段时间自动空仓。\n **\n注意:21年2月以后失效,说明价值投资已经失效,策略仅供研究.",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-02-19 02:05:08",
+      "modTime": "2021-04-01 08:46:33",
+      "lastActiveTime": "2021-06-04 08:54:17",
+      "lastPubTime": "2021-04-01 08:46:33",
+      "backtestId": "b6715370a4c7802ce56b9c7a1d2d4fec",
+      "backtestName": "布林123",
+      "replyCount": "46",
+      "viewCount": "2953",
+      "collectionCount": "23",
+      "likeCount": "22",
+      "disLikeCount": "0",
+      "backtestCloneCount": "174",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "8",
+      "followersCount": "27",
+      "followingCount": "2",
+      "author": {
+        "userId": "5a246283db38645fcb399e463ca0b7fd",
+        "alias": "fishsome",
+        "headImgKey": "4cad817da2f7074345c57daf16cd2f46"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "5",
+          "name": "仓位管理"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "b6715370a4c7802ce56b9c7a1d2d4fec",
+        "backtest_name": "布林123",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=b6715370a4c7802ce56b9c7a1d2d4fec&postId=2aeb4baf972b4a9aad8ab30e2cd1fff7&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2015-01-01",
+          "end_date": "2021-02-19",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "dab660b328517655d8ab532a830b6d99",
+            "19783291"
+          ],
+          "numeric_backtest_id": "19783291",
+          "numeric_post_id": "31867",
+          "python_version": 3,
+          "clone_count": 158
+        },
+        "stats": {
+          "trading_days": 1492,
+          "benchmark_volatility": 0.24088109823828,
+          "algorithm_volatility": 0.19811569393783,
+          "treasury_return": 0.24515068493151,
+          "algorithm_return": 2.32245581535,
+          "benchmark_return": 0.63535161445511,
+          "annual_algo_return": 0.22285756242066,
+          "annual_bm_return": 0.085907298345374,
+          "sharpe": 0.92298373130421,
+          "excess_return_sharpe": "0.450",
+          "sortino": 1.1545854658211,
+          "information": 0.71841305579471,
+          "beta": 0.52507996349611,
+          "alpha": 0.15875255988127,
+          "excess_return": 1.0316461524129,
+          "avg_excess_return": "0.05%",
+          "max_drawdown": 0.35561277003486,
+          "max_drawdown_period": [
+            "2015-06-12",
+            "2016-12-28"
+          ],
+          "excess_return_max_drawdown": "28.05%",
+          "excess_return_max_drawdown_period": [
+            "2015-08-26",
+            "2017-02-21"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-02",
+          "__version": 101,
+          "win_ratio": 0.55231143552311,
+          "profit_loss_ratio": 1.9819959008544,
+          "win_count": 227,
+          "lose_count": 184,
+          "day_win_ratio": 0.50469168900804,
+          "avg_trade_return": 0.043080271703175,
+          "avg_position_days": 104.51315789474,
+          "turnover_rate": 0.025294225923255,
+          "report_done_seconds": 403.89954519272,
+          "report_done_cpu_seconds": 342.06
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 232.245582,
+          "benchmark_return_percent": 63.535161,
+          "annual_algo_return_percent": 22.285756,
+          "annual_bm_return_percent": 8.59073,
+          "max_drawdown_percent": 35.561277,
+          "algorithm_volatility_percent": 19.811569,
+          "benchmark_volatility_percent": 24.08811,
+          "win_ratio_percent": 55.231144,
+          "day_win_ratio_percent": 50.469169,
+          "avg_trade_return_percent": 4.308027,
+          "turnover_rate_percent": 2.529423,
+          "sharpe": 0.92298373130421,
+          "sortino": 1.1545854658211,
+          "information": 0.71841305579471,
+          "alpha": 0.15875255988127,
+          "beta": 0.52507996349611,
+          "profit_loss_ratio": 1.9819959008544,
+          "avg_position_days": 104.51315789474,
+          "trading_days": 1492,
+          "win_count": 227,
+          "lose_count": 184,
+          "max_drawdown_period": [
+            "2015-06-12",
+            "2016-12-28"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2015-08-26",
+            "2017-02-21"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/31867",
+      "https://www.joinquant.com/community/post/detailV2?postId=31867",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=b6715370a4c7802ce56b9c7a1d2d4fec&postId=2aeb4baf972b4a9aad8ab30e2cd1fff7&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=b6715370a4c7802ce56b9c7a1d2d4fec"
+    ]
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/89 test1：简单的多均线择时.txt",
+    "category": "2020年度精选策略",
+    "file_name": "89 test1：简单的多均线择时.txt",
+    "strategy_name": "test1：简单的多均线择时",
+    "declared_title": "【简单的多均线择时策略】那个天台排队的孩子，我给你讲个故事",
+    "declared_author": "陈小米。",
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 3397,
+    "sha256": "4f585038a1ae463f7df1b10888e98c65326dc7c6499eaf83bfcd2e608e2c020a",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/12143",
+      "https://www.joinquant.com/post/570"
+    ],
+    "primary_url": "https://www.joinquant.com/post/12143",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:26+08:00",
+    "requested_url": "https://www.joinquant.com/post/12143",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/5e869138bab7451671d1ff22d6f4b421",
+    "community_id": "5e869138bab7451671d1ff22d6f4b421",
+    "post": {
+      "postId": "8ec89c5ba4eeb83edddbd1fe5c036475",
+      "uniqueKey": "5e869138bab7451671d1ff22d6f4b421",
+      "title": "test1：简单的多均线择时",
+      "content": "第一次拿例子测试。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-04-17 18:47:23",
+      "modTime": "2018-04-17 18:47:23",
+      "lastActiveTime": "2018-04-18 12:30:23",
+      "lastPubTime": "2018-04-17 18:47:23",
+      "backtestId": "17ed9d8b08502cb658e9183fa179f0c9",
+      "backtestName": "多均线策略（复兴医药）-Clone",
+      "replyCount": "1",
+      "viewCount": "956",
+      "collectionCount": "1",
+      "likeCount": "0",
+      "disLikeCount": "0",
+      "backtestCloneCount": "22",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "2",
+      "followersCount": "1",
+      "followingCount": "0",
+      "author": {
+        "userId": "e47cd9ceaeb3220fe88a776d83948873",
+        "alias": "jianjianv589",
+        "headImgKey": "3f33e8e03517b223ce483a4faa0d4060"
+      },
+      "tags": []
+    },
+    "backtests": [
+      {
+        "backtest_id": "17ed9d8b08502cb658e9183fa179f0c9",
+        "backtest_name": "多均线策略（复兴医药）-Clone",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=17ed9d8b08502cb658e9183fa179f0c9&postId=5e869138bab7451671d1ff22d6f4b421&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2017-03-01",
+          "end_date": "2018-04-16",
+          "base_capital": 20000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "d5e36c885879b64ce29cd817bb927091",
+            "8280314"
+          ],
+          "numeric_backtest_id": "8280314",
+          "numeric_post_id": "12143",
+          "python_version": 2,
+          "clone_count": 22
+        },
+        "stats": {
+          "information": -1.0584887198649,
+          "benchmark_return": 0.57912711275758,
+          "algorithm_volatility": 0.19176257854942,
+          "annual_bm_return": 0.51260532577933,
+          "__version": 101,
+          "max_drawdown": 0.17951589187893,
+          "sortino": 1.1831477418939,
+          "period_label": "2018-04",
+          "trading_days": 276,
+          "algorithm_return": 0.211181,
+          "benchmark_volatility": 0.3796164178032,
+          "beta": 0.30432803173169,
+          "excess_return": 0.16613990410959,
+          "annual_algo_return": 0.18951662361132,
+          "sharpe": 0.77969656406547,
+          "alpha": 0.0056895750309833,
+          "max_drawdown_period": [
+            "2017-11-06",
+            "2018-04-16"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.045041095890411,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.43840579710145,
+          "avg_position_days": 113,
+          "win_ratio": 0.5,
+          "win_count": 5,
+          "avg_trade_return": 0.023539018543335,
+          "profit_loss_ratio": 2.1956119481893,
+          "lose_count": 5,
+          "report_done_seconds": 2.6675999164581
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 21.1181,
+          "benchmark_return_percent": 57.912711,
+          "annual_algo_return_percent": 18.951662,
+          "annual_bm_return_percent": 51.260533,
+          "max_drawdown_percent": 17.951589,
+          "algorithm_volatility_percent": 19.176258,
+          "benchmark_volatility_percent": 37.961642,
+          "win_ratio_percent": 50.0,
+          "day_win_ratio_percent": 43.84058,
+          "avg_trade_return_percent": 2.353902,
+          "sharpe": 0.77969656406547,
+          "sortino": 1.1831477418939,
+          "information": -1.0584887198649,
+          "alpha": 0.0056895750309833,
+          "beta": 0.30432803173169,
+          "profit_loss_ratio": 2.1956119481893,
+          "avg_position_days": 113,
+          "trading_days": 276,
+          "win_count": 5,
+          "lose_count": 5,
+          "max_drawdown_period": [
+            "2017-11-06",
+            "2018-04-16"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/12143",
+      "https://www.joinquant.com/community/post/detailV2?postId=12143",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=17ed9d8b08502cb658e9183fa179f0c9&postId=5e869138bab7451671d1ff22d6f4b421&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=17ed9d8b08502cb658e9183fa179f0c9"
+    ]
+  }
+}

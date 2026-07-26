@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/36.PEG+EBIT对小市值因子的优化.txt",
+    "category": "2023年度精选策略",
+    "file_name": "36.PEG+EBIT对小市值因子的优化.txt",
+    "strategy_name": "PEG+EBIT对小市值因子的优化",
+    "declared_title": "PEG+EBIT对小市值因子的优化",
+    "declared_author": "wywy1995",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 8696,
+    "sha256": "fe5066e6d60a7134cedfc7cae2cf2a9ef0b76d952b037619b171af96bd52dd38",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/34592"
+    ],
+    "primary_url": "https://www.joinquant.com/post/34592",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:09:08+08:00",
+    "requested_url": "https://www.joinquant.com/post/34592",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/00c02003540f63f1f11a73b743590495",
+    "community_id": "00c02003540f63f1f11a73b743590495",
+    "post": {
+      "postId": "5185c0a1cb129adc5219a874de6fb4f0",
+      "uniqueKey": "00c02003540f63f1f11a73b743590495",
+      "title": "PEG+EBIT对小市值因子的优化",
+      "content": "**前言**\n简单粗暴的选择最小市值股票，还能获得惊人收益的策略是过去特定市场背景下的产物，在股票供给愈发充足，退市机制与注册制逐步完善，投资者更加成熟的未来，大概率会完全失效。下图策略是个很典型的例子，在2017年之前，只要沾了小市值，无论使用多奇葩的因子都能获得超高收益。然而2017年后，眼见他起高楼,眼见他宴宾客,眼见他楼塌了...\n\n图1：换手率结合小市值\n![Img]( https://image.joinquant.com/21dcbb6d808d5974cfe6a9f6bbb323b7) \n\n图2：失效的不是小市值而是垃圾股\n![Img]( https://image.joinquant.com/ab8d84fb12ca04428c7726620e9dc672) \n\n**小市值优化——与peg的结合**\n美国股市上百年的经历告诉我们，小市值因子长期有效，但是必须结合更加过硬的逻辑，即引入peg这一经典的成长性指标。\n首先观察当且仅当peg与小市值结合时的效果。使用聚宽因子看板经过中位数去极值，行业市值对数中性化，zscore标准化处理的干净的peg因子，选择因子值最小的10%，再应用小市值因子选出最小五只。为防止在指数选择上出现幸存者偏差，使用全市场指数作为初始股票池（剔除st，退市，新股，科创板）\n\n注释：\n1.peg因子的计算公式：\nPEG = PE / (归母公司净利润(TTM)增长率 * 100) \n如果 PE 或 增长率为负，则为 nan\n\n2.使用以下代码进行洗股，因为涨跌停，停牌属于交易范畴，对股票因子影响不大，暂不剔除\n```\n#过滤ST及其他具有退市标签的股票\n#输入选股列表，返回剔除ST及其他具有退市标签股票后的列表\ndef filter_st_stock(stock_list):\n\tcurrent_data = get_current_data()\n\treturn [stock for stock in stock_list\n\t\t\tif not current_data[stock].is_st\n\t\t\tand 'ST' not in current_data[stock].name\n\t\t\tand '*' not in current_data[stock].name\n\t\t\tand '退' not in current_data[stock].name]\n\n#过滤科创板\n#输入股票列表，返回剔除科创板后的列表\ndef filter_kcb_stock(context, stock_list):\n    return [stock for stock in stock_list  if stock[0:3] != '688']\n\n#过滤次新股\n#输入股票列表，返回剔除上市日期不足250日股票后的列表\ndef filter_new_stock(context,stock_list):\n    yesterday = context.previous_date\n    return [stock for stock in stock_list if not yesterday - get_security_info(stock).start_date &lt; datetime.timedelta(days=250)]\n```\n\n3.聚宽因子选股\nhttps://www.joinquant.com/algorithm/apishare/get?apiId=4033\n```\npeg_list = get_factor_filter_list(context, initial_list, 'PEG', True, 0, 0.1)\n```\n\n2011/08/31-2021/08/31十年回测结果：\n\n图3：对照组——仅有小市值因子\n![Img]( https://image.joinquant.com/b90636d6f69ff33464a3ce6ca14b66d1) \n\n图4：实验组——小市值因子结合peg之后\n![Img]( https://image.joinquant.com/7cc262bfa13157304e4aec5af36fb680) \n\n从绝对收益上看，虽然实验组没有跑赢对照组，但是对照组的超额收益主要集中在2016年之前，在最近5年时间里超额收益呈下降趋势，而实验组的超额收益在2018年低点之后不断增加，策略整体收益也在最近创出新高，所以推测市场风格在不断认可peg的选股思路。但是目前为止策略的劣势也很明显，首先是因子数量的问题，全市场经过洗股后有3900只股票，仅使用两个因子，风险暴露太高，一旦因子失效会承担很大风险。而且peg本身也有一定问题，比如peg本身没有考虑到风险因素，也无法对未来增长的可持续性进行预判。最后考虑到2017-2018年回撤时间很长，实际使用很可能无法坚持下来，所以对回撤也要进一步处理。\n\n**进一步优化——“因子海选”**\n\n图5：在peg选股基础上添加额外因子的效果，所有因子来源于聚宽因子看板\n![Img]( https://image.joinquant.com/b98f30a017bf9ad6d5b38694b4424d11) \n\n1.图中展示了15个基本面因子和15个技术面因子，由于在测试中发现额外因子自身的收益率越高，结合后效果一般也更好，所以对于10年间自身受益为负的额外因子没有进行测试。\n\n2.图中的数据按照从好到坏标记了红黄绿三种颜色，对于最大回撤时间，出现的越早，对现在影响越小，故标为红色。\n\n3.观察后发现，技术面因子选择最小的成交量标准差和换手率波动率对策略提升明显，基本面因子大多表现不佳，唯一出现“三红二黄”的基本面因子为EBIT，即息税前利润。\n\n4.进一步比较技术面因子和基本面因子发现，在最近4年时间里，技术面因子的超额收益持续下降！而EBIT却恰恰相反，有一种逐步被市场认可的感觉，而且基本面因子往往拥有过硬的逻辑支持，有效性可能会更强，所以决定进一步挖掘EBIT的特点。\n\n额外说明：测试范围选择了中小创（399006+000905），而且使用了择时（rsrs+ma），所以这张图中会看到peg收益高于单纯小市值，跟上面说的结论不一致。严格来说，应该选择全市场无择时以控制变量，但是刚开始测试时我使用了一个以前模板的克隆，测试一部分后才发现问题，此时已经消耗了太多积分，只好将错就错，不过从比较额外因子的角度考虑，结果也可以接受。\n\n**反向分析后发现的奇怪现象**\n在确定深挖EBIT之后，我们手里现在有三个因子——PEG，EBIT，SMLCAP，查看聚宽因子看板后可以确定，三个因子都表现为单调性，PEG越小说明增长率（分母越大）越好，EBIT作为利润的前身越大越好，小市值的公司更容易成长。为了进一步观察每项因子对策略的影响，我进行了如下实验：将两项因子按单调性固定为最佳状态，将第三项因子设定为最差状态进行回测（均使用中小创股池，未择时），结果如下\n\n图6 peg高估\n![Img]( https://image.joinquant.com/f2662bee3143d626bea03969e7c5900c) \n即使选择了小市值和高EBIT，成长性差的公司收益也会非常差，完全符合预期。\n\n图7 大市值\n![Img]( https://image.joinquant.com/3af5392ffdfd03d9c9b15d585ba3c415) \n选择了低PEG高EBIT，大市值公司整体没有跑输，主要是近年来ETF投资兴起，权重股被超配，与指数关联性高的大企业不容易跑输，这点在沪深300上尤其突出，基本符合预期。\n\n图8 低息税前利润\n![Img]( https://image.joinquant.com/a3e47fa2fa73ce8cb09731cc6460370d) \n选择低PEG，小市值，低息税前利润的企业效果竟然这么好？这个结果刚出来的时候看的我一头雾水，要知道EBIT单独使用年化收益-9%，收益曲线长期来看就是条从左上到右下的直线。而且咱们之前分析过，2017年之后“炒烂”的风格就过去了，又检查了下代码确定是选低利润，所以到底为什么会这样？\n\n查阅了关于EBIT的资料后，总结出以下几条猜想：\n1.成本说\n有些企业会故意压低EBIT从而达到“合法避税”的目的，比如茅台总公司向销售公司销售酒时价格极低，就是为了降低税费支出。\n\n2.预期说\n在全市场范围内EBIT确实越大越好，但是我们在考虑EBIT之前，第一因子选择了全市场最小10%PEG，也就是说在增长有保证的前提下，选择当前利润较低的公司，低基数可能更容易维持高增长，同时较低的EBIT意味着较大的空间以及向市场均值回归的可能性。很多初创企业的利润开始也很低，甚至亏损，如果这是为了在市场中获得竞争优势而做出的牺牲，那么可以预期未来EBIT会增加。\n\n3.风险说\n以下内容来源网络\n```\n1. 经营风险\n\n经营风险是指企业未使用债务时，在经营过程中的内在风险。衡量企业的经营风险可以用经营杠杆，这里还要引入一个新的概念，就是边际贡献。具体是：边际贡献=（售价-变动成本）*销售数量，此时是去掉了固定成本的影响。\n\n经营杠杆系数=边际贡献/EBIT\n\n边际贡献=EBIT+固定成本\n\n也就是经营杠杆的大小是由企业的固定性成本和EBIT共同决定的，固定成本越大，经营杠杆越大，经营风险也就越大。如何降低经营杠杆呢？比如提高产品价格、降低变动成本、扩大市场需求、降低固定成本等。\n\n例如：企业的EBIT=100，固定成本=30，那么经营杠杆系数=（100+30）/100=1.3\n\n如果EBIT和固定成本均增加10，经营杠杆系数=（110+40）/110=1.36\n\n1.36&gt;1.3,企业的经营风险加大了。\n\n因此，不能单考虑EBIT的绝对值，还要考虑与固定成本的相对关系。\n\n2. 财务风险\n\n财务风险指的是企业利用债务融资要承担固定性的融资成本所带来的风险。衡量财务风险的指标可以用财务杠杆，具体为：财务杠杆=EBIT/（EBIT-税前利息），即财务杠杆是由EBIT和固定性利息支出所共同决定的。利息费用越高，财务杠杆越高，财务风险也就越大。但是利息费用可以抵税，也会给企业带来抵税收益，因此企业要适度借款，否则无限增加借款，会使企业的债务成本抵销了利息抵税收益，进而增加了财务风险。\n\n例如，企业的EBIT=100，税前利息=20，那么财务杠杆=100/（100-20）=1.25\n\n如果将EBIT和税前利息均增加10，那么财务杠杆=110/（110-30）=1.375\n\n1.375&gt;1.25,同时财务风险也增加了。\n\n最后，简单地说，就是企业想要提高EBIT可以通过经营高风险行业来获得高额利润，此时的经营风险也加大； 也可以通过高额的借款来满足迅速扩张，进而提高EBIT，那么财务风险会加大。因此EBIT不一定是越高越好，还要评估企业的经营风险和财务风险，要使其在可控的范围内\n```\n从预期的角度，如果EBIT能回归均值，那么PEG的持续性就可以得到保证；从风险的角度来看，EBIT又正好解决了PEG对风险解释不足的缺点。综上，从背后的逻辑判断，EBIT弥补了PEG的主要缺点，因此低PEG低EBIT组合带来的超额收益应该具有一定合理性。\n\n之后我又进行了不同分位EBIT的实验，2014-2021年从小到大排列一到五分位年化收益结果分别是0.48，0.19，0.11，0.31，0.22。具有确定性，偏价值风格的较大分位也能获得还不错的收益，不过最高收益还是最小分位的。\n\n注释：核心选股代码\n```\n    initial_list = get_all_securities().index.tolist()\n    initial_list = filter_new_stock(context,initial_list)\n    initial_list = filter_kcb_stock(context, initial_list)\n    initial_list = filter_st_stock(initial_list)\n    peg_list = get_factor_filter_list(context, initial_list, 'PEG', True, 0.1)\n    ebit_list = get_factor_filter_list(context, peg_list, 'EBIT', True, 0.25)\n    q = query(valuation.code,valuation.circulating_market_cap).filter(valuation.code.in_(test_list)).order_by(valuation.circulating_market_cap.asc())\n    df = get_fundamentals(q)\n    final_list = list(df.code)\n```\n\n**择时办法的选择**\n文章开头提到的最后一个没有解决的问题就是回撤。传统方法是使用择时方法来降低回撤，但是在测试了大多数技术指标甚至宏观择时指标后，效果都不太理想，甚至不如不择时。硬要选择的化，目前我所发现的最优解还是rsrs+ma的方法。\n图9 rsrs+ma择时后\n![Img]( https://image.joinquant.com/effda84e6319d5911dc000fcedceddf3) \n另一种解决回撤的方法是轮动。\n图10 大小市值轮动后的收益\n![Img]( https://image.joinquant.com/8eaa22404f9f45c178d29bd7b01413b9) \n后者虽然绝对收益不如前者，但是回撤幅度与时间更小，心理上更容易接受。\n\n**最后**\n就最近表现怎么样的问题，可以与纯小市值因子在中小综指(399101)上选股进行比较，可以看到改良后的策略最近一年来明显更为优秀。\n\n图11 无择时传统小市值\n![Img]( https://image.joinquant.com/c2ee3396fd8dc1ba73652c7b29f50750) \n\n图12 无择时改良后\n![Img]( https://image.joinquant.com/3fc662ad717bd08abc36686c76300469) \n\n克隆策略放上的是只有因子，没有择时或轮动的纯净版，数据全部来源于聚宽，无第三方，可放心运行，希望读者们能在其基础上添加更有效的择时方法或额外因子。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-09-11 16:33:57",
+      "modTime": "2021-09-21 22:37:28",
+      "lastActiveTime": "2025-12-23 10:09:43",
+      "lastPubTime": "2021-09-21 22:37:28",
+      "backtestId": "401262be1d5c8f9faffd395c325c459b",
+      "backtestName": "peg-ebit-cap_全市场",
+      "replyCount": "230",
+      "viewCount": "18406",
+      "collectionCount": "378",
+      "likeCount": "217",
+      "disLikeCount": "0",
+      "backtestCloneCount": "678",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "37",
+      "followersCount": "9584",
+      "followingCount": "39",
+      "author": {
+        "userId": "20f651aac4bd6f0f9b36bc7abf045c6c",
+        "alias": "wywy1995",
+        "introduction": "从历史中发现规律比画出美丽的图形更重要",
+        "vipType": "VIP",
+        "headImgKey": "6784510f0c6abdbcf9a1fed9081a4658"
+      },
+      "tags": [
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "401262be1d5c8f9faffd395c325c459b",
+        "backtest_name": "peg-ebit-cap_全市场",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=401262be1d5c8f9faffd395c325c459b&postId=00c02003540f63f1f11a73b743590495&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2011-08-31",
+          "end_date": "2021-08-31",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "f08f0ec50c489d132ba4a674960799d5",
+            "21812253"
+          ],
+          "numeric_backtest_id": "21812253",
+          "numeric_post_id": "34592",
+          "python_version": 3,
+          "clone_count": 668
+        },
+        "stats": {
+          "trading_days": 2432,
+          "benchmark_volatility": 0.26084071308433,
+          "algorithm_volatility": 0.3608346330934,
+          "treasury_return": 0.40032876712329,
+          "algorithm_return": 24.02862233232,
+          "benchmark_return": 0.62977988332625,
+          "annual_algo_return": 0.39236724409669,
+          "annual_bm_return": 0.051492111832368,
+          "sharpe": 0.97653387945575,
+          "excess_return_sharpe": "1.358",
+          "sortino": 1.2550685756357,
+          "information": 1.6335903338948,
+          "beta": 1.1368514200612,
+          "alpha": 0.33930242044056,
+          "excess_return": 14.357056856806,
+          "avg_excess_return": "0.12%",
+          "max_drawdown": 0.54233433228049,
+          "max_drawdown_period": [
+            "2015-06-12",
+            "2015-07-08"
+          ],
+          "excess_return_max_drawdown": "37.63%",
+          "excess_return_max_drawdown_period": [
+            "2016-11-22",
+            "2018-02-06"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-08",
+          "__version": 101,
+          "win_ratio": 0.60130718954248,
+          "profit_loss_ratio": 2.1472537860402,
+          "win_count": 460,
+          "lose_count": 305,
+          "day_win_ratio": 0.51973684210526,
+          "avg_trade_return": 0.026394766525066,
+          "avg_position_days": 49.991769547325,
+          "turnover_rate": 0.075613833200447,
+          "report_done_seconds": 1165.1962020397,
+          "report_done_cpu_seconds": 991.05
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 2402.862233,
+          "benchmark_return_percent": 62.977988,
+          "annual_algo_return_percent": 39.236724,
+          "annual_bm_return_percent": 5.149211,
+          "max_drawdown_percent": 54.233433,
+          "algorithm_volatility_percent": 36.083463,
+          "benchmark_volatility_percent": 26.084071,
+          "win_ratio_percent": 60.130719,
+          "day_win_ratio_percent": 51.973684,
+          "avg_trade_return_percent": 2.639477,
+          "turnover_rate_percent": 7.561383,
+          "sharpe": 0.97653387945575,
+          "sortino": 1.2550685756357,
+          "information": 1.6335903338948,
+          "alpha": 0.33930242044056,
+          "beta": 1.1368514200612,
+          "profit_loss_ratio": 2.1472537860402,
+          "avg_position_days": 49.991769547325,
+          "trading_days": 2432,
+          "win_count": 460,
+          "lose_count": 305,
+          "max_drawdown_period": [
+            "2015-06-12",
+            "2015-07-08"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2016-11-22",
+            "2018-02-06"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/34592",
+      "https://www.joinquant.com/community/post/detailV2?postId=34592",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=401262be1d5c8f9faffd395c325c459b&postId=00c02003540f63f1f11a73b743590495&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=401262be1d5c8f9faffd395c325c459b"
+    ]
+  }
+}

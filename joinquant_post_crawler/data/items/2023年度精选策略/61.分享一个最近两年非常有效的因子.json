@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/61.分享一个最近两年非常有效的因子.txt",
+    "category": "2023年度精选策略",
+    "file_name": "61.分享一个最近两年非常有效的因子.txt",
+    "strategy_name": "分享一个最近两年非常有效的因子",
+    "declared_title": "分享一个最近两年非常有效的因子",
+    "declared_author": "美吉姆优秀毕业代表",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 3285,
+    "sha256": "fe62eb7986fc59c657c43f22ebf1c1e5018666357ea87c3e685706beda8631bd",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/33065",
+      "https://www.joinquant.com/post/7286"
+    ],
+    "primary_url": "https://www.joinquant.com/post/33065",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:09:26+08:00",
+    "requested_url": "https://www.joinquant.com/post/33065",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/196d862684f96db3e4f4e35dbe012f23",
+    "community_id": "196d862684f96db3e4f4e35dbe012f23",
+    "post": {
+      "postId": "4d42eaefa4b08d9cd8ccc00c10c408ac",
+      "uniqueKey": "196d862684f96db3e4f4e35dbe012f23",
+      "title": "分享一个最近两年非常有效的因子",
+      "content": "在测试了wq101的所有因子后，发现表达量价关系的、没有市值味（小市值暴露）的因子里，003、022、042可以长期有效，其中022尤其适合最近几年机构主导的行情，在双周及月运行表现非常好，交易频率极底。由于适用于沪深300股票池，该策略需要资金量较大。\n\nAlpha#22:\n(-1 * (delta(correlation(high, volume, 5), 5) * rank(stddev(close,20))))\n说明：日内高价与交易量之间的相关性关系，在5天的变化值，如果出现降低的变化，则倾向于投资，如果出现上升的变化，则倾向于不投资。除此之外乘上一个20日收盘价标准差，作为量纲，排名越大，越倾向于投资。意味着：量价反向程度增加的情况下，如果波动率增加，适合投资。\n\n标签：量价理论（不单纯的追求correlation，已经开始追求correlation的变化率了。。。比起静态的correlation一定程度上更有效地对未来进行建模）",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-05-04 23:53:34",
+      "modTime": "2021-05-04 23:53:34",
+      "lastActiveTime": "2024-01-09 19:02:53",
+      "lastPubTime": "2021-05-04 23:53:34",
+      "backtestId": "af77f950811ba73a48ae37eddb9e401e",
+      "backtestName": "wq101_Alpha_022因子",
+      "replyCount": "104",
+      "viewCount": "3859",
+      "collectionCount": "52",
+      "likeCount": "31",
+      "disLikeCount": "0",
+      "backtestCloneCount": "185",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "70",
+      "followersCount": "1131",
+      "followingCount": "35",
+      "author": {
+        "userId": "e6e837192b85107087f149804c5722a5",
+        "alias": "美吉姆优秀毕业代表",
+        "vipType": "VIP",
+        "headImgKey": "7aec7114b934b51e3b7297d2bfbd44cd"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "af77f950811ba73a48ae37eddb9e401e",
+        "backtest_name": "wq101_Alpha_022因子",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=af77f950811ba73a48ae37eddb9e401e&postId=196d862684f96db3e4f4e35dbe012f23&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2019-01-01",
+          "end_date": "2021-05-01",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "e8e21e0bfcd0aed7a0c674ec3264edfc",
+            "20564739"
+          ],
+          "numeric_backtest_id": "20564739",
+          "numeric_post_id": "33065",
+          "python_version": 2,
+          "clone_count": 185
+        },
+        "stats": {
+          "benchmark_return": 0.70178865029146,
+          "max_drawdown": 0.26241381829857,
+          "trading_days": 566,
+          "algorithm_volatility": 0.3046809535828,
+          "max_drawdown_period": [
+            "2019-04-04",
+            "2019-06-06"
+          ],
+          "information": 2.0854206905181,
+          "annual_bm_return": 0.26470756433147,
+          "excess_return_max_drawdown": "22.80%",
+          "benchmark_volatility": 0.2149809212772,
+          "annual_algo_return": 0.69847349255289,
+          "sharpe": 2.1611902050646,
+          "excess_return_max_drawdown_period": [
+            "2019-03-08",
+            "2019-07-22"
+          ],
+          "__version": 101,
+          "algorithm_return": 2.317821850114,
+          "beta": 1.0362422482449,
+          "alpha": 0.42562202089243,
+          "treasury_return": 0.093041095890411,
+          "max_leverage": 0,
+          "sortino": 3.1823625409129,
+          "period_label": "2021-04",
+          "avg_excess_return": "0.13%",
+          "excess_return": 0.94960863650474,
+          "excess_return_sharpe": "1.457",
+          "turnover_rate": 0.041702696464587,
+          "avg_trade_return": 0.051379968098289,
+          "day_win_ratio": 0.51413427561837,
+          "profit_loss_ratio": 2.2499010777983,
+          "avg_position_days": 33,
+          "lose_count": 45,
+          "win_ratio": 0.625,
+          "win_count": 75,
+          "report_done_seconds": 27.746820926666,
+          "report_done_cpu_seconds": 31.28
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 231.782185,
+          "benchmark_return_percent": 70.178865,
+          "annual_algo_return_percent": 69.847349,
+          "annual_bm_return_percent": 26.470756,
+          "max_drawdown_percent": 26.241382,
+          "algorithm_volatility_percent": 30.468095,
+          "benchmark_volatility_percent": 21.498092,
+          "win_ratio_percent": 62.5,
+          "day_win_ratio_percent": 51.413428,
+          "avg_trade_return_percent": 5.137997,
+          "turnover_rate_percent": 4.17027,
+          "sharpe": 2.1611902050646,
+          "sortino": 3.1823625409129,
+          "information": 2.0854206905181,
+          "alpha": 0.42562202089243,
+          "beta": 1.0362422482449,
+          "profit_loss_ratio": 2.2499010777983,
+          "avg_position_days": 33,
+          "trading_days": 566,
+          "win_count": 75,
+          "lose_count": 45,
+          "max_drawdown_period": [
+            "2019-04-04",
+            "2019-06-06"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2019-03-08",
+            "2019-07-22"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/33065",
+      "https://www.joinquant.com/community/post/detailV2?postId=33065",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=af77f950811ba73a48ae37eddb9e401e&postId=196d862684f96db3e4f4e35dbe012f23&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=af77f950811ba73a48ae37eddb9e401e"
+    ]
+  }
+}

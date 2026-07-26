@@ -1,0 +1,192 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/69“稳定摸狗策略”学习笔记.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "69“稳定摸狗策略”学习笔记.txt",
+    "strategy_name": "“稳定摸狗策略”学习笔记",
+    "declared_title": "“稳定摸狗策略”学习笔记",
+    "declared_author": "口袋里的钥匙扣",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 3626,
+    "sha256": "aa703d37a720815758f28a581a1b28ae312a502153f6232af907cd79e17f9790",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/49290",
+      "https://www.joinquant.com/post/49263",
+      "https://www.joinquant.com/post/42673",
+      "https://www.joinquant.com/view/community/detail/a31a822d1cfa7e83b1dda228d4562a70",
+      "https://www.joinquant.com/post/26142"
+    ],
+    "primary_url": "https://www.joinquant.com/post/49290",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:12:26+08:00",
+    "requested_url": "https://www.joinquant.com/post/49290",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/ad9468f5a1b30037e37494bd94ae2584",
+    "community_id": "ad9468f5a1b30037e37494bd94ae2584",
+    "post": {
+      "postId": "27cd876794a83026e0991cea474c20bc",
+      "uniqueKey": "ad9468f5a1b30037e37494bd94ae2584",
+      "title": "“稳定摸狗策略”学习笔记",
+      "content": "“稳定摸狗策略”学习笔记\n该策略来自蔡博，原策略链接如下：https://www.joinquant.com/post/49263\n\n写这个笔记有点犹豫，因为这个稳定摸狗策略（ETF轮动策略），我之前也在研究，一度想作为自己实盘的一个策略，但是还有有很多地方不太明白，没有搞太懂，就一直没有实践。刚好借蔡博的这个策略，强迫自己学习、深入思考下。\n细细想来，这次的这个“稳定摸狗策略”和“搅屎棍策略”、“偷鸡摸狗策略”有割舍不断地联系。\n那就先对前两个策略做一下探索性的思考吧。\n\n**第一部分  “偷鸡摸狗策略”和“搅屎棍策略”再思考**\n\n通过回测，我们发现偷鸡摸狗策略、搅屎棍策略在近10年取得了正收益！！！这是非常了不起的，那么这里面的原因是什么呢？\n我们先来看下蔡博原版策略的思路\n偷鸡摸狗策略，偷鸡（简称“基本面小市值策略”）、摸狗（简称“ETF轮动策略”）；\n策略的核心，是通过DDD函数来判定偷鸡or摸狗；\n搅屎棍策略，开仓买入（简称“中小板小市值策略”）、提桶跑路（简称“空仓”）\n策略的核心，是通过四大搅屎棍（“银行、有色金属、钢铁、煤炭”）来判定是否开仓买入。\n我看到这俩个思路，有点头皮发麻，拍案叫绝，这种代码和思路，我是根本不可能想到的。但是不怕，现在我已经学会了，感谢蔡博的分享（代码就是最好的老师）\n\n**偷鸡摸狗魔改再思考**\n先说偷鸡摸狗策略，如果按照蔡博的思路，我应该可以从以下6个方面尝试优化（仅仅是在未回测的情况下提出思考过程）：\n方案A：偷鸡+摸狗（蔡博原版思路）\n如果这个原版的方案是有效的，那么偷鸡和摸狗最好是互斥的，也就是说偷鸡期间，收益最高，摸狗期间就不能偷鸡，也就是最理想的状态，偷鸡和摸狗为互斥的，即“偷鸡不摸狗、摸狗不偷鸡”。\n\n方案B：偷鸡+空仓\n万一，这个摸狗期间，摸狗效果很差，偷鸡也不行呢？那就试试空仓？\n这个思路刚好和搅屎棍策略的思路不谋而合。\n\n方案C：偷鸡+偷鸡\n如果在摸狗期间，还不如一致偷鸡，那就干脆不摸狗直接偷鸡，那就是纯粹的基本面小市值策略了。\n\n方案D：空仓+摸狗\n如果在偷鸡期间策略表现不行，摸狗也不行，那就干脆空仓，直接摸狗。这个思路和论坛上养家老师的那个ETF止损策略有点类似\n\n方案E：摸狗+摸狗\n如果在偷鸡期间策略不行，但是摸狗可以，那就是ETF轮动策略\n\n方案F：（偷鸡+摸狗）+（偷鸡+摸狗）\n这个思路有点混合策略，即如果偷鸡摸狗一直很牛逼，那我们就一直偷鸡摸狗。\n\n因为之前对偷鸡摸狗策略的改动不多，本来想着再改改，回测了很多次，改动的都不太满意，有一个比较好的思路，但是又要花费一些时间去想代码，代码不是我的强项，而且暂时不太想用这个策略实盘，等之后我的代码水平提升了，或者有其他更好的思路，我再改。\n偷鸡摸狗策略的思路先总结到这里。\n\n**四大搅屎棍策略再思考**\n搅屎棍策略的思路和上面的有点像，但是还是会有更多的一些变种。\n偷鸡摸狗策略魔改的不太理想，也不好意思发魔改的记录。\n搅屎棍策略的魔改，我有点迫不及待的想看看效果了。\n先看看原版10只持仓的效果\n![Img](https://image.joinquant.com/454104e2399f4e220b315e3a01c254c9)  \n\n![Img](https://image.joinquant.com/5f22fb61d5a6ae113167ba4d9f696862)  \n\n ![Img](https://image.joinquant.com/4b178a2ab17336156b55ffdd630d5574) \n\n再看看魔改的效果\n ![Img](https://image.joinquant.com/0f1d721bd39f9a5a96a57fdd62cdd0bc) \n \n ![Img](https://image.joinquant.com/0f4dbef980b605027c40821192908823) \n \n![Img](https://image.joinquant.com/5df7c02d7ab418d1d6d62befe963af3b) \n看看这改完之后的策略，居然做到了10年正收益，不仅是收益上还有策略的回撤上都比之前有了很大的提升，要是有这个效果，我是愿意实盘验证的。\n但是，我们不能被曲线冲昏了头脑，一定要三思而行，如果要实盘，这里面还是有很多的坑需要解决的。\n这次的魔改算是比较满意的。\n\n想了解的可以克隆哈\nhttps://www.joinquant.com/view/community/detail/5e72cb9b4cecf4317db5c427b0320efd\n\n\n\n第二部分：稳定摸狗策略学习\n好了回顾过去的部分已经讲完了，下面进入到这篇文章的主题，稳定摸狗策略的学习。\n关于策略的解释分析，我感觉小鱼老师解释的非常详细，说的非常好，我是反反复复学习了好多遍，链接如下：\nhttps://www.joinquant.com/view/community/detail/77f1ce1ea8b7266dc78d1b64dd484391\n还有y神的解释，也是非常棒，链接如下：\nhttps://www.joinquant.com/view/community/detail/1b1aea4e33780bb81e2883e1ca0e0e69\n\n而为什么会关注到这个策略，也是因为今年的行情，让我想去寻找一种低回撤中收益的策略，稳定就是我不二的追求。在蔡博发这篇文章之前，我基本上把论坛上能够搜到的ETF轮动策略都克隆了一遍，并进行了回测。比如养家老师的改动非常棒，收益提升的情况下，把回撤也控制住了。链接如下：\nhttps://www.joinquant.com/post/47966\n看了这么多的魔改，我感觉原版的策略就像是一道顶级的食材，我们的魔改就像是在上面进行各种烹饪，有的加盐，有的加酱油，都不错的，毕竟底子在这里。碎碎念完了，正式进入稳定摸狗策略的学习。\n\n这段代码实现了一个基于动量策略的投资算法。该策略旨在通过计算每只 ETF 在过去一段时间内的动量，并根据动量得分选择表现最佳的 ETF 进行投资。下面是代码逻辑的详细解释：\n\n第一步， 初始化设置\nnitialize 函数设置了策略的基本配置，包括基准指数、防止未来函数、滑点设置、交易成本、日志级别等。\n定义了一个包含四只 ETF 的池子：\n- 黄金ETF (`518880.XSHG`)：代表大宗商品。\n  - 纳指100 ETF (`513100.XSHG`)：代表海外资产。\n  - 创业板100 ETF (`159915.XSHE`)：代表成长股、科技股、中小盘。\n  - 上证180 ETF (`510180.XSHG`)：代表价值股、蓝筹股、中大盘。\n- **动量参考天数 (g.m_days)**: 设置为25天。\n交易时间设置为9点30\n\n第二步，动量计算(`MOM` 函数)\n\nMOM 函数计算 ETF 的动量得分，使用加权线性回归计算斜率，并结合 R 平方值来衡量动量强度。\n- **数据获取**: 从给定的ETF获取过去 `g.m_days` 天的收盘价数据。\n- **对数收益率**: 计算对数收益率，这是收益率的一种常见形式。\n- **线性递增权重**: 使用线性递增的权重进行最小二乘法拟合，最近的数据具有更高的权重。\n- **斜率计算**: 通过最小二乘法拟合一条直线并计算斜率。\n- **年化收益率**: 通过斜率计算年化收益率。\n- **残差计算**: 计算残差，即实际值与预测值之间的差异。\n- **加权残差**: 计算加权残差，即将残差平方后乘以权重。\n- **判定系数 R²**: 计算判定系数 R²，衡量模型拟合的好坏。\n- **动量得分**: 返回动量得分，它是年化收益率与 R² 的乘积。\n\n\n第三步  分数排序 (`get_rank` 函数)\nget_rank 函数使用 MOM 函数的结果对 ETF 池中的 ETF 进行排序。\n- **动量得分计算**: 对每只ETF计算动量得分。\n- **排名**: 将得分整理成DataFrame并排序。\n- **安全区间**: 选择得分在0到5之间的ETF（即所谓的“安全区间”）。得分过高或过低的ETF将被排除在外。\n- **返回排名列表**: 返回排名最高的ETF列表。如果所有ETF得分都低于0，则返回空列表。\n\n第四步 交易函数\n- **获取目标ETF**: 获取排名最高的ETF（默认为1只）。\n- **卖出非目标ETF**: 检查当前持仓中的ETF是否在目标列表中，不在则卖出。\n- **买入目标ETF**: 如果当前持仓少于目标数量，则使用剩余现金等额买入目标ETF。\n\n总结\n这个策略假设动量得分在0到5之间是安全的投资区间。如果所有ETF的得分都低于0，则策略可能会保持空仓或购买其他避险资产（如国债、银华日利、黄金ETF）-未写相关代码。\n\n\n \n\n**第三部分  稳定摸狗策略的改动之处**\n\n蔡博之前对ETF轮动策略也进行过改动，链接如下：\nhttps://www.joinquant.com/post/47888\n我们可以对比下这两份策略的异同 ，我们通过在线对比网站对比了这俩份代码的异同：\n这次除了把滑点进行了调整主要是新增了如下代码：\n ![Img](https://image.joinquant.com/ba5c5f567b86b18dbf428b65a24bd5fd) \n如此改变，意味着只有那些得分在0到5之间的ETF会被选中。如果没有任何ETF的得分在这个范围内，那么策略将不会选择任何ETF进行投资。\n也就是说本次的改变相当于加了一个安全过滤区间。\n我把之前的策略滑点进行了调整，对比两次回测表现如下：\n\n**安全摸狗策略近十年回测**\n![Img](https://image.joinquant.com/3154e9f82d1310146df3dc4cca7e23ba) \n \n![Img](https://image.joinquant.com/cad3547d7554531d874252fbd6699603)  \n![Img](https://image.joinquant.com/eb32738938d71085b167e9f8d9d4ea78)  \n\n蔡博原来版本的十年回测（调整滑点，保持一致）\n ![Img](https://image.joinquant.com/92a6ee8cce4b282a55df89faa9a6fcc7) \n \n ![Img](https://image.joinquant.com/2b2f0f04f092c71d986d451a56d80ee8) \n\n![Img](https://image.joinquant.com/7ccb366ce65f8223205b466db1c2d43b) \n学习到这里好像就结束了，但是似乎还少了点啥，对了得魔改一下，哈哈\n\n第四部分 魔改\n蔡博留了俩份作业给大家。\n第一份：    #total_score = df['score'].sum() 不告诉你这个怎么用\n\n他不告诉我这个怎么用，有懂的老师解释下么？\n\n第二份作业：rank_list=[] #如果全部都小于0，那么空仓或者买《国债、银华日历、黄金》避险\n他没写这个代码\n\n那么我这次魔改，就把第二份作业做一下\n\n再次，感谢蔡博的分享！",
+      "type": 1,
+      "status": "0",
+      "addTime": "2024-07-28 18:24:44",
+      "modTime": "2024-07-28 18:24:44",
+      "lastActiveTime": "2026-02-24 14:41:06",
+      "lastPubTime": "2024-07-28 18:24:44",
+      "backtestId": "a11c4948260b9a654163361e1e267619",
+      "backtestName": "核资轮V1.1-原版-安全摸狗-货币基金",
+      "replyCount": "35",
+      "viewCount": "5737",
+      "collectionCount": "192",
+      "likeCount": "84",
+      "disLikeCount": "0",
+      "backtestCloneCount": "264",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "33",
+      "followersCount": "356",
+      "followingCount": "10",
+      "author": {
+        "userId": "75d1f4d73f6751250e6e2a4c1e0c92f3",
+        "alias": "口袋里的钥匙扣",
+        "vipType": "VIP",
+        "headImgKey": "514351c205463b7dfa9f2276d5ac5298"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "5",
+          "name": "仓位管理"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "3715",
+          "name": "小市值"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "a11c4948260b9a654163361e1e267619",
+        "backtest_name": "核资轮V1.1-原版-安全摸狗-货币基金",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=a11c4948260b9a654163361e1e267619&postId=ad9468f5a1b30037e37494bd94ae2584&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2014-01-01",
+          "end_date": "2024-07-27",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "dc930ac9c59a089dd31f59501e85006b",
+            "35755376"
+          ],
+          "numeric_backtest_id": "35755376",
+          "numeric_post_id": "49290",
+          "python_version": 3,
+          "clone_count": 235
+        },
+        "stats": {
+          "trading_days": 2571,
+          "benchmark_volatility": 0.21573988676839,
+          "algorithm_volatility": 0.21373644232392,
+          "treasury_return": 0.42279452054795,
+          "algorithm_return": 14.2151954248,
+          "benchmark_return": 0.46319575284438,
+          "annual_algo_return": 0.30305518803164,
+          "annual_bm_return": 0.037704616289145,
+          "sharpe": 1.2307456097401,
+          "excess_return_sharpe": "0.939",
+          "sortino": 1.698994058798,
+          "information": 1.1609552644862,
+          "beta": 0.42955603970463,
+          "alpha": 0.26404118396807,
+          "excess_return": 9.3986055148277,
+          "avg_excess_return": "0.10%",
+          "max_drawdown": 0.21141875370007,
+          "max_drawdown_period": [
+            "2015-05-12",
+            "2015-09-30"
+          ],
+          "excess_return_max_drawdown": "32.84%",
+          "excess_return_max_drawdown_period": [
+            "2014-02-24",
+            "2015-04-20"
+          ],
+          "max_leverage": 0,
+          "period_label": "2024-07",
+          "__version": 101,
+          "win_ratio": 0.55555555555556,
+          "profit_loss_ratio": 2.6142193187636,
+          "win_count": 115,
+          "lose_count": 92,
+          "day_win_ratio": 0.5270322831583,
+          "avg_trade_return": 0.015081230890604,
+          "avg_position_days": 514.2,
+          "turnover_rate": 0.074541226549206,
+          "report_done_seconds": 65.504330158234,
+          "report_done_cpu_seconds": 59.52
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 1421.519542,
+          "benchmark_return_percent": 46.319575,
+          "annual_algo_return_percent": 30.305519,
+          "annual_bm_return_percent": 3.770462,
+          "max_drawdown_percent": 21.141875,
+          "algorithm_volatility_percent": 21.373644,
+          "benchmark_volatility_percent": 21.573989,
+          "win_ratio_percent": 55.555556,
+          "day_win_ratio_percent": 52.703228,
+          "avg_trade_return_percent": 1.508123,
+          "turnover_rate_percent": 7.454123,
+          "sharpe": 1.2307456097401,
+          "sortino": 1.698994058798,
+          "information": 1.1609552644862,
+          "alpha": 0.26404118396807,
+          "beta": 0.42955603970463,
+          "profit_loss_ratio": 2.6142193187636,
+          "avg_position_days": 514.2,
+          "trading_days": 2571,
+          "win_count": 115,
+          "lose_count": 92,
+          "max_drawdown_period": [
+            "2015-05-12",
+            "2015-09-30"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2014-02-24",
+            "2015-04-20"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/49290",
+      "https://www.joinquant.com/community/post/detailV2?postId=49290",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=a11c4948260b9a654163361e1e267619&postId=ad9468f5a1b30037e37494bd94ae2584&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=a11c4948260b9a654163361e1e267619"
+    ]
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/57 黄泽森策略.txt",
+    "category": "2020年度精选策略",
+    "file_name": "57 黄泽森策略.txt",
+    "strategy_name": "黄泽森策略",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 14587,
+    "sha256": "39980b3785891b77d79fee287e910dfc2bab82164fec40a5e64d20a0182ea1af",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/13974"
+    ],
+    "primary_url": "https://www.joinquant.com/post/13974",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:01+08:00",
+    "requested_url": "https://www.joinquant.com/post/13974",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/2d6a228ad46cc0f81dbe868acb0623d8",
+    "community_id": "2d6a228ad46cc0f81dbe868acb0623d8",
+    "post": {
+      "postId": "5af9501af760f84f85e77f7ba032a428",
+      "uniqueKey": "2d6a228ad46cc0f81dbe868acb0623d8",
+      "title": "黄泽森策略",
+      "content": "\r\n```\r\nfrom kuanke.wizard import *\r\nfrom jqdata import *\r\nimport numpy as np\r\nimport pandas as pd\r\nimport talib\r\nimport datetime\r\n\r\n## 初始化函数，设定要操作的股票、基准等等\r\ndef initialize(context):\r\n    # 设定基准\r\n    set_benchmark(&#39;000300.XSHG&#39;)\r\n    # 设定滑点\r\n    set_slippage(FixedSlippage(0.02))\r\n    # True为开启动态复权模式，使用真实价格交易\r\n    set_option(&#39;use_real_price&#39;, True) \r\n    # 设定成交量比例\r\n    set_option(&#39;order_volume_ratio&#39;, 1)\r\n    # 股票类交易手续费是：买入时佣金万分之三，卖出时佣金万分之三加千分之一印花税, 每笔交易佣金最低扣5块钱\r\n    set_order_cost(OrderCost(open_tax=0, close_tax=0.001, open_commission=0.0003, close_commission=0.0003, min_commission=5), type=&#39;stock&#39;)\r\n    # 个股最大持仓比重\r\n    g.security_max_proportion = 1\r\n    # 选股频率\r\n    g.check_stocks_refresh_rate = 1\r\n    # 买入频率\r\n    g.buy_refresh_rate = 1\r\n    # 卖出频率\r\n    g.sell_refresh_rate = 1\r\n    # 最大建仓数量\r\n    g.max_hold_stocknum = 5\r\n\r\n    # 选股频率计数器\r\n    g.check_stocks_days = 0 \r\n    # 买卖交易频率计数器\r\n    g.buy_trade_days=0\r\n    g.sell_trade_days=0 \r\n    # 获取未卖出的股票\r\n    g.open_sell_securities = [] \r\n    # 卖出股票的dict\r\n    g.selled_security_list=&#123;}\r\n    \r\n    # 股票筛选初始化函数\r\n    check_stocks_initialize()\r\n    # 股票筛选排序初始化函数\r\n    check_stocks_sort_initialize()\r\n    # 出场初始化函数\r\n    sell_initialize()\r\n    # 入场初始化函数\r\n    buy_initialize()\r\n    # 风控初始化函数\r\n    risk_management_initialize()\r\n\r\n    # 关闭提示\r\n    log.set_level(&#39;order&#39;, &#39;error&#39;)\r\n\r\n    # 运行函数\r\n    run_daily(sell_every_day,&#39;open&#39;) #卖出未卖出成功的股票\r\n    run_daily(risk_management, &#39;every_bar&#39;) #风险控制\r\n    run_daily(check_stocks, &#39;open&#39;) #选股\r\n    run_daily(trade, &#39;open&#39;) #交易  \r\n    run_daily(selled_security_list_count, &#39;after_close&#39;) #卖出股票日期计数 \r\n      \r\n\r\n## 股票筛选初始化函数\r\ndef check_stocks_initialize():\r\n    # 是否过滤停盘\r\n    g.filter_paused = True\r\n    # 是否过滤退市  \r\n    g.filter_delisted = True\r\n    # 是否只有ST\r\n    g.only_st = False\r\n    # 是否过滤ST\r\n    g.filter_st = True\r\n    # 股票池\r\n    g.security_universe_index = [&quot;000300.XSHG&quot;]\r\n    g.security_universe_user_securities = []\r\n    # 行业列表\r\n    g.industry_list = [&quot;801010&quot;,&quot;801020&quot;,&quot;801030&quot;,&quot;801040&quot;,&quot;801050&quot;,&quot;801080&quot;,&quot;801110&quot;,&quot;801120&quot;,&quot;801130&quot;,&quot;801140&quot;,&quot;801150&quot;,&quot;801160&quot;,&quot;801170&quot;,&quot;801180&quot;,&quot;801200&quot;,&quot;801210&quot;,&quot;801230&quot;,&quot;801710&quot;,&quot;801720&quot;,&quot;801730&quot;,&quot;801740&quot;,&quot;801750&quot;,&quot;801760&quot;,&quot;801770&quot;,&quot;801780&quot;,&quot;801790&quot;,&quot;801880&quot;,&quot;801890&quot;]\r\n    # 概念列表\r\n    g.concept_list = []\r\n\r\n## 股票筛选排序初始化函数\r\ndef check_stocks_sort_initialize():\r\n    # 总排序准则： desc-降序、asc-升序\r\n    g.check_out_lists_ascending = &#39;desc&#39;\r\n\r\n## 出场初始化函数\r\ndef sell_initialize():\r\n    # 设定是否卖出buy_lists中的股票\r\n    g.sell_will_buy = False\r\n\r\n    # 固定出仓的数量或者百分比\r\n    g.sell_by_amount = None\r\n    g.sell_by_percent = None\r\n\r\n## 入场初始化函数\r\ndef buy_initialize():\r\n    # 是否可重复买入\r\n    g.filter_holded = False\r\n\r\n    # 委托类型\r\n    g.order_style_str = &#39;by_cap_mean&#39;\r\n    g.order_style_value = 100\r\n\r\n## 风控初始化函数\r\ndef risk_management_initialize():\r\n    # 策略风控信号\r\n    g.risk_management_signal = True\r\n\r\n    # 策略当日触发风控清仓信号\r\n    g.daily_risk_management = True\r\n\r\n    # 单只最大买入股数或金额\r\n    g.max_buy_value = None\r\n    g.max_buy_amount = None\r\n\r\n\r\n## 卖出未卖出成功的股票\r\ndef sell_every_day(context):\r\n    g.open_sell_securities = list(set(g.open_sell_securities))\r\n    open_sell_securities = [s for s in context.portfolio.positions.keys() if s in g.open_sell_securities]\r\n    if len(open_sell_securities)&gt;0:\r\n        for stock in open_sell_securities:\r\n            order_target_value(stock, 0)\r\n    g.open_sell_securities = [s for s in g.open_sell_securities if s in context.portfolio.positions.keys()]\r\n    return\r\n\r\n## 风控\r\ndef risk_management(context):\r\n    ### _风控函数筛选-开始 ###\r\n    ### _风控函数筛选-结束 ###\r\n    return\r\n\r\n## 股票筛选\r\ndef check_stocks(context):\r\n    if g.check_stocks_days%g.check_stocks_refresh_rate != 0:\r\n        # 计数器加一\r\n        g.check_stocks_days += 1\r\n        return\r\n    # 股票池赋值\r\n    g.check_out_lists = get_security_universe(context, g.security_universe_index, g.security_universe_user_securities)\r\n    # 行业过滤\r\n    g.check_out_lists = industry_filter(context, g.check_out_lists, g.industry_list)\r\n    # 概念过滤\r\n    g.check_out_lists = concept_filter(context, g.check_out_lists, g.concept_list)\r\n    # 过滤ST股票\r\n    g.check_out_lists = st_filter(context, g.check_out_lists)\r\n    # 过滤退市股票\r\n    g.check_out_lists = delisted_filter(context, g.check_out_lists)\r\n    # 财务筛选\r\n    g.check_out_lists = financial_statements_filter(context, g.check_out_lists)\r\n    # 行情筛选\r\n    g.check_out_lists = situation_filter(context, g.check_out_lists)\r\n    # 技术指标筛选\r\n    g.check_out_lists = technical_indicators_filter(context, g.check_out_lists)\r\n    # 形态指标筛选函数\r\n    g.check_out_lists = pattern_recognition_filter(context, g.check_out_lists)\r\n    # 其他筛选函数\r\n    g.check_out_lists = other_func_filter(context, g.check_out_lists)\r\n\r\n    # 排序\r\n    input_dict = get_check_stocks_sort_input_dict()\r\n    g.check_out_lists = check_stocks_sort(context,g.check_out_lists,input_dict,g.check_out_lists_ascending)\r\n\r\n    # 计数器归一\r\n    g.check_stocks_days = 1\r\n    return\r\n\r\n## 交易函数\r\ndef trade(context):\r\n   # 初始化买入列表\r\n    buy_lists = []\r\n\r\n    # 买入股票筛选\r\n    if g.buy_trade_days%g.buy_refresh_rate == 0:\r\n        # 获取 buy_lists 列表\r\n        buy_lists = g.check_out_lists\r\n        # 过滤ST股票\r\n        buy_lists = st_filter(context, buy_lists)\r\n        # 过滤停牌股票\r\n        buy_lists = paused_filter(context, buy_lists)\r\n        # 过滤退市股票\r\n        buy_lists = delisted_filter(context, buy_lists)\r\n        # 过滤涨停股票\r\n        buy_lists = high_limit_filter(context, buy_lists)\r\n\r\n        ### _入场函数筛选-开始 ###\r\n        ### _入场函数筛选-结束 ###\r\n\r\n    # 卖出操作\r\n    if g.sell_trade_days%g.sell_refresh_rate != 0:\r\n        # 计数器加一\r\n        g.sell_trade_days += 1\r\n    else:\r\n        # 卖出股票\r\n        sell(context, buy_lists)\r\n        # 计数器归一\r\n        g.sell_trade_days = 1\r\n\r\n\r\n    # 买入操作\r\n    if g.buy_trade_days%g.buy_refresh_rate != 0:\r\n        # 计数器加一\r\n        g.buy_trade_days += 1\r\n    else:\r\n        # 卖出股票\r\n        buy(context, buy_lists)\r\n        # 计数器归一\r\n        g.buy_trade_days = 1\r\n\r\n## 卖出股票日期计数\r\ndef selled_security_list_count(context):\r\n    g.daily_risk_management = True\r\n    if len(g.selled_security_list)&gt;0:\r\n        for stock in g.selled_security_list.keys():\r\n            g.selled_security_list[stock] += 1\r\n\r\n##################################  选股函数群 ##################################\r\n\r\n## 财务指标筛选函数\r\ndef financial_statements_filter(context, security_list):\r\n    ### _财务指标筛选函数-开始 ###\r\n    security_list = financial_data_filter_dayu(security_list, indicator.roe, 8)\r\n    security_list = financial_data_filter_dayu(security_list, indicator.inc_net_profit_year_on_year, 7)\r\n    security_list = financial_data_filter_xiaoyu(security_list, valuation.pe_ratio_lyr, 30)\r\n    ### _财务指标筛选函数-结束 ###\r\n\r\n    # 返回列表\r\n    return security_list\r\n\r\n## 行情筛选函数\r\ndef situation_filter(context, security_list):\r\n    ### _行情筛选函数-开始 ###\r\n    ### _行情筛选函数-结束 ###\r\n\r\n    # 返回列表\r\n    return security_list\r\n\r\n## 技术指标筛选函数\r\ndef technical_indicators_filter(context, security_list):\r\n    ### _技术指标筛选函数-开始 ###\r\n    ### _技术指标筛选函数-结束 ###\r\n\r\n    # 返回列表\r\n    return security_list\r\n\r\n## 形态指标筛选函数\r\ndef pattern_recognition_filter(context, security_list):\r\n    ### _形态指标筛选函数-开始 ###\r\n    ### _形态指标筛选函数-结束 ###\r\n\r\n    # 返回列表\r\n    return security_list\r\n\r\n## 其他方式筛选函数\r\ndef other_func_filter(context, security_list):\r\n    ### _其他方式筛选函数-开始 ###\r\n    ### _其他方式筛选函数-结束 ###\r\n\r\n    # 返回列表\r\n    return security_list\r\n\r\n# 获取选股排序的 input_dict\r\ndef get_check_stocks_sort_input_dict():\r\n    input_dict = &#123;\r\n        }\r\n    # 返回结果\r\n    return input_dict\r\n\r\n##################################  交易函数群 ##################################\r\n# 交易函数 - 出场\r\ndef sell(context, buy_lists):\r\n    # 获取 sell_lists 列表\r\n    init_sl = context.portfolio.positions.keys()\r\n    sell_lists = context.portfolio.positions.keys()\r\n\r\n    # 判断是否卖出buy_lists中的股票\r\n    if not g.sell_will_buy:\r\n        sell_lists = [security for security in sell_lists if security not in buy_lists]\r\n    \r\n    ### _出场函数筛选-开始 ###\r\n    ### _出场函数筛选-结束 ###\r\n    \r\n    # 卖出股票\r\n    if len(sell_lists)&gt;0:\r\n        for stock in sell_lists:\r\n            sell_by_amount_or_percent_or_none(context,stock, g.sell_by_amount, g.sell_by_percent, g.open_sell_securities)\r\n    \r\n    # 获取卖出的股票, 并加入到 g.selled_security_list中\r\n    selled_security_list_dict(context,init_sl)\r\n    \r\n    return\r\n\r\n# 交易函数 - 入场\r\ndef buy(context, buy_lists):\r\n    # 风控信号判断\r\n    if not g.risk_management_signal:\r\n        return\r\n    \r\n    # 判断当日是否触发风控清仓止损\r\n    if not g.daily_risk_management:\r\n        return\r\n    # 判断是否可重复买入\r\n    buy_lists = holded_filter(context,buy_lists)\r\n    \r\n    # 获取最终的 buy_lists 列表\r\n    Num = g.max_hold_stocknum - len(context.portfolio.positions)\r\n    buy_lists = buy_lists[:Num]\r\n\r\n    # 买入股票\r\n    if len(buy_lists)&gt;0:\r\n        # 分配资金\r\n        result = order_style(context,buy_lists,g.max_hold_stocknum, g.order_style_str, g.order_style_value)\r\n        for stock in buy_lists:\r\n            if len(context.portfolio.positions) &lt; g.max_hold_stocknum:\r\n                # 获取资金\r\n                Cash = result[stock]\r\n                # 判断个股最大持仓比重\r\n                value = judge_security_max_proportion(context,stock,Cash,g.security_max_proportion)\r\n                # 判断单只最大买入股数或金额\r\n                amount = max_buy_value_or_amount(stock,value,g.max_buy_value,g.max_buy_amount)\r\n                # 下单\r\n                order(stock, amount, MarketOrderStyle())\r\n    return\r\n\r\n###################################  公用函数群 ##################################\r\n## 排序\r\ndef check_stocks_sort(context,security_list,input_dict,ascending=&#39;desc&#39;):\r\n    if (len(security_list) == 0) or (len(input_dict) == 0):\r\n        return security_list\r\n    else:\r\n        # 生成 key 的 list\r\n        idk = list(input_dict.keys())\r\n        # 生成矩阵\r\n        a = pd.DataFrame()\r\n        for i in idk:\r\n            b = get_sort_dataframe(security_list, i, input_dict[i])\r\n            a = pd.concat([a,b],axis = 1)\r\n        # 生成 score 列\r\n        a[&#39;score&#39;] = a.sum(1,False)\r\n        # 根据 score 排序\r\n        if ascending == &#39;asc&#39;:# 升序\r\n            a = a.sort([&#39;score&#39;],ascending = True)\r\n        elif ascending == &#39;desc&#39;:# 降序\r\n            a = a.sort([&#39;score&#39;],ascending = False)\r\n        # 返回结果\r\n        return list(a.index)\r\n\r\n## 过滤同一标的继上次卖出N天不再买入\r\ndef filter_n_tradeday_not_buy(security, n=0):\r\n    try:\r\n        if (security in g.selled_security_list.keys()) and (g.selled_security_list[security]&lt;n):\r\n            return False\r\n        return True\r\n    except:\r\n        return True\r\n\r\n## 是否可重复买入\r\ndef holded_filter(context,security_list):\r\n    if not g.filter_holded:\r\n        security_list = [stock for stock in security_list if stock not in context.portfolio.positions.keys()]\r\n    # 返回结果\r\n    return security_list\r\n\r\n## 卖出股票加入dict\r\ndef selled_security_list_dict(context,security_list):\r\n    selled_sl = [s for s in security_list if s not in context.portfolio.positions.keys()]\r\n    if len(selled_sl)&gt;0:\r\n        for stock in selled_sl:\r\n            g.selled_security_list[stock] = 0\r\n\r\n## 过滤停牌股票\r\ndef paused_filter(context, security_list):\r\n    if g.filter_paused:\r\n        current_data = get_current_data()\r\n        security_list = [stock for stock in security_list if not current_data[stock].paused]\r\n    # 返回结果\r\n    return security_list\r\n\r\n## 过滤退市股票\r\ndef delisted_filter(context, security_list):\r\n    if g.filter_delisted:\r\n        current_data = get_current_data()\r\n        security_list = [stock for stock in security_list if not ((&#39;退&#39; in current_data[stock].name) or (&#39;*&#39; in current_data[stock].name))]\r\n    # 返回结果\r\n    return security_list\r\n\r\n\r\n## 过滤ST股票\r\ndef st_filter(context, security_list):\r\n    if g.only_st:\r\n        current_data = get_current_data()\r\n        security_list = [stock for stock in security_list if current_data[stock].is_st]\r\n    else:\r\n        if g.filter_st:\r\n            current_data = get_current_data()\r\n            security_list = [stock for stock in security_list if not current_data[stock].is_st]\r\n    # 返回结果\r\n    return security_list\r\n\r\n# 过滤涨停股票\r\ndef high_limit_filter(context, security_list):\r\n    current_data = get_current_data()\r\n    security_list = [stock for stock in security_list if not (current_data[stock].day_open &gt;= current_data[stock].high_limit)]\r\n    # 返回结果\r\n    return security_list\r\n\r\n# 获取股票股票池\r\ndef get_security_universe(context, security_universe_index, security_universe_user_securities):\r\n    temp_index = []\r\n    for s in security_universe_index:\r\n        if s == &#39;all_a_securities&#39;:\r\n            temp_index += list(get_all_securities([&#39;stock&#39;], context.current_dt.date()).index)\r\n        else:\r\n            temp_index += get_index_stocks(s)\r\n    for x in security_universe_user_securities:\r\n        temp_index += x\r\n    return  sorted(list(set(temp_index)))\r\n\r\n# 行业过滤\r\ndef industry_filter(context, security_list, industry_list):\r\n    if len(industry_list) == 0:\r\n        # 返回股票列表\r\n        return security_list\r\n    else:\r\n        securities = []\r\n        for s in industry_list:\r\n            temp_securities = get_industry_stocks(s)\r\n            securities += temp_securities\r\n        security_list = [stock for stock in security_list if stock in securities]\r\n        # 返回股票列表\r\n        return security_list\r\n\r\n# 概念过滤\r\ndef concept_filter(context, security_list, concept_list):\r\n    if len(concept_list) == 0:\r\n        return security_list\r\n    else:\r\n        securities = []\r\n        for s in concept_list:\r\n            temp_securities = get_concept_stocks(s)\r\n            securities += temp_securities\r\n        security_list = [stock for stock in security_list if stock in securities]\r\n        # 返回股票列表\r\n        return security_list\r\n\r\n#自定义函数\r\n```\r\n",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-07-26 19:15:47",
+      "modTime": "2018-07-26 19:15:47",
+      "lastActiveTime": "2021-08-06 19:42:16",
+      "lastPubTime": "2018-07-26 19:15:47",
+      "backtestId": "f876dbcdc2313c2481d45d656040b13a",
+      "backtestName": "向导式策略生成器",
+      "replyCount": "6",
+      "viewCount": "2679",
+      "collectionCount": "32",
+      "likeCount": "22",
+      "disLikeCount": "0",
+      "backtestCloneCount": "65",
+      "notebookCloneCount": "9",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "1",
+      "followersCount": "12",
+      "followingCount": "0",
+      "author": {
+        "userId": "11350ea55537a3d1acc346e4c24e8019",
+        "alias": "hzs"
+      },
+      "tags": []
+    },
+    "backtests": [
+      {
+        "backtest_id": "f876dbcdc2313c2481d45d656040b13a",
+        "backtest_name": "向导式策略生成器",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=f876dbcdc2313c2481d45d656040b13a&postId=2d6a228ad46cc0f81dbe868acb0623d8&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2017-06-01",
+          "end_date": "2018-07-01",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "b2337b6e702059f56665c58f3d156f4d",
+            "9470249"
+          ],
+          "numeric_backtest_id": "9470249",
+          "numeric_post_id": "13974",
+          "python_version": 2,
+          "clone_count": 65
+        },
+        "stats": {
+          "information": 2.5689280406464,
+          "benchmark_return": 0.0051806751697605,
+          "algorithm_volatility": 0.19922754680192,
+          "annual_bm_return": 0.0048682983494051,
+          "__version": 101,
+          "max_drawdown": 0.16341539458831,
+          "sortino": 2.3951685574981,
+          "period_label": "2018-06",
+          "trading_days": 266,
+          "algorithm_return": 0.3739475,
+          "benchmark_volatility": 0.14871327114225,
+          "beta": 0.9941460765992,
+          "excess_return": 0.33087900684931,
+          "annual_algo_return": 0.34794192851604,
+          "sharpe": 1.5456794678208,
+          "alpha": 0.34286797187623,
+          "max_drawdown_period": [
+            "2018-02-05",
+            "2018-06-28"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.043068493150685,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.53759398496241,
+          "avg_position_days": 61.65,
+          "win_ratio": 0.68181818181818,
+          "win_count": 15,
+          "avg_trade_return": 0.085124237052535,
+          "profit_loss_ratio": 3.3527917438476,
+          "lose_count": 7,
+          "report_done_seconds": 110.85359096527
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 37.39475,
+          "benchmark_return_percent": 0.518068,
+          "annual_algo_return_percent": 34.794193,
+          "annual_bm_return_percent": 0.48683,
+          "max_drawdown_percent": 16.341539,
+          "algorithm_volatility_percent": 19.922755,
+          "benchmark_volatility_percent": 14.871327,
+          "win_ratio_percent": 68.181818,
+          "day_win_ratio_percent": 53.759398,
+          "avg_trade_return_percent": 8.512424,
+          "sharpe": 1.5456794678208,
+          "sortino": 2.3951685574981,
+          "information": 2.5689280406464,
+          "alpha": 0.34286797187623,
+          "beta": 0.9941460765992,
+          "profit_loss_ratio": 3.3527917438476,
+          "avg_position_days": 61.65,
+          "trading_days": 266,
+          "win_count": 15,
+          "lose_count": 7,
+          "max_drawdown_period": [
+            "2018-02-05",
+            "2018-06-28"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/13974",
+      "https://www.joinquant.com/community/post/detailV2?postId=13974",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=f876dbcdc2313c2481d45d656040b13a&postId=2d6a228ad46cc0f81dbe868acb0623d8&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=f876dbcdc2313c2481d45d656040b13a"
+    ]
+  }
+}

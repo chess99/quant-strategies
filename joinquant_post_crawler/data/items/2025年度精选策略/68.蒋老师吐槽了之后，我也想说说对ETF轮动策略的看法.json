@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/68.蒋老师吐槽了之后，我也想说说对ETF轮动策略的看法.txt",
+    "category": "2025年度精选策略",
+    "file_name": "68.蒋老师吐槽了之后，我也想说说对ETF轮动策略的看法.txt",
+    "strategy_name": "蒋老师吐槽了之后，我也想说说对ETF轮动策略的看法",
+    "declared_title": "蒋老师吐槽了之后，我也想说说对ETF轮动策略的看法",
+    "declared_author": "智习",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 9831,
+    "sha256": "7c7c15c33c95efa6be6c37cb3a73b1f16b714cdcc203d0da6bccd763d742d869",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/24430",
+      "https://www.joinquant.com/post/24417",
+      "https://www.joinquant.com/post/24321",
+      "https://www.joinquant.com/view/community/detail/6d4d808cf982be5db2d0225264cfe8d4",
+      "https://www.joinquant.com/post/22857",
+      "https://www.joinquant.com/view/community/detail/c9827c6126003147912f1b47967052d9"
+    ],
+    "primary_url": "https://www.joinquant.com/post/24430",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:26+08:00",
+    "requested_url": "https://www.joinquant.com/post/24430",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/9fd614ef06ab3769fa783c221af2e509",
+    "community_id": "9fd614ef06ab3769fa783c221af2e509",
+    "post": {
+      "postId": "7600e67b7a07500fd8af484f9c3ce04f",
+      "uniqueKey": "9fd614ef06ab3769fa783c221af2e509",
+      "title": "蒋老师吐槽了之后，我也想说说对ETF轮动策略的看法",
+      "content": "感谢蒋老师出手优化代码（[这里是蒋老师的帖子链接](https://www.joinquant.com/view/community/detail/177edab03367da01e96210469dd5290d?type=1)），蒋老师的吐槽是有道理的，因为这个策略改来改去确实有点乱了。\n\n这个策略最初是根据雪球白云飞老师的思路，设计为只持有一个基金，中间迭代了几次，扩大了基金池，然后加了一些代码，避免无意义的调仓。后面，应网友要求改成最多可以持有三个基金的版本，然后这个版本又改回持有一个基金的版本。中间经过多人的修改，再加上我们在编程方面可能还学习得不够，所以代码中就会继承一些之前版本的笨拙的处理方式。例如全局dataframe是因为在其他版本中有其他函数需要使用到里面的数据。\n\n其实，我最想说的是，大家对这个策略的收益要保持冷静的思考，毕竟目前的这个结果是经过多次优化得到的。\n\n**优化点一：比价周期**\n最典型的优化就是计算涨幅和均线的时间周期13，这是基于历史行情选择的最优值，未来的行情是否仍然有效，这无法确定。如果这个参数失效，对收益的影响是非常大的。其实大家可以把这里的13改成12或者14再回测一下，看看是什么结果。\n```\n    g.lag1 = 13  # 比价均线周期\n    g.lag2 = 13  # 价格涨幅计算周期\n```\n**优化点二：交易时间**\n策略计算交易信号是上午收盘的11:30，下单时间是下午14:30以后，如果选其他时间，收益可能会差很多。当然，这个到底是不是过度优化还存在一定争议。\n\n**优化点三：基金池**\n此外，优化还体现在基金池的选择上，银华锐进分级基金的加入无疑是大幅提高了整体收益。所以下面的回测我会剔除银华锐进，覆盖主要的几个宽基指数基金。这里面还存在争议的就是深证红利，一是它的流动性不佳，成交量不高，无法满足大资金交易的要求。另外剔除它之后整体收益变化非常大，这也是会受到质疑的地方。\n\n**优化点四：量线周期**\n大盘成交量监控周期和均线的两个参数，也同样是基于历史行情的最优选择。未来行情无法保证这仍然有效。\n```\n   g.lag = 6  # 大盘成交量连续跌破均线的天数，发出空仓信号\n   g.lag0 = 7  # 大盘成交量监控周期 \n```\n\n###下面是我对代码的另外一些改动\n\n大盘成交量监控的思路是一个网友提出的，根据他的意图，设计了这个函数。因为我投资股票时间只有半年，所以我无法解释其中的道理何在。因此，我加了一个开关，方便大家对比大盘止损的效果。\n```\ng.MonitorSwitch = True  #大盘止损开关，设False表示关闭，True表示打开\n```\n\n**卖出基金无法完成成交的处理**\n深红利的流动性不佳，可能在应该卖出的当天无法完全成交，所以我在检查交易信号的时候加了卖出的代码，使得可以在下一个交易日继续下单卖出剩下的仓位，我认为这样操作更加符合策略的逻辑。\n\n大家用这里发布的代码跑一下，然后把日志拿回来搜索“清仓遗留基金”这个词，就会发现这段代码一共被执行了7次。\n```\ndef get_signal(context):\n    if g.signal == 'CLEAR':\n            for stock in context.portfolio.positions:\n                log.info(\"清仓遗留基金: %s\" % stock)\n                order_target(stock, 0)  \n```\n\n**交易成本的合理设置**\n交易成本必须考虑，为了方便对比策略收益，我们一般设置滑点为0，同时会把交易成本设置为万五。貌似聚宽的策略大赛也是这个标准，所以这里呼吁大家都养成这个习惯，标准统一才有可比性。因为我们交易的是基金，所以下面的交易成本设置，type='fund'，如果是股票，那就是type='stock'\n```\n    set_order_cost(OrderCost(open_tax=0, close_tax=0, \\\n        open_commission=0.0005, close_commission=0.0005,\\\n        close_today_commission=0, min_commission=5), type='fund')\n```\n\n在经过调整之后（包括剔除闲置资金购买银华日利的代码，因为它产生的收益和策略无关），我重新做了一个回测，希望能让大家看到一个更能反映策略逻辑的回测结果，尽管这个收益可能无法在未来行情中复现。\n\n**最后再次提醒大家，基于历史行情的回测不能完全作为判断策略优劣的标准，历史行情是已知的，只要不怕麻烦，很多策略最终都能优化出一个非常出色的回测收益。我们可能需要更多地研究策略本身的设计思路，了解它在历史行情回测中有效的原因，以及在未来仍然有效的可能性有多大。**",
+      "type": 1,
+      "status": "0",
+      "addTime": "2019-12-15 01:53:50",
+      "modTime": "2019-12-15 01:53:50",
+      "lastActiveTime": "2025-01-29 14:11:36",
+      "lastPubTime": "2019-12-15 01:53:50",
+      "backtestId": "cd5b51b9d3f6b255a43b6c1bd77f5e33",
+      "backtestName": "稳定盈利的ETF轮动",
+      "replyCount": "106",
+      "viewCount": "11729",
+      "collectionCount": "154",
+      "likeCount": "102",
+      "disLikeCount": "0",
+      "backtestCloneCount": "379",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "13",
+      "followersCount": "835",
+      "followingCount": "11",
+      "author": {
+        "userId": "58f4d8610a3f623865e22557c714fb98",
+        "alias": "智习",
+        "headImgKey": "9a9cfe87dc320733fca0fadcaec76201"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "12",
+          "name": "基金"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "cd5b51b9d3f6b255a43b6c1bd77f5e33",
+        "backtest_name": "稳定盈利的ETF轮动",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=cd5b51b9d3f6b255a43b6c1bd77f5e33&postId=9fd614ef06ab3769fa783c221af2e509&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2014-01-01",
+          "end_date": "2019-12-13",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "f7f104de340f39968f75e67055a76cb5",
+            "15733593"
+          ],
+          "numeric_backtest_id": "15733593",
+          "numeric_post_id": "24430",
+          "python_version": 3,
+          "clone_count": 396
+        },
+        "stats": {
+          "trading_days": 1452,
+          "benchmark_volatility": 0.23704991753249,
+          "algorithm_volatility": 0.21542756664502,
+          "treasury_return": 0.23791780821918,
+          "algorithm_return": 5.144750888495,
+          "benchmark_return": 0.70307678441907,
+          "annual_algo_return": 0.36697872786088,
+          "annual_bm_return": 0.096006313613156,
+          "sharpe": 1.5178128451855,
+          "excess_return_sharpe": "0.946",
+          "sortino": 2.1977071760954,
+          "information": 1.2523967878175,
+          "beta": 0.49640574324863,
+          "alpha": 0.29917687212513,
+          "excess_return": 2.608029270736,
+          "avg_excess_return": "0.10%",
+          "max_drawdown": 0.18435580878636,
+          "max_drawdown_period": [
+            "2015-12-23",
+            "2016-02-25"
+          ],
+          "excess_return_max_drawdown": "24.31%",
+          "excess_return_max_drawdown_period": [
+            "2016-01-28",
+            "2016-12-09"
+          ],
+          "max_leverage": 0,
+          "period_label": "2019-12",
+          "__version": 101,
+          "win_ratio": 0.53113553113553,
+          "profit_loss_ratio": 2.138561203147,
+          "win_count": 145,
+          "lose_count": 128,
+          "day_win_ratio": 0.5068870523416,
+          "avg_trade_return": 0.0079511053195149,
+          "avg_position_days": 118,
+          "turnover_rate": 0.18042173433769,
+          "report_done_seconds": 165.51618099213
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 514.475089,
+          "benchmark_return_percent": 70.307678,
+          "annual_algo_return_percent": 36.697873,
+          "annual_bm_return_percent": 9.600631,
+          "max_drawdown_percent": 18.435581,
+          "algorithm_volatility_percent": 21.542757,
+          "benchmark_volatility_percent": 23.704992,
+          "win_ratio_percent": 53.113553,
+          "day_win_ratio_percent": 50.688705,
+          "avg_trade_return_percent": 0.795111,
+          "turnover_rate_percent": 18.042173,
+          "sharpe": 1.5178128451855,
+          "sortino": 2.1977071760954,
+          "information": 1.2523967878175,
+          "alpha": 0.29917687212513,
+          "beta": 0.49640574324863,
+          "profit_loss_ratio": 2.138561203147,
+          "avg_position_days": 118,
+          "trading_days": 1452,
+          "win_count": 145,
+          "lose_count": 128,
+          "max_drawdown_period": [
+            "2015-12-23",
+            "2016-02-25"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2016-01-28",
+            "2016-12-09"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/24430",
+      "https://www.joinquant.com/community/post/detailV2?postId=24430",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=cd5b51b9d3f6b255a43b6c1bd77f5e33&postId=9fd614ef06ab3769fa783c221af2e509&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=cd5b51b9d3f6b255a43b6c1bd77f5e33"
+    ]
+  }
+}

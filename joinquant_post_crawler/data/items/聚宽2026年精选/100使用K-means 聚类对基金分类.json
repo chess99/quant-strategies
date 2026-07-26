@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/100使用K-means 聚类对基金分类.py",
+    "category": "聚宽2026年精选",
+    "file_name": "100使用K-means 聚类对基金分类.py",
+    "strategy_name": "使用K-means 聚类对基金分类",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".py",
+    "encoding": "utf-8-sig",
+    "size": 1518,
+    "sha256": "b09270e1bd2b29588a6054e47a18f5b803548633e85984accffe7b30bd9d5d95",
+    "joinquant_urls": [],
+    "primary_url": null,
+    "url_selection_method": "none"
+  },
+  "remote": null
+}

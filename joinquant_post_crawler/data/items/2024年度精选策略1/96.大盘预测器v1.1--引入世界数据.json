@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略1/96.大盘预测器v1.1--引入世界数据.txt",
+    "category": "2024年度精选策略1",
+    "file_name": "96.大盘预测器v1.1--引入世界数据.txt",
+    "strategy_name": "大盘预测器v1.1--引入世界数据",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 9483,
+    "sha256": "cee80e8eaa3e6048642a44ecba3e4b98a4f6c0a401239b27e6828715ed6c24de",
+    "joinquant_urls": [],
+    "primary_url": null,
+    "url_selection_method": "none"
+  },
+  "remote": null
+}

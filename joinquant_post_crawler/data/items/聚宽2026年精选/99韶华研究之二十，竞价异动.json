@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/99韶华研究之二十，竞价异动.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "99韶华研究之二十，竞价异动.txt",
+    "strategy_name": "韶华研究之二十，竞价异动",
+    "declared_title": "韶华研究之二十，竞价异动",
+    "declared_author": "韶华不负",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 13614,
+    "sha256": "6443af05c24a64750b8613373615c63000506cfabc89b5996bf250c25c49e4cd",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/47897"
+    ],
+    "primary_url": "https://www.joinquant.com/post/47897",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:12:51+08:00",
+    "requested_url": "https://www.joinquant.com/post/47897",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/59fafd766733dbe134c9172116ecd593",
+    "community_id": "59fafd766733dbe134c9172116ecd593",
+    "post": {
+      "postId": "f718d2908885bed8326f37474ebf7a16",
+      "uniqueKey": "59fafd766733dbe134c9172116ecd593",
+      "title": "韶华研究之二十，竞价异动",
+      "content": "最近经常看到蒋老师等高手秀战绩，比如4.24的蓝海华腾，4.17的宝丽迪等，初步探讨视为一种竞价异动，所以早上手搓了一个异动模型，特与众分享，希望抛砖引玉。\n\n回测只是24年的，附图是近几年的回测数据，供参考。\n如果抱着化10积分就要得到一份稳定且年化100的兄弟可以绕路走，此处更多的是分享一种思路。\n\n逻辑，\n1，近期强势个股\n2，当日竞价发生量价异动\n3，照理应该分析资金流，并跟踪5-15分钟，但JQ缺少日内资金流数据，此处缺\n4，T+1买卖\n\n总结，\n这类策略应该是游资的一种风格，一阵阵的，得和其他短线等结合着来；且缺少资金流数据分析，故只可研究不建议实盘。\n\n\n![Img](https://image.joinquant.com/57d1bf5c42da39b753f879f12047e221)",
+      "type": 1,
+      "status": "0",
+      "addTime": "2024-04-27 11:51:18",
+      "modTime": "2024-04-27 11:53:50",
+      "lastActiveTime": "2026-05-23 11:46:10",
+      "lastPubTime": "2024-04-27 11:53:50",
+      "backtestId": "12542f9abd9965cffcd5ce67cea617c0",
+      "backtestName": "20cm竞价异动-分享",
+      "replyCount": "31",
+      "viewCount": "4056",
+      "collectionCount": "56",
+      "likeCount": "49",
+      "disLikeCount": "0",
+      "backtestCloneCount": "240",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "50",
+      "followersCount": "2273",
+      "followingCount": "40",
+      "author": {
+        "userId": "ac70bf02fdb3940deb8aae4fd0b63eee",
+        "alias": "韶华不负",
+        "vipType": "VIP",
+        "headImgKey": "734ca8e800f5981ca6212705718a8ed1"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "2757",
+          "name": "短线"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "12542f9abd9965cffcd5ce67cea617c0",
+        "backtest_name": "20cm竞价异动-分享",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=12542f9abd9965cffcd5ce67cea617c0&postId=59fafd766733dbe134c9172116ecd593&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2024-01-01",
+          "end_date": "2024-04-26",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "1c78eb8a5b62fa6ba4c87b21f2ba7300",
+            "33992136"
+          ],
+          "numeric_backtest_id": "33992136",
+          "numeric_post_id": "47897",
+          "python_version": 3,
+          "clone_count": 236
+        },
+        "stats": {
+          "trading_days": 76,
+          "benchmark_volatility": 0.17373371041486,
+          "algorithm_volatility": 0.56953720389714,
+          "treasury_return": 0.012602739726027,
+          "algorithm_return": 0.516894324026,
+          "benchmark_return": 0.042656332284591,
+          "annual_algo_return": 2.9377467688055,
+          "annual_bm_return": 0.14729460432078,
+          "sharpe": 5.0878972417908,
+          "excess_return_sharpe": "4.215",
+          "sortino": 10.110808429404,
+          "information": 4.9177392650024,
+          "beta": 0.53976658562098,
+          "alpha": 2.8398327265757,
+          "excess_return": 0.45483634161823,
+          "avg_excess_return": "0.56%",
+          "max_drawdown": 0.14367119002685,
+          "max_drawdown_period": [
+            "2024-03-06",
+            "2024-03-25"
+          ],
+          "excess_return_max_drawdown": "13.98%",
+          "excess_return_max_drawdown_period": [
+            "2024-03-06",
+            "2024-03-25"
+          ],
+          "max_leverage": 0,
+          "period_label": "2024-04",
+          "__version": 101,
+          "win_ratio": 0.6,
+          "profit_loss_ratio": 2.4683059211467,
+          "win_count": 18,
+          "lose_count": 12,
+          "day_win_ratio": 0.47368421052632,
+          "avg_trade_return": 0.057513249417112,
+          "avg_position_days": 1.2903225806452,
+          "turnover_rate": 0.16797345714632,
+          "report_done_seconds": 84.021195650101,
+          "report_done_cpu_seconds": 69.44
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 51.689432,
+          "benchmark_return_percent": 4.265633,
+          "annual_algo_return_percent": 293.774677,
+          "annual_bm_return_percent": 14.72946,
+          "max_drawdown_percent": 14.367119,
+          "algorithm_volatility_percent": 56.95372,
+          "benchmark_volatility_percent": 17.373371,
+          "win_ratio_percent": 60.0,
+          "day_win_ratio_percent": 47.368421,
+          "avg_trade_return_percent": 5.751325,
+          "turnover_rate_percent": 16.797346,
+          "sharpe": 5.0878972417908,
+          "sortino": 10.110808429404,
+          "information": 4.9177392650024,
+          "alpha": 2.8398327265757,
+          "beta": 0.53976658562098,
+          "profit_loss_ratio": 2.4683059211467,
+          "avg_position_days": 1.2903225806452,
+          "trading_days": 76,
+          "win_count": 18,
+          "lose_count": 12,
+          "max_drawdown_period": [
+            "2024-03-06",
+            "2024-03-25"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2024-03-06",
+            "2024-03-25"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/47897",
+      "https://www.joinquant.com/community/post/detailV2?postId=47897",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=12542f9abd9965cffcd5ce67cea617c0&postId=59fafd766733dbe134c9172116ecd593&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=12542f9abd9965cffcd5ce67cea617c0"
+    ]
+  }
+}

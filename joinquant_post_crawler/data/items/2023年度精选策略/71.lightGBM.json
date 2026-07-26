@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/71.lightGBM.txt",
+    "category": "2023年度精选策略",
+    "file_name": "71.lightGBM.txt",
+    "strategy_name": "lightGBM",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 24413,
+    "sha256": "6ed72b3c2180f4a80b91243da2f2ea7bc830d182bc9dfb266f40e6748209e3d8",
+    "joinquant_urls": [],
+    "primary_url": null,
+    "url_selection_method": "none"
+  },
+  "remote": null
+}

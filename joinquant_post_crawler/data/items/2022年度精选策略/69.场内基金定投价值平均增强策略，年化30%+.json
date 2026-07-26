@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/69.场内基金定投价值平均增强策略，年化30%+.txt",
+    "category": "2022年度精选策略",
+    "file_name": "69.场内基金定投价值平均增强策略，年化30%+.txt",
+    "strategy_name": "场内基金定投价值平均增强策略，年化30%+",
+    "declared_title": "场内基金定投价值平均增强策略，年化30%+",
+    "declared_author": "子匀",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 16810,
+    "sha256": "8af59e10a1c1c8810f91bdeb2d76cdc017e8812c058f0fb324aea47cc9d444ee",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/39272",
+      "https://www.joinquant.com/post/39137"
+    ],
+    "primary_url": "https://www.joinquant.com/post/39272",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:24+08:00",
+    "requested_url": "https://www.joinquant.com/post/39272",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/3fbda8389ff8d5eb87c358e7e248e745",
+    "community_id": "3fbda8389ff8d5eb87c358e7e248e745",
+    "post": {
+      "postId": "bfa13913ba8241021680f911db9c613d",
+      "uniqueKey": "3fbda8389ff8d5eb87c358e7e248e745",
+      "title": "场内基金定投价值平均增强策略，年化30%+",
+      "content": "### 价值平均策略简述\n\n       价值平均策略来源于美国学者迈克尔·埃德尔森（哈佛商学院教授，曾任美国纳斯达克首席经济学家）于1988年8月在《全美个人投资者协会杂志》上发表的一篇论文《价值平均策略：一种财富积累的新方法》，是一种比币值成本平均策略（平时讲的普通定投）更有效的公式化投资策略。其主要规则为：每期使投资者定投项目增加相同金额；例如，第一个月投资1000元，若第二个月增值至1200元则该月仅投资800元，而若第二个月降至800元则该月需投资1200元。该方法的优势主要体现于逢低多买，且具备相对稳健的止盈策略和容错率，完全符合巴菲特所言的“在别人恐惧时贪婪，在别人贪婪时恐惧”这一准则，同时也规避了成本平均策略的一些缺陷。 \n\n###大A的几个特征\n1.    3-5年一个牛熊转换\n2.   牛市和熊市涨跌明显\n3.    十年仍然的3000点\n\n### 需要在大A盈利，需要遵守几条简单的规则\n因此策略中，只执行以下几条基本原则。   \n  下跌足够多时，才建仓。根据几轮牛熊，选用黄金分割位61.8%；  \n根据银行螺丝钉等大V的研究结论，单次最多补仓5份，收益变化不大，因此采用此结论。   \n低不卖，高不买   \n亏本不卖   \n比买入价低，不卖；比卖出价高，不买  \n\n\n#### 回测盈利数据说明\n因采用定投模式，聚宽显示的利润率，最大回撤等数据不精确，因此在代码中，单独计算月度利润，平均年化收益。\n因此回测结束的日期，应为所在月份的最后一天。\n在日志输出中，查看真实的盈利数据\n以回测策略为例：\n\n2022-08-31 15:00:00 - INFO  - 月度irr 为：0.0312\n2022-08-31 15:00:00 - INFO  - 策略年化收益率为：0.4451\n年化回报44.51%，可以接受。并且为宽基阿尔法指数，非行业指数，重复历史的概率较高。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2022-09-27 09:50:51",
+      "modTime": "2022-09-27 09:50:51",
+      "lastActiveTime": "2025-12-12 17:22:07",
+      "lastPubTime": "2022-09-27 09:50:51",
+      "backtestId": "d7b3d148165472bd708302c2b84e3315",
+      "backtestName": "C-G场内基金定投价值平均策略",
+      "replyCount": "70",
+      "viewCount": "4919",
+      "collectionCount": "65",
+      "likeCount": "34",
+      "disLikeCount": "0",
+      "backtestCloneCount": "230",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "26",
+      "followersCount": "1125",
+      "followingCount": "11",
+      "author": {
+        "userId": "a5c99f8eccfdac27ef986d8507f9812b",
+        "alias": "子匀",
+        "introduction": "1 . 多追求长久有效的东西，少去猜测、拟合市场的变化。两个因素比较可靠，长久的价值和不同周期下的均值回归。 ",
+        "vipType": "VIP",
+        "headImgKey": "39002ac135774423832558583797d3ad"
+      },
+      "tags": [
+        {
+          "id": "12",
+          "name": "基金"
+        },
+        {
+          "id": "5",
+          "name": "仓位管理"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "d7b3d148165472bd708302c2b84e3315",
+        "backtest_name": "C-G场内基金定投价值平均策略",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=d7b3d148165472bd708302c2b84e3315&postId=3fbda8389ff8d5eb87c358e7e248e745&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2018-08-01",
+          "end_date": "2022-08-31",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "a7da50d91a1a15a6a75091309a9e87a5",
+            "26040336"
+          ],
+          "numeric_backtest_id": "26040336",
+          "numeric_post_id": "39272",
+          "python_version": 3,
+          "clone_count": 228
+        },
+        "stats": {
+          "trading_days": 993,
+          "benchmark_volatility": 0.20960986489346,
+          "algorithm_volatility": 0.14984461799228,
+          "treasury_return": 0.16339726027397,
+          "algorithm_return": 1.04026306477,
+          "benchmark_return": 0.15953218901201,
+          "annual_algo_return": 0.1966504627046,
+          "annual_bm_return": 0.037968061200136,
+          "sharpe": 1.0454193470777,
+          "excess_return_sharpe": "0.873",
+          "sortino": 1.4482861956858,
+          "information": 1.2355276383937,
+          "beta": 0.56780725218951,
+          "alpha": 0.15780421229117,
+          "excess_return": 0.75955707319209,
+          "avg_excess_return": "0.06%",
+          "max_drawdown": 0.16222284037074,
+          "max_drawdown_period": [
+            "2020-01-13",
+            "2020-03-23"
+          ],
+          "excess_return_max_drawdown": "8.41%",
+          "excess_return_max_drawdown_period": [
+            "2022-04-25",
+            "2022-06-24"
+          ],
+          "max_leverage": 0,
+          "period_label": "2022-08",
+          "__version": 101,
+          "win_ratio": 1,
+          "profit_loss_ratio": 1017968.68,
+          "win_count": 19,
+          "lose_count": 0,
+          "day_win_ratio": 0.51762336354481,
+          "avg_trade_return": 0.46903786026537,
+          "avg_position_days": 947,
+          "turnover_rate": 0.0017088754787945,
+          "report_done_seconds": 112.22517609596,
+          "report_done_cpu_seconds": 91.82
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 104.026306,
+          "benchmark_return_percent": 15.953219,
+          "annual_algo_return_percent": 19.665046,
+          "annual_bm_return_percent": 3.796806,
+          "max_drawdown_percent": 16.222284,
+          "algorithm_volatility_percent": 14.984462,
+          "benchmark_volatility_percent": 20.960986,
+          "win_ratio_percent": 100,
+          "day_win_ratio_percent": 51.762336,
+          "avg_trade_return_percent": 46.903786,
+          "turnover_rate_percent": 0.170888,
+          "sharpe": 1.0454193470777,
+          "sortino": 1.4482861956858,
+          "information": 1.2355276383937,
+          "alpha": 0.15780421229117,
+          "beta": 0.56780725218951,
+          "profit_loss_ratio": 1017968.68,
+          "avg_position_days": 947,
+          "trading_days": 993,
+          "win_count": 19,
+          "lose_count": 0,
+          "max_drawdown_period": [
+            "2020-01-13",
+            "2020-03-23"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2022-04-25",
+            "2022-06-24"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/39272",
+      "https://www.joinquant.com/community/post/detailV2?postId=39272",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=d7b3d148165472bd708302c2b84e3315&postId=3fbda8389ff8d5eb87c358e7e248e745&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=d7b3d148165472bd708302c2b84e3315"
+    ]
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略1/56.双人工智能配合，样本外夏普3.9.txt",
+    "category": "2024年度精选策略1",
+    "file_name": "56.双人工智能配合，样本外夏普3.9.txt",
+    "strategy_name": "双人工智能配合，样本外夏普3.9",
+    "declared_title": "双人工智能配合，样本外夏普3.9",
+    "declared_author": "MarioC",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 17463,
+    "sha256": "4cabe7bc126df1c1dcbe1c7b4118874a72c8bd01e75257ac4fa872bc1bb7543e",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/44982"
+    ],
+    "primary_url": "https://www.joinquant.com/post/44982",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "post_without_backtest",
+    "collected_at": "2026-07-27T02:10:30+08:00",
+    "requested_url": "https://www.joinquant.com/post/44982",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/2c45d5193f5ccfb362b213962a0bdc90",
+    "community_id": "2c45d5193f5ccfb362b213962a0bdc90",
+    "post": {
+      "postId": "647e32926f69ebedfe0ea4eabec0825b",
+      "uniqueKey": "2c45d5193f5ccfb362b213962a0bdc90",
+      "title": "-",
+      "content": "-",
+      "type": 1,
+      "status": "1",
+      "addTime": "2023-11-17 10:34:26",
+      "modTime": "2024-04-06 14:19:25",
+      "lastActiveTime": "2024-08-27 06:17:01",
+      "lastPubTime": "2024-04-06 14:19:25",
+      "replyCount": "143",
+      "viewCount": "2949",
+      "collectionCount": "73",
+      "likeCount": "42",
+      "disLikeCount": "0",
+      "backtestCloneCount": "124",
+      "notebookCloneCount": "50",
+      "fileDownloadCount": "70",
+      "fileSize": 0,
+      "postCount": "62",
+      "followersCount": "4970",
+      "followingCount": "36",
+      "author": {
+        "userId": "897d9bc0afc1cb6bea441b2419f90d8c",
+        "alias": "MarioC",
+        "introduction": "人工智能爱好者，gzh：Mario量化",
+        "headImgKey": "44901f16b2618622495468b8b1a70019"
+      },
+      "tags": [
+        {
+          "id": "13",
+          "name": "机器学习"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        }
+      ]
+    },
+    "backtests": [],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 2,
+    "request_urls": [
+      "https://www.joinquant.com/post/44982",
+      "https://www.joinquant.com/community/post/detailV2?postId=44982",
+      "https://www.joinquant.com/community/post/replyList?page=1&postId=2c45d5193f5ccfb362b213962a0bdc90",
+      "https://www.joinquant.com/community/post/replyList?page=2&postId=2c45d5193f5ccfb362b213962a0bdc90",
+      "https://www.joinquant.com/community/post/replyList?page=3&postId=2c45d5193f5ccfb362b213962a0bdc90"
+    ]
+  }
+}

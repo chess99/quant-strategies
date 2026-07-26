@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/70动态保形回归小市值策略改进.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "70动态保形回归小市值策略改进.txt",
+    "strategy_name": "动态保形回归小市值策略改进",
+    "declared_title": "动态保形回归小市值策略改进",
+    "declared_author": "yanzigao",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 62511,
+    "sha256": "0956b4d3dfe36f329b292b9a021e467f543888c565afe3f9ecbecb26be5a5d67",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/48996",
+      "https://www.joinquant.com/post/43738"
+    ],
+    "primary_url": "https://www.joinquant.com/post/48996",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:12:28+08:00",
+    "requested_url": "https://www.joinquant.com/post/48996",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/9c34792bf863a954cd8f4caf790957c4",
+    "community_id": "9c34792bf863a954cd8f4caf790957c4",
+    "post": {
+      "postId": "3f77ba0d6d52d6d836e1a6702a98016f",
+      "uniqueKey": "9c34792bf863a954cd8f4caf790957c4",
+      "title": "动态保形回归小市值策略改进",
+      "content": "这个策略对之前发的保形回归小市值策略进行一些改进，最主要的改进点是考虑到了保形回归得到的预测区间，也算是在一定程度上运用到了保形回归这个方法。\n首先是最主要的一点，我们认为当保形回归策略的预测区间足够小时，预测效果较为精确；但是当预测区间较大时，预测效果较差。依据这个假设，我对交易逻辑进行一些小的修改：当预测区间较小时，认为预测效果不错，使用真实值小于预测值很大的样本，认为其未来会涨，买入；当预测区间较大时，我们认为预测效果不太好，很有可能此时的市场不确定性高，投资者会更加愿意投入到风险相对较低、收益相对稳定且市值较大的企业股票，即所谓的马太效应会比较明显，此时我们就将策略定为追涨策略，即选择真实值明显大于预测值的股票。\n然后是一大堆小的修改，比如我们将微盘定义为了股票市值在末尾占比为10%的股票，将这些股票放进股票池进行筛选；还有将kmeans聚类改为了混合高斯聚类（主要是因为在这种聚类方法下有比较合理的方式（BIC准则）随着市场环境对于聚类簇的数目进行自动调参）;还有修改了数据获取方式，彻底杜绝了未来函数等等，这些修改的目的是希望我的策略能够自动适应不同的市场环境，提高策略的鲁棒性。\n接下来说说该策略的效果如何：\n这个策略是之前策略的一个全面优化：从2005年到2024年6月13日的回测效果来看，这个策略的表现比较优秀，能够保持49.77%的年化收益率，但是对于08年的股灾抵抗力较弱，在08年股灾时回撤达到了55%；胜率也能够维持在60%，这些是比较好的点，如下图所示（用的是对数轴收益率）：\n![Img](https://image.joinquant.com/08cb46d0564ecfe6324ab9126520107b) \n年度收益以及月度收益如下图所示：\n![Img](https://image.joinquant.com/a3fcb1eb6c02d7b01d6fd0d7ad369444) \n月度收益数据如下：\n![Img](https://image.joinquant.com/743ca62ff1ce1ce11730862b730bb7a5) \n可以看出自05年以来只有3年出现了负增长情况，在大部分时间都保持有一定的增长率，这点还不错。\n再看看前五大回撤区间：\n![Img](https://image.joinquant.com/18f10fbbec954889b4529ead13513ff9) \n可以看到除了08年股灾外，其余回撤区间的最大回撤均小于年化收益，可以说这个策略在这点上表现得也不错。\n总之，这个策略我认为是对于之前的保形预测策略的一次全面的提升，无论是风险抵抗能力还是收益均远高于之前的策略。而且最最最主要的是，终于在策略逻辑上运用到了保形回归这个方法了，也算是不负保形回归这个名号了。\n最后感谢各位对于机器学习感兴趣的伙伴们评论、点赞、克隆支持！！\n----------------------------------------------------------------------\n更新：添加了随机种子，虽然收益轻微的减少了一些些，但固定了策略的随机性，保证策略的可复现性。不会再出现同一时间回测结果不同的情况。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2024-07-04 22:39:03",
+      "modTime": "2024-07-15 10:52:30",
+      "lastActiveTime": "2026-02-24 14:45:34",
+      "lastPubTime": "2024-07-15 10:52:30",
+      "backtestId": "09fa2ee743918c82e8319087cea80c55",
+      "backtestName": "conformal尝试修改打分逻辑",
+      "replyCount": "19",
+      "viewCount": "3602",
+      "collectionCount": "67",
+      "likeCount": "37",
+      "disLikeCount": "0",
+      "backtestCloneCount": "265",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "12",
+      "followersCount": "380",
+      "followingCount": "19",
+      "author": {
+        "userId": "4efef78283c9b4167383918f03ac4500",
+        "alias": "yanzigao",
+        "introduction": "统计学学生",
+        "vipType": "VIP",
+        "headImgKey": "b87ec24fb203b6419fce99ee2f4274e3"
+      },
+      "tags": [
+        {
+          "id": "13",
+          "name": "机器学习"
+        },
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "3400",
+          "name": "保形回归"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "09fa2ee743918c82e8319087cea80c55",
+        "backtest_name": "conformal尝试修改打分逻辑",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=09fa2ee743918c82e8319087cea80c55&postId=9c34792bf863a954cd8f4caf790957c4&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2005-01-05",
+          "end_date": "2024-07-05",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "361a57df43dbe13a5d51b7badcce29ac",
+            "35401816"
+          ],
+          "numeric_backtest_id": "35401816",
+          "numeric_post_id": "48996",
+          "python_version": 3,
+          "clone_count": 265
+        },
+        "stats": {
+          "trading_days": 4737,
+          "benchmark_volatility": 0.25346007593993,
+          "algorithm_volatility": 0.28955647848558,
+          "treasury_return": 0.78038356164384,
+          "algorithm_return": 1911.1909049765,
+          "benchmark_return": 2.4192635407843,
+          "annual_algo_return": 0.48999960787039,
+          "annual_bm_return": 0.067035418896112,
+          "sharpe": 1.5540996016526,
+          "excess_return_sharpe": "1.261",
+          "sortino": 2.0867845776445,
+          "information": 1.5017074222517,
+          "beta": 0.53512593046427,
+          "alpha": 0.43553225417811,
+          "excess_return": 558.24057393303,
+          "avg_excess_return": "0.15%",
+          "max_drawdown": 0.55263183273286,
+          "max_drawdown_period": [
+            "2008-03-05",
+            "2008-10-15"
+          ],
+          "excess_return_max_drawdown": "50.19%",
+          "excess_return_max_drawdown_period": [
+            "2005-10-20",
+            "2007-01-29"
+          ],
+          "max_leverage": 0,
+          "period_label": "2024-07",
+          "__version": 101,
+          "win_ratio": 0.60774410774411,
+          "profit_loss_ratio": 3.6066967037469,
+          "win_count": 361,
+          "lose_count": 233,
+          "day_win_ratio": 0.51720498205615,
+          "avg_trade_return": 0.05410948954097,
+          "avg_position_days": 30.97385620915,
+          "turnover_rate": 0.02439087076639,
+          "report_done_seconds": 4961.884855032,
+          "report_done_cpu_seconds": 3649.46
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 191119.090498,
+          "benchmark_return_percent": 241.926354,
+          "annual_algo_return_percent": 48.999961,
+          "annual_bm_return_percent": 6.703542,
+          "max_drawdown_percent": 55.263183,
+          "algorithm_volatility_percent": 28.955648,
+          "benchmark_volatility_percent": 25.346008,
+          "win_ratio_percent": 60.774411,
+          "day_win_ratio_percent": 51.720498,
+          "avg_trade_return_percent": 5.410949,
+          "turnover_rate_percent": 2.439087,
+          "sharpe": 1.5540996016526,
+          "sortino": 2.0867845776445,
+          "information": 1.5017074222517,
+          "alpha": 0.43553225417811,
+          "beta": 0.53512593046427,
+          "profit_loss_ratio": 3.6066967037469,
+          "avg_position_days": 30.97385620915,
+          "trading_days": 4737,
+          "win_count": 361,
+          "lose_count": 233,
+          "max_drawdown_period": [
+            "2008-03-05",
+            "2008-10-15"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2005-10-20",
+            "2007-01-29"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/48996",
+      "https://www.joinquant.com/community/post/detailV2?postId=48996",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=09fa2ee743918c82e8319087cea80c55&postId=9c34792bf863a954cd8f4caf790957c4&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=09fa2ee743918c82e8319087cea80c55"
+    ]
+  }
+}

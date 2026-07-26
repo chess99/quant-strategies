@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/46.大盘股也能穿越牛熊市.txt",
+    "category": "2025年度精选策略",
+    "file_name": "46.大盘股也能穿越牛熊市.txt",
+    "strategy_name": "大盘股也能穿越牛熊市",
+    "declared_title": "大盘股也能穿越牛熊市",
+    "declared_author": "曹经伟",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 21051,
+    "sha256": "6264f6506271417ec7e8559959a0a85ab6f4199b778c808e1eda68a37f6d03f8",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/29185"
+    ],
+    "primary_url": "https://www.joinquant.com/post/29185",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:10+08:00",
+    "requested_url": "https://www.joinquant.com/post/29185",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/953e55d0c0bf7024ac284e246c0f9264",
+    "community_id": "953e55d0c0bf7024ac284e246c0f9264",
+    "post": {
+      "postId": "188282cfed89862c7355abac2acb713e",
+      "uniqueKey": "953e55d0c0bf7024ac284e246c0f9264",
+      "title": "大盘股也能穿越牛熊市",
+      "content": "选择沪深300中流通市值最大的50只股票，并且股价大于50，每年3月份更新一次股票池，成功躲过了2008、2011-2014、2015、2018的四次大熊市。           \n\n即使是不加任何财务因子的选股条件，大盘股也能穿越牛熊市。\n\n选股的关键点：股价大于50，股价大于50，股价大于50，重要的事情说三遍！\n\n为什么价格越贵，收益越稳定呢？个人认为，不同价格的股票的绝对点差基本上是一样的，但是相对点差不一样，这就产生了不同的隐形交易成本。\n\n以市价单买入或卖出股票时，买一价和卖一价的差值就是一次交易所需要的点差的隐形成本，一般为0.02，如果加上滑点，会更大一些，这里滑点姑且忽略不计。\n\n如果买的是10元的股票，那么点差隐形成本是：0.02 / 10 = 0.2%。此时的隐形成本是印花税（0.1%）的200%。\n\n如果买的是50元的股票，那么点差隐形成本是：0.02 / 50 = 0.04%。此时的隐形成本是印花税（0.1%）的25%。\n\n股价越高，相对点差就越低，总的交易成本就越低，所以股价越高，人气就越旺，交易量就越大，交易量上来了，股价自然就会上涨！\n\n相关帖子：[股价可以体现公司的一切](https://www.joinquant.com/view/community/detail/e2f0def29c758c2786155d9470113416?type=1)",
+      "type": 1,
+      "status": "1",
+      "addTime": "2020-09-02 16:22:16",
+      "modTime": "2020-12-24 15:32:36",
+      "lastActiveTime": "2025-04-27 15:28:18",
+      "lastPubTime": "2020-12-24 15:32:36",
+      "backtestId": "b46f6a23a92dc5a28a19f7860ca4c42c",
+      "backtestName": "沪深300全行业选股",
+      "replyCount": "16",
+      "viewCount": "3538",
+      "collectionCount": "24",
+      "likeCount": "35",
+      "disLikeCount": "0",
+      "backtestCloneCount": "127",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "214",
+      "followersCount": "1727",
+      "followingCount": "0",
+      "author": {
+        "userId": "09cec2c4916cafbe197a9cd2ce8b9c6b",
+        "alias": "曹经伟",
+        "introduction": "我们只能赚认知范围内的钱，人和人之间最大的区别就是认知。",
+        "headImgKey": "4876ebd22b383c8a66c59493b4157e91"
+      },
+      "tags": [
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "425",
+          "name": "价值投资"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "b46f6a23a92dc5a28a19f7860ca4c42c",
+        "backtest_name": "沪深300全行业选股",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=b46f6a23a92dc5a28a19f7860ca4c42c&postId=953e55d0c0bf7024ac284e246c0f9264&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2005-06-01",
+          "end_date": "2020-09-01",
+          "base_capital": 10000000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "2332a015acfb7d6f4ca84bf4a764ce54",
+            "18154175"
+          ],
+          "numeric_backtest_id": "18154175",
+          "numeric_post_id": "29185",
+          "python_version": 3,
+          "clone_count": 126
+        },
+        "stats": {
+          "trading_days": 3714,
+          "benchmark_volatility": 0.27250291710333,
+          "algorithm_volatility": 0.20830774578332,
+          "treasury_return": 0.61052054794521,
+          "algorithm_return": 24.191172542697,
+          "benchmark_return": 4.657012675974,
+          "annual_algo_return": 0.24257339475659,
+          "annual_bm_return": 0.1237217873337,
+          "sharpe": 0.97247173404347,
+          "excess_return_sharpe": "0.223",
+          "sortino": 1.7098701980595,
+          "information": 0.40434546382177,
+          "beta": 0.21042695476859,
+          "alpha": 0.18495607400017,
+          "excess_return": 3.453087519087,
+          "avg_excess_return": "0.06%",
+          "max_drawdown": 0.24680904159755,
+          "max_drawdown_period": [
+            "2007-08-31",
+            "2010-01-13"
+          ],
+          "excess_return_max_drawdown": "57.93%",
+          "excess_return_max_drawdown_period": [
+            "2008-11-04",
+            "2010-01-05"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-09",
+          "__version": 101,
+          "win_ratio": 0.44951140065147,
+          "profit_loss_ratio": 2.6576456742523,
+          "win_count": 138,
+          "lose_count": 169,
+          "day_win_ratio": 0.47819063004847,
+          "avg_trade_return": 0.04044421182779,
+          "avg_position_days": 90.5,
+          "turnover_rate": 0.030682213990932,
+          "report_done_seconds": 1677.6801714897,
+          "report_done_cpu_seconds": 1224.99
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 2419.117254,
+          "benchmark_return_percent": 465.701268,
+          "annual_algo_return_percent": 24.257339,
+          "annual_bm_return_percent": 12.372179,
+          "max_drawdown_percent": 24.680904,
+          "algorithm_volatility_percent": 20.830775,
+          "benchmark_volatility_percent": 27.250292,
+          "win_ratio_percent": 44.95114,
+          "day_win_ratio_percent": 47.819063,
+          "avg_trade_return_percent": 4.044421,
+          "turnover_rate_percent": 3.068221,
+          "sharpe": 0.97247173404347,
+          "sortino": 1.7098701980595,
+          "information": 0.40434546382177,
+          "alpha": 0.18495607400017,
+          "beta": 0.21042695476859,
+          "profit_loss_ratio": 2.6576456742523,
+          "avg_position_days": 90.5,
+          "trading_days": 3714,
+          "win_count": 138,
+          "lose_count": 169,
+          "max_drawdown_period": [
+            "2007-08-31",
+            "2010-01-13"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2008-11-04",
+            "2010-01-05"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/29185",
+      "https://www.joinquant.com/community/post/detailV2?postId=29185",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=b46f6a23a92dc5a28a19f7860ca4c42c&postId=953e55d0c0bf7024ac284e246c0f9264&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=b46f6a23a92dc5a28a19f7860ca4c42c"
+    ]
+  }
+}

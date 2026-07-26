@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/69.（12.3更新v1.2）朱虽自用1号（神虽顶底+趋势）.txt",
+    "category": "2025年度精选策略",
+    "file_name": "69.（12.3更新v1.2）朱虽自用1号（神虽顶底+趋势）.txt",
+    "strategy_name": "（12.3更新v1.2）朱虽自用1号（神虽顶底+趋势）",
+    "declared_title": "（12.3更新v1.2）朱虽自用1号（神虽顶底+趋势）",
+    "declared_author": "Fibonabbit",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 19312,
+    "sha256": "e88037b85d55b6d9879e0514663ac76ee667ca23cb140985191607216d8b9353",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/29276"
+    ],
+    "primary_url": "https://www.joinquant.com/post/29276",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:26+08:00",
+    "requested_url": "https://www.joinquant.com/post/29276",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/7c431f62580cf962275cd6464aaf45be",
+    "community_id": "7c431f62580cf962275cd6464aaf45be",
+    "post": {
+      "postId": "d775b57fbbb6ccf47c5bef8600c66a82",
+      "uniqueKey": "7c431f62580cf962275cd6464aaf45be",
+      "title": "（12.3更新v1.2）朱虽自用1号（神虽顶底+趋势）",
+      "content": "3天时间终于写出来了，算法还不是最优，也只基于了日线序列的分析，后续还有升级空间。\n\n基准标的：深圳成指\n交易标的：深100etf\n\n回测区间贯穿牛熊。\n\n其他尚在摸索中。。。\n\n\n===========================================\n\n9.11更新内容\n\n1.修复了假的顶底造成不能按趋势交易的bug\n2.将17年之前的交易信号参考指定为上证指数\n3.加入了超长期回测结果（2006.09.01-2020.09.01）\n\n目前仍仅基于日线序列分析，后续将加入小级别序列协助分析。\n\n\n===========================================\n2020.12.3更新\n\n本来打算上周末发布v1.1的，奈何新版本虽然累计收益更高，但是回撤达到了惊人的40%，想起来可以控制一下回撤，再加上学校到考试周了，于是又耽误了几天。现在把回撤的问题稍微缓解了一点，那么就不如直接更新到v1.2了呗嘻嘻。\n\n\n言归正传，先说说V1.1更新了啥——其实就是加入了120min的小周期的分析而已。原理和v1的差不多，但最终交易的时候需要的判断就复杂多了。另外还修复了几个bug..（聚宽每个帖子只能放一个回测详情，正好这里就不开源新版本了，就只是记录一下我的提示性的思路吧）\n```\n#初始化变量，写在文件头\ntop_h1 = [False] * 199\ntopgender_h1 = [False] * 199\nbuttom_h1 = [False] * 199\nbuttomgender_h1 = [False] * 199\n###########################\n#每天中午收盘前11:27执行\ndef market_open_h1(context):\n    global top_h1,topgender_h1,buttom_h1,buttomgender_h1\n    global daily_datas\n    log.info('函数运行时间(market_open):'+str(context.current_dt.time()))\n    #参照标的: g.security\n    security = g.security   \n\n    # 获取股票11:27时/最高/最低/收盘价格\n    h1_data = get_bars(security, count=1, unit='1m', fields=['close','high','low'])\n    # 取得当前的现金\n    cash = context.portfolio.available_cash\n    tv = context.portfolio.total_value\n    #获取120m 及 日线 k线历史数据\n    m120_datas = get_bars(security, count = 199, unit = '120m', fields = ['close'])\n    daily_datas = get_bars(security, count = 199, unit = '1d', fields = ['close','high','low'])\n    closes = np.append(m120_datas['close'], h1_data['close'][-1])\n    \n    highs = np.append(daily_datas['high'], h1_data['high'][-1])\n    lows = np.append(daily_datas['low'], h1_data['low'][-1])\n\n    trends = trend(highs,lows)\n    \n    \n    if drawback &gt; .2:\n        pass\n    else:\n        list1 = hasCross(closes)[0]\n        list2 = hasCross(closes)[1]\n        deads = barslast(list1)\n        golds = barslast(list2)\n        \n        res = core_ssdd(deads,golds,closes,top_h1,topgender_h1,buttom_h1,buttomgender_h1)\n        top_h1 = res[0]\n        topgender_h1 = res[1]\n        buttom_h1 = res[2]\n        buttomgender_h1 = res[3]\n        \n        current_price = h1_data['close'][-1]\n        #交易标的：深100\n        security = '159901.XSHE'\n        \n        trader(top_h1,topgender_h1,buttom_h1,buttomgender_h1,current_price,trends,tv,security,deads,golds,closes,level = 'HDay', current_time = 2)\n\n#相似的内容还需在下午收盘14:57左右类似地执行，这里就不放了\n```\n看图对比v1.0和v1.1近三年的表现——\n![Img]( https://image.joinquant.com/bfbaace70aa3c0ef4771bfc230640f44) \n\n  ![Img]( https://image.joinquant.com/1c819a66f01829397cdcd8af480f7b34) \n可以看出来v1.1在近三年的表现非常好，但2010以前的结果却不如v1.0，主要原因是v1.1的小周期在单边大牛市中过于频繁发出逃顶信号，并在单边大熊市中过于频繁的发出抄底信号，这也造成了在2008年的下跌中46%的恐怖回撤。\n\n因此，一个朴素的想法就是在回撤超过一定幅度时加以限制，这里盘中运行函数判断当前回撤是否超过20%和25%，若超过20%则忽视120min的小周期顶底分析，若超过25%则忽视所有周期顶底分析，完全按趋势操作。每日的回撤将在盘后计算。另外，盘后还需运行序列修复，因为用收盘前3分钟运行的方法避免了未来函数，但仍有最后三分钟信号恰好改变的尾部风险。序列修复则避免了上一日可能出现的错误信号（但将大大拖慢回测用时，平时测试时建议直接将盘中信号和收盘时信号不一致的极个别情况单独拿出来考虑）。综合这两点，就完成了v1.2内容的更新。\n\n```\n\n#初始化变量，放在文件开头\ntvhighest = 0\ndrawback = 0\n\n#每日收盘后15:30执行：回撤计算、序列修复\ndef after_market_close(context):\n    global daily_datas,tvhighest,drawback\n    #log.info(str('函数运行时间(after_market_close):'+str(context.current_dt.time())))\n    #得到当天所有成交记录\n    trades = get_trades()\n    for _trade in trades.values():\n        log.info('成交记录：'+str(_trade))\n    \n    security = g.security\n            \n    #盘后序列修复\n    real_close_data = get_bars(security, count=1, unit='1m', fields=['close'])\n    real_close_datas = np.append(daily_datas['close'], real_close_data['close'][-1])\n\n    list1 = hasCross(real_close_datas)[0]\n    list2 = hasCross(real_close_datas)[1]\n    deads = barslast(list1)\n    golds = barslast(list2)\n\n    res = core_ssdd(deads,golds,real_close_datas,previous_top,previous_topgender,previous_buttom,previous_buttomgender)\n    #上述previous_系列变量在盘中函数中直接定义即可\n    top = res[0]\n    topgender = res[1]\n    buttom = res[2]\n    buttomgender = res[3]\n        \n    #回撤计算\n    if context.portfolio.total_value &gt; tvhighest:\n        tvhighest = context.portfolio.total_value\n    \n    drawback = (tvhighest - context.portfolio.total_value)/tvhighest\n```\n下面是v1.2的回测结果图：\n![Img]( https://image.joinquant.com/fb4803ad52ea7c6f949f6772e13b1526) \n与v1.0对比也是稍有提升吧，虽然在2010年之前的表现仍然不大好。目前还比较菜，也只研究了择时，还没有在择股方面做研究，也只能达到这个水平了……\n\n最后面放的是v1.0而非v1.2哦",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-09-08 13:52:40",
+      "modTime": "2020-12-03 19:45:47",
+      "lastActiveTime": "2025-01-29 14:43:56",
+      "lastPubTime": "2020-12-03 19:45:47",
+      "backtestId": "ad53de0e013e5672eb1c2a6dc7361175",
+      "backtestName": "朱虽自用v1",
+      "replyCount": "82",
+      "viewCount": "4746",
+      "collectionCount": "45",
+      "likeCount": "36",
+      "disLikeCount": "0",
+      "backtestCloneCount": "127",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "4",
+      "followersCount": "36",
+      "followingCount": "4",
+      "author": {
+        "userId": "c863980cf10ab13ba05f60581a008bbc",
+        "alias": "Fibonabbit",
+        "introduction": "别杠，杠就是你对。"
+      },
+      "tags": [
+        {
+          "id": "12",
+          "name": "基金"
+        },
+        {
+          "id": "5",
+          "name": "仓位管理"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "ad53de0e013e5672eb1c2a6dc7361175",
+        "backtest_name": "朱虽自用v1",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=ad53de0e013e5672eb1c2a6dc7361175&postId=7c431f62580cf962275cd6464aaf45be&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2006-09-01",
+          "end_date": "2020-09-01",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "acc9c993bc2a9ce124a0981dcbf20796",
+            "18227994"
+          ],
+          "numeric_backtest_id": "18227994",
+          "numeric_post_id": "29276",
+          "python_version": 3,
+          "clone_count": 127
+        },
+        "stats": {
+          "trading_days": 3406,
+          "benchmark_volatility": 0.29811484281656,
+          "algorithm_volatility": 0.20279078548158,
+          "treasury_return": 0.56043835616438,
+          "algorithm_return": 10.707385238982,
+          "benchmark_return": 2.3142355294771,
+          "annual_algo_return": 0.19791176944615,
+          "annual_bm_return": 0.091933218426383,
+          "sharpe": 0.77869302133794,
+          "excess_return_sharpe": "0.255",
+          "sortino": 1.0749517354242,
+          "information": 0.48174928766832,
+          "beta": 0.45909784331983,
+          "alpha": 0.13406934086994,
+          "excess_return": 2.5324542069674,
+          "avg_excess_return": "0.05%",
+          "max_drawdown": 0.34067862036908,
+          "max_drawdown_period": [
+            "2011-07-15",
+            "2014-07-23"
+          ],
+          "excess_return_max_drawdown": "32.24%",
+          "excess_return_max_drawdown_period": [
+            "2013-06-25",
+            "2015-06-12"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-09",
+          "__version": 101,
+          "win_ratio": 0.62660944206009,
+          "profit_loss_ratio": 1.9701779998176,
+          "win_count": 146,
+          "lose_count": 87,
+          "day_win_ratio": 0.51409277745156,
+          "avg_trade_return": 0.036531854294964,
+          "avg_position_days": 2010,
+          "turnover_rate": 0.023571833928213,
+          "report_done_seconds": 2848.2831494808,
+          "report_done_cpu_seconds": 2821.97
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 1070.738524,
+          "benchmark_return_percent": 231.423553,
+          "annual_algo_return_percent": 19.791177,
+          "annual_bm_return_percent": 9.193322,
+          "max_drawdown_percent": 34.067862,
+          "algorithm_volatility_percent": 20.279079,
+          "benchmark_volatility_percent": 29.811484,
+          "win_ratio_percent": 62.660944,
+          "day_win_ratio_percent": 51.409278,
+          "avg_trade_return_percent": 3.653185,
+          "turnover_rate_percent": 2.357183,
+          "sharpe": 0.77869302133794,
+          "sortino": 1.0749517354242,
+          "information": 0.48174928766832,
+          "alpha": 0.13406934086994,
+          "beta": 0.45909784331983,
+          "profit_loss_ratio": 1.9701779998176,
+          "avg_position_days": 2010,
+          "trading_days": 3406,
+          "win_count": 146,
+          "lose_count": 87,
+          "max_drawdown_period": [
+            "2011-07-15",
+            "2014-07-23"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2013-06-25",
+            "2015-06-12"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/29276",
+      "https://www.joinquant.com/community/post/detailV2?postId=29276",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=ad53de0e013e5672eb1c2a6dc7361175&postId=7c431f62580cf962275cd6464aaf45be&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=ad53de0e013e5672eb1c2a6dc7361175"
+    ]
+  }
+}

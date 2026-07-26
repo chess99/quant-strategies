@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/46.年化46%的北向资金+20日涨幅的创业板策略.txt",
+    "category": "2023年度精选策略",
+    "file_name": "46.年化46%的北向资金+20日涨幅的创业板策略.txt",
+    "strategy_name": "年化46%的北向资金+20日涨幅的创业板策略",
+    "declared_title": "年化46%的北向资金+20日涨幅的创业板策略",
+    "declared_author": "天然15",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 6476,
+    "sha256": "be59d54418039e1286f85b02b0d949cb691d182bb15008cbec4e6ac3cf674d6c",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/33823",
+      "https://www.joinquant.com/post/28989"
+    ],
+    "primary_url": "https://www.joinquant.com/post/33823",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:09:13+08:00",
+    "requested_url": "https://www.joinquant.com/post/33823",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/a5fb2c8b9644ea49441cfcfffb735f13",
+    "community_id": "a5fb2c8b9644ea49441cfcfffb735f13",
+    "post": {
+      "postId": "bea4af719eef83062aba4759333c8266",
+      "uniqueKey": "a5fb2c8b9644ea49441cfcfffb735f13",
+      "title": "年化46%的北向资金+20日涨幅的创业板策略",
+      "content": "这是一个结合北向资金和20日涨幅的策略，既可以在市场骤变时通过北向资金来快速反应，也可以在市场缓慢变化中通过20日涨幅来反应，可以一定程度弥补北向资金持续小幅流出的风险。\n\n## 关于北向资金策略的说明\n\n- 首先获取北向资金最近252个交易日（也就是一年）的每日净流入，然后求出均值以及标准差\n\n2. 然后当昨日北向资金净流入高于1.5个标准差时，策略将在今日开盘时买入指定标的；当昨日北向资金净流入低于1.5个标准差时，策略将在今日开盘时卖出指定标的\n\n3. 本策略更注重整体行情，当市场被低估时，北向资金就会大量买入；当市场被高估时，北向资金就会大量卖出。大量买入和卖出的信号就会被策略捕捉到，从而作出相关的买入或卖出。\n\n## 关于20日涨幅策略的说明\n\n- 首先获取指定标的的最近20日涨幅\n\n2. 然后当昨日的20日涨幅高于5%时，策略将在今日开盘时买入指定标的；当昨日的20日涨幅低于-5%时，策略将在今日开盘时卖出指定标的\n\n3. 本策略更注重个股趋势，当个股趋势向上时，20日涨幅一定会突破一个阈值，当个股趋势向下时，20日涨幅也一定会跌破一个阈值，这个阈值未必一定是[5%,-5%]，视不同标的的波动而定。这种趋势策略，一般都能抓住大涨，防止大跌，但是容易在震荡行情里面反复打脸，所以阈值的设置很关键，防止在震荡行情里面频繁操作。\n\n## 关于标的的选择\n\n- 个股波动和风险都太大，本人不买卖任何个股，主要是各种场内基金（ETF、LOF）和场外基金，当然了，用这个策略回测一下自己关注的个股其实也是可以的，相当于一个照妖镜，标的好不好，回测一下就知道了\n\n2. 建议重点关注的标的不要6个，本人目前关注的主要是创业板、沪深300、兴全模式、景顺鼎益、广发小盘、万家优选，仓位上大致是宽基和主动基金对半分\n\n## 关于止损\n\n- 本策略设置的是持仓亏损超过10%时，无条件清仓\n\n## 关于现金管理\n\n- 目前代码里面没有设置，因为嫌弃麻烦，实操时可以考虑招行双债、国债ETF、银华日利等\n\n## 一些相关的资源\n\n- 关于北向资金，推荐一个持续跟踪北向资金的微信公众号：[每日港资持股数据](https://mp.weixin.qq.com/s/BU1Jw8C1w9FAoate0X0Lag)，一般来说超过50万的流入流出都是比较值得关注的，大家也可以直接在同花顺等App里面查看沪深港通，这个策略的来源是华泰证券金工研报：[【华泰金工林晓明团队】北向资金走向预示市场短期或震荡——华泰金工量化资产配置 7月月报](https://mp.weixin.qq.com/s?src=11&timestamp=1626083969&ver=3186&signature=LmniEHyn2YZqKgbLwhF6b*DdtuUEgsScTAvcK08DC87RtgpmRQX6cKw8NfA7-G6t*v2IkXrgBJ8QxOaFCx*5F3QFzmdqUhcPaqTBao3PF1x*1*OzFEdSKs1tKYnfgakB&new=1)\n\n2. 关于20日涨幅，推荐使用[华宝智投App](https://m.touker.com/trade/activity/common/channelOpen.htm?moduleDataId=275&channel=VJZB)查看，或者就用很多App都能查看的近一月涨幅替代也可以\n\n3. 关于微信推送通知，推荐一个服务号：[WxPusher微信推送服务](https://wxpusher.zjiecode.com/docs/#/)，可以直接通过一个http链接发送微信通知，方便及时跟踪调仓信息",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-07-12 18:55:18",
+      "modTime": "2021-07-12 19:06:45",
+      "lastActiveTime": "2025-04-02 11:27:27",
+      "lastPubTime": "2021-07-12 19:06:45",
+      "backtestId": "984c037a10a19c58766f126f3af14b18",
+      "backtestName": "创业板-北向资金涨幅流",
+      "replyCount": "136",
+      "viewCount": "5894",
+      "collectionCount": "124",
+      "likeCount": "57",
+      "disLikeCount": "0",
+      "backtestCloneCount": "412",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "8",
+      "followersCount": "139",
+      "followingCount": "7",
+      "author": {
+        "userId": "5ed86591c7ea96920c306a2754b823b5",
+        "alias": "天然15",
+        "introduction": "严守交易计划，杜绝盲目交易",
+        "headImgKey": "d2f249dbb7666291ba2c930dd4ae68ba"
+      },
+      "tags": [
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "264",
+          "name": "研报复现"
+        },
+        {
+          "id": "12",
+          "name": "基金"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "944",
+          "name": "资产配置"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "984c037a10a19c58766f126f3af14b18",
+        "backtest_name": "创业板-北向资金涨幅流",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=984c037a10a19c58766f126f3af14b18&postId=a5fb2c8b9644ea49441cfcfffb735f13&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2018-01-01",
+          "end_date": "2021-07-11",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "559d97e338ec838c06ab3c3f950264c4",
+            "21239868"
+          ],
+          "numeric_backtest_id": "21239868",
+          "numeric_post_id": "33823",
+          "python_version": 3,
+          "clone_count": 398
+        },
+        "stats": {
+          "trading_days": 855,
+          "benchmark_volatility": 0.21238000400021,
+          "algorithm_volatility": 0.18999318189342,
+          "treasury_return": 0.14071232876712,
+          "algorithm_return": 2.66757016846,
+          "benchmark_return": 0.25766029497501,
+          "annual_algo_return": 0.46225438773577,
+          "annual_bm_return": 0.069330836177592,
+          "sharpe": 2.2224712672724,
+          "excess_return_sharpe": "1.615",
+          "sortino": 3.3749216966608,
+          "information": 1.9527965910998,
+          "beta": 0.45135453791951,
+          "alpha": 0.40901578172604,
+          "excess_return": 1.9161850645312,
+          "avg_excess_return": "0.13%",
+          "max_drawdown": 0.13487454766044,
+          "max_drawdown_period": [
+            "2021-02-10",
+            "2021-04-20"
+          ],
+          "excess_return_max_drawdown": "14.00%",
+          "excess_return_max_drawdown_period": [
+            "2020-07-24",
+            "2020-11-27"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-07",
+          "__version": 101,
+          "win_ratio": 0.63157894736842,
+          "profit_loss_ratio": 15.891588213216,
+          "win_count": 24,
+          "lose_count": 14,
+          "day_win_ratio": 0.52514619883041,
+          "avg_trade_return": 0.047062923168075,
+          "avg_position_days": 469,
+          "turnover_rate": 0.022684845315154,
+          "report_done_seconds": 94.229597568512,
+          "report_done_cpu_seconds": 75.26
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 266.757017,
+          "benchmark_return_percent": 25.766029,
+          "annual_algo_return_percent": 46.225439,
+          "annual_bm_return_percent": 6.933084,
+          "max_drawdown_percent": 13.487455,
+          "algorithm_volatility_percent": 18.999318,
+          "benchmark_volatility_percent": 21.238,
+          "win_ratio_percent": 63.157895,
+          "day_win_ratio_percent": 52.51462,
+          "avg_trade_return_percent": 4.706292,
+          "turnover_rate_percent": 2.268485,
+          "sharpe": 2.2224712672724,
+          "sortino": 3.3749216966608,
+          "information": 1.9527965910998,
+          "alpha": 0.40901578172604,
+          "beta": 0.45135453791951,
+          "profit_loss_ratio": 15.891588213216,
+          "avg_position_days": 469,
+          "trading_days": 855,
+          "win_count": 24,
+          "lose_count": 14,
+          "max_drawdown_period": [
+            "2021-02-10",
+            "2021-04-20"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-07-24",
+            "2020-11-27"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/33823",
+      "https://www.joinquant.com/community/post/detailV2?postId=33823",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=984c037a10a19c58766f126f3af14b18&postId=a5fb2c8b9644ea49441cfcfffb735f13&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=984c037a10a19c58766f126f3af14b18"
+    ]
+  }
+}

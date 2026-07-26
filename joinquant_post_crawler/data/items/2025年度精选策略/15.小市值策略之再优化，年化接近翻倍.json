@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/15.小市值策略之再优化，年化接近翻倍.txt",
+    "category": "2025年度精选策略",
+    "file_name": "15.小市值策略之再优化，年化接近翻倍.txt",
+    "strategy_name": "小市值策略之再优化，年化接近翻倍",
+    "declared_title": "小市值策略之再优化，年化接近翻倍",
+    "declared_author": "仓建右三",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 8538,
+    "sha256": "2c22a6de17326a8e207de373a8d0b644058a265373dbe04f8f8ea9f89a532614",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/30600",
+      "https://www.joinquant.com/post/25496"
+    ],
+    "primary_url": "https://www.joinquant.com/post/30600",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:10:53+08:00",
+    "requested_url": "https://www.joinquant.com/post/30600",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/6656686e33d22e70bde669857255404a",
+    "community_id": "6656686e33d22e70bde669857255404a",
+    "post": {
+      "postId": "b3c577a4e8fa539cd28d9740e55dc3e2",
+      "uniqueKey": "6656686e33d22e70bde669857255404a",
+      "title": "小市值策略之再优化，年化接近翻倍",
+      "content": "参考 @jqz1226的文章\n原文章：https://www.joinquant.com/post/25496\n原标题：收益狂飙，年化收益100%，11年1700倍，绝无未来函数\n原作者：jqz1226\n\n\n   原文章的主要逻辑是：在399101.XSHE 中小板综合指数中，去除ST和停牌，涨跌停个股后，选择流通市值最低的前5个个股，平均分配资金购买， 如果持仓个股不是当天的市值最低的，则会卖出，购买新选择的市场最低的个股。经过回测，收益率惊人。\n       原文章的策略，在17年左右时，收益相对偏低；本人优化主要在于加入了5日均线的设定，买入时，须个股在5日平均线上，不然就再等等，防止个股在下跌通道中。\n       同时，将买入个股从5个，减少到3个，回测发现，收益率比以前更好。\n       同时发现个问题，如果买入时间选择在9：30时，则收益率会大大降低，不知哪位大神能解释下。。。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-12-15 13:34:00",
+      "modTime": "2020-12-15 13:35:01",
+      "lastActiveTime": "2026-06-29 00:11:53",
+      "lastPubTime": "2020-12-15 13:35:01",
+      "backtestId": "8ddfbda9a649c2dff19e3d0c438b0d24",
+      "backtestName": "中小板最小流通市值3只_MA5",
+      "replyCount": "72",
+      "viewCount": "6950",
+      "collectionCount": "82",
+      "likeCount": "45",
+      "disLikeCount": "0",
+      "backtestCloneCount": "387",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "13",
+      "followersCount": "40",
+      "followingCount": "17",
+      "author": {
+        "userId": "b456a955a4dc26023ad933a9570c461c",
+        "alias": "仓建右三",
+        "introduction": "仓建右三，破趋势止损，破支撑止损，来日再战"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "8ddfbda9a649c2dff19e3d0c438b0d24",
+        "backtest_name": "中小板最小流通市值3只_MA5",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=8ddfbda9a649c2dff19e3d0c438b0d24&postId=6656686e33d22e70bde669857255404a&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2016-07-01",
+          "end_date": "2020-12-14",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "2491dd83e2f263d328f09418301630b3",
+            "19121493"
+          ],
+          "numeric_backtest_id": "19121493",
+          "numeric_post_id": "30600",
+          "python_version": 3,
+          "clone_count": 305
+        },
+        "stats": {
+          "trading_days": 1085,
+          "benchmark_volatility": 0.18509378065202,
+          "algorithm_volatility": 0.2962711551522,
+          "treasury_return": 0.17830136986301,
+          "algorithm_return": 16.29515716422,
+          "benchmark_return": 0.56466872970779,
+          "annual_algo_return": 0.92857291351985,
+          "annual_bm_return": 0.10865849412531,
+          "sharpe": 2.99918806832,
+          "excess_return_sharpe": "2.435",
+          "sortino": 4.6659023432958,
+          "information": 2.8592394684939,
+          "beta": 0.58093353553867,
+          "alpha": 0.84868689178287,
+          "excess_return": 10.053558389609,
+          "avg_excess_return": "0.24%",
+          "max_drawdown": 0.20406252331987,
+          "max_drawdown_period": [
+            "2017-11-15",
+            "2018-02-06"
+          ],
+          "excess_return_max_drawdown": "22.19%",
+          "excess_return_max_drawdown_period": [
+            "2017-11-15",
+            "2018-02-05"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-12",
+          "__version": 101,
+          "win_ratio": 0.60869565217391,
+          "profit_loss_ratio": 3.2517342757761,
+          "win_count": 196,
+          "lose_count": 126,
+          "day_win_ratio": 0.53640552995392,
+          "avg_trade_return": 0.030067242641714,
+          "avg_position_days": 40.083333333333,
+          "turnover_rate": 0.098560806784386,
+          "report_done_seconds": 139.42822217941,
+          "report_done_cpu_seconds": 98.71
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 1629.515716,
+          "benchmark_return_percent": 56.466873,
+          "annual_algo_return_percent": 92.857291,
+          "annual_bm_return_percent": 10.865849,
+          "max_drawdown_percent": 20.406252,
+          "algorithm_volatility_percent": 29.627116,
+          "benchmark_volatility_percent": 18.509378,
+          "win_ratio_percent": 60.869565,
+          "day_win_ratio_percent": 53.640553,
+          "avg_trade_return_percent": 3.006724,
+          "turnover_rate_percent": 9.856081,
+          "sharpe": 2.99918806832,
+          "sortino": 4.6659023432958,
+          "information": 2.8592394684939,
+          "alpha": 0.84868689178287,
+          "beta": 0.58093353553867,
+          "profit_loss_ratio": 3.2517342757761,
+          "avg_position_days": 40.083333333333,
+          "trading_days": 1085,
+          "win_count": 196,
+          "lose_count": 126,
+          "max_drawdown_period": [
+            "2017-11-15",
+            "2018-02-06"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2017-11-15",
+            "2018-02-05"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/30600",
+      "https://www.joinquant.com/community/post/detailV2?postId=30600",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=8ddfbda9a649c2dff19e3d0c438b0d24&postId=6656686e33d22e70bde669857255404a&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=8ddfbda9a649c2dff19e3d0c438b0d24"
+    ]
+  }
+}

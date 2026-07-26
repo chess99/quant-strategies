@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/77.【基金增强思考2.0】优秀基金的持续性与周期的关系密不可分.txt",
+    "category": "2023年度精选策略",
+    "file_name": "77.【基金增强思考2.0】优秀基金的持续性与周期的关系密不可分.txt",
+    "strategy_name": "【基金增强思考2.0】优秀基金的持续性与周期的关系密不可分",
+    "declared_title": "【基金增强思考2.0】优秀基金的持续性与周期的关系密不可分",
+    "declared_author": "潜水的白鱼",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 4493,
+    "sha256": "b076777192f8d275deb14a9a53a046483d22622101af5e3f618d1f98a72d6a57",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/34966",
+      "https://www.joinquant.com/post/34957"
+    ],
+    "primary_url": "https://www.joinquant.com/post/34966",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:09:39+08:00",
+    "requested_url": "https://www.joinquant.com/post/34966",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/12ef143f7ca1d6e2cce8bcd876a3f585",
+    "community_id": "12ef143f7ca1d6e2cce8bcd876a3f585",
+    "post": {
+      "postId": "3e0537b222a2ca89edd1b486613d48d2",
+      "uniqueKey": "12ef143f7ca1d6e2cce8bcd876a3f585",
+      "title": "【基金增强思考2.0】优秀基金的持续性与周期的关系密不可分",
+      "content": "写完【基金增强思考1.0】后，感谢“嘟嘟嘟5”的交流与回复，他说按照我的思想写的策略不太行。\n我就纳闷了，如果根据历史表现购入好的基金，结果还亏钱了，那我以后买基金岂不是还怎么买，岂不是像赌博一样，所以我不得不抽空来检验一下这个想法，来回答一下我心中的疑惑。下图是‘嘟嘟嘟5’的疑惑\n![Img]( https://image.joinquant.com/6743ebb5e45fc7ccec4568d5160d79c7) \n我看了他写的代码后，发现以下的问题：\n1、分类：买入前十的基金（前十是否一定好呢，我昨天的散点图的扁平显然说明了这个是不对的）\n2、数量：买入10支基金，是否具有说服性呢，（10支样本太少了，也不具有说服力，而且出现极端聚集的概率更大）\n3、周期：一个月调一次仓，这个是不合理的，基金具有延续性，反弹性，一个季度调一次都不合理何况一个月。\n\n此外，我也讲一下为什么想做基金增强策略，做基金增强的前提是我的个人一个假设，每一个稳健的策略背后都一特定严谨的理论支撑或者约束条件：\n1、假设1：大多数的基金一定能跑赢指数，无论是在中线还是长线，如果跑不赢那我不如买指数，做指数增强策略。\n2、假设2：基金的一定周期内历史表现是有效的，对未来的表现有一定的预测性，没有预测性的话，那岂不是赌博。\n\n策略验证：回测中的策略，在2020,10,11日买入表现较好的前100支基金，在一年周期内持仓，没有卖出行为。\n结果：\n第一、我们发现显然基金不仅能跑赢指数，而且年化收益接近30%。比我期望的E=25%要高，这符合我的假设。\n第二、基金在上升阶段能够获取更高的超额利润。这也是基金跑赢指数的关键所在。这个上升阶段往往在买入的后期才能凸显。\n这也给予我后期做基金增强更多的思路和信心。\n另外：\n在表现0-100的基金里面，是取前50，还是后50，还是中间的50支表现会更好呢，大家猜一下,O(∩_∩)O哈哈~\n\n我是白鱼，喜欢我的文章可以b站关注‘潜水的白鱼’，也可以在评论区说出你的思考和疑惑，我也会继续研究。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-10-13 20:05:41",
+      "modTime": "2021-10-13 20:14:28",
+      "lastActiveTime": "2026-01-10 16:27:19",
+      "lastPubTime": "2021-10-13 20:14:28",
+      "backtestId": "30556335e8868b72ea01ad1fc716856c",
+      "backtestName": "基金MVP-Clone",
+      "replyCount": "103",
+      "viewCount": "3609",
+      "collectionCount": "52",
+      "likeCount": "24",
+      "disLikeCount": "0",
+      "backtestCloneCount": "227",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "59",
+      "followersCount": "1037",
+      "followingCount": "52",
+      "author": {
+        "userId": "a8dff5d994577c74ab2d722fbc67aa52",
+        "alias": "潜水的白鱼",
+        "introduction": "联系邮箱：1027389254@qq.com,坐标广州，曾在交易团队担任可转债职业交易员。",
+        "headImgKey": "c340ff611053c038c50ed8a98c9bfe39"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        },
+        {
+          "id": "12",
+          "name": "基金"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "30556335e8868b72ea01ad1fc716856c",
+        "backtest_name": "基金MVP-Clone",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=30556335e8868b72ea01ad1fc716856c&postId=12ef143f7ca1d6e2cce8bcd876a3f585&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2020-10-11",
+          "end_date": "2021-10-11",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "4bbc180391e92db766eba0d6ec873ee5",
+            "22129591"
+          ],
+          "numeric_backtest_id": "22129591",
+          "numeric_post_id": "34966",
+          "python_version": 3,
+          "clone_count": 160
+        },
+        "stats": {
+          "trading_days": 243,
+          "benchmark_volatility": 0.19078244285355,
+          "algorithm_volatility": 0.23873295838052,
+          "treasury_return": 0.039890410958904,
+          "algorithm_return": 0.29602212333563,
+          "benchmark_return": 0.053149446502349,
+          "annual_algo_return": 0.30573905484972,
+          "annual_bm_return": 0.054721657967269,
+          "sharpe": 1.1131226147089,
+          "excess_return_sharpe": "1.439",
+          "sortino": 1.6754943352127,
+          "information": 1.8182111947244,
+          "beta": 1.0210953752835,
+          "alpha": 0.25070683798283,
+          "excess_return": 0.2306155860784,
+          "avg_excess_return": "0.09%",
+          "max_drawdown": 0.19688198275442,
+          "max_drawdown_period": [
+            "2021-02-18",
+            "2021-03-25"
+          ],
+          "excess_return_max_drawdown": "7.50%",
+          "excess_return_max_drawdown_period": [
+            "2021-08-31",
+            "2021-10-11"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-10",
+          "__version": 101,
+          "win_ratio": 0,
+          "profit_loss_ratio": 0,
+          "win_count": 0,
+          "lose_count": 0,
+          "day_win_ratio": 0.59259259259259,
+          "avg_trade_return": 0,
+          "avg_position_days": 196.84415584416,
+          "turnover_rate": 0.0017234994348661,
+          "report_done_seconds": 2159.8456606865,
+          "report_done_cpu_seconds": 2159.18
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 29.602212,
+          "benchmark_return_percent": 5.314945,
+          "annual_algo_return_percent": 30.573905,
+          "annual_bm_return_percent": 5.472166,
+          "max_drawdown_percent": 19.688198,
+          "algorithm_volatility_percent": 23.873296,
+          "benchmark_volatility_percent": 19.078244,
+          "win_ratio_percent": 0,
+          "day_win_ratio_percent": 59.259259,
+          "avg_trade_return_percent": 0,
+          "turnover_rate_percent": 0.17235,
+          "sharpe": 1.1131226147089,
+          "sortino": 1.6754943352127,
+          "information": 1.8182111947244,
+          "alpha": 0.25070683798283,
+          "beta": 1.0210953752835,
+          "profit_loss_ratio": 0,
+          "avg_position_days": 196.84415584416,
+          "trading_days": 243,
+          "win_count": 0,
+          "lose_count": 0,
+          "max_drawdown_period": [
+            "2021-02-18",
+            "2021-03-25"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2021-08-31",
+            "2021-10-11"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/34966",
+      "https://www.joinquant.com/community/post/detailV2?postId=34966",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=30556335e8868b72ea01ad1fc716856c&postId=12ef143f7ca1d6e2cce8bcd876a3f585&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=30556335e8868b72ea01ad1fc716856c"
+    ]
+  }
+}

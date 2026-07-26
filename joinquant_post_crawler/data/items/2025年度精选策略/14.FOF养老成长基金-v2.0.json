@@ -1,0 +1,178 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/14.FOF养老成长基金-v2.0.txt",
+    "category": "2025年度精选策略",
+    "file_name": "14.FOF养老成长基金-v2.0.txt",
+    "strategy_name": "FOF养老成长基金-v2.0",
+    "declared_title": "FOF养老成长基金-v2.0",
+    "declared_author": "富在知足",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 28040,
+    "sha256": "c2ef8cbfe24740ccd493e59f7ced9bf3c658359adc52a7591441527468a8d848",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/24542"
+    ],
+    "primary_url": "https://www.joinquant.com/post/24542",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:10:53+08:00",
+    "requested_url": "https://www.joinquant.com/post/24542",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/65a10d558d3a265352f25d6fa7415381",
+    "community_id": "65a10d558d3a265352f25d6fa7415381",
+    "post": {
+      "postId": "606346b416001d853fc9488a17c479c3",
+      "uniqueKey": "65a10d558d3a265352f25d6fa7415381",
+      "title": "FOF养老成长基金-v2.0",
+      "content": "本策略使用ES风险控制策略+RSI指标进行标的选择和仓位配置，从ETF基金中优选低估值的基金和优秀基金做为基金池，并且增加债券和黄金两类基金做为对冲标的，并包含了固定定投金额的功能，每月周四进行一次调仓交易，确保让交易费率低于场外交易，以低风险方式让财富稳步增长是本策略的核心方向。此策略方案可以在场内和场外进行买卖操作，优先考虑使用C类基金进行配置。\n\n[FOF养老成长基金-v1.0](https://www.joinquant.com/view/community/detail/e51d6788902433a040ce5e488d45444d)",
+      "type": 1,
+      "status": "0",
+      "addTime": "2019-12-20 11:25:55",
+      "modTime": "2019-12-20 11:25:55",
+      "lastActiveTime": "2022-06-17 22:58:57",
+      "lastPubTime": "2019-12-20 11:25:55",
+      "backtestId": "4d08e9932750205de9eafe9055302723",
+      "backtestName": "盘满钵满-v191220",
+      "replyCount": "10",
+      "viewCount": "2706",
+      "collectionCount": "27",
+      "likeCount": "14",
+      "disLikeCount": "0",
+      "backtestCloneCount": "161",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "5",
+      "followersCount": "62",
+      "followingCount": "0",
+      "author": {
+        "userId": "ece5d30d8f9f87304b748dc6e1beb43a",
+        "alias": "富在知足",
+        "introduction": "优选基金，以定投的方式，让自己的资产稳定增长。"
+      },
+      "tags": [
+        {
+          "id": "12",
+          "name": "基金"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "4d08e9932750205de9eafe9055302723",
+        "backtest_name": "盘满钵满-v191220",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=4d08e9932750205de9eafe9055302723&postId=65a10d558d3a265352f25d6fa7415381&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2015-07-01",
+          "end_date": "2019-12-17",
+          "base_capital": 10000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "f7cab84d769685aadb1a3b6fc81aea2c",
+            "15787711"
+          ],
+          "numeric_backtest_id": "15787711",
+          "numeric_post_id": "24542",
+          "python_version": 3,
+          "clone_count": 368
+        },
+        "stats": {
+          "trading_days": 1090,
+          "benchmark_volatility": 0.22934149105278,
+          "algorithm_volatility": 0.087280728533973,
+          "treasury_return": 0.1786301369863,
+          "algorithm_return": 0.56890275867054,
+          "benchmark_return": -0.096400625978085,
+          "annual_algo_return": 0.10882108051905,
+          "annual_bm_return": -0.02298161916154,
+          "sharpe": 0.78850259014808,
+          "excess_return_sharpe": "0.490",
+          "sortino": 1.0902622940401,
+          "information": 0.69406946320541,
+          "beta": 0.22961189541748,
+          "alpha": 0.083282409471192,
+          "excess_return": 0.73628136957132,
+          "avg_excess_return": "0.06%",
+          "max_drawdown": 0.091539360397023,
+          "max_drawdown_period": [
+            "2019-04-19",
+            "2019-05-23"
+          ],
+          "excess_return_max_drawdown": "22.15%",
+          "excess_return_max_drawdown_period": [
+            "2015-08-26",
+            "2015-12-22"
+          ],
+          "max_leverage": 0,
+          "period_label": "2019-12",
+          "__version": 101,
+          "win_ratio": 0.71666666666667,
+          "profit_loss_ratio": 5.783035401788,
+          "win_count": 43,
+          "lose_count": 17,
+          "day_win_ratio": 0.49633027522936,
+          "avg_trade_return": 0.049287285161388,
+          "avg_position_days": 308.5,
+          "turnover_rate": 0.010971105090851,
+          "report_done_seconds": 468.61658930779
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 56.890276,
+          "benchmark_return_percent": -9.640063,
+          "annual_algo_return_percent": 10.882108,
+          "annual_bm_return_percent": -2.298162,
+          "max_drawdown_percent": 9.153936,
+          "algorithm_volatility_percent": 8.728073,
+          "benchmark_volatility_percent": 22.934149,
+          "win_ratio_percent": 71.666667,
+          "day_win_ratio_percent": 49.633028,
+          "avg_trade_return_percent": 4.928729,
+          "turnover_rate_percent": 1.097111,
+          "sharpe": 0.78850259014808,
+          "sortino": 1.0902622940401,
+          "information": 0.69406946320541,
+          "alpha": 0.083282409471192,
+          "beta": 0.22961189541748,
+          "profit_loss_ratio": 5.783035401788,
+          "avg_position_days": 308.5,
+          "trading_days": 1090,
+          "win_count": 43,
+          "lose_count": 17,
+          "max_drawdown_period": [
+            "2019-04-19",
+            "2019-05-23"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2015-08-26",
+            "2015-12-22"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/24542",
+      "https://www.joinquant.com/community/post/detailV2?postId=24542",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=4d08e9932750205de9eafe9055302723&postId=65a10d558d3a265352f25d6fa7415381&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=4d08e9932750205de9eafe9055302723"
+    ]
+  }
+}

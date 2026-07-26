@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/23 Principle by Jim Slater 祖鲁法则在A股的实现与改进.txt",
+    "category": "2020年度精选策略",
+    "file_name": "23 Principle by Jim Slater 祖鲁法则在A股的实现与改进.txt",
+    "strategy_name": "Principle by Jim Slater 祖鲁法则在A股的实现与改进",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 22117,
+    "sha256": "9dc555475e1730d1db47acb410030c61ff9c8f1628ab98a112373d589c0d3ff6",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/11619"
+    ],
+    "primary_url": "https://www.joinquant.com/post/11619",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:06:33+08:00",
+    "requested_url": "https://www.joinquant.com/post/11619",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/cf939da77be99149f4e9a1689a05b493",
+    "community_id": "cf939da77be99149f4e9a1689a05b493",
+    "post": {
+      "postId": "12fe5308d1a53f15b0ac3dc1e6293407",
+      "uniqueKey": "cf939da77be99149f4e9a1689a05b493",
+      "title": "Principle by Jim Slater: 祖鲁法则在A股的实现与改进",
+      "content": "###参考###\r\n***https://en.wikipedia.org/wiki/The_Zulu_Principle《祖鲁法则》***\r\n***The Zulu Principle: Making Extraordinary Profits from Ordinary Shares by Jim Slater***\r\n***https://en.wikipedia.org/wiki/Jim_Slater_(accountant) 作者生平***\r\n\r\n###前言###\r\nJim Slater是一个经典的成长派投资者，其所创立的Slater基金曾取得2000年全美收益最佳的记录。其所作《祖鲁法则》是最经典的投资入门级教科书。笔者发现平台上没有关于这一本书的实现，所以编成了策略。另外对于书中提出的条件做出了筛选，比如【相对强度】指标并不适合中国市场，【现金流】这一因子在因子回测中也没有表现出明显的效果，故而做出了改进。\r\n\r\n###法则内容###\r\n一、筛选标准\r\n在本书中Slater提出了5个筛选标准：\r\n1. 行业板块筛选。按照书中要求选取制药、医保、传媒、白马等板块。看官们有兴趣可以自己调整板块。\r\n2. Peter Lynch PEG. 选取PEG 0-5. 回测发现对PEG在0~1间的A股表现并不好。反复调参确定PEG在0-5反而回测表现最优。然后内置采取静态PEG与动态PEG的选项，默认是动态PEG.\r\n3. Relative Strength. 书中定义为相对强度，选取相对强度大于0，也即过去一段时间内相对于大盘的走势。基本逻辑在于：过去涨势比较好的，未来涨势也比较好——是一种认为趋势会继续的逻辑。因子分析表明在大A股似乎不太成立。附因子分析结果：\r\n![反转价格.png][1]\r\n其中，5分位代表的是过去30天内以跌幅最大的股票构建的组合净值。事实上这与A股【动量反转因子】的有效性是一致的。RS指标并不有效。故而并没有采用RS法则筛选。看官们可以修改参数做一个【相对强度较小】的投资组合。\r\n4. Edwin Sedgwick Coppock Trigger. 书中定义为技术面分析的估波指标，判断牛市到来。为了判断熊市采用了经典的的Bollinger Band方法（布林带），其有两种方法：一是判断指数是否击穿布林带边界从而判断是跟进还是止损，二是判断布林带边界是否收口（统计学意义上表明区间振幅变小，通常预示着行情反转）附布林带的例子，以及只应用布林带的表现：\r\n![BOLL.png][2]\r\n![BOLL特点.png][3]\r\n布林带的优点在于止损趋盈较为敏感，其本质是概率分布。其上下两线是±2.33个标准差距离，也就是99%正态分布分位数。击穿这个距离通常意味着极端行情的出现。在这里，最高价上穿布林带上线为买入信号，下穿布林带下线为卖出信号。\r\n5. 判断公司的管理能力和商业模式【汗】。我附上了研究模块，可以每天运行，输出祖鲁法则筛选后的股票池，看官们可以自行选取。比如这是运行后选出的股票池结果：\r\n![结果.png][4]\r\n\r\n二、配置与调仓\r\n1. 资产配置方法。内置Markowitz配置（默认风险厌恶系数0.3）和等权重配置（每个标的配以相同的价值）。测试经验表明教科书经典的风险平价（Markowitz）在板指容量较小的时候容易失效，反而等权重配置方法更加稳健。回测中运用了等权配置，有想要调整的看官们可以在调用AllocationSystem函数时修改。\r\n2. 调仓频率。采用每日调仓，同时设置了交易费用，避免结果失真。\r\n\r\n三、其他\r\n设置0.02固定滑点，回测区间为09年初至今，采用真实交易费用。\r\n\r\n\r\n  [1]: https://image.joinquant.com/36d7523cd399aa0c7c1675323841821c\r\n  [2]: https://image.joinquant.com/585e52502fe3b1583b4fdacda3c1d586\r\n  [3]: https://image.joinquant.com/360f693e4d3516722f2d140480f37876\r\n  [4]: https://image.joinquant.com/3ade9be917c393097d602c6980492fec",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-03-23 16:11:37",
+      "modTime": "2018-03-23 16:11:37",
+      "lastActiveTime": "2026-02-11 15:02:03",
+      "lastPubTime": "2018-03-23 16:11:37",
+      "backtestId": "0fcde4422656e767c840436ec6fde091",
+      "backtestName": "Zulu Principle",
+      "replyCount": "12",
+      "viewCount": "4480",
+      "collectionCount": "52",
+      "likeCount": "32",
+      "disLikeCount": "0",
+      "backtestCloneCount": "126",
+      "notebookCloneCount": "26",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "6",
+      "followersCount": "166",
+      "followingCount": "3",
+      "author": {
+        "userId": "e38a25992c5ba13209c6b27cdebc3b44",
+        "alias": "JQ-RANGEWOLF",
+        "headImgKey": "c1b62de436edbdad801c600c3597604a"
+      },
+      "tags": []
+    },
+    "backtests": [
+      {
+        "backtest_id": "0fcde4422656e767c840436ec6fde091",
+        "backtest_name": "Zulu Principle",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=0fcde4422656e767c840436ec6fde091&postId=cf939da77be99149f4e9a1689a05b493&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2009-01-01",
+          "end_date": "2018-01-31",
+          "base_capital": 10000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "1ae1388b1f4b5eb94f89704e4e115561",
+            "7960255"
+          ],
+          "numeric_backtest_id": "7960255",
+          "numeric_post_id": "11619",
+          "python_version": 2,
+          "clone_count": 127
+        },
+        "stats": {
+          "information": 0.82269789876381,
+          "benchmark_return": 0.91169839713752,
+          "algorithm_volatility": 0.23988312589485,
+          "annual_bm_return": 0.076055746317158,
+          "__version": 101,
+          "max_drawdown": 0.32295872585008,
+          "sortino": 0.90709317447211,
+          "period_label": "2018-01",
+          "trading_days": 2210,
+          "algorithm_return": 5.0441362440001,
+          "benchmark_volatility": 0.22969288700224,
+          "beta": 0.73176924152216,
+          "excess_return": 4.6810677508494,
+          "annual_algo_return": 0.22570575961044,
+          "sharpe": 0.77415099089478,
+          "alpha": 0.15932127347541,
+          "max_drawdown_period": [
+            "2015-06-12",
+            "2016-03-10"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.36306849315068,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.5393665158371,
+          "avg_position_days": 187.66666666667,
+          "win_ratio": 0.44872139973082,
+          "win_count": 1667,
+          "avg_trade_return": 0.0090874629855685,
+          "profit_loss_ratio": 1.5104279850461,
+          "lose_count": 2048,
+          "report_done_seconds": 2855.2914948463
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 504.413624,
+          "benchmark_return_percent": 91.16984,
+          "annual_algo_return_percent": 22.570576,
+          "annual_bm_return_percent": 7.605575,
+          "max_drawdown_percent": 32.295873,
+          "algorithm_volatility_percent": 23.988313,
+          "benchmark_volatility_percent": 22.969289,
+          "win_ratio_percent": 44.87214,
+          "day_win_ratio_percent": 53.936652,
+          "avg_trade_return_percent": 0.908746,
+          "sharpe": 0.77415099089478,
+          "sortino": 0.90709317447211,
+          "information": 0.82269789876381,
+          "alpha": 0.15932127347541,
+          "beta": 0.73176924152216,
+          "profit_loss_ratio": 1.5104279850461,
+          "avg_position_days": 187.66666666667,
+          "trading_days": 2210,
+          "win_count": 1667,
+          "lose_count": 2048,
+          "max_drawdown_period": [
+            "2015-06-12",
+            "2016-03-10"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/11619",
+      "https://www.joinquant.com/community/post/detailV2?postId=11619",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=0fcde4422656e767c840436ec6fde091&postId=cf939da77be99149f4e9a1689a05b493&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=0fcde4422656e767c840436ec6fde091"
+    ]
+  }
+}

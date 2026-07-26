@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/52.市场宽度——简洁版.txt",
+    "category": "2022年度精选策略",
+    "file_name": "52.市场宽度——简洁版.txt",
+    "strategy_name": "市场宽度——简洁版",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 5416,
+    "sha256": "99d10bce41b0c7e1c2669c3c0c74afefea384ba6a099673c24e041fde5b89aaf",
+    "joinquant_urls": [],
+    "primary_url": null,
+    "url_selection_method": "none"
+  },
+  "remote": null
+}

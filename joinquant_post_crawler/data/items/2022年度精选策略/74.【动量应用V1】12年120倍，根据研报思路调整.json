@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/74.【动量应用V1】12年120倍，根据研报思路调整.txt",
+    "category": "2022年度精选策略",
+    "file_name": "74.【动量应用V1】12年120倍，根据研报思路调整.txt",
+    "strategy_name": "【动量应用V1】12年120倍，根据研报思路调整",
+    "declared_title": "【动量应用V1】12年120倍，根据研报思路调整",
+    "declared_author": "free",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 10222,
+    "sha256": "234ef6c3e55547e4a8da4c5bbb31c6bb89072f4126ffbe60ee320f9a1acfba6a",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/38163",
+      "https://www.joinquant.com/post/35690"
+    ],
+    "primary_url": "https://www.joinquant.com/post/38163",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:28+08:00",
+    "requested_url": "https://www.joinquant.com/post/38163",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/659bbceb705ec8ae5525c52ab5f10d32",
+    "community_id": "659bbceb705ec8ae5525c52ab5f10d32",
+    "post": {
+      "postId": "b24ae06252538ec1f1d1ca97e2e7463f",
+      "uniqueKey": "659bbceb705ec8ae5525c52ab5f10d32",
+      "title": "【动量应用V1】12年120倍，根据研报思路调整",
+      "content": "仔仔细细研究了这篇报告后，把理念应用了一下到wywy1995的策略中。\n\n12年120倍，收益率还不错，年化44%，还有待改进。\n\n[看透动量因子的底层逻辑：](https://www.joinquant.com/view/community/detail/38095)[https://www.joinquant.com/view/community/detail/38095](https://www.joinquant.com/view/community/detail/38095)\n\n需要思路的，可以深入研究一下这报告，顺便，给我点个赞，谢谢。\n\n主要调整点：\n1.持有10只，不是5只，因为5只具有一定的个股运气性。\n2.选股中加入了动量反转的因子逻辑，取半年和月的动量因子，本来想取一年，只不过，聚宽因子中只有半年的，我就先取来代替一下。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2022-06-18 17:07:19",
+      "modTime": "2022-06-19 22:20:00",
+      "lastActiveTime": "2025-12-03 20:09:22",
+      "lastPubTime": "2022-06-19 22:20:00",
+      "backtestId": "361f74e075abc096f18c94bacb8b52d6",
+      "backtestName": "营收成长属性的动量和反转",
+      "replyCount": "32",
+      "viewCount": "5661",
+      "collectionCount": "103",
+      "likeCount": "54",
+      "disLikeCount": "0",
+      "backtestCloneCount": "397",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "9",
+      "followersCount": "261",
+      "followingCount": "40",
+      "author": {
+        "userId": "60969268414ffe5cb6ab44b9946569f4",
+        "alias": "free",
+        "vipType": "VIP",
+        "headImgKey": "6920f6c545fa85a5af9270ca95da6aa1"
+      },
+      "tags": [
+        {
+          "id": "295",
+          "name": "研报分享"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "361f74e075abc096f18c94bacb8b52d6",
+        "backtest_name": "营收成长属性的动量和反转",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=361f74e075abc096f18c94bacb8b52d6&postId=659bbceb705ec8ae5525c52ab5f10d32&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2009-01-01",
+          "end_date": "2022-06-17",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "66732635e0fc5dc56011311f71b4a31a",
+            "25025599"
+          ],
+          "numeric_backtest_id": "25025599",
+          "numeric_post_id": "38163",
+          "python_version": 3,
+          "clone_count": 361
+        },
+        "stats": {
+          "trading_days": 3269,
+          "benchmark_volatility": 0.26770840949457,
+          "algorithm_volatility": 0.3088952700131,
+          "treasury_return": 0.53819178082192,
+          "algorithm_return": 122.01329448274,
+          "benchmark_return": 2.2567867878706,
+          "annual_algo_return": 0.4448778880708,
+          "annual_bm_return": 0.094500765646307,
+          "sharpe": 1.3107286753003,
+          "excess_return_sharpe": "1.795",
+          "sortino": 1.5898379325926,
+          "information": 2.2557619874143,
+          "beta": 0.99736643830391,
+          "alpha": 0.35052065355331,
+          "excess_return": 36.771368681819,
+          "avg_excess_return": "0.12%",
+          "max_drawdown": 0.42122954387773,
+          "max_drawdown_period": [
+            "2015-06-15",
+            "2015-09-15"
+          ],
+          "excess_return_max_drawdown": "21.51%",
+          "excess_return_max_drawdown_period": [
+            "2020-09-09",
+            "2021-02-08"
+          ],
+          "max_leverage": 0,
+          "period_label": "2022-06",
+          "__version": 101,
+          "win_ratio": 0.63655573164289,
+          "profit_loss_ratio": 1.5781579979775,
+          "win_count": 1205,
+          "lose_count": 688,
+          "day_win_ratio": 0.539920464974,
+          "avg_trade_return": 0.030210068831266,
+          "avg_position_days": 86.134564643799,
+          "turnover_rate": 0.060606580153423,
+          "report_done_seconds": 804.10729956627,
+          "report_done_cpu_seconds": 666.47
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 12201.329448,
+          "benchmark_return_percent": 225.678679,
+          "annual_algo_return_percent": 44.487789,
+          "annual_bm_return_percent": 9.450077,
+          "max_drawdown_percent": 42.122954,
+          "algorithm_volatility_percent": 30.889527,
+          "benchmark_volatility_percent": 26.770841,
+          "win_ratio_percent": 63.655573,
+          "day_win_ratio_percent": 53.992046,
+          "avg_trade_return_percent": 3.021007,
+          "turnover_rate_percent": 6.060658,
+          "sharpe": 1.3107286753003,
+          "sortino": 1.5898379325926,
+          "information": 2.2557619874143,
+          "alpha": 0.35052065355331,
+          "beta": 0.99736643830391,
+          "profit_loss_ratio": 1.5781579979775,
+          "avg_position_days": 86.134564643799,
+          "trading_days": 3269,
+          "win_count": 1205,
+          "lose_count": 688,
+          "max_drawdown_period": [
+            "2015-06-15",
+            "2015-09-15"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-09-09",
+            "2021-02-08"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/38163",
+      "https://www.joinquant.com/community/post/detailV2?postId=38163",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=361f74e075abc096f18c94bacb8b52d6&postId=659bbceb705ec8ae5525c52ab5f10d32&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=361f74e075abc096f18c94bacb8b52d6"
+    ]
+  }
+}

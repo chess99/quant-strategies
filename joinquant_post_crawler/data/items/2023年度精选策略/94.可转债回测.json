@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/94.可转债回测.txt",
+    "category": "2023年度精选策略",
+    "file_name": "94.可转债回测.txt",
+    "strategy_name": "可转债回测",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 6852,
+    "sha256": "074cfffc5618bb827557b3b4f70ad928d2e5ba1c6055ec0c51da586b2b3a4a5b",
+    "joinquant_urls": [],
+    "primary_url": null,
+    "url_selection_method": "none"
+  },
+  "remote": null
+}

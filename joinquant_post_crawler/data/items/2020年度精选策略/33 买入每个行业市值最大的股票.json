@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/33 买入每个行业市值最大的股票.txt",
+    "category": "2020年度精选策略",
+    "file_name": "33 买入每个行业市值最大的股票.txt",
+    "strategy_name": "买入每个行业市值最大的股票",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 45083,
+    "sha256": "2592e5955e3c8cdeeb3a32a410b491847236addd2ffe02b058f371b770483131",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/10618"
+    ],
+    "primary_url": "https://www.joinquant.com/post/10618",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:06:42+08:00",
+    "requested_url": "https://www.joinquant.com/post/10618",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/9bdee3d6c25c550ab26a767e62a87817",
+    "community_id": "9bdee3d6c25c550ab26a767e62a87817",
+    "post": {
+      "postId": "1299079cb9ba3346178fe0b900f86073",
+      "uniqueKey": "9bdee3d6c25c550ab26a767e62a87817",
+      "title": "买入每个行业市值最大的股票",
+      "content": "这两年收益还行，一般市值最大的都是龙头",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-01-12 14:47:09",
+      "modTime": "2018-01-12 14:47:09",
+      "lastActiveTime": "2024-05-05 15:34:38",
+      "lastPubTime": "2018-01-12 14:47:09",
+      "backtestId": "76cd1dafeaeee951fd1cff631123f1cd",
+      "backtestName": "最大市值策略",
+      "replyCount": "19",
+      "viewCount": "4985",
+      "collectionCount": "35",
+      "likeCount": "14",
+      "disLikeCount": "0",
+      "backtestCloneCount": "315",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "22",
+      "followersCount": "119",
+      "followingCount": "0",
+      "author": {
+        "userId": "8d2f70ea2b5713e36fa83c9c0ac815a6",
+        "alias": "w11",
+        "headImgKey": "2ed94280e4a768559b6c1159428a5bd4"
+      },
+      "tags": [
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "76cd1dafeaeee951fd1cff631123f1cd",
+        "backtest_name": "最大市值策略",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=76cd1dafeaeee951fd1cff631123f1cd&postId=9bdee3d6c25c550ab26a767e62a87817&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2016-01-01",
+          "end_date": "2018-01-11",
+          "base_capital": 10000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "ce6f067ef4e207aeb61a568aee47a5ba",
+            "7192941"
+          ],
+          "numeric_backtest_id": "7192941",
+          "numeric_post_id": "10618",
+          "python_version": 2,
+          "clone_count": 315
+        },
+        "stats": {
+          "information": 2.4069765950978,
+          "benchmark_return": 0.12720031198028,
+          "algorithm_volatility": 0.16749878438659,
+          "annual_bm_return": 0.062209624104894,
+          "__version": 101,
+          "max_drawdown": 0.11567237305838,
+          "sortino": 4.5789883836134,
+          "period_label": "2018-01",
+          "trading_days": 496,
+          "algorithm_return": 1.325154979,
+          "benchmark_volatility": 0.1712462956724,
+          "beta": 0.58757312463149,
+          "excess_return": 1.2442782666712,
+          "annual_algo_return": 0.53004280621235,
+          "sharpe": 2.9256499263978,
+          "alpha": 0.47699302798015,
+          "max_drawdown_period": [
+            "2016-07-15",
+            "2016-12-28"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.080876712328767,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.54032258064516,
+          "avg_position_days": 120.28947368421,
+          "win_ratio": 0.74299065420561,
+          "win_count": 159,
+          "avg_trade_return": 0.084070660341173,
+          "profit_loss_ratio": 4.4630483892575,
+          "lose_count": 55,
+          "report_done_seconds": 143.57615804672
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 132.515498,
+          "benchmark_return_percent": 12.720031,
+          "annual_algo_return_percent": 53.004281,
+          "annual_bm_return_percent": 6.220962,
+          "max_drawdown_percent": 11.567237,
+          "algorithm_volatility_percent": 16.749878,
+          "benchmark_volatility_percent": 17.12463,
+          "win_ratio_percent": 74.299065,
+          "day_win_ratio_percent": 54.032258,
+          "avg_trade_return_percent": 8.407066,
+          "sharpe": 2.9256499263978,
+          "sortino": 4.5789883836134,
+          "information": 2.4069765950978,
+          "alpha": 0.47699302798015,
+          "beta": 0.58757312463149,
+          "profit_loss_ratio": 4.4630483892575,
+          "avg_position_days": 120.28947368421,
+          "trading_days": 496,
+          "win_count": 159,
+          "lose_count": 55,
+          "max_drawdown_period": [
+            "2016-07-15",
+            "2016-12-28"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/10618",
+      "https://www.joinquant.com/community/post/detailV2?postId=10618",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=76cd1dafeaeee951fd1cff631123f1cd&postId=9bdee3d6c25c550ab26a767e62a87817&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=76cd1dafeaeee951fd1cff631123f1cd"
+    ]
+  }
+}

@@ -1,0 +1,191 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略1/22.菜场大妈皇城大妈年化108大妈吉祥.txt",
+    "category": "2024年度精选策略1",
+    "file_name": "22.菜场大妈皇城大妈年化108大妈吉祥.txt",
+    "strategy_name": "菜场大妈皇城大妈年化108大妈吉祥",
+    "declared_title": "菜场大妈！皇城大妈！年化108%！大妈吉祥！",
+    "declared_author": "Clarence.罗",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 17649,
+    "sha256": "81d88be862e0b901d4abd96cd099bfe55931dbb5ed7de531fd7ef8d8f12de8a2",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/40850",
+      "https://www.joinquant.com/post/40139",
+      "https://www.joinquant.com/post/40811",
+      "https://www.joinquant.com/post/40004",
+      "https://www.joinquant.com/post/40038"
+    ],
+    "primary_url": "https://www.joinquant.com/post/40850",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:10:03+08:00",
+    "requested_url": "https://www.joinquant.com/post/40850",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/dbcb8113bca428515c31850e4b8b7ac3",
+    "community_id": "dbcb8113bca428515c31850e4b8b7ac3",
+    "post": {
+      "postId": "b2f5d08a3792c359a8aeccc2b47df86e",
+      "uniqueKey": "dbcb8113bca428515c31850e4b8b7ac3",
+      "title": "菜场大妈！皇城大妈！年化108%！大妈吉祥！",
+      "content": "对菜场大妈 皇城大妈 选股法进行了各种回测，Py3改Py2之类地捣腾。\n\n\n# 开心果大咖\n\n开心果大咖的发布了菜场大妈的选股思路：菜场大妈买菜遵循低价高质的原则，用到股票市场上是否有效那？什么是高质量股票，菜场大妈想，股息越高越好，价格越低越好。所谓价优质高。\n\n\n股票的交易思路是：选股，买，卖。\n\n算法实现：\n1、在每月头按派息率最高的25%股票且9元以下建立选股池。\n2、将选股池中的股票按市值从小到大排序，月调仓，也就是卖出不在最小市值10只内的股票，买入新进入最小市值的股票。\n3、2022年全年收益率56.25%，9.88%\n4、2018-2022年，5年收益率432.20%，最大回撤34.39%\n很开心。顺便说一句，QQ时代，我的网名也是开心果。\n\n\n# GoodThinker大咖\nGoodThinker大咖在选股条件中加上了PEG从-1至3保障基本面：“正黄旗大妈知道不？自带通天纹，满手兰花指（不知道这个的自己百度去 呵呵），那是最挑剔的存在。\"\n1、2022年收益率大大提高了，全年收益率80.62%，11.11%\n2、2018-2022年，5年收益率下降到330.45%, 最大回撤30.34%\n\n但是在交易记录的LOG发现，很多股的利润大幅度下滑，甚至有-447.9%的002811.XSHE 郑中设计，有些的PE值是负的例如奥康国际 市盈率 -18.5551，这些股因为PEG从-1到0的区间选股带来的。不太敢买呀！\n\n2023-02-01 16:00:00 - INFO - 603488.XSHG 展鹏科技 市值 20.8773 亿\n2023-02-01 16:00:00 - INFO - 603488.XSHG 展鹏科技 股价 7.32 元\n2023-02-01 16:00:00 - INFO - 603488.XSHG 展鹏科技 市盈率 33.7387\n2023-02-01 16:00:00 - INFO - 603488.XSHG 展鹏科技 净利润同比增长率 31.89\n\n2023-02-01 16:00:00 - INFO - 002811.XSHE 郑中设计 市值 21.2737 亿\n2023-02-01 16:00:00 - INFO - 002811.XSHE 郑中设计 股价 7.85 元\n2023-02-01 16:00:00 - INFO - 002811.XSHE 郑中设计 市盈率 -30.065\n**2023-02-01 16:00:00 - INFO - 002811.XSHE 郑中设计 净利润同比增长率 -447.9\n**\n2023-02-01 16:00:00 - INFO - 301056.XSHE 森赫股份 市值 21.6898 亿\n2023-02-01 16:00:00 - INFO - 301056.XSHE 森赫股份 股价 8.28 元\n2023-02-01 16:00:00 - INFO - 301056.XSHE 森赫股份 市盈率 37.7409\n**2023-02-01 16:00:00 - INFO - 301056.XSHE 森赫股份 净利润同比增长率 -55.35\n**\n2023-02-01 16:00:00 - INFO - 002774.XSHE 快意电梯 市值 23.9048 亿\n2023-02-01 16:00:00 - INFO - 002774.XSHE 快意电梯 股价 7.35 元\n2023-02-01 16:00:00 - INFO - 002774.XSHE 快意电梯 市盈率 37.6225\n2023-02-01 16:00:00 - INFO - 002774.XSHE 快意电梯 净利润同比增长率 151.32\n\n2023-02-01 16:00:00 - INFO - 603767.XSHG 中马传动 市值 25.026 亿\n2023-02-01 16:00:00 - INFO - 603767.XSHG 中马传动 股价 8.1 元\n2023-02-01 16:00:00 - INFO - 603767.XSHG 中马传动 市盈率 41.7601\n2023-02-01 16:00:00 - INFO - 603767.XSHG 中马传动 净利润同比增长率 56.26\n\n2023-02-01 16:00:00 - INFO - 002687.XSHE 乔治白 市值 25.4765 亿\n2023-02-01 16:00:00 - INFO - 002687.XSHE 乔治白 股价 5.03 元\n2023-02-01 16:00:00 - INFO - 002687.XSHE 乔治白 市盈率 15.6058\n**2023-02-01 16:00:00 - INFO - 002687.XSHE 乔治白 净利润同比增长率 -49.73\n**\n2023-02-01 16:00:00 - INFO - 603682.XSHG 锦和商管 市值 26.2237 亿\n2023-02-01 16:00:00 - INFO - 603682.XSHG 锦和商管 股价 5.61 元\n2023-02-01 16:00:00 - INFO - 603682.XSHG 锦和商管 市盈率 22.954\n**2023-02-01 16:00:00 - INFO - 603682.XSHG 锦和商管 净利润同比增长率 -28.51\n**\n2023-02-01 16:00:00 - INFO - 000573.XSHE 粤宏远A 市值 26.4248 亿\n2023-02-01 16:00:00 - INFO - 000573.XSHE 粤宏远A 股价 4.16 元\n2023-02-01 16:00:00 - INFO - 000573.XSHE 粤宏远A 市盈率 49.2685\n2023-02-01 16:00:00 - INFO - 000573.XSHE 粤宏远A 净利润同比增长率 24.24\n\n2023-02-01 16:00:00 - INFO - 603001.XSHG 奥康国际 市值 26.6652 亿\n2023-02-01 16:00:00 - INFO - 603001.XSHG 奥康国际 股价 6.69 元\n**2023-02-01 16:00:00 - INFO - 603001.XSHG 奥康国际 市盈率 -18.5551\n**\n2023-02-01 16:00:00 - INFO - 603001.XSHG 奥康国际 净利润同比增长率 -274.48\n\n2023-02-01 16:00:00 - INFO - 002381.XSHE 双箭股份 市值 27.6578 亿\n2023-02-01 16:00:00 - INFO - 002381.XSHE 双箭股份 股价 6.76 元\n2023-02-01 16:00:00 - INFO - 002381.XSHE 双箭股份 市盈率 29.3551\n**2023-02-01 16:00:00 - INFO - 002381.XSHE 双箭股份 净利润同比增长率 -43.0\n**\n\n我尝试把peg-1到0去掉，改选peg为0到3的股，但发现收益大幅度下降，\n1、2022年收益率30.61%，最大回撤14.93%\n2、2018-2022年，5年收益率224.65%，最大回撤35.98%。\n\n\n# 美吉姆优秀毕业代表\n\n美吉姆优秀毕业代表，把PEG从-1至3保障基本面放松到了 PEG从-3至3。\n1、2022年收益率大大提高了，全年收益率85.71%，最大回撤9.77%\n2、2018-2022年，5年收益率确下降到408.66%，最大回撤29.54%\n同样在交易记录的LOG发现，很多股的利润大幅度下滑，有些的PE值是负的。看起来垃圾股的收益还更高啊！\n\n\n# oupian鳌拜大侠\n\nOupian大侠也做了一个优化版，可称之为熬拜版！\n代码看起来跟上面几版看起来很像，但交易模式完全变了，不进行月度调仓！调仓的代码被oupian注释掉了，不将持股跟选股池的股票比对卖出：\n    # Sell\n    # sell_list = []\n    # for s in context.portfolio.positions:\n    #    if (s not in choice) :\n    #        sell_list.append(s)\n    # sell_stocks(context, sell_list)\n\n那么什么时候卖出呢？\n1、熬！熬到头天涨停、当日14点不涨停再卖出。所以叫熬拜版！\n2、还加了一个尾盘的卖出条件，如果当日放量到十日均量的三倍以上、却不涨停，也卖出。\n3、2022年收益率进一步提高，全年收益率100.66%，最大回撤14.41%\n4、2018-2022年，5年收益率408.55%，最大回撤35.92%\n\n收益是如何增加的呢？\n1、进一步分析，是卖出的股票之后，马上又买入股票，提高资金利用率。然后我再看了一些前面几位大咖的版本，发现开心果和GoodThinker卖出之后不立即买入，等待下一个月调仓时，才会把资金用到尽；但是美吉姆优秀毕业生的版本，做了精巧的改动，也是卖出之后，立即又买入。\n2、在oupian 大侠版本的交易记录中发生一些有趣的事儿，有些刚卖出的股，马上又买回来了——给券商送交易费啊。尾盘放量不涨停卖出的股，仍然在选股池中排在前面，所以还买它。\n2.1、我尝试把刚卖掉的股从选股池中去掉，买入下一个排位的股，收益率略有下降，5年下降了约30%。\n\n然后，我将oupian大咖的代码改成了PY2版本，收益率进一步提高！2022年年化收益108%，大妈吉祥！\n\n![Img]( https://image.joinquant.com/61ba67f15bc4fea093a4c572a8bafa6e) \n\n至于到底是怎么提高的，还没查出个啥。印象中因为Vol十日MA多变量赋值公式跑不通，另外写了一段计算VOL均量的代码——仅此而已。\n\n欢迎探讨PEG [-3,0]为啥能增加收益。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2023-02-13 20:33:22",
+      "modTime": "2023-02-14 14:08:25",
+      "lastActiveTime": "2026-07-02 15:31:48",
+      "lastPubTime": "2023-02-14 14:08:25",
+      "backtestId": "4c9bae8755bb1253eff18fd050545d43",
+      "backtestName": "菜场大妈-正黄旗大妈-C罗修改版",
+      "replyCount": "103",
+      "viewCount": "9636",
+      "collectionCount": "212",
+      "likeCount": "83",
+      "disLikeCount": "0",
+      "backtestCloneCount": "491",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "47",
+      "followersCount": "967",
+      "followingCount": "168",
+      "author": {
+        "userId": "52f1873428c1736668bdaeae752b329d",
+        "alias": "Clarence.罗",
+        "vipType": "VIP"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "4c9bae8755bb1253eff18fd050545d43",
+        "backtest_name": "菜场大妈-正黄旗大妈-C罗修改版",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=4c9bae8755bb1253eff18fd050545d43&postId=dbcb8113bca428515c31850e4b8b7ac3&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2022-01-01",
+          "end_date": "2023-01-01",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "bfe1e0e2954857be08b34cbf5e39c19c",
+            "27401856"
+          ],
+          "numeric_backtest_id": "27401856",
+          "numeric_post_id": "40850",
+          "python_version": 2,
+          "clone_count": 466
+        },
+        "stats": {
+          "benchmark_return": -0.20313204880832,
+          "max_drawdown": 0.24931191052227,
+          "trading_days": 242,
+          "algorithm_volatility": 0.34570918172595,
+          "max_drawdown_period": [
+            "2022-09-08",
+            "2022-10-28"
+          ],
+          "information": 4.9064262761929,
+          "annual_bm_return": -0.20909120405454,
+          "excess_return_max_drawdown": "18.62%",
+          "benchmark_volatility": 0.21798804839217,
+          "annual_algo_return": 1.139176425012,
+          "sharpe": 3.179482880739,
+          "excess_return_max_drawdown_period": [
+            "2022-09-08",
+            "2022-10-25"
+          ],
+          "__version": 101,
+          "algorithm_return": 1.087751058,
+          "beta": 0.96299421997059,
+          "alpha": 1.339049814762,
+          "treasury_return": 0.039452054794521,
+          "max_leverage": 0,
+          "sortino": 4.7003372372658,
+          "period_label": "2022-12",
+          "avg_excess_return": "0.41%",
+          "excess_return": 1.6199460712128,
+          "excess_return_sharpe": "6.052",
+          "turnover_rate": 0.042443728764695,
+          "avg_trade_return": 0.077078729352115,
+          "day_win_ratio": 0.56198347107438,
+          "profit_loss_ratio": 3.0471207816506,
+          "avg_position_days": 80.666666666667,
+          "lose_count": 19,
+          "win_ratio": 0.72058823529412,
+          "win_count": 49,
+          "report_done_seconds": 51.048363924026,
+          "report_done_cpu_seconds": 48.68
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 108.775106,
+          "benchmark_return_percent": -20.313205,
+          "annual_algo_return_percent": 113.917643,
+          "annual_bm_return_percent": -20.90912,
+          "max_drawdown_percent": 24.931191,
+          "algorithm_volatility_percent": 34.570918,
+          "benchmark_volatility_percent": 21.798805,
+          "win_ratio_percent": 72.058824,
+          "day_win_ratio_percent": 56.198347,
+          "avg_trade_return_percent": 7.707873,
+          "turnover_rate_percent": 4.244373,
+          "sharpe": 3.179482880739,
+          "sortino": 4.7003372372658,
+          "information": 4.9064262761929,
+          "alpha": 1.339049814762,
+          "beta": 0.96299421997059,
+          "profit_loss_ratio": 3.0471207816506,
+          "avg_position_days": 80.666666666667,
+          "trading_days": 242,
+          "win_count": 49,
+          "lose_count": 19,
+          "max_drawdown_period": [
+            "2022-09-08",
+            "2022-10-28"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2022-09-08",
+            "2022-10-25"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/40850",
+      "https://www.joinquant.com/community/post/detailV2?postId=40850",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=4c9bae8755bb1253eff18fd050545d43&postId=dbcb8113bca428515c31850e4b8b7ac3&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=4c9bae8755bb1253eff18fd050545d43"
+    ]
+  }
+}

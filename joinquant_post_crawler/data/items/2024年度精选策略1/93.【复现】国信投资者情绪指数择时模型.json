@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略1/93.【复现】国信投资者情绪指数择时模型.txt",
+    "category": "2024年度精选策略1",
+    "file_name": "93.【复现】国信投资者情绪指数择时模型.txt",
+    "strategy_name": "【复现】国信投资者情绪指数择时模型",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 9367,
+    "sha256": "662d76cfb47d425afc5b2c1be6bfef933b3bac2a7812143337c3274785cd3f52",
+    "joinquant_urls": [],
+    "primary_url": null,
+    "url_selection_method": "none"
+  },
+  "remote": null
+}

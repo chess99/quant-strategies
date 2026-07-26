@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/73.基于期权PCR与标的波动率价差的股指期货套利.txt",
+    "category": "2025年度精选策略",
+    "file_name": "73.基于期权PCR与标的波动率价差的股指期货套利.txt",
+    "strategy_name": "基于期权PCR与标的波动率价差的股指期货套利",
+    "declared_title": "基于期权PCR与标的波动率价差的股指期货套利",
+    "declared_author": "魔术先生",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 13911,
+    "sha256": "caf882639dbe3618d34fd7f99c3fc9655f9a8893fc9d5c7cfa4eb37926d4d7f9",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/27664"
+    ],
+    "primary_url": "https://www.joinquant.com/post/27664",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:30+08:00",
+    "requested_url": "https://www.joinquant.com/post/27664",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/2015f5c8158378814e9e57ba32f7cdf0",
+    "community_id": "2015f5c8158378814e9e57ba32f7cdf0",
+    "post": {
+      "postId": "a2fb331d313c533352f49509720d9890",
+      "uniqueKey": "2015f5c8158378814e9e57ba32f7cdf0",
+      "title": "基于期权PCR与标的波动率价差的股指期货套利",
+      "content": "**v6.0**\n20200918出了多头信号，当天是周五，A股大涨逾2%，Wind市场情绪难得上了8分，无奈隔了个周末欧洲第二波疫情爆发，全球暴跌，A股也没能幸免。\n\n**v5.0**\n风控优化，正在实盘测试【程序信号+手工下单】，聚宽没办法做期权模拟，拿不到数据，不知道啥时候能完善下。\n\n**v4.0**\n这几天的疯牛行情有点吓人，但我在做别的策略，没有留意这个策略出信号没，今天20200707把回测终点拉到0706看了下，上周五出的做多，吃到了昨天一根跳空光头大阳线，看样子效果还是可以的\n\n**v3.0**\n修复了程序的小bug，调整部分参数。\n1.增加了异常仓位平仓逻辑，当pcr_flag=0而不为空仓时平仓\n2.修改了交易手数，从1手增加为2手，最大持仓手数限制增至30\n3.调整了止盈点位，策略基本上不会主动止盈了\n4.延长回测终点时间至20200626\n\n\n**v2.0**\n优化交易逻辑：上版中适用的是成交额PCR，优化后使用成交额和成交量复合的PCR，可以发现更多的交易机会，提升策略收益。\n\n**v1.0**\n研究了一下期权PCR序列与标的收益率序列的关系，二者大多数情况呈现负相关，但波动较大，需要过滤，于是尝试了一下利用二者的协整关系构建的股指期货策略（因为jq目前不支持回测期权，但可以获取期权合约的价量数据），交易逻辑如下：\n\n交易标的：IH主力期货\n回测区间：20180101-20200527\n初始资金：100w\n交易手数：每20w可用资金下1手，最大限制10手\n\n1.获取50ETF历史20日收益率及PCR序列，构建价差spread=100*etf_return - pcr，收益率乘100是为了和pcr的数值相近。\n2.判断最新价差在序列排序中的位置，满足条件后开仓，回复后平仓\n3.相关系数限制：若两序列的历史10日corr&lt; 0.75，即使有开仓信号也不交易。\n4.止盈止损：亏损大于2w/手止损，盈利大于5w/手止盈",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-05-29 09:45:45",
+      "modTime": "2020-05-29 09:45:45",
+      "lastActiveTime": "2024-12-10 11:02:24",
+      "lastPubTime": "2020-05-29 09:45:45",
+      "backtestId": "6023db2baf7253ac2187fbaf0ecb3ac7",
+      "backtestName": "PCR股指期货",
+      "replyCount": "57",
+      "viewCount": "6074",
+      "collectionCount": "92",
+      "likeCount": "49",
+      "disLikeCount": "0",
+      "backtestCloneCount": "289",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "15",
+      "followersCount": "341",
+      "followingCount": "1",
+      "author": {
+        "userId": "58baabf5a0a4648001ef3254b6d72e55",
+        "alias": "魔术先生",
+        "headImgKey": "a45600e1d6bd4cc623cf3bee47666032"
+      },
+      "tags": [
+        {
+          "id": "15",
+          "name": "期权"
+        },
+        {
+          "id": "7",
+          "name": "期货"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "6023db2baf7253ac2187fbaf0ecb3ac7",
+        "backtest_name": "PCR股指期货",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=6023db2baf7253ac2187fbaf0ecb3ac7&postId=2015f5c8158378814e9e57ba32f7cdf0&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2018-01-03",
+          "end_date": "2020-09-24",
+          "base_capital": 1000000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "08c69f31dd48e681c468a716e8e6a4c3",
+            "18363392"
+          ],
+          "numeric_backtest_id": "18363392",
+          "numeric_post_id": "27664",
+          "python_version": 3,
+          "clone_count": 289
+        },
+        "stats": {
+          "trading_days": 665,
+          "benchmark_volatility": 0.21528395064855,
+          "algorithm_volatility": 0.55079065054785,
+          "treasury_return": 0.10904109589041,
+          "algorithm_return": 15.5390911617,
+          "benchmark_return": 0.106572284124,
+          "annual_algo_return": 1.8713562777532,
+          "annual_bm_return": 0.038804339165695,
+          "sharpe": 3.3249589039531,
+          "excess_return_sharpe": "2.659",
+          "sortino": 11.413078542909,
+          "information": 2.9035286059903,
+          "beta": -0.52461006465186,
+          "alpha": 1.8307290220456,
+          "excess_return": 13.946236589319,
+          "avg_excess_return": "0.48%",
+          "max_drawdown": 0.19854329792519,
+          "max_drawdown_period": [
+            "2018-02-09",
+            "2018-04-03"
+          ],
+          "excess_return_max_drawdown": "25.63%",
+          "excess_return_max_drawdown_period": [
+            "2019-01-02",
+            "2019-04-19"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-09",
+          "__version": 101,
+          "win_ratio": 0.65573770491803,
+          "profit_loss_ratio": 15.928926044374,
+          "win_count": 160,
+          "lose_count": 84,
+          "day_win_ratio": 0.49323308270677,
+          "avg_trade_return": -0.73400496974254,
+          "avg_position_days": 4,
+          "turnover_rate": 0.11736137065062,
+          "report_done_seconds": 228.5774242878,
+          "report_done_cpu_seconds": 129.64
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 1553.909116,
+          "benchmark_return_percent": 10.657228,
+          "annual_algo_return_percent": 187.135628,
+          "annual_bm_return_percent": 3.880434,
+          "max_drawdown_percent": 19.85433,
+          "algorithm_volatility_percent": 55.079065,
+          "benchmark_volatility_percent": 21.528395,
+          "win_ratio_percent": 65.57377,
+          "day_win_ratio_percent": 49.323308,
+          "avg_trade_return_percent": -73.400497,
+          "turnover_rate_percent": 11.736137,
+          "sharpe": 3.3249589039531,
+          "sortino": 11.413078542909,
+          "information": 2.9035286059903,
+          "alpha": 1.8307290220456,
+          "beta": -0.52461006465186,
+          "profit_loss_ratio": 15.928926044374,
+          "avg_position_days": 4,
+          "trading_days": 665,
+          "win_count": 160,
+          "lose_count": 84,
+          "max_drawdown_period": [
+            "2018-02-09",
+            "2018-04-03"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2019-01-02",
+            "2019-04-19"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/27664",
+      "https://www.joinquant.com/community/post/detailV2?postId=27664",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=6023db2baf7253ac2187fbaf0ecb3ac7&postId=2015f5c8158378814e9e57ba32f7cdf0&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=6023db2baf7253ac2187fbaf0ecb3ac7"
+    ]
+  }
+}

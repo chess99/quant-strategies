@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/30 基于LSTM模型预测股票价格走势.txt",
+    "category": "2020年度精选策略",
+    "file_name": "30 基于LSTM模型预测股票价格走势.txt",
+    "strategy_name": "基于LSTM模型预测股票价格走势",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 4948,
+    "sha256": "9bfb33c1af09a0cee44bf89ba79978a47d63da4660375bceef4fc75e175a8a0e",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/14449"
+    ],
+    "primary_url": "https://www.joinquant.com/post/14449",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:06:39+08:00",
+    "requested_url": "https://www.joinquant.com/post/14449",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/f45352e10cbfd7e9deca68290fcd0429",
+    "community_id": "f45352e10cbfd7e9deca68290fcd0429",
+    "post": {
+      "postId": "46d63d723f3b31122e393276e0f59883",
+      "uniqueKey": "f45352e10cbfd7e9deca68290fcd0429",
+      "title": "基于LSTM模型预测股票价格走势",
+      "content": "数据：沪深300历史数据\n训练数据：2005-1~2017-5 共3000条数据\n测试数据：2017.5-2018.8 300多条数据\n测试集结果直接拿到回测中，效果如下：",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-09-03 16:48:00",
+      "modTime": "2018-09-03 16:48:00",
+      "lastActiveTime": "2021-10-19 08:57:08",
+      "lastPubTime": "2018-09-03 16:48:00",
+      "backtestId": "afd238d305e5e080009bde028098fbbf",
+      "backtestName": "LSTM模型预测股价",
+      "replyCount": "9",
+      "viewCount": "5249",
+      "collectionCount": "36",
+      "likeCount": "16",
+      "disLikeCount": "0",
+      "backtestCloneCount": "173",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "1",
+      "followersCount": "7",
+      "followingCount": "0",
+      "author": {
+        "userId": "05a11737a9b9062eb8bd8bd623704896",
+        "alias": "加菲猫"
+      },
+      "tags": [
+        {
+          "id": "13",
+          "name": "机器学习"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "afd238d305e5e080009bde028098fbbf",
+        "backtest_name": "LSTM模型预测股价",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=afd238d305e5e080009bde028098fbbf&postId=f45352e10cbfd7e9deca68290fcd0429&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2017-05-13",
+          "end_date": "2018-03-24",
+          "base_capital": 400000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "3a9ae99ebf0dca623a79b4db33ceef5b",
+            "9905995"
+          ],
+          "numeric_backtest_id": "9905995",
+          "numeric_post_id": "14449",
+          "python_version": 2,
+          "clone_count": 173
+        },
+        "stats": {
+          "information": 0.86886451922707,
+          "benchmark_return": 0.15347213592382,
+          "algorithm_volatility": 0.073923531587003,
+          "annual_bm_return": 0.18337281833731,
+          "__version": 101,
+          "max_drawdown": 0.029248629687969,
+          "sortino": 5.0309655755124,
+          "period_label": "2018-03",
+          "trading_days": 212,
+          "algorithm_return": 0.22710185,
+          "benchmark_volatility": 0.13460077007315,
+          "beta": 0.35746403908392,
+          "excess_return": 0.19291006917808,
+          "annual_algo_return": 0.27295203915582,
+          "sharpe": 3.1512569022985,
+          "alpha": 0.18170141241812,
+          "max_drawdown_period": [
+            "2018-01-24",
+            "2018-02-06"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.034191780821918,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.36792452830189,
+          "avg_position_days": 116,
+          "win_ratio": 0.63157894736842,
+          "win_count": 36,
+          "avg_trade_return": 0.0047685437103528,
+          "profit_loss_ratio": 3.3440961902189,
+          "lose_count": 21,
+          "report_done_seconds": 4.6833710670471
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 22.710185,
+          "benchmark_return_percent": 15.347214,
+          "annual_algo_return_percent": 27.295204,
+          "annual_bm_return_percent": 18.337282,
+          "max_drawdown_percent": 2.924863,
+          "algorithm_volatility_percent": 7.392353,
+          "benchmark_volatility_percent": 13.460077,
+          "win_ratio_percent": 63.157895,
+          "day_win_ratio_percent": 36.792453,
+          "avg_trade_return_percent": 0.476854,
+          "sharpe": 3.1512569022985,
+          "sortino": 5.0309655755124,
+          "information": 0.86886451922707,
+          "alpha": 0.18170141241812,
+          "beta": 0.35746403908392,
+          "profit_loss_ratio": 3.3440961902189,
+          "avg_position_days": 116,
+          "trading_days": 212,
+          "win_count": 36,
+          "lose_count": 21,
+          "max_drawdown_period": [
+            "2018-01-24",
+            "2018-02-06"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/14449",
+      "https://www.joinquant.com/community/post/detailV2?postId=14449",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=afd238d305e5e080009bde028098fbbf&postId=f45352e10cbfd7e9deca68290fcd0429&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=afd238d305e5e080009bde028098fbbf"
+    ]
+  }
+}

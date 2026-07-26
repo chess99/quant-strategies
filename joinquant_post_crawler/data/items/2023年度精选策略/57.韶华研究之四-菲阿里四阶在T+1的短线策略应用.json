@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/57.韶华研究之四-菲阿里四阶在T+1的短线策略应用.txt",
+    "category": "2023年度精选策略",
+    "file_name": "57.韶华研究之四-菲阿里四阶在T+1的短线策略应用.txt",
+    "strategy_name": "韶华研究之四-菲阿里四阶在T+1的短线策略应用",
+    "declared_title": "韶华研究之四-菲阿里四阶在T+1的短线策略应用",
+    "declared_author": "韶华不负",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 15606,
+    "sha256": "b3cbb8cb957298328a09e4fa9f632d907d27956644634640bec5015a253eb974",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/32183"
+    ],
+    "primary_url": "https://www.joinquant.com/post/32183",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:09:22+08:00",
+    "requested_url": "https://www.joinquant.com/post/32183",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/e0b905c5e2a87ca0606b962e6460ae46",
+    "community_id": "e0b905c5e2a87ca0606b962e6460ae46",
+    "post": {
+      "postId": "27b2ca234741104ccef6a0271d85180d",
+      "uniqueKey": "e0b905c5e2a87ca0606b962e6460ae46",
+      "title": "韶华研究之四-菲阿里四阶在T+1的短线策略应用",
+      "content": "受一位网友启发，开发了这个策略，先感谢这位陌生网友，也与各位宽友分享。\n\n菲阿里四阶的详细介绍可以百度，或参考下文。\n菲四阶在短线中的用处相当于给出了一个固定的锚点，解决了不知道什么价格买什么价格卖的问题。\n\n策略主旨，\n1，全A选股，过滤掉雷股，选出基本面尚可的(PE/PB)\n2，选出特定形态的，比如趋势向上，趋势反转的...本次分享选的是趋势向上的标的作为备选标的\n3，开启日间bar/tick级交易，到达买点(昨日最低价)买入，T+1日到达卖点(T日最高价)卖出，否则尾盘平仓。\n\n改进方向，\n1，寻找更多的特定形态策略该短线手法\n\n参考，\n菲阿里四价策略是一种比较简单的趋势性日内交易策略，四价分别是指：昨天高点、昨天低点、昨日收盘价、今天开盘价。从书中的交易笔记来看，菲阿里不使用任何分析工具，而是大量应用阻溢线的概念，也就是通常我们所说的阻力线和支撑线。\n\n阻力线 = 昨日最高价\n支撑线 = 昨日最低价\n对于阻力线和支撑线的定义，他使用的是昨日最高价和昨日最低价，可以视为昨天价格的波动范围，这也意味着多头或空头只有足够的力量时，才会有效突破阻力线和支撑线。并且一旦有突破这个波动范围，则说明价格背后的动能较大，后续走势可能会沿最小阻力线运动的概率较大。\n\n多头开仓：价格突破阻力线\n空头开仓：价格突破支撑线",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-03-09 15:06:14",
+      "modTime": "2021-03-09 15:08:04",
+      "lastActiveTime": "2024-07-26 14:18:17",
+      "lastPubTime": "2021-03-09 15:08:04",
+      "backtestId": "2d1a07c8fc2f7ef13ab69ae1e138e05c",
+      "backtestName": "正60正5大-持2-bar级",
+      "replyCount": "106",
+      "viewCount": "4721",
+      "collectionCount": "61",
+      "likeCount": "37",
+      "disLikeCount": "0",
+      "backtestCloneCount": "248",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "50",
+      "followersCount": "2273",
+      "followingCount": "40",
+      "author": {
+        "userId": "5891741b29b7480a9ce717c18d5601db",
+        "alias": "韶华不负",
+        "vipType": "VIP",
+        "headImgKey": "734ca8e800f5981ca6212705718a8ed1"
+      },
+      "tags": [
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "2d1a07c8fc2f7ef13ab69ae1e138e05c",
+        "backtest_name": "正60正5大-持2-bar级",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=2d1a07c8fc2f7ef13ab69ae1e138e05c&postId=e0b905c5e2a87ca0606b962e6460ae46&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2020-01-01",
+          "end_date": "2020-12-31",
+          "base_capital": 1000000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "1b46d81e52ed56bf6b9e5d6fceddcc58",
+            "19979009"
+          ],
+          "numeric_backtest_id": "19979009",
+          "numeric_post_id": "32183",
+          "python_version": 3,
+          "clone_count": 239
+        },
+        "stats": {
+          "trading_days": 243,
+          "benchmark_volatility": 0.22680354792171,
+          "algorithm_volatility": 0.38657022190922,
+          "treasury_return": 0.039890410958904,
+          "algorithm_return": 0.67905856958,
+          "benchmark_return": 0.2721074652515,
+          "annual_algo_return": 0.70431247893414,
+          "annual_bm_return": 0.28095765961285,
+          "sharpe": 1.7184781477817,
+          "excess_return_sharpe": "0.787",
+          "sortino": 2.3940655016143,
+          "information": 1.147018017461,
+          "beta": 0.628381600009,
+          "alpha": 0.51289911925219,
+          "excess_return": 0.31990308637018,
+          "avg_excess_return": "0.14%",
+          "max_drawdown": 0.17425062414845,
+          "max_drawdown_period": [
+            "2020-07-13",
+            "2020-07-27"
+          ],
+          "excess_return_max_drawdown": "26.85%",
+          "excess_return_max_drawdown_period": [
+            "2020-05-29",
+            "2020-07-29"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-12",
+          "__version": 101,
+          "win_ratio": 0.57446808510638,
+          "profit_loss_ratio": 1.5307190357146,
+          "win_count": 108,
+          "lose_count": 80,
+          "day_win_ratio": 0.50205761316872,
+          "avg_trade_return": 0.0062305838108924,
+          "avg_position_days": 2.032967032967,
+          "turnover_rate": 0.34832664907501,
+          "report_done_seconds": 1148.0331778526,
+          "report_done_cpu_seconds": 1131.93
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 67.905857,
+          "benchmark_return_percent": 27.210747,
+          "annual_algo_return_percent": 70.431248,
+          "annual_bm_return_percent": 28.095766,
+          "max_drawdown_percent": 17.425062,
+          "algorithm_volatility_percent": 38.657022,
+          "benchmark_volatility_percent": 22.680355,
+          "win_ratio_percent": 57.446809,
+          "day_win_ratio_percent": 50.205761,
+          "avg_trade_return_percent": 0.623058,
+          "turnover_rate_percent": 34.832665,
+          "sharpe": 1.7184781477817,
+          "sortino": 2.3940655016143,
+          "information": 1.147018017461,
+          "alpha": 0.51289911925219,
+          "beta": 0.628381600009,
+          "profit_loss_ratio": 1.5307190357146,
+          "avg_position_days": 2.032967032967,
+          "trading_days": 243,
+          "win_count": 108,
+          "lose_count": 80,
+          "max_drawdown_period": [
+            "2020-07-13",
+            "2020-07-27"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-05-29",
+            "2020-07-29"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/32183",
+      "https://www.joinquant.com/community/post/detailV2?postId=32183",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=2d1a07c8fc2f7ef13ab69ae1e138e05c&postId=e0b905c5e2a87ca0606b962e6460ae46&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=2d1a07c8fc2f7ef13ab69ae1e138e05c"
+    ]
+  }
+}

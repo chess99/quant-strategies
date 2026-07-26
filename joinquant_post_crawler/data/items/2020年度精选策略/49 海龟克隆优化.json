@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/49 海龟克隆优化.txt",
+    "category": "2020年度精选策略",
+    "file_name": "49 海龟克隆优化.txt",
+    "strategy_name": "海龟克隆优化",
+    "declared_title": "商品期货策略——海龟交易法",
+    "declared_author": "ScintiGimcki",
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 15479,
+    "sha256": "3b1b81d92397c967b3d3e8b0b264f488183017f330bebefe749cfb4bf127640d",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/12429",
+      "https://www.joinquant.com/post/9184"
+    ],
+    "primary_url": "https://www.joinquant.com/post/12429",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:06:54+08:00",
+    "requested_url": "https://www.joinquant.com/post/12429",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/e78ab5b64c026a0c46300329edd58912",
+    "community_id": "e78ab5b64c026a0c46300329edd58912",
+    "post": {
+      "postId": "a721b5df648ddaf5e6ac0f53ad352d45",
+      "uniqueKey": "e78ab5b64c026a0c46300329edd58912",
+      "title": "海龟克隆优化",
+      "content": "克隆的海龟策略，修改了部分计算公式",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-05-03 16:06:21",
+      "modTime": "2018-05-03 16:06:21",
+      "lastActiveTime": "2018-05-03 16:06:21",
+      "lastPubTime": "2018-05-03 16:06:21",
+      "backtestId": "689fe212354205d19f52bce84d98de07",
+      "backtestName": "海龟策略-Clone",
+      "replyCount": "0",
+      "viewCount": "1634",
+      "collectionCount": "6",
+      "likeCount": "3",
+      "disLikeCount": "0",
+      "backtestCloneCount": "118",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "1",
+      "followersCount": "5",
+      "followingCount": "18",
+      "author": {
+        "userId": "41da807ec7dabdc6cfbbece7eea83ffb",
+        "alias": "sdanyu",
+        "vipType": "VIP"
+      },
+      "tags": []
+    },
+    "backtests": [
+      {
+        "backtest_id": "689fe212354205d19f52bce84d98de07",
+        "backtest_name": "海龟策略-Clone",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=689fe212354205d19f52bce84d98de07&postId=e78ab5b64c026a0c46300329edd58912&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2018-01-01",
+          "end_date": "2018-04-13",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "e99b00fc500d268219ecd398c128cf05",
+            "8264763"
+          ],
+          "numeric_backtest_id": "8264763",
+          "numeric_post_id": "12429",
+          "python_version": 2,
+          "clone_count": 118
+        },
+        "stats": {
+          "information": 2.3025269374267,
+          "benchmark_return": -0.067195677865946,
+          "algorithm_volatility": 0.25513234879935,
+          "annual_bm_return": -0.22860260027928,
+          "__version": 101,
+          "max_drawdown": 0.073972442291845,
+          "sortino": 2.5224955894477,
+          "period_label": "2018-04",
+          "trading_days": 67,
+          "algorithm_return": 0.1120738799459,
+          "benchmark_volatility": 0.065035427927689,
+          "beta": -3.2048902637128,
+          "excess_return": 0.10100538679522,
+          "annual_algo_return": 0.48641626479331,
+          "sharpe": 1.7497438756557,
+          "alpha": -0.4144255936497,
+          "max_drawdown_period": [
+            "2018-03-09",
+            "2018-03-19"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.011068493150685,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.62686567164179,
+          "avg_position_days": 32.5,
+          "win_ratio": 1,
+          "win_count": 1,
+          "avg_trade_return": 0.23208983314484,
+          "profit_loss_ratio": 10673.02,
+          "lose_count": 0,
+          "report_done_seconds": 2.6030809879303
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 11.207388,
+          "benchmark_return_percent": -6.719568,
+          "annual_algo_return_percent": 48.641626,
+          "annual_bm_return_percent": -22.86026,
+          "max_drawdown_percent": 7.397244,
+          "algorithm_volatility_percent": 25.513235,
+          "benchmark_volatility_percent": 6.503543,
+          "win_ratio_percent": 100,
+          "day_win_ratio_percent": 62.686567,
+          "avg_trade_return_percent": 23.208983,
+          "sharpe": 1.7497438756557,
+          "sortino": 2.5224955894477,
+          "information": 2.3025269374267,
+          "alpha": -0.4144255936497,
+          "beta": -3.2048902637128,
+          "profit_loss_ratio": 10673.02,
+          "avg_position_days": 32.5,
+          "trading_days": 67,
+          "win_count": 1,
+          "lose_count": 0,
+          "max_drawdown_period": [
+            "2018-03-09",
+            "2018-03-19"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/12429",
+      "https://www.joinquant.com/community/post/detailV2?postId=12429",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=689fe212354205d19f52bce84d98de07&postId=e78ab5b64c026a0c46300329edd58912&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=689fe212354205d19f52bce84d98de07"
+    ]
+  }
+}

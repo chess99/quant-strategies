@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/38 一个简单的跟踪聪明钱策略.txt",
+    "category": "2020年度精选策略",
+    "file_name": "38 一个简单的跟踪聪明钱策略.txt",
+    "strategy_name": "一个简单的跟踪聪明钱策略",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 8346,
+    "sha256": "f7e8f47b4260440780b678780982d6b0f76624b01108740f3c4501c17328a2eb",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/11165"
+    ],
+    "primary_url": "https://www.joinquant.com/post/11165",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:06:45+08:00",
+    "requested_url": "https://www.joinquant.com/post/11165",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/146d1621ae0728502ef50a8596367a99",
+    "community_id": "146d1621ae0728502ef50a8596367a99",
+    "post": {
+      "postId": "ad11e3fa17d8134c1d76c840ec2faf91",
+      "uniqueKey": "146d1621ae0728502ef50a8596367a99",
+      "title": "一个简单的跟踪聪明钱策略",
+      "content": "参考了东吴证券聪明钱因子的构造，利用分钟级数据，采用指标S 来衡量每一个分钟交易的“聪明”程度： S = abs(RS)/sqrt(volume)\r\n\r\nRS为每分钟涨跌幅，volume为每分钟成交量\r\n然后将S从大到小排序，去成交量前20%的数据视为聪明钱\r\n构造因子Q = VWAP_smart/VWAP_all,VWAP_smart为聪明钱的成交量加权平均价，VWAP_all为全体的成交量加权平均价\r\n\r\n",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-02-19 10:08:41",
+      "modTime": "2018-02-19 10:08:41",
+      "lastActiveTime": "2026-02-14 10:22:19",
+      "lastPubTime": "2018-02-19 10:08:41",
+      "backtestId": "8c3bce6a1e5a46baaa2a77c055d388c7",
+      "backtestName": "聪明钱",
+      "replyCount": "19",
+      "viewCount": "6755",
+      "collectionCount": "60",
+      "likeCount": "14",
+      "disLikeCount": "0",
+      "backtestCloneCount": "386",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "1",
+      "followersCount": "28",
+      "followingCount": "12",
+      "author": {
+        "userId": "dc0da8196041020713a0e96db58e115c",
+        "alias": "castiel"
+      },
+      "tags": [
+        {
+          "id": "8",
+          "name": "事件驱动"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "8c3bce6a1e5a46baaa2a77c055d388c7",
+        "backtest_name": "聪明钱",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=8c3bce6a1e5a46baaa2a77c055d388c7&postId=146d1621ae0728502ef50a8596367a99&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2007-01-01",
+          "end_date": "2018-02-17",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "d4cd99cd7596eb3863789ee3d9048302",
+            "7587985"
+          ],
+          "numeric_backtest_id": "7587985",
+          "numeric_post_id": "11165",
+          "python_version": 2,
+          "clone_count": 389
+        },
+        "stats": {
+          "information": 1.7579923702654,
+          "benchmark_return": 0.1957357836406,
+          "algorithm_volatility": 0.25333364180043,
+          "annual_bm_return": 0.016640041057707,
+          "__version": 101,
+          "max_drawdown": 0.2811401211462,
+          "sortino": 3.6237361388943,
+          "period_label": "2018-02",
+          "trading_days": 2708,
+          "algorithm_return": 239.77786684,
+          "benchmark_volatility": 0.27082499537526,
+          "beta": 0.41799877409793,
+          "excess_return": 239.33304492219,
+          "annual_algo_return": 0.65908481956715,
+          "sharpe": 2.4437528911176,
+          "alpha": 0.62884925376801,
+          "max_drawdown_period": [
+            "2007-05-29",
+            "2007-08-01"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.44482191780822,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.54062038404727,
+          "avg_position_days": 18.198959687906,
+          "win_ratio": 0.62679788039364,
+          "win_count": 828,
+          "avg_trade_return": 0.049582900614533,
+          "profit_loss_ratio": 2.3105671986607,
+          "lose_count": 493,
+          "report_done_seconds": 1039.0859889984
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 23977.786684,
+          "benchmark_return_percent": 19.573578,
+          "annual_algo_return_percent": 65.908482,
+          "annual_bm_return_percent": 1.664004,
+          "max_drawdown_percent": 28.114012,
+          "algorithm_volatility_percent": 25.333364,
+          "benchmark_volatility_percent": 27.0825,
+          "win_ratio_percent": 62.679788,
+          "day_win_ratio_percent": 54.062038,
+          "avg_trade_return_percent": 4.95829,
+          "sharpe": 2.4437528911176,
+          "sortino": 3.6237361388943,
+          "information": 1.7579923702654,
+          "alpha": 0.62884925376801,
+          "beta": 0.41799877409793,
+          "profit_loss_ratio": 2.3105671986607,
+          "avg_position_days": 18.198959687906,
+          "trading_days": 2708,
+          "win_count": 828,
+          "lose_count": 493,
+          "max_drawdown_period": [
+            "2007-05-29",
+            "2007-08-01"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/11165",
+      "https://www.joinquant.com/community/post/detailV2?postId=11165",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=8c3bce6a1e5a46baaa2a77c055d388c7&postId=146d1621ae0728502ef50a8596367a99&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=8c3bce6a1e5a46baaa2a77c055d388c7"
+    ]
+  }
+}

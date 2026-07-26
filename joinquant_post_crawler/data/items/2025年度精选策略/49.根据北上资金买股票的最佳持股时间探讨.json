@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/49.根据北上资金买股票的最佳持股时间探讨.txt",
+    "category": "2025年度精选策略",
+    "file_name": "49.根据北上资金买股票的最佳持股时间探讨.txt",
+    "strategy_name": "根据北上资金买股票的最佳持股时间探讨",
+    "declared_title": "根据北上资金买股票的最佳持股时间探讨",
+    "declared_author": "见路不走2019",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 7552,
+    "sha256": "2edd4281002d9bd21d385d3f2416435fb00ab760ff6cd2684165c75e1c097e53",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/24681"
+    ],
+    "primary_url": "https://www.joinquant.com/post/24681",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:13+08:00",
+    "requested_url": "https://www.joinquant.com/post/24681",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/3f95d60b9d6d334bcfc01fba2c4d9171",
+    "community_id": "3f95d60b9d6d334bcfc01fba2c4d9171",
+    "post": {
+      "postId": "b3e88eb2f01c0bab8c8dc30be2d7b891",
+      "uniqueKey": "3f95d60b9d6d334bcfc01fba2c4d9171",
+      "title": "根据北上资金买股票的最佳持股时间探讨",
+      "content": "原策略地址：[Link](https://www.joinquant.com/view/community/detail/4d090bae3390e22a7b54430fe3d7b36f?type=1)\n在原策略基础上，测试北上资金的累计流入天数g.nday(range(1,10)),和换股频率g.refreshrate(range(1,30,3)),理论上这两者之间存在100种组合，但是本人的每天回测次数宝贵（几乎每天都不够用）。所以就先从换股时间测试，选出最佳的换股时间，再测试最佳的资金流入天数。不科学，就这么用吧。各位客官多打点点分数，我测试的再仔细点。\n![Img]( https://image.joinquant.com/330faeac54c7a14578772254ca345dd6) \n![Img]( https://image.joinquant.com/c0c64f8c1b83de7b1a4796e9ab53e274)",
+      "type": 1,
+      "status": "0",
+      "addTime": "2019-12-27 18:36:00",
+      "modTime": "2019-12-27 18:36:00",
+      "lastActiveTime": "2021-08-30 15:04:10",
+      "lastPubTime": "2019-12-27 18:36:00",
+      "backtestId": "7a57bfb44e6ce618304458d6a9640f53",
+      "backtestName": "测试港资策略持有时间测试",
+      "replyCount": "41",
+      "viewCount": "5210",
+      "collectionCount": "71",
+      "likeCount": "58",
+      "disLikeCount": "0",
+      "backtestCloneCount": "171",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "10",
+      "followersCount": "63",
+      "followingCount": "13",
+      "author": {
+        "userId": "f839a21622f3d8a5942ca30a6e73cd1f",
+        "alias": "见路不走2019"
+      },
+      "tags": [
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "7a57bfb44e6ce618304458d6a9640f53",
+        "backtest_name": "测试港资策略持有时间测试",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=7a57bfb44e6ce618304458d6a9640f53&postId=3f95d60b9d6d334bcfc01fba2c4d9171&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2019-01-01",
+          "end_date": "2019-12-26",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "4580849e3d706a75a3ef8b16fa5769b8",
+            "15863861"
+          ],
+          "numeric_backtest_id": "15863861",
+          "numeric_post_id": "24681",
+          "python_version": 2,
+          "clone_count": 128
+        },
+        "stats": {
+          "benchmark_return": 0.33724943118596,
+          "max_drawdown": 0.15799916899128,
+          "trading_days": 241,
+          "algorithm_volatility": 0.32578202389276,
+          "max_drawdown_period": [
+            "2019-04-10",
+            "2019-05-24"
+          ],
+          "information": 2.5891217326223,
+          "annual_bm_return": 0.35184141947889,
+          "excess_return_max_drawdown": "11.28%",
+          "benchmark_volatility": 0.19847355175957,
+          "annual_algo_return": 0.98613395176435,
+          "sharpe": 2.9041932408026,
+          "excess_return_max_drawdown_period": [
+            "2019-09-25",
+            "2019-11-18"
+          ],
+          "__version": 101,
+          "algorithm_return": 0.937671842,
+          "beta": 1.0853627966713,
+          "alpha": 0.60767287660079,
+          "treasury_return": 0.039232876712329,
+          "max_leverage": 0,
+          "sortino": 4.4960821583507,
+          "period_label": "2019-12",
+          "avg_excess_return": "0.17%",
+          "excess_return": 0.44899806783357,
+          "excess_return_sharpe": "1.753",
+          "turnover_rate": 0.04251871132792,
+          "avg_trade_return": 0.075482391165409,
+          "day_win_ratio": 0.51867219917012,
+          "profit_loss_ratio": 3.7154062111082,
+          "avg_position_days": 26.777777777778,
+          "lose_count": 7,
+          "win_ratio": 0.76666666666667,
+          "win_count": 23,
+          "report_done_seconds": 4.763897895813
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 93.767184,
+          "benchmark_return_percent": 33.724943,
+          "annual_algo_return_percent": 98.613395,
+          "annual_bm_return_percent": 35.184142,
+          "max_drawdown_percent": 15.799917,
+          "algorithm_volatility_percent": 32.578202,
+          "benchmark_volatility_percent": 19.847355,
+          "win_ratio_percent": 76.666667,
+          "day_win_ratio_percent": 51.86722,
+          "avg_trade_return_percent": 7.548239,
+          "turnover_rate_percent": 4.251871,
+          "sharpe": 2.9041932408026,
+          "sortino": 4.4960821583507,
+          "information": 2.5891217326223,
+          "alpha": 0.60767287660079,
+          "beta": 1.0853627966713,
+          "profit_loss_ratio": 3.7154062111082,
+          "avg_position_days": 26.777777777778,
+          "trading_days": 241,
+          "win_count": 23,
+          "lose_count": 7,
+          "max_drawdown_period": [
+            "2019-04-10",
+            "2019-05-24"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2019-09-25",
+            "2019-11-18"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/24681",
+      "https://www.joinquant.com/community/post/detailV2?postId=24681",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=7a57bfb44e6ce618304458d6a9640f53&postId=3f95d60b9d6d334bcfc01fba2c4d9171&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=7a57bfb44e6ce618304458d6a9640f53"
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/96.市场宽度20210622.txt",
+    "category": "2023年度精选策略",
+    "file_name": "96.市场宽度20210622.txt",
+    "strategy_name": "市场宽度20210622",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 4118,
+    "sha256": "355249a376ce4e95e28d954b416146270e9507806d2cbb6729f45545f993a99a",
+    "joinquant_urls": [],
+    "primary_url": null,
+    "url_selection_method": "none"
+  },
+  "remote": null
+}

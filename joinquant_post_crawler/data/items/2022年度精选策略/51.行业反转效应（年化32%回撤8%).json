@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/51.行业反转效应（年化32%回撤8%).txt",
+    "category": "2022年度精选策略",
+    "file_name": "51.行业反转效应（年化32%回撤8%).txt",
+    "strategy_name": "行业反转效应（年化32%回撤8%)",
+    "declared_title": "行业反转效应（年化32%/回撤8%）",
+    "declared_author": "silent storm",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 11450,
+    "sha256": "04bd229f5c03bcc647377d202630e50747a63d83f331ae4029d165eed1192566",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/36494"
+    ],
+    "primary_url": "https://www.joinquant.com/post/36494",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:09+08:00",
+    "requested_url": "https://www.joinquant.com/post/36494",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/b34228c91437cf8bd889264918ae22c2",
+    "community_id": "b34228c91437cf8bd889264918ae22c2",
+    "post": {
+      "postId": "a14fb9cf33dff198e085c9c57739b4c4",
+      "uniqueKey": "b34228c91437cf8bd889264918ae22c2",
+      "title": "行业反转效应（年化32%/回撤8%）",
+      "content": "我也是量化萌新，有些思路还有些不成熟，欢迎大神指导或优化。如果你也不太了解行业轮动概念或者反转效应概念的可以看一下附带的招商证券研报 =）\n\n\n**轮动逻辑**\n\n**一、** 按行业滚动处理月度的行业收益率，等权算出最近36个月度的行业超额收益率。\n\n\n**二、**本来计划是按照研报里用混合回归或者panel回归来计算短期（3月）和中期（6月）的反转斜率，并预测未来一个月的行业超额收益率。但是好像jq平台的package里没有linear_models，所以我这里在滚动样本内取反转月度的与下一预测月的等权相关性平均值代替coeff（*例如—中期因子取6个月的行业超额收益率一一对照取第7个月的相关性，最后取平均值，然后取值的位置+1，反复计算，取出所有平均值的平均作为你要预测月份用到的数值，sorry有点绕）\n\n**三、**给出每个行业的预测，然后取预测超额收益最低（取短期和中期预期的平均预期）的五个行业（这里的思路是预测动量效果最差，即收益连续性最低，最有可能产生反转效应的行业）\n\n\n**四、**每月按照行业买入相对应的行业ETF（这里我自己找出了对应的基金，但是还是有一些创立时间过短，或者没有对应ETF的行业，各位可以试试换一些其他的ETF或者也找一找），如果没有行业ETF，则使用价值选股的思路（ROE的思路是另一位大神的，我记不起名字了）选出行业里10只股票作为代替（胜率因此受到了显著的下降）\n![Img]( https://image.joinquant.com/f1e6967be763c950d9cef056b5b2efa9) \n**PS：**总体来说，反转效应的收益还是很稳定，主要的风险还是来自总体市场的走向，我也跑过长期的策略（可惜大部分ETF不能用到，所以一律都使用了上面说的价值选股，如上图所示，回撤的幅度会很大，但相信后期各种行业ETF的完善，长期收入的回撤幅度会有所下降），可以看到在大熊市的期间（例如2018年）反转效应会失效，也符合行业轮动策略的特性。这里的策略我没有使用任何的择时技术（回撤应对函数不理想，2年也只触发了两次吧），如果有哪位感兴趣可以帮忙加入适合轮动的择时工具，实盘还需谨慎！",
+      "type": 1,
+      "status": "0",
+      "addTime": "2022-02-08 20:59:05",
+      "modTime": "2022-02-09 20:22:09",
+      "lastActiveTime": "2023-05-26 17:56:31",
+      "lastPubTime": "2022-02-09 20:22:09",
+      "backtestId": "b7024be7a10fc92a04516ce4ba036089",
+      "backtestName": "行业内反转",
+      "replyCount": "47",
+      "viewCount": "2907",
+      "collectionCount": "62",
+      "likeCount": "36",
+      "disLikeCount": "0",
+      "backtestCloneCount": "208",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "188",
+      "fileName": "反转效应（招商证券）.pdf",
+      "fileType": "application/pdf",
+      "fileSize": "1265739",
+      "postCount": "3",
+      "followersCount": "71",
+      "followingCount": "0",
+      "author": {
+        "userId": "2a620985732f95c92b01dfdf23b28eb0",
+        "alias": "silent storm",
+        "headImgKey": "2cd62d73d9a80a518f7c370d81690c48"
+      },
+      "tags": [
+        {
+          "id": "12",
+          "name": "基金"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        },
+        {
+          "id": "1890",
+          "name": "反转"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "b7024be7a10fc92a04516ce4ba036089",
+        "backtest_name": "行业内反转",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=b7024be7a10fc92a04516ce4ba036089&postId=b34228c91437cf8bd889264918ae22c2&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2020-01-01",
+          "end_date": "2022-01-01",
+          "base_capital": 10000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "846e5fd2ee4e12ec2f4b45b2cefa519a",
+            "23472857"
+          ],
+          "numeric_backtest_id": "23472857",
+          "numeric_post_id": "36494",
+          "python_version": 3,
+          "clone_count": 206
+        },
+        "stats": {
+          "trading_days": 486,
+          "benchmark_volatility": 0.20703607925594,
+          "algorithm_volatility": 0.15434938644156,
+          "treasury_return": 0.079890410958904,
+          "algorithm_return": 0.7336287198448,
+          "benchmark_return": 0.20597425169287,
+          "annual_algo_return": 0.32714935685839,
+          "annual_bm_return": 0.1011349648518,
+          "sharpe": 1.8603854766025,
+          "excess_return_sharpe": "1.262",
+          "sortino": 2.5902695968275,
+          "information": 1.7313202624919,
+          "beta": 0.57910913893761,
+          "alpha": 0.25174554000408,
+          "excess_return": 0.43753377604143,
+          "avg_excess_return": "0.08%",
+          "max_drawdown": 0.082638771863443,
+          "max_drawdown_period": [
+            "2020-01-20",
+            "2020-02-03"
+          ],
+          "excess_return_max_drawdown": "14.24%",
+          "excess_return_max_drawdown_period": [
+            "2020-11-24",
+            "2021-02-10"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-12",
+          "__version": 101,
+          "win_ratio": 0.61538461538462,
+          "profit_loss_ratio": 2.5076297045364,
+          "win_count": 280,
+          "lose_count": 175,
+          "day_win_ratio": 0.54115226337449,
+          "avg_trade_return": 0.060336341159308,
+          "avg_position_days": 44.72602739726,
+          "turnover_rate": 0.025680084524333,
+          "report_done_seconds": 177.18432784081,
+          "report_done_cpu_seconds": 166.02
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 73.362872,
+          "benchmark_return_percent": 20.597425,
+          "annual_algo_return_percent": 32.714936,
+          "annual_bm_return_percent": 10.113496,
+          "max_drawdown_percent": 8.263877,
+          "algorithm_volatility_percent": 15.434939,
+          "benchmark_volatility_percent": 20.703608,
+          "win_ratio_percent": 61.538462,
+          "day_win_ratio_percent": 54.115226,
+          "avg_trade_return_percent": 6.033634,
+          "turnover_rate_percent": 2.568008,
+          "sharpe": 1.8603854766025,
+          "sortino": 2.5902695968275,
+          "information": 1.7313202624919,
+          "alpha": 0.25174554000408,
+          "beta": 0.57910913893761,
+          "profit_loss_ratio": 2.5076297045364,
+          "avg_position_days": 44.72602739726,
+          "trading_days": 486,
+          "win_count": 280,
+          "lose_count": 175,
+          "max_drawdown_period": [
+            "2020-01-20",
+            "2020-02-03"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-11-24",
+            "2021-02-10"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/36494",
+      "https://www.joinquant.com/community/post/detailV2?postId=36494",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=b7024be7a10fc92a04516ce4ba036089&postId=b34228c91437cf8bd889264918ae22c2&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=b7024be7a10fc92a04516ce4ba036089"
+    ]
+  }
+}

@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/87山寨红利.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "87山寨红利.txt",
+    "strategy_name": "山寨红利",
+    "declared_title": "山寨红利",
+    "declared_author": "开心果",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 4293,
+    "sha256": "397609995523c05e8067715ebf7e3a076528fe2285d228042195246ae0830c48",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/45699"
+    ],
+    "primary_url": "https://www.joinquant.com/post/45699",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:12:42+08:00",
+    "requested_url": "https://www.joinquant.com/post/45699",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/53ca890062227be45767ebfdebc2f801",
+    "community_id": "53ca890062227be45767ebfdebc2f801",
+    "post": {
+      "postId": "003855cee367461e57e2ff6d2bc21616",
+      "uniqueKey": "53ca890062227be45767ebfdebc2f801",
+      "title": "山寨红利",
+      "content": "最近市场红利策略火爆，简单实现一下红利选股，全市场选股，pb &gt;0,净资产收益率大于0，选取3年股息率最大的30只股票，每月调仓。\n我对策略的要求，就一条，回测是什么样，未来也啥样就行。所以我对红利类策略的预期，大致就是11～15%的收益。\n最近论坛Gyro在搞优质策略集锦，按我的要求，去掉牛市的表现，大概只有\n优质策略集锦（4）——small-100\n优质策略集锦（5）——二八轮动\n这两个符合要求，另外小兵哥的一致性风险度量，按我的要求是符合的。\n策略收益差，波动大没有关系，只要未来符合过去，那么对于一个已知的情况，应对就容易的多。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2023-12-26 21:43:10",
+      "modTime": "2023-12-27 09:00:35",
+      "lastActiveTime": "2025-07-26 00:22:23",
+      "lastPubTime": "2023-12-27 09:00:35",
+      "backtestId": "f839a552749e2643b3719634db4f6c88",
+      "backtestName": "红利",
+      "replyCount": "59",
+      "viewCount": "3828",
+      "collectionCount": "59",
+      "likeCount": "35",
+      "disLikeCount": "0",
+      "backtestCloneCount": "224",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "72",
+      "followersCount": "2125",
+      "followingCount": "2",
+      "author": {
+        "userId": "e87cc0670ebf4576cb2009367884fb1e",
+        "alias": "开心果",
+        "headImgKey": "c9a997e0c5aa2e77d3ae03f7e34ca7a0"
+      },
+      "tags": [
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "f839a552749e2643b3719634db4f6c88",
+        "backtest_name": "红利",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=f839a552749e2643b3719634db4f6c88&postId=53ca890062227be45767ebfdebc2f801&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2007-02-01",
+          "end_date": "2023-12-22",
+          "base_capital": 10000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "8011e046a6f7ca0e043b60189249ba16",
+            "31698917"
+          ],
+          "numeric_backtest_id": "31698917",
+          "numeric_post_id": "45699",
+          "python_version": 3,
+          "clone_count": 224
+        },
+        "stats": {
+          "trading_days": 4108,
+          "benchmark_volatility": 0.26383790438523,
+          "algorithm_volatility": 0.22546035270143,
+          "treasury_return": 0.67594520547945,
+          "algorithm_return": 8.3004912829556,
+          "benchmark_return": 1.1984877126654,
+          "annual_algo_return": 0.14535530541395,
+          "annual_bm_return": 0.0491089609403,
+          "sharpe": 0.46728972145925,
+          "excess_return_sharpe": "0.462",
+          "sortino": 0.55393371869677,
+          "information": 0.86151190154508,
+          "beta": 0.77547211425256,
+          "alpha": 0.098291560214935,
+          "excess_return": 3.2304040315422,
+          "avg_excess_return": "0.04%",
+          "max_drawdown": 0.59524024456855,
+          "max_drawdown_period": [
+            "2008-01-15",
+            "2008-11-04"
+          ],
+          "excess_return_max_drawdown": "20.65%",
+          "excess_return_max_drawdown_period": [
+            "2007-05-25",
+            "2007-11-02"
+          ],
+          "max_leverage": 0,
+          "period_label": "2023-12",
+          "__version": 101,
+          "win_ratio": 0.60975609756098,
+          "profit_loss_ratio": 2.3834250115008,
+          "win_count": 600,
+          "lose_count": 384,
+          "day_win_ratio": 0.5182570593963,
+          "avg_trade_return": 0.10123451335347,
+          "avg_position_days": 365.3293768546,
+          "turnover_rate": 0.0085857547259242,
+          "report_done_seconds": 559.55903077126,
+          "report_done_cpu_seconds": 225.17
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 830.049128,
+          "benchmark_return_percent": 119.848771,
+          "annual_algo_return_percent": 14.535531,
+          "annual_bm_return_percent": 4.910896,
+          "max_drawdown_percent": 59.524024,
+          "algorithm_volatility_percent": 22.546035,
+          "benchmark_volatility_percent": 26.38379,
+          "win_ratio_percent": 60.97561,
+          "day_win_ratio_percent": 51.825706,
+          "avg_trade_return_percent": 10.123451,
+          "turnover_rate_percent": 0.858575,
+          "sharpe": 0.46728972145925,
+          "sortino": 0.55393371869677,
+          "information": 0.86151190154508,
+          "alpha": 0.098291560214935,
+          "beta": 0.77547211425256,
+          "profit_loss_ratio": 2.3834250115008,
+          "avg_position_days": 365.3293768546,
+          "trading_days": 4108,
+          "win_count": 600,
+          "lose_count": 384,
+          "max_drawdown_period": [
+            "2008-01-15",
+            "2008-11-04"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2007-05-25",
+            "2007-11-02"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/45699",
+      "https://www.joinquant.com/community/post/detailV2?postId=45699",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=f839a552749e2643b3719634db4f6c88&postId=53ca890062227be45767ebfdebc2f801&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=f839a552749e2643b3719634db4f6c88"
+    ]
+  }
+}

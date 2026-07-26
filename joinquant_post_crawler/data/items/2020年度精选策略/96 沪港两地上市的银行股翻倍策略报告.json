@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/96 沪港两地上市的银行股翻倍策略报告.txt",
+    "category": "2020年度精选策略",
+    "file_name": "96 沪港两地上市的银行股翻倍策略报告.txt",
+    "strategy_name": "沪港两地上市的银行股翻倍策略报告",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 1655,
+    "sha256": "615a747d89268186c6afe15ad420622d31e2ba2e4d4253a68cb1242b177e9663",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/11948"
+    ],
+    "primary_url": "https://www.joinquant.com/post/11948",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:32+08:00",
+    "requested_url": "https://www.joinquant.com/post/11948",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/dee9021a38fc54dec426e9f63de3ec12",
+    "community_id": "dee9021a38fc54dec426e9f63de3ec12",
+    "post": {
+      "postId": "7ee21b04f1e14eae7d6f511b14fb84f8",
+      "uniqueKey": "dee9021a38fc54dec426e9f63de3ec12",
+      "title": "沪港两地上市的银行股翻倍策略报告",
+      "content": "银行翻倍策略基于由Flitter在2011年提出的资产翻倍率公式。\r\n银行翻倍期为保持当前净资产增长率，净资产需要增长到两倍当前股价需要的的最短年限。\r\n \r\n本策略把以上公式应用于沪港两地上市的9支银行股。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-04-09 15:39:11",
+      "modTime": "2018-04-09 15:39:11",
+      "lastActiveTime": "2019-04-16 16:29:18",
+      "lastPubTime": "2018-04-09 15:39:11",
+      "backtestId": "bd85f4670dd940f4c104770cf305cdce",
+      "backtestName": "银行翻倍优矿选股",
+      "replyCount": "8",
+      "viewCount": "2222",
+      "collectionCount": "10",
+      "likeCount": "4",
+      "disLikeCount": "0",
+      "backtestCloneCount": "52",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "2",
+      "followersCount": "5",
+      "followingCount": "0",
+      "author": {
+        "userId": "78565b1a7cbb32862075bb3e993849be",
+        "alias": "x483zhan"
+      },
+      "tags": []
+    },
+    "backtests": [
+      {
+        "backtest_id": "bd85f4670dd940f4c104770cf305cdce",
+        "backtest_name": "银行翻倍优矿选股",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=bd85f4670dd940f4c104770cf305cdce&postId=dee9021a38fc54dec426e9f63de3ec12&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2012-01-01",
+          "end_date": "2018-04-08",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "377964a66d9cd6edd3df53f5ed9b5a70",
+            "8173474"
+          ],
+          "numeric_backtest_id": "8173474",
+          "numeric_post_id": "11948",
+          "python_version": 2,
+          "clone_count": 52
+        },
+        "stats": {
+          "information": 0.47025651593674,
+          "benchmark_return": 0.64334355611145,
+          "algorithm_volatility": 0.24844838714541,
+          "annual_bm_return": 0.085129672245481,
+          "__version": 101,
+          "max_drawdown": 0.3393377858176,
+          "sortino": 0.79742916066385,
+          "period_label": "2018-04",
+          "trading_days": 1520,
+          "algorithm_return": 1.69585486,
+          "benchmark_volatility": 0.23619509378849,
+          "beta": 0.70991009083416,
+          "excess_return": 1.4457726682192,
+          "annual_algo_return": 0.17716744022826,
+          "sharpe": 0.55209631990075,
+          "alpha": 0.10512943050515,
+          "max_drawdown_period": [
+            "2015-07-07",
+            "2015-08-25"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.25008219178082,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.4625,
+          "avg_position_days": 506.66666666667,
+          "win_ratio": 0.63287153652393,
+          "win_count": 1005,
+          "avg_trade_return": 0.039563328546143,
+          "profit_loss_ratio": 8.0172192115408,
+          "lose_count": 583,
+          "report_done_seconds": 110.64998984337
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 169.585486,
+          "benchmark_return_percent": 64.334356,
+          "annual_algo_return_percent": 17.716744,
+          "annual_bm_return_percent": 8.512967,
+          "max_drawdown_percent": 33.933779,
+          "algorithm_volatility_percent": 24.844839,
+          "benchmark_volatility_percent": 23.619509,
+          "win_ratio_percent": 63.287154,
+          "day_win_ratio_percent": 46.25,
+          "avg_trade_return_percent": 3.956333,
+          "sharpe": 0.55209631990075,
+          "sortino": 0.79742916066385,
+          "information": 0.47025651593674,
+          "alpha": 0.10512943050515,
+          "beta": 0.70991009083416,
+          "profit_loss_ratio": 8.0172192115408,
+          "avg_position_days": 506.66666666667,
+          "trading_days": 1520,
+          "win_count": 1005,
+          "lose_count": 583,
+          "max_drawdown_period": [
+            "2015-07-07",
+            "2015-08-25"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/11948",
+      "https://www.joinquant.com/community/post/detailV2?postId=11948",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=bd85f4670dd940f4c104770cf305cdce&postId=dee9021a38fc54dec426e9f63de3ec12&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=bd85f4670dd940f4c104770cf305cdce"
+    ]
+  }
+}

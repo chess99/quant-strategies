@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/58.ETF动量轮动RSRS与北上择时-股债平衡-盘中止损.txt",
+    "category": "2022年度精选策略",
+    "file_name": "58.ETF动量轮动RSRS与北上择时-股债平衡-盘中止损.txt",
+    "strategy_name": "ETF动量轮动RSRS与北上择时-股债平衡-盘中止损",
+    "declared_title": "ETF动量轮动RSRS与北上择时-股债平衡-盘中止损",
+    "declared_author": "Jim000",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 15322,
+    "sha256": "906132e25c4aca3dc47a2d785737b16af5ca5c9711d3aa3c6606a89305d30d9e",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/36162",
+      "https://www.joinquant.com/post/36113"
+    ],
+    "primary_url": "https://www.joinquant.com/post/36162",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:14+08:00",
+    "requested_url": "https://www.joinquant.com/post/36162",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/f73a47ef06fb8cc9a15830a85e21a5b1",
+    "community_id": "f73a47ef06fb8cc9a15830a85e21a5b1",
+    "post": {
+      "postId": "8940a7c5945d929c210dc335c95cc39f",
+      "uniqueKey": "f73a47ef06fb8cc9a15830a85e21a5b1",
+      "title": "ETF动量轮动RSRS与北上择时-股债平衡-盘中止损",
+      "content": "本人新手，一直偷偷潜水社区。\n本策略中的代码和逻辑都是来源社区。感谢社区各位大佬的无私分享。\n策略参考：\n动量ETF轮动RSRS择时-升级\nhttps://www.joinquant.com/view/community/detail/990a766705e3c0a96aa486eb41e2637a?type=1\n\nETF动量轮动RSRS择时-魔改3-北向资金择时-再优化\nhttps://www.joinquant.com/post/35394\n\n股债波动平衡\nhttps://www.joinquant.com/view/community/detail/ca98873e716ccb60902f337b2af8512b\n\n策略思路：\n1、在股债波动平衡策略中，测试了LOF+纳斯达克ETF+国债ETF的组合，可以获得一个收益近似于持有富国天惠，回撤比富国天惠小的结果。但是，选择出来的LOF总归是站在未来看历史，以及LOF的每日成交量都是几百万到几千万，考虑到滑点收益会进一步降低。\n2、在股债平衡中，进一步引入了北上资金择时。仅仅是针对A股的ETF和LOF。对于纳斯达克ETF+国债ETF，不择时，只是通过股债平衡波动率控制仓位。\n3、周末看了莫急莫急大佬分享的最新ETF轮动策略。再进一步融进了股债平衡策略中，并调整了持仓ETF。\n\n大概的逻辑是：\n\n1、A股标的： [\n        '510050.XSHG', # 上证50ETF\n        '510500.XSHG', # 中证500ETF\n        '510300.XSHG', # 沪深300ETF\n        '512100.XSHG',#1000ETF\n        '159949.XSHE',#创业板50\n        '163417.XSHE',#兴全合宜\n        '161005.XSHE',# 富国天惠\n    ]\n每日通过动量策略选择出最强动量的ETF，并且通过北上资金判断是否持仓。\n2、最强动量A股ETF+纳斯达克ETF+国债ETF 进行波动率仓位平衡。\n\n策略优缺点：\n1、策略总的收益不高，18到21年总收益100%。加入北上择时，去掉股债平衡收益是300%。\n2、优点是回测小。股债平衡策略逻辑简单，短期不至于失效。假设某天ETF动量策略失效了，对于总的资金风险是可控的，且对ETF标的选择不太敏感。\n3、因为编程能力有限，代码是拼凑起来的，逻辑关系有点混乱，欢迎各位帮忙优化。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2022-01-09 14:44:35",
+      "modTime": "2022-01-11 10:18:11",
+      "lastActiveTime": "2024-08-10 22:37:28",
+      "lastPubTime": "2022-01-11 10:18:11",
+      "backtestId": "0eee08154644580f337cc280004d81d6",
+      "backtestName": "12.ETF动量轮动RSRS择时-盘中止损-Clone-Clone",
+      "replyCount": "71",
+      "viewCount": "4486",
+      "collectionCount": "94",
+      "likeCount": "34",
+      "disLikeCount": "0",
+      "backtestCloneCount": "245",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "3",
+      "followersCount": "27",
+      "followingCount": "57",
+      "author": {
+        "userId": "0a21c0d13b4070ea03633a7e74594962",
+        "alias": "Jim000",
+        "introduction": "Hello，Quant"
+      },
+      "tags": [
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "12",
+          "name": "基金"
+        },
+        {
+          "id": "5",
+          "name": "仓位管理"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "0eee08154644580f337cc280004d81d6",
+        "backtest_name": "12.ETF动量轮动RSRS择时-盘中止损-Clone-Clone",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=0eee08154644580f337cc280004d81d6&postId=f73a47ef06fb8cc9a15830a85e21a5b1&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2018-01-01",
+          "end_date": "2021-12-31",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "edba9d9fa34642b845378b0b71b1df7e",
+            "23139704"
+          ],
+          "numeric_backtest_id": "23139704",
+          "numeric_post_id": "36162",
+          "python_version": 3,
+          "clone_count": 244
+        },
+        "stats": {
+          "trading_days": 973,
+          "benchmark_volatility": 0.28211568867976,
+          "algorithm_volatility": 0.082303271187675,
+          "treasury_return": 0.1598904109589,
+          "algorithm_return": 1.01432838722,
+          "benchmark_return": 0.8957977919151,
+          "annual_algo_return": 0.19713302971129,
+          "annual_bm_return": 0.17862359716318,
+          "sharpe": 1.9091954359017,
+          "excess_return_sharpe": "-0.095",
+          "sortino": 3.1380190023686,
+          "information": 0.073020115314244,
+          "beta": 0.13889399223353,
+          "alpha": 0.13787904488353,
+          "excess_return": 0.062522804810922,
+          "avg_excess_return": "0.02%",
+          "max_drawdown": 0.048863623838151,
+          "max_drawdown_period": [
+            "2019-09-09",
+            "2019-10-30"
+          ],
+          "excess_return_max_drawdown": "38.75%",
+          "excess_return_max_drawdown_period": [
+            "2018-10-18",
+            "2021-01-22"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-12",
+          "__version": 101,
+          "win_ratio": 0.58666666666667,
+          "profit_loss_ratio": 2.6811036966937,
+          "win_count": 484,
+          "lose_count": 341,
+          "day_win_ratio": 0.49537512846865,
+          "avg_trade_return": 0.011461484047487,
+          "avg_position_days": 182.11111111111,
+          "turnover_rate": 0.1660846549429,
+          "report_done_seconds": 391.29611349106,
+          "report_done_cpu_seconds": 382.1
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 101.432839,
+          "benchmark_return_percent": 89.579779,
+          "annual_algo_return_percent": 19.713303,
+          "annual_bm_return_percent": 17.86236,
+          "max_drawdown_percent": 4.886362,
+          "algorithm_volatility_percent": 8.230327,
+          "benchmark_volatility_percent": 28.211569,
+          "win_ratio_percent": 58.666667,
+          "day_win_ratio_percent": 49.537513,
+          "avg_trade_return_percent": 1.146148,
+          "turnover_rate_percent": 16.608465,
+          "sharpe": 1.9091954359017,
+          "sortino": 3.1380190023686,
+          "information": 0.073020115314244,
+          "alpha": 0.13787904488353,
+          "beta": 0.13889399223353,
+          "profit_loss_ratio": 2.6811036966937,
+          "avg_position_days": 182.11111111111,
+          "trading_days": 973,
+          "win_count": 484,
+          "lose_count": 341,
+          "max_drawdown_period": [
+            "2019-09-09",
+            "2019-10-30"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2018-10-18",
+            "2021-01-22"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/36162",
+      "https://www.joinquant.com/community/post/detailV2?postId=36162",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=0eee08154644580f337cc280004d81d6&postId=f73a47ef06fb8cc9a15830a85e21a5b1&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=0eee08154644580f337cc280004d81d6"
+    ]
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/29 KD指标量化交易策略.txt",
+    "category": "2020年度精选策略",
+    "file_name": "29 KD指标量化交易策略.txt",
+    "strategy_name": "KD指标量化交易策略",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 2883,
+    "sha256": "66baded97b94b2147fbe307b6b7c99284e289ec13552d8eb3fa6a8029f39dd55",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/15078",
+      "https://www.joinquant.com/post/15018"
+    ],
+    "primary_url": "https://www.joinquant.com/post/15078",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:06:38+08:00",
+    "requested_url": "https://www.joinquant.com/post/15078",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/21830988a738240d9fdd4aeb6ad0411e",
+    "community_id": "21830988a738240d9fdd4aeb6ad0411e",
+    "post": {
+      "postId": "d9dfb0fbbaf19a21af0aabbcc02c14fe",
+      "uniqueKey": "21830988a738240d9fdd4aeb6ad0411e",
+      "title": "KD指标量化交易策略",
+      "content": "参考：https://www.joinquant.com/post/15018\n只是根据K,D形成金叉死叉进行买卖。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-11-02 09:50:19",
+      "modTime": "2018-11-02 09:50:19",
+      "lastActiveTime": "2021-10-05 22:59:17",
+      "lastPubTime": "2018-11-02 09:50:19",
+      "backtestId": "f75a186b7d6a82dc7f9cf4438757d0e4",
+      "backtestName": "KD指标量化交易策略-正式版",
+      "replyCount": "7",
+      "viewCount": "4181",
+      "collectionCount": "15",
+      "likeCount": "7",
+      "disLikeCount": "0",
+      "backtestCloneCount": "109",
+      "notebookCloneCount": "9",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "1",
+      "followersCount": "5",
+      "followingCount": "10",
+      "author": {
+        "userId": "69b8c6537e558c96df3edb718d5fd460",
+        "alias": "mxh"
+      },
+      "tags": [
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "f75a186b7d6a82dc7f9cf4438757d0e4",
+        "backtest_name": "KD指标量化交易策略-正式版",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=f75a186b7d6a82dc7f9cf4438757d0e4&postId=21830988a738240d9fdd4aeb6ad0411e&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2016-03-02",
+          "end_date": "2018-10-30",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "35fa71322022c4f401057b9fd465d091",
+            "10538363"
+          ],
+          "numeric_backtest_id": "10538363",
+          "numeric_post_id": "15078",
+          "python_version": 2,
+          "clone_count": 107
+        },
+        "stats": {
+          "information": 3.2041709184263,
+          "benchmark_return": 0.061270920260279,
+          "algorithm_volatility": 0.24288402175858,
+          "annual_bm_return": 0.023099612689406,
+          "__version": 101,
+          "max_drawdown": 0.15880265521527,
+          "sortino": 6.4416924999959,
+          "period_label": "2018-10",
+          "trading_days": 651,
+          "algorithm_return": 3.8325964,
+          "benchmark_volatility": 0.1591765646539,
+          "beta": 0.40887408124541,
+          "excess_return": 3.7260758520548,
+          "annual_algo_return": 0.83122680794,
+          "sharpe": 3.2576321909165,
+          "alpha": 0.79813693827431,
+          "max_drawdown_period": [
+            "2016-03-08",
+            "2016-05-09"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.10652054794521,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.52073732718894,
+          "avg_position_days": 328,
+          "win_ratio": 0.7,
+          "win_count": 35,
+          "avg_trade_return": 0.035500734488956,
+          "profit_loss_ratio": 10.680318721094,
+          "lose_count": 15,
+          "report_done_seconds": 9.5675010681152
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 383.25964,
+          "benchmark_return_percent": 6.127092,
+          "annual_algo_return_percent": 83.122681,
+          "annual_bm_return_percent": 2.309961,
+          "max_drawdown_percent": 15.880266,
+          "algorithm_volatility_percent": 24.288402,
+          "benchmark_volatility_percent": 15.917656,
+          "win_ratio_percent": 70.0,
+          "day_win_ratio_percent": 52.073733,
+          "avg_trade_return_percent": 3.550073,
+          "sharpe": 3.2576321909165,
+          "sortino": 6.4416924999959,
+          "information": 3.2041709184263,
+          "alpha": 0.79813693827431,
+          "beta": 0.40887408124541,
+          "profit_loss_ratio": 10.680318721094,
+          "avg_position_days": 328,
+          "trading_days": 651,
+          "win_count": 35,
+          "lose_count": 15,
+          "max_drawdown_period": [
+            "2016-03-08",
+            "2016-05-09"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/15078",
+      "https://www.joinquant.com/community/post/detailV2?postId=15078",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=f75a186b7d6a82dc7f9cf4438757d0e4&postId=21830988a738240d9fdd4aeb6ad0411e&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=f75a186b7d6a82dc7f9cf4438757d0e4"
+    ]
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/85 【第一次玩】我就是要买便宜股系列.txt",
+    "category": "2020年度精选策略",
+    "file_name": "85 【第一次玩】我就是要买便宜股系列.txt",
+    "strategy_name": "【第一次玩】我就是要买便宜股系列",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 7832,
+    "sha256": "1235682e2502ecfdf91c50ef7087885d46cd60f3713239f782d053d7536dcb28",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/14986"
+    ],
+    "primary_url": "https://www.joinquant.com/post/14986",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:23+08:00",
+    "requested_url": "https://www.joinquant.com/post/14986",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/4e7c741059eacbefd44304d7ec8a07de",
+    "community_id": "4e7c741059eacbefd44304d7ec8a07de",
+    "post": {
+      "postId": "b3c9f8aac88079592ace23c7ef7c355b",
+      "uniqueKey": "4e7c741059eacbefd44304d7ec8a07de",
+      "title": "【第一次玩】我就是要买便宜股系列",
+      "content": "第一次玩这个策略，实测了一个便宜股筛选的策略，半年调仓一次，选择 0&lt; PE&lt; 10，0&lt; PE&lt;1.5，股息率 &gt; 3% 排名前列的股票。中间浪费了一些手续费，收益率还是符合要求，但是发现终究还是要看天吃饭呀~",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-10-24 17:05:03",
+      "modTime": "2018-10-24 17:05:03",
+      "lastActiveTime": "2024-10-27 15:22:29",
+      "lastPubTime": "2018-10-24 17:05:03",
+      "backtestId": "c8bd3a055f05361ff9bcc43e0aedfb14",
+      "backtestName": "我就是要买便宜股",
+      "replyCount": "2",
+      "viewCount": "2151",
+      "collectionCount": "21",
+      "likeCount": "6",
+      "disLikeCount": "0",
+      "backtestCloneCount": "95",
+      "notebookCloneCount": "27",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "1",
+      "followersCount": "4",
+      "followingCount": "0",
+      "author": {
+        "userId": "f735e7e2f6b3d6983a72d28af1ed961c",
+        "alias": "带头喝三鹿"
+      },
+      "tags": []
+    },
+    "backtests": [
+      {
+        "backtest_id": "c8bd3a055f05361ff9bcc43e0aedfb14",
+        "backtest_name": "我就是要买便宜股",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=c8bd3a055f05361ff9bcc43e0aedfb14&postId=4e7c741059eacbefd44304d7ec8a07de&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2013-01-01",
+          "end_date": "2018-10-22",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "b5dfa47bf098d1893398d75a3709181f",
+            "10451061"
+          ],
+          "numeric_backtest_id": "10451061",
+          "numeric_post_id": "14986",
+          "python_version": 2,
+          "clone_count": 97
+        },
+        "stats": {
+          "information": 0.6344501434381,
+          "benchmark_return": 0.29620777565327,
+          "algorithm_volatility": 0.15611324232931,
+          "annual_bm_return": 0.047109135500185,
+          "__version": 101,
+          "max_drawdown": 0.20892088401894,
+          "sortino": 1.302215613532,
+          "period_label": "2018-10",
+          "trading_days": 1409,
+          "algorithm_return": 1.4798959,
+          "benchmark_volatility": 0.24084740426534,
+          "beta": 0.36061542492849,
+          "excess_return": 1.2478959,
+          "annual_algo_return": 0.17485601162197,
+          "sharpe": 0.86383454478195,
+          "alpha": 0.1322923477027,
+          "max_drawdown_period": [
+            "2013-02-05",
+            "2014-03-10"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.232,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.47409510290987,
+          "avg_position_days": 201.92857142857,
+          "win_ratio": 0.6875,
+          "win_count": 44,
+          "avg_trade_return": 0.22007220358352,
+          "profit_loss_ratio": 7.5087876909061,
+          "lose_count": 20,
+          "report_done_seconds": 99.643846035004
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 147.98959,
+          "benchmark_return_percent": 29.620778,
+          "annual_algo_return_percent": 17.485601,
+          "annual_bm_return_percent": 4.710914,
+          "max_drawdown_percent": 20.892088,
+          "algorithm_volatility_percent": 15.611324,
+          "benchmark_volatility_percent": 24.08474,
+          "win_ratio_percent": 68.75,
+          "day_win_ratio_percent": 47.40951,
+          "avg_trade_return_percent": 22.00722,
+          "sharpe": 0.86383454478195,
+          "sortino": 1.302215613532,
+          "information": 0.6344501434381,
+          "alpha": 0.1322923477027,
+          "beta": 0.36061542492849,
+          "profit_loss_ratio": 7.5087876909061,
+          "avg_position_days": 201.92857142857,
+          "trading_days": 1409,
+          "win_count": 44,
+          "lose_count": 20,
+          "max_drawdown_period": [
+            "2013-02-05",
+            "2014-03-10"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/14986",
+      "https://www.joinquant.com/community/post/detailV2?postId=14986",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=c8bd3a055f05361ff9bcc43e0aedfb14&postId=4e7c741059eacbefd44304d7ec8a07de&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=c8bd3a055f05361ff9bcc43e0aedfb14"
+    ]
+  }
+}

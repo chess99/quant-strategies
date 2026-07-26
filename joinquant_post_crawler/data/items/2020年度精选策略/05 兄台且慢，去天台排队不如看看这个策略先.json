@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/05 兄台且慢，去天台排队不如看看这个策略先.txt",
+    "category": "2020年度精选策略",
+    "file_name": "05 兄台且慢，去天台排队不如看看这个策略先.txt",
+    "strategy_name": "兄台且慢，去天台排队不如看看这个策略先",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 5591,
+    "sha256": "8b45ae225938b481e162c0378a10bc2b991a5fdda976b20292835aa629df19fa",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/15002"
+    ],
+    "primary_url": "https://www.joinquant.com/post/15002",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:06:20+08:00",
+    "requested_url": "https://www.joinquant.com/post/15002",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/713a60a2a1daaac2276dab73eb322ddc",
+    "community_id": "713a60a2a1daaac2276dab73eb322ddc",
+    "post": {
+      "postId": "7690e573091db8a4bd1e7fabf6b951f3",
+      "uniqueKey": "713a60a2a1daaac2276dab73eb322ddc",
+      "title": "价值选股与RSRS择时",
+      "content": "- 近期市场早已提前入冬，普通小韭和机构大佬都在裹紧外衣抵御市场寒冬，在春天还没有到来之际，不能只是等待，不如静下来好好做些功课。\n- 我们都在市场中苦苦寻找圣杯，希望能够找到长期战胜市场的投资方法，比如曾经风光无限的小市值的思路，带给了我们很大的信心，相信市场中是存在长期有效的超额收益的，直到2017年初失效。毕竟没有什么是一成不变的，市场在牛熊交替中也是不断变换风格，想在市场中一劳永逸，可能只是不像咸鱼的韭菜了。除非是发现了如下的策略方法（滑稽脸）。\n![策略8年回测.png][10]\n\n#### 十三年超额收益稳健\n- 在了解如上策略之前，我们先来看下下面的策略\n![05年至今回测.png][1]\n- 该策略基于财务因子进行选股，从2005年到2018年，十三年的时间，累计获得收益2395.74%的收益，是同期上证指数的20倍左右，年化27%的收益似乎看起来也不是很高，但是该策略却有着长期较为稳定的超额收益，可以看到，收益图中黄线代表超额收益，在长达十三年的时间里都有着平稳上升的超额收益！\n- 那这样的策略距离直接拿来用还是有很多可以提升的地方，比如可以在这个基础上拿股指期货进行对冲，或者进行择时。我们看到策略有接近1的贝塔，熊市时候和大盘一起跌，产生较大的回撤，进行归因分析后取回撤的区间统计图示，可以看到和市场本身的熊市一致。那么我们想到，如果策略能够在熊市保住收益，应该会有更好的表现。\n![前5大回撤区域.png][2]\n![回撤图.png][3]\n\n\n#### 牛市作为，熊市蛰伏\n\n- A股市场里个股与大盘的相关性很高，针对前面提到的选择精准的进场出场时间，规避熊市回撤较大的问题，我们想到可以借助近来表现不错的RSRS，支持阻力相对强弱指标进行大盘择时\n- RSRS，阻力支撑相对强度指标（Resistance Support Relative Strength，简称 RSRS），出自光大证券的一篇技术择时系列的研究报告，其思路就是，以每天最高最低价格替代传统技术分析中的支持阻力，以最高价最低价变化的相对强弱替代支撑阻力具体价格阈值。下面是其思路的一些说明，具体也可参考研报和量化课堂的RSRS介绍的内容\n    - 用最低价每变动 1的时候，最高价变动的幅度来衡量支持阻力的强弱\n    - 拿同时间段最高价、最低价的序列，进行回归，模型的 beta 值就是所需要的斜率，即衡量支持阻力的具体指标。\n    ```python\n    import statsmodels.api as sm\n    import matplotlib.pyplot as plt\n    #step1 获取数据的高低点\n    security = '000001.XSHG'\n    prices = get_price(security, '2005-01-05', '2010-01-01', '1d', ['high', 'low'])\n    highs = prices.high\n    lows = prices.low\n    #step2 计算斜率，进行记录\n    long = 18\n    beta_list = []\n    for i in range(long,len(highs)):\n        y = highs[i-long:i]\n        x = lows[i-long:i]\n        X = sm.add_constant(x)\n        model = sm.OLS(y,X)\n        results = model.fit()\n        beta_list.append(results.params[1])\n    plt.hist(beta_list,bins=50)\n    ```\n    ![斜率值分布.png][4]![标准分分布情况.png][5]\n    \n    - 拿斜率进行阈值设置的话其波动较大，效果不佳，这里直接采用研报中将斜率值进行标准化（标准分的形式，如上图所示），且考虑拟合效果在内，将标准分进行决定系数(回归结果里的R方值)加权，效果如下图所示，最后我们直接采用效果显著的右偏标准分，右侧标准分决定抄底买入时机\n    ![修正后斜率标准分分布.png][6]![右偏标准分分布.png][7]\n    \n\n- 下图是RSRS择时效果展示，基准为沪深300指数，交易标的同为沪深300指数，自2010至今的回测效果图展示，8年时间，最大回撤仅为17.7%，我们可以看到空仓时机，与大盘顶底基本吻合，简直是逃顶抓底的神器。下图展示就是应用在交易自身标的策略中的收益情况。\n![rsrs.png][8]\n\n#### 完美合璧，1+1&gt;2\n\n- 按如上思路，我们把开篇提到的有超额收益的策略，与这个RSRS大盘择时方法结合，就得到了这次所要分享的策略，通过RSRS指标的精准择时，在熊市中能够保住收益，在非熊市时能够获得市场收益和策略的超额收益。我们通过在研究中调用策略回测结果，在同一时间范围内，分别展示了开篇提到的有超额收益的策略收益、RSRS择时策略收益、前两者结合的策略收益、基准收益的四条收益曲线，收益结果如下所示\n![san.png][9]\n- 近5年里，单纯策略的收益为146.50%（价值策略）、RSRS择时策略的收益为178.84%（风险策略）、前两者结合的策略收益为353.85%（综合策略），将价值选股思路与RSRS择时思路结合之后得到了1+1&gt;2的效果！\n- 由于策略里需要统计近5年的样本数据，数据最早是2005年，这里将综合策略从2010年开始进行了回测，，策略获得了年化近30%的收益，夏普率达到1.4，回撤控制在20%以内，近八年回测结果如下\n![策略8年回测.png][10]\n- 策略持仓10只股票，八年时间交易1400次交易，一年约20次调仓，风险超过阈值全部清仓，单只股票历史最高仓位占比不超过14%，策略非个别股票贡献大部分收益，持仓收益贡献最大的10只股票如下 \n![持仓收益.png][11]\n- Brinson归因分析收益分解，超额收益、主动配置为策略贡献几乎全部收益\n![brinson.png][12]\n\n\n#### 总结\n\n策略通过将长期拥有超额收益的财务因子策略作为选股，与大盘择时方法RSRS相结合，保证了策略近30%的年化收益，规避了熊市风险，使得策略表现不俗，在2017年大量策略失效的时候依然能够战胜市场，稳定盈利。感兴趣的朋友们可以进一步对参数敏感度以及斜率处理部分进行更细致的处理，亦或参考以RSRS择时加超额收益选股的思路进行更多的探索。\n\n\n\n  [1]: https://image.joinquant.com/a8b19f67819a58fc326600db339407cf\n  [2]: https://image.joinquant.com/61e82e814e59b63621702a566946fc10\n  [3]: https://image.joinquant.com/daf836a82d273618d5d539ec5f8ffd84\n  [4]: https://image.joinquant.com/dbdb5f0b1bef6a8ffa2ba6998c05570b\n  [5]: https://image.joinquant.com/cb049c23bf57b5d829877469546d0a3a\n  [6]: https://image.joinquant.com/54e79416b1a58c71a618e4be1c37564a\n  [7]: https://image.joinquant.com/b1158c5d5bb7178186c9f30d924a2be8\n  [8]: https://image.joinquant.com/0998d3fd4e95bae8958af1cb9e3fa247\n  [9]: https://image.joinquant.com/3b8709ed0b07372aeac8de9335d0d9b2\n  [10]: https://image.joinquant.com/e5c5e4edbef11963989c70e7a110e01f\n  [11]: https://image.joinquant.com/8765694b5f9c180b46e4c3b30719deb7\n  [12]: https://image.joinquant.com/0af25dba804bd6410d208847429aa913",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-10-28 00:32:11",
+      "modTime": "2018-10-28 00:32:11",
+      "lastActiveTime": "2026-07-22 12:01:00",
+      "lastPubTime": "2018-10-28 00:32:11",
+      "backtestId": "c9e50ada5729bbc7da9fbccfd764e873",
+      "backtestName": "这是一个不难的策略",
+      "replyCount": "1448",
+      "viewCount": "187688",
+      "collectionCount": "1954",
+      "likeCount": "1540",
+      "disLikeCount": "11",
+      "backtestCloneCount": "13260",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "21",
+      "followersCount": "2416",
+      "followingCount": "0",
+      "author": {
+        "userId": "09ebde72cc7eb69244aef53df93cdf7a",
+        "alias": "K线放荡不羁"
+      },
+      "tags": [
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "c9e50ada5729bbc7da9fbccfd764e873",
+        "backtest_name": "这是一个不难的策略",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=c9e50ada5729bbc7da9fbccfd764e873&postId=713a60a2a1daaac2276dab73eb322ddc&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2013-10-10",
+          "end_date": "2018-10-10",
+          "base_capital": 500000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "e8631afd168d80bf01ec1a6a548fa046",
+            "10490653"
+          ],
+          "numeric_backtest_id": "10490653",
+          "numeric_post_id": "15002",
+          "python_version": 2,
+          "clone_count": 10588
+        },
+        "stats": {
+          "information": 1.3225402920909,
+          "benchmark_return": 0.33747258600994,
+          "algorithm_volatility": 0.17882114318066,
+          "annual_bm_return": 0.061293971852356,
+          "__version": 101,
+          "max_drawdown": 0.11887040219188,
+          "sortino": 2.5163904147277,
+          "period_label": "2018-10",
+          "trading_days": 1222,
+          "algorithm_return": 3.25102734,
+          "benchmark_volatility": 0.24007448687081,
+          "beta": 0.37944778278653,
+          "excess_return": 3.0509177509589,
+          "annual_algo_return": 0.34455616408017,
+          "sharpe": 1.7031328547793,
+          "alpha": 0.29647621367407,
+          "max_drawdown_period": [
+            "2015-01-16",
+            "2015-02-06"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.2001095890411,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.51063829787234,
+          "avg_position_days": 53.900826446281,
+          "win_ratio": 0.73684210526316,
+          "win_count": 700,
+          "avg_trade_return": 0.054843984103489,
+          "profit_loss_ratio": 3.538933119859,
+          "lose_count": 250,
+          "report_done_seconds": 69.917676925659
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 325.102734,
+          "benchmark_return_percent": 33.747259,
+          "annual_algo_return_percent": 34.455616,
+          "annual_bm_return_percent": 6.129397,
+          "max_drawdown_percent": 11.88704,
+          "algorithm_volatility_percent": 17.882114,
+          "benchmark_volatility_percent": 24.007449,
+          "win_ratio_percent": 73.684211,
+          "day_win_ratio_percent": 51.06383,
+          "avg_trade_return_percent": 5.484398,
+          "sharpe": 1.7031328547793,
+          "sortino": 2.5163904147277,
+          "information": 1.3225402920909,
+          "alpha": 0.29647621367407,
+          "beta": 0.37944778278653,
+          "profit_loss_ratio": 3.538933119859,
+          "avg_position_days": 53.900826446281,
+          "trading_days": 1222,
+          "win_count": 700,
+          "lose_count": 250,
+          "max_drawdown_period": [
+            "2015-01-16",
+            "2015-02-06"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/15002",
+      "https://www.joinquant.com/community/post/detailV2?postId=15002",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=c9e50ada5729bbc7da9fbccfd764e873&postId=713a60a2a1daaac2276dab73eb322ddc&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=c9e50ada5729bbc7da9fbccfd764e873"
+    ]
+  }
+}

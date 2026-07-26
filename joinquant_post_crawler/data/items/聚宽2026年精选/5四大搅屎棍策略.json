@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/5四大搅屎棍策略.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "5四大搅屎棍策略.txt",
+    "strategy_name": "四大搅屎棍策略",
+    "declared_title": "四大搅屎棍策略",
+    "declared_author": "MarioC",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 10926,
+    "sha256": "e41baa222b882bc3f30341939967ebdded7ed98d02a90de7d77354b9ebfaae6a",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/49085"
+    ],
+    "primary_url": "https://www.joinquant.com/post/49085",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:12:22+08:00",
+    "requested_url": "https://www.joinquant.com/post/49085",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/fa169eaa2ccc4816b6354ba8557a5fbd",
+    "community_id": "fa169eaa2ccc4816b6354ba8557a5fbd",
+    "post": {
+      "postId": "32862001b9f00e25fa60f46d71f320ae",
+      "uniqueKey": "fa169eaa2ccc4816b6354ba8557a5fbd",
+      "title": "四大搅屎棍策略",
+      "content": "众所周知，A股就是一坨SI，做量化策略就是屎上雕花，那么屎坑里面就会有搅屎棍，这个雕花过程尽量要避开搅屎棍。\n这就是我的《四大搅屎棍策略》，避开搅屎棍，妈妈再也不担心我回撤了！\n经过我一系列的数据分析，我发现了这四大搅屎棍。\n《银行、有色金属、钢铁、煤炭》。\n这四个如果任意一个出现在市场宽度TOP1，行情准崩。\n![Img](https://image.joinquant.com/26133684b624e3ad60dd706f9c959a18) \n致敬及引用：\n蒋老师的《市场宽度—极速—从20天307s,到200天43s》\nhttps://www.joinquant.com/view/community/detail/55fabfea977bddeaf91f3e728c3e68a1?type=1",
+      "type": 1,
+      "status": "0",
+      "addTime": "2024-07-12 11:02:50",
+      "modTime": "2024-07-12 11:18:54",
+      "lastActiveTime": "2026-05-14 20:17:36",
+      "lastPubTime": "2024-07-12 11:18:54",
+      "backtestId": "d67a3840ebd40c97f63ae489496eb6b3",
+      "backtestName": "四大搅屎棍策略",
+      "replyCount": "181",
+      "viewCount": "46335",
+      "collectionCount": "641",
+      "likeCount": "363",
+      "disLikeCount": "0",
+      "backtestCloneCount": "2996",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "62",
+      "followersCount": "4970",
+      "followingCount": "36",
+      "author": {
+        "userId": "bf105a4a61b11b75cf23eaa23219f2f1",
+        "alias": "MarioC",
+        "introduction": "人工智能爱好者，gzh：Mario量化",
+        "headImgKey": "44901f16b2618622495468b8b1a70019"
+      },
+      "tags": [
+        {
+          "id": "13",
+          "name": "机器学习"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "d67a3840ebd40c97f63ae489496eb6b3",
+        "backtest_name": "四大搅屎棍策略",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=d67a3840ebd40c97f63ae489496eb6b3&postId=fa169eaa2ccc4816b6354ba8557a5fbd&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2012-01-01",
+          "end_date": "2024-07-11",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "7788febee0fd96f5e8331a2046112cdf",
+            "35475500"
+          ],
+          "numeric_backtest_id": "35475500",
+          "numeric_post_id": "49085",
+          "python_version": 3,
+          "clone_count": 2682
+        },
+        "stats": {
+          "trading_days": 3041,
+          "benchmark_volatility": 0.22283107680698,
+          "algorithm_volatility": 0.23179662348315,
+          "treasury_return": 0.50104109589041,
+          "algorithm_return": 127.8885690745,
+          "benchmark_return": 0.53718219331775,
+          "annual_algo_return": 0.49100912966745,
+          "annual_bm_return": 0.035978286996388,
+          "sharpe": 1.9457105236921,
+          "excess_return_sharpe": "1.999",
+          "sortino": 2.5397729551168,
+          "information": 2.2893594950225,
+          "beta": 0.64323737255422,
+          "alpha": 0.45359604577306,
+          "excess_return": 82.847295157847,
+          "avg_excess_return": "0.15%",
+          "max_drawdown": 0.26662448270743,
+          "max_drawdown_period": [
+            "2017-01-05",
+            "2017-05-23"
+          ],
+          "excess_return_max_drawdown": "28.37%",
+          "excess_return_max_drawdown_period": [
+            "2020-11-03",
+            "2021-02-10"
+          ],
+          "max_leverage": 0,
+          "period_label": "2024-07",
+          "__version": 101,
+          "win_ratio": 0.64779874213836,
+          "profit_loss_ratio": 2.756838556498,
+          "win_count": 824,
+          "lose_count": 448,
+          "day_win_ratio": 0.54718842486024,
+          "avg_trade_return": 0.041547333887264,
+          "avg_position_days": 112.22891566265,
+          "turnover_rate": 0.04585942200511,
+          "report_done_seconds": 963.53751301765,
+          "report_done_cpu_seconds": 912.4
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 12788.856907,
+          "benchmark_return_percent": 53.718219,
+          "annual_algo_return_percent": 49.100913,
+          "annual_bm_return_percent": 3.597829,
+          "max_drawdown_percent": 26.662448,
+          "algorithm_volatility_percent": 23.179662,
+          "benchmark_volatility_percent": 22.283108,
+          "win_ratio_percent": 64.779874,
+          "day_win_ratio_percent": 54.718842,
+          "avg_trade_return_percent": 4.154733,
+          "turnover_rate_percent": 4.585942,
+          "sharpe": 1.9457105236921,
+          "sortino": 2.5397729551168,
+          "information": 2.2893594950225,
+          "alpha": 0.45359604577306,
+          "beta": 0.64323737255422,
+          "profit_loss_ratio": 2.756838556498,
+          "avg_position_days": 112.22891566265,
+          "trading_days": 3041,
+          "win_count": 824,
+          "lose_count": 448,
+          "max_drawdown_period": [
+            "2017-01-05",
+            "2017-05-23"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-11-03",
+            "2021-02-10"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/49085",
+      "https://www.joinquant.com/community/post/detailV2?postId=49085",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=d67a3840ebd40c97f63ae489496eb6b3&postId=fa169eaa2ccc4816b6354ba8557a5fbd&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=d67a3840ebd40c97f63ae489496eb6b3"
+    ]
+  }
+}

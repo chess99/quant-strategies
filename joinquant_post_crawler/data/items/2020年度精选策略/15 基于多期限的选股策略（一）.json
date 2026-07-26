@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/15 基于多期限的选股策略（一）.txt",
+    "category": "2020年度精选策略",
+    "file_name": "15 基于多期限的选股策略（一）.txt",
+    "strategy_name": "基于多期限的选股策略（一）",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 7406,
+    "sha256": "410ea63ed8b2d8d77791b4efc6323179740c20de12d3f26c6630f96f747f8f7e",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/12916"
+    ],
+    "primary_url": "https://www.joinquant.com/post/12916",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:06:26+08:00",
+    "requested_url": "https://www.joinquant.com/post/12916",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/078a30c138094505c4ae753c4e901f04",
+    "community_id": "078a30c138094505c4ae753c4e901f04",
+    "post": {
+      "postId": "3330ae0142fbe9db6abfb4469b1fc11f",
+      "uniqueKey": "078a30c138094505c4ae753c4e901f04",
+      "title": "基于多期限的选股策略（一）",
+      "content": "\r\n```\r\n作者：孤傲同学\r\n```\r\n\r\n&gt; 参考：广发证券-多因子Alpha系列报告：基于多期限的选股策略研究  \r\n\r\n**理论基础**：\r\n动量效应与反转效应：动量效应指在过去一段时间内收益率较高的股票，在未来一段时间内期望收益率也较高。反转效应正好相反，指在过去一段时间内收益率较低的股票，在未来一段时间内期望收益率更高。\r\n本篇中构建了一个新的因子，通过分析不同期限的均线价格数据来同时捕捉短期反转、中期动量、长期反转等价格趋势。\r\n\r\n---\r\n\r\n**模型基础**：\r\nYufeng Han，Guofu Zhou 和 Yingzi Zhu (2016) 在论文中提出一个信息非对称下的市场模型：\r\n1. 市场中仅有两类交易者，一类是根据移动平均线进行交易的技术面交易者，另一类是了解市场信息的知情交易者。\r\n2. 市场只有一种风险资产，股利$D_&#123;t}$服从随机过程：$dD_&#123;t} = (\\pi t − \\alpha _&#123;D}D_&#123;t} )dt + \\sigma _&#123;D}dB_&#123;1t}$。\r\n3. 平均股利 $\\pi _&#123;t}$ 服从随机过程：$d\\pi _&#123;t} = \\alpha _&#123;\\pi}(\\bar&#123;\\pi }-\\pi _&#123;t})+\\sigma dB_&#123;2t}$。\r\n4. 风险资产供应量为$1 + \\theta _&#123;t}$，其中 $\\theta _&#123;t}$ 服从随机过程：$d\\theta _&#123;t} = -\\alpha _&#123;\\theta} \\theta _&#123;t}dt+\\sigma _&#123;\\theta}dB _&#123;3t}$。\r\n5. 技术面交易者根据资产历史价格走势进行交易，均线$A_&#123;t}=\\int_&#123;-\\infty }^&#123;t}e^&#123;-\\alpha (t-s)}P_&#123;s}ds$\r\n6. 均衡状态下，知情交易者已知资产的股利信息。\r\n根据以上条件可以推出均衡状态下的资产价格, 其中p1, p2, p3, p4是模型参数:$P_&#123;t}=p_&#123;0}+p_&#123;1}D_&#123;t}+p_&#123;2}\\pi _&#123;t}+p_&#123;3}\\theta _&#123;t}+p_&#123;4}A_&#123;t}$（1）\r\n在 (1) 式两边取差分除价格得到资产的预期收益率：$r_&#123;t+1}=\\alpha +\\beta \\frac&#123;A_&#123;t}}&#123;P_&#123;t}}+\\epsilon _&#123;t}$(2)\r\n\r\n如 (2) 式所示，移动平均线价格对资产收益率有预测作用，实际应用中$A _&#123;t}$用 N 日移动平均价代替\r\n\r\n---\r\n\r\n**因子构造流程**：\r\n为了同时捕捉短期、中期、长期的价格趋势，取 3, 5, 10, 20, 30, 60,90, 120,180, 240, 270, 300 等不同期限的均线数据，每期期末计算当期的均线因子数据，共计算前25周的各长度因子\r\n因子标准化：![a.png][1]\r\n用t周收益率与t-1周因子进行回归求系数： ![b.png][2]\r\n计算近 25 周回归系数的均值，作为下周回归系数预测值：![c.png][3] \r\n预测下一周收益率： ![d.png][4]\r\n最后将预期收益率排序取前五名买入，后五名卖空（由于目前A股市场缺乏卖空机制，故此处不做操作）。\r\n\r\n我们可以看到在回测区间2015-01-01至2015-05-01中，该策略表现良好：\r\n![ss.png][5]\r\n\r\n2016年以后的回测表现不佳，其原因可能在于均线对价格趋势不敏感、延迟性差的缺点，针对这一点，在下一篇文章中利用LLT低延迟趋势线，构造了基于LLT指标的因子，以LLT指标代替MA指标以做改进。\r\n  [1]: https://image.joinquant.com/b2d0ffcda7b1779a20e2510e56c4c94f\r\n  [2]: https://image.joinquant.com/fc574c70743bccfaa3484b5abbcf36b1\r\n  [3]: https://image.joinquant.com/fe6627f468149dcfff31da62bdea0765\r\n  [4]: https://image.joinquant.com/ff43a0e095e838ebbdb9bebf20767c9d\r\n  [5]: https://image.joinquant.com/e90cd92583f23e47d7cc6f74b3056b98\r\n",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-05-30 14:19:56",
+      "modTime": "2018-05-30 14:19:56",
+      "lastActiveTime": "2024-06-07 03:06:29",
+      "lastPubTime": "2018-05-30 14:19:56",
+      "backtestId": "ea66a3c09baf95231a3421e7d0eee880",
+      "backtestName": "多期限选股策略",
+      "replyCount": "10",
+      "viewCount": "3367",
+      "collectionCount": "17",
+      "likeCount": "16",
+      "disLikeCount": "0",
+      "backtestCloneCount": "89",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "8",
+      "followersCount": "90",
+      "followingCount": "4",
+      "author": {
+        "userId": "f861a038e9a0d8ae60d7d62ddf287326",
+        "alias": "孤傲同学",
+        "headImgKey": "d6294adf15323ed271763a95f09c0edb"
+      },
+      "tags": [
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "ea66a3c09baf95231a3421e7d0eee880",
+        "backtest_name": "多期限选股策略",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=ea66a3c09baf95231a3421e7d0eee880&postId=078a30c138094505c4ae753c4e901f04&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2015-01-01",
+          "end_date": "2015-06-08",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "6e19c32635562ea441997d758aa251e6",
+            "8197504"
+          ],
+          "numeric_backtest_id": "8197504",
+          "numeric_post_id": "12916",
+          "python_version": 2,
+          "clone_count": 89
+        },
+        "stats": {
+          "information": -1.569550197524,
+          "benchmark_return": 0.51505318072674,
+          "algorithm_volatility": 0.3551284691265,
+          "annual_bm_return": 1.7146938522377,
+          "__version": 101,
+          "max_drawdown": 0.12742765599421,
+          "sortino": 5.8456720347514,
+          "period_label": "2015-06",
+          "trading_days": 104,
+          "algorithm_return": 0.42204995,
+          "benchmark_volatility": 0.30270638233541,
+          "beta": 0.86245539210356,
+          "excess_return": 0.40517323767123,
+          "annual_algo_return": 1.3312227755965,
+          "sharpe": 3.6359314666392,
+          "alpha": -0.15312596738863,
+          "max_drawdown_period": [
+            "2015-05-26",
+            "2015-05-29"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.016876712328767,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.41346153846154,
+          "avg_position_days": 11.340909090909,
+          "win_ratio": 0.58333333333333,
+          "win_count": 35,
+          "avg_trade_return": 0.035474041778708,
+          "profit_loss_ratio": 1.8422644758877,
+          "lose_count": 25,
+          "report_done_seconds": 2750.1727437973
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 42.204995,
+          "benchmark_return_percent": 51.505318,
+          "annual_algo_return_percent": 133.122278,
+          "annual_bm_return_percent": 171.469385,
+          "max_drawdown_percent": 12.742766,
+          "algorithm_volatility_percent": 35.512847,
+          "benchmark_volatility_percent": 30.270638,
+          "win_ratio_percent": 58.333333,
+          "day_win_ratio_percent": 41.346154,
+          "avg_trade_return_percent": 3.547404,
+          "sharpe": 3.6359314666392,
+          "sortino": 5.8456720347514,
+          "information": -1.569550197524,
+          "alpha": -0.15312596738863,
+          "beta": 0.86245539210356,
+          "profit_loss_ratio": 1.8422644758877,
+          "avg_position_days": 11.340909090909,
+          "trading_days": 104,
+          "win_count": 35,
+          "lose_count": 25,
+          "max_drawdown_period": [
+            "2015-05-26",
+            "2015-05-29"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/12916",
+      "https://www.joinquant.com/community/post/detailV2?postId=12916",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=ea66a3c09baf95231a3421e7d0eee880&postId=078a30c138094505c4ae753c4e901f04&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=ea66a3c09baf95231a3421e7d0eee880"
+    ]
+  }
+}

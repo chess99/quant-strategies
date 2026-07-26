@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/72量化进阶学习笔记——打板策略.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "72量化进阶学习笔记——打板策略.txt",
+    "strategy_name": "量化进阶学习笔记——打板策略",
+    "declared_title": "量化进阶学习笔记——打板策略",
+    "declared_author": "HHH🌳",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 12179,
+    "sha256": "57dc0b58f83862f239760e5d967640eb2b0dc5bbbe47919011beaac4fae4a7a4",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/47147",
+      "https://www.joinquant.com/post/46412",
+      "https://www.joinquant.com/post/44901"
+    ],
+    "primary_url": "https://www.joinquant.com/post/47147",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:12:29+08:00",
+    "requested_url": "https://www.joinquant.com/post/47147",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/f628e7c6514c74d54d6ea75163ab2a13",
+    "community_id": "f628e7c6514c74d54d6ea75163ab2a13",
+    "post": {
+      "postId": "45369db2ad09ce48c75eaa66b17d46c8",
+      "uniqueKey": "f628e7c6514c74d54d6ea75163ab2a13",
+      "title": "量化进阶学习笔记——打板策略",
+      "content": "导语：在分析了量化的底层逻辑之后，得到量化策略分为“价值投资”和“泡沫吸取”两种大的构造思路，在分析了一些关于价值投资的策略之后，学习一下另一种“泡沫吸取”的思路，其中典型代表就是打板策略\n\n本篇继续延续【基础知识+策略实践】的形式，先详细解释一下策略的构造思路，然后测试不同时间段的策略回测结果\n\n本文是进阶笔记系列的第九篇文章。初学阶段的文章[在这里](https://www.joinquant.com/view/community/detail/d4383f28851f4ff16c1e78a7849b0889)，本系列的文章有：\n\n 1、[量化进阶学习笔记——小市值小盘股](https://www.joinquant.com/view/community/detail/06aa2480c0d555f83404048c18fdd122)：初学阶段以小盘股为例进行了系统性的知识梳理和代码实践，此篇作为进阶阶段第一篇，对小盘股进行了进一步优化和总结，其中得到一个仓位管理以降低回撤的方法\n\n 2、[量化进阶学习笔记——大盘蓝筹股](https://www.joinquant.com/view/community/detail/46117)：在梳理完小盘股基本思路之后，拓宽策略盘，对大盘股策略进行了初探，总体效果并不好，但是进行了一些使用现有因子进行优化的尝试\n\n 3、[量化进阶学习笔记——大小盘轮动](https://www.joinquant.com/view/community/detail/46117)：在梳理完大小盘股基本思路之后，综合二者的优点，采用轮动方式，找到一个收益与回撤更好的平衡点，结果既避免了使用纯小盘股的长达两年的回撤，也提升了使用纯大盘股的低收益，是一个很好的尝试\n\n 4、[量化进阶学习笔记——多因子权重打分](https://www.joinquant.com/view/community/detail/9e255e581a7128c33cdf76fc29fe934d)：学习多因子权重打分的方法，尝试了自己手搓一个，机器学习的思路以及展示了大佬的一些优秀策略，更多是激发对因子原理的学习与探索\n\n 5、[量化进阶学习笔记——重点有效因子研究（1）](https://www.joinquant.com/view/community/detail/c50bc3dd2894a70d57dee308415baf5c)：学习了除市值之外利用PB+ROE进行选股的思路，从结果上看用低PB避免了普遍价格稳定的大盘股，用高ROEC避免了波动性大的小盘股，更多对中盘股进行了操作，结果也看到了年化30%的收益水平\n\n 6、[量化进阶学习笔记——ETF轮动](https://www.joinquant.com/view/community/detail/afcf0dfd39ca5ca062d6d97d578cae5c)：继第3篇的大小盘轮动后，从选股的维度脱离出来，通过ETF这个金融产品，对整个市场进行轮动，构造一个更稳定的收益策略，结果在10年的回测中仅产生130次交易，但是有年化30%的效果\n\n 7、[量化进阶学习笔记——量化底层逻辑](https://www.joinquant.com/view/community/detail/afcf0dfd39ca5ca062d6d97d578cae5c)：学习了一些典型策略之后，试着从理论的角度分析量化策略的底层逻辑，对后期策略的构建打牢地基，最后得到了两种导向对应的三种策略逻辑\n\n 8、[量化进阶学习笔记——重点有效因子研究（2）](https://www.joinquant.com/view/community/detail/afcf0dfd39ca5ca062d6d97d578cae5c)：理解了一些量化底层逻辑之后，从其中一种价值投资的方向，分享了ROE+PB之外ROA+PB的改进方法，虽然策略结果没有很好，不过提供了一些价投的分析思路\n_____\n\n##基础知识\n策略的目的是**炒短线**\n对应的核心思想是**找到短期内有上涨潜力的标的**\n在底层逻辑的文章里提到过，量化投资者是信息先发劣势方，这种劣势在短线上尤为明显。（1）一方面只能尽可能通过技术指标在已经产生上涨现象之后判断是否可以入场，（2）另一方面要通过短线的止损措施避免错误的入场，且通过提高投资次数来获得综合的收益。\n\n炒短线获取的是“泡沫吸取”的收益\n“泡沫吸取”发生在价格波动曲线的第二阶段，即已经上涨到较为合适的价格区间，由于市场的反应过度，在上涨期参与，然后及时止损退出，获得市场狂热时产生的泡沫收益\n\n由此，引出第一种思路——龙头策略\n该策略在第一个问题上采用“最近连续涨停且涨停次数最多的股票”找到最炙手可热的上涨现象，然后买入；第二个问题上采用“买入后中盘设置N个定时检查止损，尾盘检查是否持有两天/已经亏损则卖出”来止损，避免老是走到泡沫顶端，成为被吸取的对象；\n\n这种思路存在一个问题，在于连续涨停且次数最多的股票走到上涨顶部的概率也会增高，等到真的入场或许已经成了接盘侠，即成功率可能不会很高。\n\n因此，引申出第二种思路——首板低开\n该策略在止损方面大同小异，关键在于第一个选股思路上采用“处于历史低位、近期首次涨停，次日低开”寻找上涨趋势。这里通过首次涨停+历史低位避免了最近大幅上涨的标的，进而成为接盘侠\n\n综上，对两种思路进行一个对比\n\n\n|  | 连板龙头 | 首板低开 |\n| --- | --- | --- |\n| 核心思路 | 涨停次数越多的越热门，涌入资金越多，继续涨停概率越大，此时入场能够获益 | 一直不景气，突然的上涨加上市场信心的波动，说明还在信息的消化阶段 |\n| 优势 | 交易信号多，概率叠加下保证收益；碰到一个妖股，可以吃到很多收益（开张吃三年） | 符合价格上涨周期理论，逻辑性强；低开阶段进入难度小 |\n| 劣势 | 回撤幅度大、周期长（三年不开张）；容易遇见封板，不易进入；已经上涨很多，如果还有机会入场说明已经成为接盘侠 | 交易信号少；属于缓慢消化和增长期，单次收益低 |\n\n##策略实践\n这里根据以上两种思路，分别构建实操；这里参考了@苗老八 大佬的文章，如果有兴趣的可以去他的文章里克隆回测。\n\n\n|  | 连板龙头 | 首板低开 |\n| --- | --- | --- |\n| 选股逻辑 | 选取最高连板数；按VOL5降序排列 | 当前价格为近60天价格低位（中位数以下）；昨日首板、今日低开3%-4% |\n| 开仓逻辑 | 每个标的以10%买入；若封板则采用限价单模拟 | 均仓买入 |\n| 平仓逻辑 | 每天设置N个定时检查止损；每天尾盘设置是否持有两天/是否已经亏损则卖出 | 同左 |\n\n龙头打板\n![Img](https://image.joinquant.com/ab678fbd7cc10a8525539081ecc7b69d) \n\n首板低开\n![Img](https://image.joinquant.com/01338d8d4bdfc9ccc6e6ed7484e52dff) \n\n###总结\n从结果可以看到，首板低开的交易次数是龙头打板的1/8，对于炒短线来讲可以太低频，不过能获得更稳定的收益，回撤幅度小，回撤区间也更小，相对来说******可能性更大；另一方面可以看到龙头打板获得一次跃升式的收益，这是高风险带来的高收益，可见龙头打板的上限相对来说更高",
+      "type": 1,
+      "status": "0",
+      "addTime": "2024-03-19 12:40:49",
+      "modTime": "2026-06-05 09:54:45",
+      "lastActiveTime": "2026-06-05 10:02:14",
+      "lastPubTime": "2026-06-05 09:54:45",
+      "backtestId": "aa39d35296b964cc5d49b2c86b6c9c05",
+      "backtestName": "首板低开",
+      "replyCount": "33",
+      "viewCount": "11100",
+      "collectionCount": "159",
+      "likeCount": "87",
+      "disLikeCount": "0",
+      "backtestCloneCount": "330",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "23",
+      "followersCount": "686",
+      "followingCount": "10",
+      "author": {
+        "userId": "c41f48047c5927f51f86f57372bdf192",
+        "alias": "HHH🌳",
+        "introduction": "踏踏实实的"
+      },
+      "tags": [
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "aa39d35296b964cc5d49b2c86b6c9c05",
+        "backtest_name": "首板低开",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=aa39d35296b964cc5d49b2c86b6c9c05&postId=f628e7c6514c74d54d6ea75163ab2a13&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2022-01-01",
+          "end_date": "2024-03-20",
+          "base_capital": 100000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "dadf12a34cc4ac5d74258f0d3ac19a11",
+            "33153795"
+          ],
+          "numeric_backtest_id": "33153795",
+          "numeric_post_id": "47147",
+          "python_version": 3,
+          "clone_count": 330
+        },
+        "stats": {
+          "trading_days": 535,
+          "benchmark_volatility": 0.17196948516557,
+          "algorithm_volatility": 0.35295954889093,
+          "treasury_return": 0.088328767123288,
+          "algorithm_return": 1.82841488,
+          "benchmark_return": -0.27426893127438,
+          "annual_algo_return": 0.62555420117208,
+          "annual_bm_return": -0.13912137795521,
+          "sharpe": 1.6589838779316,
+          "excess_return_sharpe": "2.175",
+          "sortino": 3.2271143650328,
+          "information": 1.9694824015854,
+          "beta": 0.057592219938211,
+          "alpha": 0.59587019896691,
+          "excess_return": 2.8973319482748,
+          "avg_excess_return": "0.28%",
+          "max_drawdown": 0.13558010691071,
+          "max_drawdown_period": [
+            "2022-03-22",
+            "2022-04-21"
+          ],
+          "excess_return_max_drawdown": "19.11%",
+          "excess_return_max_drawdown_period": [
+            "2024-02-01",
+            "2024-03-18"
+          ],
+          "max_leverage": 0,
+          "period_label": "2024-03",
+          "__version": 101,
+          "win_ratio": 0.54098360655738,
+          "profit_loss_ratio": 3.0826973362529,
+          "win_count": 33,
+          "lose_count": 28,
+          "day_win_ratio": 0.53831775700935,
+          "avg_trade_return": 0.032748319544927,
+          "avg_position_days": 1.655737704918,
+          "turnover_rate": 0.082387428302176,
+          "report_done_seconds": 1150.5020313263,
+          "report_done_cpu_seconds": 1150.45
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 182.841488,
+          "benchmark_return_percent": -27.426893,
+          "annual_algo_return_percent": 62.55542,
+          "annual_bm_return_percent": -13.912138,
+          "max_drawdown_percent": 13.558011,
+          "algorithm_volatility_percent": 35.295955,
+          "benchmark_volatility_percent": 17.196949,
+          "win_ratio_percent": 54.098361,
+          "day_win_ratio_percent": 53.831776,
+          "avg_trade_return_percent": 3.274832,
+          "turnover_rate_percent": 8.238743,
+          "sharpe": 1.6589838779316,
+          "sortino": 3.2271143650328,
+          "information": 1.9694824015854,
+          "alpha": 0.59587019896691,
+          "beta": 0.057592219938211,
+          "profit_loss_ratio": 3.0826973362529,
+          "avg_position_days": 1.655737704918,
+          "trading_days": 535,
+          "win_count": 33,
+          "lose_count": 28,
+          "max_drawdown_period": [
+            "2022-03-22",
+            "2022-04-21"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2024-02-01",
+            "2024-03-18"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/47147",
+      "https://www.joinquant.com/community/post/detailV2?postId=47147",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=aa39d35296b964cc5d49b2c86b6c9c05&postId=f628e7c6514c74d54d6ea75163ab2a13&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=aa39d35296b964cc5d49b2c86b6c9c05"
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/12.机器学习用于量化分析.txt",
+    "category": "2025年度精选策略",
+    "file_name": "12.机器学习用于量化分析.txt",
+    "strategy_name": "机器学习用于量化分析",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 36080,
+    "sha256": "aaea71f8581f89cff4654e2f17d972152ca862b2ce2b4c7c1ff757f0d6d98874",
+    "joinquant_urls": [],
+    "primary_url": null,
+    "url_selection_method": "none"
+  },
+  "remote": null
+}

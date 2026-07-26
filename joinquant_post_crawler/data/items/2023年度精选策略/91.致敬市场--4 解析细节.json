@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/91.致敬市场--4 解析细节.txt",
+    "category": "2023年度精选策略",
+    "file_name": "91.致敬市场--4 解析细节.txt",
+    "strategy_name": "致敬市场--4 解析细节",
+    "declared_title": "致敬市场(4)--解析细节",
+    "declared_author": "Gyro",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 3980,
+    "sha256": "b3f42fac13f97877c8e71db640e73e50e70c9097b75cc89f64496a671ca31c84",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/33312"
+    ],
+    "primary_url": "https://www.joinquant.com/post/33312",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:09:48+08:00",
+    "requested_url": "https://www.joinquant.com/post/33312",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/b4326e6b99d7a747f77e3bb1dc164c3e",
+    "community_id": "b4326e6b99d7a747f77e3bb1dc164c3e",
+    "post": {
+      "postId": "3ec063af6603d03dbf9fc1619a1777e5",
+      "uniqueKey": "b4326e6b99d7a747f77e3bb1dc164c3e",
+      "title": "致敬市场(4)--解析细节",
+      "content": "致敬市场系列，已经写了三篇。第一篇开启鸿蒙，第二篇测试了随机选股，第三篇试验了基金策略，轻易取得了很不错的效果，第四篇（即，本文）回到正途，延续第一篇做股票策略，研究细节。\n\n[致敬市场(1)--探讨指数化策略投资 ](https://www.joinquant.com/view/community/detail/78a94a91248ff7851705123b17c48fbf)\n\n[致敬市场(2)--随机选股](https://www.joinquant.com/view/community/detail/380149ec6b544d03e13465edde86034d)\n\n[致敬市场(3)--Alpha基金策略](https://www.joinquant.com/view/community/detail/597247b17765c8ee24601d8d45ebfd03)\n\n下面转入细节。\n 年度       持股数 TOP5\n2006 99 G博瑞 G中化 G金发  G太钢 G唐钢\n2007 101 沪东重机 太钢不锈 四川美丰 金发科技 宝新能源\n2008 96 金牛能源 中国船舶  宝新能源 凌钢股份 武钢股份\n2009 93 格力电器 金牛能源 思源电气  国药股份 恒瑞医药\n2010 91 国药股份 恒瑞医药 华兰生物 格力电器 思源电气\n2011 90 格力电器 国电南瑞 恒瑞医药 潍柴动力 片仔癀\n2012 88 格力电器 片仔癀 贵州茅台 国电南瑞 恒瑞医药\n2013 82 天士力 格力电器 片仔癀 大华股份 华东医药\n2014 78 格力电器 天士力 华东医药 恒瑞医药 益佰制药\n2015 79 格力电器 片仔癀 恒瑞医药 华东医药 东华软件\n2016 78 恒瑞医药 格力电器 华东医药 片仔癀 天士力 \n2017 80 恒瑞医药 华东医药 片仔癀 贵州茅台 海康威视\n2018 74 恒瑞医药 片仔癀 华东医药 贵州茅台 海康威视\n2019 71 恒瑞医药 片仔癀 贵州茅台 华东医药 伊利股份\n2020 63 恒瑞医药 贵州茅台 片仔癀 海天味业 长春高新\n2021 63 片仔癀 恒瑞医药 贵州茅台 中国中免 五粮液\n\n当前全部持仓：\n~~~\n              name   volume     weight\ncode                                 \n600436.XSHG   片仔癀   465000  12.394982\n600276.XSHG  恒瑞医药  1340764   8.858183\n600519.XSHG  贵州茅台    50977   8.036563\n601888.XSHG  中国中免   250400   6.137214\n000858.XSHE   五粮液   195400   4.374876\n600763.XSHG  通策医疗   173600   4.271376\n000963.XSHE  华东医药  1019304   4.215178\n002415.XSHE  海康威视   759600   3.746300\n603288.XSHG  海天味业   269040   3.582472\n000661.XSHE  长春高新    90400   3.533825\n002311.XSHE  海大集团   519119   3.401177\n600887.XSHG  伊利股份   764400   2.459070\n000596.XSHE  古井贡酒   116600   2.082340\n002236.XSHE  大华股份   767000   1.413578\n600036.XSHG  招商银行   339800   1.406793\n600025.XSHG  华能水电  2440200   1.123361\n600511.XSHG  国药股份   373320   1.081311\n601318.XSHG  中国平安   186400   1.061647\n002352.XSHE  顺丰控股   184400   0.932193\n603939.XSHG  益丰药房   125719   0.887392\n603233.XSHG   大参林   149280   0.886818\n600886.XSHG  国投电力  1137100   0.884362\n300482.XSHE  万孚生物   109000   0.868539\n600161.XSHG  天坛生物   303240   0.859507\n601216.XSHG  君正集团  1809000   0.822836\n600919.XSHG  江苏银行  1441400   0.800572\n002019.XSHE  亿帆医药   553000   0.777198\n600009.XSHG  上海机场   191700   0.740037\n603866.XSHG  桃李面包   175500   0.679015\n300748.XSHE  金力永磁   235600   0.672785\n002508.XSHE  老板电器   219570   0.661852\n600062.XSHG  华润双鹤   676300   0.639148\n601668.XSHG  中国建筑  1596000   0.619379\n601818.XSHG  光大银行  2085400   0.619266\n002223.XSHE  鱼跃医疗   246400   0.615551\n002007.XSHE  华兰生物   184000   0.608261\n000002.XSHE   万科A   270800   0.599283\n600750.XSHG  江中药业   689550   0.599125\n000999.XSHE  华润三九   297900   0.584835\n000034.XSHE  神州数码   437900   0.581377\n000656.XSHE  金科股份  1093500   0.566969\n600377.XSHG  宁沪高速   693300   0.558266\n601939.XSHG  建设银行  1044000   0.551965\n601229.XSHG  上海银行   842200   0.541209\n601398.XSHG  工商银行  1303000   0.525119\n601988.XSHG  中国银行  2007200   0.512472\n601288.XSHG  农业银行  2025800   0.509264\n000028.XSHE  国药一致   154900   0.508656\n000997.XSHE   新大陆   455400   0.499430\n601006.XSHG  大秦铁路   918300   0.496329\n601328.XSHG  交通银行  1262900   0.477211\n600867.XSHG  通化东宝   447696   0.466010\n002191.XSHE  劲嘉股份   553300   0.452489\n600016.XSHG  民生银行  1208300   0.446138\n002572.XSHE   索菲亚   182900   0.418409\n601998.XSHG  中信银行  1002900   0.408116\n600643.XSHG  爱建集团   733800   0.407562\n600000.XSHG  浦发银行   472758   0.373251\n600056.XSHG  中国医药   368600   0.371227\n603708.XSHG   家家悦   246500   0.337916\n600153.XSHG  建发股份   508600   0.324036\n601169.XSHG  北京银行   834480   0.312046\n300498.XSHE  温氏股份   238920   0.270091\n600398.XSHG  海澜之家   472500   0.268743\n002468.XSHE  申通快递   330600   0.223356\n~~~",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-05-26 16:31:49",
+      "modTime": "2023-03-02 23:21:10",
+      "lastActiveTime": "2025-12-07 21:41:17",
+      "lastPubTime": "2023-03-02 23:21:10",
+      "backtestId": "5f4dc7ccf27328d05519c1c1e53f5958",
+      "backtestName": "ROE-Grow",
+      "replyCount": "54",
+      "viewCount": "3874",
+      "collectionCount": "56",
+      "likeCount": "40",
+      "disLikeCount": "0",
+      "backtestCloneCount": "159",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "227",
+      "followersCount": "5889",
+      "followingCount": "1",
+      "author": {
+        "userId": "6f9bd0916f8e9f392cf611f15838335e",
+        "alias": "Gyron",
+        "introduction": "\r\n                    \r\n                     ",
+        "headImgKey": "600eaeda447f70216671ecc0af5f5fe2"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "5f4dc7ccf27328d05519c1c1e53f5958",
+        "backtest_name": "ROE-Grow",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=5f4dc7ccf27328d05519c1c1e53f5958&postId=b4326e6b99d7a747f77e3bb1dc164c3e&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2006-05-01",
+          "end_date": "2021-05-15",
+          "base_capital": 12345678,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "514b77ee1c6554e452bfacf66bb793c6",
+            "20776747"
+          ],
+          "numeric_backtest_id": "20776747",
+          "numeric_post_id": "33312",
+          "python_version": 3,
+          "clone_count": 1185
+        },
+        "stats": {
+          "trading_days": 3657,
+          "benchmark_volatility": 0.27730813129505,
+          "algorithm_volatility": 0.2688166356053,
+          "treasury_return": 0.60109589041096,
+          "algorithm_return": 9.2637524254643,
+          "benchmark_return": 4.2817144651455,
+          "annual_algo_return": 0.17255968492857,
+          "annual_bm_return": 0.1204961582068,
+          "sharpe": 0.49312307115995,
+          "excess_return_sharpe": "0.067",
+          "sortino": 0.61654498630912,
+          "information": 0.53936986147815,
+          "beta": 0.90926636791693,
+          "alpha": 0.059367235524602,
+          "excess_return": 0.94326150972298,
+          "avg_excess_return": "0.02%",
+          "max_drawdown": 0.70261903299104,
+          "max_drawdown_period": [
+            "2008-01-15",
+            "2008-11-04"
+          ],
+          "excess_return_max_drawdown": "24.47%",
+          "excess_return_max_drawdown_period": [
+            "2013-07-24",
+            "2014-12-31"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-05",
+          "__version": 101,
+          "win_ratio": 0.63551401869159,
+          "profit_loss_ratio": 2.5100515720419,
+          "win_count": 204,
+          "lose_count": 117,
+          "day_win_ratio": 0.50560568772218,
+          "avg_trade_return": 0.86440623378996,
+          "avg_position_days": 674.73275862069,
+          "turnover_rate": 0.00077036067590381,
+          "report_done_seconds": 692.42468762398,
+          "report_done_cpu_seconds": 492.69
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 926.375243,
+          "benchmark_return_percent": 428.171447,
+          "annual_algo_return_percent": 17.255968,
+          "annual_bm_return_percent": 12.049616,
+          "max_drawdown_percent": 70.261903,
+          "algorithm_volatility_percent": 26.881664,
+          "benchmark_volatility_percent": 27.730813,
+          "win_ratio_percent": 63.551402,
+          "day_win_ratio_percent": 50.560569,
+          "avg_trade_return_percent": 86.440623,
+          "turnover_rate_percent": 0.077036,
+          "sharpe": 0.49312307115995,
+          "sortino": 0.61654498630912,
+          "information": 0.53936986147815,
+          "alpha": 0.059367235524602,
+          "beta": 0.90926636791693,
+          "profit_loss_ratio": 2.5100515720419,
+          "avg_position_days": 674.73275862069,
+          "trading_days": 3657,
+          "win_count": 204,
+          "lose_count": 117,
+          "max_drawdown_period": [
+            "2008-01-15",
+            "2008-11-04"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2013-07-24",
+            "2014-12-31"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/33312",
+      "https://www.joinquant.com/community/post/detailV2?postId=33312",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=5f4dc7ccf27328d05519c1c1e53f5958&postId=b4326e6b99d7a747f77e3bb1dc164c3e&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=5f4dc7ccf27328d05519c1c1e53f5958"
+    ]
+  }
+}

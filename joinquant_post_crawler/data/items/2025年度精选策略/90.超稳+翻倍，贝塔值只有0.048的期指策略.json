@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/90.超稳+翻倍，贝塔值只有0.048的期指策略.txt",
+    "category": "2025年度精选策略",
+    "file_name": "90.超稳+翻倍，贝塔值只有0.048的期指策略.txt",
+    "strategy_name": "超稳+翻倍，贝塔值只有0.048的期指策略",
+    "declared_title": "超稳+翻倍，贝塔值只有0.048的期指策略",
+    "declared_author": "老虎渔",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 17424,
+    "sha256": "8cfbe525ba5674c3fd04f2b851ecc79cfe7542ada9caffd747033f8c682fe259",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/30449",
+      "https://www.joinquant.com/post/30247"
+    ],
+    "primary_url": "https://www.joinquant.com/post/30449",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:09:05+08:00",
+    "requested_url": "https://www.joinquant.com/post/30449",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/0fe934ee5865bfb9b52fabfa751dddd6",
+    "community_id": "0fe934ee5865bfb9b52fabfa751dddd6",
+    "post": {
+      "postId": "03f778c2f6de9114d96916dd23a31234",
+      "uniqueKey": "0fe934ee5865bfb9b52fabfa751dddd6",
+      "title": "超稳+翻倍，贝塔值只有0.048的期指策略",
+      "content": "很是惊喜，居然做到了年化超过100%，且Beta值只有0.048那么小，最大回撤也仅仅是10.6%，回测3年的数据翻10倍，似乎所有数据都那么优秀，当然还要继续检验下实盘。 \n当然首先，感谢本论坛魔术先生的系列文章的启发，\n本策略通过优化改进魔术先生的“复合折溢价”而来。\n主要是增加了量比和择时策略的优化结合，意在减少在大盘下行时候做多的概率，效果是同时也降低了最大回撤，最终总体评估参数更优化了。 \n我还会继续优化，这只是个开始。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-12-06 17:01:02",
+      "modTime": "2020-12-07 09:05:42",
+      "lastActiveTime": "2023-02-01 14:02:15",
+      "lastPubTime": "2020-12-07 09:05:42",
+      "backtestId": "c0d64915519997b50baaff12f444ed2a",
+      "backtestName": "Tiger优化指数复合折溢价策略",
+      "replyCount": "41",
+      "viewCount": "4166",
+      "collectionCount": "82",
+      "likeCount": "32",
+      "disLikeCount": "0",
+      "backtestCloneCount": "320",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "4",
+      "followersCount": "29",
+      "followingCount": "6",
+      "author": {
+        "userId": "41a86e1a5b446f3092f44ee96a01961a",
+        "alias": "老虎渔",
+        "introduction": "一颗老韭菜"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "7",
+          "name": "期货"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "c0d64915519997b50baaff12f444ed2a",
+        "backtest_name": "Tiger优化指数复合折溢价策略",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=c0d64915519997b50baaff12f444ed2a&postId=0fe934ee5865bfb9b52fabfa751dddd6&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2018-01-01",
+          "end_date": "2020-11-19",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "ace84a1675eb457d81bd95465ee9778b",
+            "19033388"
+          ],
+          "numeric_backtest_id": "19033388",
+          "numeric_post_id": "30449",
+          "python_version": 3,
+          "clone_count": 317
+        },
+        "stats": {
+          "trading_days": 700,
+          "benchmark_volatility": 0.21260787371575,
+          "algorithm_volatility": 0.37952643575432,
+          "treasury_return": 0.11528767123288,
+          "algorithm_return": 10.00343132052,
+          "benchmark_return": 0.19215575226189,
+          "annual_algo_return": 1.3549101126047,
+          "annual_bm_return": 0.064784658654645,
+          "sharpe": 3.4646074389819,
+          "excess_return_sharpe": "2.644",
+          "sortino": 13.051136380388,
+          "information": 3.0004452791809,
+          "beta": 0.048242713898292,
+          "alpha": 1.3137144334082,
+          "excess_return": 8.2298605275721,
+          "avg_excess_return": "0.35%",
+          "max_drawdown": 0.10591372502013,
+          "max_drawdown_period": [
+            "2018-07-09",
+            "2018-07-23"
+          ],
+          "excess_return_max_drawdown": "14.22%",
+          "excess_return_max_drawdown_period": [
+            "2018-07-06",
+            "2018-07-23"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-11",
+          "__version": 101,
+          "win_ratio": 0.58662613981763,
+          "profit_loss_ratio": 3.4773406812452,
+          "win_count": 193,
+          "lose_count": 136,
+          "day_win_ratio": 0.51428571428571,
+          "avg_trade_return": -0.7273563687186,
+          "avg_position_days": 7.5744680851064,
+          "turnover_rate": 0.97463085879693,
+          "report_done_seconds": 254.43181419373,
+          "report_done_cpu_seconds": 140.24
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 1000.343132,
+          "benchmark_return_percent": 19.215575,
+          "annual_algo_return_percent": 135.491011,
+          "annual_bm_return_percent": 6.478466,
+          "max_drawdown_percent": 10.591373,
+          "algorithm_volatility_percent": 37.952644,
+          "benchmark_volatility_percent": 21.260787,
+          "win_ratio_percent": 58.662614,
+          "day_win_ratio_percent": 51.428571,
+          "avg_trade_return_percent": -72.735637,
+          "turnover_rate_percent": 97.463086,
+          "sharpe": 3.4646074389819,
+          "sortino": 13.051136380388,
+          "information": 3.0004452791809,
+          "alpha": 1.3137144334082,
+          "beta": 0.048242713898292,
+          "profit_loss_ratio": 3.4773406812452,
+          "avg_position_days": 7.5744680851064,
+          "trading_days": 700,
+          "win_count": 193,
+          "lose_count": 136,
+          "max_drawdown_period": [
+            "2018-07-09",
+            "2018-07-23"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2018-07-06",
+            "2018-07-23"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/30449",
+      "https://www.joinquant.com/community/post/detailV2?postId=30449",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=c0d64915519997b50baaff12f444ed2a&postId=0fe934ee5865bfb9b52fabfa751dddd6&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=c0d64915519997b50baaff12f444ed2a"
+    ]
+  }
+}

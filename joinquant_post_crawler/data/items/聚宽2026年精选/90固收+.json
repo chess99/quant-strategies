@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/90固收+.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "90固收+.txt",
+    "strategy_name": "固收+",
+    "declared_title": "固收+",
+    "declared_author": "开心果",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 1708,
+    "sha256": "8855383f94fa8a5b28a370263c31f0e1b02fdc0f272e0a602cce7636d5b187e7",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/50559"
+    ],
+    "primary_url": "https://www.joinquant.com/post/50559",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:12:44+08:00",
+    "requested_url": "https://www.joinquant.com/post/50559",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/683afe402a5f5f0462d962af99fd8008",
+    "community_id": "683afe402a5f5f0462d962af99fd8008",
+    "post": {
+      "postId": "c7935c3341dba52c2720e19a37342d9d",
+      "uniqueKey": "683afe402a5f5f0462d962af99fd8008",
+      "title": "固收+",
+      "content": "承受一定的波动，获取固定收益，其实很简单，简单到10年里只交易25次就可以做到，年华收益6.35%，最大回撤3.96%，波动率3.5%。策略选取4个etf,黄金，国债，纳指，红利，按照固定比率做再平衡。\n\n但是想做这个策略，其实极端困难。因为凭啥放着50%年华的不做，而要做这个？而且这个50%不是虚幻的，是确确实实的。\n\n没有外部强约束，实际上是没法坚持这个策略的。\n\n有些做大类资产配置的基金产品，用的30年国债期货，黄金期货，这样做风险平价的话，收益乘以杠杆即可。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2024-11-13 09:13:19",
+      "modTime": "2025-04-03 20:26:05",
+      "lastActiveTime": "2025-11-19 23:13:10",
+      "lastPubTime": "2025-04-03 20:26:05",
+      "backtestId": "07662f5b0af965f0b6a0c2ccc6232494",
+      "backtestName": "国债",
+      "replyCount": "50",
+      "viewCount": "4956",
+      "collectionCount": "76",
+      "likeCount": "39",
+      "disLikeCount": "0",
+      "backtestCloneCount": "269",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "72",
+      "followersCount": "2125",
+      "followingCount": "2",
+      "author": {
+        "userId": "04cb8017add533c743d2b6e67b97640e",
+        "alias": "开心果",
+        "headImgKey": "c9a997e0c5aa2e77d3ae03f7e34ca7a0"
+      },
+      "tags": [
+        {
+          "id": "12",
+          "name": "基金"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "07662f5b0af965f0b6a0c2ccc6232494",
+        "backtest_name": "国债",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=07662f5b0af965f0b6a0c2ccc6232494&postId=683afe402a5f5f0462d962af99fd8008&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2014-01-01",
+          "end_date": "2024-11-11",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "12280d781ee93db23cb7e89554079a25",
+            "37256434"
+          ],
+          "numeric_backtest_id": "37256434",
+          "numeric_post_id": "50559",
+          "python_version": 3,
+          "clone_count": 219
+        },
+        "stats": {
+          "trading_days": 2640,
+          "benchmark_volatility": 0.024949304608741,
+          "algorithm_volatility": 0.035132257036567,
+          "treasury_return": 0.4346301369863,
+          "algorithm_return": 0.91638588488,
+          "benchmark_return": 0.4565237656271,
+          "annual_algo_return": 0.063531311755452,
+          "annual_bm_return": 0.036252710363657,
+          "sharpe": 0.66979220068214,
+          "excess_return_sharpe": "-0.413",
+          "sortino": 0.89043808806226,
+          "information": 0.82398297444893,
+          "beta": 0.61107613026255,
+          "alpha": 0.025821191005402,
+          "excess_return": 0.31572579185132,
+          "avg_excess_return": "0.01%",
+          "max_drawdown": 0.039554074420793,
+          "max_drawdown_period": [
+            "2015-06-08",
+            "2015-07-08"
+          ],
+          "excess_return_max_drawdown": "5.66%",
+          "excess_return_max_drawdown_period": [
+            "2015-06-15",
+            "2016-01-28"
+          ],
+          "max_leverage": 0,
+          "period_label": "2024-11",
+          "__version": 101,
+          "win_ratio": 1,
+          "profit_loss_ratio": 248710.58,
+          "win_count": 25,
+          "lose_count": 0,
+          "day_win_ratio": 0.53939393939394,
+          "avg_trade_return": 1.0605410400036,
+          "avg_position_days": 2640,
+          "turnover_rate": 0.00028064691176651,
+          "report_done_seconds": 47.035811662674,
+          "report_done_cpu_seconds": 42.52
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 91.638588,
+          "benchmark_return_percent": 45.652377,
+          "annual_algo_return_percent": 6.353131,
+          "annual_bm_return_percent": 3.625271,
+          "max_drawdown_percent": 3.955407,
+          "algorithm_volatility_percent": 3.513226,
+          "benchmark_volatility_percent": 2.49493,
+          "win_ratio_percent": 100,
+          "day_win_ratio_percent": 53.939394,
+          "avg_trade_return_percent": 106.054104,
+          "turnover_rate_percent": 0.028065,
+          "sharpe": 0.66979220068214,
+          "sortino": 0.89043808806226,
+          "information": 0.82398297444893,
+          "alpha": 0.025821191005402,
+          "beta": 0.61107613026255,
+          "profit_loss_ratio": 248710.58,
+          "avg_position_days": 2640,
+          "trading_days": 2640,
+          "win_count": 25,
+          "lose_count": 0,
+          "max_drawdown_period": [
+            "2015-06-08",
+            "2015-07-08"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2015-06-15",
+            "2016-01-28"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/50559",
+      "https://www.joinquant.com/community/post/detailV2?postId=50559",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=07662f5b0af965f0b6a0c2ccc6232494&postId=683afe402a5f5f0462d962af99fd8008&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=07662f5b0af965f0b6a0c2ccc6232494"
+    ]
+  }
+}

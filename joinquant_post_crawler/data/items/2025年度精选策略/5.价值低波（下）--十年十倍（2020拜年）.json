@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/5.价值低波（下）--十年十倍（2020拜年）.txt",
+    "category": "2025年度精选策略",
+    "file_name": "5.价值低波（下）--十年十倍（2020拜年）.txt",
+    "strategy_name": "价值低波（下）--十年十倍（2020拜年）",
+    "declared_title": "价值低波（下）--十年十倍（2020拜年）",
+    "declared_author": "Gyro",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 8031,
+    "sha256": "5248f808910f85ec48e629a27aca27c760b186c6c4d05a5e81cd922d9ad73bb2",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/25183"
+    ],
+    "primary_url": "https://www.joinquant.com/post/25183",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "post_without_backtest",
+    "collected_at": "2026-07-27T02:11:13+08:00",
+    "requested_url": "https://www.joinquant.com/post/25183",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/f4127050e8cd5048e5201a903672be07",
+    "community_id": "f4127050e8cd5048e5201a903672be07",
+    "post": {
+      "postId": "758b13924180a5a61aee747aa5472725",
+      "uniqueKey": "f4127050e8cd5048e5201a903672be07",
+      "title": "价值低波（下）--十年十倍（2020拜年）",
+      "content": "----",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-01-29 20:03:43",
+      "modTime": "2023-03-02 23:06:10",
+      "lastActiveTime": "2023-03-02 23:06:10",
+      "lastPubTime": "2023-03-02 23:06:10",
+      "replyCount": "42",
+      "viewCount": "5488",
+      "collectionCount": "84",
+      "likeCount": "71",
+      "disLikeCount": "0",
+      "backtestCloneCount": "256",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "227",
+      "followersCount": "5889",
+      "followingCount": "1",
+      "author": {
+        "userId": "ddd6fdf1915d3e6d20c34c63577302a5",
+        "alias": "Gyron",
+        "introduction": "\r\n                    \r\n                     ",
+        "headImgKey": "600eaeda447f70216671ecc0af5f5fe2"
+      },
+      "tags": [
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "5",
+          "name": "仓位管理"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 3,
+    "request_urls": [
+      "https://www.joinquant.com/post/25183",
+      "https://www.joinquant.com/community/post/detailV2?postId=25183",
+      "https://www.joinquant.com/community/post/replyList?page=1&postId=f4127050e8cd5048e5201a903672be07",
+      "https://www.joinquant.com/community/post/replyList?page=2&postId=f4127050e8cd5048e5201a903672be07"
+    ]
+  }
+}

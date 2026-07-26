@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/32.北向资金A股择时策略（5年16倍）.txt",
+    "category": "2025年度精选策略",
+    "file_name": "32.北向资金A股择时策略（5年16倍）.txt",
+    "strategy_name": "北向资金A股择时策略（5年16倍）",
+    "declared_title": "北向资金A股择时策略",
+    "declared_author": "量化看市场",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 4373,
+    "sha256": "58bcb4f189e4db816325c312efea4ae49cd3dbd16f8debde3023c4ac66a9d425",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/28714"
+    ],
+    "primary_url": "https://www.joinquant.com/post/28714",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:04+08:00",
+    "requested_url": "https://www.joinquant.com/post/28714",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/2362e2fe20e47080f20387e99e0d240e",
+    "community_id": "2362e2fe20e47080f20387e99e0d240e",
+    "post": {
+      "postId": "d517c5ace7cb547fa56f92a02025c092",
+      "uniqueKey": "2362e2fe20e47080f20387e99e0d240e",
+      "title": "北向资金A股择时策略",
+      "content": "&gt; 北向资金择时策略背后的核心思想是：一次大规模的资金流入（流出）表明外资对后市看多（看空），而外资中机构资金占据较大比例，此时跟随北向资金能够获得超额收益。\n\n我在沪深300股指期货上进行了回测，结果不错，其中“保证金率、布林带参数、资金占用比例”可自行调整。策略中包含**微信通知**，开启模拟交易即可在每天早上7点收到昨天的北向资金信息，欢迎克隆、交流！\n***\n###微信文章（欢迎关注）：[北向资金A股择时策略](https://mp.weixin.qq.com/s/TS8iLboSHN7xH8qUN4227w)\n原报告：[《华泰金工量化资产配置7月月报：北向资金走向预示市场短期或震荡》](https://bigdata-s3.wmcloud.com/researchreport/cc/ce09d6792e9591e0b6f9e504644de74e.pdf)",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-08-04 23:12:54",
+      "modTime": "2021-05-26 11:10:04",
+      "lastActiveTime": "2023-02-18 21:16:35",
+      "lastPubTime": "2021-05-26 11:10:04",
+      "backtestId": "4f2d7e0c72eb6beb978ceeeea114c0c6",
+      "backtestName": "北向资金A股择时策略",
+      "replyCount": "28",
+      "viewCount": "5670",
+      "collectionCount": "105",
+      "likeCount": "43",
+      "disLikeCount": "0",
+      "backtestCloneCount": "191",
+      "notebookCloneCount": "45",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "16",
+      "followersCount": "308",
+      "followingCount": "1",
+      "author": {
+        "userId": "ca95af93435b3a1d3452f07fd7ae46c9",
+        "alias": "Rookie888",
+        "headImgKey": "6eb9d5c689d68df7043914810999221a"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "264",
+          "name": "研报复现"
+        },
+        {
+          "id": "7",
+          "name": "期货"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "4f2d7e0c72eb6beb978ceeeea114c0c6",
+        "backtest_name": "北向资金A股择时策略",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=4f2d7e0c72eb6beb978ceeeea114c0c6&postId=2362e2fe20e47080f20387e99e0d240e&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2015-12-10",
+          "end_date": "2021-05-25",
+          "base_capital": 10000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "a64ce94bede45628aa37ee3b26e55998",
+            "20771367"
+          ],
+          "numeric_backtest_id": "20771367",
+          "numeric_post_id": "28714",
+          "python_version": 3,
+          "clone_count": 178
+        },
+        "stats": {
+          "trading_days": 1327,
+          "benchmark_volatility": 0.20012400988634,
+          "algorithm_volatility": 0.13545164797966,
+          "treasury_return": 0.21841095890411,
+          "algorithm_return": 1.304721445734,
+          "benchmark_return": 0.46275241065584,
+          "annual_algo_return": 0.17034918349643,
+          "annual_bm_return": 0.074279619249392,
+          "sharpe": 0.96232999332724,
+          "excess_return_sharpe": "0.327",
+          "sortino": 1.456518287585,
+          "information": 0.64738061064763,
+          "beta": 0.4541241175632,
+          "alpha": 0.1147819816544,
+          "excess_return": 0.57560598016766,
+          "avg_excess_return": "0.04%",
+          "max_drawdown": 0.15520893044793,
+          "max_drawdown_period": [
+            "2017-09-05",
+            "2019-01-14"
+          ],
+          "excess_return_max_drawdown": "22.68%",
+          "excess_return_max_drawdown_period": [
+            "2016-09-26",
+            "2018-01-24"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-05",
+          "__version": 101,
+          "win_ratio": 0.53623188405797,
+          "profit_loss_ratio": 2.4417891250998,
+          "win_count": 37,
+          "lose_count": 32,
+          "day_win_ratio": 0.49284099472494,
+          "avg_trade_return": -0.77867396169242,
+          "avg_position_days": 14.446428571429,
+          "turnover_rate": 0.048641618712426,
+          "report_done_seconds": 66.463924646378,
+          "report_done_cpu_seconds": 51.91
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 130.472145,
+          "benchmark_return_percent": 46.275241,
+          "annual_algo_return_percent": 17.034918,
+          "annual_bm_return_percent": 7.427962,
+          "max_drawdown_percent": 15.520893,
+          "algorithm_volatility_percent": 13.545165,
+          "benchmark_volatility_percent": 20.012401,
+          "win_ratio_percent": 53.623188,
+          "day_win_ratio_percent": 49.284099,
+          "avg_trade_return_percent": -77.867396,
+          "turnover_rate_percent": 4.864162,
+          "sharpe": 0.96232999332724,
+          "sortino": 1.456518287585,
+          "information": 0.64738061064763,
+          "alpha": 0.1147819816544,
+          "beta": 0.4541241175632,
+          "profit_loss_ratio": 2.4417891250998,
+          "avg_position_days": 14.446428571429,
+          "trading_days": 1327,
+          "win_count": 37,
+          "lose_count": 32,
+          "max_drawdown_period": [
+            "2017-09-05",
+            "2019-01-14"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2016-09-26",
+            "2018-01-24"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/28714",
+      "https://www.joinquant.com/community/post/detailV2?postId=28714",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=4f2d7e0c72eb6beb978ceeeea114c0c6&postId=2362e2fe20e47080f20387e99e0d240e&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=4f2d7e0c72eb6beb978ceeeea114c0c6"
+    ]
+  }
+}

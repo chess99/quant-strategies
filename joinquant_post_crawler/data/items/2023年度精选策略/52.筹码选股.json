@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/52.筹码选股.txt",
+    "category": "2023年度精选策略",
+    "file_name": "52.筹码选股.txt",
+    "strategy_name": "筹码选股",
+    "declared_title": "筹码选股",
+    "declared_author": "sonnet_me",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 11764,
+    "sha256": "8e347f65a005970a39593cdb5e1aaa7d3e6491118f492a4f14f91db5c46ccf43",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/30606"
+    ],
+    "primary_url": "https://www.joinquant.com/post/30606",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:09:16+08:00",
+    "requested_url": "https://www.joinquant.com/post/30606",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/65af30cf8bdbb1c467eef1c08d1e3455",
+    "community_id": "65af30cf8bdbb1c467eef1c08d1e3455",
+    "post": {
+      "postId": "d121a57ab28fdf3421a35727edcab98b",
+      "uniqueKey": "65af30cf8bdbb1c467eef1c08d1e3455",
+      "title": "筹码选股",
+      "content": "1.股市是多空博弈的场所，而筹码是博弈的核心，筹码分布的学术名为\"流通股票持仓成本分布\"，它反映的是在不同价位上的投资者的持仓数量。\n2.筹码分布理论是通过股票价格和成交量来研究筹码和现金可逆互换的理论，该理论的假设是，所有影响股票内在价值和供求关系都可以用筹码来还原，依据该理论，股票的投资收益来自现金在低位转换为筹码，再将筹码在高位兑换为现金的过程。因此股票运动的本质等于成交量背后的筹码运动状态，是资金和筹码之间的博弈。\n3.筹码分布和股价的变动关系：\n\n- 当某一筹码较为集中时，表明主力正在收集筹码，股价上涨的概率较大\n\n- 当某一筹码较为分散时，表明主力正在抛售，股价下跌的概率加大\n\n4.在股市的博弈之中,主力资金具有至关重要的作用。没有主力的\"辛勤劳动\",很难想象某只股价可以上涨一倍以上,即使是绩优股,也需要主力机构去发掘。\n5.上市公司股东人数的变化与其二级市场走势存在一定相关性：\n(1)股东人数越少，筹码越集中，股价走势往往具有独立个性，常逆大势而动\n(2)股东人数越多，筹码越分散，股价走势往往疲软，不具有独立性，常随大盘而动。\n6.机构持股占比与其二级市场走势村子一定相关性：\n(1)机构持股占比越高，筹码越集中，股价拉升性越好\n(2)机构持股占比越低，筹码越分散，股价走势往往疲软\n7.股东人数变化和机构持股占比是筹码理论的行之有效的数据，下面由这两个指标构建策略进行回测。\n\n8.这两类数据是跟着公司季报发布\n年报，中报，季报的法定披露时间  \n1季报：每年4月1日——4月30日。   \n2季报（中报）：每年7月1日——8月30日。   \n3季报： 每年10月1日——10月31日  \n4季报 （年报）：每年1月1日——4月30日。 \n\n策略：\n1.股票池：中证500\n2.在每次季报发布之后统计股东人数的变化情况，与上季度相比，选出股东人数减少最多的100只股票\n3.在每次季报发布之后统计机构持股占比情况，与上季度相比，选出机构持股占比增加最多的100只股票\n4.将200只股票放在一个池子里，去重\n5.取出20只股票",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-12-15 21:03:04",
+      "modTime": "2020-12-15 21:03:04",
+      "lastActiveTime": "2023-11-21 10:14:00",
+      "lastPubTime": "2020-12-15 21:03:04",
+      "backtestId": "71423f75f332542a09f29b187044db86",
+      "backtestName": "筹码选股2--选出股票--进行买卖",
+      "replyCount": "45",
+      "viewCount": "4755",
+      "collectionCount": "89",
+      "likeCount": "58",
+      "disLikeCount": "0",
+      "backtestCloneCount": "344",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "8",
+      "followersCount": "26",
+      "followingCount": "6",
+      "author": {
+        "userId": "4c3e45baf6281f185666d03a7b1bdf8b",
+        "alias": "sonnet_me"
+      },
+      "tags": [
+        {
+          "id": "10",
+          "name": "研究"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "5",
+          "name": "仓位管理"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "71423f75f332542a09f29b187044db86",
+        "backtest_name": "筹码选股2--选出股票--进行买卖",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=71423f75f332542a09f29b187044db86&postId=65af30cf8bdbb1c467eef1c08d1e3455&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2019-05-01",
+          "end_date": "2020-12-12",
+          "base_capital": 10000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "3069e6c9b129d096aa3de25ddce3e021",
+            "19125874"
+          ],
+          "numeric_backtest_id": "19125874",
+          "numeric_post_id": "30606",
+          "python_version": 3,
+          "clone_count": 344
+        },
+        "stats": {
+          "trading_days": 394,
+          "benchmark_volatility": 0.20836096053479,
+          "algorithm_volatility": 0.25536270434485,
+          "treasury_return": 0.064109589041096,
+          "algorithm_return": 0.7834031249615,
+          "benchmark_return": 0.24951893713856,
+          "annual_algo_return": 0.44351827473042,
+          "annual_bm_return": 0.15182115916425,
+          "sharpe": 1.5801770104435,
+          "excess_return_sharpe": "1.381",
+          "sortino": 2.0571552787913,
+          "information": 1.8888104848623,
+          "beta": 0.97634269068779,
+          "alpha": 0.29434250331617,
+          "excess_return": 0.42727178592871,
+          "avg_excess_return": "0.10%",
+          "max_drawdown": 0.13420585678821,
+          "max_drawdown_period": [
+            "2020-02-24",
+            "2020-03-23"
+          ],
+          "excess_return_max_drawdown": "15.57%",
+          "excess_return_max_drawdown_period": [
+            "2020-10-14",
+            "2020-11-30"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-12",
+          "__version": 101,
+          "win_ratio": 0.6,
+          "profit_loss_ratio": 4.8221826900991,
+          "win_count": 33,
+          "lose_count": 22,
+          "day_win_ratio": 0.55583756345178,
+          "avg_trade_return": 0.24813607946642,
+          "avg_position_days": 127.09677419355,
+          "turnover_rate": 0.0079239546799686,
+          "report_done_seconds": 375.23268246651,
+          "report_done_cpu_seconds": 136.07
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 78.340312,
+          "benchmark_return_percent": 24.951894,
+          "annual_algo_return_percent": 44.351827,
+          "annual_bm_return_percent": 15.182116,
+          "max_drawdown_percent": 13.420586,
+          "algorithm_volatility_percent": 25.53627,
+          "benchmark_volatility_percent": 20.836096,
+          "win_ratio_percent": 60.0,
+          "day_win_ratio_percent": 55.583756,
+          "avg_trade_return_percent": 24.813608,
+          "turnover_rate_percent": 0.792395,
+          "sharpe": 1.5801770104435,
+          "sortino": 2.0571552787913,
+          "information": 1.8888104848623,
+          "alpha": 0.29434250331617,
+          "beta": 0.97634269068779,
+          "profit_loss_ratio": 4.8221826900991,
+          "avg_position_days": 127.09677419355,
+          "trading_days": 394,
+          "win_count": 33,
+          "lose_count": 22,
+          "max_drawdown_period": [
+            "2020-02-24",
+            "2020-03-23"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-10-14",
+            "2020-11-30"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/30606",
+      "https://www.joinquant.com/community/post/detailV2?postId=30606",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=71423f75f332542a09f29b187044db86&postId=65af30cf8bdbb1c467eef1c08d1e3455&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=71423f75f332542a09f29b187044db86"
+    ]
+  }
+}

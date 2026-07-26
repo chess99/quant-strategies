@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/75 财务因子策略.txt",
+    "category": "2020年度精选策略",
+    "file_name": "75 财务因子策略.txt",
+    "strategy_name": "财务因子策略",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 14707,
+    "sha256": "3a12feb0fa8987d1562ec5b0054ee4b152eefa1e33a83338385b52f87bf2fa5d",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/13968"
+    ],
+    "primary_url": "https://www.joinquant.com/post/13968",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:14+08:00",
+    "requested_url": "https://www.joinquant.com/post/13968",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/224df46076946e7310f18abd06300747",
+    "community_id": "224df46076946e7310f18abd06300747",
+    "post": {
+      "postId": "dad46d7c7a7bfde77b867e3cf326014c",
+      "uniqueKey": "224df46076946e7310f18abd06300747",
+      "title": "财务因子策略",
+      "content": "运用财务因子来进行价值投资",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-07-26 17:13:47",
+      "modTime": "2018-07-26 17:13:47",
+      "lastActiveTime": "2018-07-26 17:13:47",
+      "lastPubTime": "2018-07-26 17:13:47",
+      "backtestId": "618f49676a5feee99f1a5c06e3c2a700",
+      "backtestName": "向导式策略生成器",
+      "replyCount": "0",
+      "viewCount": "1092",
+      "collectionCount": "2",
+      "likeCount": "0",
+      "disLikeCount": "0",
+      "backtestCloneCount": "25",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "1",
+      "followersCount": "0",
+      "followingCount": "0",
+      "author": {
+        "userId": "a95b84afe88b12cf36754106abed2346",
+        "alias": "BaeSuzy"
+      },
+      "tags": []
+    },
+    "backtests": [
+      {
+        "backtest_id": "618f49676a5feee99f1a5c06e3c2a700",
+        "backtest_name": "向导式策略生成器",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=618f49676a5feee99f1a5c06e3c2a700&postId=224df46076946e7310f18abd06300747&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2016-12-31",
+          "end_date": "2018-07-21",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "44efbe9d663c9b52868957e92c4b96f4",
+            "9468247"
+          ],
+          "numeric_backtest_id": "9468247",
+          "numeric_post_id": "13968",
+          "python_version": 2,
+          "clone_count": 25
+        },
+        "stats": {
+          "information": 1.8965762500189,
+          "benchmark_return": 0.05522801739462,
+          "algorithm_volatility": 0.17771677492828,
+          "annual_bm_return": 0.036193070507296,
+          "__version": 101,
+          "max_drawdown": 0.24800825597271,
+          "sortino": 1.4021097899366,
+          "period_label": "2018-07",
+          "trading_days": 378,
+          "algorithm_return": 0.3435673,
+          "benchmark_volatility": 0.13958985954335,
+          "beta": 1.0805568438522,
+          "excess_return": 0.28186866986301,
+          "annual_algo_return": 0.21570348668324,
+          "sharpe": 0.98867136630266,
+          "alpha": 0.17981709040065,
+          "max_drawdown_period": [
+            "2018-02-05",
+            "2018-07-05"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.061698630136986,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.53968253968254,
+          "avg_position_days": 116.96875,
+          "win_ratio": 0.64516129032258,
+          "win_count": 60,
+          "avg_trade_return": 0.077270847833042,
+          "profit_loss_ratio": 3.5464878021169,
+          "lose_count": 33,
+          "report_done_seconds": 314.87809300423
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 34.35673,
+          "benchmark_return_percent": 5.522802,
+          "annual_algo_return_percent": 21.570349,
+          "annual_bm_return_percent": 3.619307,
+          "max_drawdown_percent": 24.800826,
+          "algorithm_volatility_percent": 17.771677,
+          "benchmark_volatility_percent": 13.958986,
+          "win_ratio_percent": 64.516129,
+          "day_win_ratio_percent": 53.968254,
+          "avg_trade_return_percent": 7.727085,
+          "sharpe": 0.98867136630266,
+          "sortino": 1.4021097899366,
+          "information": 1.8965762500189,
+          "alpha": 0.17981709040065,
+          "beta": 1.0805568438522,
+          "profit_loss_ratio": 3.5464878021169,
+          "avg_position_days": 116.96875,
+          "trading_days": 378,
+          "win_count": 60,
+          "lose_count": 33,
+          "max_drawdown_period": [
+            "2018-02-05",
+            "2018-07-05"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/13968",
+      "https://www.joinquant.com/community/post/detailV2?postId=13968",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=618f49676a5feee99f1a5c06e3c2a700&postId=224df46076946e7310f18abd06300747&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=618f49676a5feee99f1a5c06e3c2a700"
+    ]
+  }
+}

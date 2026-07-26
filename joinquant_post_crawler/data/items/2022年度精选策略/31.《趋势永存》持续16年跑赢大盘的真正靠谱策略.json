@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/31.《趋势永存》持续16年跑赢大盘的真正靠谱策略.txt",
+    "category": "2022年度精选策略",
+    "file_name": "31.《趋势永存》持续16年跑赢大盘的真正靠谱策略.txt",
+    "strategy_name": "《趋势永存》持续16年跑赢大盘的真正靠谱策略",
+    "declared_title": "《趋势永存》持续16年跑赢大盘的真正靠谱策略",
+    "declared_author": "Ahfu",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 6499,
+    "sha256": "2269ac1c706a04e9fdb0867c31c81f7975a6ae1de521de35d6e7e4d095261bd2",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/36489",
+      "https://www.joinquant.com/post/26035"
+    ],
+    "primary_url": "https://www.joinquant.com/post/36489",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:52+08:00",
+    "requested_url": "https://www.joinquant.com/post/36489",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/100c99cb8d8452b627c058b5a8e6bb1e",
+    "community_id": "100c99cb8d8452b627c058b5a8e6bb1e",
+    "post": {
+      "postId": "9618593b3b8e6b4e72a74e2c7a974c7a",
+      "uniqueKey": "100c99cb8d8452b627c058b5a8e6bb1e",
+      "title": "《趋势永存》持续16年跑赢大盘的真正靠谱策略",
+      "content": "最近看完《趋势永存》，作者：【美】安德烈亚斯·F.克列诺，是ACIES Asset Management AG的首席投资官（Chief Investment Officer），在股票和期货上有着相当丰富的经验。他在本书详细讲述了他所在基金公司实际运行20多年的这一策略，并取得年化15%的收益。\n\n我最近一个多月翻了聚宽大部分策略帖子，年化几倍的比比皆是，但仔细一看真正敢拿来实盘的不多（实盘的一般也不愿意分享出来吧）。这个策略作者之所以愿意拿出来分享，并且持续20年未失效，其中原因作者在书中也有说明，包括策略在1999年开始执行后，每一年在执行过程中面临不同市场情况的焦虑、犹豫等心理历程都有记录，确实值得一读。\n\n读完后想试一试在大A股的效果，在聚宽搜到了[@慕长风 的原帖](https://www.joinquant.com/view/community/detail/3c2d3d5ce02d5e691eccf8e6b772bbc9)，大牛的代码确实写得很精炼，但仔细调试发现和书中作者的意图有不少出入，甚至有相反的地方，因此其回测效果也与书中的有很大差距。\n\n书中策略思路：\n1、以标普500的200日均线为依据判断熊市，熊市则不买入股票；\n2、剔除价格在100日均线下和过去90天里存在15%价格缺口的股票；\n3、根据价格序列做指数回归计算动量，用r-squared表示价格序列和回归线的拟合程度，二者乘积算的分数后给股票排名；\n4、引入ATR和风险因子来计算股票的头寸规模，仓位变化触及阈值时触发再平衡操作；\n5、其他细节详见原书。\n\n现仔细根据书中意图进行了修改，从2006年开始16年的回测稳稳跑赢大盘，年化19%。此策略的优点在于：\n\n1、稳，持续跑赢大盘；\n2、靠谱，不存在过拟合、未来函数等，是基金公司实操策略；\n3、是值得依赖的框架，在此基础上进行优化应该会有不错的效果。\n\n各位大牛可以根据大A股的国情进行优化，比如原策略是采用标普500、200日均线、90天动量 ，咱们大A急涨急跌应该可以进行相应调整。\n\n期待大牛们的优化和交流！\n\n（如果想读原书的，可留邮箱）",
+      "type": 1,
+      "status": "0",
+      "addTime": "2022-02-08 16:44:03",
+      "modTime": "2022-02-08 16:44:03",
+      "lastActiveTime": "2026-07-07 15:57:00",
+      "lastPubTime": "2022-02-08 16:44:03",
+      "backtestId": "0e7ba9ae4c97cbad353dfeeccdd4bb52",
+      "backtestName": "趋势永存--打败市场的动量策略-自测",
+      "replyCount": "179",
+      "viewCount": "7946",
+      "collectionCount": "167",
+      "likeCount": "102",
+      "disLikeCount": "1",
+      "backtestCloneCount": "508",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "9",
+      "followersCount": "1370",
+      "followingCount": "25",
+      "author": {
+        "userId": "db4194870949fa0aef558854a58bb29a",
+        "alias": "Ahfu",
+        "headImgKey": "2bd03e7d1f76c95131ea7c4da74f3e21"
+      },
+      "tags": [
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "5",
+          "name": "仓位管理"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "1884",
+          "name": "趋势"
+        },
+        {
+          "id": "1885",
+          "name": "动量"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "0e7ba9ae4c97cbad353dfeeccdd4bb52",
+        "backtest_name": "趋势永存--打败市场的动量策略-自测",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=0e7ba9ae4c97cbad353dfeeccdd4bb52&postId=100c99cb8d8452b627c058b5a8e6bb1e&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2006-01-01",
+          "end_date": "2022-01-01",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "47dfdc029394752faa059b49005bf4c8",
+            "23467841"
+          ],
+          "numeric_backtest_id": "23467841",
+          "numeric_post_id": "36489",
+          "python_version": 3,
+          "clone_count": 498
+        },
+        "stats": {
+          "trading_days": 3890,
+          "benchmark_volatility": 0.26817966896938,
+          "algorithm_volatility": 0.21073326011994,
+          "treasury_return": 0.64,
+          "algorithm_return": 13.910007066714,
+          "benchmark_return": 4.3499052466295,
+          "annual_algo_return": 0.18964207062877,
+          "annual_bm_return": 0.11380426019452,
+          "sharpe": 0.71010181564885,
+          "excess_return_sharpe": "0.142",
+          "sortino": 0.89153544243804,
+          "information": 0.38422986333037,
+          "beta": 0.53789723078781,
+          "alpha": 0.10994296344979,
+          "excess_return": 1.7869665684467,
+          "avg_excess_return": "0.03%",
+          "max_drawdown": 0.43926677584374,
+          "max_drawdown_period": [
+            "2009-07-27",
+            "2013-04-15"
+          ],
+          "excess_return_max_drawdown": "45.20%",
+          "excess_return_max_drawdown_period": [
+            "2008-11-04",
+            "2011-07-18"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-12",
+          "__version": 101,
+          "win_ratio": 0.68294918805657,
+          "profit_loss_ratio": 1.7167427096725,
+          "win_count": 5215,
+          "lose_count": 2421,
+          "day_win_ratio": 0.51953727506427,
+          "avg_trade_return": 0.16204324082236,
+          "avg_position_days": 133.01023017903,
+          "turnover_rate": 0.017520526693078,
+          "report_done_seconds": 1550.162779808,
+          "report_done_cpu_seconds": 1456.81
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 1391.000707,
+          "benchmark_return_percent": 434.990525,
+          "annual_algo_return_percent": 18.964207,
+          "annual_bm_return_percent": 11.380426,
+          "max_drawdown_percent": 43.926678,
+          "algorithm_volatility_percent": 21.073326,
+          "benchmark_volatility_percent": 26.817967,
+          "win_ratio_percent": 68.294919,
+          "day_win_ratio_percent": 51.953728,
+          "avg_trade_return_percent": 16.204324,
+          "turnover_rate_percent": 1.752053,
+          "sharpe": 0.71010181564885,
+          "sortino": 0.89153544243804,
+          "information": 0.38422986333037,
+          "alpha": 0.10994296344979,
+          "beta": 0.53789723078781,
+          "profit_loss_ratio": 1.7167427096725,
+          "avg_position_days": 133.01023017903,
+          "trading_days": 3890,
+          "win_count": 5215,
+          "lose_count": 2421,
+          "max_drawdown_period": [
+            "2009-07-27",
+            "2013-04-15"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2008-11-04",
+            "2011-07-18"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/36489",
+      "https://www.joinquant.com/community/post/detailV2?postId=36489",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=0e7ba9ae4c97cbad353dfeeccdd4bb52&postId=100c99cb8d8452b627c058b5a8e6bb1e&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=0e7ba9ae4c97cbad353dfeeccdd4bb52"
+    ]
+  }
+}

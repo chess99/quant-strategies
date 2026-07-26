@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/87 选股策略说明——张燕兰 16318320.txt",
+    "category": "2020年度精选策略",
+    "file_name": "87 选股策略说明——张燕兰 16318320.txt",
+    "strategy_name": "选股策略说明——张燕兰 16318320",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 14791,
+    "sha256": "f38ef7eb90eca27c44563d0eb221835634645eb0bca3bff602bad750ee6073c0",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/13969"
+    ],
+    "primary_url": "https://www.joinquant.com/post/13969",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:24+08:00",
+    "requested_url": "https://www.joinquant.com/post/13969",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/ba9ccd8244a273646a1ac29901647930",
+    "community_id": "ba9ccd8244a273646a1ac29901647930",
+    "post": {
+      "postId": "05becc99bddbf435784fac8ee60077e4",
+      "uniqueKey": "ba9ccd8244a273646a1ac29901647930",
+      "title": "选股策略说明——张燕兰 16318320",
+      "content": "1.股票池及时间周期的选择\r\n为了使样本股的规模尽可能大，并考虑到股票的流动性、权重分散等问题，选择上\r\n证 A 股作为股票池。\r\n时间周期为 2017 年 7 月 1 日至 2018 年 7 月 1 日。\r\n2.基准的选择\r\n在本次选股策略中，选择上证指数作为基准。\r\n3.财务指标的选择\r\n主要选择了总市值、ROE 及营业利润率作为财务指标。\r\n 总市值：选择了总市值为 25 亿以上的股票。主要是因为在此范围的股票风险较低，\r\n投资价值相对较高。\r\n 净资产收益率（ROE）：该指标可反映股东权益的收益水平，也可以衡量公司运用\r\n自有资本的效率。因此是评价选股策略的有效指标。在这里选择较高的ROE，设定为 20%以上。\r\n 营业利润率：营业利润率是企业付清一切帐项后剩下的金额称为利润。同样可以衡\r\n量股票反映出的公司价值变化情况。在这里设定为 4%以上。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-07-26 17:16:18",
+      "modTime": "2018-07-26 17:16:18",
+      "lastActiveTime": "2018-09-21 23:28:54",
+      "lastPubTime": "2018-07-26 17:16:18",
+      "backtestId": "950e53c66901e68ed2071da2f3745b21",
+      "backtestName": "向导式策略生成器",
+      "replyCount": "1",
+      "viewCount": "1933",
+      "collectionCount": "4",
+      "likeCount": "3",
+      "disLikeCount": "0",
+      "backtestCloneCount": "69",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "2",
+      "followersCount": "5",
+      "followingCount": "0",
+      "author": {
+        "userId": "d78f5204dc114408ed3cb391f0d9173d",
+        "alias": "ElaineCheung"
+      },
+      "tags": []
+    },
+    "backtests": [
+      {
+        "backtest_id": "950e53c66901e68ed2071da2f3745b21",
+        "backtest_name": "向导式策略生成器",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=950e53c66901e68ed2071da2f3745b21&postId=ba9ccd8244a273646a1ac29901647930&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2017-07-01",
+          "end_date": "2018-07-01",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "e93127aa36add56ab36caaae462c2f38",
+            "9468622"
+          ],
+          "numeric_backtest_id": "9468622",
+          "numeric_post_id": "13969",
+          "python_version": 2,
+          "clone_count": 70
+        },
+        "stats": {
+          "information": 1.6494153257213,
+          "benchmark_return": -0.10807041501874,
+          "algorithm_volatility": 0.2493876598982,
+          "annual_bm_return": -0.11057529150355,
+          "__version": 101,
+          "max_drawdown": 0.14562716266835,
+          "sortino": 1.1295697028581,
+          "period_label": "2018-06",
+          "trading_days": 244,
+          "algorithm_return": 0.24467,
+          "benchmark_volatility": 0.13614607846454,
+          "beta": 0.87863099162148,
+          "excess_return": 0.20510835616438,
+          "annual_algo_return": 0.25138694774666,
+          "sharpe": 0.84762392747478,
+          "alpha": 0.34368706543411,
+          "max_drawdown_period": [
+            "2018-03-06",
+            "2018-05-16"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.039561643835616,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.51639344262295,
+          "avg_position_days": 52.066666666667,
+          "win_ratio": 0.6875,
+          "win_count": 11,
+          "avg_trade_return": 0.077574784638701,
+          "profit_loss_ratio": 2.2228063307421,
+          "lose_count": 5,
+          "report_done_seconds": 202.18477892876
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 24.467,
+          "benchmark_return_percent": -10.807042,
+          "annual_algo_return_percent": 25.138695,
+          "annual_bm_return_percent": -11.057529,
+          "max_drawdown_percent": 14.562716,
+          "algorithm_volatility_percent": 24.938766,
+          "benchmark_volatility_percent": 13.614608,
+          "win_ratio_percent": 68.75,
+          "day_win_ratio_percent": 51.639344,
+          "avg_trade_return_percent": 7.757478,
+          "sharpe": 0.84762392747478,
+          "sortino": 1.1295697028581,
+          "information": 1.6494153257213,
+          "alpha": 0.34368706543411,
+          "beta": 0.87863099162148,
+          "profit_loss_ratio": 2.2228063307421,
+          "avg_position_days": 52.066666666667,
+          "trading_days": 244,
+          "win_count": 11,
+          "lose_count": 5,
+          "max_drawdown_period": [
+            "2018-03-06",
+            "2018-05-16"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/13969",
+      "https://www.joinquant.com/community/post/detailV2?postId=13969",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=950e53c66901e68ed2071da2f3745b21&postId=ba9ccd8244a273646a1ac29901647930&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=950e53c66901e68ed2071da2f3745b21"
+    ]
+  }
+}

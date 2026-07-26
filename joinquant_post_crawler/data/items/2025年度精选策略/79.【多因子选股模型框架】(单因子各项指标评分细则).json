@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/79.【多因子选股模型框架】(单因子各项指标评分细则).txt",
+    "category": "2025年度精选策略",
+    "file_name": "79.【多因子选股模型框架】(单因子各项指标评分细则).txt",
+    "strategy_name": "【多因子选股模型框架】(单因子各项指标评分细则)",
+    "declared_title": "【多因子选股模型框架】(单因子各项指标评分细则)",
+    "declared_author": "酷安克L2",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 4071,
+    "sha256": "b4c04ab0504cadc5fae895245a44df1c72be03ac337b9191ceb4677236d04891",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/27018"
+    ],
+    "primary_url": "https://www.joinquant.com/post/27018",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:35+08:00",
+    "requested_url": "https://www.joinquant.com/post/27018",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/b8ae4f443d688b7d479c07dffdf3fd56",
+    "community_id": "b8ae4f443d688b7d479c07dffdf3fd56",
+    "post": {
+      "postId": "dd373010065e939508b8719a3ead3a47",
+      "uniqueKey": "b8ae4f443d688b7d479c07dffdf3fd56",
+      "title": "【多因子选股模型框架】(单因子各项指标评分细则)",
+      "content": "- 股票池：沪深300指数成份股\n - 剔除选股日的 ST/*ST 的股票\n - 剔除上市不满一个季度的股票\n - 剔除选股日停牌的股票\n\n- 样本内(因子筛选期):  2010-03-31 —— 2017-03-31  七年84个月\n\n- 样本外(回测期):     2017-03-31 —— 2020-03-31  三年36个月\n- 基准：沪深300指数\n\n一、数据获取\n\n1.选取因子（25个）:\n`PB、换手率、营业利润率、PE、经营活动净收益、ROA、销售净利率、毛利润/总资产、净利润(扣非)、销售毛利率、每股收益、净利润、PS、营业利润、ROE、息税前利润、毛利润、总市值、现金流量净额/营业收入(%)、现金流量净额/总市值、营业总成本、营业总收入、股东权益合计、营业收入、PCF`\n\n二、数据清洗\n1.缺失值：\n- 行业中位数代替 \n\n2.异常值：\n- 中位数去极值法\n\n3.标准化:\n- z-score\n\n4.行业市值中性化：\n\n- 回归残差替代\n\n三、单因子检验结果:\n- 打分依据：\n - |IC均值|&gt;0.02  \n - |IR|&gt;0.3 \n - t检验p值&lt; 0.05\n - |t|均值&gt;2\n\n- 满足+1分,满分4分\n- 筛选出15个有效的因子\n\n四、去除相关性强的因子\n\n- 剔除了6个因子：\n`经营活动净收益、销售净利率、净利润(扣非)、每股收益、营业利润、ROE`\n\n五、打分法样本外回测：\n- 2017-03-31 —— 2020-03-31 （36个月）\n- 选股因子（9个）：\n`PB、PS、PE、换手率、营业利润率、\nROA、毛利润/总资产、销售毛利率、净利润`\n- 等权打分：\n与收益正相关的因子越大分值越高：\n`营业利润率、ROA、销售毛利率、净利润`\n与收益负相关的因子越小分值越高：\n`PB、PS、PE、换手率、毛利润/总资产`\n\n六、回测结果：",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-04-22 22:34:13",
+      "modTime": "2020-04-22 22:34:13",
+      "lastActiveTime": "2025-05-28 14:50:55",
+      "lastPubTime": "2020-04-22 22:34:13",
+      "backtestId": "4808092fa87cbe72a55365c9f1672fe6",
+      "backtestName": "多因子选股策略v1修正",
+      "replyCount": "71",
+      "viewCount": "13332",
+      "collectionCount": "342",
+      "likeCount": "164",
+      "disLikeCount": "0",
+      "backtestCloneCount": "478",
+      "notebookCloneCount": "290",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "3",
+      "followersCount": "618",
+      "followingCount": "27",
+      "author": {
+        "userId": "1a886d1ac9b8bca4943fb9b7d5f238d3",
+        "alias": "酷安克L2",
+        "introduction": "机器学习, 深度学习,技术分析",
+        "headImgKey": "649e4fabc13497349f4e8207823dd999"
+      },
+      "tags": [
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "4808092fa87cbe72a55365c9f1672fe6",
+        "backtest_name": "多因子选股策略v1修正",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=4808092fa87cbe72a55365c9f1672fe6&postId=b8ae4f443d688b7d479c07dffdf3fd56&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2010-03-31",
+          "end_date": "2020-03-31",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "d80f259d02f717bc0222795cff00a613",
+            "18110217"
+          ],
+          "numeric_backtest_id": "18110217",
+          "numeric_post_id": "27018",
+          "python_version": 3,
+          "clone_count": 473
+        },
+        "stats": {
+          "trading_days": 2432,
+          "benchmark_volatility": 0.23296914548791,
+          "algorithm_volatility": 0.24318442361141,
+          "treasury_return": 0.40032876712329,
+          "algorithm_return": 0.800381703513,
+          "benchmark_return": 0.094884917322841,
+          "annual_algo_return": 0.062308048547822,
+          "annual_bm_return": 0.0093619373714497,
+          "sharpe": 0.091733048591424,
+          "excess_return_sharpe": "0.171",
+          "sortino": 0.12022798905866,
+          "information": 0.72730144686997,
+          "beta": 0.99598788773337,
+          "alpha": 0.052823187829475,
+          "excess_return": 0.64435702330725,
+          "avg_excess_return": "0.02%",
+          "max_drawdown": 0.41605092798183,
+          "max_drawdown_period": [
+            "2015-06-12",
+            "2016-01-28"
+          ],
+          "excess_return_max_drawdown": "14.24%",
+          "excess_return_max_drawdown_period": [
+            "2014-08-21",
+            "2014-12-17"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-03",
+          "__version": 101,
+          "win_ratio": 0.56628787878788,
+          "profit_loss_ratio": 1.4465557600304,
+          "win_count": 897,
+          "lose_count": 687,
+          "day_win_ratio": 0.53125,
+          "avg_trade_return": 0.06347671249366,
+          "avg_position_days": 267.16304347826,
+          "turnover_rate": 0.014617564175085,
+          "report_done_seconds": 151.65690112114,
+          "report_done_cpu_seconds": 129.53
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 80.03817,
+          "benchmark_return_percent": 9.488492,
+          "annual_algo_return_percent": 6.230805,
+          "annual_bm_return_percent": 0.936194,
+          "max_drawdown_percent": 41.605093,
+          "algorithm_volatility_percent": 24.318442,
+          "benchmark_volatility_percent": 23.296915,
+          "win_ratio_percent": 56.628788,
+          "day_win_ratio_percent": 53.125,
+          "avg_trade_return_percent": 6.347671,
+          "turnover_rate_percent": 1.461756,
+          "sharpe": 0.091733048591424,
+          "sortino": 0.12022798905866,
+          "information": 0.72730144686997,
+          "alpha": 0.052823187829475,
+          "beta": 0.99598788773337,
+          "profit_loss_ratio": 1.4465557600304,
+          "avg_position_days": 267.16304347826,
+          "trading_days": 2432,
+          "win_count": 897,
+          "lose_count": 687,
+          "max_drawdown_period": [
+            "2015-06-12",
+            "2016-01-28"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2014-08-21",
+            "2014-12-17"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/27018",
+      "https://www.joinquant.com/community/post/detailV2?postId=27018",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=4808092fa87cbe72a55365c9f1672fe6&postId=b8ae4f443d688b7d479c07dffdf3fd56&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=4808092fa87cbe72a55365c9f1672fe6"
+    ]
+  }
+}

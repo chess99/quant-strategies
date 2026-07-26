@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/26.稳定高回报周期股策略2.txt",
+    "category": "2025年度精选策略",
+    "file_name": "26.稳定高回报周期股策略2.txt",
+    "strategy_name": "稳定高回报周期股策略2",
+    "declared_title": "稳定高回报周期股策略2",
+    "declared_author": "jqz1226",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 10323,
+    "sha256": "6f46c3e6ed3c37a962170fc4b5a13dc05054ad863d2202e5069b6e3aee2843df",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/23858"
+    ],
+    "primary_url": "https://www.joinquant.com/post/23858",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:10:59+08:00",
+    "requested_url": "https://www.joinquant.com/post/23858",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/1edca153a30a134063675c5318b183d3",
+    "community_id": "1edca153a30a134063675c5318b183d3",
+    "post": {
+      "postId": "a1c42498b45d8037145208d3e4b1c8f5",
+      "uniqueKey": "1edca153a30a134063675c5318b183d3",
+      "title": "稳定高回报周期股策略2",
+      "content": "原作品： **稳定高回报周期股策略**   [链接]( https://www.joinquant.com/view/community/detail/d7fdcc62de0b90a1cff20c773ed19548 )\n\n原作者：只看年报来投资\n’\n有网友很是推崇这个策略，于是，我试图去深入了解该策略的逻辑，在读源代码的同时，将源代码改写了一遍，力求将速度提高一些，代码逻辑清晰一些。改写后，**回测时间从426秒缩短到226秒，差不多提速了1倍。**\n‘\n说实话，我教会计二十年的，自己从来不看上市公司的财务报表。没想到`只看年报来投资`却挖的这么深，看来，只看会计报表来投资，也是可行的，以后我也得看看会计报告了。\n'\n策略改写后，**收益比原作稍有提高，从原作的568.66%提高到了596.49%，**当然，最大回撤也加大了，从原来的39.818%变成了40.04%。提高的地方是买卖时买入的资金分配，其他地方尽量忠实于原作，算出来的指标值是一样的。\n'\n例如：2010-4-1，原作算出的指标值是：\n\n​     code                 hb               tb              pe                s\n0   600153.XSHG  2.110425  3.492789  17.676099  145.625\n1   000550.XSHE  1.438044  2.496741  17.634321  140.625\n2   000900.XSHE  1.237180  1.272174  13.598037  140.000\n3   600449.XSHG  3.264030  1.614884  17.853249  128.750\n4   600269.XSHG  1.169191  1.150683  17.324782  125.625\n5   600012.XSHG  0.995536  0.988833  17.357977  107.500\n6   600123.XSHG  0.837682  0.878536  17.517835   93.125\n7   600720.XSHG  1.524821  1.746471  19.135910   91.875\n8   000679.XSHE  1.717781  1.651772  19.539976   86.875\n9   000726.XSHE  1.234461  1.557645  18.702889   86.250\n10  601006.XSHG  1.301495  1.278120  19.101674   76.250\n11  600508.XSHG  1.068990  0.636406  18.152754   69.375\n12  601001.XSHG  0.422955  0.458935  17.852433   67.500\n13  600970.XSHG  1.327431  1.445296  19.836928   62.500\n14  601088.XSHG  0.899825  1.137077  18.883998   58.125\n15  600350.XSHG  1.370319  1.004081  19.995372   50.000 \n'\n我多了9只股票，尽管个股的指标值跟原作一致，但个股排序就不同了，导致买卖的股票就有差异：\n\n​     code                 hb                  tb              pe                s\n0   000589.XSHE  2.244975 -16.482154  12.855821  150.4\n1   600011.XSHG  1.889493  -1.134369  15.905691  141.2\n2   000900.XSHE  1.237180   1.272174  13.598037  138.4\n3   600153.XSHG  2.110425   3.492789  17.676099  132.0\n4   600469.XSHG  1.376893  -0.981161  16.777774  126.4\n5   000550.XSHE  1.438044   2.496741  17.634321  124.8\n6   600449.XSHG  3.264030   1.614884  17.853249  123.2\n7   000708.XSHE  1.960114  -3.047002  17.399014  122.0\n8   600269.XSHG  1.169191   1.150683  17.324782  117.2\n9   600028.XSHG  0.840409   0.591833  16.602250  110.0\n10  600012.XSHG  0.995536   0.988833  17.357977  105.6\n11  000528.XSHE  1.258966  -8.192348  17.441600   97.6\n12  600123.XSHG  0.837682   0.878536  17.517835   86.4\n13  600720.XSHG  1.524821   1.746471  19.135910   85.6\n14  000726.XSHE  1.234461   1.557645  18.702889   80.0\n15  000679.XSHE  1.717781   1.651772  19.539976   78.4\n16  601006.XSHG  1.301495   1.278120  19.101674   73.6\n17  600508.XSHG  1.068990   0.636406  18.152754   73.2\n18  601001.XSHG  0.422955   0.458935  17.852433   66.8\n19  601088.XSHG  0.899825   1.137077  18.883998   62.0\n20  600970.XSHG  1.327431   1.445296  19.836928   60.8\n21  600166.XSHG  1.245413  -3.520472  18.967971   56.8\n22  600350.XSHG  1.370319   1.004081  19.995372   52.8\n23  000597.XSHE  0.336722   0.455246  18.187352   51.6\n24  600642.XSHG  0.491721 -36.026984  19.312151   23.2 \n’\n改动比较大的地方，是计算应收账款周转率、扣非后净收益、同比、环比这块，原作在controlReport函数中，是一个公司一个公司的遍历，我改成了groupby，可以一次性算出来。为此，我把原作6个季度数据放到1个DataFram里，改成2个季度一个DataFrame，共3个DataFrame。算过去1一年的时候，df1+df2合并，算环比、同比的时候，可以直接df1/df2, df1/df3，这样计算应该方便一些，可以成组计算，不用one by one了。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2019-11-18 12:05:38",
+      "modTime": "2019-11-18 12:05:38",
+      "lastActiveTime": "2022-05-20 08:35:33",
+      "lastPubTime": "2019-11-18 12:05:38",
+      "backtestId": "807fcf7ba2b73489aabc7f94afa137b9",
+      "backtestName": "稳定高回报周期股策略2",
+      "replyCount": "69",
+      "viewCount": "10548",
+      "collectionCount": "189",
+      "likeCount": "87",
+      "disLikeCount": "0",
+      "backtestCloneCount": "630",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "114",
+      "followersCount": "7737",
+      "followingCount": "24",
+      "author": {
+        "userId": "ef6f8a9d243c80e546a4dd9a8f3c0968",
+        "alias": "jqz1226 ZUEL",
+        "headImgKey": "f8ad1df3e2e743d648263f8a8032baa9"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "807fcf7ba2b73489aabc7f94afa137b9",
+        "backtest_name": "稳定高回报周期股策略2",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=807fcf7ba2b73489aabc7f94afa137b9&postId=1edca153a30a134063675c5318b183d3&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2010-01-01",
+          "end_date": "2019-08-02",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "1a1e209c319e33a44531023a7e0a03f5",
+            "15468568"
+          ],
+          "numeric_backtest_id": "15468568",
+          "numeric_post_id": "23858",
+          "python_version": 3,
+          "clone_count": 614
+        },
+        "stats": {
+          "trading_days": 2330,
+          "benchmark_volatility": 0.23371612178468,
+          "algorithm_volatility": 0.30815892869285,
+          "treasury_return": 0.38323287671233,
+          "algorithm_return": 5.9648545578,
+          "benchmark_return": 0.048035618399847,
+          "annual_algo_return": 0.23151925721597,
+          "annual_bm_return": 0.005046766526758,
+          "sharpe": 0.62149507732375,
+          "excess_return_sharpe": "1.014",
+          "sortino": 0.83457047255348,
+          "information": 1.2415014210233,
+          "beta": 1.0646454814391,
+          "alpha": 0.22873205929494,
+          "excess_return": 5.6456277205864,
+          "avg_excess_return": "0.09%",
+          "max_drawdown": 0.40040255005229,
+          "max_drawdown_period": [
+            "2015-06-17",
+            "2016-02-29"
+          ],
+          "excess_return_max_drawdown": "22.29%",
+          "excess_return_max_drawdown_period": [
+            "2017-12-01",
+            "2018-04-04"
+          ],
+          "max_leverage": 0,
+          "period_label": "2019-08",
+          "__version": 101,
+          "win_ratio": 0.59895833333333,
+          "profit_loss_ratio": 2.4664331688074,
+          "win_count": 115,
+          "lose_count": 77,
+          "day_win_ratio": 0.50429184549356,
+          "avg_trade_return": 0.069138827557162,
+          "avg_position_days": 102.5045045045,
+          "turnover_rate": 0.015972701964944,
+          "report_done_seconds": 226.53182601929
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 596.485456,
+          "benchmark_return_percent": 4.803562,
+          "annual_algo_return_percent": 23.151926,
+          "annual_bm_return_percent": 0.504677,
+          "max_drawdown_percent": 40.040255,
+          "algorithm_volatility_percent": 30.815893,
+          "benchmark_volatility_percent": 23.371612,
+          "win_ratio_percent": 59.895833,
+          "day_win_ratio_percent": 50.429185,
+          "avg_trade_return_percent": 6.913883,
+          "turnover_rate_percent": 1.59727,
+          "sharpe": 0.62149507732375,
+          "sortino": 0.83457047255348,
+          "information": 1.2415014210233,
+          "alpha": 0.22873205929494,
+          "beta": 1.0646454814391,
+          "profit_loss_ratio": 2.4664331688074,
+          "avg_position_days": 102.5045045045,
+          "trading_days": 2330,
+          "win_count": 115,
+          "lose_count": 77,
+          "max_drawdown_period": [
+            "2015-06-17",
+            "2016-02-29"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2017-12-01",
+            "2018-04-04"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/23858",
+      "https://www.joinquant.com/community/post/detailV2?postId=23858",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=807fcf7ba2b73489aabc7f94afa137b9&postId=1edca153a30a134063675c5318b183d3&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=807fcf7ba2b73489aabc7f94afa137b9"
+    ]
+  }
+}

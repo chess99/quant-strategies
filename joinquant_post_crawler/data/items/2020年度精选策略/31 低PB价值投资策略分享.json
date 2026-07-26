@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/31 低PB价值投资策略分享.txt",
+    "category": "2020年度精选策略",
+    "file_name": "31 低PB价值投资策略分享.txt",
+    "strategy_name": "低PB价值投资策略分享",
+    "declared_title": null,
+    "declared_author": "王文纲",
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 17676,
+    "sha256": "5f9bf0f45618e22ecfae05849b576f9e135b8254f9065838284978bb5a9f5987",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/11549"
+    ],
+    "primary_url": "https://www.joinquant.com/post/11549",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:06:39+08:00",
+    "requested_url": "https://www.joinquant.com/post/11549",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/1c288350819b333902a13ccb49efd1a3",
+    "community_id": "1c288350819b333902a13ccb49efd1a3",
+    "post": {
+      "postId": "4e02e90948bd0d8db51b92bdeba9ab4b",
+      "uniqueKey": "1c288350819b333902a13ccb49efd1a3",
+      "title": "低PB价值投资策略分享",
+      "content": "       接触聚宽量化平台已经四个多月了，第一次制定策略并程序化，意外地收益还挺高，但仍有许多不满意的地方，现分享出来，希望路过的各位大神们能提点建议或发表下看法，感激不尽！\r\n一 策略名称：低PB价值投资策略\r\n二 策略概述：筛选低市净率且财务指标向好的A股，做价值投资\r\n三 策略基本内容：\r\n    1 选股：过滤筛选A股列表，并对符合条件的股票进行排序，主要包括：\r\n       1.1 状态过滤：过滤停盘、退市、ST及开盘涨停股；\r\n       1.2 财务筛选：筛选流通股本小于25亿股、市净率小于0.85，且营业收入同比增长率、净利润同比增长率、净资产收益率ROE\r\n              都大于0的股票，对初步筛选后的股票按市净率从小到大筛选出前10只股票（最多10只）；\r\n       1.3 排序：对选出的股票按净资产收益率ROE、市净率、净利润同比增长率、总市值四项指标所占权重比例重新排序\r\n    2 择时：对排序第一的股票当天开盘即买入\r\n    3 仓位管理：最多同时持有一只股票，且只做满仓买入或全仓卖出操作\r\n    4 止盈止损：每分钟判断个股从持仓后的最大涨跌幅度及最高价回撤幅度，若超过设定阈值，则清仓\r\n四 策略回测概述：\r\n    1 回测周期：2014-01-01 到 2018-01-30 ，按分钟回测\r\n    2 初始资金：100000元\r\n    3 策略收益：1465.70% ，策略年化收益：99.19% ，Alpha：0.908 ，Beta：0.357 ，Sharpe：3.149 ，胜率：100% ，\r\n                        最大回测：15.860%\r\n五 策略还需改进项：\r\n    1 空仓时间较多，大概占了回测周期的三分之一时间，有待改善\r\n    2 探索是否有更适合该策略的仓位管理方法\r\n    3 引进动态量化因子，解决目前筛选参数均为常量而导致在其他回测周期收益效果并不理想的问题\r\n版本：1.3.1.180318\r\n日期：2018.3.18",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-03-20 03:09:57",
+      "modTime": "2018-03-20 03:09:57",
+      "lastActiveTime": "2026-06-28 13:56:27",
+      "lastPubTime": "2018-03-20 03:09:57",
+      "backtestId": "264fc88a5b896da4b0893ec2bdfb8ace",
+      "backtestName": "低PB价值投资策略_1.3.1.180318",
+      "replyCount": "72",
+      "viewCount": "8780",
+      "collectionCount": "103",
+      "likeCount": "42",
+      "disLikeCount": "0",
+      "backtestCloneCount": "615",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "1",
+      "followersCount": "36",
+      "followingCount": "13",
+      "author": {
+        "userId": "00fc5e3a70d2209eac79ba908ff6cc6e",
+        "alias": "对韭纲割"
+      },
+      "tags": [
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "264fc88a5b896da4b0893ec2bdfb8ace",
+        "backtest_name": "低PB价值投资策略_1.3.1.180318",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=264fc88a5b896da4b0893ec2bdfb8ace&postId=1c288350819b333902a13ccb49efd1a3&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2014-01-01",
+          "end_date": "2018-01-30",
+          "base_capital": 100000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "7e9564c8d8f47f9a1fda13cb81d4e4e1",
+            "7900309"
+          ],
+          "numeric_backtest_id": "7900309",
+          "numeric_post_id": "11549",
+          "python_version": 2,
+          "clone_count": 617
+        },
+        "stats": {
+          "information": 2.5114748222351,
+          "benchmark_return": 0.82663197749726,
+          "algorithm_volatility": 0.30226346512393,
+          "annual_bm_return": 0.16290396630717,
+          "__version": 101,
+          "max_drawdown": 0.15860391925797,
+          "sortino": 5.3116495527387,
+          "period_label": "2018-01",
+          "trading_days": 998,
+          "algorithm_return": 14.6570243,
+          "benchmark_volatility": 0.24789922629753,
+          "beta": 0.35678841256828,
+          "excess_return": 14.493846217808,
+          "annual_algo_return": 0.99193819006389,
+          "sharpe": 3.1493657021155,
+          "alpha": 0.90808747902681,
+          "max_drawdown_period": [
+            "2015-08-28",
+            "2015-09-02"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.16317808219178,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.48496993987976,
+          "avg_position_days": 63.2,
+          "win_ratio": 1,
+          "win_count": 14,
+          "avg_trade_return": 0.22456773293636,
+          "profit_loss_ratio": 1479103.2,
+          "lose_count": 0,
+          "report_done_seconds": 2930.2244491577
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 1465.70243,
+          "benchmark_return_percent": 82.663198,
+          "annual_algo_return_percent": 99.193819,
+          "annual_bm_return_percent": 16.290397,
+          "max_drawdown_percent": 15.860392,
+          "algorithm_volatility_percent": 30.226347,
+          "benchmark_volatility_percent": 24.789923,
+          "win_ratio_percent": 100,
+          "day_win_ratio_percent": 48.496994,
+          "avg_trade_return_percent": 22.456773,
+          "sharpe": 3.1493657021155,
+          "sortino": 5.3116495527387,
+          "information": 2.5114748222351,
+          "alpha": 0.90808747902681,
+          "beta": 0.35678841256828,
+          "profit_loss_ratio": 1479103.2,
+          "avg_position_days": 63.2,
+          "trading_days": 998,
+          "win_count": 14,
+          "lose_count": 0,
+          "max_drawdown_period": [
+            "2015-08-28",
+            "2015-09-02"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/11549",
+      "https://www.joinquant.com/community/post/detailV2?postId=11549",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=264fc88a5b896da4b0893ec2bdfb8ace&postId=1c288350819b333902a13ccb49efd1a3&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=264fc88a5b896da4b0893ec2bdfb8ace"
+    ]
+  }
+}

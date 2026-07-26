@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/3.一个简单而持续稳定的懒人超额收益策略.txt",
+    "category": "2025年度精选策略",
+    "file_name": "3.一个简单而持续稳定的懒人超额收益策略.txt",
+    "strategy_name": "一个简单而持续稳定的懒人超额收益策略",
+    "declared_title": "一个简单而持续稳定的懒人超额收益策略",
+    "declared_author": "Gyro",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 2005,
+    "sha256": "235e9019e568f11f5df81a2972722bb6a9db43146a6c177e260a3e39273e2749",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/30467"
+    ],
+    "primary_url": "https://www.joinquant.com/post/30467",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:46+08:00",
+    "requested_url": "https://www.joinquant.com/post/30467",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/6155c47f9ad2d095e3e4e360d3aba4cc",
+    "community_id": "6155c47f9ad2d095e3e4e360d3aba4cc",
+    "post": {
+      "postId": "2e070aca4740b91f02f656181a1dfbca",
+      "uniqueKey": "6155c47f9ad2d095e3e4e360d3aba4cc",
+      "title": "一个简单而持续稳定的懒人超额收益策略",
+      "content": "这个策略极其简单：\n1 月初检测沪深300指数的TOP10\n2 如果当前持仓不在TOP10里边，卖出；如果TOP10里边有、当前持仓没有的，等权重（9.5%）买进。9.5%是为了预留5%的现金。\n\n这个策略够简单，成交也够稀疏，但是，效果很棒：\nalpha = 0.14，年化超越沪深300指数14%。\nβ = 0.88， 非常接近1，夏普比0.8，信息比竟然高达1.3，超额收益最大回撤11.7%。\n\n----------\n2022-11-2更新记录：\n1删除了原文中的对冲设想。\n2这篇文章是我的致敬市场系列的源头，它有很多疑问，引发了长长的探索。\n3策略保留，理当存档，是非成败，欢迎评说。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-12-07 12:34:51",
+      "modTime": "2022-11-02 11:43:30",
+      "lastActiveTime": "2026-07-01 20:32:59",
+      "lastPubTime": "2022-11-02 11:43:30",
+      "backtestId": "41ac0333ea02604ef97a0f60c9556cc9",
+      "backtestName": "指数重仓",
+      "replyCount": "370",
+      "viewCount": "17720",
+      "collectionCount": "174",
+      "likeCount": "130",
+      "disLikeCount": "0",
+      "backtestCloneCount": "715",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "227",
+      "followersCount": "5889",
+      "followingCount": "1",
+      "author": {
+        "userId": "3fceae24196d3cc61959481cd9c6eeac",
+        "alias": "Gyron",
+        "introduction": "\r\n                    \r\n                     ",
+        "headImgKey": "600eaeda447f70216671ecc0af5f5fe2"
+      },
+      "tags": [
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "41ac0333ea02604ef97a0f60c9556cc9",
+        "backtest_name": "指数重仓",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=41ac0333ea02604ef97a0f60c9556cc9&postId=6155c47f9ad2d095e3e4e360d3aba4cc&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2016-01-01",
+          "end_date": "2020-12-01",
+          "base_capital": 1234567,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "3b51081cf901654a536dfeb0b6446643",
+            "19041035"
+          ],
+          "numeric_backtest_id": "19041035",
+          "numeric_post_id": "30467",
+          "python_version": 3,
+          "clone_count": 1185
+        },
+        "stats": {
+          "trading_days": 1196,
+          "benchmark_volatility": 0.1987378704325,
+          "algorithm_volatility": 0.20307383461752,
+          "treasury_return": 0.19649315068493,
+          "algorithm_return": 1.4195047378393,
+          "benchmark_return": 0.35810410585873,
+          "annual_algo_return": 0.20284698503071,
+          "annual_bm_return": 0.0660731645603,
+          "sharpe": 0.80191022805781,
+          "excess_return_sharpe": "0.842",
+          "sortino": 1.1763322647722,
+          "information": 1.3092355673895,
+          "beta": 0.88389652889033,
+          "alpha": 0.13980100537867,
+          "excess_return": 0.78153112666529,
+          "avg_excess_return": "0.05%",
+          "max_drawdown": 0.31686885590447,
+          "max_drawdown_period": [
+            "2018-01-23",
+            "2018-12-27"
+          ],
+          "excess_return_max_drawdown": "11.74%",
+          "excess_return_max_drawdown_period": [
+            "2019-11-15",
+            "2020-02-25"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-12",
+          "__version": 101,
+          "win_ratio": 0.36363636363636,
+          "profit_loss_ratio": 0.63068035917676,
+          "win_count": 8,
+          "lose_count": 14,
+          "day_win_ratio": 0.51421404682274,
+          "avg_trade_return": -0.015023920323104,
+          "avg_position_days": 640.41176470588,
+          "turnover_rate": 0.0016707223134517,
+          "report_done_seconds": 29.841377019882,
+          "report_done_cpu_seconds": 23.99
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 141.950474,
+          "benchmark_return_percent": 35.810411,
+          "annual_algo_return_percent": 20.284699,
+          "annual_bm_return_percent": 6.607316,
+          "max_drawdown_percent": 31.686886,
+          "algorithm_volatility_percent": 20.307383,
+          "benchmark_volatility_percent": 19.873787,
+          "win_ratio_percent": 36.363636,
+          "day_win_ratio_percent": 51.421405,
+          "avg_trade_return_percent": -1.502392,
+          "turnover_rate_percent": 0.167072,
+          "sharpe": 0.80191022805781,
+          "sortino": 1.1763322647722,
+          "information": 1.3092355673895,
+          "alpha": 0.13980100537867,
+          "beta": 0.88389652889033,
+          "profit_loss_ratio": 0.63068035917676,
+          "avg_position_days": 640.41176470588,
+          "trading_days": 1196,
+          "win_count": 8,
+          "lose_count": 14,
+          "max_drawdown_period": [
+            "2018-01-23",
+            "2018-12-27"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2019-11-15",
+            "2020-02-25"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/30467",
+      "https://www.joinquant.com/community/post/detailV2?postId=30467",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=41ac0333ea02604ef97a0f60c9556cc9&postId=6155c47f9ad2d095e3e4e360d3aba4cc&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=41ac0333ea02604ef97a0f60c9556cc9"
+    ]
+  }
+}

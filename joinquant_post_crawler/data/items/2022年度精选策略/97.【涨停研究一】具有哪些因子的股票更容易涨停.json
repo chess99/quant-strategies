@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/97.【涨停研究一】具有哪些因子的股票更容易涨停.txt",
+    "category": "2022年度精选策略",
+    "file_name": "97.【涨停研究一】具有哪些因子的股票更容易涨停.txt",
+    "strategy_name": "【涨停研究一】具有哪些因子的股票更容易涨停",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 21813,
+    "sha256": "9cd87e21efc53f85c9178c54bfeb78df28c32125c6c565744df21f76215698c8",
+    "joinquant_urls": [],
+    "primary_url": null,
+    "url_selection_method": "none"
+  },
+  "remote": null
+}

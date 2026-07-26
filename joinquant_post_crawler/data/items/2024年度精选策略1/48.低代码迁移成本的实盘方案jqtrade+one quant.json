@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略1/48.低代码迁移成本的实盘方案jqtrade+one quant.txt",
+    "category": "2024年度精选策略1",
+    "file_name": "48.低代码迁移成本的实盘方案jqtrade+one quant.txt",
+    "strategy_name": "低代码迁移成本的实盘方案jqtrade+one quant",
+    "declared_title": "低代码迁移成本的实盘方案:jqtrade+one quant",
+    "declared_author": "拉姆达投资",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 5954,
+    "sha256": "ee3d5958a17325e81db68af284f33dc0722157520b7b0793a1ff56d74bbf7c24",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/45671"
+    ],
+    "primary_url": "https://www.joinquant.com/post/45671",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "error",
+    "collected_at": "2026-07-27T02:22:35+08:00",
+    "requested_url": "https://www.joinquant.com/post/45671",
+    "error": {
+      "message": "接口错误 code=20000 msg=系统异常，请稍后重试",
+      "url": "https://www.joinquant.com/community/post/detailV2?postId=45671",
+      "http_status": null
+    }
+  }
+}

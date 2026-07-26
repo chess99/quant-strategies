@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/18国庆节献礼：实例说明白马股攻防转换策略.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "18国庆节献礼：实例说明白马股攻防转换策略.txt",
+    "strategy_name": "国庆节献礼：实例说明白马股攻防转换策略",
+    "declared_title": "国庆节献礼：实例说明白马股攻防转换策略",
+    "declared_author": "蚂蚁量化",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 8366,
+    "sha256": "dc7d7bcb3e233df32ad8e282882fbedf7da02ef6012cc66a47023976b56cd02e",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/50043",
+      "https://www.joinquant.com/post/41921"
+    ],
+    "primary_url": "https://www.joinquant.com/post/50043",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:55+08:00",
+    "requested_url": "https://www.joinquant.com/post/50043",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/51b35b6e7299bde1585129d413edf5ee",
+    "community_id": "51b35b6e7299bde1585129d413edf5ee",
+    "post": {
+      "postId": "735b9366a3c84d5de54ae0121b1df2cf",
+      "uniqueKey": "51b35b6e7299bde1585129d413edf5ee",
+      "title": "国庆节献礼：实例说明“白马攻防”策略",
+      "content": "我2016年写的白马股策略”价值发现“，在2019到2021三年的年平均收益超过65%，但从2022年开始，收益长时间大幅回撤。这两年经过对市场的反思，我认识到策略要用单一的方法，应对市场的不同冷热状态是不行的，投资谚语：”涨时重势，跌时重质“，就是涨的时候看重趋势，是进取、进攻的姿态，跌的时候看重股票的价值，是一种防守的姿态。而根据市场的高度，把市场划分成冷、暖、热三种温度，不同的温度下，策略采取不同的方法选股，就得到了”白马股-攻防兼备“策略，年化收益61%，最大回撤20%，两个收益的对比图如下：\n\n![Img](https://image.joinquant.com/45f6c8943f64957fd07035178f296cae) \n\n\n下面我用**Ahfu**朋友的”**大市值价值投资，从2005年至今超额稳定**“策略作为框架，以沪深300指数样本股为股票池，实现白马股攻防转换策略\n## 策略框架克隆自聚宽文章：https://www.joinquant.com/post/41921\n## 标题：大市值价值投资，从2005年至今超额稳定\n## 作者：Ahfu\n\n首先写一个市场温度策略函数：\n```\n\n\n#  测量市场所处的热度，分cold\\warm\\hot三种\ndef Market_temperature(context):\n    \n    index300 = attribute_history('000300.XSHG', 220, '1d', ('close'), df=False)['close']\n    market_height = (mean(index300[-5:]) - min(index300)) / (max(index300) - min(index300))\n    if market_height &lt; 0.20:  # 高度在0.2以下定为低温\n        g.market_temperature = \"cold\"\n\n    elif market_height &gt; 0.90:  # 高度在0.9以上定为高温\n        g.market_temperature = \"hot\"\n\n    elif max(index300[-60:]) / min(index300) &gt; 1.20:    \n    # 高度在0.2~0.9之间时，如果60天内，指数从低位上涨大于20%，定为中温\n        g.market_temperature = \"warm\"\n\n    \n    if g.market_temperature == \"cold\":\n        temp = 200\n    elif g.market_temperature == \"warm\":\n        temp = 300\n    else:\n        temp = 400\n        \n    if context.run_params.type != 'sim_trade':\n        record(temp=temp)\n```\n\n然后在选股代码里，分三种情况筛选股票：\n```\n\n    if g.market_temperature == \"cold\":\n        q = query(\n            valuation.code, \n            ).filter(\n            valuation.pb_ratio &gt; 0,\n            valuation.pb_ratio &lt; 1,\n            cash_flow.subtotal_operate_cash_inflow &gt; 0,\n            indicator.adjusted_profit &gt; 0,\n            cash_flow.subtotal_operate_cash_inflow/indicator.adjusted_profit&gt;2.0,\n            indicator.inc_return &gt; 1.5,\n            indicator.inc_net_profit_year_on_year &gt; -15,\n        \tvaluation.code.in_(all_stocks)\n        \t).order_by(\n        \t(indicator.roa/valuation.pb_ratio).desc()\n        ).limit(\n        \tg.buy_stock_count + 1\n        )\n    elif g.market_temperature == \"warm\":\n        q = query(\n            valuation.code, \n            ).filter(\n            valuation.pb_ratio &gt; 0,\n            valuation.pb_ratio &lt; 1,\n            cash_flow.subtotal_operate_cash_inflow &gt; 0,\n            indicator.adjusted_profit &gt; 0,\n            cash_flow.subtotal_operate_cash_inflow/indicator.adjusted_profit&gt;1.0,\n            indicator.inc_return &gt; 2.0,\n            indicator.inc_net_profit_year_on_year &gt; 0,\n        \tvaluation.code.in_(all_stocks)\n        \t).order_by(\n        \t(indicator.roa/valuation.pb_ratio).desc()\n        ).limit(\n        \tg.buy_stock_count + 1\n        )\n    elif g.market_temperature == \"hot\":\n        q = query(\n            valuation.code, \n            ).filter(\n \n            valuation.pb_ratio &gt; 3,\n            cash_flow.subtotal_operate_cash_inflow &gt; 0,\n            indicator.adjusted_profit &gt; 0,\n            cash_flow.subtotal_operate_cash_inflow/indicator.adjusted_profit&gt;0.5,\n            indicator.inc_return &gt; 3.0,\n            indicator.inc_net_profit_year_on_year &gt; 20,\n        \tvaluation.code.in_(all_stocks)\n        \t).order_by(\n        \tindicator.roa.desc()\n        ).limit(\n        \tg.buy_stock_count + 1\n        )\n                \n        \n```\n\n然后月度调仓，买入前5名股票，策略收益年化35%，最大回撤23%，策略如下，抛砖引玉，欢迎大家批评改进：",
+      "type": 1,
+      "status": "0",
+      "addTime": "2024-10-05 13:38:36",
+      "modTime": "2025-07-06 12:04:08",
+      "lastActiveTime": "2026-04-21 19:54:06",
+      "lastPubTime": "2025-07-06 12:04:08",
+      "backtestId": "ab06c74e616a456709c8a24555052009",
+      "backtestName": "白马股攻防转换策略V1",
+      "replyCount": "98",
+      "viewCount": "15477",
+      "collectionCount": "369",
+      "likeCount": "160",
+      "disLikeCount": "0",
+      "backtestCloneCount": "979",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "60",
+      "followersCount": "3872",
+      "followingCount": "5",
+      "author": {
+        "userId": "59399b26a0d4861cffacf36037abdae2",
+        "alias": "蚂蚁量化",
+        "introduction": "交易模型，就是参与者的行为模型。WX: JQ2016-001",
+        "vipType": "VIP",
+        "headImgKey": "b902612ea09bdf430a87e71b42da8d1c"
+      },
+      "tags": [
+        {
+          "id": "14",
+          "name": "函数"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "ab06c74e616a456709c8a24555052009",
+        "backtest_name": "白马股攻防转换策略V1",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=ab06c74e616a456709c8a24555052009&postId=51b35b6e7299bde1585129d413edf5ee&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2013-04-11",
+          "end_date": "2024-10-03",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "f81b15a2b9d1e88710e018edea5dce43",
+            "36599474"
+          ],
+          "numeric_backtest_id": "36599474",
+          "numeric_post_id": "50043",
+          "python_version": 3,
+          "clone_count": 922
+        },
+        "stats": {
+          "trading_days": 2791,
+          "benchmark_volatility": 0.21717373756748,
+          "algorithm_volatility": 0.2316272697815,
+          "treasury_return": 0.45917808219178,
+          "algorithm_return": 29.663683815744,
+          "benchmark_return": 0.61663937295549,
+          "annual_algo_return": 0.35882127132938,
+          "annual_bm_return": 0.043965717366061,
+          "sharpe": 1.3764410020899,
+          "excess_return_sharpe": "1.330",
+          "sortino": 1.9665833572247,
+          "information": 1.6101890162036,
+          "beta": 0.66342289711057,
+          "alpha": 0.31619032362526,
+          "excess_return": 17.967547326084,
+          "avg_excess_return": "0.11%",
+          "max_drawdown": 0.23422478839367,
+          "max_drawdown_period": [
+            "2018-02-26",
+            "2019-01-02"
+          ],
+          "excess_return_max_drawdown": "17.27%",
+          "excess_return_max_drawdown_period": [
+            "2015-09-15",
+            "2015-12-22"
+          ],
+          "max_leverage": 0,
+          "period_label": "2024-09",
+          "__version": 101,
+          "win_ratio": 0.609375,
+          "profit_loss_ratio": 3.2038211791197,
+          "win_count": 156,
+          "lose_count": 100,
+          "day_win_ratio": 0.51307774991043,
+          "avg_trade_return": 0.076293423591993,
+          "avg_position_days": 123.29090909091,
+          "turnover_rate": 0.016793770315926,
+          "report_done_seconds": 81.834009885788,
+          "report_done_cpu_seconds": 62.69
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 2966.368382,
+          "benchmark_return_percent": 61.663937,
+          "annual_algo_return_percent": 35.882127,
+          "annual_bm_return_percent": 4.396572,
+          "max_drawdown_percent": 23.422479,
+          "algorithm_volatility_percent": 23.162727,
+          "benchmark_volatility_percent": 21.717374,
+          "win_ratio_percent": 60.9375,
+          "day_win_ratio_percent": 51.307775,
+          "avg_trade_return_percent": 7.629342,
+          "turnover_rate_percent": 1.679377,
+          "sharpe": 1.3764410020899,
+          "sortino": 1.9665833572247,
+          "information": 1.6101890162036,
+          "alpha": 0.31619032362526,
+          "beta": 0.66342289711057,
+          "profit_loss_ratio": 3.2038211791197,
+          "avg_position_days": 123.29090909091,
+          "trading_days": 2791,
+          "win_count": 156,
+          "lose_count": 100,
+          "max_drawdown_period": [
+            "2018-02-26",
+            "2019-01-02"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2015-09-15",
+            "2015-12-22"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/50043",
+      "https://www.joinquant.com/community/post/detailV2?postId=50043",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=ab06c74e616a456709c8a24555052009&postId=51b35b6e7299bde1585129d413edf5ee&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=ab06c74e616a456709c8a24555052009"
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/38.python搭建简单交易系统.txt",
+    "category": "2025年度精选策略",
+    "file_name": "38.python搭建简单交易系统.txt",
+    "strategy_name": "python搭建简单交易系统",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 29364,
+    "sha256": "8704b4e44e3bb4003fcea642ffb61692b844a648ad75e3c12b81c47e3cf6e6df",
+    "joinquant_urls": [],
+    "primary_url": null,
+    "url_selection_method": "none"
+  },
+  "remote": null
+}

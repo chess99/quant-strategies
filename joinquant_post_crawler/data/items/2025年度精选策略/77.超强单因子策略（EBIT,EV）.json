@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/77.超强单因子策略（EBIT,EV）.txt",
+    "category": "2025年度精选策略",
+    "file_name": "77.超强单因子策略（EBIT,EV）.txt",
+    "strategy_name": "超强单因子策略（EBIT,EV）",
+    "declared_title": "超强单因子策略（EBIT/EV）",
+    "declared_author": "乌龟赛跑7",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 5747,
+    "sha256": "77fc7abe51eadecde96db59ea4d4043e126815c61e1d6b2f8c3033bfc81e98be",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/24809"
+    ],
+    "primary_url": "https://www.joinquant.com/post/24809",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:33+08:00",
+    "requested_url": "https://www.joinquant.com/post/24809",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/586b90c21fd1c4ea39c9d2d4cfda300c",
+    "community_id": "586b90c21fd1c4ea39c9d2d4cfda300c",
+    "post": {
+      "postId": "442b11ca6af6da34be563288fcace8f9",
+      "uniqueKey": "586b90c21fd1c4ea39c9d2d4cfda300c",
+      "title": "超强单因子策略（EBIT/EV）",
+      "content": "一、因子介绍：\n1、传统的估值指标市盈率（PE）未考虑到公司负债结构对盈利与估值的影响；\n\n2、与之对比，本因子则充分考虑了负债结构与税收影响；\nEBIT为息税前利润；\nEV为市值与超额有息负债（有息负债扣除超额现金及现金类似物）的加总；\n本指标反映了资本提供者为税前经营利润支付的资本（股权+债权）；\n\n\n二、本策略回测控制：\n1、不择时、不止损、只选股、持续满仓；\n2、持仓数量持续50只；\n3、回测时间是从2009年1月至2019年12月；\n4、基于以上控制框架，来充分验证这个单因子的有效性；\n\n三、因子的有效性评价：\n1、超额收益伴随时间的推移持续增加；\n2、延长回测周期同样有效；\n3、本因子可以作为更复杂策略的组件；",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-01-03 11:21:42",
+      "modTime": "2020-01-03 11:21:42",
+      "lastActiveTime": "2023-02-12 11:14:28",
+      "lastPubTime": "2020-01-03 11:21:42",
+      "backtestId": "439649e514ceb0c33d791144f34aa601",
+      "backtestName": "单因子EBIT比EV回测",
+      "replyCount": "16",
+      "viewCount": "2796",
+      "collectionCount": "32",
+      "likeCount": "31",
+      "disLikeCount": "0",
+      "backtestCloneCount": "113",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "22",
+      "followersCount": "193",
+      "followingCount": "12",
+      "author": {
+        "userId": "fcbd8c1eef5132985dab0b4e7356fe28",
+        "alias": "乌龟赛跑7",
+        "introduction": "CFA，私募研究员，公众号《乌龟赛跑7》",
+        "headImgKey": "608342335c636f28f450a132bc108fd7"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "439649e514ceb0c33d791144f34aa601",
+        "backtest_name": "单因子EBIT比EV回测",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=439649e514ceb0c33d791144f34aa601&postId=586b90c21fd1c4ea39c9d2d4cfda300c&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2009-01-01",
+          "end_date": "2019-12-31",
+          "base_capital": 10000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "2d7dfcdff6ae27391d2855160a34bd81",
+            "15915486"
+          ],
+          "numeric_backtest_id": "15915486",
+          "numeric_post_id": "24809",
+          "python_version": 3,
+          "clone_count": 113
+        },
+        "stats": {
+          "trading_days": 2675,
+          "benchmark_volatility": 0.24082091476168,
+          "algorithm_volatility": 0.26203676248623,
+          "treasury_return": 0.43967123287671,
+          "algorithm_return": 7.8061258950659,
+          "benchmark_return": 1.2536914376252,
+          "annual_algo_return": 0.22545580458148,
+          "annual_bm_return": 0.078898998995917,
+          "sharpe": 0.70774727493142,
+          "excess_return_sharpe": "0.904",
+          "sortino": 0.89411314895837,
+          "information": 1.3850081091938,
+          "beta": 0.99544273733301,
+          "alpha": 0.14673407854147,
+          "excess_return": 2.9074230606943,
+          "avg_excess_return": "0.05%",
+          "max_drawdown": 0.39627228319793,
+          "max_drawdown_period": [
+            "2015-06-12",
+            "2016-01-28"
+          ],
+          "excess_return_max_drawdown": "17.42%",
+          "excess_return_max_drawdown_period": [
+            "2019-04-08",
+            "2019-11-13"
+          ],
+          "max_leverage": 0,
+          "period_label": "2019-12",
+          "__version": 101,
+          "win_ratio": 0.61750358680057,
+          "profit_loss_ratio": 1.7950104339662,
+          "win_count": 2152,
+          "lose_count": 1333,
+          "day_win_ratio": 0.5614953271028,
+          "avg_trade_return": 0.098712239738256,
+          "avg_position_days": 205.29147286822,
+          "turnover_rate": 0.013686710146278,
+          "report_done_seconds": 210.46955180168
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 780.61259,
+          "benchmark_return_percent": 125.369144,
+          "annual_algo_return_percent": 22.54558,
+          "annual_bm_return_percent": 7.8899,
+          "max_drawdown_percent": 39.627228,
+          "algorithm_volatility_percent": 26.203676,
+          "benchmark_volatility_percent": 24.082091,
+          "win_ratio_percent": 61.750359,
+          "day_win_ratio_percent": 56.149533,
+          "avg_trade_return_percent": 9.871224,
+          "turnover_rate_percent": 1.368671,
+          "sharpe": 0.70774727493142,
+          "sortino": 0.89411314895837,
+          "information": 1.3850081091938,
+          "alpha": 0.14673407854147,
+          "beta": 0.99544273733301,
+          "profit_loss_ratio": 1.7950104339662,
+          "avg_position_days": 205.29147286822,
+          "trading_days": 2675,
+          "win_count": 2152,
+          "lose_count": 1333,
+          "max_drawdown_period": [
+            "2015-06-12",
+            "2016-01-28"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2019-04-08",
+            "2019-11-13"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/24809",
+      "https://www.joinquant.com/community/post/detailV2?postId=24809",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=439649e514ceb0c33d791144f34aa601&postId=586b90c21fd1c4ea39c9d2d4cfda300c&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=439649e514ceb0c33d791144f34aa601"
+    ]
+  }
+}

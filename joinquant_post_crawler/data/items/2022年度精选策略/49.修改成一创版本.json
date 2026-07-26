@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/49.修改成一创版本.txt",
+    "category": "2022年度精选策略",
+    "file_name": "49.修改成一创版本.txt",
+    "strategy_name": "修改成一创版本",
+    "declared_title": "修改成一创版本",
+    "declared_author": "keep_silent",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 16668,
+    "sha256": "d47c5c14be0b34bf899e844a2e9439c674f269328c654d7704c3a6d16e39ab69",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/40159",
+      "https://www.joinquant.com/post/40147",
+      "https://www.joinquant.com/post/40098"
+    ],
+    "primary_url": "https://www.joinquant.com/post/40159",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:09+08:00",
+    "requested_url": "https://www.joinquant.com/post/40159",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/8dee9d2d75fb54e7d7c58cbcac9b6f78",
+    "community_id": "8dee9d2d75fb54e7d7c58cbcac9b6f78",
+    "post": {
+      "postId": "165c7abd0b976fce08b5f5f1b0902ca3",
+      "uniqueKey": "8dee9d2d75fb54e7d7c58cbcac9b6f78",
+      "title": "修改成一创版本",
+      "content": "如题，在原版本基础上改了一些东西，并且对因子进行了标准化中性化处理。夏普从1.64提高到了2。感谢原作者的分享，这里就不一一@了。附上原帖链接https://www.joinquant.com/view/community/detail/55bf4861dc305f4f325fd8fa064ccf7f#243970",
+      "type": 1,
+      "status": "0",
+      "addTime": "2022-12-12 23:56:07",
+      "modTime": "2022-12-13 22:20:54",
+      "lastActiveTime": "2023-07-18 10:48:59",
+      "lastPubTime": "2022-12-13 22:20:54",
+      "backtestId": "2c7096479a03987bb777657a321cafc8",
+      "backtestName": "wywypy2",
+      "replyCount": "72",
+      "viewCount": "3091",
+      "collectionCount": "47",
+      "likeCount": "27",
+      "disLikeCount": "0",
+      "backtestCloneCount": "231",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "23",
+      "followersCount": "226",
+      "followingCount": "21",
+      "author": {
+        "userId": "1807cab738c4fba96963503b3ae42880",
+        "alias": "keep_silent",
+        "vipType": "SVIP",
+        "headImgKey": "0d35197a30dd43142d576285c4b98b7e"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "2c7096479a03987bb777657a321cafc8",
+        "backtest_name": "wywypy2",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=2c7096479a03987bb777657a321cafc8&postId=8dee9d2d75fb54e7d7c58cbcac9b6f78&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2013-01-01",
+          "end_date": "2022-12-11",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "6d69a5feb525e8da8ace369c49d96827",
+            "26809410"
+          ],
+          "numeric_backtest_id": "26809410",
+          "numeric_post_id": "40159",
+          "python_version": 2,
+          "clone_count": 301
+        },
+        "stats": {
+          "benchmark_return": 0.89028224649405,
+          "max_drawdown": 0.57758788994878,
+          "trading_days": 2415,
+          "algorithm_volatility": 0.33431271356944,
+          "max_drawdown_period": [
+            "2015-06-12",
+            "2015-07-08"
+          ],
+          "information": 3.2844410973172,
+          "annual_bm_return": 0.068134512466822,
+          "excess_return_max_drawdown": "27.03%",
+          "benchmark_volatility": 0.25584300654953,
+          "annual_algo_return": 0.72390164650164,
+          "sharpe": 2.0456944015071,
+          "excess_return_max_drawdown_period": [
+            "2015-06-15",
+            "2015-07-08"
+          ],
+          "__version": 101,
+          "algorithm_return": 191.6240899306,
+          "beta": 1.04923763959,
+          "alpha": 0.65438185704993,
+          "treasury_return": 0.3973698630137,
+          "max_leverage": 0,
+          "sortino": 2.5473957263913,
+          "period_label": "2022-12",
+          "avg_excess_return": "0.20%",
+          "excess_return": 100.90229014099,
+          "excess_return_sharpe": "2.864",
+          "turnover_rate": 0.098530614773166,
+          "avg_trade_return": 0.024485058271834,
+          "day_win_ratio": 0.54534161490683,
+          "profit_loss_ratio": 2.0845662579704,
+          "avg_position_days": 21.97966728281,
+          "lose_count": 484,
+          "win_ratio": 0.62009419152276,
+          "win_count": 790,
+          "report_done_seconds": 4989.396433115,
+          "report_done_cpu_seconds": 4579.63
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 19162.408993,
+          "benchmark_return_percent": 89.028225,
+          "annual_algo_return_percent": 72.390165,
+          "annual_bm_return_percent": 6.813451,
+          "max_drawdown_percent": 57.758789,
+          "algorithm_volatility_percent": 33.431271,
+          "benchmark_volatility_percent": 25.584301,
+          "win_ratio_percent": 62.009419,
+          "day_win_ratio_percent": 54.534161,
+          "avg_trade_return_percent": 2.448506,
+          "turnover_rate_percent": 9.853061,
+          "sharpe": 2.0456944015071,
+          "sortino": 2.5473957263913,
+          "information": 3.2844410973172,
+          "alpha": 0.65438185704993,
+          "beta": 1.04923763959,
+          "profit_loss_ratio": 2.0845662579704,
+          "avg_position_days": 21.97966728281,
+          "trading_days": 2415,
+          "win_count": 790,
+          "lose_count": 484,
+          "max_drawdown_period": [
+            "2015-06-12",
+            "2015-07-08"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2015-06-15",
+            "2015-07-08"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/40159",
+      "https://www.joinquant.com/community/post/detailV2?postId=40159",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=2c7096479a03987bb777657a321cafc8&postId=8dee9d2d75fb54e7d7c58cbcac9b6f78&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=2c7096479a03987bb777657a321cafc8"
+    ]
+  }
+}

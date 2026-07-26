@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/67.三因子策略年化21%简单多因子策略框架.txt",
+    "category": "2022年度精选策略",
+    "file_name": "67.三因子策略年化21%简单多因子策略框架.txt",
+    "strategy_name": "三因子策略年化21%简单多因子策略框架",
+    "declared_title": "三因子策略_年化21%_简单多因子策略框架",
+    "declared_author": "lastlivingsoul",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 6647,
+    "sha256": "53a46f09a3a8a57415a507665e49b7a5c2fbf626489cabd38e8c4fb50939860f",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/37051"
+    ],
+    "primary_url": "https://www.joinquant.com/post/37051",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:21+08:00",
+    "requested_url": "https://www.joinquant.com/post/37051",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/38449f36a99f26c41dde7d1da42a916f",
+    "community_id": "38449f36a99f26c41dde7d1da42a916f",
+    "post": {
+      "postId": "3757d836e5971544ff90e2ecf31d353f",
+      "uniqueKey": "38449f36a99f26c41dde7d1da42a916f",
+      "title": "三因子策略_年化21%_简单多因子策略框架",
+      "content": "一个反向指标的尝试，结果还不错。\n用VROC12、Residual Volatility和Size三个因子构建Zscore，每月取Zscore最低的50支股票建立多头头寸。收益还不错，除了几次大盘疯涨的时候会跑输。\n对比上一版，加入winsorize去尾，以及@北亢 对选股模块的更新。年化收益、Alpha、夏普比率均有提升\n\n---- \n简单解释一下思路。\n还是基本的三因子模型，但和Fama-French的方法和因子选择有一些区别。\n因子选择方面，使用了size，也就是市值规模的因子。之前看过研报，A股市场市值因子效应是存在的，小市值股票收益率更高。我自己测试下来也的确如此。\n传统三因子模型中的value 和 growth 因子我也做了尝试，但实盘交易结果不是太好，所以在这次的策略中就没有包含。\nResidual Volatility是近年新发现的因子，此前研究中在A股中也是效果显著。VROC12是情绪因子，通过近期交易量和N日前平均交易量的差异计算。这几个因子都用的是聚宽因子库中的数据，没有自己计算。在获取因子数据后，做了标准化以及去尾。\n\n选股方面，包含了A股所有股票，去除了所有ST的股票。这是因为策略本身就是面向小盘低交易量低动量股，没有必要再去承担ST风险收益。\n\n所以，简言之，这个策略就是每个月第一个交易日前，挑选出市值、前一日残差动量、VROC12最低（三个指标等权重平均计算Z-Score）的50支股票，平均建立多头头寸。\n\n\n\n后续我会研究一下每个因子的贡献，以及尝试增加或者替换更多的因子。希望大家持续关注。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2022-03-25 16:25:07",
+      "modTime": "2022-03-29 12:21:16",
+      "lastActiveTime": "2025-12-08 16:08:05",
+      "lastPubTime": "2022-03-29 12:21:16",
+      "backtestId": "a03916f5712d8cc09a13c0aa208f1c8b",
+      "backtestName": "7倍zscore短区间也很好",
+      "replyCount": "43",
+      "viewCount": "4002",
+      "collectionCount": "50",
+      "likeCount": "24",
+      "disLikeCount": "0",
+      "backtestCloneCount": "291",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "4",
+      "followersCount": "34",
+      "followingCount": "1",
+      "author": {
+        "userId": "b32ec72c1f9166dd1472775f392f020f",
+        "alias": "lastlivingsoul"
+      },
+      "tags": [
+        {
+          "id": "4",
+          "name": "多因子"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "a03916f5712d8cc09a13c0aa208f1c8b",
+        "backtest_name": "7倍zscore短区间也很好",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=a03916f5712d8cc09a13c0aa208f1c8b&postId=38449f36a99f26c41dde7d1da42a916f&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2005-01-05",
+          "end_date": "2022-03-22",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "2b8e109afd3d3000bdd2704d31c73100",
+            "24001772"
+          ],
+          "numeric_backtest_id": "24001772",
+          "numeric_post_id": "37051",
+          "python_version": 3,
+          "clone_count": 251
+        },
+        "stats": {
+          "trading_days": 4182,
+          "benchmark_volatility": 0.24700570479934,
+          "algorithm_volatility": 0.19287053043303,
+          "treasury_return": 0.68876712328767,
+          "algorithm_return": 24.375916184697,
+          "benchmark_return": 1.6230597777546,
+          "annual_algo_return": 0.21326688620233,
+          "annual_bm_return": 0.059342405584859,
+          "sharpe": 0.89835853001135,
+          "excess_return_sharpe": "0.670",
+          "sortino": 1.0558152979525,
+          "information": 0.98483733724009,
+          "beta": 0.60466109550055,
+          "alpha": 0.16157128605177,
+          "excess_return": 8.674166177951,
+          "avg_excess_return": "0.06%",
+          "max_drawdown": 0.47535850313805,
+          "max_drawdown_period": [
+            "2008-01-15",
+            "2008-11-04"
+          ],
+          "excess_return_max_drawdown": "47.83%",
+          "excess_return_max_drawdown_period": [
+            "2006-06-15",
+            "2007-10-30"
+          ],
+          "max_leverage": 0,
+          "period_label": "2022-03",
+          "__version": 101,
+          "win_ratio": 0.61886612672701,
+          "profit_loss_ratio": 2.1853321237513,
+          "win_count": 2598,
+          "lose_count": 1600,
+          "day_win_ratio": 0.53586800573888,
+          "avg_trade_return": 0.066198381199301,
+          "avg_position_days": 134.6282234957,
+          "turnover_rate": 0.013551297602881,
+          "report_done_seconds": 801.25656580925,
+          "report_done_cpu_seconds": 718.09
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 2437.591618,
+          "benchmark_return_percent": 162.305978,
+          "annual_algo_return_percent": 21.326689,
+          "annual_bm_return_percent": 5.934241,
+          "max_drawdown_percent": 47.53585,
+          "algorithm_volatility_percent": 19.287053,
+          "benchmark_volatility_percent": 24.70057,
+          "win_ratio_percent": 61.886613,
+          "day_win_ratio_percent": 53.586801,
+          "avg_trade_return_percent": 6.619838,
+          "turnover_rate_percent": 1.35513,
+          "sharpe": 0.89835853001135,
+          "sortino": 1.0558152979525,
+          "information": 0.98483733724009,
+          "alpha": 0.16157128605177,
+          "beta": 0.60466109550055,
+          "profit_loss_ratio": 2.1853321237513,
+          "avg_position_days": 134.6282234957,
+          "trading_days": 4182,
+          "win_count": 2598,
+          "lose_count": 1600,
+          "max_drawdown_period": [
+            "2008-01-15",
+            "2008-11-04"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2006-06-15",
+            "2007-10-30"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/37051",
+      "https://www.joinquant.com/community/post/detailV2?postId=37051",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=a03916f5712d8cc09a13c0aa208f1c8b&postId=38449f36a99f26c41dde7d1da42a916f&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=a03916f5712d8cc09a13c0aa208f1c8b"
+    ]
+  }
+}

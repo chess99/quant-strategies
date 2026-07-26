@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/41 多因子模型（三）-交易回测.txt",
+    "category": "2020年度精选策略",
+    "file_name": "41 多因子模型（三）-交易回测.txt",
+    "strategy_name": "多因子模型（三）-交易回测",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 3556,
+    "sha256": "3475b7131c924d33460b30346347bbe4926564ca0ab9d48a7b056bae6a48f307",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/14084"
+    ],
+    "primary_url": "https://www.joinquant.com/post/14084",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:06:48+08:00",
+    "requested_url": "https://www.joinquant.com/post/14084",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/74a0a13c0842a3ea84907a9c246a8a1f",
+    "community_id": "74a0a13c0842a3ea84907a9c246a8a1f",
+    "post": {
+      "postId": "814b32593c5b75883dc4d8efeb616075",
+      "uniqueKey": "74a0a13c0842a3ea84907a9c246a8a1f",
+      "title": "多因子模型（三）-交易回测",
+      "content": "过去几周发布了，[多因子模型（一）-因子生成 （针对聚宽新增多因子相关功能）][1]，以及[多因子模型（二）-因子检验][2]。\n这周按照计划写了 多因子模型（三）-交易回测 这部分。看图说话：\n\n![1.jpg][3]\n收益高，回撤低，即使是追求绝对收益，纯多头的收益也是可以的。\n\n要先说明的是（见研究模块），本周写交易回测远比想象的要麻烦一些，由于前两篇使用Python3(PacVer2.0)版本写的，而回测模块采用的是Python2，造成了诸多困难，程序又用Python3写了一遍。遇到的问题比如，dataframe在Python3(PacVer2.0)中又加入了新的方法，在回测模块无法读取。还有要注意python3中的sort排序问题，以及dict.keys()无序问题，希望后面的人不要踩这些坑了。总之，研究模块尽量用Python3。\n\n在上一篇中，认为有效因子为：\n![2.png][4]\n通过观察因子，过去几年，在沪深300中，赚钱的股票还是那些盈利能力强（各种profit类因子），波动小（vol因子），回报风险比高（sharpe因子），说明沪深300市场过去十分有效。\n\n根据这些有效因子值，我们采用当期的IC值加权平均，选取得分最高的30支股票。IC加权有一个好处就是，你再也不用担心因子排序的问题，有些因子越大越好，恰好这些因子IC是正的，有些因子越小越好。恰好这些因子IC是负的。\n\n我觉得上面的简单几句也足以说清楚方法了。文字写的再多，也不如阅读代码。有疑问的朋友欢迎提问。也欢迎大家批评指正。\n\n  [1]: https://www.joinquant.com/post/13879\n  [2]: https://www.joinquant.com/post/13994\n  [3]: https://image.joinquant.com/627f089985ed885597275f84d2a05a72\n  [4]: https://image.joinquant.com/14d2102c6b95b2bac5a8efef19e67556",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-08-02 22:21:26",
+      "modTime": "2018-08-02 22:21:26",
+      "lastActiveTime": "2022-10-28 08:42:26",
+      "lastPubTime": "2018-08-02 22:21:26",
+      "backtestId": "788ad5a1e4baf3e1231a3ebcd388f1af",
+      "backtestName": "这是一个简单的策略-76",
+      "replyCount": "52",
+      "viewCount": "16785",
+      "collectionCount": "212",
+      "likeCount": "75",
+      "disLikeCount": "0",
+      "backtestCloneCount": "712",
+      "notebookCloneCount": "370",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "33",
+      "followersCount": "1292",
+      "followingCount": "21",
+      "author": {
+        "userId": "9dbfc01433979e3bf47a4690cc1ff25c",
+        "alias": "颖硕",
+        "headImgKey": "566c25f14de3c99d140af327e66efb16"
+      },
+      "tags": [
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "788ad5a1e4baf3e1231a3ebcd388f1af",
+        "backtest_name": "这是一个简单的策略-76",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=788ad5a1e4baf3e1231a3ebcd388f1af&postId=74a0a13c0842a3ea84907a9c246a8a1f&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2016-07-13",
+          "end_date": "2018-08-01",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "2b53ea48f1ebe760000ad081a702ed18",
+            "9557654"
+          ],
+          "numeric_backtest_id": "9557654",
+          "numeric_post_id": "14084",
+          "python_version": 2,
+          "clone_count": 721
+        },
+        "stats": {
+          "information": 3.8988249042343,
+          "benchmark_return": 0.053222730674061,
+          "algorithm_volatility": 0.14958750714619,
+          "annual_bm_return": 0.026160399340842,
+          "__version": 101,
+          "max_drawdown": 0.12869576285798,
+          "sortino": 2.9095855040576,
+          "period_label": "2018-08",
+          "trading_days": 502,
+          "algorithm_return": 0.9063316,
+          "benchmark_volatility": 0.13509150638593,
+          "beta": 0.88876718932476,
+          "excess_return": 0.82424940821918,
+          "annual_algo_return": 0.37892631378655,
+          "sharpe": 2.2657394340781,
+          "alpha": 0.35122649676577,
+          "max_drawdown_period": [
+            "2018-02-05",
+            "2018-02-09"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.082082191780822,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.58167330677291,
+          "avg_position_days": 60,
+          "win_ratio": 0.69101123595506,
+          "win_count": 369,
+          "avg_trade_return": 0.049801800212626,
+          "profit_loss_ratio": 3.0178849034409,
+          "lose_count": 165,
+          "report_done_seconds": 12.646974086761
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 90.63316,
+          "benchmark_return_percent": 5.322273,
+          "annual_algo_return_percent": 37.892631,
+          "annual_bm_return_percent": 2.61604,
+          "max_drawdown_percent": 12.869576,
+          "algorithm_volatility_percent": 14.958751,
+          "benchmark_volatility_percent": 13.509151,
+          "win_ratio_percent": 69.101124,
+          "day_win_ratio_percent": 58.167331,
+          "avg_trade_return_percent": 4.98018,
+          "sharpe": 2.2657394340781,
+          "sortino": 2.9095855040576,
+          "information": 3.8988249042343,
+          "alpha": 0.35122649676577,
+          "beta": 0.88876718932476,
+          "profit_loss_ratio": 3.0178849034409,
+          "avg_position_days": 60,
+          "trading_days": 502,
+          "win_count": 369,
+          "lose_count": 165,
+          "max_drawdown_period": [
+            "2018-02-05",
+            "2018-02-09"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/14084",
+      "https://www.joinquant.com/community/post/detailV2?postId=14084",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=788ad5a1e4baf3e1231a3ebcd388f1af&postId=74a0a13c0842a3ea84907a9c246a8a1f&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=788ad5a1e4baf3e1231a3ebcd388f1af"
+    ]
+  }
+}

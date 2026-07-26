@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/29穿越牛熊2.0(非小市值)年化50%的cta策略.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "29穿越牛熊2.0(非小市值)年化50%的cta策略.txt",
+    "strategy_name": "穿越牛熊2.0(非小市值)年化50%的cta策略",
+    "declared_title": "穿越牛熊2.0(非小市值):年化50%的cta策略",
+    "declared_author": "wsd518",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 4115,
+    "sha256": "9ca0a893c323ddfccf0fb9f23ce415f1ba92230c0fbc21b91bea439ff277111f",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/47771"
+    ],
+    "primary_url": "https://www.joinquant.com/post/47771",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:12:01+08:00",
+    "requested_url": "https://www.joinquant.com/post/47771",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/810dfae2071821bcb43cf2d4b9d92464",
+    "community_id": "810dfae2071821bcb43cf2d4b9d92464",
+    "post": {
+      "postId": "68a1066fba76c087251f8231b67587eb",
+      "uniqueKey": "810dfae2071821bcb43cf2d4b9d92464",
+      "title": "穿越牛熊2.0(非小市值):年化50%的cta策略",
+      "content": "本策略主要在第一版策略上加入了均线择时，年化收益变化不大，回撤下降了一半。  \n策略超额收益来自于铁矿石基差长期为正，且近月合约多以上涨的形式补基差。所以换成主力合约收益反而下降\n第一版策略详见\nhttps://www.joinquant.com/view/community/detail/e369f6584c67a9701bec56ba7d0bc7d1?type=1\n将近月合约换成主力合约的策略详见\nhttps://www.joinquant.com/view/community/detail/d0b0c43d7bad15d543cf91494a2f7892?type=1",
+      "type": 1,
+      "status": "0",
+      "addTime": "2024-04-19 22:41:36",
+      "modTime": "2024-10-01 14:07:24",
+      "lastActiveTime": "2026-02-05 14:44:11",
+      "lastPubTime": "2024-10-01 14:07:24",
+      "backtestId": "7c1c025933e071c90b348c1003a3e8e9",
+      "backtestName": "铁矿石策略2-择时",
+      "replyCount": "58",
+      "viewCount": "5965",
+      "collectionCount": "125",
+      "likeCount": "57",
+      "disLikeCount": "0",
+      "backtestCloneCount": "507",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "6",
+      "followersCount": "139",
+      "followingCount": "13",
+      "author": {
+        "userId": "5b87d9b8fa72d331ca217dd61c1c639f",
+        "alias": "wsd518",
+        "introduction": "脑回路清奇，有些奇思妙想",
+        "headImgKey": "c1368fc93621e30682b85acb52db5507"
+      },
+      "tags": [
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "7",
+          "name": "期货"
+        },
+        {
+          "id": "350",
+          "name": "另类投资"
+        },
+        {
+          "id": "3396",
+          "name": "铁矿石"
+        },
+        {
+          "id": "3397",
+          "name": "基差"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "7c1c025933e071c90b348c1003a3e8e9",
+        "backtest_name": "铁矿石策略2-择时",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=7c1c025933e071c90b348c1003a3e8e9&postId=810dfae2071821bcb43cf2d4b9d92464&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2018-01-01",
+          "end_date": "2024-04-18",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "b711838ab90636b0bde16a7f3e4a88f7",
+            "33833005"
+          ],
+          "numeric_backtest_id": "33833005",
+          "numeric_post_id": "47771",
+          "python_version": 3,
+          "clone_count": 504
+        },
+        "stats": {
+          "trading_days": 1527,
+          "benchmark_volatility": 0.29236231446594,
+          "algorithm_volatility": 0.24192504979309,
+          "treasury_return": 0.25183561643836,
+          "algorithm_return": 11.269428227,
+          "benchmark_return": 0.61584041338611,
+          "annual_algo_return": 0.50751625840519,
+          "annual_bm_return": 0.081730155626903,
+          "sharpe": 1.9324838779822,
+          "excess_return_sharpe": "1.753",
+          "sortino": 2.6199261835376,
+          "information": 2.1199422855073,
+          "beta": 0.60639174715825,
+          "alpha": 0.44221143642541,
+          "excess_return": 6.5932178235897,
+          "avg_excess_return": "0.14%",
+          "max_drawdown": 0.25467302387407,
+          "max_drawdown_period": [
+            "2021-05-12",
+            "2021-11-26"
+          ],
+          "excess_return_max_drawdown": "15.98%",
+          "excess_return_max_drawdown_period": [
+            "2021-09-22",
+            "2021-10-27"
+          ],
+          "max_leverage": 0,
+          "period_label": "2024-04",
+          "__version": 101,
+          "win_ratio": 0.5625,
+          "profit_loss_ratio": 2.9424760931311,
+          "win_count": 45,
+          "lose_count": 35,
+          "day_win_ratio": 0.57498362802881,
+          "avg_trade_return": -0.78304340467201,
+          "avg_position_days": 17.5625,
+          "turnover_rate": 0.051485365590246,
+          "report_done_seconds": 56.687077522278,
+          "report_done_cpu_seconds": 57.32
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 1126.942823,
+          "benchmark_return_percent": 61.584041,
+          "annual_algo_return_percent": 50.751626,
+          "annual_bm_return_percent": 8.173016,
+          "max_drawdown_percent": 25.467302,
+          "algorithm_volatility_percent": 24.192505,
+          "benchmark_volatility_percent": 29.236231,
+          "win_ratio_percent": 56.25,
+          "day_win_ratio_percent": 57.498363,
+          "avg_trade_return_percent": -78.30434,
+          "turnover_rate_percent": 5.148537,
+          "sharpe": 1.9324838779822,
+          "sortino": 2.6199261835376,
+          "information": 2.1199422855073,
+          "alpha": 0.44221143642541,
+          "beta": 0.60639174715825,
+          "profit_loss_ratio": 2.9424760931311,
+          "avg_position_days": 17.5625,
+          "trading_days": 1527,
+          "win_count": 45,
+          "lose_count": 35,
+          "max_drawdown_period": [
+            "2021-05-12",
+            "2021-11-26"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2021-09-22",
+            "2021-10-27"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/47771",
+      "https://www.joinquant.com/community/post/detailV2?postId=47771",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=7c1c025933e071c90b348c1003a3e8e9&postId=810dfae2071821bcb43cf2d4b9d92464&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=7c1c025933e071c90b348c1003a3e8e9"
+    ]
+  }
+}

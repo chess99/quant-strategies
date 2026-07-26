@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/34.【回撤二波2.0】透过一次过拟合的机器学习摸底策略的收益上限.txt",
+    "category": "2022年度精选策略",
+    "file_name": "34.【回撤二波2.0】透过一次过拟合的机器学习摸底策略的收益上限.txt",
+    "strategy_name": "【回撤二波2.0】透过一次过拟合的机器学习摸底策略的收益上限",
+    "declared_title": "【回撤二波2.0】透过一次过拟合的机器学习摸底策略的收益上限",
+    "declared_author": "_查尔斯葱_",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 12474,
+    "sha256": "8507094ce1468927b8af2194386073158c1ec1c6e1526a98a7bdad192b49c21a",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/35253"
+    ],
+    "primary_url": "https://www.joinquant.com/post/35253",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:55+08:00",
+    "requested_url": "https://www.joinquant.com/post/35253",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/7a9077c701c61872726b744c3a7eb131",
+    "community_id": "7a9077c701c61872726b744c3a7eb131",
+    "post": {
+      "postId": "15b71d602019c9a49a8e88792a183db4",
+      "uniqueKey": "7a9077c701c61872726b744c3a7eb131",
+      "title": "【回撤二波2.0】透过一次过拟合的机器学习摸底策略的收益上限",
+      "content": "补充：\n由于附件只能上传一个文件，代码中的\n```\ng.model_zb_path = './gbm_fit_model_v1_zb.pkl'\ng.model_cyb_path = './gbm_fit_model_v1_cyb.pkl'\ng.model_zb = pickle.loads(read_file(g.model_zb_path)) # 加载模型\ng.model_cyb = pickle.loads(read_file(g.model_cyb_path)) # 加载模型\n```\n需要改成：\n```\ng.model_path = './gbm_fit_model_v1_all.pkl'\ng.model_zb = pickle.loads(read_file(g.model_path))\ng.model_cyb = g.model_zb\n```\n就可以复现下图中143.94%收益率的结果了（回测时间很长）\n同时**把附件上传到研究环境根目录下**就可以调用了（当时调用外部文件这个环节卡了我整个周末，差点自己在本地写个回测框架……）\n\n\n-------------------------分割线---------------------\n\n\n**LightGBM（Light Gradient Boosting Machine）**是一个实现GBDT算法的框架，支持高效率的并行训练，并且具有更快的训练速度、更低的内存消耗、更好的准确率、支持分布式可以快速处理海量数据等优点，**由GBDT和XGBoost优化而来**。\n\n### 在之前的文章中，因为不满足于策略的不可复用性和调参的枯燥无味，决定[将调参交给机器学习](https://www.joinquant.com/view/community/detail/879f8273ddac1aac78f21a625b3785d3)。\n#### 后来经过仔细的摸排，发现当时的策略存在一些问题：\n1、部分停牌未过滤掉（get_price会自动补齐停牌时间的价格），导致max_index不准；\n2、没有排序，结果不具备较高的可信度，尝试过市值/成交额/涨幅的排序，收益都会下降，持仓多个也会下降，也从侧面说明了策略的不可复用性，不能复用的策略就是无效策略；\n3、MACD计算不准；\n\n在尝试过多个版本的算法和因子后，最终重新挑选因子，并使用**lightGBM（明显优于XGBoost和GBDT）**，训练又快AUC又高。\n\n#### 策略优化点：\n1、加入因子：前日市场上涨家数占比；\n2、删除因子：前日成交额/近日4%以上波动；\n3、将所有的True/False换成具体的比例数值，如原本的a==b，改为a/b，这样几乎所有的因子都在1附近波动，有利于拟合；\n4、使用jqlib.technical_analysis计算MACD；\n5、优化代码结构，简化代码逻辑。\n\n#### 因为训练数据中含19-21年数据的70%（即包含了21年的数据），所以可以理解为有未来函数的功能，但是也可以通过这种方式摸底一下在当前因子组合下，机器学习方法所能达到的上限，比如我过拟合的数据能达到200%的年化，未使用21年数据的模型准确率下降20%的话，理论上应该也有100%+的收益。\n\n需要注意的点：\n1、当前使用主板和创业板分开进行拟合的方法，即使用两个模型，经验证效果比只使用一个模型好，结果对比放在下文；\n2、研究中包含了lightGBM的调参过程和思路（GBDT尝试过，训练又慢，效果又不如lightGBM）；\n3、新的因子提取对应的研究文件已经在[之前的文章中重新更新了](https://www.joinquant.com/view/community/detail/879f8273ddac1aac78f21a625b3785d3)，优化了代码的同时增删了几个因子；\n4、本次研究旨在摸底这个方向到底能走多远，如果过拟合也只有30%-50%的收益，那也就根本没有继续研究的必要了，目前观察结果有337%的年化，也就还有了继续研究下去的可能性；\n**5、下一步方向：仅使用2019-2020的数据，结合训练中在线学习2021年的数据，同步进行预测，观察效果，优化算法；**\n**6、因为使用了21年的数据进行训练，此策略不可实盘，仅为摸底。**\n\n结果对比：\n1、只使用一个模型：\n![Img]( https://image.joinquant.com/44342d4293f6cc8281873e01bae1f493) \n2、主板/创业板各使用一个模型：\n![Img]( https://image.joinquant.com/2d1d791447903c4af154c0bb89d31581) \n\n可以看到由于主板和创业板的差异，最好还是分开进行拟合，不过初步模板还是先搞定全市场一个模型吧。\n##### 由于附件只能上传一个，那就只添加全市场的模型吧，如果要复现的话把load model那里改一改就行了（截图可见，回测周期相当长，慎重）",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-11-03 10:58:35",
+      "modTime": "2021-11-03 11:18:35",
+      "lastActiveTime": "2023-03-05 16:08:35",
+      "lastPubTime": "2021-11-03 11:18:35",
+      "backtestId": "28e3a851f1afdf824d290893b4e15565",
+      "backtestName": "回撤二波-2.0-lightGBM-fit-5只-主板创业分开",
+      "replyCount": "89",
+      "viewCount": "4308",
+      "collectionCount": "110",
+      "likeCount": "59",
+      "disLikeCount": "0",
+      "backtestCloneCount": "178",
+      "notebookCloneCount": "84",
+      "fileDownloadCount": "144",
+      "fileName": "gbm_fit_model_v1_all.pkl",
+      "fileSize": "22378066",
+      "postCount": "6",
+      "followersCount": "174",
+      "followingCount": "19",
+      "author": {
+        "userId": "e0a87def3fcf89db4db4d3ba3db22b5d",
+        "alias": "_查尔斯葱_",
+        "introduction": "公众号：查尔斯葱（跟踪自研量化策略），华为AI算法工程师，业余研究量化策略，擅长形态选股，因子挖掘",
+        "headImgKey": "4d3077f5d13074088aeaee42ec92dccd"
+      },
+      "tags": [
+        {
+          "id": "13",
+          "name": "机器学习"
+        },
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "28e3a851f1afdf824d290893b4e15565",
+        "backtest_name": "回撤二波-2.0-lightGBM-fit-5只-主板创业分开",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=28e3a851f1afdf824d290893b4e15565&postId=7a9077c701c61872726b744c3a7eb131&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2021-01-01",
+          "end_date": "2021-10-30",
+          "base_capital": 100000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "8348b5517781c3821fe63fa98907225e",
+            "22356300"
+          ],
+          "numeric_backtest_id": "22356300",
+          "numeric_post_id": "35253",
+          "python_version": 3,
+          "clone_count": 379
+        },
+        "stats": {
+          "trading_days": 198,
+          "benchmark_volatility": 0.19671804165265,
+          "algorithm_volatility": 0.30794103731754,
+          "treasury_return": 0.032657534246575,
+          "algorithm_return": 2.218925882,
+          "benchmark_return": -0.058050885673221,
+          "annual_algo_return": 3.3757168693274,
+          "annual_bm_return": -0.072729664712899,
+          "sharpe": 10.832323286252,
+          "excess_return_sharpe": "10.804",
+          "sortino": 21.286988847043,
+          "information": 10.138199455929,
+          "beta": 0.23034542485962,
+          "alpha": 3.36168363184,
+          "excess_return": 2.4173033691959,
+          "avg_excess_return": "0.65%",
+          "max_drawdown": 0.1100184416957,
+          "max_drawdown_period": [
+            "2021-01-05",
+            "2021-01-13"
+          ],
+          "excess_return_max_drawdown": "16.47%",
+          "excess_return_max_drawdown_period": [
+            "2021-01-04",
+            "2021-01-13"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-10",
+          "__version": 101,
+          "win_ratio": 0.57313432835821,
+          "profit_loss_ratio": 2.4118622463693,
+          "win_count": 192,
+          "lose_count": 143,
+          "day_win_ratio": 0.58080808080808,
+          "avg_trade_return": 0.020219658547312,
+          "avg_position_days": 1.8581081081081,
+          "turnover_rate": 0.34390897826187,
+          "report_done_seconds": 11259.448017597,
+          "report_done_cpu_seconds": 11257.53
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 221.892588,
+          "benchmark_return_percent": -5.805089,
+          "annual_algo_return_percent": 337.571687,
+          "annual_bm_return_percent": -7.272966,
+          "max_drawdown_percent": 11.001844,
+          "algorithm_volatility_percent": 30.794104,
+          "benchmark_volatility_percent": 19.671804,
+          "win_ratio_percent": 57.313433,
+          "day_win_ratio_percent": 58.080808,
+          "avg_trade_return_percent": 2.021966,
+          "turnover_rate_percent": 34.390898,
+          "sharpe": 10.832323286252,
+          "sortino": 21.286988847043,
+          "information": 10.138199455929,
+          "alpha": 3.36168363184,
+          "beta": 0.23034542485962,
+          "profit_loss_ratio": 2.4118622463693,
+          "avg_position_days": 1.8581081081081,
+          "trading_days": 198,
+          "win_count": 192,
+          "lose_count": 143,
+          "max_drawdown_period": [
+            "2021-01-05",
+            "2021-01-13"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2021-01-04",
+            "2021-01-13"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/35253",
+      "https://www.joinquant.com/community/post/detailV2?postId=35253",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=28e3a851f1afdf824d290893b4e15565&postId=7a9077c701c61872726b744c3a7eb131&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=28e3a851f1afdf824d290893b4e15565"
+    ]
+  }
+}

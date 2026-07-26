@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/67 多因子回测完整模板（筛选和买卖条件强于‘策略生成器’）.txt",
+    "category": "2020年度精选策略",
+    "file_name": "67 多因子回测完整模板（筛选和买卖条件强于‘策略生成器’）.txt",
+    "strategy_name": "多因子回测完整模板（筛选和买卖条件强于‘策略生成器’）",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 10489,
+    "sha256": "d1d8b7595ba756b49a674d93d651b8129f64040d74ea15781a11fb438d056ce1",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/10730"
+    ],
+    "primary_url": "https://www.joinquant.com/post/10730",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:08+08:00",
+    "requested_url": "https://www.joinquant.com/post/10730",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/4691800bea7bdb8c1ddf6e6c81a7c8dd",
+    "community_id": "4691800bea7bdb8c1ddf6e6c81a7c8dd",
+    "post": {
+      "postId": "e9c75b416dae05b91c5d1088896fe603",
+      "uniqueKey": "4691800bea7bdb8c1ddf6e6c81a7c8dd",
+      "title": "多因子回测完整模板（筛选和买卖条件强于‘策略生成器’）",
+      "content": "之前看论坛开始学写多因子回测框架，没有发现较完整的框架。经过近期的学习，自己写了一个框架，力求策略代码简单不重负高效且扩展性较强，股筛选方式处了常规外，可以按行业或全部股票的百分比，对于不同的数据库调来的dataframe，提供了将其齐整合在一起的子函数，买卖形式也可灵活调整。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-01-19 14:21:18",
+      "modTime": "2018-01-19 14:21:18",
+      "lastActiveTime": "2020-02-14 23:34:59",
+      "lastPubTime": "2018-01-19 14:21:18",
+      "backtestId": "99c7a05c4e076c18e320d4a595c6a2ec",
+      "backtestName": "完整多因子模板",
+      "replyCount": "4",
+      "viewCount": "3054",
+      "collectionCount": "21",
+      "likeCount": "4",
+      "disLikeCount": "0",
+      "backtestCloneCount": "155",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "2",
+      "followersCount": "9",
+      "followingCount": "12",
+      "author": {
+        "userId": "82d2432fd15e8158af26cf344ef97ed3",
+        "alias": "situchuntian"
+      },
+      "tags": [
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "99c7a05c4e076c18e320d4a595c6a2ec",
+        "backtest_name": "完整多因子模板",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=99c7a05c4e076c18e320d4a595c6a2ec&postId=4691800bea7bdb8c1ddf6e6c81a7c8dd&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2014-01-01",
+          "end_date": "2018-01-17",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "d9d43c374bc4fd4ad813a84fa97548a8",
+            "7269010"
+          ],
+          "numeric_backtest_id": "7269010",
+          "numeric_post_id": "10730",
+          "python_version": 2,
+          "clone_count": 155
+        },
+        "stats": {
+          "information": 1.2245360231318,
+          "benchmark_return": 0.82320712301066,
+          "algorithm_volatility": 0.29817377546028,
+          "annual_bm_return": 0.16394987844683,
+          "__version": 101,
+          "max_drawdown": 0.28053835264901,
+          "sortino": 1.5429405074705,
+          "period_label": "2018-01",
+          "trading_days": 989,
+          "algorithm_return": 2.8341536,
+          "benchmark_volatility": 0.24862535239347,
+          "beta": 1.0002152917578,
+          "excess_return": 2.6724001753425,
+          "annual_algo_return": 0.40456007821957,
+          "sharpe": 1.2226429962085,
+          "alpha": 0.24058351438553,
+          "max_drawdown_period": [
+            "2015-07-23",
+            "2015-08-25"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.16175342465753,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.50960566228514,
+          "avg_position_days": 63.8,
+          "win_ratio": 0.66666666666667,
+          "win_count": 84,
+          "avg_trade_return": 0.07286635703143,
+          "profit_loss_ratio": 2.6963170815684,
+          "lose_count": 42,
+          "report_done_seconds": 2940.6559591293
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 283.41536,
+          "benchmark_return_percent": 82.320712,
+          "annual_algo_return_percent": 40.456008,
+          "annual_bm_return_percent": 16.394988,
+          "max_drawdown_percent": 28.053835,
+          "algorithm_volatility_percent": 29.817378,
+          "benchmark_volatility_percent": 24.862535,
+          "win_ratio_percent": 66.666667,
+          "day_win_ratio_percent": 50.960566,
+          "avg_trade_return_percent": 7.286636,
+          "sharpe": 1.2226429962085,
+          "sortino": 1.5429405074705,
+          "information": 1.2245360231318,
+          "alpha": 0.24058351438553,
+          "beta": 1.0002152917578,
+          "profit_loss_ratio": 2.6963170815684,
+          "avg_position_days": 63.8,
+          "trading_days": 989,
+          "win_count": 84,
+          "lose_count": 42,
+          "max_drawdown_period": [
+            "2015-07-23",
+            "2015-08-25"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/10730",
+      "https://www.joinquant.com/community/post/detailV2?postId=10730",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=99c7a05c4e076c18e320d4a595c6a2ec&postId=4691800bea7bdb8c1ddf6e6c81a7c8dd&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=99c7a05c4e076c18e320d4a595c6a2ec"
+    ]
+  }
+}

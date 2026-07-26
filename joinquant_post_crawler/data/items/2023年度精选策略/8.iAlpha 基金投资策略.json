@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/8.iAlpha 基金投资策略.txt",
+    "category": "2023年度精选策略",
+    "file_name": "8.iAlpha 基金投资策略.txt",
+    "strategy_name": "iAlpha 基金投资策略",
+    "declared_title": "iAlpha 基金投资策略",
+    "declared_author": "Gyro",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 1588,
+    "sha256": "3f2ba65f4b2f575ca9d9408c2e668b8b067f8e29d6a2ec87213fffd65730a8ed",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/30024"
+    ],
+    "primary_url": "https://www.joinquant.com/post/30024",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "post_without_backtest",
+    "collected_at": "2026-07-27T02:09:40+08:00",
+    "requested_url": "https://www.joinquant.com/post/30024",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/a8ecbd620717d685b4ebf0d52f3954d2",
+    "community_id": "a8ecbd620717d685b4ebf0d52f3954d2",
+    "post": {
+      "postId": "09950df6beda984e87f6cfe422d7530e",
+      "uniqueKey": "a8ecbd620717d685b4ebf0d52f3954d2",
+      "title": "iAlpha 基金投资策略",
+      "content": "这个策略的设计思路是“双10”，",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-11-03 19:43:58",
+      "modTime": "2023-03-02 22:58:38",
+      "lastActiveTime": "2023-03-02 22:58:38",
+      "lastPubTime": "2023-03-02 22:58:38",
+      "replyCount": "40",
+      "viewCount": "9810",
+      "collectionCount": "139",
+      "likeCount": "67",
+      "disLikeCount": "0",
+      "backtestCloneCount": "588",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "227",
+      "followersCount": "5889",
+      "followingCount": "1",
+      "author": {
+        "userId": "3313ab946c7a03ea669d400af0a5a2e3",
+        "alias": "Gyron",
+        "introduction": "\r\n                    \r\n                     ",
+        "headImgKey": "600eaeda447f70216671ecc0af5f5fe2"
+      },
+      "tags": [
+        {
+          "id": "12",
+          "name": "基金"
+        },
+        {
+          "id": "5",
+          "name": "仓位管理"
+        }
+      ]
+    },
+    "backtests": [],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 3,
+    "request_urls": [
+      "https://www.joinquant.com/post/30024",
+      "https://www.joinquant.com/community/post/detailV2?postId=30024",
+      "https://www.joinquant.com/community/post/replyList?page=1&postId=a8ecbd620717d685b4ebf0d52f3954d2",
+      "https://www.joinquant.com/community/post/replyList?page=2&postId=a8ecbd620717d685b4ebf0d52f3954d2"
+    ]
+  }
+}

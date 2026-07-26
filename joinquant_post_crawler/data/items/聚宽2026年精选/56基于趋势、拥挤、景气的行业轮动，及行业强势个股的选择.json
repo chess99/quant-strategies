@@ -1,0 +1,190 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/56基于趋势、拥挤、景气的行业轮动，及行业强势个股的选择.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "56基于趋势、拥挤、景气的行业轮动，及行业强势个股的选择.txt",
+    "strategy_name": "基于趋势、拥挤、景气的行业轮动，及行业强势个股的选择",
+    "declared_title": "基于趋势、拥挤、景气的行业轮动，及行业强势个股的选择",
+    "declared_author": "hayy",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 12620,
+    "sha256": "6cd568aef4764286aa103df69fc965e893a096a6e3370a09a1ffba2d28260cb3",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/47033"
+    ],
+    "primary_url": "https://www.joinquant.com/post/47033",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:12:19+08:00",
+    "requested_url": "https://www.joinquant.com/post/47033",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/d9dd4aaf70a6519cdce5b0fe207f4e72",
+    "community_id": "d9dd4aaf70a6519cdce5b0fe207f4e72",
+    "post": {
+      "postId": "eb6cd53dafe064852fe09ec829d0d758",
+      "uniqueKey": "d9dd4aaf70a6519cdce5b0fe207f4e72",
+      "title": "基于趋势、拥挤、景气的行业轮动，及行业强势个股的选择",
+      "content": "****文章包含两个部分\n第一个是基于景气度、拥挤度和趋势的行业轮动\n第二个是选出行业后只买行业中的强势个股\n实际上我想将重点放在第二部分上面，为此首先需要一个还不错的行业轮动策略****\n\n\n**一、基于景气度、拥挤度和趋势的行业轮动**\n可以参考：https://www.joinquant.com/view/community/detail/858fe621ed0bd4572cd2b3d35da7d6c1?type=1\n或者是国盛证券的两篇研报《行业轮动的三个标尺》和《因子择时的三个标尺：因子动量、因子离散度与因子拥挤度》以及《CANSLIM行业轮动策略》、《如何更有效地刻画行业拥挤度？—多维度行业轮动体系探索》\n****1、景气度刻画：****\n使用聚宽因子库中的“**long_term_predicted_earnings_growth**”因子（分析师预期）和北向资金持股占流通股比例的20日均值（具体参考我之前一篇文章“北向资金因子梳理”）\n****2、拥挤度刻画：****\n直接使用聚宽因子库中“**DAVOL20**”（20日换手率占120日换手率）\n****3、趋势度刻画：****\n使用聚宽因子库中“**sharpe_ratio_60**”（60日夏普比率）\n显然，选择这些的原因是方便而且效果还可以，如果严格按照研报里的构造方法很麻烦，且效果也就那样\n\n选出因子后，需要为每个行业计算相对应的因子。但如果使用行业指数直接计算可能会存在指数失真问题：行业车尾的那些亏损股显然不能代表整个行业的景气和拥挤度情况，分析师也难以覆盖到。因此，只选择行业中**市值最大**的前十几二十几只股票（动态选择，毕竟市场股票总数越来越多了）来计算因子后取均值代表行业情况。买入最强的两个行业所有股票，月度调仓下效果如下，可以看到效果确实有但不强：\n![Img](https://image.joinquant.com/1f916fe54c0bb07dd9f7916a6bb8863b) \n**二、选择行业中的强势个股购买**\n在选出了行业后你会如何“买这个行业”？购买行业etf？买市值最大的几只？买技术面好的几只？还是买基本面最好的几只？\n对于这个问题，国信证券的《联合动量因子：个股与行业的共振》或许是一个好的解决方法\n当然，研报里并没有先选出行业再选个股，而是一个个股的动量构造方法，具体可以参考原研报，简述如下：\n1、对于每个股票，回看过去20天，**选择涨幅最大的5天**，记下日期并按照涨幅排序\n2、取这只股票**对应的行业**这5天的涨跌幅数据，按一定权重相加作为这只个股的动量因子，越大越好\n构造的逻辑很简单，个股涨幅最大的时候如果有行业相配合，后续的表现将会更好。但需要注意的是，个股的作用只在于选出那五天的日期，最终计算因子的数值只来源于行业的涨跌幅数据，这也是我觉得最巧妙的地方\n\n这种方法我认为有以下几个优点：\n1、能选出与行业**相关性更强**的股票，如果相关性不强，即使它归类为那个行业，因子值也不会大\n2、能选出这轮行业行情上涨时的**明星股，热门股**，换句话说，行业才是被这些股票带起来的那个\n这不就天然适合行业轮动策略吗，如果考虑个股与行业的共振选择个股（原研报的做法），不如先选出那些未来会上涨行业，再从行业中选择共振的个股。\n因此，根据上面的轮动策略选择出最强的两个行业后，在每个行业中按上述方法选择最强的10支股票代表行业情况，回测结果如下：\n![Img](https://image.joinquant.com/412dda1a2901541bdd1f3916996a01ce) \n有点样子！\n\n上面只是做了个例子，不免要问出以下问题：\n如果有更好的行业轮动策略是否效果更好？\n个股与行业的共振能不能改成个股与概念的共振，个股与板块的共振，亦或是个股和个股的共振从而优化其他策略？\n反过来呢，先选择行业涨幅最大的五天，再根据这五天选择个股涨幅最大的五天？\n\n感谢你看到这里！强烈建议感兴趣去看我上面提到的原研报，写的很详细，相信你一定有新的收获\n以后附件里只会包含了因子构造的主要逻辑，不放全部源码。当然只要你愿意花点时间就能构造完整",
+      "type": 1,
+      "status": "0",
+      "addTime": "2024-03-12 17:24:49",
+      "modTime": "2024-03-12 17:24:49",
+      "lastActiveTime": "2026-05-14 16:03:46",
+      "lastPubTime": "2024-03-12 17:24:49",
+      "backtestId": "dea5dc859ac560987e9dee48b94b0f37",
+      "backtestName": "行业轮动_强势个股选择",
+      "replyCount": "54",
+      "viewCount": "9403",
+      "collectionCount": "218",
+      "likeCount": "99",
+      "disLikeCount": "0",
+      "backtestCloneCount": "482",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "448",
+      "fileName": "主要逻辑代码.txt",
+      "fileType": "text/plain",
+      "fileSize": "7182",
+      "postCount": "21",
+      "followersCount": "425",
+      "followingCount": "1",
+      "author": {
+        "userId": "f606e2f553c2ca0370537a09e3262b3d",
+        "alias": "hayy",
+        "introduction": "广东财经大学",
+        "headImgKey": "3b99f932296f92e8114e343c7bb765ae"
+      },
+      "tags": [
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "264",
+          "name": "研报复现"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "dea5dc859ac560987e9dee48b94b0f37",
+        "backtest_name": "行业轮动_强势个股选择",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=dea5dc859ac560987e9dee48b94b0f37&postId=d9dd4aaf70a6519cdce5b0fe207f4e72&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2015-01-01",
+          "end_date": "2022-01-01",
+          "base_capital": 10000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "4ee5d82e6fca6e44d56bc52d9ecd6fdd",
+            "32934969"
+          ],
+          "numeric_backtest_id": "32934969",
+          "numeric_post_id": "47033",
+          "python_version": 3,
+          "clone_count": 482
+        },
+        "stats": {
+          "trading_days": 1705,
+          "benchmark_volatility": 0.2341335358085,
+          "algorithm_volatility": 0.305514063285,
+          "treasury_return": 0.27967123287671,
+          "algorithm_return": 5.3015562662436,
+          "benchmark_return": 0.39807284149758,
+          "annual_algo_return": 0.30984856228277,
+          "annual_bm_return": 0.050361223152223,
+          "sharpe": 0.88326068980672,
+          "excess_return_sharpe": "1.051",
+          "sortino": 1.0468688624653,
+          "information": 1.3218693072629,
+          "beta": 0.99986624222599,
+          "alpha": 0.25948872502469,
+          "excess_return": 3.5073161277445,
+          "avg_excess_return": "0.10%",
+          "max_drawdown": 0.47621362954563,
+          "max_drawdown_period": [
+            "2015-06-12",
+            "2015-07-08"
+          ],
+          "excess_return_max_drawdown": "29.70%",
+          "excess_return_max_drawdown_period": [
+            "2015-06-18",
+            "2015-07-07"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-12",
+          "__version": 101,
+          "win_ratio": 0.59204315576534,
+          "profit_loss_ratio": 1.7732753181033,
+          "win_count": 878,
+          "lose_count": 605,
+          "day_win_ratio": 0.5366568914956,
+          "avg_trade_return": 0.03639637610007,
+          "avg_position_days": 42.472049689441,
+          "turnover_rate": 0.042566742903978,
+          "report_done_seconds": 1884.8882944584,
+          "report_done_cpu_seconds": 641.74
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 530.155627,
+          "benchmark_return_percent": 39.807284,
+          "annual_algo_return_percent": 30.984856,
+          "annual_bm_return_percent": 5.036122,
+          "max_drawdown_percent": 47.621363,
+          "algorithm_volatility_percent": 30.551406,
+          "benchmark_volatility_percent": 23.413354,
+          "win_ratio_percent": 59.204316,
+          "day_win_ratio_percent": 53.665689,
+          "avg_trade_return_percent": 3.639638,
+          "turnover_rate_percent": 4.256674,
+          "sharpe": 0.88326068980672,
+          "sortino": 1.0468688624653,
+          "information": 1.3218693072629,
+          "alpha": 0.25948872502469,
+          "beta": 0.99986624222599,
+          "profit_loss_ratio": 1.7732753181033,
+          "avg_position_days": 42.472049689441,
+          "trading_days": 1705,
+          "win_count": 878,
+          "lose_count": 605,
+          "max_drawdown_period": [
+            "2015-06-12",
+            "2015-07-08"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2015-06-18",
+            "2015-07-07"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/47033",
+      "https://www.joinquant.com/community/post/detailV2?postId=47033",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=dea5dc859ac560987e9dee48b94b0f37&postId=d9dd4aaf70a6519cdce5b0fe207f4e72&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=dea5dc859ac560987e9dee48b94b0f37"
+    ]
+  }
+}

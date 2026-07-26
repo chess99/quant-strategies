@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/9.持续跑赢大盘-真蓝筹v2(资金容量千万以上).txt",
+    "category": "2025年度精选策略",
+    "file_name": "9.持续跑赢大盘-真蓝筹v2(资金容量千万以上).txt",
+    "strategy_name": "持续跑赢大盘-真蓝筹v2(资金容量千万以上)",
+    "declared_title": "持续跑赢大盘-真蓝筹v2(资金容量千万以上)",
+    "declared_author": "柱子嗨翻天",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 7497,
+    "sha256": "e7144ea0b7f48cb6105fe12ca54fbfb848f99fe54970684892214dbb0fd2f56c",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/26117"
+    ],
+    "primary_url": "https://www.joinquant.com/post/26117",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:43+08:00",
+    "requested_url": "https://www.joinquant.com/post/26117",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/075ba1c9fc536f0240d5d27e409b48a1",
+    "community_id": "075ba1c9fc536f0240d5d27e409b48a1",
+    "post": {
+      "postId": "52e13641351558699a2644e0e8561186",
+      "uniqueKey": "075ba1c9fc536f0240d5d27e409b48a1",
+      "title": "持续跑赢大盘-真蓝筹v2(资金容量千万以上)",
+      "content": "在持有“真蓝筹”的基础上，加入了RSRS择时，效果看上去还不错。v1版传送门：https://www.joinquant.com/view/community/detail/a7a135485a02d41aa4087b0c1af33000\n\n策略思路：\n1.以沪深300指数成分股为股票池，选取连续10年盈利增长的股票作为标的股票。\n2.以RSRS判断择时。指标利多时，买入股票；利空时，空仓。\n3.持仓状态下，每月轮动更新。\n\n回测结果：\n2014-2019年，年化收益22.83%，最大回撤11.7%。资金容量估计1亿都没什么问题。\n\n优化方向：\n1.进一步精选标的股票。\n2.空仓时买入货币基金或者其他与沪深300负相关的标的。\n\np.s.码字不易，觉得不错的就点个赞评个论呗~",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-03-09 22:35:42",
+      "modTime": "2022-02-11 08:23:16",
+      "lastActiveTime": "2026-07-19 18:50:00",
+      "lastPubTime": "2022-02-11 08:23:16",
+      "backtestId": "d59a3ea2fae95ce363f35c84760606dd",
+      "backtestName": "v3-RSRS择时-10年真蓝筹-share-new",
+      "replyCount": "80",
+      "viewCount": "6899",
+      "collectionCount": "103",
+      "likeCount": "83",
+      "disLikeCount": "0",
+      "backtestCloneCount": "447",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "4",
+      "followersCount": "62",
+      "followingCount": "19",
+      "author": {
+        "userId": "18cc738fe551811597a3128823328768",
+        "alias": "柱子嗨翻天",
+        "vipType": "VIP"
+      },
+      "tags": [
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "d59a3ea2fae95ce363f35c84760606dd",
+        "backtest_name": "v3-RSRS择时-10年真蓝筹-share-new",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=d59a3ea2fae95ce363f35c84760606dd&postId=075ba1c9fc536f0240d5d27e409b48a1&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2014-01-01",
+          "end_date": "2020-01-01",
+          "base_capital": 10000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "b45e20df0132e5180887fe8efa8f95a2",
+            "18337627"
+          ],
+          "numeric_backtest_id": "18337627",
+          "numeric_post_id": "26117",
+          "python_version": 3,
+          "clone_count": 441
+        },
+        "stats": {
+          "trading_days": 1464,
+          "benchmark_volatility": 0.23633009755636,
+          "algorithm_volatility": 0.14861850455147,
+          "treasury_return": 0.2398904109589,
+          "algorithm_return": 2.3342642257624,
+          "benchmark_return": 0.75816620386862,
+          "annual_algo_return": 0.22831600702344,
+          "annual_bm_return": 0.10115299723328,
+          "sharpe": 1.2671100923251,
+          "excess_return_sharpe": "0.396",
+          "sortino": 1.8334851835542,
+          "information": 0.67961362868622,
+          "beta": 0.38431041645454,
+          "alpha": 0.16481427318927,
+          "excess_return": 0.89644427155167,
+          "avg_excess_return": "0.05%",
+          "max_drawdown": 0.11699488522782,
+          "max_drawdown_period": [
+            "2019-04-19",
+            "2019-06-06"
+          ],
+          "excess_return_max_drawdown": "29.69%",
+          "excess_return_max_drawdown_period": [
+            "2014-06-19",
+            "2015-01-07"
+          ],
+          "max_leverage": 0,
+          "period_label": "2019-12",
+          "__version": 101,
+          "win_ratio": 0.74207492795389,
+          "profit_loss_ratio": 4.1183866734086,
+          "win_count": 515,
+          "lose_count": 179,
+          "day_win_ratio": 0.4931693989071,
+          "avg_trade_return": 0.094414949361341,
+          "avg_position_days": 212.52941176471,
+          "turnover_rate": 0.013503899836715,
+          "report_done_seconds": 91.255695581436,
+          "report_done_cpu_seconds": 79.22
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 233.426423,
+          "benchmark_return_percent": 75.81662,
+          "annual_algo_return_percent": 22.831601,
+          "annual_bm_return_percent": 10.1153,
+          "max_drawdown_percent": 11.699489,
+          "algorithm_volatility_percent": 14.86185,
+          "benchmark_volatility_percent": 23.63301,
+          "win_ratio_percent": 74.207493,
+          "day_win_ratio_percent": 49.31694,
+          "avg_trade_return_percent": 9.441495,
+          "turnover_rate_percent": 1.35039,
+          "sharpe": 1.2671100923251,
+          "sortino": 1.8334851835542,
+          "information": 0.67961362868622,
+          "alpha": 0.16481427318927,
+          "beta": 0.38431041645454,
+          "profit_loss_ratio": 4.1183866734086,
+          "avg_position_days": 212.52941176471,
+          "trading_days": 1464,
+          "win_count": 515,
+          "lose_count": 179,
+          "max_drawdown_period": [
+            "2019-04-19",
+            "2019-06-06"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2014-06-19",
+            "2015-01-07"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/26117",
+      "https://www.joinquant.com/community/post/detailV2?postId=26117",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=d59a3ea2fae95ce363f35c84760606dd&postId=075ba1c9fc536f0240d5d27e409b48a1&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=d59a3ea2fae95ce363f35c84760606dd"
+    ]
+  }
+}

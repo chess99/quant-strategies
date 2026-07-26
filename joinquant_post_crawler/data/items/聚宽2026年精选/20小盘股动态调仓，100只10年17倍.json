@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/20小盘股动态调仓，100只10年17倍.py",
+    "category": "聚宽2026年精选",
+    "file_name": "20小盘股动态调仓，100只10年17倍.py",
+    "strategy_name": "小盘股动态调仓，100只10年17倍",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".py",
+    "encoding": "utf-8-sig",
+    "size": 673,
+    "sha256": "17f506f096d45caf6e9e514dca7c4f9416128006060c4c1784e488690f280483",
+    "joinquant_urls": [],
+    "primary_url": null,
+    "url_selection_method": "none"
+  },
+  "remote": null
+}

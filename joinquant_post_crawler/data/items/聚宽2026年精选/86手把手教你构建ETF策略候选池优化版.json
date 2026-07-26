@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/86手把手教你构建ETF策略候选池优化版.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "86手把手教你构建ETF策略候选池优化版.txt",
+    "strategy_name": "手把手教你构建ETF策略候选池优化版",
+    "declared_title": "手把手教你构建ETF策略候选池优化版",
+    "declared_author": "N365128",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 4022,
+    "sha256": "af583b792607a041d913a6b3f1cf9084eea8090f7bfb6ea53533f33ac0537fc6",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/49554"
+    ],
+    "primary_url": "https://www.joinquant.com/post/49554",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:12:41+08:00",
+    "requested_url": "https://www.joinquant.com/post/49554",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/afb91104f16460f26f066c4304ef9876",
+    "community_id": "afb91104f16460f26f066c4304ef9876",
+    "post": {
+      "postId": "eb9a44b721624d8763110cfb725bcdd5",
+      "uniqueKey": "afb91104f16460f26f066c4304ef9876",
+      "title": "手把手教你构建ETF策略候选池优化版",
+      "content": "感谢**@JoelZ**提供的研究**【手把手教你构建ETF策略候选池】**。\n读完原文深有感悟，抑制不住搓代码的劲头，按照自己的理解修改了一版，原帖大家可以看**@JoelZ**\n\n\n我修改后的研究放在最后，先上图，可以看到走势形态基本互相独立，且能涵盖所有主要ETF![Img](https://image.joinquant.com/5ab655b239f84ba2b4da7333e9ec77ed) \n\n\n修改思路如下，不对的请指正：\n\n1.既然是作为策略池，那么初始的样本能够尽可能全面当然最好，于是将原研究中**近1000日均成交额5千万**修改为**近200日均成交额1千万**，作为新的样本投喂给机器学习\n\n2.为了降低拟合，将**240日收盘价样本**增加到**450日收盘价样本**\n\n3.针对新的研究，**调优K-means算法参数**，当然42没改是为了致敬ai的浪漫，这里切记不要迷恋silhouette_score大小！0.9附近即为合理！\n\n4.修复了一些无法**实时运行的bug**，目前支持随时运行且更新最新数据\n\n5.在重要节点**增加数据打印与注释**，方便各位更好的阅读和调试\n\n6.最后也是最重要的一点：利用已知的几个独立ETF作为**准确性验证**，比如尽可能保证下面ETF有且仅有一只为最佳：\nA股市值类：A股大小盘\n国际市场类：美股；欧洲；日经；恒生\n行业概念类：医药；金融；传媒；地产；军工；消费；环保等\n其他：红利；豆粕；黄金；债券\n\n当然原作的我优化之后也有很经典，贴出来如下图\n![Img](https://image.joinquant.com/d3dfb68789b72c5728366789d0486c4a) \n如果需要代码，我后续也可以发出原作优化版，可以把两个股票池互补一下，也挺不错，看个人喜好了\n\n最后的思考：\n1.将该ETF池作为轮动依据，尝试构建策略回测看看\n2.考虑加入LOF基金，原理类似，然后构建策略回测\n\n\n不习惯看研究的同学可以直接copy这个策略形式的，一键运行直接看日志打印结果",
+      "type": 1,
+      "status": "0",
+      "addTime": "2024-08-20 23:40:10",
+      "modTime": "2025-08-18 17:26:33",
+      "lastActiveTime": "2026-05-19 22:35:53",
+      "lastPubTime": "2025-08-18 17:26:33",
+      "backtestId": "74277ead1a51e6f9fbe9f360c314e5fb",
+      "backtestName": "ETF策略池构建",
+      "replyCount": "51",
+      "viewCount": "6189",
+      "collectionCount": "196",
+      "likeCount": "107",
+      "disLikeCount": "0",
+      "backtestCloneCount": "181",
+      "notebookCloneCount": "103",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "9",
+      "followersCount": "65",
+      "followingCount": "0",
+      "author": {
+        "userId": "c63a84dc8f31db9e086b39dd0574a87e",
+        "alias": "5128"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "13",
+          "name": "机器学习"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "74277ead1a51e6f9fbe9f360c314e5fb",
+        "backtest_name": "ETF策略池构建",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=74277ead1a51e6f9fbe9f360c314e5fb&postId=afb91104f16460f26f066c4304ef9876&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2024-08-21",
+          "end_date": "2024-08-21",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "139e673413f0c16d266734bd7d47df69",
+            "36098280"
+          ],
+          "numeric_backtest_id": "36098280",
+          "numeric_post_id": "49554",
+          "python_version": 3,
+          "clone_count": 152
+        },
+        "stats": {
+          "trading_days": 1,
+          "benchmark_volatility": 0,
+          "algorithm_volatility": 0,
+          "treasury_return": 0,
+          "algorithm_return": 0,
+          "benchmark_return": -0.0033186305398025,
+          "annual_algo_return": 0,
+          "annual_bm_return": -0.56440281569592,
+          "sharpe": 0,
+          "excess_return_sharpe": null,
+          "sortino": 0,
+          "information": 0,
+          "beta": 0,
+          "alpha": -0.04,
+          "excess_return": 0.0033296805192615,
+          "avg_excess_return": "0.33%",
+          "max_drawdown": 0,
+          "max_drawdown_period": [
+            "2024-08-21",
+            "2024-08-21"
+          ],
+          "excess_return_max_drawdown": "0.00%",
+          "excess_return_max_drawdown_period": [
+            "2024-08-21",
+            "2024-08-21"
+          ],
+          "max_leverage": 0,
+          "period_label": "2024-08",
+          "__version": 101,
+          "win_ratio": 0,
+          "profit_loss_ratio": 0,
+          "win_count": 0,
+          "lose_count": 0,
+          "day_win_ratio": 1,
+          "avg_trade_return": 0,
+          "avg_position_days": 0,
+          "turnover_rate": 0,
+          "report_done_seconds": 0.063945770263672,
+          "report_done_cpu_seconds": 8.07
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 0,
+          "benchmark_return_percent": -0.331863,
+          "annual_algo_return_percent": 0,
+          "annual_bm_return_percent": -56.440282,
+          "max_drawdown_percent": 0,
+          "algorithm_volatility_percent": 0,
+          "benchmark_volatility_percent": 0,
+          "win_ratio_percent": 0,
+          "day_win_ratio_percent": 100,
+          "avg_trade_return_percent": 0,
+          "turnover_rate_percent": 0,
+          "sharpe": 0,
+          "sortino": 0,
+          "information": 0,
+          "alpha": -0.04,
+          "beta": 0,
+          "profit_loss_ratio": 0,
+          "avg_position_days": 0,
+          "trading_days": 1,
+          "win_count": 0,
+          "lose_count": 0,
+          "max_drawdown_period": [
+            "2024-08-21",
+            "2024-08-21"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2024-08-21",
+            "2024-08-21"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/49554",
+      "https://www.joinquant.com/community/post/detailV2?postId=49554",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=74277ead1a51e6f9fbe9f360c314e5fb&postId=afb91104f16460f26f066c4304ef9876&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=74277ead1a51e6f9fbe9f360c314e5fb"
+    ]
+  }
+}

@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略1/1.差不多得了.txt",
+    "category": "2024年度精选策略1",
+    "file_name": "1.差不多得了.txt",
+    "strategy_name": "差不多得了",
+    "declared_title": "差不多得了",
+    "declared_author": "wywy1995",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 13167,
+    "sha256": "c51a807fb839697b3c582a2377308fb6d37f8177e80b9bb650fd8d3818df0966",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/40981",
+      "https://www.joinquant.com/post/40407",
+      "https://www.joinquant.com/view/community/detail/30684f8d65a74eef0d704239f0eec8be"
+    ],
+    "primary_url": "https://www.joinquant.com/post/40981",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:09:51+08:00",
+    "requested_url": "https://www.joinquant.com/post/40981",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/dc3598a5ca7941d0e17052f9872e58a8",
+    "community_id": "dc3598a5ca7941d0e17052f9872e58a8",
+    "post": {
+      "postId": "7aed52a61f14f88e21de79990405f59a",
+      "uniqueKey": "dc3598a5ca7941d0e17052f9872e58a8",
+      "title": "差不多得了",
+      "content": "无未来函数，来源是我之前搞的机器学习策略，感谢Bruce_Lee的框架！\n\n你说它拟合吧，多少沾点儿，但目前样本外表现良好。谁知道”巧合“哪天完，“美梦”何时醒？\n\n**附件里有代码**，随缘克隆不骗分~\n\n最近6年62倍\n![Img]( https://image.joinquant.com/39121892101798657ab5ad6fd6099f1a) \n\n样本外\n![Img]( https://image.joinquant.com/5b3251cc5193bc3eef5bcc7736375a85) \n\n![Img]( https://image.joinquant.com/76624f64a727bf213990eb77dc72c765)",
+      "type": 1,
+      "status": "0",
+      "addTime": "2023-02-21 12:59:29",
+      "modTime": "2023-02-22 00:15:40",
+      "lastActiveTime": "2026-07-24 23:49:56",
+      "lastPubTime": "2023-02-22 00:15:40",
+      "backtestId": "52e4196decc36a833c6a1554a37ce230",
+      "backtestName": "v1.4-5",
+      "replyCount": "1281",
+      "viewCount": "54452",
+      "collectionCount": "727",
+      "likeCount": "551",
+      "disLikeCount": "2",
+      "backtestCloneCount": "2783",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "6438",
+      "fileName": "做梦素材.txt",
+      "fileType": "text/plain",
+      "fileSize": "13052",
+      "postCount": "37",
+      "followersCount": "9584",
+      "followingCount": "39",
+      "author": {
+        "userId": "e7cdf89a416d18f2e63e65296983370b",
+        "alias": "wywy1995",
+        "introduction": "从历史中发现规律比画出美丽的图形更重要",
+        "vipType": "VIP",
+        "headImgKey": "6784510f0c6abdbcf9a1fed9081a4658"
+      },
+      "tags": [
+        {
+          "id": "13",
+          "name": "机器学习"
+        },
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "52e4196decc36a833c6a1554a37ce230",
+        "backtest_name": "v1.4-5",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=52e4196decc36a833c6a1554a37ce230&postId=dc3598a5ca7941d0e17052f9872e58a8&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2008-11-01",
+          "end_date": "2023-02-15",
+          "base_capital": 10000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "3838d5cd247e752389a1c4b1a1244cce",
+            "27497541"
+          ],
+          "numeric_backtest_id": "27497541",
+          "numeric_post_id": "40981",
+          "python_version": 3,
+          "clone_count": 2507
+        },
+        "stats": {
+          "trading_days": 3473,
+          "benchmark_volatility": 0.26828967261351,
+          "algorithm_volatility": 0.3160489782996,
+          "treasury_return": 0.57172602739726,
+          "algorithm_return": 15133.994696495,
+          "benchmark_return": 3.0872396000051,
+          "annual_algo_return": 0.99936149536495,
+          "annual_bm_return": 0.1066571851191,
+          "sharpe": 3.0354836156297,
+          "excess_return_sharpe": "3.362",
+          "sortino": 3.9332920479048,
+          "information": 3.9421029204157,
+          "beta": 0.83763586342004,
+          "alpha": 0.90352704655456,
+          "excess_return": 3701.986900126,
+          "avg_excess_return": "0.25%",
+          "max_drawdown": 0.48310942817902,
+          "max_drawdown_period": [
+            "2015-06-26",
+            "2015-09-15"
+          ],
+          "excess_return_max_drawdown": "26.49%",
+          "excess_return_max_drawdown_period": [
+            "2020-12-15",
+            "2021-01-13"
+          ],
+          "max_leverage": 0,
+          "period_label": "2023-02",
+          "__version": 101,
+          "win_ratio": 0.61442564559216,
+          "profit_loss_ratio": 4.2929202465638,
+          "win_count": 690,
+          "lose_count": 433,
+          "day_win_ratio": 0.52116325942989,
+          "avg_trade_return": 0.04691037869125,
+          "avg_position_days": 27.131274131274,
+          "turnover_rate": 0.061458259672229,
+          "report_done_seconds": 5300.2007188797,
+          "report_done_cpu_seconds": 2972.96
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 1513399.469649,
+          "benchmark_return_percent": 308.72396,
+          "annual_algo_return_percent": 99.93615,
+          "annual_bm_return_percent": 10.665719,
+          "max_drawdown_percent": 48.310943,
+          "algorithm_volatility_percent": 31.604898,
+          "benchmark_volatility_percent": 26.828967,
+          "win_ratio_percent": 61.442565,
+          "day_win_ratio_percent": 52.116326,
+          "avg_trade_return_percent": 4.691038,
+          "turnover_rate_percent": 6.145826,
+          "sharpe": 3.0354836156297,
+          "sortino": 3.9332920479048,
+          "information": 3.9421029204157,
+          "alpha": 0.90352704655456,
+          "beta": 0.83763586342004,
+          "profit_loss_ratio": 4.2929202465638,
+          "avg_position_days": 27.131274131274,
+          "trading_days": 3473,
+          "win_count": 690,
+          "lose_count": 433,
+          "max_drawdown_period": [
+            "2015-06-26",
+            "2015-09-15"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-12-15",
+            "2021-01-13"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/40981",
+      "https://www.joinquant.com/community/post/detailV2?postId=40981",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=52e4196decc36a833c6a1554a37ce230&postId=dc3598a5ca7941d0e17052f9872e58a8&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=52e4196decc36a833c6a1554a37ce230"
+    ]
+  }
+}

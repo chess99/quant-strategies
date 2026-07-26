@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/7追首板涨停 过去两年年化304%.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "7追首板涨停 过去两年年化304%.txt",
+    "strategy_name": "追首板涨停 过去两年年化304%",
+    "declared_title": "追首板涨停 过去两年年化304%",
+    "declared_author": "子匀",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 7345,
+    "sha256": "18dab475abf4f217e51a7982be8e60a04ab5561bf38841a1971a001c9d91cbc9",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/48680"
+    ],
+    "primary_url": "https://www.joinquant.com/post/48680",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:12:35+08:00",
+    "requested_url": "https://www.joinquant.com/post/48680",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/ee54e8fdd1ad03f2ae23a3e0e364b952",
+    "community_id": "ee54e8fdd1ad03f2ae23a3e0e364b952",
+    "post": {
+      "postId": "267f9c9c6b8f938493e0ce277b720b98",
+      "uniqueKey": "ee54e8fdd1ad03f2ae23a3e0e364b952",
+      "title": "追首板涨停 过去两年年化304%",
+      "content": "#### 在以下原作的基础上修改：    \n 克隆自聚宽文章：https://www.joinquant.com/post/48663    \n 标题：一进二集合竞价策略优化 年化182%    \n 作者：天堂鸟汇信    \n     \n 克隆自聚宽文章：https://www.joinquant.com/post/48523    \n标题：一进二集合竞价策略    \n 作者：十足的小市值迷    \n1.原作回测两年30来分钟，重写了部分代码，8分钟搞定。优化了原作的选股逻辑，年化也提高到304.11%。   \n2. 修改了开盘后再获取当天开盘量价的逻辑。    \n3. 程序使用自用的程序框架。  包括交易函数群，选股函数群，风险控制函数群，其他函数群。  \n4.实盘习惯，使用after_code_changed(context)函数。     \n策略对过去两年的市场表现进行了优化，不一定符合未来的市场，仅供参考，实盘风险自担。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2024-06-07 20:11:56",
+      "modTime": "2024-06-07 20:11:56",
+      "lastActiveTime": "2026-06-22 23:16:39",
+      "lastPubTime": "2024-06-07 20:11:56",
+      "backtestId": "e91ed07b651e28d040083c1c9e4df86f",
+      "backtestName": "首板放量高开买入攻连板",
+      "replyCount": "113",
+      "viewCount": "22685",
+      "collectionCount": "231",
+      "likeCount": "129",
+      "disLikeCount": "0",
+      "backtestCloneCount": "1538",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "26",
+      "followersCount": "1125",
+      "followingCount": "11",
+      "author": {
+        "userId": "b32919d029d07648719542a0d84d1b00",
+        "alias": "子匀",
+        "introduction": "1 . 多追求长久有效的东西，少去猜测、拟合市场的变化。两个因素比较可靠，长久的价值和不同周期下的均值回归。 ",
+        "vipType": "VIP",
+        "headImgKey": "39002ac135774423832558583797d3ad"
+      },
+      "tags": [
+        {
+          "id": "14",
+          "name": "函数"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "5",
+          "name": "仓位管理"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "e91ed07b651e28d040083c1c9e4df86f",
+        "backtest_name": "首板放量高开买入攻连板",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=e91ed07b651e28d040083c1c9e4df86f&postId=ee54e8fdd1ad03f2ae23a3e0e364b952&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2021-06-14",
+          "end_date": "2024-06-06",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "404bf2bfbcbe7a5fceb7d4da0e27d705",
+            "34877880"
+          ],
+          "numeric_backtest_id": "34877880",
+          "numeric_post_id": "48680",
+          "python_version": 3,
+          "clone_count": 1362
+        },
+        "stats": {
+          "trading_days": 723,
+          "benchmark_volatility": 0.16684173876747,
+          "algorithm_volatility": 0.45382436964269,
+          "treasury_return": 0.11912328767123,
+          "algorithm_return": 55.755520092,
+          "benchmark_return": -0.3124485616399,
+          "annual_algo_return": 3.041136266975,
+          "annual_bm_return": -0.12149719646532,
+          "sharpe": 6.6129905481671,
+          "excess_return_sharpe": "7.492",
+          "sortino": 12.473144697373,
+          "information": 6.6659971123989,
+          "beta": 0.15621544116524,
+          "alpha": 3.0263646227678,
+          "excess_return": 81.54730762744,
+          "avg_excess_return": "0.66%",
+          "max_drawdown": 0.19894127607991,
+          "max_drawdown_period": [
+            "2023-04-06",
+            "2023-05-09"
+          ],
+          "excess_return_max_drawdown": "18.53%",
+          "excess_return_max_drawdown_period": [
+            "2023-04-06",
+            "2023-05-09"
+          ],
+          "max_leverage": 0,
+          "period_label": "2024-06",
+          "__version": 101,
+          "win_ratio": 0.64285714285714,
+          "profit_loss_ratio": 4.291329222375,
+          "win_count": 126,
+          "lose_count": 70,
+          "day_win_ratio": 0.56569847856155,
+          "avg_trade_return": 0.031064469604857,
+          "avg_position_days": 1.2485549132948,
+          "turnover_rate": 0.21889949024841,
+          "report_done_seconds": 474.22758579254,
+          "report_done_cpu_seconds": 418.24
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 5575.552009,
+          "benchmark_return_percent": -31.244856,
+          "annual_algo_return_percent": 304.113627,
+          "annual_bm_return_percent": -12.14972,
+          "max_drawdown_percent": 19.894128,
+          "algorithm_volatility_percent": 45.382437,
+          "benchmark_volatility_percent": 16.684174,
+          "win_ratio_percent": 64.285714,
+          "day_win_ratio_percent": 56.569848,
+          "avg_trade_return_percent": 3.106447,
+          "turnover_rate_percent": 21.889949,
+          "sharpe": 6.6129905481671,
+          "sortino": 12.473144697373,
+          "information": 6.6659971123989,
+          "alpha": 3.0263646227678,
+          "beta": 0.15621544116524,
+          "profit_loss_ratio": 4.291329222375,
+          "avg_position_days": 1.2485549132948,
+          "trading_days": 723,
+          "win_count": 126,
+          "lose_count": 70,
+          "max_drawdown_period": [
+            "2023-04-06",
+            "2023-05-09"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2023-04-06",
+            "2023-05-09"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/48680",
+      "https://www.joinquant.com/community/post/detailV2?postId=48680",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=e91ed07b651e28d040083c1c9e4df86f&postId=ee54e8fdd1ad03f2ae23a3e0e364b952&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=e91ed07b651e28d040083c1c9e4df86f"
+    ]
+  }
+}

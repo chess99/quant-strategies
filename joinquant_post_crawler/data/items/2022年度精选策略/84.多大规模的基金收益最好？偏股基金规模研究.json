@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/84.多大规模的基金收益最好？偏股基金规模研究.txt",
+    "category": "2022年度精选策略",
+    "file_name": "84.多大规模的基金收益最好？偏股基金规模研究.txt",
+    "strategy_name": "多大规模的基金收益最好？偏股基金规模研究",
+    "declared_title": "多大规模的基金收益最好？偏股基金规模研究",
+    "declared_author": "逆熵者",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 10087,
+    "sha256": "f53b4f99ec742ce015700ec253adccea19d6d532668eb3d8d4ae8ef9838713ed",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/37521"
+    ],
+    "primary_url": "https://www.joinquant.com/post/37521",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:35+08:00",
+    "requested_url": "https://www.joinquant.com/post/37521",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/ce35f591502e4bf3690e319a4820dc29",
+    "community_id": "ce35f591502e4bf3690e319a4820dc29",
+    "post": {
+      "postId": "44b3acc5c50f163186df789a6dc6ef0e",
+      "uniqueKey": "ce35f591502e4bf3690e319a4820dc29",
+      "title": "多大规模的基金收益最好？偏股基金规模研究",
+      "content": "## 业绩与规模的矛盾\n基金相对于股票，可供研究的数据更少，核心的可研究数据只有历史业绩，且历史业绩对所有人透明，信息不对称程度较低。\n\n而资金规模越大，则越难跑赢市场。这是投资界的铁律。\n\n这就造成了基金投研的主要矛盾：历史业绩好的基金，谁都知道他好，因此规模不可能小。规模大了，超额收益则难以维系。\n\n而由于业绩透明，规模小的基金，要么成立时间短，要么历史业绩差，通过分析其历史业绩难以预测未来的超额收益。\n\n因此，规模与业绩的关系是基金研究绕不开的话题。\n\n### 概述\n本文再次验证了场外偏股基金业绩与规模呈现显著的倒U型关系，并进一步发现股票类资产规模与业绩的相关性最强，以及确定了业绩最好的基金规模区间（详见研究）。\n![Img]( https://image.joinquant.com/055bdf52f6b2337375d61b9a9c2bd62e) \n最后，我使用股票类资产规模因子构建了一个简单的单因子选基策略：\n- 股票类资产规模大于1.5亿的场外偏股基金\n- 每年轮动等权持有规模最小的10只基金\n\n在无其他业绩因子的情况下，实现了每年约跑赢大盘9%的超额收益表现\n![Img]( https://image.joinquant.com/b85533acab36931055c815b18e77aea8) \n应当注意的是，仅使用规模因子选基，得到的超额收益并不稳定。虽然本策略近3年表现不错，但从我的上一篇文章[《你能跑赢随机瞎选基金吗？》](https://www.joinquant.com/view/community/detail/b59c76d9fa7ddf617a2e364c5e09dfa4)可以看出，即使随机选基金，你在最近3年也可以获得相对大盘不错的超额收益，因此不能把收益来源完全归因于小规模。\n\n虽然规模因子对业绩的解释和预测能力有限，不足以单独使用，但基金规模过大或过小对基金业绩的确有负面影响。\n\n对于选择基金，这无疑是增加了历史业绩以外的一个有效的衡量维度，在构建多因子选基策略时必将发挥重要作用。\n\n\n### 站在巨人的肩膀上\n关于基金规模对业绩的影响，已经有很多前辈研究过了，比如《天风证券：规模因子在FOF组合构建中的应用》。\n\n本研究的主体代码来自foolmouse老师的[《基金单因子分析-基金规模对收益的影响》](https://www.joinquant.com/view/community/detail/af9d7a81e8c0df99be3c857edb19411b)，本人对其中的代码逻辑进行了补充和优化，增加了偏股基金的筛选逻辑，和总资产规模、股票资产规模等研究维度，并提高了分析结果的可参考性，和文章的可读性。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2022-05-02 04:06:54",
+      "modTime": "2022-05-02 04:11:18",
+      "lastActiveTime": "2026-01-19 12:26:03",
+      "lastPubTime": "2022-05-02 04:11:18",
+      "backtestId": "34239e872631987430a1b591fae1cdd1",
+      "backtestName": "股票规模大于1.5亿的最小规模偏股基金-每年1次",
+      "replyCount": "12",
+      "viewCount": "2289",
+      "collectionCount": "79",
+      "likeCount": "52",
+      "disLikeCount": "0",
+      "backtestCloneCount": "143",
+      "notebookCloneCount": "41",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "11",
+      "followersCount": "580",
+      "followingCount": "35",
+      "author": {
+        "userId": "e99a8e543eebc6f9e482badcbf90cb42",
+        "alias": "逆熵者",
+        "introduction": "进无止境",
+        "headImgKey": "50c2a3770ee3e3ccaedc473cb1c7f3f7"
+      },
+      "tags": [
+        {
+          "id": "264",
+          "name": "研报复现"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        },
+        {
+          "id": "12",
+          "name": "基金"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "34239e872631987430a1b591fae1cdd1",
+        "backtest_name": "股票规模大于1.5亿的最小规模偏股基金-每年1次",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=34239e872631987430a1b591fae1cdd1&postId=ce35f591502e4bf3690e319a4820dc29&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2019-04-30",
+          "end_date": "2021-12-15",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "ccfd9b00f3f53c7536c2924d1e2ea5a7",
+            "24445843"
+          ],
+          "numeric_backtest_id": "24445843",
+          "numeric_post_id": "37521",
+          "python_version": 3,
+          "clone_count": 143
+        },
+        "stats": {
+          "trading_days": 640,
+          "benchmark_volatility": 0.19954126174095,
+          "algorithm_volatility": 0.19842757405864,
+          "treasury_return": 0.10520547945205,
+          "algorithm_return": 1.2964447575681,
+          "benchmark_return": 0.29836704574381,
+          "annual_algo_return": 0.38368585415351,
+          "annual_bm_return": 0.107378002405,
+          "sharpe": 1.7320468477428,
+          "excess_return_sharpe": "2.135",
+          "sortino": 2.3896500263073,
+          "information": 2.8078004994655,
+          "beta": 0.87282734619994,
+          "alpha": 0.2848764911221,
+          "excess_return": 0.76871768664807,
+          "avg_excess_return": "0.09%",
+          "max_drawdown": 0.15759896601825,
+          "max_drawdown_period": [
+            "2021-02-18",
+            "2021-03-10"
+          ],
+          "excess_return_max_drawdown": "8.98%",
+          "excess_return_max_drawdown_period": [
+            "2021-09-01",
+            "2021-10-13"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-12",
+          "__version": 101,
+          "win_ratio": 0.94736842105263,
+          "profit_loss_ratio": 5870.8493028245,
+          "win_count": 54,
+          "lose_count": 3,
+          "day_win_ratio": 0.6015625,
+          "avg_trade_return": 0.45054474819732,
+          "avg_position_days": 218,
+          "turnover_rate": 0.0065905279166157,
+          "report_done_seconds": 612.61452150345,
+          "report_done_cpu_seconds": 501.46
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 129.644476,
+          "benchmark_return_percent": 29.836705,
+          "annual_algo_return_percent": 38.368585,
+          "annual_bm_return_percent": 10.7378,
+          "max_drawdown_percent": 15.759897,
+          "algorithm_volatility_percent": 19.842757,
+          "benchmark_volatility_percent": 19.954126,
+          "win_ratio_percent": 94.736842,
+          "day_win_ratio_percent": 60.15625,
+          "avg_trade_return_percent": 45.054475,
+          "turnover_rate_percent": 0.659053,
+          "sharpe": 1.7320468477428,
+          "sortino": 2.3896500263073,
+          "information": 2.8078004994655,
+          "alpha": 0.2848764911221,
+          "beta": 0.87282734619994,
+          "profit_loss_ratio": 5870.8493028245,
+          "avg_position_days": 218,
+          "trading_days": 640,
+          "win_count": 54,
+          "lose_count": 3,
+          "max_drawdown_period": [
+            "2021-02-18",
+            "2021-03-10"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2021-09-01",
+            "2021-10-13"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/37521",
+      "https://www.joinquant.com/community/post/detailV2?postId=37521",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=34239e872631987430a1b591fae1cdd1&postId=ce35f591502e4bf3690e319a4820dc29&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=34239e872631987430a1b591fae1cdd1"
+    ]
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/94.小资金短线策略.txt",
+    "category": "2025年度精选策略",
+    "file_name": "94.小资金短线策略.txt",
+    "strategy_name": "小资金短线策略",
+    "declared_title": "小资金短线策略",
+    "declared_author": "rickch",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 2930,
+    "sha256": "3fc56518a6539ae45354b4ff1d82e0811f15e31582d9f017bfbf0a17087b9757",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/28782"
+    ],
+    "primary_url": "https://www.joinquant.com/post/28782",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:43+08:00",
+    "requested_url": "https://www.joinquant.com/post/28782",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/086397d0c6dc6b25883884b50d2e2806",
+    "community_id": "086397d0c6dc6b25883884b50d2e2806",
+    "post": {
+      "postId": "247a762b189c552bc270558d6afb885e",
+      "uniqueKey": "086397d0c6dc6b25883884b50d2e2806",
+      "title": "小资金短线策略",
+      "content": "<p>分享一个根据国君研报编辑的小资金短线策略，主要思路是利用A股的短期反转效应。 <br /><br /><br /># 8月17日更新：感谢李女士指出策略的疏漏，重新编辑了，增加了盘前剔除st，停牌，和退市，回测结果大同小异。策略是有效的，不过也提醒一下，策略回测和实盘是有差距的，分享出来是希望大家一起迭代出好的思路。 <br /><br />#以下是编辑改变的地方，供之前clone过的朋友们更新 <br /><br />#源码最后增加了 <br />def get_feasible (universe): <br />   curr_data = get_current_data() <br />   stocks = [stock for stock in universe if (not curr_data[stock].paused) and (not curr_data[stock].is_st) and ('ST' not in curr_data[stock].name)\\ <br />               and ('*' not in curr_data[stock].name) and ('退'not in curr_data[stock].name) ] <br />   return stocks <br /><br />#盘前筛选中（32行）增加了 <br />universe = get_feasible (universe)</p>",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-08-08 21:35:36",
+      "modTime": "2020-08-08 21:35:36",
+      "lastActiveTime": "2023-02-13 11:22:35",
+      "lastPubTime": "2020-08-08 21:35:36",
+      "backtestId": "3df47e6985de05065c4eebb5d3f7d612",
+      "backtestName": "短线策略",
+      "replyCount": "533",
+      "viewCount": "25515",
+      "collectionCount": "275",
+      "likeCount": "180",
+      "disLikeCount": "0",
+      "backtestCloneCount": "1640",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "7",
+      "followersCount": "129",
+      "followingCount": "40",
+      "author": {
+        "userId": "a10490dfa10788f43213a164a00fad76",
+        "alias": "rickch"
+      },
+      "tags": [
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "3df47e6985de05065c4eebb5d3f7d612",
+        "backtest_name": "短线策略",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=3df47e6985de05065c4eebb5d3f7d612&postId=086397d0c6dc6b25883884b50d2e2806&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2019-01-01",
+          "end_date": "2020-06-30",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "ca50c6735b55cdbc0a8cc5f5a50cec6c",
+            "18145290"
+          ],
+          "numeric_backtest_id": "18145290",
+          "numeric_post_id": "28782",
+          "python_version": 3,
+          "clone_count": 1614
+        },
+        "stats": {
+          "trading_days": 361,
+          "benchmark_volatility": 0.24961318191265,
+          "algorithm_volatility": 0.30820962351901,
+          "treasury_return": 0.05972602739726,
+          "algorithm_return": 1.6331660776,
+          "benchmark_return": 0.40699705377108,
+          "annual_algo_return": 0.95519431097108,
+          "annual_bm_return": 0.26676516929122,
+          "sharpe": 2.9693891466521,
+          "excess_return_sharpe": "1.799",
+          "sortino": 5.1905532911759,
+          "information": 2.474560578355,
+          "beta": 0.64120860241789,
+          "alpha": 0.7697905336928,
+          "excess_return": 0.87147945373625,
+          "avg_excess_return": "0.19%",
+          "max_drawdown": 0.12984469314559,
+          "max_drawdown_period": [
+            "2019-03-06",
+            "2019-03-27"
+          ],
+          "excess_return_max_drawdown": "16.01%",
+          "excess_return_max_drawdown_period": [
+            "2019-02-27",
+            "2019-03-27"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-06",
+          "__version": 101,
+          "win_ratio": 0.50046339202966,
+          "profit_loss_ratio": 1.4752970067452,
+          "win_count": 540,
+          "lose_count": 539,
+          "day_win_ratio": 0.50138504155125,
+          "avg_trade_return": 0.0054546370441465,
+          "avg_position_days": 2.634382566586,
+          "turnover_rate": 0.68831568109955,
+          "report_done_seconds": 184.7269411087,
+          "report_done_cpu_seconds": 181.18
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 163.316608,
+          "benchmark_return_percent": 40.699705,
+          "annual_algo_return_percent": 95.519431,
+          "annual_bm_return_percent": 26.676517,
+          "max_drawdown_percent": 12.984469,
+          "algorithm_volatility_percent": 30.820962,
+          "benchmark_volatility_percent": 24.961318,
+          "win_ratio_percent": 50.046339,
+          "day_win_ratio_percent": 50.138504,
+          "avg_trade_return_percent": 0.545464,
+          "turnover_rate_percent": 68.831568,
+          "sharpe": 2.9693891466521,
+          "sortino": 5.1905532911759,
+          "information": 2.474560578355,
+          "alpha": 0.7697905336928,
+          "beta": 0.64120860241789,
+          "profit_loss_ratio": 1.4752970067452,
+          "avg_position_days": 2.634382566586,
+          "trading_days": 361,
+          "win_count": 540,
+          "lose_count": 539,
+          "max_drawdown_period": [
+            "2019-03-06",
+            "2019-03-27"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2019-02-27",
+            "2019-03-27"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/28782",
+      "https://www.joinquant.com/community/post/detailV2?postId=28782",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=3df47e6985de05065c4eebb5d3f7d612&postId=086397d0c6dc6b25883884b50d2e2806&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=3df47e6985de05065c4eebb5d3f7d612"
+    ]
+  }
+}

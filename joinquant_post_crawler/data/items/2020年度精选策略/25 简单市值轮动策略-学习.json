@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/25 简单市值轮动策略-学习.txt",
+    "category": "2020年度精选策略",
+    "file_name": "25 简单市值轮动策略-学习.txt",
+    "strategy_name": "简单市值轮动策略-学习",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 2163,
+    "sha256": "4bc9fd6704341fd9e0e3af5f99b4040752ad53218a8f84cda98455e8bd2ef29a",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/15100"
+    ],
+    "primary_url": "https://www.joinquant.com/post/15100",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:06:35+08:00",
+    "requested_url": "https://www.joinquant.com/post/15100",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/00cf97c2eb893258c0ac69a781ae5e69",
+    "community_id": "00cf97c2eb893258c0ac69a781ae5e69",
+    "post": {
+      "postId": "1e27141d26779f11ce197fa92795ec3c",
+      "uniqueKey": "00cf97c2eb893258c0ac69a781ae5e69",
+      "title": "简单市值轮动策略-学习",
+      "content": "![](https://upload-images.jianshu.io/upload_images/5787343-377cb45b49b56b3c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)\n\n\n本文章的学习内容参考自 https://www.joinquant.com/post/6596?f=18newyearjx 感谢 @JoinQuant-TWist 和 @聚宽小秘书\n\n根据个人习惯，对代码进行了调整",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-11-03 14:22:49",
+      "modTime": "2018-11-03 14:22:49",
+      "lastActiveTime": "2023-12-03 15:17:50",
+      "lastPubTime": "2018-11-03 14:22:49",
+      "backtestId": "ce9e6513a3b20dcce3638cfe95f7365d",
+      "backtestName": "简单是指轮动策略-学习",
+      "replyCount": "16",
+      "viewCount": "4803",
+      "collectionCount": "34",
+      "likeCount": "13",
+      "disLikeCount": "0",
+      "backtestCloneCount": "115",
+      "notebookCloneCount": "24",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "62",
+      "followersCount": "2234",
+      "followingCount": "251",
+      "author": {
+        "userId": "19f5caa4bb11548a1a8db45e54aafed4",
+        "alias": "东南有大树",
+        "headImgKey": "068da86817f1302999294d0a819dd260"
+      },
+      "tags": [
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "ce9e6513a3b20dcce3638cfe95f7365d",
+        "backtest_name": "简单是指轮动策略-学习",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=ce9e6513a3b20dcce3638cfe95f7365d&postId=00cf97c2eb893258c0ac69a781ae5e69&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2015-01-01",
+          "end_date": "2017-01-04",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "c5c27048784f5fca3b5e74b7a304ad08",
+            "10557942"
+          ],
+          "numeric_backtest_id": "10557942",
+          "numeric_post_id": "15100",
+          "python_version": 2,
+          "clone_count": 115
+        },
+        "stats": {
+          "information": 3.3286200207031,
+          "benchmark_return": -0.046804501224634,
+          "algorithm_volatility": 0.2494817303621,
+          "annual_bm_return": -0.024160119860443,
+          "__version": 101,
+          "max_drawdown": 0.15158285683162,
+          "sortino": 5.1548102626039,
+          "period_label": "2017-01",
+          "trading_days": 490,
+          "algorithm_return": 2.9536174,
+          "benchmark_volatility": 0.31797532489393,
+          "beta": 0.32447167111508,
+          "excess_return": 2.8736174,
+          "annual_algo_return": 1.0164576334153,
+          "sharpe": 3.9139444479481,
+          "alpha": 0.99727577472531,
+          "max_drawdown_period": [
+            "2016-02-22",
+            "2016-02-29"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.08,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.55102040816327,
+          "avg_position_days": 56.666666666667,
+          "win_ratio": 0.87301587301587,
+          "win_count": 55,
+          "avg_trade_return": 0.16543683523607,
+          "profit_loss_ratio": 15.081273075665,
+          "lose_count": 8,
+          "report_done_seconds": 31.844696044922
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 295.36174,
+          "benchmark_return_percent": -4.68045,
+          "annual_algo_return_percent": 101.645763,
+          "annual_bm_return_percent": -2.416012,
+          "max_drawdown_percent": 15.158286,
+          "algorithm_volatility_percent": 24.948173,
+          "benchmark_volatility_percent": 31.797532,
+          "win_ratio_percent": 87.301587,
+          "day_win_ratio_percent": 55.102041,
+          "avg_trade_return_percent": 16.543684,
+          "sharpe": 3.9139444479481,
+          "sortino": 5.1548102626039,
+          "information": 3.3286200207031,
+          "alpha": 0.99727577472531,
+          "beta": 0.32447167111508,
+          "profit_loss_ratio": 15.081273075665,
+          "avg_position_days": 56.666666666667,
+          "trading_days": 490,
+          "win_count": 55,
+          "lose_count": 8,
+          "max_drawdown_period": [
+            "2016-02-22",
+            "2016-02-29"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/15100",
+      "https://www.joinquant.com/community/post/detailV2?postId=15100",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=ce9e6513a3b20dcce3638cfe95f7365d&postId=00cf97c2eb893258c0ac69a781ae5e69&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=ce9e6513a3b20dcce3638cfe95f7365d"
+    ]
+  }
+}

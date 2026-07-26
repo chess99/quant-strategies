@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/14.2020年 267%年化 13%回撤 上涨趋势策略修改版.txt",
+    "category": "2023年度精选策略",
+    "file_name": "14.2020年 267%年化 13%回撤 上涨趋势策略修改版.txt",
+    "strategy_name": "年 267%年化 13%回撤 上涨趋势策略修改版",
+    "declared_title": "2020年 267%年化 13%回撤 上涨趋势策略修改版",
+    "declared_author": "苦咖啡",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 15336,
+    "sha256": "8c25fa8e099088efd28e76dc42218da025b7a4c79a44ca27f7fec38a07d85bfc",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/31232",
+      "https://www.joinquant.com/post/30863"
+    ],
+    "primary_url": "https://www.joinquant.com/post/31232",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:51+08:00",
+    "requested_url": "https://www.joinquant.com/post/31232",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/15c783ea414ddac3abb8fd55f39df2cc",
+    "community_id": "15c783ea414ddac3abb8fd55f39df2cc",
+    "post": {
+      "postId": "6a4490d61c65ac2505710fd96d31ac56",
+      "uniqueKey": "15c783ea414ddac3abb8fd55f39df2cc",
+      "title": "2020年 267%年化 13%回撤 上涨趋势策略修改版",
+      "content": "看到大神做的上涨趋势研究，感觉使用线性回归模型进行选股很棒，但是还有一点可以更完善的，参考我之前的模型，做出来了一些修改\n1、原策略使用每日股价涨幅作为参数选股，受到股价影响较大，修改为平均每日股价涨幅百分比\n2、加入风控参考个股回撤和成交量\n3、考虑到资金大小限制，不选择500元以上股票\n4、修改了排序函数，买卖函数\n5、去除了不使用的代码\nhttps://www.joinquant.com/post/30863\n上涨股策略2020年收益123%\n 作者：scottchenrui\n\nhttps://www.joinquant.com/view/community/detail/d9c5420d2e78db8db717f1c84096be84\n找出那些在默默赚钱的大盘股，本年度收益63%，回撤14%\n\n\n加上一点自己对于过拟合的探讨。\n写策略时候代码加的越多越担心过拟合的问题，但是从另一方面考虑一个限制加入策略造成收益提高，比起没加入前，大概率应该还是更好一些的，虽然也想实际交易的时候没有回测那么好，但是相信也会比不加好。\n从另一个方面考虑，策略的思路其实也是来源于我们对于股市的观察，这其实也是一种未来函数或者说过拟合，我们自己本身就是最大的未来函数，写出来一个好的策略，我们也许不指望他有回测的那么好，但是大概率还是比我们自己主观去炒股强的，量化也就是这么一个我们炒股最好的工具。***Bold****Italic*",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-01-13 17:49:43",
+      "modTime": "2021-01-14 22:07:42",
+      "lastActiveTime": "2022-02-21 22:53:44",
+      "lastPubTime": "2021-01-14 22:07:42",
+      "backtestId": "56b17add0a81c52ee3be9367fd08321e",
+      "backtestName": "上涨趋势策略-2",
+      "replyCount": "60",
+      "viewCount": "5948",
+      "collectionCount": "85",
+      "likeCount": "43",
+      "disLikeCount": "0",
+      "backtestCloneCount": "489",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "6",
+      "followersCount": "171",
+      "followingCount": "15",
+      "author": {
+        "userId": "51f53c006e4e06c21714cf05075da8df",
+        "alias": "苦咖啡"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "13",
+          "name": "机器学习"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "56b17add0a81c52ee3be9367fd08321e",
+        "backtest_name": "上涨趋势策略-2",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=56b17add0a81c52ee3be9367fd08321e&postId=15c783ea414ddac3abb8fd55f39df2cc&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2020-01-01",
+          "end_date": "2021-01-11",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "1e9c3f96be06c7cde8b690644d175c13",
+            "19427919"
+          ],
+          "numeric_backtest_id": "19427919",
+          "numeric_post_id": "31232",
+          "python_version": 3,
+          "clone_count": 281
+        },
+        "stats": {
+          "trading_days": 249,
+          "benchmark_volatility": 0.22604917464802,
+          "algorithm_volatility": 0.39192524546365,
+          "treasury_return": 0.041095890410959,
+          "algorithm_return": 2.652844075,
+          "benchmark_return": 0.32822012507995,
+          "annual_algo_return": 2.6718987483543,
+          "annual_bm_return": 0.32973505152273,
+          "sharpe": 6.7153080308485,
+          "excess_return_sharpe": "4.831",
+          "sortino": 10.576257016209,
+          "information": 6.5514247869321,
+          "beta": 0.75241526721356,
+          "alpha": 2.4138976721417,
+          "excess_return": 1.7501797375492,
+          "avg_excess_return": "0.43%",
+          "max_drawdown": 0.13438832611123,
+          "max_drawdown_period": [
+            "2020-10-13",
+            "2020-10-26"
+          ],
+          "excess_return_max_drawdown": "18.44%",
+          "excess_return_max_drawdown_period": [
+            "2020-06-17",
+            "2020-07-08"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-01",
+          "__version": 101,
+          "win_ratio": 0.77142857142857,
+          "profit_loss_ratio": 6.3631965038239,
+          "win_count": 27,
+          "lose_count": 8,
+          "day_win_ratio": 0.57831325301205,
+          "avg_trade_return": 0.082355756704702,
+          "avg_position_days": 19.347826086957,
+          "turnover_rate": 0.071858085634582,
+          "report_done_seconds": 178.93012309074,
+          "report_done_cpu_seconds": 176.91
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 265.284407,
+          "benchmark_return_percent": 32.822013,
+          "annual_algo_return_percent": 267.189875,
+          "annual_bm_return_percent": 32.973505,
+          "max_drawdown_percent": 13.438833,
+          "algorithm_volatility_percent": 39.192525,
+          "benchmark_volatility_percent": 22.604917,
+          "win_ratio_percent": 77.142857,
+          "day_win_ratio_percent": 57.831325,
+          "avg_trade_return_percent": 8.235576,
+          "turnover_rate_percent": 7.185809,
+          "sharpe": 6.7153080308485,
+          "sortino": 10.576257016209,
+          "information": 6.5514247869321,
+          "alpha": 2.4138976721417,
+          "beta": 0.75241526721356,
+          "profit_loss_ratio": 6.3631965038239,
+          "avg_position_days": 19.347826086957,
+          "trading_days": 249,
+          "win_count": 27,
+          "lose_count": 8,
+          "max_drawdown_period": [
+            "2020-10-13",
+            "2020-10-26"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-06-17",
+            "2020-07-08"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/31232",
+      "https://www.joinquant.com/community/post/detailV2?postId=31232",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=56b17add0a81c52ee3be9367fd08321e&postId=15c783ea414ddac3abb8fd55f39df2cc&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=56b17add0a81c52ee3be9367fd08321e"
+    ]
+  }
+}

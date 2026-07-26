@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/24.ROE+PB模型的优化.txt",
+    "category": "2023年度精选策略",
+    "file_name": "24.ROE+PB模型的优化.txt",
+    "strategy_name": "ROE+PB模型的优化",
+    "declared_title": "ROE+PB模型的优化",
+    "declared_author": "wywy1995",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 7228,
+    "sha256": "bf241cf9d0f96a1ff2fa764f17cdf5c93b1ab2a58f8dc4ec3438f2232e856b53",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/34862"
+    ],
+    "primary_url": "https://www.joinquant.com/post/34862",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:57+08:00",
+    "requested_url": "https://www.joinquant.com/post/34862",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/31365477a3447918c25e1900bf824b1c",
+    "community_id": "31365477a3447918c25e1900bf824b1c",
+    "post": {
+      "postId": "c6abed7c74f03919b97e196a2ba981cd",
+      "uniqueKey": "31365477a3447918c25e1900bf824b1c",
+      "title": "ROE+PB模型的优化",
+      "content": "**摘要**\n本策略使用加权后最近四报告期roe的变化量作为衡量企业净资产收益率改善幅度的指标，结合pb进行调仓，在使用roe之前根据资产负债情况进行简单筛选以提高策略的安全性，且本策略的收益不依赖市值因子。\n\n**正文**\npb_roe是经典的估值模型，二者的比值就是我们熟知的pe。对于该模型的解释及应用网上有很多介绍，这里我谈谈自己的理解：如果把投资企业看做买债券，那么roe就类似于债券的利息，pb就相当于债券的市价与面值的比，那么人们肯定会倾向于持有利息高，市价尽可能低的债券，这也就是高roe与低pb组合选股背后的逻辑。当然，债券还面临一个问题，就是违约，即债券的安全性问题。类似的，在考察roe的时候我们也要考虑一个问题，就是roe只代表净资产，企业完全可以靠高额负债达到较高的净资产收益率，然而这样的经营模式所包含的的隐患在经济衰退或行业不景气时期会很容易暴露出来。从pb的角度我们也需要思考一个问题，就是资产中可能含有的不良资产比重。最近几年越来越多的出现市净率接近1甚至低于1的企业，然而他们的股价却依旧低迷。理论上讲，对于这样的企业如果以市价买入，再变卖全部资产是可以无风险套利的。实际上，企业的资产组成非常复杂，很多资产的价值也是依赖于特定会计准则评估的，实际变现非常困难。退一步讲，即使不变卖资产，拿在手里的资产也应该评估其质量，比如可能存在减值风险的资产，与其说是资产不如说是潜在的风险。\n所以，虽然roe_pb从高资产收益与低资产价格组合的方面来说确实不错，但是加入对资产负债情况的考量后应该会有更好的表现。\n\n**1.构建新roec因子**\n从[【量化课堂】因子研究系列之二 -- 成长因子](https://www.joinquant.com/view/community/detail/ce242414cc2e8ef7d576857f13ee0f41)一文中我克隆并查看了聚宽示例的roe与roec因子的收益，由于原文中已经有2016年之前的展示，所以下图仅测试了2016至今5年的收益曲线，如下：\n\n图1——聚宽roe\n![Img]( https://image.joinquant.com/775d004db07c6e743d0d68b51076c0df) \n\n图2——聚宽roec\n![Img]( https://image.joinquant.com/b1abeeb4a3f65036e060b1e0d4fde879) \n\n可见这个收益是非常差强人意的，于是我尝试对roec进行以下两种方式的改写\n```\n#1.不加权\n    df = get_history_fundamentals(initial_list, fields=[indicator.code, indicator.roe], watch_date=yesterday, count=5, interval='1q')\n    df = df.groupby('code').apply(lambda x:x.reset_index()).roe.unstack()\n    df['past_average'] = df.iloc[:,0] + df.iloc[:,1] + df.iloc[:,2] + df.iloc[:,3]\n    df['now_average'] = df.iloc[:,1] + df.iloc[:,2] + df.iloc[:,3] + df.iloc[:,4]\n    df['delta_average'] = df['now_average'] - df['past_average']\n```\n```\n#2.加权，距离当前时间越近的报告期roe权重越大\n    df = get_history_fundamentals(initial_list, fields=[indicator.code, indicator.roe], watch_date=yesterday, count=5, interval='1q')\n    df = df.groupby('code').apply(lambda x:x.reset_index()).roe.unstack()\n    df['past_average'] = 0.1*df.iloc[:,0] + 0.2*df.iloc[:,1] + 0.3*df.iloc[:,2] + 0.4*df.iloc[:,3]\n    df['now_average'] = 0.1*df.iloc[:,1] + 0.2*df.iloc[:,2] + 0.3*df.iloc[:,3] + 0.4*df.iloc[:,4]\n    df['delta_average'] = df['now_average'] - df['past_average']\n```\n解释一下上述代码，首先取最近5个报告期的roe值，日期使用watchdate以避免未来函数，在不加权的情况下，上期roe_ttm是1-4期的roe总和，最新roe_ttm是2-5期的roe总和，用最新减去上期，得到的就是roe_ttm的改善度，也就是我们接下来要测试的因子，数值越大越好。加权版本就是在计算1-4期和2-5期时，对每一期的roe加以不同权重。之所以加权，是因为从直觉上讲，越是近期的数据对未来的影响应该越大。那么仅使用这两种方式构建的因子收益表现如何呢，对此，我在创业板指，沪深300，中证500上进行了测试，每个指数上都测试了十个分位按从小到大排序后的收益曲线，选股为每个分位起始后10-20只（根据指数容量），刷新频率为每周一次，测试时间皆为2011/08/31-2021/08/31，测试因子前排除了st，退市，次新，科创板，无中性化标准化去极值处理，结果如下：\n\n图3——未加权创业板指\n![Img]( https://image.joinquant.com/06747ecef5a5789925958126b7180a59) \n\n图4——未加权中证500\n![Img]( https://image.joinquant.com/43284a00be6dbbd142ceec524805847a) \n\n图5——未加权沪深300\n![Img]( https://image.joinquant.com/fbf88edcb30c178eff775a64252fab5a) \n\n图6——加权创业板指\n![Img]( https://image.joinquant.com/37e510eaf508dc1f12e00f0d2ec43b00) \n\n图7——加权中证500\n![Img]( https://image.joinquant.com/e177dad5969e1c0ac0ad4199de76e8cc) \n\n图8——加权沪深300\n![Img]( https://image.joinquant.com/a188e59068f765c91d80af8c82a5c472) \n\n从图中可以看出暖色代表的高分位，即高roe改善度的组收益普遍高于冷色的低分位组，且大幅跑赢市场，且随着分位增加，收益增加，表现出一定的单调性(并不严格)。加权与不加权进行对比发现，似乎加权后高分位的单调性有所增强，另外，从各个指数加权与否自身的对比中可以看出，加权的总体收益并没有明显高于不加权。但由于只使用了三个指数进行测试，不排除这些都只是偶然现象。\n\n**2.与pb的结合效果**\n在之前的roe改善度测试中我们发现，基本上每个指数中，改善度最大的20-30%都表现最佳。那么在这个群体中，使用pb进行轮动效果如何呢？将pb按从小到大排成十个分位，测试时间，刷新频率，持仓数量，初步筛选，数据处理同上。因为沪深300与创业板指容量较小，分别将其换成全市场与创业板综合，中证500股票池不变，效果如下\n\n图9——高分位加权roec结合pb后在创业板综上的表现\n![Img]( https://image.joinquant.com/5158bd09015ac3cc4b57f65f7896ae2b) \n\n图10——高分位加权roec结合pb后在中证500上的表现\n![Img]( https://image.joinquant.com/ccbb5baab4f23e789c736d8e59f9b61b) \n\n图11——高分位加权roec结合pb后在全市场上的表现\n![Img]( https://image.joinquant.com/113cb54fd2cb2db2628655fdc15b0196) \n\n图12——加权与否结合pb后表现\n![Img]( https://image.joinquant.com/51b3d03ad2202360f8d777fb961b6be0) \n\n从图中可以看出，以冷色调为主的收益曲线，即低pb轮动明显好于高pb，图12中可以看出，与之前结果稍微不同的是，使用加权roec在结合pb后，在各实验组中均好于不加权roec。\n\n**3.从资产负债的角度进一步优化**\n之前测试的结果已经比聚宽示例的roec因子好很多了，不过总体还在roe_pb框架内。如文章开头所说，加入对资产负债的考量后会不会进一步提高模型的质量？在查阅了一些资料以及与券商的朋友交流后，我尝试了以下方法。\n首先是负债，一种看起来比较合理的方法是计算有息负债占比，详情可以参考这个视频——[每次都买欠钱最多的公司，会亏成啥样？](https://www.bilibili.com/video/BV1Tv411A7Qu?spm_id_from=333.999.0.0)。但是在这个模型中，实际测试的结果跟直接使用总负债比总资产效果差不多，甚至还要差一点，所以各位宽友可以自行抉择。其次是资产，我想考量不良资产的占比，但发现实际量化起来有点难度，首先就是不良资产不是一个会计科目，而是一个概念。比如应收拿不回来了变坏账可以是不良；在建工程，存货，商誉减值了，也算是不良。但坏事发生之前却无法判断。所以这里我只能简单的算出这几项容易出问题的会计科目的总值，占比在全市场中排名最大的企业排除掉。后来测试发现，占比特别小也不是好事，因为以存货和应收为例，这些项目以后都很有可能转化为利润，所以把最小的一部分也排除掉，即去掉最大最小20%，保留中间60%。如果您有更好的方案欢迎讨论，或者直接不使用这个筛选条件也没关系，对收益影响不大，主要是我出于安全性考虑在下面的回测中保留了这部分。\n\n图13——负债率筛选效果\n![Img]( https://image.joinquant.com/9182d52f2dd82f2405f80611597b986b) \n\n图14——不良资产筛选效果\n![Img]( https://image.joinquant.com/c0e10257d1bacb2d6257b2b098f26a88) \n\n**最后**\n很多人喜欢问某个策略收益好是否因为小市值因子，那么这个策略可以放心的告诉你，一点不带市值的因素。pb实际上起到了代替了cap的作用，本质上也是一种期望均值回归的轮动。所以对于担心过于依赖小市值因子风险暴露的投资者来说，它提供了另一种选择。而且这个策略很适合防守，一般来讲pb越低的安全边际也越高，可能这也就是为什么在2021年沪深300表现疲软的情况下，不择时依旧能有50%收益的原因。另外，下面展示的回测中的收益也是不包含择时的，理论上还能通过择时或控制仓位等手段进一步提高收益，减小回撤。另外，策略当前夏普率处于比较高的位置，随时可能面临回调。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-10-08 14:54:20",
+      "modTime": "2021-10-08 21:45:07",
+      "lastActiveTime": "2026-03-23 10:31:21",
+      "lastPubTime": "2021-10-08 21:45:07",
+      "backtestId": "6e6da577799837d46dad77a9fe4b9c56",
+      "backtestName": "roe_pb_资产负债优化-文章",
+      "replyCount": "190",
+      "viewCount": "17860",
+      "collectionCount": "367",
+      "likeCount": "192",
+      "disLikeCount": "0",
+      "backtestCloneCount": "972",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "37",
+      "followersCount": "9584",
+      "followingCount": "39",
+      "author": {
+        "userId": "b0470bd7b7511f8b2c47414c9e4c1a92",
+        "alias": "wywy1995",
+        "introduction": "从历史中发现规律比画出美丽的图形更重要",
+        "vipType": "VIP",
+        "headImgKey": "6784510f0c6abdbcf9a1fed9081a4658"
+      },
+      "tags": [
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "6e6da577799837d46dad77a9fe4b9c56",
+        "backtest_name": "roe_pb_资产负债优化-文章",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=6e6da577799837d46dad77a9fe4b9c56&postId=31365477a3447918c25e1900bf824b1c&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2008-09-30",
+          "end_date": "2021-09-30",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "379aedb8d22f82fd926122077a22b094",
+            "22071808"
+          ],
+          "numeric_backtest_id": "22071808",
+          "numeric_post_id": "34862",
+          "python_version": 3,
+          "clone_count": 959
+        },
+        "stats": {
+          "trading_days": 3163,
+          "benchmark_volatility": 0.24476604573576,
+          "algorithm_volatility": 0.30518075374189,
+          "treasury_return": 0.51967123287671,
+          "algorithm_return": 34.123594548846,
+          "benchmark_return": 1.168947166683,
+          "annual_algo_return": 0.32483691703093,
+          "annual_bm_return": 0.063106429344701,
+          "sharpe": 0.93333840204036,
+          "excess_return_sharpe": "1.071",
+          "sortino": 1.1733583348973,
+          "information": 1.3632722950379,
+          "beta": 0.96967044131669,
+          "alpha": 0.262431295491,
+          "excess_return": 15.193845146796,
+          "avg_excess_return": "0.10%",
+          "max_drawdown": 0.42372258475008,
+          "max_drawdown_period": [
+            "2011-05-16",
+            "2012-01-06"
+          ],
+          "excess_return_max_drawdown": "26.75%",
+          "excess_return_max_drawdown_period": [
+            "2017-03-20",
+            "2018-10-16"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-09",
+          "__version": 101,
+          "win_ratio": 0.57603222557905,
+          "profit_loss_ratio": 2.0597715057206,
+          "win_count": 572,
+          "lose_count": 421,
+          "day_win_ratio": 0.54315523237433,
+          "avg_trade_return": 0.045414420376185,
+          "avg_position_days": 69.406593406593,
+          "turnover_rate": 0.034502192163011,
+          "report_done_seconds": 1549.7002017498,
+          "report_done_cpu_seconds": 1329.77
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 3412.359455,
+          "benchmark_return_percent": 116.894717,
+          "annual_algo_return_percent": 32.483692,
+          "annual_bm_return_percent": 6.310643,
+          "max_drawdown_percent": 42.372258,
+          "algorithm_volatility_percent": 30.518075,
+          "benchmark_volatility_percent": 24.476605,
+          "win_ratio_percent": 57.603223,
+          "day_win_ratio_percent": 54.315523,
+          "avg_trade_return_percent": 4.541442,
+          "turnover_rate_percent": 3.450219,
+          "sharpe": 0.93333840204036,
+          "sortino": 1.1733583348973,
+          "information": 1.3632722950379,
+          "alpha": 0.262431295491,
+          "beta": 0.96967044131669,
+          "profit_loss_ratio": 2.0597715057206,
+          "avg_position_days": 69.406593406593,
+          "trading_days": 3163,
+          "win_count": 572,
+          "lose_count": 421,
+          "max_drawdown_period": [
+            "2011-05-16",
+            "2012-01-06"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2017-03-20",
+            "2018-10-16"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/34862",
+      "https://www.joinquant.com/community/post/detailV2?postId=34862",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=6e6da577799837d46dad77a9fe4b9c56&postId=31365477a3447918c25e1900bf824b1c&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=6e6da577799837d46dad77a9fe4b9c56"
+    ]
+  }
+}

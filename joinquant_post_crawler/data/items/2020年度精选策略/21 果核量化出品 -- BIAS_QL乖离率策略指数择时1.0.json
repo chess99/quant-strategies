@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/21 果核量化出品 -- BIAS_QL乖离率策略指数择时1.0.txt",
+    "category": "2020年度精选策略",
+    "file_name": "21 果核量化出品 -- BIAS_QL乖离率策略指数择时1.0.txt",
+    "strategy_name": "果核量化出品 -- BIAS_QL乖离率策略指数择时1.0",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 4206,
+    "sha256": "763d65a2dbacf86c8dba3c98ade55c8ec327bcaafa203e11139cfb09fa400412",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/12925"
+    ],
+    "primary_url": "https://www.joinquant.com/post/12925",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "post_without_backtest",
+    "collected_at": "2026-07-27T02:06:32+08:00",
+    "requested_url": "https://www.joinquant.com/post/12925",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/31edbb2cb2633bcab2b600a045c378e4",
+    "community_id": "31edbb2cb2633bcab2b600a045c378e4",
+    "post": {
+      "postId": "f4a55e372d21c1fad538d29235653728",
+      "uniqueKey": "31edbb2cb2633bcab2b600a045c378e4",
+      "title": ".",
+      "content": ".",
+      "type": 1,
+      "status": "1",
+      "addTime": "2018-05-30 19:03:17",
+      "modTime": "2022-01-26 06:15:54",
+      "lastActiveTime": "2022-01-26 06:15:54",
+      "lastPubTime": "2022-01-26 06:15:54",
+      "replyCount": "3",
+      "viewCount": "2838",
+      "collectionCount": "3",
+      "likeCount": "3",
+      "disLikeCount": "0",
+      "backtestCloneCount": "44",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "7",
+      "followersCount": "241",
+      "followingCount": "14",
+      "author": {
+        "userId": "4307e11c62df21d736aaf76df91a83b3",
+        "alias": "Dao家子",
+        "introduction": "每天都是新的一天！",
+        "headImgKey": "10ed669412d1cbdd334e27fbba682740"
+      },
+      "tags": [
+        {
+          "id": "2",
+          "name": "心得"
+        }
+      ]
+    },
+    "backtests": [],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/12925",
+      "https://www.joinquant.com/community/post/detailV2?postId=12925",
+      "https://www.joinquant.com/community/post/replyList?page=1&postId=31edbb2cb2633bcab2b600a045c378e4"
+    ]
+  }
+}

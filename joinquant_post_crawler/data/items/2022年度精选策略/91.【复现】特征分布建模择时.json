@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/91.【复现】特征分布建模择时.txt",
+    "category": "2022年度精选策略",
+    "file_name": "91.【复现】特征分布建模择时.txt",
+    "strategy_name": "【复现】特征分布建模择时",
+    "declared_title": "【复现】特征分布建模择时",
+    "declared_author": "Hugo2046",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 5801,
+    "sha256": "95039a7c5a6a1fc4a9c4b37124ed80c691fe77bfac0a4c22f7c38a1008ecd3ed",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/38332"
+    ],
+    "primary_url": "https://www.joinquant.com/post/38332",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:42+08:00",
+    "requested_url": "https://www.joinquant.com/post/38332",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/17e97079ece6d76c85fb5f3aa62acdc0",
+    "community_id": "17e97079ece6d76c85fb5f3aa62acdc0",
+    "post": {
+      "postId": "1c8614aeb4487ec745fa3d4ccbe2e1f6",
+      "uniqueKey": "17e97079ece6d76c85fb5f3aa62acdc0",
+      "title": "【复现】特征分布建模择时",
+      "content": "# 信号构造\n\n1. 取得2013年1月4日至2022年2月22日之间沪深两市龙虎榜的数据,选取其中上榜席位为机构席位的信息,并计算当日所有单个席位净流入金额(单个席位买入金额-单个席位卖出金额)的总和,记为全市场机构席位绝对净流入额**IS_NetBuy**;\n2. 为了使不同交易日之间的IS_NetBuy可比,在本文对IS_NetBuy做了两市成交额中性化处理即**IS_NetBuy/沪深300指数当日成交金额**，得到全市场机构席位净流入强度**IS_NetBuy_S**,即相对净流入;\n3. IS_NetBuy_S就是我们需要分析的择时因子,我们希望能得到可能存在的非线性关系,我们进而绘制出IS_NetBuy_S的期望收益分布图，即计算每日IS_NetBuy_S数据对应的后10日沪深300指数涨跌幅情况,对所得结果按照 **IS_NetBuy_S**从小到大进行排序\n\n## 席位分析期望收益分布\n\n可以看到**机构席位**(图二):当相对净流入指标处于极值两端的时候,市场的未来期望收益率更高,即龙虎榜机构席位出现较大净流出或净流入后,后10日的沪深300指数对应为表现较好，而龙虎榜机构席位的净流入或净流出绝对值较低时，后10日的沪深300指数对应为表现较差。统计结果印证了机构龙虎榜影响下的有限注意力规律，即当机构席 位出现极端行为时很多的决策注意力被吸引而来，出现了较为明显的非线性交易规律， 整体的收益分布呈现出明显的V字型，即正收益来自于两端，负收益来自于中间。如果 择时因子与宽基未来收益显著正相关，且相关系数是 1，那么期望收益分布图则是一个 单调递增的形状。因此，期望收益分布图简单明了的表示择时因子与未来收益的非线性关系，而 IS_NetBuy_S 指标的期望收益分布图就是呈现出V型的非线性关系。\n\n![Img]( https://image.joinquant.com/0a15762fe09771cb0005258768136368) \n![Img]( https://image.joinquant.com/25f0cf4241ed9caebe487e6533c1325c) \n![Img]( https://image.joinquant.com/146df3f2553531b2468f3411249c9a82)\n ![Img]( https://image.joinquant.com/ad3994e5dd4c57dda8361643757cb3c3) \n![Img]( https://image.joinquant.com/cf8970e7b9256bdfe998c700e2daf2c5) \n![Img]( https://image.joinquant.com/28532a7cff1ecf7d35e431a0bf739684) \n# 回测\n## 信号生成逻辑\n\n由图二:当龙虎榜机构席位出现大幅相对净流入的时候,市场后续可能还会再继续向上脉冲;正所谓物极必反,当龙虎榜机构席位出现大幅相对净流出的时候,往往出现超跌状态,市场未来或更偏向反弹;而当龙虎榜机构席位相对 净流入较少或者相对净流出较少的时候,市场未来往往会更偏向震荡或者下跌。因此后文将依赖该特征,去构建龙虎榜的机构择时模型。\n\n## 交易信号构造\n\n*无论是成交量模型,亦或是涨跌停模型,都使用了一类平滑性好滞后性低的均线HMA,因此本文使用的均线亦是基于HMA。而根据上文的统计结果,由于未来收益特征分布呈现出明显的V字型,因此择时模型的构造逻辑为做多两边做空中间*\n\n以全市场机构席位相对净流入强度指标IS_NetBuy_S为基础:\n\n- fast_line:使用HMA均线对IS_NetBuy_S进行平滑处理(以30为短期均线参数),结果记为IS_NetBuy_S_S;\n- slow_line:使用HMA均线对IS_NetBuy_S进行平滑处理(以100为短期均线参数),结果记为 IS_NetBuy_S_L;\n  \n**多头开/平仓规则**:\n\n1. 大幅相对净流入:IS_NetBuy_S_S&gt;IS_NetBuy_S_L(短期均线大于长期均线)且短期均线IS_NetBuy_S_S &gt; 0且长期均线IS_NetBuy_S_L&gt;0做多\n2. 大幅相对净流出:IS_NetBuy_S_S&lt; IS_NetBuy_S_L(短期均线小于长期均线) 且短期均线IS_NetBuy_S_S &lt; 0且长期均线IS_NetBuy_S_L&lt; 0做多\n\n![Img]( https://image.joinquant.com/30601ce84a9cba7819f8a7a52ef1d344) ![Img]( https://image.joinquant.com/d5bf9c8ecd1b4bdfacf55d86d8099b9e) ![Img]( https://image.joinquant.com/9d8966e4e68a13884c716e8a3137e3c3) \n![Img]( https://image.joinquant.com/00fc39f2f5442b1334014e8b0ed10c1f) \n![Img]( https://image.joinquant.com/79343df2ddb102eff69db3c2b10fb8e5) ![Img]( https://image.joinquant.com/5f67b3b8c01f028405b3f82516e493bc) ![Img]( https://image.joinquant.com/0a32127eb35d7199d346546a1826abb7) \n![Img]( https://image.joinquant.com/1623db8ee4109b3a37171fb19e8cbbf6)\n\n本文使用了Tushare数据,需要下载附件并解压,在scr/config.json中填入自己的tushare token",
+      "type": 1,
+      "status": "0",
+      "addTime": "2022-06-30 12:12:13",
+      "modTime": "2022-07-01 09:08:31",
+      "lastActiveTime": "2025-01-26 16:23:40",
+      "lastPubTime": "2022-07-01 09:08:31",
+      "backtestId": "d188645e81319557532cddf90787b852",
+      "backtestName": "特征分布择时_a",
+      "replyCount": "48",
+      "viewCount": "5265",
+      "collectionCount": "79",
+      "likeCount": "66",
+      "disLikeCount": "0",
+      "backtestCloneCount": "73",
+      "notebookCloneCount": "55",
+      "fileDownloadCount": "163",
+      "fileName": "特征分布建模择时.7z",
+      "fileSize": "1827735",
+      "postCount": "81",
+      "followersCount": "4227",
+      "followingCount": "26",
+      "author": {
+        "userId": "268c9a75c0a0e57427a1faa3ca35993a",
+        "alias": "Hugo2046",
+        "introduction": "联系邮箱:shen.lan123@gmail.com 坐标成都 纸上谈兵小能手",
+        "headImgKey": "144aa02c502f7e0f6bb2d55c98cab33c"
+      },
+      "tags": [
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "264",
+          "name": "研报复现"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "d188645e81319557532cddf90787b852",
+        "backtest_name": "特征分布择时_a",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=d188645e81319557532cddf90787b852&postId=17e97079ece6d76c85fb5f3aa62acdc0&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2013-01-01",
+          "end_date": "2022-02-28",
+          "base_capital": 50000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "b178743044c242a4a3d277a4b60413d2",
+            "25152472"
+          ],
+          "numeric_backtest_id": "25152472",
+          "numeric_post_id": "38332",
+          "python_version": 3,
+          "clone_count": 68
+        },
+        "stats": {
+          "trading_days": 2223,
+          "benchmark_volatility": 0.22759075827737,
+          "algorithm_volatility": 0.15396580870647,
+          "treasury_return": 0.36624657534247,
+          "algorithm_return": 1.970127121,
+          "benchmark_return": 0.81598921896986,
+          "annual_algo_return": 0.13023455950063,
+          "annual_bm_return": 0.069399664216623,
+          "sharpe": 0.58606881786759,
+          "excess_return_sharpe": "0.093",
+          "sortino": 0.80858797833827,
+          "information": 0.34189737823538,
+          "beta": 0.42321303185497,
+          "alpha": 0.077792238471995,
+          "excess_return": 0.63554226532515,
+          "avg_excess_return": "0.03%",
+          "max_drawdown": 0.24180460809619,
+          "max_drawdown_period": [
+            "2015-04-27",
+            "2015-06-29"
+          ],
+          "excess_return_max_drawdown": "46.58%",
+          "excess_return_max_drawdown_period": [
+            "2014-06-19",
+            "2015-07-01"
+          ],
+          "max_leverage": 0,
+          "period_label": "2022-02",
+          "__version": 101,
+          "win_ratio": 0.6551724137931,
+          "profit_loss_ratio": 2.2095434519645,
+          "win_count": 57,
+          "lose_count": 30,
+          "day_win_ratio": 0.49797570850202,
+          "avg_trade_return": 0.014482743484893,
+          "avg_position_days": 973,
+          "turnover_rate": 0.038865290818177,
+          "report_done_seconds": 107.08676600456,
+          "report_done_cpu_seconds": 97.26
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 197.012712,
+          "benchmark_return_percent": 81.598922,
+          "annual_algo_return_percent": 13.023456,
+          "annual_bm_return_percent": 6.939966,
+          "max_drawdown_percent": 24.180461,
+          "algorithm_volatility_percent": 15.396581,
+          "benchmark_volatility_percent": 22.759076,
+          "win_ratio_percent": 65.517241,
+          "day_win_ratio_percent": 49.797571,
+          "avg_trade_return_percent": 1.448274,
+          "turnover_rate_percent": 3.886529,
+          "sharpe": 0.58606881786759,
+          "sortino": 0.80858797833827,
+          "information": 0.34189737823538,
+          "alpha": 0.077792238471995,
+          "beta": 0.42321303185497,
+          "profit_loss_ratio": 2.2095434519645,
+          "avg_position_days": 973,
+          "trading_days": 2223,
+          "win_count": 57,
+          "lose_count": 30,
+          "max_drawdown_period": [
+            "2015-04-27",
+            "2015-06-29"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2014-06-19",
+            "2015-07-01"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/38332",
+      "https://www.joinquant.com/community/post/detailV2?postId=38332",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=d188645e81319557532cddf90787b852&postId=17e97079ece6d76c85fb5f3aa62acdc0&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=d188645e81319557532cddf90787b852"
+    ]
+  }
+}

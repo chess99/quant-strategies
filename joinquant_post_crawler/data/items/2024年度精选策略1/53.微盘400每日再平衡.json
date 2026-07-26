@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略1/53.微盘400每日再平衡.txt",
+    "category": "2024年度精选策略1",
+    "file_name": "53.微盘400每日再平衡.txt",
+    "strategy_name": "微盘400每日再平衡",
+    "declared_title": "微盘400每日再平衡",
+    "declared_author": "开心果",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 2007,
+    "sha256": "daf43af3d722dcfe9cba02f32aeaaee997544fc528b2314cd8131b0b5051fa0f",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/44853"
+    ],
+    "primary_url": "https://www.joinquant.com/post/44853",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:10:27+08:00",
+    "requested_url": "https://www.joinquant.com/post/44853",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/84afb0f9273f570b652a393f03a8817f",
+    "community_id": "84afb0f9273f570b652a393f03a8817f",
+    "post": {
+      "postId": "f6c5bc86f28dd7ba899dd310ce92f16c",
+      "uniqueKey": "84afb0f9273f570b652a393f03a8817f",
+      "title": "微盘400每日再平衡",
+      "content": "众所周知，微盘股指数从19年开始如日中天，而小盘股的利润来源在于轮动，即高抛低吸。在聚宽实现一下微盘股每日轮动，滑点默认。和微盘股指数比，收益差了一点点，可能是滑点和交易费用吧。观察微盘400股的总市值，变化不大。可知轮动是有效的。\n       既然是高抛低吸，每日再平衡就不太合适，因为没有给个股波动充分发展的机会，那么隔段时间，再去做平衡，显然是更加合适的。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2023-11-09 15:24:33",
+      "modTime": "2023-11-10 09:14:47",
+      "lastActiveTime": "2024-02-12 16:31:49",
+      "lastPubTime": "2023-11-10 09:14:47",
+      "backtestId": "4261d11322e423f76d5d72f369174e7d",
+      "backtestName": "small400",
+      "replyCount": "19",
+      "viewCount": "3988",
+      "collectionCount": "53",
+      "likeCount": "37",
+      "disLikeCount": "0",
+      "backtestCloneCount": "314",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "72",
+      "followersCount": "2125",
+      "followingCount": "2",
+      "author": {
+        "userId": "b0586a9a3ed481692f98462c7e05bc18",
+        "alias": "开心果",
+        "headImgKey": "c9a997e0c5aa2e77d3ae03f7e34ca7a0"
+      },
+      "tags": [
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "4261d11322e423f76d5d72f369174e7d",
+        "backtest_name": "small400",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=4261d11322e423f76d5d72f369174e7d&postId=84afb0f9273f570b652a393f03a8817f&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2023-01-01",
+          "end_date": "2023-11-08",
+          "base_capital": 10000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "3a513dd40b4f09f38bb3bce562707d50",
+            "30905347"
+          ],
+          "numeric_backtest_id": "30905347",
+          "numeric_post_id": "44853",
+          "python_version": 3,
+          "clone_count": 314
+        },
+        "stats": {
+          "trading_days": 205,
+          "benchmark_volatility": 0.15805535374704,
+          "algorithm_volatility": 0.17832224992635,
+          "treasury_return": 0.03386301369863,
+          "algorithm_return": 0.3767669955558,
+          "benchmark_return": 0.020915281258301,
+          "annual_algo_return": 0.47686911273887,
+          "annual_bm_return": 0.025564676953216,
+          "sharpe": 2.4498856027181,
+          "excess_return_sharpe": "3.954",
+          "sortino": 4.2810506753725,
+          "information": 4.4522834618503,
+          "beta": 0.93079927534797,
+          "alpha": 0.45030550097023,
+          "excess_return": 0.34856145346253,
+          "avg_excess_return": "0.15%",
+          "max_drawdown": 0.11901419959058,
+          "max_drawdown_period": [
+            "2023-03-09",
+            "2023-04-25"
+          ],
+          "excess_return_max_drawdown": "7.52%",
+          "excess_return_max_drawdown_period": [
+            "2023-03-22",
+            "2023-04-20"
+          ],
+          "max_leverage": 0,
+          "period_label": "2023-11",
+          "__version": 101,
+          "win_ratio": 0.71376252891288,
+          "profit_loss_ratio": 9.4219193095072,
+          "win_count": 3703,
+          "lose_count": 1485,
+          "day_win_ratio": 0.58536585365854,
+          "avg_trade_return": 0.065245814212231,
+          "avg_position_days": 119.72886297376,
+          "turnover_rate": 0.028125953138169,
+          "report_done_seconds": 410.90551638603,
+          "report_done_cpu_seconds": 385.41
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 37.6767,
+          "benchmark_return_percent": 2.091528,
+          "annual_algo_return_percent": 47.686911,
+          "annual_bm_return_percent": 2.556468,
+          "max_drawdown_percent": 11.90142,
+          "algorithm_volatility_percent": 17.832225,
+          "benchmark_volatility_percent": 15.805535,
+          "win_ratio_percent": 71.376253,
+          "day_win_ratio_percent": 58.536585,
+          "avg_trade_return_percent": 6.524581,
+          "turnover_rate_percent": 2.812595,
+          "sharpe": 2.4498856027181,
+          "sortino": 4.2810506753725,
+          "information": 4.4522834618503,
+          "alpha": 0.45030550097023,
+          "beta": 0.93079927534797,
+          "profit_loss_ratio": 9.4219193095072,
+          "avg_position_days": 119.72886297376,
+          "trading_days": 205,
+          "win_count": 3703,
+          "lose_count": 1485,
+          "max_drawdown_period": [
+            "2023-03-09",
+            "2023-04-25"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2023-03-22",
+            "2023-04-20"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/44853",
+      "https://www.joinquant.com/community/post/detailV2?postId=44853",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=4261d11322e423f76d5d72f369174e7d&postId=84afb0f9273f570b652a393f03a8817f&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=4261d11322e423f76d5d72f369174e7d"
+    ]
+  }
+}

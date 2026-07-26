@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/53TSmall-100, 微盘三正.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "53TSmall-100, 微盘三正.txt",
+    "strategy_name": "TSmall-100, 微盘三正",
+    "declared_title": "TSmall-100, 微盘三正",
+    "declared_author": "Gyro^.^",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 3548,
+    "sha256": "cedb2a126947ac6e14c1738078959a58b9a4a4f1daf41cc1d9ab5b8628985985",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/50238"
+    ],
+    "primary_url": "https://www.joinquant.com/post/50238",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "post_without_backtest",
+    "collected_at": "2026-07-27T02:12:18+08:00",
+    "requested_url": "https://www.joinquant.com/post/50238",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/a87e3b6df1943c4e7c7545bf43118dd2",
+    "community_id": "a87e3b6df1943c4e7c7545bf43118dd2",
+    "post": {
+      "postId": "40688b3422fc7f72a43099692cce43ca",
+      "uniqueKey": "a87e3b6df1943c4e7c7545bf43118dd2",
+      "title": "TSmall-100",
+      "content": "微盘股的最佳搭档是：标普500纳指100，红利和价值，消费和医药，这三大分支的长期收益全部优于沪深300ETF，且与Tsmall-100的相关度低于0.5。\n\n\n策略参考升级版：https://www.joinquant.com/view/community/detail/fcedb0718b8619247fb5fcbbf6aa90f6",
+      "type": 1,
+      "status": "0",
+      "addTime": "2024-10-22 15:36:37",
+      "modTime": "2025-07-16 20:19:40",
+      "lastActiveTime": "2026-03-08 20:48:34",
+      "lastPubTime": "2025-07-16 20:19:40",
+      "replyCount": "50",
+      "viewCount": "7082",
+      "collectionCount": "98",
+      "likeCount": "71",
+      "disLikeCount": "0",
+      "backtestCloneCount": "307",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "227",
+      "followersCount": "5889",
+      "followingCount": "1",
+      "author": {
+        "userId": "25d5fef7aa46f73c9178d89eff7cfc4a",
+        "alias": "Gyron",
+        "introduction": "\r\n                    \r\n                     ",
+        "headImgKey": "600eaeda447f70216671ecc0af5f5fe2"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "12",
+          "name": "基金"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        }
+      ]
+    },
+    "backtests": [],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/50238",
+      "https://www.joinquant.com/community/post/detailV2?postId=50238",
+      "https://www.joinquant.com/community/post/replyList?page=1&postId=a87e3b6df1943c4e7c7545bf43118dd2",
+      "https://www.joinquant.com/community/post/replyList?page=2&postId=a87e3b6df1943c4e7c7545bf43118dd2"
+    ]
+  }
+}

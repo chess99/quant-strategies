@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/88.打首板策略，今年收益达到40%，绝无未来函数（必回）.txt",
+    "category": "2022年度精选策略",
+    "file_name": "88.打首板策略，今年收益达到40%，绝无未来函数（必回）.txt",
+    "strategy_name": "打首板策略，今年收益达到40%，绝无未来函数（必回）",
+    "declared_title": "打首板策略，今年收益达到40%，绝无未来函数（必回）",
+    "declared_author": "Pengpengpeng",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 15698,
+    "sha256": "32ef56be1aa53221679c64810904ae3bea058cbdcefaa6ce7a90f16acff5e244",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/36905"
+    ],
+    "primary_url": "https://www.joinquant.com/post/36905",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:39+08:00",
+    "requested_url": "https://www.joinquant.com/post/36905",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/30061a131808290464a8bcbc811032bf",
+    "community_id": "30061a131808290464a8bcbc811032bf",
+    "post": {
+      "postId": "87bd2855e1e57bf2c66052f537ba0e08",
+      "uniqueKey": "30061a131808290464a8bcbc811032bf",
+      "title": "打首板策略，今年收益达到40%，绝无未来函数（必回）",
+      "content": "思路：首板（一定是首板），\n价格突破60天最高价，\n交易额比昨天高，\n当在上午11：30之前价格大于昨天收盘价，为涨停，时买入（低开也行），\n卖出：直接套用游资小马哥的模板，从最高价低于3%，低开很多等，\n买卖很多次，主要还是打中妖股金财。。\n欢迎大家讨论一起改进。\n讨论必回。。。。\n最近从3-10开始回测又有33%收益，哎用的其他策略还不行。这个风险是有点高，但收益高，妖股都能打中，而且严格止损，所以也许今年适用，",
+      "type": 1,
+      "status": "0",
+      "addTime": "2022-03-15 00:01:13",
+      "modTime": "2022-04-18 11:22:03",
+      "lastActiveTime": "2025-02-04 17:44:04",
+      "lastPubTime": "2022-04-18 11:22:03",
+      "backtestId": "0499dfcca2c33096b89be67a911683e9",
+      "backtestName": "首板打板策略",
+      "replyCount": "85",
+      "viewCount": "3189",
+      "collectionCount": "46",
+      "likeCount": "25",
+      "disLikeCount": "0",
+      "backtestCloneCount": "181",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "29",
+      "followersCount": "270",
+      "followingCount": "64",
+      "author": {
+        "userId": "01ed557cea184eab6b0d61a16126c0c5",
+        "alias": "Pengpengpeng",
+        "introduction": "每天一个小策略，挣积分，欢迎大家一起讨论",
+        "vipType": "VIP",
+        "headImgKey": "9194a4a6e0e71c2b1a75591c96d259c3"
+      },
+      "tags": [
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "0499dfcca2c33096b89be67a911683e9",
+        "backtest_name": "首板打板策略",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=0499dfcca2c33096b89be67a911683e9&postId=30061a131808290464a8bcbc811032bf&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2022-01-01",
+          "end_date": "2022-04-17",
+          "base_capital": 100000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "80a6a8ddf95a48942f60f690ceb27e22",
+            "24280956"
+          ],
+          "numeric_backtest_id": "24280956",
+          "numeric_post_id": "36905",
+          "python_version": 3,
+          "clone_count": 181
+        },
+        "stats": {
+          "trading_days": 67,
+          "benchmark_volatility": 0.23108716694353,
+          "algorithm_volatility": 0.74861773706001,
+          "treasury_return": 0.011068493150685,
+          "algorithm_return": 1.125771781,
+          "benchmark_return": -0.15213840258928,
+          "annual_algo_return": 15.675428633549,
+          "annual_bm_return": -0.45979843307097,
+          "sharpe": 20.885730940538,
+          "excess_return_sharpe": "38.037",
+          "sortino": 37.638891594251,
+          "information": 20.683418602431,
+          "beta": 0.049313697009595,
+          "alpha": 15.660075542044,
+          "excess_return": 1.5072155496745,
+          "avg_excess_return": "1.50%",
+          "max_drawdown": 0.2011201651218,
+          "max_drawdown_period": [
+            "2022-01-21",
+            "2022-02-18"
+          ],
+          "excess_return_max_drawdown": "18.77%",
+          "excess_return_max_drawdown_period": [
+            "2022-03-28",
+            "2022-04-07"
+          ],
+          "max_leverage": 0,
+          "period_label": "2022-04",
+          "__version": 101,
+          "win_ratio": 0.35616438356164,
+          "profit_loss_ratio": 1.5482261960707,
+          "win_count": 52,
+          "lose_count": 94,
+          "day_win_ratio": 0.56716417910448,
+          "avg_trade_return": 0.012425166448447,
+          "avg_position_days": 1.5454545454545,
+          "turnover_rate": 0.49995476228223,
+          "report_done_seconds": 697.4641251564,
+          "report_done_cpu_seconds": 660.72
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 112.577178,
+          "benchmark_return_percent": -15.21384,
+          "annual_algo_return_percent": 1567.542863,
+          "annual_bm_return_percent": -45.979843,
+          "max_drawdown_percent": 20.112017,
+          "algorithm_volatility_percent": 74.861774,
+          "benchmark_volatility_percent": 23.108717,
+          "win_ratio_percent": 35.616438,
+          "day_win_ratio_percent": 56.716418,
+          "avg_trade_return_percent": 1.242517,
+          "turnover_rate_percent": 49.995476,
+          "sharpe": 20.885730940538,
+          "sortino": 37.638891594251,
+          "information": 20.683418602431,
+          "alpha": 15.660075542044,
+          "beta": 0.049313697009595,
+          "profit_loss_ratio": 1.5482261960707,
+          "avg_position_days": 1.5454545454545,
+          "trading_days": 67,
+          "win_count": 52,
+          "lose_count": 94,
+          "max_drawdown_period": [
+            "2022-01-21",
+            "2022-02-18"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2022-03-28",
+            "2022-04-07"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/36905",
+      "https://www.joinquant.com/community/post/detailV2?postId=36905",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=0499dfcca2c33096b89be67a911683e9&postId=30061a131808290464a8bcbc811032bf&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=0499dfcca2c33096b89be67a911683e9"
+    ]
+  }
+}

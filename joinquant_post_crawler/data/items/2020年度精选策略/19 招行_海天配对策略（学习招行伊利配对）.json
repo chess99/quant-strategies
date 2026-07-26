@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/19 招行_海天配对策略（学习招行伊利配对）.txt",
+    "category": "2020年度精选策略",
+    "file_name": "19 招行_海天配对策略（学习招行伊利配对）.txt",
+    "strategy_name": "招行_海天配对策略（学习招行伊利配对）",
+    "declared_title": "【量化课堂】基于协整的搬砖策略",
+    "declared_author": "JoinQuant量化课堂",
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 3716,
+    "sha256": "a3cdcecb778b935136aa736f6ab7595548e4251d101bb56781c88522c3500bd5",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/11736",
+      "https://www.joinquant.com/post/1810"
+    ],
+    "primary_url": "https://www.joinquant.com/post/11736",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:06:29+08:00",
+    "requested_url": "https://www.joinquant.com/post/11736",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/3fe9f24fabe3cdb1411c1eb8beac606d",
+    "community_id": "3fe9f24fabe3cdb1411c1eb8beac606d",
+    "post": {
+      "postId": "69385fa949e10ac9bee3acdbbc9c0f38",
+      "uniqueKey": "3fe9f24fabe3cdb1411c1eb8beac606d",
+      "title": "招行_海天配对策略（学习招行伊利配对）",
+      "content": "新人学习，想求教招行海天和招行伊利这两组配对哪个效果更好？\r\n招行海天\r\n![招行基准_海天.png][1]\r\n\r\n\r\n\r\n  [1]: https://image.joinquant.com/276d1d00172770e1614c2e10403109d5\r\n",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-03-30 18:45:14",
+      "modTime": "2018-03-30 18:45:14",
+      "lastActiveTime": "2022-11-23 12:04:49",
+      "lastPubTime": "2018-03-30 18:45:14",
+      "backtestId": "a6baf9c36abe429e330ed1968a02bbd2",
+      "backtestName": "招行_海天配对策略",
+      "replyCount": "7",
+      "viewCount": "3569",
+      "collectionCount": "12",
+      "likeCount": "5",
+      "disLikeCount": "0",
+      "backtestCloneCount": "182",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "1",
+      "followersCount": "4",
+      "followingCount": "0",
+      "author": {
+        "userId": "05d2eed61e4093bb9b934ee43a38fe3c",
+        "alias": "维络"
+      },
+      "tags": []
+    },
+    "backtests": [
+      {
+        "backtest_id": "a6baf9c36abe429e330ed1968a02bbd2",
+        "backtest_name": "招行_海天配对策略",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=a6baf9c36abe429e330ed1968a02bbd2&postId=3fe9f24fabe3cdb1411c1eb8beac606d&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2017-01-01",
+          "end_date": "2018-03-23",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "ee86dfd260378bdd6d60dae70660f164",
+            "8032177"
+          ],
+          "numeric_backtest_id": "8032177",
+          "numeric_post_id": "11736",
+          "python_version": 2,
+          "clone_count": 181
+        },
+        "stats": {
+          "information": 3.1067382493095,
+          "benchmark_return": 0.7821433068883,
+          "algorithm_volatility": 0.25572635083711,
+          "annual_bm_return": 0.62376185730497,
+          "__version": 101,
+          "max_drawdown": 0.091660320054708,
+          "sortino": 8.8082426916506,
+          "period_label": "2018-03",
+          "trading_days": 298,
+          "algorithm_return": 1.5333577,
+          "benchmark_volatility": 0.26022586768564,
+          "beta": 0.74524800766691,
+          "excess_return": 1.4847001657534,
+          "annual_algo_return": 1.181079886504,
+          "sharpe": 4.4621130468908,
+          "alpha": 0.70603252539558,
+          "max_drawdown_period": [
+            "2017-11-22",
+            "2017-12-15"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.048657534246575,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.46308724832215,
+          "avg_position_days": 170.5,
+          "win_ratio": 1,
+          "win_count": 14,
+          "avg_trade_return": 0.15121548412352,
+          "profit_loss_ratio": 155565,
+          "lose_count": 0,
+          "report_done_seconds": 2.7717640399933
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 153.33577,
+          "benchmark_return_percent": 78.214331,
+          "annual_algo_return_percent": 118.107989,
+          "annual_bm_return_percent": 62.376186,
+          "max_drawdown_percent": 9.166032,
+          "algorithm_volatility_percent": 25.572635,
+          "benchmark_volatility_percent": 26.022587,
+          "win_ratio_percent": 100,
+          "day_win_ratio_percent": 46.308725,
+          "avg_trade_return_percent": 15.121548,
+          "sharpe": 4.4621130468908,
+          "sortino": 8.8082426916506,
+          "information": 3.1067382493095,
+          "alpha": 0.70603252539558,
+          "beta": 0.74524800766691,
+          "profit_loss_ratio": 155565,
+          "avg_position_days": 170.5,
+          "trading_days": 298,
+          "win_count": 14,
+          "lose_count": 0,
+          "max_drawdown_period": [
+            "2017-11-22",
+            "2017-12-15"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/11736",
+      "https://www.joinquant.com/community/post/detailV2?postId=11736",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=a6baf9c36abe429e330ed1968a02bbd2&postId=3fe9f24fabe3cdb1411c1eb8beac606d&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=a6baf9c36abe429e330ed1968a02bbd2"
+    ]
+  }
+}

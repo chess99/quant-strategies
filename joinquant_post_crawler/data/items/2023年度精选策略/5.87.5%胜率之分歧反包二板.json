@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/5.87.5%胜率之分歧反包二板.txt",
+    "category": "2023年度精选策略",
+    "file_name": "5.87.5%胜率之分歧反包二板.txt",
+    "strategy_name": "5%胜率之分歧反包二板",
+    "declared_title": "87.5%胜率之分歧反包二板",
+    "declared_author": "游资小码哥",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 18262,
+    "sha256": "7512a35c934885f13319b18e519e50a36aaf910e856e997b4992c4ef930a54da",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/34048"
+    ],
+    "primary_url": "https://www.joinquant.com/post/34048",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:09:16+08:00",
+    "requested_url": "https://www.joinquant.com/post/34048",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/207ffd62386d2844ebca70751f6fc2bd",
+    "community_id": "207ffd62386d2844ebca70751f6fc2bd",
+    "post": {
+      "postId": "9c3c653289a930e1baf4fa24918a95e0",
+      "uniqueKey": "207ffd62386d2844ebca70751f6fc2bd",
+      "title": "87.5%胜率之分歧反包二板",
+      "content": "思路背景说明：\n大家好，我是游资小码哥，当年有幸在游资大部落看到92科比的演讲，得到点播写出此策略。以前人们做分歧反包的时候以为胜率会比打板高，但是实际上真正的胜率是在分歧反包的二板。\n炒股养家说的买在分歧，卖在一致，说是在分歧的时候买入，在大家一致看好的时候卖出，实际上这种说法是片面的，按92科比的说法，应该是买在分歧转一致，卖在一致转分歧。\n1.本策略是连扳之后出现阴线\n2.第二天阴线被涨停板强势反包\n3.反包的第三天进行涨停板排板操作\n注：由于该策略胜率太高，望量友门低调行事，不要传播太多！",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-07-29 13:47:39",
+      "modTime": "2021-07-29 13:47:39",
+      "lastActiveTime": "2025-12-28 22:50:22",
+      "lastPubTime": "2021-07-29 13:47:39",
+      "backtestId": "428a8b09744d4320eb1468e3890d7e9a",
+      "backtestName": "反包二板排板",
+      "replyCount": "310",
+      "viewCount": "14000",
+      "collectionCount": "194",
+      "likeCount": "105",
+      "disLikeCount": "0",
+      "backtestCloneCount": "1155",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "37",
+      "followersCount": "2643",
+      "followingCount": "19",
+      "author": {
+        "userId": "2d8833940bb7feedfb7de2173d126b99",
+        "alias": "游资小码哥",
+        "introduction": "90后新生代游资，擅长通过量化分析涨停板形态，能够运用代码实现自动打板操作。 交易理念： 1.只做纯粹性的交易。  2.只做确定性的交易。 3.只做分歧性的交易。",
+        "headImgKey": "341e589ac16f899c4b87f521540eaeb1"
+      },
+      "tags": [
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "1459",
+          "name": "小码哥感想"
+        },
+        {
+          "id": "1486",
+          "name": "排板战法"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "428a8b09744d4320eb1468e3890d7e9a",
+        "backtest_name": "反包二板排板",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=428a8b09744d4320eb1468e3890d7e9a&postId=207ffd62386d2844ebca70751f6fc2bd&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2019-01-01",
+          "end_date": "2021-07-28",
+          "base_capital": 100000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "6aac6ee2d8e57969eb69eddad42dd683",
+            "21397263"
+          ],
+          "numeric_backtest_id": "21397263",
+          "numeric_post_id": "34048",
+          "python_version": 3,
+          "clone_count": 1491
+        },
+        "stats": {
+          "trading_days": 625,
+          "benchmark_volatility": 0.21228370974534,
+          "algorithm_volatility": 0.2455014670374,
+          "treasury_return": 0.10279452054795,
+          "algorithm_return": 3.598418547,
+          "benchmark_return": 0.58121335924136,
+          "annual_algo_return": 0.84095595984973,
+          "annual_bm_return": 0.20114708032321,
+          "sharpe": 3.2625302386797,
+          "excess_return_sharpe": "1.506",
+          "sortino": 23.19248638816,
+          "information": 1.9611916482866,
+          "beta": -0.012135667538094,
+          "alpha": 0.80291158724127,
+          "excess_return": 1.9081581686144,
+          "avg_excess_return": "0.19%",
+          "max_drawdown": 0.032002683189904,
+          "max_drawdown_period": [
+            "2019-03-07",
+            "2020-03-02"
+          ],
+          "excess_return_max_drawdown": "20.93%",
+          "excess_return_max_drawdown_period": [
+            "2019-01-03",
+            "2019-03-01"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-07",
+          "__version": 101,
+          "win_ratio": 0.875,
+          "profit_loss_ratio": 713.56666666667,
+          "win_count": 7,
+          "lose_count": 1,
+          "day_win_ratio": 0.4832,
+          "avg_trade_return": 0.22879560579816,
+          "avg_position_days": 2.875,
+          "turnover_rate": 0.016147939896951,
+          "report_done_seconds": 2230.3623347282,
+          "report_done_cpu_seconds": 2224.23
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 359.841855,
+          "benchmark_return_percent": 58.121336,
+          "annual_algo_return_percent": 84.095596,
+          "annual_bm_return_percent": 20.114708,
+          "max_drawdown_percent": 3.200268,
+          "algorithm_volatility_percent": 24.550147,
+          "benchmark_volatility_percent": 21.228371,
+          "win_ratio_percent": 87.5,
+          "day_win_ratio_percent": 48.32,
+          "avg_trade_return_percent": 22.879561,
+          "turnover_rate_percent": 1.614794,
+          "sharpe": 3.2625302386797,
+          "sortino": 23.19248638816,
+          "information": 1.9611916482866,
+          "alpha": 0.80291158724127,
+          "beta": -0.012135667538094,
+          "profit_loss_ratio": 713.56666666667,
+          "avg_position_days": 2.875,
+          "trading_days": 625,
+          "win_count": 7,
+          "lose_count": 1,
+          "max_drawdown_period": [
+            "2019-03-07",
+            "2020-03-02"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2019-01-03",
+            "2019-03-01"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/34048",
+      "https://www.joinquant.com/community/post/detailV2?postId=34048",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=428a8b09744d4320eb1468e3890d7e9a&postId=207ffd62386d2844ebca70751f6fc2bd&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=428a8b09744d4320eb1468e3890d7e9a"
+    ]
+  }
+}

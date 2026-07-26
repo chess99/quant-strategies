@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/95.冲天炮最高板策略迭代.txt",
+    "category": "2025年度精选策略",
+    "file_name": "95.冲天炮最高板策略迭代.txt",
+    "strategy_name": "冲天炮最高板策略迭代",
+    "declared_title": "冲天炮最高板策略迭代",
+    "declared_author": "暗影之光",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 9553,
+    "sha256": "5478cf9105ff32513ed6dd4b9187e84534eca03a512e6a2622d0bdfcd44d2a77",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/29403",
+      "https://www.joinquant.com/post/29356"
+    ],
+    "primary_url": "https://www.joinquant.com/post/29403",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:45+08:00",
+    "requested_url": "https://www.joinquant.com/post/29403",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/54ae5195ef24399beabebc00180b3033",
+    "community_id": "54ae5195ef24399beabebc00180b3033",
+    "post": {
+      "postId": "00d0fd4da1cbb860927cbda2222ae836",
+      "uniqueKey": "54ae5195ef24399beabebc00180b3033",
+      "title": "冲天炮最高板策略迭代",
+      "content": "原帖子：《冲天炮最高板策略，收益惊呆了我》](https://www.joinquant.com/view/community/detail/ca72ac482eb173e549c55efe40347358?type=1)\n原作者：jqz1226\n\n原贴收益：2020-1-1~~2020.9.4，**策略收益973.07%**，**最大回撤45.430%**\n\n感谢蒋老师的分享，本人在原帖的基础上多加了一个风控（当昨日跌停股数量大于前日数量，并且大于15时不买股），修改后的收益：2020-1-1~~2020.9.4，**策略收益884.23%**，**最大回撤32.88%**。\n\n凭个人感觉，应该还有改善空间，需要时间去研究尝试，也希望宽友们群策群力，多分享思路和建议！",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-09-15 20:08:59",
+      "modTime": "2020-09-15 20:08:59",
+      "lastActiveTime": "2023-10-21 19:55:18",
+      "lastPubTime": "2020-09-15 20:08:59",
+      "backtestId": "f3504200de1721a1a8fe71eee9ab5d60",
+      "backtestName": "冲天炮最高板策略迭代",
+      "replyCount": "110",
+      "viewCount": "9053",
+      "collectionCount": "51",
+      "likeCount": "35",
+      "disLikeCount": "0",
+      "backtestCloneCount": "266",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "4",
+      "followersCount": "46",
+      "followingCount": "55",
+      "author": {
+        "userId": "490abfbf45c36ef2b8e8d80fb76bfe3b",
+        "alias": "暗影之光"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "f3504200de1721a1a8fe71eee9ab5d60",
+        "backtest_name": "冲天炮最高板策略迭代",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=f3504200de1721a1a8fe71eee9ab5d60&postId=54ae5195ef24399beabebc00180b3033&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2020-01-01",
+          "end_date": "2020-09-04",
+          "base_capital": 100000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "d91b279b58770e7d27348e1f2100bba7",
+            "18268716"
+          ],
+          "numeric_backtest_id": "18268716",
+          "numeric_post_id": "29403",
+          "python_version": 3,
+          "clone_count": 264
+        },
+        "stats": {
+          "trading_days": 165,
+          "benchmark_volatility": 0.25122317957137,
+          "algorithm_volatility": 0.9351177097421,
+          "treasury_return": 0.026958904109589,
+          "algorithm_return": 8.842297936,
+          "benchmark_return": 0.16443960571989,
+          "annual_algo_return": 30.966248988837,
+          "annual_bm_return": 0.25943925360422,
+          "sharpe": 33.072038596473,
+          "excess_return_sharpe": "26.209",
+          "sortino": 60.818132407958,
+          "information": 33.109566778537,
+          "beta": 0.61343519071386,
+          "alpha": 30.791637228452,
+          "excess_return": 7.452390220715,
+          "avg_excess_return": "1.47%",
+          "max_drawdown": 0.32881903072175,
+          "max_drawdown_period": [
+            "2020-06-03",
+            "2020-06-29"
+          ],
+          "excess_return_max_drawdown": "36.67%",
+          "excess_return_max_drawdown_period": [
+            "2020-05-20",
+            "2020-07-01"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-09",
+          "__version": 101,
+          "win_ratio": 0.48648648648649,
+          "profit_loss_ratio": 4.0778921640984,
+          "win_count": 18,
+          "lose_count": 19,
+          "day_win_ratio": 0.52727272727273,
+          "avg_trade_return": 0.09328904315414,
+          "avg_position_days": 1.8378378378378,
+          "turnover_rate": 0.19556497490292,
+          "report_done_seconds": 447.9894182682,
+          "report_done_cpu_seconds": 449.81
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 884.229794,
+          "benchmark_return_percent": 16.443961,
+          "annual_algo_return_percent": 3096.624899,
+          "annual_bm_return_percent": 25.943925,
+          "max_drawdown_percent": 32.881903,
+          "algorithm_volatility_percent": 93.511771,
+          "benchmark_volatility_percent": 25.122318,
+          "win_ratio_percent": 48.648649,
+          "day_win_ratio_percent": 52.727273,
+          "avg_trade_return_percent": 9.328904,
+          "turnover_rate_percent": 19.556497,
+          "sharpe": 33.072038596473,
+          "sortino": 60.818132407958,
+          "information": 33.109566778537,
+          "alpha": 30.791637228452,
+          "beta": 0.61343519071386,
+          "profit_loss_ratio": 4.0778921640984,
+          "avg_position_days": 1.8378378378378,
+          "trading_days": 165,
+          "win_count": 18,
+          "lose_count": 19,
+          "max_drawdown_period": [
+            "2020-06-03",
+            "2020-06-29"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-05-20",
+            "2020-07-01"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/29403",
+      "https://www.joinquant.com/community/post/detailV2?postId=29403",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=f3504200de1721a1a8fe71eee9ab5d60&postId=54ae5195ef24399beabebc00180b3033&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=f3504200de1721a1a8fe71eee9ab5d60"
+    ]
+  }
+}

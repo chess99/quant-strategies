@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/9干积分-量化策略简易框架.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "9干积分-量化策略简易框架.txt",
+    "strategy_name": "干积分-量化策略简易框架",
+    "declared_title": "全天候轮动",
+    "declared_author": "MarioC",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 15024,
+    "sha256": "653afee185c6c03f2a84b6d8d395c436c9b78c844c0b2c955a24c563df01bdab",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/48819"
+    ],
+    "primary_url": "https://www.joinquant.com/post/48819",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:12:51+08:00",
+    "requested_url": "https://www.joinquant.com/post/48819",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/c9a01dd114e512ea13328041e7b736f4",
+    "community_id": "c9a01dd114e512ea13328041e7b736f4",
+    "post": {
+      "postId": "e80e81f07cf916c1a915f02dbe974675",
+      "uniqueKey": "c9a01dd114e512ea13328041e7b736f4",
+      "title": "全天候轮动",
+      "content": "**致敬:**\n本策略选股部分都是抄来的（这也是聚宽的优势，挑挑拣拣就有很多好东西）\n大市值：\nhttps://www.joinquant.com/post/45757\nhttps://www.joinquant.com/view/community/detail/e465ededa9d5df432c2800a0137d7896?type=1\n小市值：\nhttps://www.joinquant.com/post/45510\n\n**进入主题：**\n一个完整的框架必须包含这几个东西:\n1、择时\n2、选股\n3、止盈\n4、止损\n那么我们可以将这几个部分模块化，然后到处去聚宽挑挑拣拣完善整个框架，当然你也可以自己设计，甚至每个模块做一个机器学习模型，变成《多AI交易智能体》\n**择时**\n其实常规的1、4月空仓也是一种择时，就是我不知道如何解释。\n而我设计的择时就是围绕市值因子进行的反复横跳，这个方向我做了很久了，感兴趣可以看我以前发的：\n蛇皮走位小市值策略V1.0\n干积分-大小盘反复横跳V2.0\n干积分-大小盘反复横跳V1.0\n这次我跳多一个方向《外盘》，外盘不知道怎么选股，干脆全买。\n逻辑很简单，大好买大，小好买小，都不好，直接跑。\n这个选择非常合理，回测证明也有用。\n让我感觉未来的策略研发可能需要一些外盘的辅助。\n**选股**\n懒得自己写的话，一个字《**抄**》\n**止盈**\n感激Y神。涨停止盈是T0级别的手段，没有之一\n**止损**\n我喜欢个股赔率止损，因为赔那么多还不卖确实肝疼。\n**余钱应用**\n产生止盈止损会有剩下的钱，钱就补在股池里跌较多的那几支股票。\n要对自己的股池有信心，毕竟是在聚宽抄来的选股策略，哈哈哈哈\n这几个模块，每一部分你都可以按照自己的想法进行修改。\n整个流程如下图所示：\n\n![Img](https://image.joinquant.com/0f53c2f0a103e61b7c1a1e21a7361d75)",
+      "type": 1,
+      "status": "0",
+      "addTime": "2024-06-20 13:41:24",
+      "modTime": "2025-01-09 12:43:39",
+      "lastActiveTime": "2026-06-20 12:45:23",
+      "lastPubTime": "2025-01-09 12:43:39",
+      "backtestId": "a98231398a650571d5ef235c94c16eac",
+      "backtestName": "择时选股止盈止损一条龙",
+      "replyCount": "142",
+      "viewCount": "30115",
+      "collectionCount": "640",
+      "likeCount": "327",
+      "disLikeCount": "1",
+      "backtestCloneCount": "2011",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "62",
+      "followersCount": "4970",
+      "followingCount": "36",
+      "author": {
+        "userId": "da9c2697c379a37a4e35d90802957b75",
+        "alias": "MarioC",
+        "introduction": "人工智能爱好者，gzh：Mario量化",
+        "headImgKey": "44901f16b2618622495468b8b1a70019"
+      },
+      "tags": [
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "a98231398a650571d5ef235c94c16eac",
+        "backtest_name": "择时选股止盈止损一条龙",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=a98231398a650571d5ef235c94c16eac&postId=c9a01dd114e512ea13328041e7b736f4&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2010-01-01",
+          "end_date": "2024-06-18",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "469c7ff021a2e672cfe7c1be1c6770e4",
+            "35100509"
+          ],
+          "numeric_backtest_id": "35100509",
+          "numeric_post_id": "48819",
+          "python_version": 3,
+          "clone_count": 1884
+        },
+        "stats": {
+          "trading_days": 3510,
+          "benchmark_volatility": 0.21779263628752,
+          "algorithm_volatility": 0.22256737518434,
+          "treasury_return": 0.57852054794521,
+          "algorithm_return": 244.16165380956,
+          "benchmark_return": -0.0084151825666663,
+          "annual_algo_return": 0.47975197236969,
+          "annual_bm_return": -0.00060172701776862,
+          "sharpe": 1.9758150627668,
+          "excess_return_sharpe": "2.061",
+          "sortino": 2.7158194759379,
+          "information": 2.2559276796058,
+          "beta": 0.54424325790022,
+          "alpha": 0.46184918855822,
+          "excess_return": 246.2422424177,
+          "avg_excess_return": "0.17%",
+          "max_drawdown": 0.21409021529935,
+          "max_drawdown_period": [
+            "2019-11-05",
+            "2020-03-17"
+          ],
+          "excess_return_max_drawdown": "21.97%",
+          "excess_return_max_drawdown_period": [
+            "2010-09-14",
+            "2010-10-25"
+          ],
+          "max_leverage": 0,
+          "period_label": "2024-06",
+          "__version": 101,
+          "win_ratio": 0.63228155339806,
+          "profit_loss_ratio": 2.5194748986622,
+          "win_count": 521,
+          "lose_count": 303,
+          "day_win_ratio": 0.54444444444444,
+          "avg_trade_return": 0.055204044406639,
+          "avg_position_days": 88.04845814978,
+          "turnover_rate": 0.044101785055342,
+          "report_done_seconds": 980.78528881073,
+          "report_done_cpu_seconds": 377.57
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 24416.165381,
+          "benchmark_return_percent": -0.841518,
+          "annual_algo_return_percent": 47.975197,
+          "annual_bm_return_percent": -0.060173,
+          "max_drawdown_percent": 21.409022,
+          "algorithm_volatility_percent": 22.256738,
+          "benchmark_volatility_percent": 21.779264,
+          "win_ratio_percent": 63.228155,
+          "day_win_ratio_percent": 54.444444,
+          "avg_trade_return_percent": 5.520404,
+          "turnover_rate_percent": 4.410179,
+          "sharpe": 1.9758150627668,
+          "sortino": 2.7158194759379,
+          "information": 2.2559276796058,
+          "alpha": 0.46184918855822,
+          "beta": 0.54424325790022,
+          "profit_loss_ratio": 2.5194748986622,
+          "avg_position_days": 88.04845814978,
+          "trading_days": 3510,
+          "win_count": 521,
+          "lose_count": 303,
+          "max_drawdown_period": [
+            "2019-11-05",
+            "2020-03-17"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2010-09-14",
+            "2010-10-25"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/48819",
+      "https://www.joinquant.com/community/post/detailV2?postId=48819",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=a98231398a650571d5ef235c94c16eac&postId=c9a01dd114e512ea13328041e7b736f4&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=a98231398a650571d5ef235c94c16eac"
+    ]
+  }
+}

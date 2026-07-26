@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/02 我好像破解了聚宽擂台排第一的策略？！.txt",
+    "category": "2020年度精选策略",
+    "file_name": "02 我好像破解了聚宽擂台排第一的策略？！.txt",
+    "strategy_name": "我好像破解了聚宽擂台排第一的策略？！",
+    "declared_title": "【量化课堂】基于协整的搬砖策略",
+    "declared_author": "JoinQuant量化课堂",
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 3716,
+    "sha256": "f07782275b866016d4af84b381cb225777fb03ca7de0a6caa8aa72b45e65b7d1",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/11593",
+      "https://www.joinquant.com/post/1810"
+    ],
+    "primary_url": "https://www.joinquant.com/post/11593",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:05:07+08:00",
+    "requested_url": "https://www.joinquant.com/post/11593",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/e7d3a2848202c23f375cb10e7cf25a5e",
+    "community_id": "e7d3a2848202c23f375cb10e7cf25a5e",
+    "post": {
+      "postId": "48287a310cc68c5600de2fceba0a308c",
+      "uniqueKey": "e7d3a2848202c23f375cb10e7cf25a5e",
+      "title": "我好像破解了聚宽擂台排第一的策略？！",
+      "content": "今天在研究协整，看了文章[【量化课堂】基于协整的搬砖策略](https://www.joinquant.net/post/1810?tag=algorithm)，大受启发。\r\n\r\n我首先试验的也是银行股，不过发现效果并不是很好:\r\n\r\n![招行和中行](http://upload-images.jianshu.io/upload_images/3985559-e75d04fbd0690820.jpg)\r\n\r\n然后我突然想起，策略擂台中排第一的不是名为“[招行伊利配对轮动](https://www.joinquant.net/post/3826?f=sharelist&m=list)”，我何不将这两个股票拿来一试。\r\n\r\n回测一看，发现效果确实不错:\r\n\r\n![招行和伊利](http://upload-images.jianshu.io/upload_images/3985559-77b64e754118ab6d.jpg)\r\n\r\n\r\n再一对照资金曲线走势的情况:\r\n\r\n![](http://upload-images.jianshu.io/upload_images/3985559-bd31c0384c3aefd4.jpg)\r\n\r\n简直就和“[招行伊利配对轮动](https://www.joinquant.net/post/3826?f=sharelist&m=list)”一模一样，甚至效果比它还好。也许是因为回测。\r\n\r\n不过问题来了，为啥招行和伊利配对的这么好？\r\n\r\n在文章[【量化课堂】基于协整的搬砖策略](https://www.joinquant.net/post/1810?tag=algorithm)有说：\r\n\r\n&gt; p 值越低，协整关系就越强\r\n\r\n难道招行和伊利是一对反例？或者协整关系强并不意味着效果好？\r\n\r\n毕竟招行和中行协整性检验的 p 值是要小于招行和伊利的，你看下图，显然招行（600036.XSHG）和中行（601988.XSHG）的方块更红：\r\n\r\n![](http://upload-images.jianshu.io/upload_images/3985559-7fde6e51d2352ad9.jpg)\r\n\r\n真是令人费解。\r\n\r\n**协整的重点是选股，但是怎么从A找到B呢？例如看好招行，怎么才能找到伊利呢？**\r\n\r\n显然Pvalue给不了这个答案，有兴趣的朋友，一起来讨论一下呗。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-03-21 22:19:46",
+      "modTime": "2018-03-21 22:19:46",
+      "lastActiveTime": "2026-07-18 17:19:30",
+      "lastPubTime": "2018-03-21 22:19:46",
+      "backtestId": "d44150f7164ff4aefff0d0795258a457",
+      "backtestName": "协整搬砖策略-招行伊利",
+      "replyCount": "102",
+      "viewCount": "24861",
+      "collectionCount": "181",
+      "likeCount": "72",
+      "disLikeCount": "0",
+      "backtestCloneCount": "851",
+      "notebookCloneCount": "295",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "36",
+      "followersCount": "1488",
+      "followingCount": "0",
+      "author": {
+        "userId": "582ffc2f7beefe06e73786c732f6858c",
+        "alias": "止一之路",
+        "headImgKey": "e9574a515fec4b22b8eb7064bbab3b8b"
+      },
+      "tags": [
+        {
+          "id": "11",
+          "name": "轮动"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "d44150f7164ff4aefff0d0795258a457",
+        "backtest_name": "协整搬砖策略-招行伊利",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=d44150f7164ff4aefff0d0795258a457&postId=e7d3a2848202c23f375cb10e7cf25a5e&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2016-08-01",
+          "end_date": "2018-03-20",
+          "base_capital": 2000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "4d003ac87491790bb17c0bb27b808217",
+            "7941198"
+          ],
+          "numeric_backtest_id": "7941198",
+          "numeric_post_id": "11593",
+          "python_version": 2,
+          "clone_count": 833
+        },
+        "stats": {
+          "information": 1.513761224269,
+          "benchmark_return": 0.86865555986053,
+          "algorithm_volatility": 0.23067130254689,
+          "annual_bm_return": 0.48101200449843,
+          "__version": 101,
+          "max_drawdown": 0.091894786081908,
+          "sortino": 5.6317769769564,
+          "period_label": "2018-03",
+          "trading_days": 398,
+          "algorithm_return": 1.50278,
+          "benchmark_volatility": 0.23805959398238,
+          "beta": 0.62671770898411,
+          "excess_return": 1.4374649315069,
+          "annual_algo_return": 0.77936686878032,
+          "sharpe": 3.2052832780533,
+          "alpha": 0.46297683568657,
+          "max_drawdown_period": [
+            "2017-11-22",
+            "2017-12-15"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.065315068493151,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.52010050251256,
+          "avg_position_days": 250.5,
+          "win_ratio": 0.95454545454545,
+          "win_count": 21,
+          "avg_trade_return": 0.094458267746384,
+          "profit_loss_ratio": 63.937017347359,
+          "lose_count": 1,
+          "report_done_seconds": 4.6554980278015
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 150.278,
+          "benchmark_return_percent": 86.865556,
+          "annual_algo_return_percent": 77.936687,
+          "annual_bm_return_percent": 48.1012,
+          "max_drawdown_percent": 9.189479,
+          "algorithm_volatility_percent": 23.06713,
+          "benchmark_volatility_percent": 23.805959,
+          "win_ratio_percent": 95.454545,
+          "day_win_ratio_percent": 52.01005,
+          "avg_trade_return_percent": 9.445827,
+          "sharpe": 3.2052832780533,
+          "sortino": 5.6317769769564,
+          "information": 1.513761224269,
+          "alpha": 0.46297683568657,
+          "beta": 0.62671770898411,
+          "profit_loss_ratio": 63.937017347359,
+          "avg_position_days": 250.5,
+          "trading_days": 398,
+          "win_count": 21,
+          "lose_count": 1,
+          "max_drawdown_period": [
+            "2017-11-22",
+            "2017-12-15"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/11593",
+      "https://www.joinquant.com/community/post/detailV2?postId=11593",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=d44150f7164ff4aefff0d0795258a457&postId=e7d3a2848202c23f375cb10e7cf25a5e&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=d44150f7164ff4aefff0d0795258a457"
+    ]
+  }
+}

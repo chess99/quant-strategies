@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/99.最新龙回头5.0速度优化版+风险控制版本.txt",
+    "category": "2025年度精选策略",
+    "file_name": "99.最新龙回头5.0速度优化版+风险控制版本.txt",
+    "strategy_name": "最新龙回头5.0速度优化版+风险控制版本",
+    "declared_title": "最新龙回头5.0速度优化版+风险控制版本",
+    "declared_author": "GoodThinker",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 39562,
+    "sha256": "0fb8fe5928cc3602cbbd8757c35edec0bb1d4c1edb13ba7a0956723e06e0ef30",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/30071",
+      "https://www.joinquant.com/post/36014"
+    ],
+    "primary_url": "https://www.joinquant.com/post/30071",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "post_without_backtest",
+    "collected_at": "2026-07-27T02:11:48+08:00",
+    "requested_url": "https://www.joinquant.com/post/30071",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/a7a637d4d48b02fb3197990bd80dbe2f",
+    "community_id": "a7a637d4d48b02fb3197990bd80dbe2f",
+    "post": {
+      "postId": "c4323c0be34b416b64131be1643354e8",
+      "uniqueKey": "a7a637d4d48b02fb3197990bd80dbe2f",
+      "title": "最新龙回头5.0速度优化版+风险控制版本",
+      "content": "此版本不再维护，请看最新版\n\n\n同时增加了风险控制，在大盘不好的时候控制买入。\n效果杠杠的。\n\n安全稳妥是第一位的。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-11-08 17:02:02",
+      "modTime": "2021-08-02 09:49:59",
+      "lastActiveTime": "2024-03-30 16:36:27",
+      "lastPubTime": "2021-08-02 09:49:59",
+      "replyCount": "171",
+      "viewCount": "8848",
+      "collectionCount": "79",
+      "likeCount": "59",
+      "disLikeCount": "0",
+      "backtestCloneCount": "402",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "29",
+      "followersCount": "465",
+      "followingCount": "380",
+      "author": {
+        "userId": "bfc5ebe880a380d5ef74a9af3fe17c52",
+        "alias": "GoodThinker",
+        "vipType": "VIP",
+        "headImgKey": "56decbf3a6f39ddf1624c7d1380d4935"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 1,
+    "request_urls": [
+      "https://www.joinquant.com/post/30071",
+      "https://www.joinquant.com/community/post/detailV2?postId=30071",
+      "https://www.joinquant.com/community/post/replyList?page=1&postId=a7a637d4d48b02fb3197990bd80dbe2f",
+      "https://www.joinquant.com/community/post/replyList?page=2&postId=a7a637d4d48b02fb3197990bd80dbe2f",
+      "https://www.joinquant.com/community/post/replyList?page=3&postId=a7a637d4d48b02fb3197990bd80dbe2f",
+      "https://www.joinquant.com/community/post/replyList?page=4&postId=a7a637d4d48b02fb3197990bd80dbe2f",
+      "https://www.joinquant.com/community/post/replyList?page=5&postId=a7a637d4d48b02fb3197990bd80dbe2f",
+      "https://www.joinquant.com/community/post/replyList?page=6&postId=a7a637d4d48b02fb3197990bd80dbe2f"
+    ]
+  }
+}

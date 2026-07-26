@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/07 穿越牛熊基业长青的价值精选策略.txt",
+    "category": "2020年度精选策略",
+    "file_name": "07 穿越牛熊基业长青的价值精选策略.txt",
+    "strategy_name": "穿越牛熊基业长青的价值精选策略",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 8122,
+    "sha256": "c478a8978b9adf6219e2e19eb32f95322b00428029907be914f9cd998bfdad2d",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/13382"
+    ],
+    "primary_url": "https://www.joinquant.com/post/13382",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "post_without_backtest",
+    "collected_at": "2026-07-27T02:06:20+08:00",
+    "requested_url": "https://www.joinquant.com/post/13382",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/e9ee4918633d1fa103590527cb568079",
+    "community_id": "e9ee4918633d1fa103590527cb568079",
+    "post": {
+      "postId": "26fb0b05de30eea633fbf9306573234c",
+      "uniqueKey": "e9ee4918633d1fa103590527cb568079",
+      "title": "穿越牛熊基业长青的价值精选策略",
+      "content": "---\n### 前言\n\n- 股票市场涨涨跌跌，每天巨量信息充斥其中，难辨真假，无论宏观经济周期交替、行业轮动此消彼长，技术分析趋势震荡，唯有价值投资能够穿越牛熊，横刀立马。究其本源，股份制上市公司产生了股票，股票代表了公司的所有权，脱离了公司，股票自然一文不值，无论过去当下市场迷失多远，市场终回归市场本真，本篇的策略即本着对市场的敬畏之心，向投资大师学习，以公司价值为出发点进行的策略搭建。只要在适当价格买入稳定且持续成长获利的公司股票,投资报酬率必然指日可期,下面的策略，就是源自这句话的作者，霍华罗.斯曼的审慎致富投资法。\n\n### 策略思路\n\n- 霍华．罗斯曼(Howard Rothman)是华尔街著名的投资分析公司-远见投资顾问公司(Vision Investment Advisor, VIA)的首席投资分析师，其领导的蓝酬股成长操作账户(Blue Chip Growth Account)，自公元1997年成立以来，至2001年止，累积投资报酬率达49.27%，是标准普尔500指数(S&P500)的2倍以上，且历年操作绩效均优于标准普尔500指数。\n- 霍华．罗斯曼的投资方式，强调『在正确时机买入并紧握持股』，与『选择优质股票并长期持有』（…”buy right and hold tight” and ”buy strong and hold long”..）。他认为只要在适当价格买入稳定且持续成长获利的公司股票，不需经常更换持股，投资报酬率必然指日可期，霍华．罗斯曼的投资哲学虽然简单，却充分显现首席投资分析师的谨慎风范。\n- 霍华．罗斯曼强调其投资风格在于为投资大众建立均衡、且以成长为导向的投资组合。选股方式偏好大型股，管理良好且为领导产业趋势，以及产生实际报酬率的公司；不仅重视公司产生现金的能力，也强调有稳定成长能力的重要。具体表现在挑选上市公司标的时，需要关注如下方面；\n    1. 总市值大于等于50亿美元。\n    2. 良好的财务结构。\n    3. 较高的股东权益报酬。\n    4. 拥有良好且持续的自由现金流量。\n    1. 稳定持续的营收成长率。\n    1. 优于比较指数的盈余报酬率。\n    \n- 我们借助聚宽平台获取A股财务数据，如通过如下Python代码可以在研究模块下获取全A股在2018年8月1日公开的财务报表数据，这里利用Python中的统计方法对全市场流通市值进行简单的描述统计\n```python\ndf = get_fundamentals(query(valuation,balance,cash_flow,income,indicator),date='2018-8-1')\ndf['circulating_market_cap'].describe()\n```\ncount     3508.000000\nmean       113.031473\nstd        514.431275\nmin          3.095800\n25%         19.189825\n50%         34.956050\n75%         74.895275\nmax      14963.477500\nName: circulating_market_cap, dtype: float64\n\n- 全市场股票的平均流通市场为113亿，最小市值仅3亿，最大市值可达到1.4万亿元，且近80%的股票市值小于平均市值，可以了解到全市场绝大部分钱都掌握在20%的公司手里。类似方法，可以通过市场数据发掘很多的信息，大家不妨在聚宽平台试试。\n- 该策略偏好大型股，我们选取市值较大的股票进行投资选择；同时，对企业资产的变现能力，短期偿债能力也有着要求，策略中对企业的流动比率进行限制，毕竟财务状况良好的企业才是成长的根基。\n- 买股票就是买公司成长的预期，自然对股票的成长性也有着相应的要求，只有持续不断的业绩增长，才能给股票提供源源不断的上涨动力！\n\n### 回测结果\n- 将上面的思路可以在聚宽量化交易平台（www.joinquant.com）获取各股票财务数据，进行策略回测，下图是该策略近5年回测收益表现，红线是基准收益，蓝线是策略收益，可以看到2015年股灾之前基本上可以和牛市持平，股灾之后保持了获利，并获得了不菲的超额收益。\n![5年收益.png][1]\n- 利用聚宽平台的归因分析模块，进一步拆解策略详情\n    - 收益按时间分布情况展示\n![收益.png][2]\n    - 因子分析模块进行风格分析\n![风格归因.png][3]\n\n- 可以看到，这个以大市值、价值蓝筹为出发点的策略，战胜了市场，取得了良好的表现。\n##### 参考内容：\n1. http://www.tej.com.tw/twsite/tejweb/tw/product/explain/T0308.htm\n\n---\n\n\n  [1]: https://image.joinquant.com/7b85b9b43c0336cb2803af9815cc80bb\n  [2]: https://image.joinquant.com/081a056b537e5661d25fa4c7a9da43ba\n  [3]: https://image.joinquant.com/cb2f0b13dcba89f67e98307597773ead",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-06-29 10:36:11",
+      "modTime": "2018-06-29 10:36:11",
+      "lastActiveTime": "2026-07-26 17:44:01",
+      "lastPubTime": "2018-06-29 10:36:11",
+      "backtestId": "20840b891fc609f54c16c7d5f47c2a7b",
+      "backtestName": "价值投资精选策略",
+      "replyCount": "157",
+      "viewCount": "36911",
+      "collectionCount": "455",
+      "likeCount": "243",
+      "disLikeCount": "3",
+      "backtestCloneCount": "2486",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "38",
+      "followersCount": "2708",
+      "followingCount": "10",
+      "author": {
+        "userId": "c95dbb40827827513f571992a15234b6",
+        "alias": "拉姆达投资",
+        "headImgKey": "801b15551d9a4bf2cb3a2b34c029caa7"
+      },
+      "tags": [
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [],
+    "backtest_errors": [
+      {
+        "backtest_id": "20840b891fc609f54c16c7d5f47c2a7b",
+        "message": "接口错误 code=00000 msg=",
+        "url": "https://www.joinquant.com/algorithm/backtest/stats?backtestId=20840b891fc609f54c16c7d5f47c2a7b",
+        "http_status": null
+      }
+    ],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/13382",
+      "https://www.joinquant.com/community/post/detailV2?postId=13382"
+    ]
+  }
+}

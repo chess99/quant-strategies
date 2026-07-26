@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/57.别人恐惧我贪婪3——年化20%的股债组合.txt",
+    "category": "2022年度精选策略",
+    "file_name": "57.别人恐惧我贪婪3——年化20%的股债组合.txt",
+    "strategy_name": "别人恐惧我贪婪3——年化20%的股债组合",
+    "declared_title": "别人恐惧我贪婪3——年化20%的股债组合",
+    "declared_author": "潜水的白鱼",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 4139,
+    "sha256": "50b529f7a2898c26c299d327e61ce1b48b3f50fa4ba63dc9eec0e8a82cb7a3ce",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/37633"
+    ],
+    "primary_url": "https://www.joinquant.com/post/37633",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:13+08:00",
+    "requested_url": "https://www.joinquant.com/post/37633",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/aaa121e4613866197ee59e6b6d2a81c7",
+    "community_id": "aaa121e4613866197ee59e6b6d2a81c7",
+    "post": {
+      "postId": "177cbc010ae1726e86d9329950f9a051",
+      "uniqueKey": "aaa121e4613866197ee59e6b6d2a81c7",
+      "title": "别人恐惧我贪婪3——年化20%的股债组合",
+      "content": "大家好，我是白鱼。\n之前的第一篇《别人恐惧我贪婪——重视大盘择时》评论下面\n很多问我\n1、能不能用宽基指数来代替股票，毕竟50只股票需要的资金量比较大。\n2、第二个问题就是空仓时间太长了，很难忍受。\n第一篇的链接\n[Link(https://www.joinquant.com/view/community/detail/c790dbbfad7f8ba52a1560445a8e8575)\n\n其实这两个问题都很好解决，最大的问题时在于用宽基指数来替代股票往往会导致收益率降低，没有带来选股能力所带来的收益。\n\n---------\n**策略原理**\n.\n1、当大盘两日连续的跌幅低于-1.5%，买入中证1000etf\n（有评论的小伙伴指出1.57%是上证指数日涨跌幅标准差，这个有待考究)\n.\n2、持有中证1000etf的20个交易日后卖出\n.\n3、其余时间持有国债etf\n（选择国债的原因很简单，风险低，受股票市场的波动影响较少）\n\n---------\n这个策略非常简单，但从收益、回撤、稳定性来看，已经吊打很多基金经理了。\n.\n对于我个人而言，小资金情况下，年化收益低于20%的策略是不合格的。\n.\n其实一个简简单单的策略就可以带来不错的收益，不过每个宽客都想找到市场的交易圣杯，期望年年翻倍，当然我也不例外。\n.\n可是你去翻一下聚宽首页，聚宽1号的收益已经从290%掉到190%，难道他们量化技术也不行吗，显然不是，专业量化机构的水平基本吊打我10条街以上，只不过高收益必然面临着高风险。\n追求收益的同时，必须考虑风险，有多大的头就带多大的帽子，希望在今年熊市里面大家也能赚钱，也欢迎各位一起讨论。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2022-05-10 20:27:22",
+      "modTime": "2022-05-11 00:12:31",
+      "lastActiveTime": "2026-06-22 20:11:31",
+      "lastPubTime": "2022-05-11 00:12:31",
+      "backtestId": "c02428846970e3d69404ed96a855f02b",
+      "backtestName": "大盘择时4之国债加中证1000",
+      "replyCount": "37",
+      "viewCount": "3880",
+      "collectionCount": "69",
+      "likeCount": "31",
+      "disLikeCount": "0",
+      "backtestCloneCount": "276",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "59",
+      "followersCount": "1037",
+      "followingCount": "52",
+      "author": {
+        "userId": "057a8e67b6590e44eb20c8e5b90ded16",
+        "alias": "潜水的白鱼",
+        "introduction": "联系邮箱：1027389254@qq.com,坐标广州，曾在交易团队担任可转债职业交易员。",
+        "headImgKey": "c340ff611053c038c50ed8a98c9bfe39"
+      },
+      "tags": [
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "2097",
+          "name": "大盘"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "c02428846970e3d69404ed96a855f02b",
+        "backtest_name": "大盘择时4之国债加中证1000",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=c02428846970e3d69404ed96a855f02b&postId=aaa121e4613866197ee59e6b6d2a81c7&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2019-01-01",
+          "end_date": "2022-05-10",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "ae376bd09d4df6b66c7bbdc1b0e6c60c",
+            "24559542"
+          ],
+          "numeric_backtest_id": "24559542",
+          "numeric_post_id": "37633",
+          "python_version": 3,
+          "clone_count": 340
+        },
+        "stats": {
+          "trading_days": 811,
+          "benchmark_volatility": 0.20902407264686,
+          "algorithm_volatility": 0.113997957105,
+          "treasury_return": 0.13413698630137,
+          "algorithm_return": 0.94961617200001,
+          "benchmark_return": 0.30200069752379,
+          "annual_algo_return": 0.22851403642174,
+          "annual_bm_return": 0.084751388801874,
+          "sharpe": 1.6536615322685,
+          "excess_return_sharpe": "0.451",
+          "sortino": 2.5019212637089,
+          "information": 0.70530377653801,
+          "beta": 0.17325732860335,
+          "alpha": 0.18076053034664,
+          "excess_return": 0.49740025155737,
+          "avg_excess_return": "0.06%",
+          "max_drawdown": 0.073899592763755,
+          "max_drawdown_period": [
+            "2022-03-11",
+            "2022-03-15"
+          ],
+          "excess_return_max_drawdown": "35.29%",
+          "excess_return_max_drawdown_period": [
+            "2020-03-23",
+            "2021-02-10"
+          ],
+          "max_leverage": 0,
+          "period_label": "2022-05",
+          "__version": 101,
+          "win_ratio": 0.78571428571429,
+          "profit_loss_ratio": 26.002818035427,
+          "win_count": 11,
+          "lose_count": 3,
+          "day_win_ratio": 0.49938347718866,
+          "avg_trade_return": 0.042366948260734,
+          "avg_position_days": 378.5,
+          "turnover_rate": 0.017768072923156,
+          "report_done_seconds": 95.747730016708,
+          "report_done_cpu_seconds": 74.73
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 94.961617,
+          "benchmark_return_percent": 30.20007,
+          "annual_algo_return_percent": 22.851404,
+          "annual_bm_return_percent": 8.475139,
+          "max_drawdown_percent": 7.389959,
+          "algorithm_volatility_percent": 11.399796,
+          "benchmark_volatility_percent": 20.902407,
+          "win_ratio_percent": 78.571429,
+          "day_win_ratio_percent": 49.938348,
+          "avg_trade_return_percent": 4.236695,
+          "turnover_rate_percent": 1.776807,
+          "sharpe": 1.6536615322685,
+          "sortino": 2.5019212637089,
+          "information": 0.70530377653801,
+          "alpha": 0.18076053034664,
+          "beta": 0.17325732860335,
+          "profit_loss_ratio": 26.002818035427,
+          "avg_position_days": 378.5,
+          "trading_days": 811,
+          "win_count": 11,
+          "lose_count": 3,
+          "max_drawdown_period": [
+            "2022-03-11",
+            "2022-03-15"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-03-23",
+            "2021-02-10"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/37633",
+      "https://www.joinquant.com/community/post/detailV2?postId=37633",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=c02428846970e3d69404ed96a855f02b&postId=aaa121e4613866197ee59e6b6d2a81c7&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=c02428846970e3d69404ed96a855f02b"
+    ]
+  }
+}

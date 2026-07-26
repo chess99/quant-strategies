@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/19.人人可躺平16年3400%.txt",
+    "category": "2023年度精选策略",
+    "file_name": "19.人人可躺平16年3400%.txt",
+    "strategy_name": "人人可躺平16年3400%",
+    "declared_title": "人人可躺平16年3400%（评论必回复）",
+    "declared_author": "逆流的鱼",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 2139,
+    "sha256": "a52fc48a6997fe48950798f546c389150cd33f148d2040aa42df16f1d6598f69",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/33859",
+      "https://www.joinquant.com/post/18"
+    ],
+    "primary_url": "https://www.joinquant.com/post/33859",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:53+08:00",
+    "requested_url": "https://www.joinquant.com/post/33859",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/32b19eb43050f0aff0fb6020c5937e72",
+    "community_id": "32b19eb43050f0aff0fb6020c5937e72",
+    "post": {
+      "postId": "db45f020463a81b192ab025c1c301c91",
+      "uniqueKey": "32b19eb43050f0aff0fb6020c5937e72",
+      "title": "人人可躺平16年3400%（评论必回复）",
+      "content": "对于小韭菜而言更多的是需要选择一个优秀基金经理人，持有一个顶级基金经理人带来的年华收益基本上在20%以上，完胜天天追涨杀跌听消息。为了证明策略有效跑赢拿着不动，基准收益对比为景顺鼎益。实际操作次数平均每年不超过2次。\n\n在所有的指标计算中，BOLL指标的计算方法是最复杂的之一，其中引进了统计学中的标准差概念，涉及到中轨线（MB）、上轨线（UP）和下轨线（DN）的计算。另外，和其他指标的计算一样，由于选用的计算周期的不同，BOLL指标也包括日BOLL指标、周BOLL指标、月BOLL指标年BOLL指标以及分钟BOLL指标等各种类型。经常被用于股市研判的是日BOLL指标和周BOLL指标。虽然它们的计算时的取值有所不同，但基本的计算方法一样。 以日BOLL指标计算为例，其计算方法如下：\n日BOLL指标的计算公式\n中轨线=N日的移动平均线\n上轨线=中轨线+两倍的标准差\n下轨线=中轨线－两倍的标准差\n日BOLL指标的计算过程\n     \n   **  由于顶级基金经理管理的基金比较强势，所以将布林线的上下轨提高一个标准差。\n上轨线=20日的移动平均线+三倍的标准差\n下轨线=20日的移动平均线－一倍的标准差\n合理偏低估区域买入即20日的移动平均线±0.5倍的标准差\n当股价超过上轨，股价回归中轨的概率比较大，及时止盈。而股价进入下跪区域可能进入了暴跌的模式，尽量止损回避。策略是在合理相对低估的位置买入持有。 **",
+      "type": 1,
+      "status": "1",
+      "addTime": "2021-07-15 11:08:25",
+      "modTime": "2021-08-27 17:15:08",
+      "lastActiveTime": "2023-09-15 09:27:39",
+      "lastPubTime": "2021-08-27 17:15:08",
+      "backtestId": "2c0c46ec5ba67c404be046fab88cca21",
+      "backtestName": "bolling",
+      "replyCount": "501",
+      "viewCount": "7134",
+      "collectionCount": "69",
+      "likeCount": "57",
+      "disLikeCount": "0",
+      "backtestCloneCount": "359",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "1",
+      "followersCount": "29",
+      "followingCount": "23",
+      "author": {
+        "userId": "d755d2e4b2bd8d5b2ad165426a656f31",
+        "alias": "逆流的鱼"
+      },
+      "tags": [
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "12",
+          "name": "基金"
+        },
+        {
+          "id": "14",
+          "name": "函数"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "2c0c46ec5ba67c404be046fab88cca21",
+        "backtest_name": "bolling",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=2c0c46ec5ba67c404be046fab88cca21&postId=32b19eb43050f0aff0fb6020c5937e72&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2005-07-01",
+          "end_date": "2021-06-27",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "ec334544cbb94d4f981d953ee968e3e9",
+            "21172193"
+          ],
+          "numeric_backtest_id": "21172193",
+          "numeric_post_id": "33859",
+          "python_version": 3,
+          "clone_count": 358
+        },
+        "stats": {
+          "trading_days": 3888,
+          "benchmark_volatility": 0.29011425134292,
+          "algorithm_volatility": 0.21571151386296,
+          "treasury_return": 0.63978082191781,
+          "algorithm_return": 34.293978700183,
+          "benchmark_return": 21.895187165775,
+          "annual_algo_return": 0.25752835597087,
+          "annual_bm_return": 0.22301592344742,
+          "sharpe": 1.0084225550847,
+          "excess_return_sharpe": "-0.064",
+          "sortino": 1.2843213990947,
+          "information": 0.18981573733969,
+          "beta": 0.58003612649668,
+          "alpha": 0.11137250864722,
+          "excess_return": 0.54154576001643,
+          "avg_excess_return": "0.02%",
+          "max_drawdown": 0.38659696360503,
+          "max_drawdown_period": [
+            "2015-05-25",
+            "2015-08-25"
+          ],
+          "excess_return_max_drawdown": "54.91%",
+          "excess_return_max_drawdown_period": [
+            "2015-07-08",
+            "2020-07-23"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-06",
+          "__version": 101,
+          "win_ratio": 0.45,
+          "profit_loss_ratio": 3.063925446704,
+          "win_count": 162,
+          "lose_count": 198,
+          "day_win_ratio": 0.47067901234568,
+          "avg_trade_return": 0.02734462226103,
+          "avg_position_days": 3098,
+          "turnover_rate": 0.020971108968077,
+          "report_done_seconds": 82.647650003433,
+          "report_done_cpu_seconds": 56.75
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 3429.39787,
+          "benchmark_return_percent": 2189.518717,
+          "annual_algo_return_percent": 25.752836,
+          "annual_bm_return_percent": 22.301592,
+          "max_drawdown_percent": 38.659696,
+          "algorithm_volatility_percent": 21.571151,
+          "benchmark_volatility_percent": 29.011425,
+          "win_ratio_percent": 45.0,
+          "day_win_ratio_percent": 47.067901,
+          "avg_trade_return_percent": 2.734462,
+          "turnover_rate_percent": 2.097111,
+          "sharpe": 1.0084225550847,
+          "sortino": 1.2843213990947,
+          "information": 0.18981573733969,
+          "alpha": 0.11137250864722,
+          "beta": 0.58003612649668,
+          "profit_loss_ratio": 3.063925446704,
+          "avg_position_days": 3098,
+          "trading_days": 3888,
+          "win_count": 162,
+          "lose_count": 198,
+          "max_drawdown_period": [
+            "2015-05-25",
+            "2015-08-25"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2015-07-08",
+            "2020-07-23"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/33859",
+      "https://www.joinquant.com/community/post/detailV2?postId=33859",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=2c0c46ec5ba67c404be046fab88cca21&postId=32b19eb43050f0aff0fb6020c5937e72&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=2c0c46ec5ba67c404be046fab88cca21"
+    ]
+  }
+}

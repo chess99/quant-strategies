@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/72.随机森林 - 多因子模型.txt",
+    "category": "2022年度精选策略",
+    "file_name": "72.随机森林 - 多因子模型.txt",
+    "strategy_name": "随机森林 - 多因子模型",
+    "declared_title": "随机森林 - 多因子模型",
+    "declared_author": "QUX_1369",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 14579,
+    "sha256": "e60d01389babd65e41e3b5d3521507c7a1c3d5b8481a076014014f6aefc36656",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/37161",
+      "https://www.joinquant.com/post/33840"
+    ],
+    "primary_url": "https://www.joinquant.com/post/37161",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:27+08:00",
+    "requested_url": "https://www.joinquant.com/post/37161",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/49011f31c97df599ac34e0cb733d5750",
+    "community_id": "49011f31c97df599ac34e0cb733d5750",
+    "post": {
+      "postId": "3941401e15c4b4543515f32b3c94717b",
+      "uniqueKey": "49011f31c97df599ac34e0cb733d5750",
+      "title": "随机森林 - 多因子模型",
+      "content": "基于之前一个大神的svc模型更改的，尝试了下随机森林模型以及对训练数据的周期进行了部分调整，回测近两年发现不错，股票池改成了沪深300。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2022-04-03 20:57:44",
+      "modTime": "2022-04-04 12:25:14",
+      "lastActiveTime": "2023-11-11 17:23:41",
+      "lastPubTime": "2022-04-04 12:25:14",
+      "backtestId": "a1bf93d5afe81bbfbdb134ff94d6c3e7",
+      "backtestName": "机器学习-01",
+      "replyCount": "53",
+      "viewCount": "2517",
+      "collectionCount": "38",
+      "likeCount": "18",
+      "disLikeCount": "0",
+      "backtestCloneCount": "193",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "2",
+      "followersCount": "14",
+      "followingCount": "16",
+      "author": {
+        "userId": "b020f6e0186dc07260bca4ef2fe90a95",
+        "alias": "QUX_1369",
+        "introduction": "闲钱理财",
+        "headImgKey": "75549945c1f0cbfe1ee1ef39b63eb677"
+      },
+      "tags": [
+        {
+          "id": "13",
+          "name": "机器学习"
+        },
+        {
+          "id": "4",
+          "name": "多因子"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "a1bf93d5afe81bbfbdb134ff94d6c3e7",
+        "backtest_name": "机器学习-01",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=a1bf93d5afe81bbfbdb134ff94d6c3e7&postId=49011f31c97df599ac34e0cb733d5750&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2020-01-01",
+          "end_date": "2022-04-02",
+          "base_capital": 10000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "ca06f1135f9f55936ee9022d22d0c903",
+            "24109515"
+          ],
+          "numeric_backtest_id": "24109515",
+          "numeric_post_id": "37161",
+          "python_version": 3,
+          "clone_count": 174
+        },
+        "stats": {
+          "trading_days": 545,
+          "benchmark_volatility": 0.20997053288479,
+          "algorithm_volatility": 0.27107271587655,
+          "treasury_return": 0.08986301369863,
+          "algorithm_return": 0.901500906567,
+          "benchmark_return": 0.043836566111242,
+          "annual_algo_return": 0.3428451480359,
+          "annual_bm_return": 0.019875176402705,
+          "sharpe": 1.1172099967959,
+          "excess_return_sharpe": "1.388",
+          "sortino": 1.7652232645888,
+          "information": 1.6174025798458,
+          "beta": 0.88113394257597,
+          "alpha": 0.32057781319584,
+          "excess_return": 0.82164619280482,
+          "avg_excess_return": "0.12%",
+          "max_drawdown": 0.15101448007909,
+          "max_drawdown_period": [
+            "2021-04-28",
+            "2021-11-08"
+          ],
+          "excess_return_max_drawdown": "12.93%",
+          "excess_return_max_drawdown_period": [
+            "2021-09-01",
+            "2021-11-08"
+          ],
+          "max_leverage": 0,
+          "period_label": "2022-04",
+          "__version": 101,
+          "win_ratio": 0.61643835616438,
+          "profit_loss_ratio": 1.6513396966853,
+          "win_count": 90,
+          "lose_count": 56,
+          "day_win_ratio": 0.53211009174312,
+          "avg_trade_return": 0.044194769977957,
+          "avg_position_days": 30.060240963855,
+          "turnover_rate": 0.050202106316155,
+          "report_done_seconds": 718.31562757492,
+          "report_done_cpu_seconds": 615.51
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 90.150091,
+          "benchmark_return_percent": 4.383657,
+          "annual_algo_return_percent": 34.284515,
+          "annual_bm_return_percent": 1.987518,
+          "max_drawdown_percent": 15.101448,
+          "algorithm_volatility_percent": 27.107272,
+          "benchmark_volatility_percent": 20.997053,
+          "win_ratio_percent": 61.643836,
+          "day_win_ratio_percent": 53.211009,
+          "avg_trade_return_percent": 4.419477,
+          "turnover_rate_percent": 5.020211,
+          "sharpe": 1.1172099967959,
+          "sortino": 1.7652232645888,
+          "information": 1.6174025798458,
+          "alpha": 0.32057781319584,
+          "beta": 0.88113394257597,
+          "profit_loss_ratio": 1.6513396966853,
+          "avg_position_days": 30.060240963855,
+          "trading_days": 545,
+          "win_count": 90,
+          "lose_count": 56,
+          "max_drawdown_period": [
+            "2021-04-28",
+            "2021-11-08"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2021-09-01",
+            "2021-11-08"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/37161",
+      "https://www.joinquant.com/community/post/detailV2?postId=37161",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=a1bf93d5afe81bbfbdb134ff94d6c3e7&postId=49011f31c97df599ac34e0cb733d5750&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=a1bf93d5afe81bbfbdb134ff94d6c3e7"
+    ]
+  }
+}

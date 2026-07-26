@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/25冷饭热吃之三，14年至今年华99.99.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "25冷饭热吃之三，14年至今年华99.99.txt",
+    "strategy_name": "冷饭热吃之三，14年至今年华99.99",
+    "declared_title": "冷饭热吃之三，14年至今年华99.99%",
+    "declared_author": "韶华不负",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 17169,
+    "sha256": "9cdc8219021369d382b6003406ac38cf50d2e131d27e45284eceeb7cd806e702",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/47527",
+      "https://www.joinquant.com/post/47454"
+    ],
+    "primary_url": "https://www.joinquant.com/post/47527",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:12:00+08:00",
+    "requested_url": "https://www.joinquant.com/post/47527",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/477ca962273441d2f7c1ee2caf64fa97",
+    "community_id": "477ca962273441d2f7c1ee2caf64fa97",
+    "post": {
+      "postId": "d43ea9e7470c57fcfd159dda610ff5c9",
+      "uniqueKey": "477ca962273441d2f7c1ee2caf64fa97",
+      "title": "借花献佛之二，14年至今年华99.99%",
+      "content": "最近看到有小市值高手发帖：https://www.joinquant.com/post/47454。\n学习了高手的招数（大盘和个股的止损很是贴近小市值的特点），结合韶华自身的总结，更新了一版，喜欢追求数字的可以上。\n在前版基础上的修改如下：\n1，对操作时间做了调整，更从容淡定\n2，去除了一些重复的过滤条件，速度些许提升\n3，修正了stop loss中的一处Bug，但也许是高手有意为之\n4，添加了韶华对小市值风控的一些理解。\n5，分享一篇韶华之前的研报帖子，增加大家对于小市值策略的理解，https://www.joinquant.com/view/community/detail/967d3272758d73dec164651b5301f3ae\n\n最后，再次向@李精荠 感谢和致敬",
+      "type": 1,
+      "status": "0",
+      "addTime": "2024-04-09 23:00:52",
+      "modTime": "2025-12-27 18:54:33",
+      "lastActiveTime": "2026-04-23 15:53:48",
+      "lastPubTime": "2025-12-27 18:54:33",
+      "backtestId": "8c5563107c575e3d793f57e37cb6b57b",
+      "backtestName": "小市值调整持股数量和止损-Clone",
+      "replyCount": "160",
+      "viewCount": "18952",
+      "collectionCount": "275",
+      "likeCount": "125",
+      "disLikeCount": "2",
+      "backtestCloneCount": "1424",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "50",
+      "followersCount": "2273",
+      "followingCount": "40",
+      "author": {
+        "userId": "e6ce1d0a9c00a45cba4fc8b75f654731",
+        "alias": "韶华不负",
+        "vipType": "VIP",
+        "headImgKey": "734ca8e800f5981ca6212705718a8ed1"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "1018",
+          "name": "小市值"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "8c5563107c575e3d793f57e37cb6b57b",
+        "backtest_name": "小市值调整持股数量和止损-Clone",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=8c5563107c575e3d793f57e37cb6b57b&postId=477ca962273441d2f7c1ee2caf64fa97&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2014-01-01",
+          "end_date": "2024-04-07",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "91a0788f9c9d26b28cc79eba49e863fe",
+            "33588694"
+          ],
+          "numeric_backtest_id": "33588694",
+          "numeric_post_id": "47527",
+          "python_version": 3,
+          "clone_count": 1384
+        },
+        "stats": {
+          "trading_days": 2495,
+          "benchmark_volatility": 0.20384124067083,
+          "algorithm_volatility": 0.29858191882955,
+          "treasury_return": 0.41030136986301,
+          "algorithm_return": 1008.250952197,
+          "benchmark_return": 0.45053355891833,
+          "annual_algo_return": 0.99987071384108,
+          "annual_bm_return": 0.03797082914365,
+          "sharpe": 3.2147650386996,
+          "excess_return_sharpe": "3.544",
+          "sortino": 4.2354875889929,
+          "information": 3.8657042956695,
+          "beta": 0.82773044401262,
+          "alpha": 0.96155032033499,
+          "excess_return": 694.77911244578,
+          "avg_excess_return": "0.28%",
+          "max_drawdown": 0.41038440395156,
+          "max_drawdown_period": [
+            "2015-06-15",
+            "2015-07-08"
+          ],
+          "excess_return_max_drawdown": "41.68%",
+          "excess_return_max_drawdown_period": [
+            "2014-11-06",
+            "2015-04-27"
+          ],
+          "max_leverage": 0,
+          "period_label": "2024-04",
+          "__version": 101,
+          "win_ratio": 0.68676122931442,
+          "profit_loss_ratio": 6.9708557408201,
+          "win_count": 581,
+          "lose_count": 265,
+          "day_win_ratio": 0.57114228456914,
+          "avg_trade_return": 0.067837812413003,
+          "avg_position_days": 114.192,
+          "turnover_rate": 0.05155376132062,
+          "report_done_seconds": 983.05566906929,
+          "report_done_cpu_seconds": 800.01
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 100825.09522,
+          "benchmark_return_percent": 45.053356,
+          "annual_algo_return_percent": 99.987071,
+          "annual_bm_return_percent": 3.797083,
+          "max_drawdown_percent": 41.03844,
+          "algorithm_volatility_percent": 29.858192,
+          "benchmark_volatility_percent": 20.384124,
+          "win_ratio_percent": 68.676123,
+          "day_win_ratio_percent": 57.114228,
+          "avg_trade_return_percent": 6.783781,
+          "turnover_rate_percent": 5.155376,
+          "sharpe": 3.2147650386996,
+          "sortino": 4.2354875889929,
+          "information": 3.8657042956695,
+          "alpha": 0.96155032033499,
+          "beta": 0.82773044401262,
+          "profit_loss_ratio": 6.9708557408201,
+          "avg_position_days": 114.192,
+          "trading_days": 2495,
+          "win_count": 581,
+          "lose_count": 265,
+          "max_drawdown_period": [
+            "2015-06-15",
+            "2015-07-08"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2014-11-06",
+            "2015-04-27"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/47527",
+      "https://www.joinquant.com/community/post/detailV2?postId=47527",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=8c5563107c575e3d793f57e37cb6b57b&postId=477ca962273441d2f7c1ee2caf64fa97&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=8c5563107c575e3d793f57e37cb6b57b"
+    ]
+  }
+}

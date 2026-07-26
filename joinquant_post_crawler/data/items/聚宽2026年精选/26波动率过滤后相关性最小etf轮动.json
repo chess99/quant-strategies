@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/26波动率过滤后相关性最小etf轮动.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "26波动率过滤后相关性最小etf轮动.txt",
+    "strategy_name": "波动率过滤后相关性最小etf轮动",
+    "declared_title": "波动率过滤后相关性最小etf轮动",
+    "declared_author": "开心果",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 2756,
+    "sha256": "bb629ecfcfe853369ac5d3192c1377688c5626a9be944758801ad945e4ecbf1b",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/49615"
+    ],
+    "primary_url": "https://www.joinquant.com/post/49615",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:12:00+08:00",
+    "requested_url": "https://www.joinquant.com/post/49615",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/87e621db95a1360bed921fa4ce5457d1",
+    "community_id": "87e621db95a1360bed921fa4ce5457d1",
+    "post": {
+      "postId": "fc2789e829b5bab7b189c6fe4a8ef056",
+      "uniqueKey": "87e621db95a1360bed921fa4ce5457d1",
+      "title": "波动率过滤后相关性最小etf轮动",
+      "content": "etf池来源：\n```\n\n# 克隆自聚宽文章：ttps://www.joinquant.com/view/community/detail/cd4f11534d06711f53b4bad1f5105f09?type=1\n# 标题：手把手教你构建ETF策略候选池\n# 作者：JoelZ \n```\n```\n\nscore'的上下限-0.5&lt; 'score'&lt; 4.5 来自蚂蚁量化\n趋势筛选后相关性最小etf轮动\nhttps://www.joinquant.com/view/community/detail/3198fd89884ccd869213cbf2483ba836\n```\n```\n\nk-means 基金分类研究参考Gyro的文章：\n使用K-means 聚类对基金分类\nhttps://www.joinquant.com/view/community/detail/0402fd59f5050002aa347d95d50a4b83\n```\n\n关于etf池，原作是用现在的数据做的聚类，这牵涉到一个问题，是未来吗？从数据的角度来说，是的。然而，如果我们从基金分类的角度来看，这其实不是问题。一只羊现在是一只羊，过去它还是羊吗？同样现在的纳指作为一个单独的分类成员，过去的纳指还可以作为一个单独的分类成员吗？这里其实牵涉到一个事实，我们需要的基金分类其实不随着时间而变化。所以一个好的聚类算法，最好能保持分类不随着时间的变化而变化。那么最好的聚类算法是什么那？其实人脑是最好的分类器，k-means差强人意，还做不到这点。\n\n在我前一篇相关性最小etf轮动的基础上加上波动率过滤，和动量评分上下限。\n\n利用k-means聚类自动寻找最优簇，自动分类，初步还行，回测如下\n![Img](https://image.joinquant.com/819674b64a2f9e582b9e8c811b0191cb)",
+      "type": 1,
+      "status": "0",
+      "addTime": "2024-08-26 13:52:53",
+      "modTime": "2024-08-27 09:39:20",
+      "lastActiveTime": "2025-04-15 15:37:45",
+      "lastPubTime": "2024-08-27 09:39:20",
+      "backtestId": "b5b84fef9cd24bc5dcad9098a80d3fb5",
+      "backtestName": "波动率过滤后相关性最小etf轮动",
+      "replyCount": "30",
+      "viewCount": "5877",
+      "collectionCount": "140",
+      "likeCount": "54",
+      "disLikeCount": "0",
+      "backtestCloneCount": "373",
+      "notebookCloneCount": "86",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "72",
+      "followersCount": "2125",
+      "followingCount": "2",
+      "author": {
+        "userId": "dd18431f949038ef6fb86b0e881919d1",
+        "alias": "开心果",
+        "headImgKey": "c9a997e0c5aa2e77d3ae03f7e34ca7a0"
+      },
+      "tags": [
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "b5b84fef9cd24bc5dcad9098a80d3fb5",
+        "backtest_name": "波动率过滤后相关性最小etf轮动",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=b5b84fef9cd24bc5dcad9098a80d3fb5&postId=87e621db95a1360bed921fa4ce5457d1&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2017-01-01",
+          "end_date": "2024-08-23",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "c95679de2eba899b03fa993b93c84845",
+            "36137506"
+          ],
+          "numeric_backtest_id": "36137506",
+          "numeric_post_id": "49615",
+          "python_version": 3,
+          "clone_count": 373
+        },
+        "stats": {
+          "trading_days": 1858,
+          "benchmark_volatility": 0.18177206173227,
+          "algorithm_volatility": 0.24229217353983,
+          "treasury_return": 0.30564383561644,
+          "algorithm_return": 6.7195266445,
+          "benchmark_return": 0.0051690593580824,
+          "annual_algo_return": 0.31652235741686,
+          "annual_bm_return": 0.00069396318254378,
+          "sharpe": 1.1412764736761,
+          "excess_return_sharpe": "1.129",
+          "sortino": 1.6032072489085,
+          "information": 1.294318231637,
+          "beta": 0.48734813869503,
+          "alpha": 0.29567808129933,
+          "excess_return": 6.6798291517547,
+          "avg_excess_return": "0.12%",
+          "max_drawdown": 0.21750427382483,
+          "max_drawdown_period": [
+            "2021-08-23",
+            "2022-01-27"
+          ],
+          "excess_return_max_drawdown": "20.93%",
+          "excess_return_max_drawdown_period": [
+            "2024-01-23",
+            "2024-03-15"
+          ],
+          "max_leverage": 0,
+          "period_label": "2024-08",
+          "__version": 101,
+          "win_ratio": 0.52830188679245,
+          "profit_loss_ratio": 2.094982126837,
+          "win_count": 84,
+          "lose_count": 75,
+          "day_win_ratio": 0.53067814854682,
+          "avg_trade_return": 0.014919222289861,
+          "avg_position_days": 185.8,
+          "turnover_rate": 0.080163231411288,
+          "report_done_seconds": 125.83457446098,
+          "report_done_cpu_seconds": 121.89
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 671.952664,
+          "benchmark_return_percent": 0.516906,
+          "annual_algo_return_percent": 31.652236,
+          "annual_bm_return_percent": 0.069396,
+          "max_drawdown_percent": 21.750427,
+          "algorithm_volatility_percent": 24.229217,
+          "benchmark_volatility_percent": 18.177206,
+          "win_ratio_percent": 52.830189,
+          "day_win_ratio_percent": 53.067815,
+          "avg_trade_return_percent": 1.491922,
+          "turnover_rate_percent": 8.016323,
+          "sharpe": 1.1412764736761,
+          "sortino": 1.6032072489085,
+          "information": 1.294318231637,
+          "alpha": 0.29567808129933,
+          "beta": 0.48734813869503,
+          "profit_loss_ratio": 2.094982126837,
+          "avg_position_days": 185.8,
+          "trading_days": 1858,
+          "win_count": 84,
+          "lose_count": 75,
+          "max_drawdown_period": [
+            "2021-08-23",
+            "2022-01-27"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2024-01-23",
+            "2024-03-15"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/49615",
+      "https://www.joinquant.com/community/post/detailV2?postId=49615",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=b5b84fef9cd24bc5dcad9098a80d3fb5&postId=87e621db95a1360bed921fa4ce5457d1&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=b5b84fef9cd24bc5dcad9098a80d3fb5"
+    ]
+  }
+}

@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/25.这个可入得了你们法眼.txt",
+    "category": "2023年度精选策略",
+    "file_name": "25.这个可入得了你们法眼.txt",
+    "strategy_name": "这个可入得了你们法眼",
+    "declared_title": "这个可入得了你们法眼",
+    "declared_author": "南山南11",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 13917,
+    "sha256": "8c9caee74145eb708cb4d47e99997dac5fa09fbbbaa8e6f50da8273c8cc02e5e",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/34474"
+    ],
+    "primary_url": "https://www.joinquant.com/post/34474",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:58+08:00",
+    "requested_url": "https://www.joinquant.com/post/34474",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/c2b2048f882dfa3e079667d80c203680",
+    "community_id": "c2b2048f882dfa3e079667d80c203680",
+    "post": {
+      "postId": "a79b2e89d264f3b55b2b53db93eb2d4c",
+      "uniqueKey": "c2b2048f882dfa3e079667d80c203680",
+      "title": "这个可入得了你们法眼",
+      "content": "![Img]( https://image.joinquant.com/0208aaeac9cbac72d47d82dc933b19bf) \n\n\n\n各位看官老爷，为得积分，把我自用的策略拿出来分享了。\n\n评论必回！",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-09-02 11:51:06",
+      "modTime": "2021-09-02 11:51:06",
+      "lastActiveTime": "2026-05-03 20:41:07",
+      "lastPubTime": "2021-09-02 11:51:06",
+      "backtestId": "b68c325c9b6977bedb5d7e1cb7425e21",
+      "backtestName": "这是一个简单的策略-11",
+      "replyCount": "186",
+      "viewCount": "3389",
+      "collectionCount": "46",
+      "likeCount": "36",
+      "disLikeCount": "0",
+      "backtestCloneCount": "362",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "5",
+      "followersCount": "27",
+      "followingCount": "7",
+      "author": {
+        "userId": "91094164a592380cd0502f88b93dc8ea",
+        "alias": "南山南11",
+        "headImgKey": "627261d9d537fc40e75d2c710ba4de46"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "b68c325c9b6977bedb5d7e1cb7425e21",
+        "backtest_name": "这是一个简单的策略-11",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=b68c325c9b6977bedb5d7e1cb7425e21&postId=c2b2048f882dfa3e079667d80c203680&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2019-01-01",
+          "end_date": "2021-09-01",
+          "base_capital": 100000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "be06845b39a7574f9b020a0b6bf59cd1",
+            "21709585"
+          ],
+          "numeric_backtest_id": "21709585",
+          "numeric_post_id": "34474",
+          "python_version": 3,
+          "clone_count": 341
+        },
+        "stats": {
+          "trading_days": 650,
+          "benchmark_volatility": 0.21140086374322,
+          "algorithm_volatility": 0.27100884041171,
+          "treasury_return": 0.1066301369863,
+          "algorithm_return": 3.742261827,
+          "benchmark_return": 0.61741152242871,
+          "annual_algo_return": 0.81967753699832,
+          "annual_bm_return": 0.20313840363391,
+          "sharpe": 2.8769450318072,
+          "excess_return_sharpe": "1.395",
+          "sortino": 5.6790578447488,
+          "information": 1.8281126249594,
+          "beta": 0.049177836497045,
+          "alpha": 0.77165474325802,
+          "excess_return": 1.9320069513781,
+          "avg_excess_return": "0.19%",
+          "max_drawdown": 0.14198402198058,
+          "max_drawdown_period": [
+            "2019-06-27",
+            "2020-01-21"
+          ],
+          "excess_return_max_drawdown": "30.22%",
+          "excess_return_max_drawdown_period": [
+            "2019-01-03",
+            "2019-04-17"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-09",
+          "__version": 101,
+          "win_ratio": 0.5625,
+          "profit_loss_ratio": 2.0423404926139,
+          "win_count": 81,
+          "lose_count": 63,
+          "day_win_ratio": 0.48615384615385,
+          "avg_trade_return": 0.025449256675085,
+          "avg_position_days": 1.2573529411765,
+          "turnover_rate": 0.13005085021427,
+          "report_done_seconds": 2006.5377688408,
+          "report_done_cpu_seconds": 1752.4
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 374.226183,
+          "benchmark_return_percent": 61.741152,
+          "annual_algo_return_percent": 81.967754,
+          "annual_bm_return_percent": 20.31384,
+          "max_drawdown_percent": 14.198402,
+          "algorithm_volatility_percent": 27.100884,
+          "benchmark_volatility_percent": 21.140086,
+          "win_ratio_percent": 56.25,
+          "day_win_ratio_percent": 48.615385,
+          "avg_trade_return_percent": 2.544926,
+          "turnover_rate_percent": 13.005085,
+          "sharpe": 2.8769450318072,
+          "sortino": 5.6790578447488,
+          "information": 1.8281126249594,
+          "alpha": 0.77165474325802,
+          "beta": 0.049177836497045,
+          "profit_loss_ratio": 2.0423404926139,
+          "avg_position_days": 1.2573529411765,
+          "trading_days": 650,
+          "win_count": 81,
+          "lose_count": 63,
+          "max_drawdown_period": [
+            "2019-06-27",
+            "2020-01-21"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2019-01-03",
+            "2019-04-17"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/34474",
+      "https://www.joinquant.com/community/post/detailV2?postId=34474",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=b68c325c9b6977bedb5d7e1cb7425e21&postId=c2b2048f882dfa3e079667d80c203680&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=b68c325c9b6977bedb5d7e1cb7425e21"
+    ]
+  }
+}

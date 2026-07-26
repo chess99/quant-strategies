@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/92.【超跌反弹v1.0】3年2.3倍的超跌反弹小牛股.txt",
+    "category": "2023年度精选策略",
+    "file_name": "92.【超跌反弹v1.0】3年2.3倍的超跌反弹小牛股.txt",
+    "strategy_name": "【超跌反弹v1.0】3年2.3倍的超跌反弹小牛股",
+    "declared_title": "【超跌反弹v1.0】3年2.3倍的超跌反弹小牛股",
+    "declared_author": "_查尔斯葱_",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 8223,
+    "sha256": "58b6e72c506f32355e8c090884719831bea285a3c4ab6f4821d82dac5614bc1c",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/35377"
+    ],
+    "primary_url": "https://www.joinquant.com/post/35377",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:52+08:00",
+    "requested_url": "https://www.joinquant.com/post/35377",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/23be32d69c31deb6e101032f52e0f617",
+    "community_id": "23be32d69c31deb6e101032f52e0f617",
+    "post": {
+      "postId": "cd940cba89bc7a81116a7330b47effd1",
+      "uniqueKey": "23be32d69c31deb6e101032f52e0f617",
+      "title": "【超跌反弹v1.0】3年2.3倍的超跌反弹小牛股",
+      "content": "### （由于缺少基本面因子的研究，只能从技术和形态入手了哈哈）前几天观察【凯撒文化】感觉要起一波，结果过了两天真的起来了，于是根据凯撒文化的形态简单写出了这个策略，并没有去找太多的股票形态，也就不存在过拟合的情况，在准确率只有40%的情况下，能达到3年2.3倍的收益有点超出预料，经过观察主要是成功的时候涨的太猛，那些失败的交易就成了无关紧要的试水，但是还是要想办法提高准确率，看看各位宽友大神有没有好的优化思路，我自己的思路周末也要尝试一下。\n\n此外，通过几天的模拟交易发现好像确实还行（模拟的比较晚，11月9号开始的，此时凯撒文化已经从底部涨了20%了，但是还是选入了，而且到目前又涨了6.41%）：\n![Img]( https://image.joinquant.com/7aa5e59ee006b2a9c90102e550d8a816) \n\n#### 策略买入条件：\n40天内曾经突破过MA55，但是突破失败，近期新低，且重新站上MA55；\n\n#### 策略卖出条件就比较简单了：\n高点大幅回撤视为这波结束，跌破MA55视为突破失败；\n\n#### 策略优点：\n1、可以选到很多底部起来的大牛股；\n2、回撤小，分仓也降低了回撤的风险；\n3、大盘涨的时候这种超跌反弹股也同样会跟涨，而且涨幅可观。\n#### 策略缺点：\n1、买点准确率较低，可以看到只有40%的准确率，但是这个准确率能达到三年2.3倍的收益也是超出了我的预期；\n2、没有择时，18年还是会跟大盘一起下跌；\n3、目前看起来只能通过分散持仓增加买到牛股的概率，准确率提上来的话就可以减少持仓数量，增加收益了。\n\n#### 下一步优化方案：\n1、新增买入条件，如突破时放倍量、距离突破当日太久的话就不考虑买入了；\n2、最近看了@莫急莫急 大佬的策略，不知道动量因子和RSRS择时对这种超跌反弹的股票效果如何，还是要周末多试一下；\n3、尝试优先选择前期炒过的有潜力的，比如凯撒文化，爱康科技这种。\n\n近期工作忙起来了，只能周末再优化了，下面贴几张比较成功但不完美的买点和失败的买点：\n![Img]( https://image.joinquant.com/7d0a3941983aa46cb533dbcdee15b577) \n![Img]( https://image.joinquant.com/76809c8e3d0c2af5df6a6c2f6998a690)\n ![Img]( https://image.joinquant.com/e27a673488da1cc79cba152445f16169) \n![Img]( https://image.joinquant.com/f5aecc7cc723b3a9a6b1d7795b74572a) \n失败案例一般都持仓比较短，假突破就很难受T.T：\n![Img]( https://image.joinquant.com/b14f79d8053d2eb3e68d429dd3e70b4e)",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-11-11 23:26:33",
+      "modTime": "2021-11-11 23:32:59",
+      "lastActiveTime": "2026-07-04 23:26:49",
+      "lastPubTime": "2021-11-11 23:32:59",
+      "backtestId": "034c927db91307378570d632a1c65947",
+      "backtestName": "超跌股反弹v1.1-跌破MA55两个点卖",
+      "replyCount": "59",
+      "viewCount": "4038",
+      "collectionCount": "92",
+      "likeCount": "50",
+      "disLikeCount": "0",
+      "backtestCloneCount": "349",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "6",
+      "followersCount": "174",
+      "followingCount": "19",
+      "author": {
+        "userId": "999ed113803152c604a348d0c003897b",
+        "alias": "_查尔斯葱_",
+        "introduction": "公众号：查尔斯葱（跟踪自研量化策略），华为AI算法工程师，业余研究量化策略，擅长形态选股，因子挖掘",
+        "headImgKey": "4d3077f5d13074088aeaee42ec92dccd"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "034c927db91307378570d632a1c65947",
+        "backtest_name": "超跌股反弹v1.1-跌破MA55两个点卖",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=034c927db91307378570d632a1c65947&postId=23be32d69c31deb6e101032f52e0f617&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2019-01-01",
+          "end_date": "2021-11-05",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "fac631554027dc9b0a91e78bc23896ab",
+            "22403003"
+          ],
+          "numeric_backtest_id": "22403003",
+          "numeric_post_id": "35377",
+          "python_version": 3,
+          "clone_count": 346
+        },
+        "stats": {
+          "trading_days": 690,
+          "benchmark_volatility": 0.20769428655995,
+          "algorithm_volatility": 0.20219444317487,
+          "treasury_return": 0.11375342465753,
+          "algorithm_return": 2.318606111,
+          "benchmark_return": 0.60840682244698,
+          "annual_algo_return": 0.54437253060476,
+          "annual_bm_return": 0.18790340058693,
+          "sharpe": 2.4944925423521,
+          "excess_return_sharpe": "1.160",
+          "sortino": 4.0613662280242,
+          "information": 1.5999075536666,
+          "beta": 0.39846334641572,
+          "alpha": 0.44543844666062,
+          "excess_return": 1.0632877607117,
+          "avg_excess_return": "0.11%",
+          "max_drawdown": 0.17490426484944,
+          "max_drawdown_period": [
+            "2020-07-14",
+            "2021-01-08"
+          ],
+          "excess_return_max_drawdown": "28.69%",
+          "excess_return_max_drawdown_period": [
+            "2020-07-16",
+            "2021-01-08"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-11",
+          "__version": 101,
+          "win_ratio": 0.41212121212121,
+          "profit_loss_ratio": 2.1242752171674,
+          "win_count": 68,
+          "lose_count": 97,
+          "day_win_ratio": 0.50869565217391,
+          "avg_trade_return": 0.042533680507925,
+          "avg_position_days": 15.735099337748,
+          "turnover_rate": 0.050797726409616,
+          "report_done_seconds": 5898.7447094917,
+          "report_done_cpu_seconds": 5882.89
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 231.860611,
+          "benchmark_return_percent": 60.840682,
+          "annual_algo_return_percent": 54.437253,
+          "annual_bm_return_percent": 18.79034,
+          "max_drawdown_percent": 17.490426,
+          "algorithm_volatility_percent": 20.219444,
+          "benchmark_volatility_percent": 20.769429,
+          "win_ratio_percent": 41.212121,
+          "day_win_ratio_percent": 50.869565,
+          "avg_trade_return_percent": 4.253368,
+          "turnover_rate_percent": 5.079773,
+          "sharpe": 2.4944925423521,
+          "sortino": 4.0613662280242,
+          "information": 1.5999075536666,
+          "alpha": 0.44543844666062,
+          "beta": 0.39846334641572,
+          "profit_loss_ratio": 2.1242752171674,
+          "avg_position_days": 15.735099337748,
+          "trading_days": 690,
+          "win_count": 68,
+          "lose_count": 97,
+          "max_drawdown_period": [
+            "2020-07-14",
+            "2021-01-08"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-07-16",
+            "2021-01-08"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/35377",
+      "https://www.joinquant.com/community/post/detailV2?postId=35377",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=034c927db91307378570d632a1c65947&postId=23be32d69c31deb6e101032f52e0f617&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=034c927db91307378570d632a1c65947"
+    ]
+  }
+}

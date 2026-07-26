@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/75.最近2年年化100%以上回撤12%的打板策略-验证策略.txt",
+    "category": "2025年度精选策略",
+    "file_name": "75.最近2年年化100%以上回撤12%的打板策略-验证策略.txt",
+    "strategy_name": "最近2年年化100%以上回撤12%的打板策略-验证策略",
+    "declared_title": "最近2年年化100%以上回撤12%的打板策略-验证策略",
+    "declared_author": "大思维者",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 11764,
+    "sha256": "e5490946e348c1cad9745537b6007601470c4e4ff07a9d8dff5a09310b033f95",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/28552"
+    ],
+    "primary_url": "https://www.joinquant.com/post/28552",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:32+08:00",
+    "requested_url": "https://www.joinquant.com/post/28552",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/b71585eb57e0665777043dc36409eadf",
+    "community_id": "b71585eb57e0665777043dc36409eadf",
+    "post": {
+      "postId": "344393c288a0da0f167b73b4896e5a61",
+      "uniqueKey": "b71585eb57e0665777043dc36409eadf",
+      "title": "最近2年年化100%以上回撤12%的打板策略-验证策略",
+      "content": "#这是我关于同花顺昨日打板表现的指数的思考，他是一路向上的，所以理论上只要触及涨停，就买入，你就买入的和昨日打板指数一样了，第二天，往往股票平均，也就是指数K线90%时间是高开的，所以理论上跟踪昨日打板是有赚头的，关键还是买入问题。\n本人认为该策略思路，理论上是具有实盘意义的打板策略，但是，一创实盘只支持分钟级别的，我实盘以后发现挂单买入依然有买不进的情况，所以，是理论上有实盘意义，我不打算实盘了，所以拿出来分享。\nPS：本策略是纯验证策略，不能正常交易，因为实盘打板需要分钟，甚至tick策略才有意义，但是回测研究速度实在感人，所以做出了个纯验证的策略提高回测速度。\n# 触及涨停打板----思路验证策略\n策略思路：\n1）股票池：开盘前选出今天需要监控的股票，原则上触及涨停的第一时间买入\n2）11::30筛选上午股票池中触及涨停的股票，按触及涨停时间排序\n3）把11:30选出的股票列表，按卖出时间分成两部分,记录：股票，离开盘涨停分钟数，组成列表，before_selling_list，after_selling_list\n4）卖出之前：计算可以买的数量（最大持仓数-开盘持仓数），按顺序买入before_selling_list中的股票\n5）卖出之后：按持仓数量g.number_of_positions，按顺序买after_selling_list中的股票\n6）每天十点判断一次卖出，没涨停的卖出，涨停的留到下一天\nPS：验证效果，2019年至今能做到年化100%，回撤10%左右，再往前回测，效果不好，可能是打板环境不适合这个选股策略吧。\nPS：如果代码写的逻辑没有问题，稍后，我会分享出可实盘的分钟策略。但是，在tick级别策略可以实盘之前，没有意义，因为分钟级别策略，下单买不进的恰巧是那些赚钱的。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-07-23 21:52:35",
+      "modTime": "2020-07-23 21:52:35",
+      "lastActiveTime": "2021-09-14 21:45:06",
+      "lastPubTime": "2020-07-23 21:52:35",
+      "backtestId": "c15d102fb1bb20038a63928926144e6a",
+      "backtestName": "触及涨停打板----验证策略",
+      "replyCount": "46",
+      "viewCount": "6649",
+      "collectionCount": "66",
+      "likeCount": "37",
+      "disLikeCount": "0",
+      "backtestCloneCount": "265",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "27",
+      "followersCount": "187",
+      "followingCount": "10",
+      "author": {
+        "userId": "a8498df0892557efe00ee258c6d8f17f",
+        "alias": "大思维者",
+        "introduction": "大数据+概率+复利=赚钱    微信：DSWZ1990",
+        "headImgKey": "ea919d73673612f9b87ae8224eb00eea"
+      },
+      "tags": [
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "804",
+          "name": "分享"
+        },
+        {
+          "id": "847",
+          "name": "打板"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "c15d102fb1bb20038a63928926144e6a",
+        "backtest_name": "触及涨停打板----验证策略",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=c15d102fb1bb20038a63928926144e6a&postId=b71585eb57e0665777043dc36409eadf&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2019-01-01",
+          "end_date": "2020-07-22",
+          "base_capital": 200000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "f631459f7bc7387723bec81b6d04505c",
+            "17745631"
+          ],
+          "numeric_backtest_id": "17745631",
+          "numeric_post_id": "28552",
+          "python_version": 3,
+          "clone_count": 265
+        },
+        "stats": {
+          "trading_days": 377,
+          "benchmark_volatility": 0.20308758357622,
+          "algorithm_volatility": 0.29909679556413,
+          "treasury_return": 0.06213698630137,
+          "algorithm_return": 3.4569220872,
+          "benchmark_return": 0.33652512129596,
+          "annual_algo_return": 1.6939813836119,
+          "annual_bm_return": 0.21210211303409,
+          "sharpe": 5.5299201066074,
+          "excess_return_sharpe": "3.742",
+          "sortino": 8.6452329104604,
+          "information": 4.7191329474658,
+          "beta": 0.38911720880485,
+          "alpha": 1.5870134897587,
+          "excess_return": 2.3347088028382,
+          "avg_excess_return": "0.34%",
+          "max_drawdown": 0.11849510826076,
+          "max_drawdown_period": [
+            "2020-04-20",
+            "2020-05-25"
+          ],
+          "excess_return_max_drawdown": "12.50%",
+          "excess_return_max_drawdown_period": [
+            "2020-03-23",
+            "2020-05-08"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-07",
+          "__version": 101,
+          "win_ratio": 0.46177558569667,
+          "profit_loss_ratio": 1.4463064342006,
+          "win_count": 749,
+          "lose_count": 873,
+          "day_win_ratio": 0.53580901856764,
+          "avg_trade_return": 0.011346843652827,
+          "avg_position_days": 1.7402376910017,
+          "turnover_rate": 0.41209622526782,
+          "report_done_seconds": 632.15717673302,
+          "report_done_cpu_seconds": 620.36
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 345.692209,
+          "benchmark_return_percent": 33.652512,
+          "annual_algo_return_percent": 169.398138,
+          "annual_bm_return_percent": 21.210211,
+          "max_drawdown_percent": 11.849511,
+          "algorithm_volatility_percent": 29.90968,
+          "benchmark_volatility_percent": 20.308758,
+          "win_ratio_percent": 46.177559,
+          "day_win_ratio_percent": 53.580902,
+          "avg_trade_return_percent": 1.134684,
+          "turnover_rate_percent": 41.209623,
+          "sharpe": 5.5299201066074,
+          "sortino": 8.6452329104604,
+          "information": 4.7191329474658,
+          "alpha": 1.5870134897587,
+          "beta": 0.38911720880485,
+          "profit_loss_ratio": 1.4463064342006,
+          "avg_position_days": 1.7402376910017,
+          "trading_days": 377,
+          "win_count": 749,
+          "lose_count": 873,
+          "max_drawdown_period": [
+            "2020-04-20",
+            "2020-05-25"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-03-23",
+            "2020-05-08"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/28552",
+      "https://www.joinquant.com/community/post/detailV2?postId=28552",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=c15d102fb1bb20038a63928926144e6a&postId=b71585eb57e0665777043dc36409eadf&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=c15d102fb1bb20038a63928926144e6a"
+    ]
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/36 投资学作业——简单多因子选股策略改进.txt",
+    "category": "2020年度精选策略",
+    "file_name": "36 投资学作业——简单多因子选股策略改进.txt",
+    "strategy_name": "投资学作业——简单多因子选股策略改进",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 14848,
+    "sha256": "77afc77aa1e043d7c7af95cef14972b3ac58f3be9c7b78449f1a57ad2d8d2b92",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/13941"
+    ],
+    "primary_url": "https://www.joinquant.com/post/13941",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:06:44+08:00",
+    "requested_url": "https://www.joinquant.com/post/13941",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/544cfcdde1bb2b02a44152e6e6c4f0df",
+    "community_id": "544cfcdde1bb2b02a44152e6e6c4f0df",
+    "post": {
+      "postId": "d71f8b56eaaec483bef4ff497fa8ceda",
+      "uniqueKey": "544cfcdde1bb2b02a44152e6e6c4f0df",
+      "title": "投资学作业——简单多因子选股策略改进",
+      "content": "从多因子模型出发，选择近几年在市场中较为重要的几个因子来进行策略分析与收益分析",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-07-25 19:33:18",
+      "modTime": "2018-07-25 19:33:18",
+      "lastActiveTime": "2023-03-08 11:32:51",
+      "lastPubTime": "2018-07-25 19:33:18",
+      "backtestId": "fa625b93c1b52da5b56c19a8210eb184",
+      "backtestName": "简单多因子选股策略改进",
+      "replyCount": "4",
+      "viewCount": "2077",
+      "collectionCount": "12",
+      "likeCount": "7",
+      "disLikeCount": "0",
+      "backtestCloneCount": "112",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "4",
+      "followersCount": "3",
+      "followingCount": "0",
+      "author": {
+        "userId": "a12ad2fa92df5bb9ca361a9b08111ab7",
+        "alias": "gongllg"
+      },
+      "tags": [
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "fa625b93c1b52da5b56c19a8210eb184",
+        "backtest_name": "简单多因子选股策略改进",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=fa625b93c1b52da5b56c19a8210eb184&postId=544cfcdde1bb2b02a44152e6e6c4f0df&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2017-01-01",
+          "end_date": "2017-12-31",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "61428cda8643d47bf94719e6d3fd72e0",
+            "9448446"
+          ],
+          "numeric_backtest_id": "9448446",
+          "numeric_post_id": "13941",
+          "python_version": 2,
+          "clone_count": 149
+        },
+        "stats": {
+          "information": 2.0292129520414,
+          "benchmark_return": 0.21774972985554,
+          "algorithm_volatility": 0.21442362039987,
+          "annual_bm_return": 0.22366328102541,
+          "__version": 101,
+          "max_drawdown": 0.10157379646762,
+          "sortino": 3.8520029160879,
+          "period_label": "2017-12",
+          "trading_days": 244,
+          "algorithm_return": 0.5676425,
+          "benchmark_volatility": 0.10106215198356,
+          "beta": 1.1979625557955,
+          "excess_return": 0.52819044520548,
+          "annual_algo_return": 0.58506904795361,
+          "sharpe": 2.5420196102329,
+          "alpha": 0.32504731441062,
+          "max_drawdown_period": [
+            "2017-11-21",
+            "2017-12-29"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.039452054794521,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.52868852459016,
+          "avg_position_days": 151.25,
+          "win_ratio": 0.6,
+          "win_count": 3,
+          "avg_trade_return": 0.33173230664266,
+          "profit_loss_ratio": 8.7286978508217,
+          "lose_count": 2,
+          "report_done_seconds": 163.77495908737
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 56.76425,
+          "benchmark_return_percent": 21.774973,
+          "annual_algo_return_percent": 58.506905,
+          "annual_bm_return_percent": 22.366328,
+          "max_drawdown_percent": 10.15738,
+          "algorithm_volatility_percent": 21.442362,
+          "benchmark_volatility_percent": 10.106215,
+          "win_ratio_percent": 60.0,
+          "day_win_ratio_percent": 52.868852,
+          "avg_trade_return_percent": 33.173231,
+          "sharpe": 2.5420196102329,
+          "sortino": 3.8520029160879,
+          "information": 2.0292129520414,
+          "alpha": 0.32504731441062,
+          "beta": 1.1979625557955,
+          "profit_loss_ratio": 8.7286978508217,
+          "avg_position_days": 151.25,
+          "trading_days": 244,
+          "win_count": 3,
+          "lose_count": 2,
+          "max_drawdown_period": [
+            "2017-11-21",
+            "2017-12-29"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/13941",
+      "https://www.joinquant.com/community/post/detailV2?postId=13941",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=fa625b93c1b52da5b56c19a8210eb184&postId=544cfcdde1bb2b02a44152e6e6c4f0df&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=fa625b93c1b52da5b56c19a8210eb184"
+    ]
+  }
+}

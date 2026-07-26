@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/13 招行_海天配对策略-改进版.txt",
+    "category": "2020年度精选策略",
+    "file_name": "13 招行_海天配对策略-改进版.txt",
+    "strategy_name": "招行_海天配对策略-改进版",
+    "declared_title": "招行_海天配对策略（学习招行伊利配对）",
+    "declared_author": "维络",
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 3737,
+    "sha256": "172bf01e99d91a0a8b0548140434c6dfad9e9d91735d9fafb7e534d3e7ada198",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/11751",
+      "https://www.joinquant.com/post/11736",
+      "https://www.joinquant.com/post/1810"
+    ],
+    "primary_url": "https://www.joinquant.com/post/11751",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:06:26+08:00",
+    "requested_url": "https://www.joinquant.com/post/11751",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/dccecb70df7652b072d70a8edf116821",
+    "community_id": "dccecb70df7652b072d70a8edf116821",
+    "post": {
+      "postId": "66e607a898d04dbd28570f691402de99",
+      "uniqueKey": "dccecb70df7652b072d70a8edf116821",
+      "title": "招行_海天配对策略-改进版",
+      "content": "本策略采用均值回归理论。\r\n招商银行与海天味业股价作差得到一个序列，求标准差\r\n股价差/标准差，假设随机游走，则其服从N（0，1）\r\n股价差/标准差在0.82/-0.82外侧时存在套利机会，即：融券卖出贵的买入便宜的，待回到内侧后平仓\r\n风险：股价差/标准差持续发散，不收敛，风险敞口也会不断扩大，依赖选股（阿尔法）",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-04-01 03:04:25",
+      "modTime": "2018-04-01 03:04:25",
+      "lastActiveTime": "2026-02-11 10:23:07",
+      "lastPubTime": "2018-04-01 03:04:25",
+      "backtestId": "1ac7368ccca04a4d8ad40861d06ddc33",
+      "backtestName": "招行_海天配对策略-改进版",
+      "replyCount": "13",
+      "viewCount": "3365",
+      "collectionCount": "22",
+      "likeCount": "13",
+      "disLikeCount": "0",
+      "backtestCloneCount": "166",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "3",
+      "followersCount": "16",
+      "followingCount": "2",
+      "author": {
+        "userId": "0535539acb4c0cabff70832471e3494e",
+        "alias": "翼、轸"
+      },
+      "tags": [
+        {
+          "id": "11",
+          "name": "轮动"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "1ac7368ccca04a4d8ad40861d06ddc33",
+        "backtest_name": "招行_海天配对策略-改进版",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=1ac7368ccca04a4d8ad40861d06ddc33&postId=dccecb70df7652b072d70a8edf116821&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2014-05-01",
+          "end_date": "2018-03-23",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "613bda32e7f537052dfafcafe074aea0",
+            "8068121"
+          ],
+          "numeric_backtest_id": "8068121",
+          "numeric_post_id": "11751",
+          "python_version": 2,
+          "clone_count": 326
+        },
+        "stats": {
+          "information": 1.0274637779766,
+          "benchmark_return": 2.625,
+          "algorithm_volatility": 0.23837285842079,
+          "annual_bm_return": 0.40241679365459,
+          "__version": 101,
+          "max_drawdown": 0.16930047653903,
+          "sortino": 4.8151801608784,
+          "period_label": "2018-03",
+          "trading_days": 952,
+          "algorithm_return": 6.0780992,
+          "benchmark_volatility": 0.30266793212482,
+          "beta": 0.43486366101203,
+          "excess_return": 5.922701939726,
+          "annual_algo_return": 0.67183108614837,
+          "sharpe": 2.6505999480571,
+          "alpha": 0.47422919244749,
+          "max_drawdown_period": [
+            "2015-12-25",
+            "2016-01-28"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.15539726027397,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.48214285714286,
+          "avg_position_days": 267,
+          "win_ratio": 0.67647058823529,
+          "win_count": 46,
+          "avg_trade_return": 0.033396997634221,
+          "profit_loss_ratio": 7.7972609189637,
+          "lose_count": 22,
+          "report_done_seconds": 10.350482940674
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 607.80992,
+          "benchmark_return_percent": 262.5,
+          "annual_algo_return_percent": 67.183109,
+          "annual_bm_return_percent": 40.241679,
+          "max_drawdown_percent": 16.930048,
+          "algorithm_volatility_percent": 23.837286,
+          "benchmark_volatility_percent": 30.266793,
+          "win_ratio_percent": 67.647059,
+          "day_win_ratio_percent": 48.214286,
+          "avg_trade_return_percent": 3.3397,
+          "sharpe": 2.6505999480571,
+          "sortino": 4.8151801608784,
+          "information": 1.0274637779766,
+          "alpha": 0.47422919244749,
+          "beta": 0.43486366101203,
+          "profit_loss_ratio": 7.7972609189637,
+          "avg_position_days": 267,
+          "trading_days": 952,
+          "win_count": 46,
+          "lose_count": 22,
+          "max_drawdown_period": [
+            "2015-12-25",
+            "2016-01-28"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/11751",
+      "https://www.joinquant.com/community/post/detailV2?postId=11751",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=1ac7368ccca04a4d8ad40861d06ddc33&postId=dccecb70df7652b072d70a8edf116821&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=1ac7368ccca04a4d8ad40861d06ddc33"
+    ]
+  }
+}

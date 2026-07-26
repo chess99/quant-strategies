@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/88WY大神的“龙头打板”策略小改.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "88WY大神的“龙头打板”策略小改.txt",
+    "strategy_name": "WY大神的“龙头打板”策略小改",
+    "declared_title": "WY大神的“龙头打板”策略小改",
+    "declared_author": "苗老八",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 19026,
+    "sha256": "b630a964ff2e72c2bf525ffab15f5d51b9a5bbc47e5e2ba3d51a48cef32e6f41",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/46331",
+      "https://www.joinquant.com/post/44926"
+    ],
+    "primary_url": "https://www.joinquant.com/post/46331",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:12:43+08:00",
+    "requested_url": "https://www.joinquant.com/post/46331",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/cdb25df88f02709e6072ad81c111b376",
+    "community_id": "cdb25df88f02709e6072ad81c111b376",
+    "post": {
+      "postId": "a92db7698cece6e79fcade719a5b9293",
+      "uniqueKey": "cdb25df88f02709e6072ad81c111b376",
+      "title": "WY大神的“龙头打板”策略小改",
+      "content": "龙头（打板指数）策略的研究\n# 一、策略前言：\nhttps://www.joinquant.com/view/community/detail/5a3d4ddd5df593a8bbd957cb7052e686?type=1\n策略来自聚宽社区的大佬：@wywy1995 \n\n该策略目前只是作为一个青春版，在收益、回测上都还有优化空间\n\n\n# 二、原策略定义：\n一句话概括：始终买最近连续涨停 且 涨停次数最多的股票，持有两天，买入的第二天如果盈利就卖出。\n\n# 三、原策略逻辑：\n选股逻辑：\n1、选出最高连板股票的代码，每次以可用资金的10%买入\n2、如果有多只股票连板数相同，策略会尽力全部买入\n3、策略自带的 VOL5 因子筛选\n开仓逻辑：\n1、按选股列表买入\n2、对于开盘已经涨停的股票，使用限价单模拟排板的过程，如果全天一字板则在16点会撤单，如果有涨停打开的情况，以涨停价成交。\n\n平仓逻辑：\n1、卖出逻辑是首先判断是否维持涨停，如果没有，且在指定时间点已经盈利则卖出，否则最多再持有一段时间（2天）后无论盈利与否都卖出。\n2、卖出前会判断是否已经跌停，如果是，则算作卖出失败，次日再继续卖出。\n3、作者提到可以在增加一个全天候的风险判断函数，以降低回测\n\n\n# 四、改进逻辑定义：\n&gt; - 卖出函数改为尾盘每分钟执行\n\n&gt; -  持有两天，买入第二天亏损则卖出\n\n&gt; -  增加止损逻辑（每天定时检查是否亏损，是则卖出）\n\n&gt; -  剔除昨日买入失败的个股\n\n改进点的表格展示\n![Img](https://image.joinquant.com/cd2481f068a2e2f39fcc27e5f041aa7c) \n改到这里，是我能够看到并且能用自己的方式去进行优化的点，我相信龙头战略还是有很大优化空间的，但目前以我的能力只能优化研究到这一步了，希望我的小改进能够抛砖引玉，对您有所启发。\n最后，由于发帖匆促，如果您对回测里的代码有疑问，可以随时在帖子下边留言，我看到了会一一回复。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2024-01-29 17:06:24",
+      "modTime": "2024-01-29 17:06:24",
+      "lastActiveTime": "2024-06-18 12:25:24",
+      "lastPubTime": "2024-01-29 17:06:24",
+      "backtestId": "8ff71cb140b5135a8504dba930e49615",
+      "backtestName": "研究任务--龙头(打板指数)-Clone-Clone",
+      "replyCount": "71",
+      "viewCount": "5075",
+      "collectionCount": "81",
+      "likeCount": "47",
+      "disLikeCount": "0",
+      "backtestCloneCount": "238",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "4",
+      "followersCount": "44",
+      "followingCount": "6",
+      "author": {
+        "userId": "522b66c7536ac04c2c61d7114694282b",
+        "alias": "苗老八",
+        "introduction": "鞋垫什么，介绍自己",
+        "headImgKey": "9797f618deaa26b8e551fbd1f0c5f75c"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "3087",
+          "name": "新手学习"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "8ff71cb140b5135a8504dba930e49615",
+        "backtest_name": "研究任务--龙头(打板指数)-Clone-Clone",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=8ff71cb140b5135a8504dba930e49615&postId=cdb25df88f02709e6072ad81c111b376&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2023-01-01",
+          "end_date": "2024-01-24",
+          "base_capital": 100000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "cb7e71e1e70d28fb0683629dfdb8e99a",
+            "32222831"
+          ],
+          "numeric_backtest_id": "32222831",
+          "numeric_post_id": "46331",
+          "python_version": 3,
+          "clone_count": 247
+        },
+        "stats": {
+          "trading_days": 259,
+          "benchmark_volatility": 0.13598384322461,
+          "algorithm_volatility": 0.34993086285169,
+          "treasury_return": 0.042301369863014,
+          "algorithm_return": 0.470661101,
+          "benchmark_return": -0.15355806210821,
+          "annual_algo_return": 0.45108116205279,
+          "annual_bm_return": -0.14864027523723,
+          "sharpe": 1.1747496596978,
+          "excess_return_sharpe": "1.740",
+          "sortino": 2.0266926933159,
+          "information": 1.5743984202626,
+          "beta": -0.112418628947,
+          "alpha": 0.38987448094643,
+          "excess_return": 0.7374624710384,
+          "avg_excess_return": "0.24%",
+          "max_drawdown": 0.2773822999294,
+          "max_drawdown_period": [
+            "2023-10-25",
+            "2023-12-26"
+          ],
+          "excess_return_max_drawdown": "24.15%",
+          "excess_return_max_drawdown_period": [
+            "2023-10-25",
+            "2023-12-25"
+          ],
+          "max_leverage": 0,
+          "period_label": "2024-01",
+          "__version": 101,
+          "win_ratio": 0.2827868852459,
+          "profit_loss_ratio": 1.3636081644278,
+          "win_count": 69,
+          "lose_count": 175,
+          "day_win_ratio": 0.50965250965251,
+          "avg_trade_return": -0.018997820024425,
+          "avg_position_days": 2.0434782608696,
+          "turnover_rate": 0.10575051012858,
+          "report_done_seconds": 773.09269475937,
+          "report_done_cpu_seconds": 760.27
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 47.06611,
+          "benchmark_return_percent": -15.355806,
+          "annual_algo_return_percent": 45.108116,
+          "annual_bm_return_percent": -14.864028,
+          "max_drawdown_percent": 27.73823,
+          "algorithm_volatility_percent": 34.993086,
+          "benchmark_volatility_percent": 13.598384,
+          "win_ratio_percent": 28.278689,
+          "day_win_ratio_percent": 50.965251,
+          "avg_trade_return_percent": -1.899782,
+          "turnover_rate_percent": 10.575051,
+          "sharpe": 1.1747496596978,
+          "sortino": 2.0266926933159,
+          "information": 1.5743984202626,
+          "alpha": 0.38987448094643,
+          "beta": -0.112418628947,
+          "profit_loss_ratio": 1.3636081644278,
+          "avg_position_days": 2.0434782608696,
+          "trading_days": 259,
+          "win_count": 69,
+          "lose_count": 175,
+          "max_drawdown_period": [
+            "2023-10-25",
+            "2023-12-26"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2023-10-25",
+            "2023-12-25"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/46331",
+      "https://www.joinquant.com/community/post/detailV2?postId=46331",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=8ff71cb140b5135a8504dba930e49615&postId=cdb25df88f02709e6072ad81c111b376&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=8ff71cb140b5135a8504dba930e49615"
+    ]
+  }
+}

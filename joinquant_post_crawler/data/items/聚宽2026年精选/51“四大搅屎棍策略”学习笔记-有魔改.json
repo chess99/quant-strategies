@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/51“四大搅屎棍策略”学习笔记-有魔改.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "51“四大搅屎棍策略”学习笔记-有魔改.txt",
+    "strategy_name": "“四大搅屎棍策略”学习笔记-有魔改",
+    "declared_title": "“四大搅屎棍策略”学习笔记-有魔改",
+    "declared_author": "口袋里的钥匙扣",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 12962,
+    "sha256": "f19b9ab9f8ef745c28cbd20325087cb7afd109a8611fb847fafe06a9569f9c24",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/49277",
+      "https://www.joinquant.com/post/49085"
+    ],
+    "primary_url": "https://www.joinquant.com/post/49277",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:12:15+08:00",
+    "requested_url": "https://www.joinquant.com/post/49277",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/5e72cb9b4cecf4317db5c427b0320efd",
+    "community_id": "5e72cb9b4cecf4317db5c427b0320efd",
+    "post": {
+      "postId": "47a1cac2b98279af7595f94bf8c04d82",
+      "uniqueKey": "5e72cb9b4cecf4317db5c427b0320efd",
+      "title": "“四大搅屎棍策略”学习笔记-有魔改",
+      "content": "继“偷鸡摸狗”策略学习后，又学习了这个搅屎棍策略，同样，策略来自蔡博。\n原文链接如下：https://www.joinquant.com/post/49085\n感谢蔡博的无私分享。\n\n第一部分，学习策略的逻辑思路。\n\n第一步，初始化设置\n这个就是常规设置，和一般策略不同的是定义了一些全局变量，如持股数量 (g.stock_num)、当前持仓列表 (g.hold_list)、昨日涨停的股票列表 (g.yesterday_HL_list) 和行业代码字典 (SW1)。\n设置交易运行时间，包括每日准备股票池 (prepare_stock_list)、每周调整持仓 (weekly_adjustment) 以及每日检查涨停股票 (check_limit_up)。\n\n第二步，行业分析\n使用了行业代码字典 (SW1) 来映射行业代码到行业名称。\n定义了 industry 函数来获取每个行业的成分股，并统计每个行业的股票数量。\n定义了 getStockIndustry 函数来获取股票所属的行业代码。\n\n第三步，股票池准备\nprepare_stock_list 函数获取当前持仓列表和昨日涨停的股票列表。\n使用 industry 函数统计每个行业的股票数量。未直接参与股票池准备，而是调用了 get_stock_list 函数。\n\n第四步，股票池选择\nget_stock_list 函数实现了股票池的选择逻辑：\n获取初始股票池 (initial_list)，即中证500指数的成分股。\n计算过去20天收盘价的移动平均线，并确定哪些股票的价格高于20日均线。\n计算每个行业高于20日均线的股票比例。\n如果特定行业（银行、有色金属、钢铁、煤炭）不在前几名，则选择小市值、高ROE和ROA的股票，并进一步过滤。\n如果特定行业在前几名，则清空股票池 (L=[])。\n\n第五步，持仓调整\nweekly_adjustment 函数实现了每周一次的持仓调整：\n根据 get_stock_list 函数获得目标股票池 (target_B)。\n卖出不在目标股票池中的股票，除非它们是昨日涨停的股票。\n如果目标股票池中有更多的股票可以买入，则按照可用现金分配买入这些股票。\n\n第六步，交易模块\nopen_position 和 close_position 函数用于开仓和平仓。\norder_target_value_ 函数用于自定义下单逻辑，并记录日志。\n\n第七步，股票过滤\n实现了一系列过滤函数：\nfilter_paused_stock 过滤停牌的股票。\nfilter_st_stock 过滤ST股及其他有退市风险的股票。\nfilter_kcbj_stock 过滤科创板和北交所股票。\nfilter_limitup_stock 过滤涨停的股票。\nfilter_limitdown_stock 过滤跌停的股票。\nfilter_new_stock 过滤上市不到一年半的新股。\n\n第八步，检查涨停股票\ncheck_limit_up 函数用于检查昨日涨停的股票是否继续保持涨停，如果不是则卖出。\n\n该策略的主要逻辑是：\n1.\t每周根据行业表现和特定条件选择股票池。\n2.\t每日检查持仓中的股票，如果不再符合买入条件，则卖出。\n3.\t每日检查昨日涨停的股票是否继续保持涨停，如果不是，则卖出。\n策略通过在特定条件下寻找具有上涨潜力的小市值股票，并通过行业分析和多种过滤条件来降低风险。\n\n\n第二部分，策略回测。\n上一篇策略的改动不多，在学习搅屎棍策略的过程中，感觉俩个策略具有一定的相似性。\n偷鸡摸狗策略，有俩种选择，选择“偷鸡”  or “摸狗”\n搅屎棍策略    也有俩种选择 选择“开仓买入” or “提桶跑路”\n1、\t我们先一顿回测看看策略的效果如何，这次为了节约时间，我们只回测近三年的数据看看效果。\n![Img](https://image.joinquant.com/9afaf18b86314ba9de9ab95a4f905f31) \n这是原版的三年回测\n ![Img](https://image.joinquant.com/4176af8b1127fbee26c3513cd3c39e99) \n以下是魔改回测\n     ![Img](https://image.joinquant.com/c07cfe828787a3f78726f0e08ecc1894) \n\n![Img](https://image.joinquant.com/0c281e0f8a29469b33d359a446eb30e0) \n\n![Img](https://image.joinquant.com/901695500e6d8f81784046d8d1651239) \n![Img](https://image.joinquant.com/acd1b1d5d717640d909b82b4ad266c5c) \n![Img](https://image.joinquant.com/b5da1fbf6aeae7df2eb05ea244aa1646) \n从回测结果来看，数量并非越多越好，也不是越少越好，但是不管怎么样，从回测来看，策略在近三年是有效的。\n\n第三部分，策略修改与思考。\n既然策略是有效的，那么有没有地方可以优化的呢？\n我们看到，策略曲线有一段一段时间是走平的，这是策略在空仓。这里我们是不是可以做点事情呢？\n魔改1：我们在策略空仓期间买入货币基金看看效果。\n \n\t年化由49%提升到了50%，回撤降低了一丢丢，没啥意思。\n\n![Img](https://image.joinquant.com/6482438758bc652d7b76e62810743789) \n为什么策略在四大搅屎棍期间空仓呢？因为这个时候大票长的好，那么我直接买入大票不就可以了？\n魔改2：空仓期间买入大票。\n思路来自这里，WY神的这个策略\nhttps://www.joinquant.com/view/community/detail/0db3cf08cedcc67052ba01fab20f0acf\n\n下面是回测结果\n ![Img](https://image.joinquant.com/042666b378a3ce7859a606906d8c31fa) \n收益上得到了大幅提升，同时最大回测也变大了。但是虽然最大回撤变大了，反弹的速度也很快。而且这个如果通过后视镜，其实也可以避免。\n原版回测\n ![Img](https://image.joinquant.com/fb81eff0bf7f8c3cba34f747bc337be4) \n魔改回撤\n ![Img](https://image.joinquant.com/684a84124913bdb3002e176de7c9932f) \n好了，魔改就到这里了。\n \n\n\n\n说说这次策略的学习体会吧。\n原版在股票选择上面是调用了“399101”这个板块，这里换了一个思路做了点小调整，影响不大；主要还是在空仓期间的股票选择上面，做了一些调整。\n 这次相对上一次偷鸡摸狗的策略来说，感觉自己动手的地方要多一点，改的地方比上一次学习要多一些。在学习的过程中，也出现很多的bug，反反复复看代码，总是会有新的体会。\n感觉这个策略还可以继续挖掘，比如在买入时间上把这个下单函数拆开，回撤上进行控制，仓位管理、如果要实盘还可以考虑滑点的影响等等，这些都可以继续思考。\n\n再次感谢蔡博的分享！！！",
+      "type": 1,
+      "status": "0",
+      "addTime": "2024-07-26 15:35:03",
+      "modTime": "2024-07-26 15:35:03",
+      "lastActiveTime": "2026-06-18 09:22:44",
+      "lastPubTime": "2024-07-26 15:35:03",
+      "backtestId": "c3d5df258aae53a3675d97a4f0219fa8",
+      "backtestName": "四大搅屎棍策略-5只改",
+      "replyCount": "45",
+      "viewCount": "9760",
+      "collectionCount": "158",
+      "likeCount": "104",
+      "disLikeCount": "0",
+      "backtestCloneCount": "367",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "33",
+      "followersCount": "356",
+      "followingCount": "10",
+      "author": {
+        "userId": "e86c10174beb835c748f632047463b1f",
+        "alias": "口袋里的钥匙扣",
+        "vipType": "VIP",
+        "headImgKey": "514351c205463b7dfa9f2276d5ac5298"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "5",
+          "name": "仓位管理"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        },
+        {
+          "id": "3715",
+          "name": "小市值"
+        },
+        {
+          "id": "3716",
+          "name": "搅屎棍"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "c3d5df258aae53a3675d97a4f0219fa8",
+        "backtest_name": "四大搅屎棍策略-5只改",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=c3d5df258aae53a3675d97a4f0219fa8&postId=5e72cb9b4cecf4317db5c427b0320efd&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2021-01-01",
+          "end_date": "2024-07-01",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "4e7e69f8dcd8c1b8dedf498c752db114",
+            "35720839"
+          ],
+          "numeric_backtest_id": "35720839",
+          "numeric_post_id": "49277",
+          "python_version": 3,
+          "clone_count": 343
+        },
+        "stats": {
+          "trading_days": 845,
+          "benchmark_volatility": 0.17505049922016,
+          "algorithm_volatility": 0.30548397666268,
+          "treasury_return": 0.13961643835616,
+          "algorithm_return": 4.923993023,
+          "benchmark_return": -0.27594530509292,
+          "annual_algo_return": 0.6927163260569,
+          "annual_bm_return": -0.091108083720654,
+          "sharpe": 2.1366630524705,
+          "excess_return_sharpe": "3.009",
+          "sortino": 3.2129674478667,
+          "information": 2.8750634655351,
+          "beta": 0.80992932859216,
+          "alpha": 0.75890460827777,
+          "excess_return": 7.1816927155762,
+          "avg_excess_return": "0.26%",
+          "max_drawdown": 0.26081083998347,
+          "max_drawdown_period": [
+            "2024-01-04",
+            "2024-02-05"
+          ],
+          "excess_return_max_drawdown": "20.27%",
+          "excess_return_max_drawdown_period": [
+            "2021-01-04",
+            "2021-02-05"
+          ],
+          "max_leverage": 0,
+          "period_label": "2024-07",
+          "__version": 101,
+          "win_ratio": 0.67796610169492,
+          "profit_loss_ratio": 2.6298188061574,
+          "win_count": 160,
+          "lose_count": 76,
+          "day_win_ratio": 0.56213017751479,
+          "avg_trade_return": 0.037542635332849,
+          "avg_position_days": 48.474576271186,
+          "turnover_rate": 0.087537168366584,
+          "report_done_seconds": 412.18108201027,
+          "report_done_cpu_seconds": 343.66
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 492.399302,
+          "benchmark_return_percent": -27.594531,
+          "annual_algo_return_percent": 69.271633,
+          "annual_bm_return_percent": -9.110808,
+          "max_drawdown_percent": 26.081084,
+          "algorithm_volatility_percent": 30.548398,
+          "benchmark_volatility_percent": 17.50505,
+          "win_ratio_percent": 67.79661,
+          "day_win_ratio_percent": 56.213018,
+          "avg_trade_return_percent": 3.754264,
+          "turnover_rate_percent": 8.753717,
+          "sharpe": 2.1366630524705,
+          "sortino": 3.2129674478667,
+          "information": 2.8750634655351,
+          "alpha": 0.75890460827777,
+          "beta": 0.80992932859216,
+          "profit_loss_ratio": 2.6298188061574,
+          "avg_position_days": 48.474576271186,
+          "trading_days": 845,
+          "win_count": 160,
+          "lose_count": 76,
+          "max_drawdown_period": [
+            "2024-01-04",
+            "2024-02-05"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2021-01-04",
+            "2021-02-05"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/49277",
+      "https://www.joinquant.com/community/post/detailV2?postId=49277",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=c3d5df258aae53a3675d97a4f0219fa8&postId=5e72cb9b4cecf4317db5c427b0320efd&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=c3d5df258aae53a3675d97a4f0219fa8"
+    ]
+  }
+}

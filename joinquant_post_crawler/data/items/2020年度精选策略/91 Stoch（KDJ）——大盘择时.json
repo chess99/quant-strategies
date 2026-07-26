@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/91 Stoch（KDJ）——大盘择时.txt",
+    "category": "2020年度精选策略",
+    "file_name": "91 Stoch（KDJ）——大盘择时.txt",
+    "strategy_name": "Stoch（KDJ）——大盘择时",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 2662,
+    "sha256": "be1a6d9c3c14667d87a0986c64d355e5e3672aa4c6bdd3ea42695f7963dcfbf0",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/11103"
+    ],
+    "primary_url": "https://www.joinquant.com/post/11103",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:27+08:00",
+    "requested_url": "https://www.joinquant.com/post/11103",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/44c1e1a9d934dbc3488393e4f5f497b5",
+    "community_id": "44c1e1a9d934dbc3488393e4f5f497b5",
+    "post": {
+      "postId": "55f7ce1f83e3d1e50e8cb12e7cc5baa9",
+      "uniqueKey": "44c1e1a9d934dbc3488393e4f5f497b5",
+      "title": "Stoch（KDJ）——大盘择时",
+      "content": "##**Stoch大盘择时策略**\r\n\r\nStoch其实就是KDJ指标了，他用于大盘择时表现真心不怎样，还很依赖参数设置\r\n但这东西调参花了不少时间，MACD对参数依赖不是非常高，不同参数的MACD表现都均可\r\n从这个角度上说Stoch稳定性不如MACD",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-02-09 16:05:46",
+      "modTime": "2018-02-09 16:05:46",
+      "lastActiveTime": "2023-10-17 08:52:03",
+      "lastPubTime": "2018-02-09 16:05:46",
+      "backtestId": "912064c21cc1ede8ed6e61b4847427a3",
+      "backtestName": "stoch策略-调参-局部最优",
+      "replyCount": "1",
+      "viewCount": "2633",
+      "collectionCount": "11",
+      "likeCount": "8",
+      "disLikeCount": "0",
+      "backtestCloneCount": "83",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "8",
+      "followersCount": "217",
+      "followingCount": "3",
+      "author": {
+        "userId": "0d026457650bd90847e17017f4a06c34",
+        "alias": "Max_Bai",
+        "introduction": "预测18年是黄金的舞台，无可阻挡",
+        "headImgKey": "67077897f9fd3c433a2afe17796c1985"
+      },
+      "tags": []
+    },
+    "backtests": [
+      {
+        "backtest_id": "912064c21cc1ede8ed6e61b4847427a3",
+        "backtest_name": "stoch策略-调参-局部最优",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=912064c21cc1ede8ed6e61b4847427a3&postId=44c1e1a9d934dbc3488393e4f5f497b5&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2005-07-01",
+          "end_date": "2018-02-01",
+          "base_capital": 10000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "0b41dd1c9271b9346c86a7e872323f7a",
+            "7516759"
+          ],
+          "numeric_backtest_id": "7516759",
+          "numeric_post_id": "11103",
+          "python_version": 2,
+          "clone_count": 84
+        },
+        "stats": {
+          "information": 0.070467479259572,
+          "benchmark_return": 3.832101569844,
+          "algorithm_volatility": 0.18269647853306,
+          "annual_bm_return": 0.13706184828358,
+          "__version": 101,
+          "max_drawdown": 0.28596358628404,
+          "sortino": 1.017569471769,
+          "period_label": "2018-02",
+          "trading_days": 3066,
+          "algorithm_return": 6.727952359,
+          "benchmark_volatility": 0.28102615648112,
+          "beta": 0.41051242717101,
+          "excess_return": 6.2240619480411,
+          "annual_algo_return": 0.18144170953521,
+          "sharpe": 0.77418957754906,
+          "alpha": 0.10159661461062,
+          "max_drawdown_period": [
+            "2007-05-29",
+            "2008-10-10"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.5038904109589,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.46510110893673,
+          "avg_position_days": 1441,
+          "win_ratio": 0.49382716049383,
+          "win_count": 40,
+          "avg_trade_return": 0.030943547373887,
+          "profit_loss_ratio": 2.5345601356952,
+          "lose_count": 41,
+          "report_done_seconds": 62.799298048019
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 672.795236,
+          "benchmark_return_percent": 383.210157,
+          "annual_algo_return_percent": 18.144171,
+          "annual_bm_return_percent": 13.706185,
+          "max_drawdown_percent": 28.596359,
+          "algorithm_volatility_percent": 18.269648,
+          "benchmark_volatility_percent": 28.102616,
+          "win_ratio_percent": 49.382716,
+          "day_win_ratio_percent": 46.510111,
+          "avg_trade_return_percent": 3.094355,
+          "sharpe": 0.77418957754906,
+          "sortino": 1.017569471769,
+          "information": 0.070467479259572,
+          "alpha": 0.10159661461062,
+          "beta": 0.41051242717101,
+          "profit_loss_ratio": 2.5345601356952,
+          "avg_position_days": 1441,
+          "trading_days": 3066,
+          "win_count": 40,
+          "lose_count": 41,
+          "max_drawdown_period": [
+            "2007-05-29",
+            "2008-10-10"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/11103",
+      "https://www.joinquant.com/community/post/detailV2?postId=11103",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=912064c21cc1ede8ed6e61b4847427a3&postId=44c1e1a9d934dbc3488393e4f5f497b5&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=912064c21cc1ede8ed6e61b4847427a3"
+    ]
+  }
+}

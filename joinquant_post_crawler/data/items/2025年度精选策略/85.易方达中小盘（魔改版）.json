@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/85.易方达中小盘（魔改版）.txt",
+    "category": "2025年度精选策略",
+    "file_name": "85.易方达中小盘（魔改版）.txt",
+    "strategy_name": "易方达中小盘（魔改版）",
+    "declared_title": "易方达中小盘（魔改版）",
+    "declared_author": "猪头港",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 2966,
+    "sha256": "c6a9c57e372dbab71292ad8df150350ed26406204d289d340223292396e33e84",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/28287"
+    ],
+    "primary_url": "https://www.joinquant.com/post/28287",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:39+08:00",
+    "requested_url": "https://www.joinquant.com/post/28287",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/864d85c567796e1a7099f96b0d4c24da",
+    "community_id": "864d85c567796e1a7099f96b0d4c24da",
+    "post": {
+      "postId": "1ecd5c4d94caf3e7f38ae3cd9afb97d2",
+      "uniqueKey": "864d85c567796e1a7099f96b0d4c24da",
+      "title": "易方达中小盘（魔改版）",
+      "content": "把里面的相关参数改一改\n\n你会发现我先前写的程序适用范围很广\n\n\n\n有些时候不用纠结  看长春高新 测长春宫高新这个后视镜问题\n\n而要看长春高新 思考如何降低**买他的回撤**\n\n\n因为只买了三年基金，在各位面前算一个新基民，也就不敢说太多了",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-07-06 23:06:51",
+      "modTime": "2020-07-06 23:06:51",
+      "lastActiveTime": "2024-11-10 14:42:11",
+      "lastPubTime": "2020-07-06 23:06:51",
+      "backtestId": "fcf54c9166c51ce948783e64b9225f0e",
+      "backtestName": "银河创新成长",
+      "replyCount": "43",
+      "viewCount": "6223",
+      "collectionCount": "77",
+      "likeCount": "35",
+      "disLikeCount": "0",
+      "backtestCloneCount": "304",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "17",
+      "followersCount": "500",
+      "followingCount": "1",
+      "author": {
+        "userId": "9d695c658aa078e0e801cf16a1c68bf3",
+        "alias": "猪头港",
+        "headImgKey": "53dc7439bc518accef63f997638c8bcf"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "fcf54c9166c51ce948783e64b9225f0e",
+        "backtest_name": "银河创新成长",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=fcf54c9166c51ce948783e64b9225f0e&postId=864d85c567796e1a7099f96b0d4c24da&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2016-01-01",
+          "end_date": "2020-07-05",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "7b473c1a2dbcb72c2a429cf584709305",
+            "17578536"
+          ],
+          "numeric_backtest_id": "17578536",
+          "numeric_post_id": "28287",
+          "python_version": 3,
+          "clone_count": 447
+        },
+        "stats": {
+          "trading_days": 1095,
+          "benchmark_volatility": 0.1961266530448,
+          "algorithm_volatility": 0.20032230036699,
+          "treasury_return": 0.17994520547945,
+          "algorithm_return": 2.306926717807,
+          "benchmark_return": 0.15156247510079,
+          "annual_algo_return": 0.31398402334545,
+          "annual_bm_return": 0.032743763213892,
+          "sharpe": 1.3677160398194,
+          "excess_return_sharpe": "1.179",
+          "sortino": 1.8923310678246,
+          "information": 1.4413267194799,
+          "beta": 0.52671062262278,
+          "alpha": 0.27780596034095,
+          "excess_return": 1.8716867641225,
+          "avg_excess_return": "0.10%",
+          "max_drawdown": 0.16288046311605,
+          "max_drawdown_period": [
+            "2019-11-22",
+            "2020-03-18"
+          ],
+          "excess_return_max_drawdown": "18.29%",
+          "excess_return_max_drawdown_period": [
+            "2019-11-22",
+            "2020-01-07"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-07",
+          "__version": 101,
+          "win_ratio": 0.47058823529412,
+          "profit_loss_ratio": 15.85987661635,
+          "win_count": 24,
+          "lose_count": 27,
+          "day_win_ratio": 0.52602739726027,
+          "avg_trade_return": 0.08197351771439,
+          "avg_position_days": 535.5,
+          "turnover_rate": 0.025156268400705,
+          "report_done_seconds": 111.35358023643,
+          "report_done_cpu_seconds": 101.93
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 230.692672,
+          "benchmark_return_percent": 15.156248,
+          "annual_algo_return_percent": 31.398402,
+          "annual_bm_return_percent": 3.274376,
+          "max_drawdown_percent": 16.288046,
+          "algorithm_volatility_percent": 20.03223,
+          "benchmark_volatility_percent": 19.612665,
+          "win_ratio_percent": 47.058824,
+          "day_win_ratio_percent": 52.60274,
+          "avg_trade_return_percent": 8.197352,
+          "turnover_rate_percent": 2.515627,
+          "sharpe": 1.3677160398194,
+          "sortino": 1.8923310678246,
+          "information": 1.4413267194799,
+          "alpha": 0.27780596034095,
+          "beta": 0.52671062262278,
+          "profit_loss_ratio": 15.85987661635,
+          "avg_position_days": 535.5,
+          "trading_days": 1095,
+          "win_count": 24,
+          "lose_count": 27,
+          "max_drawdown_period": [
+            "2019-11-22",
+            "2020-03-18"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2019-11-22",
+            "2020-01-07"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/28287",
+      "https://www.joinquant.com/community/post/detailV2?postId=28287",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=fcf54c9166c51ce948783e64b9225f0e&postId=864d85c567796e1a7099f96b0d4c24da&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=fcf54c9166c51ce948783e64b9225f0e"
+    ]
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/31蛇皮走位小市值策略V1.0.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "31蛇皮走位小市值策略V1.0.txt",
+    "strategy_name": "蛇皮走位小市值策略V1.0",
+    "declared_title": "蛇皮走位小市值策略V1.0",
+    "declared_author": "MarioC",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 6913,
+    "sha256": "bc5292f02ddbea1e3c30bee616740f7b069ba122681ed8df25f8fa712577dd9e",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/48284",
+      "https://www.joinquant.com/post/45510"
+    ],
+    "primary_url": "https://www.joinquant.com/post/48284",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:12:04+08:00",
+    "requested_url": "https://www.joinquant.com/post/48284",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/3000e9b3594a6ca08a58616f61362977",
+    "community_id": "3000e9b3594a6ca08a58616f61362977",
+    "post": {
+      "postId": "afee2e7f2586b1d5a3ddb871d9887f00",
+      "uniqueKey": "3000e9b3594a6ca08a58616f61362977",
+      "title": "蛇皮走位小市值策略V1.0",
+      "content": "首先\n致敬：https://www.joinquant.com/post/45510\n\n\n无广告！！！\n求别封号\n\n自从发现小市值经常出现一致性涨和跌之后。\n我陆陆续续研究了：\n大小盘反复横跳1.0\n大小盘反复横跳2.0\n\n今天介绍一个最近的研究：蛇皮走位小市值策略V1.0\n这个策略也是利用了小市值的一致性现象。\n原理：咱们可以利用一致性来判断小市值的拥挤度从而避险清仓，当然也可以利用拥挤度笃定小市值行情出现，上车干他一票。\n\n细节部分：买入、持有、卖出\n\n1、买入：每天计算最小市值20支相对于昨日涨跌幅的方差和均值。当方差小且出现涨跌幅均值大于0，（数据离散程度低，一致上涨）出现小市值被拥挤向上（羊群效应出现，赶紧上车）\n2、持有：非常麻烦，我自己靠脑补设置了一个条件，当目前还在赚钱的股票还没赚够40%，那么就一直持有。\n3、卖出或等待：前两个条件都不满足，等，或清\n\n这里面**持有**条件是最难设置的，非常麻烦，即使出现羊群效应，上车了，始终不知道什么时候卖的，这就是老话说的“会卖的才是师傅”",
+      "type": 1,
+      "status": "0",
+      "addTime": "2024-05-19 20:46:00",
+      "modTime": "2024-06-14 19:25:13",
+      "lastActiveTime": "2025-03-30 16:33:55",
+      "lastPubTime": "2024-06-14 19:25:13",
+      "backtestId": "f5fad9835e99286a9168f8d826fe525c",
+      "backtestName": "反小市值策略",
+      "replyCount": "35",
+      "viewCount": "5428",
+      "collectionCount": "100",
+      "likeCount": "63",
+      "disLikeCount": "0",
+      "backtestCloneCount": "345",
+      "notebookCloneCount": "22",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "62",
+      "followersCount": "4970",
+      "followingCount": "36",
+      "author": {
+        "userId": "82c51eadc68152e259eda276aab1c376",
+        "alias": "MarioC",
+        "introduction": "人工智能爱好者，gzh：Mario量化",
+        "headImgKey": "44901f16b2618622495468b8b1a70019"
+      },
+      "tags": [
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "f5fad9835e99286a9168f8d826fe525c",
+        "backtest_name": "反小市值策略",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=f5fad9835e99286a9168f8d826fe525c&postId=3000e9b3594a6ca08a58616f61362977&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2015-01-01",
+          "end_date": "2024-05-18",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "b7f80559f2af8d0011ba4c8316ab349c",
+            "34472233"
+          ],
+          "numeric_backtest_id": "34472233",
+          "numeric_post_id": "48284",
+          "python_version": 3,
+          "clone_count": 344
+        },
+        "stats": {
+          "trading_days": 2277,
+          "benchmark_volatility": 0.21980452677062,
+          "algorithm_volatility": 0.20721454645351,
+          "treasury_return": 0.37479452054795,
+          "algorithm_return": 19.5304467468,
+          "benchmark_return": 0.040826895322184,
+          "annual_algo_return": 0.39345493913065,
+          "annual_bm_return": 0.0044031094281776,
+          "sharpe": 1.7057438542808,
+          "excess_return_sharpe": "1.455",
+          "sortino": 2.2726662654429,
+          "information": 1.6466694108304,
+          "beta": 0.3666670213873,
+          "alpha": 0.36650714496727,
+          "excess_return": 18.72513089263,
+          "avg_excess_return": "0.14%",
+          "max_drawdown": 0.37794529410488,
+          "max_drawdown_period": [
+            "2015-05-18",
+            "2015-07-08"
+          ],
+          "excess_return_max_drawdown": "39.65%",
+          "excess_return_max_drawdown_period": [
+            "2017-03-06",
+            "2018-02-06"
+          ],
+          "max_leverage": 0,
+          "period_label": "2024-05",
+          "__version": 101,
+          "win_ratio": 0.82352941176471,
+          "profit_loss_ratio": 7.1867896104889,
+          "win_count": 616,
+          "lose_count": 132,
+          "day_win_ratio": 0.54545454545455,
+          "avg_trade_return": 0.04418794621575,
+          "avg_position_days": 49.863849765258,
+          "turnover_rate": 0.026193089588838,
+          "report_done_seconds": 695.12638020515,
+          "report_done_cpu_seconds": 517.02
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 1953.044675,
+          "benchmark_return_percent": 4.08269,
+          "annual_algo_return_percent": 39.345494,
+          "annual_bm_return_percent": 0.440311,
+          "max_drawdown_percent": 37.794529,
+          "algorithm_volatility_percent": 20.721455,
+          "benchmark_volatility_percent": 21.980453,
+          "win_ratio_percent": 82.352941,
+          "day_win_ratio_percent": 54.545455,
+          "avg_trade_return_percent": 4.418795,
+          "turnover_rate_percent": 2.619309,
+          "sharpe": 1.7057438542808,
+          "sortino": 2.2726662654429,
+          "information": 1.6466694108304,
+          "alpha": 0.36650714496727,
+          "beta": 0.3666670213873,
+          "profit_loss_ratio": 7.1867896104889,
+          "avg_position_days": 49.863849765258,
+          "trading_days": 2277,
+          "win_count": 616,
+          "lose_count": 132,
+          "max_drawdown_period": [
+            "2015-05-18",
+            "2015-07-08"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2017-03-06",
+            "2018-02-06"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/48284",
+      "https://www.joinquant.com/community/post/detailV2?postId=48284",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=f5fad9835e99286a9168f8d826fe525c&postId=3000e9b3594a6ca08a58616f61362977&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=f5fad9835e99286a9168f8d826fe525c"
+    ]
+  }
+}

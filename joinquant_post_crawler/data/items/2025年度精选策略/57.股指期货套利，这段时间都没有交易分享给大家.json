@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/57.股指期货套利，这段时间都没有交易分享给大家.txt",
+    "category": "2025年度精选策略",
+    "file_name": "57.股指期货套利，这段时间都没有交易分享给大家.txt",
+    "strategy_name": "股指期货套利，这段时间都没有交易分享给大家",
+    "declared_title": "股指期货套利，这段时间都没有交易分享给大家",
+    "declared_author": "节点量化",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 6188,
+    "sha256": "c39bab1c0370394034bcf2166a2b7ed65c5187a8782d40d55efde08e64f7659b",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/29295"
+    ],
+    "primary_url": "https://www.joinquant.com/post/29295",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:19+08:00",
+    "requested_url": "https://www.joinquant.com/post/29295",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/98d2ec8aea1cbe74c3064d06e0732bf1",
+    "community_id": "98d2ec8aea1cbe74c3064d06e0732bf1",
+    "post": {
+      "postId": "8e09510e5285de453061b4b01855d1c4",
+      "uniqueKey": "98d2ec8aea1cbe74c3064d06e0732bf1",
+      "title": "股指期货套利，这段时间都没有交易分享给大家",
+      "content": "运行一段时间目前收益30%",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-09-09 11:34:18",
+      "modTime": "2020-09-09 11:34:18",
+      "lastActiveTime": "2022-07-04 15:10:36",
+      "lastPubTime": "2020-09-09 11:34:18",
+      "backtestId": "dd6d1159ea4c2bfc46388512ebb04f9d",
+      "backtestName": "股指期货套利策略",
+      "replyCount": "92",
+      "viewCount": "4737",
+      "collectionCount": "42",
+      "likeCount": "26",
+      "disLikeCount": "0",
+      "backtestCloneCount": "146",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "23",
+      "followersCount": "89",
+      "followingCount": "1",
+      "author": {
+        "userId": "18f6bd1683431ca331f8399122ef6247",
+        "alias": "节点量化",
+        "introduction": "交易是一场修行",
+        "headImgKey": "e062b2513904c89bf6efdf3a18736a3b"
+      },
+      "tags": [
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        },
+        {
+          "id": "7",
+          "name": "期货"
+        },
+        {
+          "id": "5",
+          "name": "仓位管理"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "dd6d1159ea4c2bfc46388512ebb04f9d",
+        "backtest_name": "股指期货套利策略",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=dd6d1159ea4c2bfc46388512ebb04f9d&postId=98d2ec8aea1cbe74c3064d06e0732bf1&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2018-12-31",
+          "end_date": "2019-10-15",
+          "base_capital": 1000000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "e44127f433a0aebfe4b0dcdde81cd0ef",
+            "15130966"
+          ],
+          "numeric_backtest_id": "15130966",
+          "numeric_post_id": "29295",
+          "python_version": 3,
+          "clone_count": 349
+        },
+        "stats": {
+          "trading_days": 189,
+          "benchmark_volatility": 0.21573777260913,
+          "algorithm_volatility": 0.1774263717334,
+          "treasury_return": 0.031342465753425,
+          "algorithm_return": 2.0540241778201,
+          "benchmark_return": 0.30744191453673,
+          "annual_algo_return": 3.3789068044332,
+          "annual_bm_return": 0.42560066221476,
+          "sharpe": 18.818548628443,
+          "excess_return_sharpe": "6.441",
+          "sortino": 70.576117674311,
+          "information": 9.5268114242096,
+          "beta": -0.19419491234061,
+          "alpha": 3.4137884912305,
+          "excess_return": 1.3358775207251,
+          "avg_excess_return": "0.47%",
+          "max_drawdown": 0.016616090894473,
+          "max_drawdown_period": [
+            "2019-01-21",
+            "2019-01-31"
+          ],
+          "excess_return_max_drawdown": "16.31%",
+          "excess_return_max_drawdown_period": [
+            "2019-01-03",
+            "2019-02-25"
+          ],
+          "max_leverage": 0,
+          "period_label": "2019-10",
+          "__version": 101,
+          "win_ratio": 0.63928571428571,
+          "profit_loss_ratio": 1.8247803314348,
+          "win_count": 716,
+          "lose_count": 404,
+          "day_win_ratio": 0.59259259259259,
+          "avg_trade_return": -2.1623452773989,
+          "avg_position_days": 18.8,
+          "turnover_rate": 24.633748627174,
+          "report_done_seconds": 583.89443135262
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 205.402418,
+          "benchmark_return_percent": 30.744191,
+          "annual_algo_return_percent": 337.89068,
+          "annual_bm_return_percent": 42.560066,
+          "max_drawdown_percent": 1.661609,
+          "algorithm_volatility_percent": 17.742637,
+          "benchmark_volatility_percent": 21.573777,
+          "win_ratio_percent": 63.928571,
+          "day_win_ratio_percent": 59.259259,
+          "avg_trade_return_percent": -216.234528,
+          "turnover_rate_percent": 2463.374863,
+          "sharpe": 18.818548628443,
+          "sortino": 70.576117674311,
+          "information": 9.5268114242096,
+          "alpha": 3.4137884912305,
+          "beta": -0.19419491234061,
+          "profit_loss_ratio": 1.8247803314348,
+          "avg_position_days": 18.8,
+          "trading_days": 189,
+          "win_count": 716,
+          "lose_count": 404,
+          "max_drawdown_period": [
+            "2019-01-21",
+            "2019-01-31"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2019-01-03",
+            "2019-02-25"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/29295",
+      "https://www.joinquant.com/community/post/detailV2?postId=29295",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=dd6d1159ea4c2bfc46388512ebb04f9d&postId=98d2ec8aea1cbe74c3064d06e0732bf1&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=dd6d1159ea4c2bfc46388512ebb04f9d"
+    ]
+  }
+}

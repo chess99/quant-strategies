@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/4.红利搬砖，年化29%.txt",
+    "category": "2025年度精选策略",
+    "file_name": "4.红利搬砖，年化29%.txt",
+    "strategy_name": "红利搬砖，年化29%",
+    "declared_title": "红利搬砖",
+    "declared_author": "Gyro",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 3167,
+    "sha256": "917e420080bef6cb57794cec57c7f2946eb50ae5537ceba4940bb39bea1be2ae",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/27994"
+    ],
+    "primary_url": "https://www.joinquant.com/post/27994",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:08+08:00",
+    "requested_url": "https://www.joinquant.com/post/27994",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/0e0b9cd83583176ddada8f9dd9e63b92",
+    "community_id": "0e0b9cd83583176ddada8f9dd9e63b92",
+    "post": {
+      "postId": "fb645ccb04767f5e855ed5576397a95f",
+      "uniqueKey": "0e0b9cd83583176ddada8f9dd9e63b92",
+      "title": "红利搬砖",
+      "content": "----",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-06-17 21:29:52",
+      "modTime": "2023-03-02 23:03:00",
+      "lastActiveTime": "2023-03-02 23:03:00",
+      "lastPubTime": "2023-03-02 23:03:00",
+      "replyCount": "76",
+      "viewCount": "7856",
+      "collectionCount": "91",
+      "likeCount": "63",
+      "disLikeCount": "0",
+      "backtestCloneCount": "277",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "227",
+      "followersCount": "5889",
+      "followingCount": "1",
+      "author": {
+        "userId": "1204396db6d1b2b32499b5994ea9b1ab",
+        "alias": "Gyron",
+        "introduction": "\r\n                    \r\n                     ",
+        "headImgKey": "600eaeda447f70216671ecc0af5f5fe2"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "68ebb98ed0f03ca521a9669ceb4c2220",
+        "backtest_name": "红利搬砖",
+        "location": "author_reply",
+        "reply_id": "c95a1c4687e17aab38ed2aef1ffbc6ed",
+        "reply_add_time": "2020-06-21 09:36:39",
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=68ebb98ed0f03ca521a9669ceb4c2220&postId=0e0b9cd83583176ddada8f9dd9e63b92&replyId=c95a1c4687e17aab38ed2aef1ffbc6ed&iframe=1",
+        "configuration": {
+          "start_date": "2009-05-01",
+          "end_date": "2020-06-01",
+          "base_capital": 1234567,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "c08c6b7b6c5e321e481c53d05f4cc0b0",
+            "17427213"
+          ],
+          "numeric_backtest_id": "17427213",
+          "numeric_post_id": "27994",
+          "python_version": 3,
+          "clone_count": 239
+        },
+        "stats": {
+          "trading_days": 2695,
+          "benchmark_volatility": 0.23719742645611,
+          "algorithm_volatility": 0.20146529495982,
+          "treasury_return": 0.44339726027397,
+          "algorithm_return": 1.3073413584682,
+          "benchmark_return": 0.51408539305282,
+          "annual_algo_return": 0.080646982588952,
+          "annual_bm_return": 0.039229669351281,
+          "sharpe": 0.2017567472207,
+          "excess_return_sharpe": "-0.001",
+          "sortino": 0.27987202419014,
+          "information": 0.20748803170295,
+          "beta": 0.50660212897065,
+          "alpha": 0.041037233735604,
+          "excess_return": 0.52391758685151,
+          "avg_excess_return": "0.02%",
+          "max_drawdown": 0.29898980872096,
+          "max_drawdown_period": [
+            "2015-07-07",
+            "2015-08-25"
+          ],
+          "excess_return_max_drawdown": "40.09%",
+          "excess_return_max_drawdown_period": [
+            "2014-06-19",
+            "2015-06-02"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-06",
+          "__version": 101,
+          "win_ratio": 0.75,
+          "profit_loss_ratio": 9.2285779400011,
+          "win_count": 6,
+          "lose_count": 2,
+          "day_win_ratio": 0.48460111317254,
+          "avg_trade_return": 0.14937291152541,
+          "avg_position_days": 673.75,
+          "turnover_rate": 0.0032663525321533,
+          "report_done_seconds": 37.207442045212,
+          "report_done_cpu_seconds": 24.93
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 130.734136,
+          "benchmark_return_percent": 51.408539,
+          "annual_algo_return_percent": 8.064698,
+          "annual_bm_return_percent": 3.922967,
+          "max_drawdown_percent": 29.898981,
+          "algorithm_volatility_percent": 20.146529,
+          "benchmark_volatility_percent": 23.719743,
+          "win_ratio_percent": 75.0,
+          "day_win_ratio_percent": 48.460111,
+          "avg_trade_return_percent": 14.937291,
+          "turnover_rate_percent": 0.326635,
+          "sharpe": 0.2017567472207,
+          "sortino": 0.27987202419014,
+          "information": 0.20748803170295,
+          "alpha": 0.041037233735604,
+          "beta": 0.50660212897065,
+          "profit_loss_ratio": 9.2285779400011,
+          "avg_position_days": 673.75,
+          "trading_days": 2695,
+          "win_count": 6,
+          "lose_count": 2,
+          "max_drawdown_period": [
+            "2015-07-07",
+            "2015-08-25"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2014-06-19",
+            "2015-06-02"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 2,
+    "request_urls": [
+      "https://www.joinquant.com/post/27994",
+      "https://www.joinquant.com/community/post/detailV2?postId=27994",
+      "https://www.joinquant.com/community/post/replyList?page=1&postId=0e0b9cd83583176ddada8f9dd9e63b92",
+      "https://www.joinquant.com/community/post/replyList?page=2&postId=0e0b9cd83583176ddada8f9dd9e63b92",
+      "https://www.joinquant.com/community/post/replyList?page=3&postId=0e0b9cd83583176ddada8f9dd9e63b92",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=68ebb98ed0f03ca521a9669ceb4c2220&postId=0e0b9cd83583176ddada8f9dd9e63b92&replyId=c95a1c4687e17aab38ed2aef1ffbc6ed&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=68ebb98ed0f03ca521a9669ceb4c2220"
+    ]
+  }
+}

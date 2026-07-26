@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/58.北向RSRS与布林带择时.txt",
+    "category": "2023年度精选策略",
+    "file_name": "58.北向RSRS与布林带择时.txt",
+    "strategy_name": "北向RSRS与布林带择时",
+    "declared_title": "北向RSRS与布林带择时",
+    "declared_author": "韭菜001",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 7933,
+    "sha256": "1ca06cbc4d95a15dd646bb1aa73b50fbf5503252071f9ed0a1461d08aa3c1e69",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/34253"
+    ],
+    "primary_url": "https://www.joinquant.com/post/34253",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:09:23+08:00",
+    "requested_url": "https://www.joinquant.com/post/34253",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/b6c8d8ad459ac6188a77289916bc7407",
+    "community_id": "b6c8d8ad459ac6188a77289916bc7407",
+    "post": {
+      "postId": "7f3418ac8c88e0020333e73aecb0a566",
+      "uniqueKey": "b6c8d8ad459ac6188a77289916bc7407",
+      "title": "北向RSRS与布林带择时",
+      "content": "alpha还可以\nIR也海星\n如果不做沪深300的限制全市场选\n回撤可以更低一些，但alpha和sharpe就低一些",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-08-14 12:24:11",
+      "modTime": "2021-09-06 20:49:15",
+      "lastActiveTime": "2023-02-02 09:02:52",
+      "lastPubTime": "2021-09-06 20:49:15",
+      "backtestId": "15ac07f93abd47cabfee9902a4fc7a8c",
+      "backtestName": "北上布林带与RSRS择时",
+      "replyCount": "71",
+      "viewCount": "2625",
+      "collectionCount": "44",
+      "likeCount": "28",
+      "disLikeCount": "0",
+      "backtestCloneCount": "188",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "8",
+      "followersCount": "47",
+      "followingCount": "4",
+      "author": {
+        "userId": "8d0774cbe6b1b4e0f54d64506ee3096f",
+        "alias": "韭菜001",
+        "introduction": "过年好"
+      },
+      "tags": [
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "3",
+          "name": "择时"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "15ac07f93abd47cabfee9902a4fc7a8c",
+        "backtest_name": "北上布林带与RSRS择时",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=15ac07f93abd47cabfee9902a4fc7a8c&postId=b6c8d8ad459ac6188a77289916bc7407&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2017-05-14",
+          "end_date": "2021-02-10",
+          "base_capital": 800000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "d46300a082b4b28a5bf3df266647f72f",
+            "21568614"
+          ],
+          "numeric_backtest_id": "21568614",
+          "numeric_post_id": "34253",
+          "python_version": 3,
+          "clone_count": 188
+        },
+        "stats": {
+          "trading_days": 916,
+          "benchmark_volatility": 0.19970049214419,
+          "algorithm_volatility": 0.15489812348639,
+          "treasury_return": 0.14980821917808,
+          "algorithm_return": 3.222274687175,
+          "benchmark_return": 0.71552971896804,
+          "annual_algo_return": 0.48158902435813,
+          "annual_bm_return": 0.15870617228088,
+          "sharpe": 2.8508352097431,
+          "excess_return_sharpe": "1.341",
+          "sortino": 4.6940492740595,
+          "information": 1.8299724821325,
+          "beta": 0.41050555230786,
+          "alpha": 0.39285948154361,
+          "excess_return": 1.4612075445215,
+          "avg_excess_return": "0.10%",
+          "max_drawdown": 0.095402195017138,
+          "max_drawdown_period": [
+            "2018-12-05",
+            "2019-01-03"
+          ],
+          "excess_return_max_drawdown": "14.20%",
+          "excess_return_max_drawdown_period": [
+            "2017-05-23",
+            "2018-01-24"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-02",
+          "__version": 101,
+          "win_ratio": 0.82456140350877,
+          "profit_loss_ratio": 18.439193072832,
+          "win_count": 141,
+          "lose_count": 30,
+          "day_win_ratio": 0.52947598253275,
+          "avg_trade_return": 0.11506484446395,
+          "avg_position_days": 173.60869565217,
+          "turnover_rate": 0.011922015037988,
+          "report_done_seconds": 54.562560796738,
+          "report_done_cpu_seconds": 45.08
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 322.227469,
+          "benchmark_return_percent": 71.552972,
+          "annual_algo_return_percent": 48.158902,
+          "annual_bm_return_percent": 15.870617,
+          "max_drawdown_percent": 9.54022,
+          "algorithm_volatility_percent": 15.489812,
+          "benchmark_volatility_percent": 19.970049,
+          "win_ratio_percent": 82.45614,
+          "day_win_ratio_percent": 52.947598,
+          "avg_trade_return_percent": 11.506484,
+          "turnover_rate_percent": 1.192202,
+          "sharpe": 2.8508352097431,
+          "sortino": 4.6940492740595,
+          "information": 1.8299724821325,
+          "alpha": 0.39285948154361,
+          "beta": 0.41050555230786,
+          "profit_loss_ratio": 18.439193072832,
+          "avg_position_days": 173.60869565217,
+          "trading_days": 916,
+          "win_count": 141,
+          "lose_count": 30,
+          "max_drawdown_period": [
+            "2018-12-05",
+            "2019-01-03"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2017-05-23",
+            "2018-01-24"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/34253",
+      "https://www.joinquant.com/community/post/detailV2?postId=34253",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=15ac07f93abd47cabfee9902a4fc7a8c&postId=b6c8d8ad459ac6188a77289916bc7407&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=15ac07f93abd47cabfee9902a4fc7a8c"
+    ]
+  }
+}

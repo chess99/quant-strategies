@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/23.低AH溢价选股.txt",
+    "category": "2023年度精选策略",
+    "file_name": "23.低AH溢价选股.txt",
+    "strategy_name": "低AH溢价选股",
+    "declared_title": "低AH溢价选股",
+    "declared_author": "子鹿",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 3118,
+    "sha256": "f51b43b76309213411979dd1868f3c90cccb1b919943971155d9399446c4cf1f",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/31236"
+    ],
+    "primary_url": "https://www.joinquant.com/post/31236",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:56+08:00",
+    "requested_url": "https://www.joinquant.com/post/31236",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/e58fd6fcdc8252126952ab1c449cb24d",
+    "community_id": "e58fd6fcdc8252126952ab1c449cb24d",
+    "post": {
+      "postId": "121bc5ba71ad4691c85db8e5f811afd7",
+      "uniqueKey": "e58fd6fcdc8252126952ab1c449cb24d",
+      "title": "低AH溢价选股",
+      "content": "在雪球上看到一篇文章《买入低AH溢价A股，年化超额收益+20%》，链接：https://xueqiu.com/5469190406/127583377。\n策略原理是：对于优秀的公司，港资大量买入H股，拉升H股价格，压低AH溢价。所以AH溢价较低，往往意味着港资看好这些公司。港资以机构为主，港股长期估值低于A股，这时港资依然看好的股票，往往是好公司，值得持有。\n\n简单地写了下，按AH溢价从低到高排序，选取最低的5只股票，等权买入，每周第一个交易日开盘换仓。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-01-13 20:47:34",
+      "modTime": "2021-01-13 20:47:34",
+      "lastActiveTime": "2025-11-16 19:45:00",
+      "lastPubTime": "2021-01-13 20:47:34",
+      "backtestId": "1d4f9aa80111aa4adaf6d996cc14f828",
+      "backtestName": "低AH溢价选股",
+      "replyCount": "14",
+      "viewCount": "2829",
+      "collectionCount": "46",
+      "likeCount": "17",
+      "disLikeCount": "0",
+      "backtestCloneCount": "311",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "6",
+      "followersCount": "51",
+      "followingCount": "34",
+      "author": {
+        "userId": "98ec7a0155dab51c6e574bf6cd196c14",
+        "alias": "子鹿"
+      },
+      "tags": [
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "1d4f9aa80111aa4adaf6d996cc14f828",
+        "backtest_name": "低AH溢价选股",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=1d4f9aa80111aa4adaf6d996cc14f828&postId=e58fd6fcdc8252126952ab1c449cb24d&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2016-01-01",
+          "end_date": "2021-01-12",
+          "base_capital": 5000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "a4752c1a0083b5f9e4f6bcff5df281c0",
+            "19415809"
+          ],
+          "numeric_backtest_id": "19415809",
+          "numeric_post_id": "31236",
+          "python_version": 3,
+          "clone_count": 337
+        },
+        "stats": {
+          "trading_days": 1225,
+          "benchmark_volatility": 0.19816664137623,
+          "algorithm_volatility": 0.22182563307334,
+          "treasury_return": 0.20109589041096,
+          "algorithm_return": 3.72403701819,
+          "benchmark_return": 0.49995577604991,
+          "annual_algo_return": 0.37282429897615,
+          "annual_bm_return": 0.086261478134655,
+          "sharpe": 1.5003870128305,
+          "excess_return_sharpe": "1.819",
+          "sortino": 2.1877594535479,
+          "information": 2.3271298268665,
+          "beta": 0.93344958984547,
+          "alpha": 0.28964154118571,
+          "excess_return": 2.1494508662319,
+          "avg_excess_return": "0.10%",
+          "max_drawdown": 0.18604315738,
+          "max_drawdown_period": [
+            "2016-01-04",
+            "2016-01-28"
+          ],
+          "excess_return_max_drawdown": "9.45%",
+          "excess_return_max_drawdown_period": [
+            "2019-01-31",
+            "2019-03-11"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-01",
+          "__version": 101,
+          "win_ratio": 0.61818181818182,
+          "profit_loss_ratio": 4.1736062857725,
+          "win_count": 102,
+          "lose_count": 63,
+          "day_win_ratio": 0.52571428571429,
+          "avg_trade_return": 0.051747364829223,
+          "avg_position_days": 231.15384615385,
+          "turnover_rate": 0.026024746677179,
+          "report_done_seconds": 28.066245794296,
+          "report_done_cpu_seconds": 22.19
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 372.403702,
+          "benchmark_return_percent": 49.995578,
+          "annual_algo_return_percent": 37.28243,
+          "annual_bm_return_percent": 8.626148,
+          "max_drawdown_percent": 18.604316,
+          "algorithm_volatility_percent": 22.182563,
+          "benchmark_volatility_percent": 19.816664,
+          "win_ratio_percent": 61.818182,
+          "day_win_ratio_percent": 52.571429,
+          "avg_trade_return_percent": 5.174736,
+          "turnover_rate_percent": 2.602475,
+          "sharpe": 1.5003870128305,
+          "sortino": 2.1877594535479,
+          "information": 2.3271298268665,
+          "alpha": 0.28964154118571,
+          "beta": 0.93344958984547,
+          "profit_loss_ratio": 4.1736062857725,
+          "avg_position_days": 231.15384615385,
+          "trading_days": 1225,
+          "win_count": 102,
+          "lose_count": 63,
+          "max_drawdown_period": [
+            "2016-01-04",
+            "2016-01-28"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2019-01-31",
+            "2019-03-11"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/31236",
+      "https://www.joinquant.com/community/post/detailV2?postId=31236",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=1d4f9aa80111aa4adaf6d996cc14f828&postId=e58fd6fcdc8252126952ab1c449cb24d&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=1d4f9aa80111aa4adaf6d996cc14f828"
+    ]
+  }
+}

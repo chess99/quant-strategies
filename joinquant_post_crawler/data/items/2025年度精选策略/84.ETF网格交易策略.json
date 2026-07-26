@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/84.ETF网格交易策略.txt",
+    "category": "2025年度精选策略",
+    "file_name": "84.ETF网格交易策略.txt",
+    "strategy_name": "ETF网格交易策略",
+    "declared_title": "ETF网格交易策略",
+    "declared_author": "pia19",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 2764,
+    "sha256": "681065583e64b1eee1fab68268a51d74ece264104bfcbef2124e9d17c1762671",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/27759"
+    ],
+    "primary_url": "https://www.joinquant.com/post/27759",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:38+08:00",
+    "requested_url": "https://www.joinquant.com/post/27759",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/3e6e585f4ec3e792c15d1b5e2ef366f5",
+    "community_id": "3e6e585f4ec3e792c15d1b5e2ef366f5",
+    "post": {
+      "postId": "29118ea7618bf77bd63ea6c8f52602ba",
+      "uniqueKey": "3e6e585f4ec3e792c15d1b5e2ef366f5",
+      "title": "ETF网格交易策略",
+      "content": "本文因为我看了一些关于ETF网格交易后的一些想法和实践，测试下ETF的网格交易的收益和波动，以及ETF网格交易的可行性。我先简单介绍下ETF网格交易，网格交易就是将一个ETF的价格划分出几个交易区间，当股价跌破这个交易区间时买入一部分ETF，当股价突破交易区间时则卖出一部分。从测试结果上看网格交易比较适用于震荡行情，准确点说是比较适合用在震荡的ETF上。\n1、至于哪只ETF最适合做网格交易，我选择证券ETF作为标的。因为证券ETF自上市以来波动率较高但是收益不高，甚至在大部分时间净值都是低于1的。此类ETF最适合做网格交易。选则ETF时，要避免那种单边上涨或下跌的ETF。\n2、为什么选择ETF作为网格交易的标的？每当我们做单只股票时，股票会出现单边行情。这也是网格交易最怕的。单边上涨行情倒还好，一直都没有买点。当出现单边下跌行情时，那就是个无底洞了。也就是说当我们选择标的时，一定要选择不会死的，也要尽量避免选择一直涨标的。综上所述，ETF似乎是最适合做网格交易的。\n至于价格区间的选择和资金分成的份数也好，就要看个人意愿了。在刚开始测试时，我选择0.9-1.5的大区间，并且把它分成了五个小区间。资金也分成了五份。但是在后来的测试中我发现有那么一两份资金无论在那种情况下都是用不到的。所以在之后的回测中我把资金分成了3份，尽量提高他的利用率。因为在正常的价格波动中从1.5跌倒0.9的概率是很小的，大部分情况都是波动个0.2或0.3左右。五个区间分成五份是没有多少必要的，反而会降低资金的利用率。\n关于买卖点信号位的设定，每当账户买入时，买卖点则会下降一个单位区间，卖出则反之。\n在这个策略中卖出份数也还是根据初始资金份数设定的，而不是买入时的基金份额。所以每当盈利时，我更倾向把收益留作份额。如果卖出所有份额的话，当出现单边上涨行情，网格交易就不会有多余的份额去享受这波上涨。但是如果留下一部分收益时，手中就有多余的筹码我们就可以在这次上涨行情中盈利。\n\n分享给大家其他关于网格交易的文章，我也是看了他的文章收到的启发！！https://mp.weixin.qq.com/s/-czfqGvxkDcay_tSI1jv5g\n第一次写文章希望大家给个赞！！！ 求点积分",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-06-03 10:12:28",
+      "modTime": "2020-06-03 10:12:28",
+      "lastActiveTime": "2025-06-14 14:48:32",
+      "lastPubTime": "2020-06-03 10:12:28",
+      "backtestId": "f987f99989000506e964e9456528176d",
+      "backtestName": "ETF网格交易",
+      "replyCount": "121",
+      "viewCount": "14705",
+      "collectionCount": "150",
+      "likeCount": "94",
+      "disLikeCount": "0",
+      "backtestCloneCount": "721",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "2",
+      "followersCount": "64",
+      "followingCount": "16",
+      "author": {
+        "userId": "b519b72fb64a2e1c147c07b95af3e7c1",
+        "alias": "pia19",
+        "headImgKey": "8c4659edc9c3f56511b0687acafdabb4"
+      },
+      "tags": [
+        {
+          "id": "5",
+          "name": "仓位管理"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "840",
+          "name": "ETF"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "f987f99989000506e964e9456528176d",
+        "backtest_name": "ETF网格交易",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=f987f99989000506e964e9456528176d&postId=3e6e585f4ec3e792c15d1b5e2ef366f5&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2019-04-01",
+          "end_date": "2020-06-01",
+          "base_capital": 20000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "8fc9b4883f98e44c9d344d68a9ea4cf3",
+            "18026410"
+          ],
+          "numeric_backtest_id": "18026410",
+          "numeric_post_id": "27759",
+          "python_version": 3,
+          "clone_count": 721
+        },
+        "stats": {
+          "trading_days": 284,
+          "benchmark_volatility": 0.20822426656344,
+          "algorithm_volatility": 0.095661588838179,
+          "treasury_return": 0.046794520547945,
+          "algorithm_return": 0.1226,
+          "benchmark_return": 0.025565936875378,
+          "annual_algo_return": 0.10716457410905,
+          "annual_bm_return": 0.02247110938959,
+          "sharpe": 0.70210598553476,
+          "excess_return_sharpe": "0.275",
+          "sortino": 1.0386571527719,
+          "information": 0.55160763021017,
+          "beta": 0.33367079415978,
+          "alpha": 0.073013452959766,
+          "excess_return": 0.094615138467121,
+          "avg_excess_return": "0.04%",
+          "max_drawdown": 0.051053810874208,
+          "max_drawdown_period": [
+            "2020-03-05",
+            "2020-05-25"
+          ],
+          "excess_return_max_drawdown": "9.28%",
+          "excess_return_max_drawdown_period": [
+            "2020-03-23",
+            "2020-05-19"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-06",
+          "__version": 101,
+          "win_ratio": 0.70588235294118,
+          "profit_loss_ratio": 3.6856676811245,
+          "win_count": 12,
+          "lose_count": 5,
+          "day_win_ratio": 0.50704225352113,
+          "avg_trade_return": 0.030085386890482,
+          "avg_position_days": 262,
+          "turnover_rate": 0.018413509023047,
+          "report_done_seconds": 20.601821184158,
+          "report_done_cpu_seconds": 21.08
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 12.26,
+          "benchmark_return_percent": 2.556594,
+          "annual_algo_return_percent": 10.716457,
+          "annual_bm_return_percent": 2.247111,
+          "max_drawdown_percent": 5.105381,
+          "algorithm_volatility_percent": 9.566159,
+          "benchmark_volatility_percent": 20.822427,
+          "win_ratio_percent": 70.588235,
+          "day_win_ratio_percent": 50.704225,
+          "avg_trade_return_percent": 3.008539,
+          "turnover_rate_percent": 1.841351,
+          "sharpe": 0.70210598553476,
+          "sortino": 1.0386571527719,
+          "information": 0.55160763021017,
+          "alpha": 0.073013452959766,
+          "beta": 0.33367079415978,
+          "profit_loss_ratio": 3.6856676811245,
+          "avg_position_days": 262,
+          "trading_days": 284,
+          "win_count": 12,
+          "lose_count": 5,
+          "max_drawdown_period": [
+            "2020-03-05",
+            "2020-05-25"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-03-23",
+            "2020-05-19"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/27759",
+      "https://www.joinquant.com/community/post/detailV2?postId=27759",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=f987f99989000506e964e9456528176d&postId=3e6e585f4ec3e792c15d1b5e2ef366f5&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=f987f99989000506e964e9456528176d"
+    ]
+  }
+}

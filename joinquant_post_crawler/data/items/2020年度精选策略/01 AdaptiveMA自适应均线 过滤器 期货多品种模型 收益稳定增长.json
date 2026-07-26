@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/01 AdaptiveMA自适应均线 过滤器 期货多品种模型 收益稳定增长.txt",
+    "category": "2020年度精选策略",
+    "file_name": "01 AdaptiveMA自适应均线 过滤器 期货多品种模型 收益稳定增长.txt",
+    "strategy_name": "AdaptiveMA自适应均线 过滤器 期货多品种模型 收益稳定增长",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 14602,
+    "sha256": "2263acf4cd61f815fd61c0d21f700712e5d76ded961bca169e5f990cf41e3fec",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/15565"
+    ],
+    "primary_url": "https://www.joinquant.com/post/15565",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:05:07+08:00",
+    "requested_url": "https://www.joinquant.com/post/15565",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/80fb9790ebd4aa926b5e071fcca8e301",
+    "community_id": "80fb9790ebd4aa926b5e071fcca8e301",
+    "post": {
+      "postId": "d8ecec9d75f524dc7ec220a9ccab0137",
+      "uniqueKey": "80fb9790ebd4aa926b5e071fcca8e301",
+      "title": "期货 AdaptiveMA自适应均线",
+      "content": "网上关于AMA均线，也就是考夫曼Perry.J.Kaufman的自适应均线系统描已经不少了，其核心就是根据波动率来自适应周期，但是很清晰地说明白各个模块的原理，以及很简单地使用python平台写出来，好像存在诸多限制，基于TB或者文华财经和MC的模型源码很多，我觉得国内三大矿，在聚宽平台上写最合适。\n\n今天仅写一个简单的交易框架，并且是在日频上，不涉及到bar内穿价成交，也不涉及到过于复杂的其他优化逻辑，希望给聚宽的各位新手和大神们一些新思路，这类模型你们一定接触过很多，但是要解决移仓换月等诸多问题，依然需要代码精细处理。\n\n\n**AMA自适应均线原理和优势**\n\n\n由 SMA、WMA、EMA 均线的计算公式可知，其不同交易日的权重是相对固定的，因此虽然三种均线都可以在一定程度上把握趋势，但是却很难根据市场变化去进行调整，进而更好的适应和把握趋势。\n\n自适应移动平均AdaptiveMovingAverage，它通过思路非常清晰的构造，计算方向性和波动性，完成了类似调节均线参数的效果。\n\n方向性direction = ratio_price - price[10] ; \n波动性volatility = Summation( Abs(price - price[1]), 10);  \nER效率系数Efficiency_Ratio = Abs(direction / volatility) ;\n\nER的构造是AMA均线的核心。这个均线的设计者佩里•考夫曼，针对美国股票市场，设定了两个周期参数2日和30日，他希望均线值在这两个值之间变化。\n\n \n ![21.png][1]\n\n![22.png][2]\n\n\nAMA能自适应的秘密在于ER效率系数，Efficiency_Ratio是方向性和波动率的比值。ER较高时意味着趋势较为显著，它不仅考虑方向，还考虑波动，当波动率过大时，ER系数相应降低，对于趋势的强度描述性也随之下降。\n\n具体到AMA和过滤器的关系，我看过濮元恺老师的公众号和书中《量化投资技术分析实战》也对AMA系统有描述，我还去要过一个源码，这张图片应该能解答这个模块的设计疑问。\n\n\n![2222.png][3]\n\n\n按照课程中的讲解，完整AMA系统的交易规则很简单，当两日AMA值之差大于过滤器，做多，小于过滤器，做空。\n\n标准差过滤器像是一个**控制系统，驾驭着AMA自适应均线，你可以理解为AMA均线是汽车的引擎，而标准差过滤器是汽车的变速箱**。\n\n  ![23.png][4]\n\n那么这两部分，的确是可以通过调参，来优化整套系统，使它更为贴合市场走势。在这里我们分别选择了标准差部分的的过滤器系数fliterSet和AMA部分的ER周期参数，因为商品期货各品种趋势度不同，所以fliterSet肯定应该差别对待。而ER周期参数也因为各品种的K线数目不同，和计算一个阶段的波动率周期不同，可以区别对待。\n\n对于商品期货的测试效果 你应该很满意\n\n还是保持了和我演示的双均线模型一样的基础设置：\n\n    # 设定账户为金融账户\n    set_subportfolios([SubPortfolioConfig(cash=context.portfolio.starting_cash, type='futures')])\n    # 期货类每笔交易时的手续费是：买入时万分之0.23,卖出时万分之0.23,平今仓为万分之23\n    set_order_cost(OrderCost(open_commission=0.00005, close_commission=0.00005,close_today_commission=0.00005), type='index_futures')\n    # 设定保证金比例\n    set_option('futures_margin_rate', 0.15)\n    # 设置滑点（单边万5，双边千1）\n    set_slippage(PriceRelatedSlippage(0.001),type='future')\n\n在AMA值的计算方面，我偷了懒，没有再用基础的模型，一点一点计算ER效率系数，计算AMA值，而是使用了TA-LIB：\n\nKAMA - Kaufman Adaptive Moving Averagereal = KAMA(close, timeperiod=30)\n\n![24.png][5]\n \n\n通过介绍可以看到，我把价格通过attribute_history提出来之后，直接使用了g.AMA[IndexFuture] = talib.KAMA(close,g.Window)。\n\n但是按照之前在其他软件建模的经验，AMA值应该可以调节的参数还有：最大周期和最小周期，但是我没找到这两个参数的调节方案，所以估计用了默认值2和30。考虑到我们测试的依然是商品期货日线周期，所以这两个值是合理的。\n\n在止损方面，我们使用了基于ATR的追踪止损，虽然是上周期close驱动，在新周期open发单，但是依然是有效的，毕竟很多时候，追踪止损的出场速度比AMA本体要快很多很多。\n\n ![25.png][6]\n\n这个模型虽然有参数 ，但是参数风险非常低，完全可控，我们做了参数优化，按照这个帖子的方法：https://www.joinquant.com/post/4351?tag=algorithm\n\n顺便说一句，聚宽的参数优化并不方便啊，不能直接在模型里做，要进入到研究平台去调用回测，学了很多次才学会，但是学会发现效果还行，如果速度能像本地PC上运行的软件那样就更好了，python还是慢。\n\n参数优化细节部分，我是这样写的：\n# 回报周期测试\npa.get_backtest_data(file_name = 'results_days.pkl',\n                          running_max = 10,\n                          start_date = '2012-01-01',\n                          end_date = '2018-12-05',\n                          frequency = 'day',\n                          initial_cash = '10000000',\n                          param_names = ['FilterTimes','Window'],\n                          param_values = [[0.1,0.2,0.3],[10,15,20]]\n                          )\n\n可惜给我们这种免费的loser用户，聚宽只给10个CPU线程，真心不够用，我只能放大间隔来做测试了，'FilterTimes'是过滤器强度，应该在0.1足够，考夫曼原版也是这样写的。'Window'是模型里的几个窗口期，发现商品期货，在10日的窗口基本够用。\n\n多组测试的资金曲线如图：\n \n\n![26.png][7]\n\n\n最佳组的资金曲线如图：\n\n\n![27.png][8]\n \n\n虽然听说和专业机构做的还有很大差距，但是我感觉也不错，年化收益25%以上，最大回撤可控，为什么这样的模型不能实盘呢，再优化一些止损细节，资金管理模块，完全可以实盘去交易。\n\n建议各位测试更多品种，可能会有更好的结果，我选了10个从基本面上看，动量会持续比较强的，但是也不能保证它们以后都强，所以说择品种这个事非常难做，倾向于在建模时候，使用非常大数量的品种，比如超过30个来做模型，得到的统计特征可以稳定一些。\n\n总之AMA是个好东西，择时有效，在商品这种动量很强的品种上，对了，你还可以试试股指，国债期货，也是同样有效的。\n\n\n  [1]: https://image.joinquant.com/fc73485a387725f82ee64f9746069d87\n  [2]: https://image.joinquant.com/e0073ad3a784a1a4b3e70092689c67e2\n  [3]: https://image.joinquant.com/b8c575ddd574abc02af2f93539219974\n  [4]: https://image.joinquant.com/6faa98c6b484dfb628b94a7221c2be21\n  [5]: https://image.joinquant.com/751cc82c6292301a9dccc3afe73045fa\n  [6]: https://image.joinquant.com/a11bbbbe91c32217cc74aeac16ea04d7\n  [7]: https://image.joinquant.com/7831fe6332c34685df1ef0aa8c5b0f4f\n  [8]: https://image.joinquant.com/30ed9b903c28e60e034c07a6cc532647",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-12-07 16:18:41",
+      "modTime": "2018-12-07 16:18:41",
+      "lastActiveTime": "2022-10-15 15:40:13",
+      "lastPubTime": "2018-12-07 16:18:41",
+      "backtestId": "77992203c444af6c43761676d1fb22ec",
+      "backtestName": "Window: 10, FilterTimes: 0.10000000000000001",
+      "replyCount": "54",
+      "viewCount": "29404",
+      "collectionCount": "309",
+      "likeCount": "126",
+      "disLikeCount": "0",
+      "backtestCloneCount": "986",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "31",
+      "followersCount": "1943",
+      "followingCount": "11",
+      "author": {
+        "userId": "a850558f864797583d701fb9dd7b0670",
+        "alias": "cicikml",
+        "introduction": "我要+1s，我要+=1s...",
+        "headImgKey": "addaf492004a535fea1e488c2597eac0"
+      },
+      "tags": []
+    },
+    "backtests": [
+      {
+        "backtest_id": "77992203c444af6c43761676d1fb22ec",
+        "backtest_name": "Window: 10, FilterTimes: 0.10000000000000001",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=77992203c444af6c43761676d1fb22ec&postId=80fb9790ebd4aa926b5e071fcca8e301&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2012-01-01",
+          "end_date": "2018-12-05",
+          "base_capital": 10000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "b571e74977af00195a8caec5c4598ae1",
+            "10965844"
+          ],
+          "numeric_backtest_id": "10965844",
+          "numeric_post_id": "15565",
+          "python_version": 2,
+          "clone_count": 976
+        },
+        "stats": {
+          "information": 1.2348434407352,
+          "benchmark_return": 0.21941594317285,
+          "algorithm_volatility": 0.18493867586238,
+          "annual_bm_return": 0.029887451907383,
+          "__version": 101,
+          "max_drawdown": 0.1633070503381,
+          "sortino": 2.2021299588797,
+          "period_label": "2018-12",
+          "trading_days": 1684,
+          "algorithm_return": 4.20169402,
+          "benchmark_volatility": 0.073920322330151,
+          "beta": -0.045701982308698,
+          "excess_return": 3.9247625131507,
+          "annual_algo_return": 0.27736800392029,
+          "sharpe": 1.2834957469736,
+          "alpha": 0.23690584042626,
+          "max_drawdown_period": [
+            "2014-10-21",
+            "2015-05-22"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.27693150684932,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.50475059382423,
+          "avg_position_days": 60.102362204724,
+          "win_ratio": 0.37446808510638,
+          "win_count": 440,
+          "avg_trade_return": null,
+          "profit_loss_ratio": 1.4005619050059,
+          "lose_count": 735,
+          "report_done_seconds": 213.50542783737
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 420.169402,
+          "benchmark_return_percent": 21.941594,
+          "annual_algo_return_percent": 27.7368,
+          "annual_bm_return_percent": 2.988745,
+          "max_drawdown_percent": 16.330705,
+          "algorithm_volatility_percent": 18.493868,
+          "benchmark_volatility_percent": 7.392032,
+          "win_ratio_percent": 37.446809,
+          "day_win_ratio_percent": 50.475059,
+          "sharpe": 1.2834957469736,
+          "sortino": 2.2021299588797,
+          "information": 1.2348434407352,
+          "alpha": 0.23690584042626,
+          "beta": -0.045701982308698,
+          "profit_loss_ratio": 1.4005619050059,
+          "avg_position_days": 60.102362204724,
+          "trading_days": 1684,
+          "win_count": 440,
+          "lose_count": 735,
+          "max_drawdown_period": [
+            "2014-10-21",
+            "2015-05-22"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/15565",
+      "https://www.joinquant.com/community/post/detailV2?postId=15565",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=77992203c444af6c43761676d1fb22ec&postId=80fb9790ebd4aa926b5e071fcca8e301&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=77992203c444af6c43761676d1fb22ec"
+    ]
+  }
+}

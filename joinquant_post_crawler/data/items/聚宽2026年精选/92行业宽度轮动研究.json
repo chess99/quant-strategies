@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/92行业宽度轮动研究.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "92行业宽度轮动研究.txt",
+    "strategy_name": "行业宽度轮动研究",
+    "declared_title": "行业宽度轮动研究",
+    "declared_author": "MarioC",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 10813,
+    "sha256": "966a637bf16e0e188d296ea14b408b0142280b1f54657600a7e2da93941bb416",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/49180"
+    ],
+    "primary_url": "https://www.joinquant.com/post/49180",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:12:46+08:00",
+    "requested_url": "https://www.joinquant.com/post/49180",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/fa6a81a5f54de7e924764c4cbb417d22",
+    "community_id": "fa6a81a5f54de7e924764c4cbb417d22",
+    "post": {
+      "postId": "b4a1f5b68b7234fade9c5a48d88fddcc",
+      "uniqueKey": "fa6a81a5f54de7e924764c4cbb417d22",
+      "title": "行业宽度轮动研究",
+      "content": "之前我用行业宽度做出四大搅屎棍策略。\n那么提出疑问：行业宽度能否轮动？\n###########\n实验：\n1、首先找到相关性互斥的几个行业，这里我使用的贪婪算法，非常简单，可以在研究里面查看，有问题可以指出，因为我也是gpt代写的代码，人工粗糙检查了一下。\n2、然后每周轮动，在这几个互斥的行业里面选一个宽度最高的行业，然后选跌最多的股。\n3、轮动起来。。。。。。。\n##########\n总结：\n1、对于选股部分我试过很多方向，实际上就是不容易做出成绩。\n有种感觉，行业宽度很难轮动，行业热度也很难做羊群效应（这里涉及我做了很久的一个方向，但没成功）\n2、行业宽度我目前做的最成功的还是避险\n![Img](https://image.joinquant.com/fdeeced30c0cb82ecba6c8ed58fb7d2a)",
+      "type": 1,
+      "status": "0",
+      "addTime": "2024-07-19 21:58:07",
+      "modTime": "2024-07-19 21:58:07",
+      "lastActiveTime": "2026-05-14 20:39:00",
+      "lastPubTime": "2024-07-19 21:58:07",
+      "backtestId": "3fec9e1e5a811e3706b7418449200b9d",
+      "backtestName": "行业宽度轮动",
+      "replyCount": "28",
+      "viewCount": "6689",
+      "collectionCount": "92",
+      "likeCount": "55",
+      "disLikeCount": "0",
+      "backtestCloneCount": "229",
+      "notebookCloneCount": "141",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "62",
+      "followersCount": "4970",
+      "followingCount": "36",
+      "author": {
+        "userId": "4ffad86aa375968654d528dd456a38a4",
+        "alias": "MarioC",
+        "introduction": "人工智能爱好者，gzh：Mario量化",
+        "headImgKey": "44901f16b2618622495468b8b1a70019"
+      },
+      "tags": [
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "3fec9e1e5a811e3706b7418449200b9d",
+        "backtest_name": "行业宽度轮动",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=3fec9e1e5a811e3706b7418449200b9d&postId=fa6a81a5f54de7e924764c4cbb417d22&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2013-01-01",
+          "end_date": "2024-07-17",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "8948735353676acce657953a855af73a",
+            "35595495"
+          ],
+          "numeric_backtest_id": "35595495",
+          "numeric_post_id": "49180",
+          "python_version": 3,
+          "clone_count": 229
+        },
+        "stats": {
+          "trading_days": 2802,
+          "benchmark_volatility": 0.22336813872116,
+          "algorithm_volatility": 0.30950798860616,
+          "treasury_return": 0.46158904109589,
+          "algorithm_return": 8.9280319227,
+          "benchmark_return": 0.4596141607724,
+          "annual_algo_return": 0.22727562752721,
+          "annual_bm_return": 0.034316960803906,
+          "sharpe": 0.60507526274391,
+          "excess_return_sharpe": "0.605",
+          "sortino": 0.85294685923296,
+          "information": 0.79965404807781,
+          "beta": 0.87648533367723,
+          "alpha": 0.1922567280333,
+          "excess_return": 5.8018194050997,
+          "avg_excess_return": "0.08%",
+          "max_drawdown": 0.44519160138195,
+          "max_drawdown_period": [
+            "2015-06-08",
+            "2015-07-08"
+          ],
+          "excess_return_max_drawdown": "35.42%",
+          "excess_return_max_drawdown_period": [
+            "2018-05-31",
+            "2020-02-04"
+          ],
+          "max_leverage": 0,
+          "period_label": "2024-07",
+          "__version": 101,
+          "win_ratio": 0.51669595782074,
+          "profit_loss_ratio": 1.2904326031113,
+          "win_count": 1176,
+          "lose_count": 1100,
+          "day_win_ratio": 0.47359029264811,
+          "avg_trade_return": 0.0073625082915081,
+          "avg_position_days": 37.85590778098,
+          "turnover_rate": 0.17006731059826,
+          "report_done_seconds": 829.26754212379,
+          "report_done_cpu_seconds": 816.61
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 892.803192,
+          "benchmark_return_percent": 45.961416,
+          "annual_algo_return_percent": 22.727563,
+          "annual_bm_return_percent": 3.431696,
+          "max_drawdown_percent": 44.51916,
+          "algorithm_volatility_percent": 30.950799,
+          "benchmark_volatility_percent": 22.336814,
+          "win_ratio_percent": 51.669596,
+          "day_win_ratio_percent": 47.359029,
+          "avg_trade_return_percent": 0.736251,
+          "turnover_rate_percent": 17.006731,
+          "sharpe": 0.60507526274391,
+          "sortino": 0.85294685923296,
+          "information": 0.79965404807781,
+          "alpha": 0.1922567280333,
+          "beta": 0.87648533367723,
+          "profit_loss_ratio": 1.2904326031113,
+          "avg_position_days": 37.85590778098,
+          "trading_days": 2802,
+          "win_count": 1176,
+          "lose_count": 1100,
+          "max_drawdown_period": [
+            "2015-06-08",
+            "2015-07-08"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2018-05-31",
+            "2020-02-04"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/49180",
+      "https://www.joinquant.com/community/post/detailV2?postId=49180",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=3fec9e1e5a811e3706b7418449200b9d&postId=fa6a81a5f54de7e924764c4cbb417d22&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=3fec9e1e5a811e3706b7418449200b9d"
+    ]
+  }
+}

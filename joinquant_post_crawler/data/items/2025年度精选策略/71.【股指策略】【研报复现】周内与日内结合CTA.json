@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/71.【股指策略】【研报复现】周内与日内结合CTA.txt",
+    "category": "2025年度精选策略",
+    "file_name": "71.【股指策略】【研报复现】周内与日内结合CTA.txt",
+    "strategy_name": "【股指策略】【研报复现】周内与日内结合CTA",
+    "declared_title": "【股指策略】【研报复现】周内与日内结合CTA",
+    "declared_author": "魔术先生",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 5987,
+    "sha256": "bc1c92b36492a6fbbc159a761f2b8ab16dec46f440f5182a8589e30a682d6f51",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/30310"
+    ],
+    "primary_url": "https://www.joinquant.com/post/30310",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "post_without_backtest",
+    "collected_at": "2026-07-27T02:11:30+08:00",
+    "requested_url": "https://www.joinquant.com/post/30310",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/fd922b9783ef90f5ff6ebeb0eab1a439",
+    "community_id": "fd922b9783ef90f5ff6ebeb0eab1a439",
+    "post": {
+      "postId": "9ca7472bd477ad9af3de25e41fdf7966",
+      "uniqueKey": "fd922b9783ef90f5ff6ebeb0eab1a439",
+      "title": "【股指策略】【研报复现】周内与日内结合CTA",
+      "content": "策略来自海通研报：短周期交易策略研究之五——周内效应与\n日内效应相结合的股指期货 CTA 策略，见附件。\n\n\n我就不废话了，有兴趣的朋友看研报吧。\n\n加上做空的效果不好，我就没加。\n\n这个感觉比尾盘无脑做多回撤小一些，可以放点杠杆。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-11-25 17:19:15",
+      "modTime": "2021-03-01 14:05:29",
+      "lastActiveTime": "2023-11-22 11:18:44",
+      "lastPubTime": "2021-03-01 14:05:29",
+      "replyCount": "29",
+      "viewCount": "4013",
+      "collectionCount": "61",
+      "likeCount": "38",
+      "disLikeCount": "0",
+      "backtestCloneCount": "193",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "595",
+      "fileName": "20200816-海通证券-短周期交易策略研究之五：周内效应与日内效应相结合的股指期货CTA策略.pdf",
+      "fileType": "application/pdf",
+      "fileSize": "1240287",
+      "postCount": "15",
+      "followersCount": "341",
+      "followingCount": "1",
+      "author": {
+        "userId": "97a806896f75adc104a5571aed9912a7",
+        "alias": "魔术先生",
+        "headImgKey": "a45600e1d6bd4cc623cf3bee47666032"
+      },
+      "tags": [
+        {
+          "id": "295",
+          "name": "研报分享"
+        },
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "7",
+          "name": "期货"
+        }
+      ]
+    },
+    "backtests": [],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 1,
+    "request_urls": [
+      "https://www.joinquant.com/post/30310",
+      "https://www.joinquant.com/community/post/detailV2?postId=30310",
+      "https://www.joinquant.com/community/post/replyList?page=1&postId=fd922b9783ef90f5ff6ebeb0eab1a439"
+    ]
+  }
+}

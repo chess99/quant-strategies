@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/66 高于MA10买入低于MA20卖出回测半年收益率20.4%.txt",
+    "category": "2020年度精选策略",
+    "file_name": "66 高于MA10买入低于MA20卖出回测半年收益率20.4%.txt",
+    "strategy_name": "高于MA10买入低于MA20卖出回测半年收益率20.4%",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 1647,
+    "sha256": "0d502476995f15dffd692752410d5d10884d5ec8db0479e27346036207e8a634",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/14460"
+    ],
+    "primary_url": "https://www.joinquant.com/post/14460",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:08+08:00",
+    "requested_url": "https://www.joinquant.com/post/14460",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/a02dfe5b1d542a2843bfba56abd2e718",
+    "community_id": "a02dfe5b1d542a2843bfba56abd2e718",
+    "post": {
+      "postId": "5de1c1f6b5f073abfe15abb41c910a4a",
+      "uniqueKey": "a02dfe5b1d542a2843bfba56abd2e718",
+      "title": "高于MA10买入低于MA20卖出回测半年收益率20.4%",
+      "content": "这是我的第一个练手示例，白马股，美的集团，高于MA10买入低于MA20卖出，2016-6-1到2016-12-31，回测半年收益率20.4%。\npython编程我是新手菜鸟，聚宽的平台很好上手，这个不错。\n有想法？就来动手写代码，然后回测或模拟交易半年，看看战绩，再分享给大家。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-09-04 15:45:09",
+      "modTime": "2018-09-04 15:45:09",
+      "lastActiveTime": "2018-09-19 10:08:24",
+      "lastPubTime": "2018-09-04 15:45:09",
+      "backtestId": "ef78d3819cd8188f499f237235a365af",
+      "backtestName": "这是一个简单的策略",
+      "replyCount": "8",
+      "viewCount": "2285",
+      "collectionCount": "4",
+      "likeCount": "2",
+      "disLikeCount": "0",
+      "backtestCloneCount": "84",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "2",
+      "followersCount": "0",
+      "followingCount": "0",
+      "author": {
+        "userId": "77d97ec3d0667c7ca61a9d9904f4e0a8",
+        "alias": "硅谷少年",
+        "introduction": "量化投资研究，数据分析，精通Excel，懂Access，python。",
+        "headImgKey": "187ee79ce616928f54c66a4039f79d9f"
+      },
+      "tags": []
+    },
+    "backtests": [
+      {
+        "backtest_id": "ef78d3819cd8188f499f237235a365af",
+        "backtest_name": "这是一个简单的策略",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=ef78d3819cd8188f499f237235a365af&postId=a02dfe5b1d542a2843bfba56abd2e718&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2016-06-01",
+          "end_date": "2016-12-31",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "b442d9a2ad079275f2ac5035ae24aebf",
+            "9917257"
+          ],
+          "numeric_backtest_id": "9917257",
+          "numeric_post_id": "14460",
+          "python_version": 2,
+          "clone_count": 83
+        },
+        "stats": {
+          "information": 1.2295594739012,
+          "benchmark_return": 0.044334547655484,
+          "algorithm_volatility": 0.27650703238913,
+          "annual_bm_return": 0.078220829058648,
+          "__version": 101,
+          "max_drawdown": 0.089748613165988,
+          "sortino": 2.178037664397,
+          "period_label": "2016-12",
+          "trading_days": 144,
+          "algorithm_return": 0.2041667,
+          "benchmark_volatility": 0.12463919143205,
+          "beta": 1.0136980951385,
+          "excess_return": 0.18093382328767,
+          "annual_algo_return": 0.38064150628878,
+          "sharpe": 1.2319451818115,
+          "alpha": 0.30189712467742,
+          "max_drawdown_period": [
+            "2016-07-15",
+            "2016-10-26"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.023232876712329,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.46527777777778,
+          "avg_position_days": 90,
+          "win_ratio": 0.6,
+          "win_count": 3,
+          "avg_trade_return": 0.042454525497505,
+          "profit_loss_ratio": 6.5971675845791,
+          "lose_count": 2,
+          "report_done_seconds": 4.462347984314
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 20.41667,
+          "benchmark_return_percent": 4.433455,
+          "annual_algo_return_percent": 38.064151,
+          "annual_bm_return_percent": 7.822083,
+          "max_drawdown_percent": 8.974861,
+          "algorithm_volatility_percent": 27.650703,
+          "benchmark_volatility_percent": 12.463919,
+          "win_ratio_percent": 60.0,
+          "day_win_ratio_percent": 46.527778,
+          "avg_trade_return_percent": 4.245453,
+          "sharpe": 1.2319451818115,
+          "sortino": 2.178037664397,
+          "information": 1.2295594739012,
+          "alpha": 0.30189712467742,
+          "beta": 1.0136980951385,
+          "profit_loss_ratio": 6.5971675845791,
+          "avg_position_days": 90,
+          "trading_days": 144,
+          "win_count": 3,
+          "lose_count": 2,
+          "max_drawdown_period": [
+            "2016-07-15",
+            "2016-10-26"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/14460",
+      "https://www.joinquant.com/community/post/detailV2?postId=14460",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=ef78d3819cd8188f499f237235a365af&postId=a02dfe5b1d542a2843bfba56abd2e718&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=ef78d3819cd8188f499f237235a365af"
+    ]
+  }
+}

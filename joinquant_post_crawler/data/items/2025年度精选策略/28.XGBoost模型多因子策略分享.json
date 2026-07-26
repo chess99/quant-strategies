@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/28.XGBoost模型多因子策略分享.txt",
+    "category": "2025年度精选策略",
+    "file_name": "28.XGBoost模型多因子策略分享.txt",
+    "strategy_name": "XGBoost模型多因子策略分享",
+    "declared_title": "XGBoost模型多因子策略分享",
+    "declared_author": "cgzol",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 23045,
+    "sha256": "5c2cfbfd2a8c80150cc183854f6dda6cc2b8d727d716eaf349692d3bd5aff3f8",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/25313"
+    ],
+    "primary_url": "https://www.joinquant.com/post/25313",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:01+08:00",
+    "requested_url": "https://www.joinquant.com/post/25313",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/d1f79c31891870b33e65380b41774ccc",
+    "community_id": "d1f79c31891870b33e65380b41774ccc",
+    "post": {
+      "postId": "23d1a6acfd035927f62f33109abb6ebb",
+      "uniqueKey": "d1f79c31891870b33e65380b41774ccc",
+      "title": "XGBoost模型多因子策略分享",
+      "content": "**概述**\n\n关于XGBoost 模型，此前论坛已有用户做了初步研究，如恶魔猎手的[《基于随机森林和XGBoost的多因子模型分析》](https://www.joinquant.com/view/community/detail/a8f0764b797e8545754e01a5e01eb8fd)，借鉴了华泰证券林晓明先生的《人工智能选股系列研报》以及西安交大元老师量化小组[《支持向量机模型（SVM）在多因子选股模型领域的应用》](https://www.joinquant.com/view/community/detail/e335e464e3233b5623c7b30f495807ac?type=1)。\n\n前期，我尝试利用上述文章中的代码训练模型并做了策略，发现XGBoost的二分类模型选股策略收益并不理想。于是尝试了使用XGBoost的多分类模型方式进行选股，由于多分类模型训练时间较长，在没有调参的情况下，目前初步得出的结论是，XGBoost的多分类模型有助于提高选股收益。且似乎分类越多，获取的超额收益越多（目前初步发现12分类超额收益 &gt; 6分类超额收益 &gt; 2类超额收益）\n\n这次，我将因子获取、模型训练、回测策略的代码放上来，供大家参考，以便抛砖引玉，尝试更多的参数进行训练，获取更优的XGBoost模型应用于策略。\n\n感谢 西安交大元老师量化小组 和 恶魔猎手，我的研究和策略大量使用了两位的代码及研究成果。\n\n以下代码在Python3 的研究环境中使用\n\n**导入可能会用到的库**\n\n```\nfrom jqdata import *\nfrom jqlib.technical_analysis import *\nfrom jqfactor import get_factor_values\nfrom jqfactor import winsorize_med\nfrom jqfactor import standardlize\nfrom jqfactor import neutralize\nimport datetime\nimport pandas as pd\nimport numpy as np\nfrom scipy import stats\nimport statsmodels.api as sm\nfrom statsmodels import regression\nfrom six import StringIO\nfrom sklearn.decomposition import PCA\nfrom sklearn import svm\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.model_selection import GridSearchCV\nfrom xgboost import XGBClassifier\nfrom xgboost import Booster\nfrom xgboost import DMatrix\nfrom sklearn import metrics\nimport matplotlib.dates as mdates\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport warnings\nwarnings.filterwarnings(\"ignore\")\nimport datetime\nimport pickle\n```\n\n**获取因子数据**\n这里获取的因子与西安交大元老师量化小组《支持向量机模型（SVM）在多因子选股模型领域的应用》的因子一致，共66个因子。取数时间很长，两年的因子数据要跑几个小时，需要耐心等待。\n\n```\n\n#获取指定周期的日期列表 'W、M、Q'\ndef get_period_date(peroid,start_date, end_date):\n    #设定转换周期period_type  转换为周是'W',月'M',季度线'Q',五分钟'5min',12天'12D'\n    stock_data = get_price('000001.XSHE',start_date,end_date,'daily',fields=['close'])\n    #记录每个周期中最后一个交易日\n    stock_data['date']=stock_data.index\n    stock_date = stock_data.index\n    pydate_array = stock_date.to_pydatetime()\n    #进行转换，周线的每个变量都等于那一周中最后一个交易日的变量值\n    period_stock_data=stock_data.resample(peroid,how= 'last').dropna()\n    #print(period_stock_data)\n    period_stock_data.index =period_stock_data['date']\n    date=period_stock_data.index \n    pydate_array = date.to_pydatetime()\n    date_only_array = np.vectorize(lambda s: s.strftime('%Y-%m-%d'))(pydate_array )\n    date_only_series = pd.Series(date_only_array)\n    #print(date_only_series)\n    start_date = datetime.datetime.strptime(start_date, \"%Y-%m-%d\")\n    start_date=start_date-datetime.timedelta(days=1)\n    start_date = start_date.strftime(\"%Y-%m-%d\")\n    date_list = date_only_series.values.tolist()\n    date_list.insert(0,start_date)\n    #print(date_list)\n    return date_list \n\n#去除上市距beginDate不足3个月的股票\ndef delect_stop(stocks,beginDate,n=30*3):\n    stockList=[]\n    beginDate = datetime.datetime.strptime(beginDate, \"%Y-%m-%d\")\n    for stock in stocks:\n        start_date=get_security_info(stock).start_date\n        if start_date&lt; (beginDate-datetime.timedelta(days=n)).date():\n            stockList.append(stock)\n    return stockList\n#获取股票池\ndef get_stock(stockPool,begin_date):\n    if stockPool=='HS300':\n        stockList=get_index_stocks('000300.XSHG',begin_date)\n    elif stockPool=='ZZ500':\n        stockList=get_index_stocks('399905.XSHE',begin_date)\n    elif stockPool=='ZZ800':\n        stockList=get_index_stocks('399906.XSHE',begin_date)   \n    elif stockPool=='CYBZ':\n        stockList=get_index_stocks('399006.XSHE',begin_date)\n    elif stockPool=='ZXBZ':\n        stockList=get_index_stocks('399005.XSHE',begin_date)\n    elif stockPool=='A':\n        stockList=get_index_stocks('000002.XSHG',begin_date)+get_index_stocks('399107.XSHE',begin_date)\n    #剔除ST股\n    st_data=get_extras('is_st',stockList, count = 1,end_date=begin_date)\n    stockList = [stock for stock in stockList if not st_data[stock][0]]\n    #剔除停牌、新股及退市股票\n    stockList=delect_stop(stockList,begin_date)\n    return stockList\n\n# 辅助线性回归的函数\ndef linreg(X,Y,columns=3):\n    X=sm.add_constant(array(X))\n    Y=array(Y)\n    if len(Y)&gt;1:\n        results = regression.linear_model.OLS(Y, X).fit()\n        return results.params\n    else:\n        return [float(\"nan\")]*(columns+1)\n#取股票对应行业\ndef get_industry_name(i_Constituent_Stocks, value):\n    return [k for k, v in i_Constituent_Stocks.items() if value in v]\n\n#缺失值处理\ndef replace_nan_indu(factor_data,stockList,industry_code,date):\n    #把nan用行业平均值代替，依然会有nan，此时用所有股票平均值代替\n    i_Constituent_Stocks={}\n    data_temp=pd.DataFrame(index=industry_code,columns=factor_data.columns)\n    for i in industry_code:\n        temp = get_industry_stocks(i, date)\n        i_Constituent_Stocks[i] = list(set(temp).intersection(set(stockList)))\n        data_temp.loc[i]=mean(factor_data.loc[i_Constituent_Stocks[i],:])\n    for factor in data_temp.columns:\n        #行业缺失值用所有行业平均值代替\n        null_industry=list(data_temp.loc[pd.isnull(data_temp[factor]),factor].keys())\n        for i in null_industry:\n            data_temp.loc[i,factor]=mean(data_temp[factor])\n        null_stock=list(factor_data.loc[pd.isnull(factor_data[factor]),factor].keys())\n        for i in null_stock:\n            industry=get_industry_name(i_Constituent_Stocks, i)\n            if industry:\n                factor_data.loc[i,factor]=data_temp.loc[industry[0],factor] \n            else:\n                factor_data.loc[i,factor]=mean(factor_data[factor])\n    return factor_data\n\n#数据预处理\ndef data_preprocessing(factor_data,stockList,industry_code,date):\n    #去极值\n    factor_data=winsorize_med(factor_data, scale=5, inf2nan=False,axis=0)\n    #缺失值处理\n    factor_data=replace_nan_indu(factor_data,stockList,industry_code,date)\n    #中性化处理\n    factor_data=neutralize(factor_data, how=['sw_l1', 'market_cap'], date=date, axis=0)\n    #标准化处理\n    factor_data=standardlize(factor_data,axis=0)\n    return factor_data\n\n#获取时间为date的全部因子数据\ndef get_factor_data(stock,date):\n    data=pd.DataFrame(index=stock)\n    q = query(valuation,balance,cash_flow,income,indicator).filter(valuation.code.in_(stock))\n    df = get_fundamentals(q, date)\n    df['market_cap']=df['market_cap']*100000000\n    factor_data=get_factor_values(stock,['roe_ttm',\n                                         'roa_ttm',\n                                         'total_asset_turnover_rate',\n                                         'net_operate_cash_flow_ttm',\n                                         'net_profit_ttm',\n                                         'cash_to_current_liability',\n                                         'current_ratio',\n                                         'gross_income_ratio',\n                                         'non_recurring_gain_loss',\n                                         'operating_revenue_ttm',\n                                         'net_profit_growth_rate'\n                                        ],end_date=date,count=1)\n    factor=pd.DataFrame(index=stock)\n    for i in factor_data.keys():\n        factor[i]=factor_data[i].iloc[0,:]\n    df.index = df['code']\n    del df['code'],df['id']\n    #合并得大表\n    df=pd.concat([df,factor],axis=1)\n    #净利润(TTM)/总市值\n    data['EP']=df['net_profit_ttm']/df['market_cap']\n    #净资产/总市值\n    data['BP']=1/df['pb_ratio']\n    #营业收入(TTM)/总市值\n    data['SP']=1/df['ps_ratio']\n    #净现金流(TTM)/总市值\n    data['NCFP']=1/df['pcf_ratio']\n    #经营性现金流(TTM)/总市值\n    data['OCFP']=df['net_operate_cash_flow_ttm']/df['market_cap']\n    #净利润(TTM)同比增长率/PE_TTM\n    data['G/PE']=df['net_profit_growth_rate']/df['pe_ratio']\n    #ROE_ttm\n    data['roe_ttm']=df['roe_ttm']\n    #ROE_YTD\n    data['roe_q']=df['roe']\n    #ROA_ttm\n    data['roa_ttm']=df['roa_ttm']\n    #ROA_YTD\n    data['roa_q']=df['roa']\n    #毛利率TTM\n    data['grossprofitmargin_ttm']=df['gross_income_ratio']\n    #毛利率YTD\n    data['grossprofitmargin_q']=df['gross_profit_margin']\n\n    #扣除非经常性损益后净利润率YTD\n    data['profitmargin_q']=df['adjusted_profit']/df['operating_revenue']\n    #资产周转率TTM\n    data['assetturnover_ttm']=df['total_asset_turnover_rate']\n    #资产周转率YTD 营业收入/总资产\n    data['assetturnover_q']=df['operating_revenue']/df['total_assets']\n    #经营性现金流/净利润TTM\n    data['operationcashflowratio_ttm']=df['net_operate_cash_flow_ttm']/df['net_profit_ttm']\n    #经营性现金流/净利润YTD\n    data['operationcashflowratio_q']=df['net_operate_cash_flow']/df['net_profit']\n    #净资产\n    df['net_assets']=df['total_assets']-df['total_liability']\n    #总资产/净资产\n    data['financial_leverage']=df['total_assets']/df['net_assets']\n    #非流动负债/净资产\n    data['debtequityratio']=df['total_non_current_liability']/df['net_assets']\n    #现金比率=(货币资金+有价证券)÷流动负债\n    data['cashratio']=df['cash_to_current_liability']\n    #流动比率=流动资产/流动负债*100%\n    data['currentratio']=df['current_ratio']\n    #总市值取对数\n    data['ln_capital']=np.log(df['market_cap'])\n    #TTM所需时间\n    his_date = [pd.to_datetime(date) - datetime.timedelta(90*i) for i in range(0, 4)]\n    tmp = pd.DataFrame()\n    tmp['code']=stock\n    for i in his_date:\n        tmp_adjusted_dividend = get_fundamentals(query(indicator.code, indicator.adjusted_profit, \\\n                                                     cash_flow.dividend_interest_payment).\n                                               filter(indicator.code.in_(stock)), date = i)\n        tmp=pd.merge(tmp,tmp_adjusted_dividend,how='outer',on='code')\n\n        tmp=tmp.rename(columns={'adjusted_profit':'adjusted_profit'+str(i.month), \\\n                                'dividend_interest_payment':'dividend_interest_payment'+str(i.month)})\n    tmp=tmp.set_index('code')\n    tmp_columns=tmp.columns.values.tolist()\n    tmp_adjusted=sum(tmp[[i for i in tmp_columns if 'adjusted_profit'in i ]],1)\n    tmp_dividend=sum(tmp[[i for i in tmp_columns if 'dividend_interest_payment'in i ]],1)\n    #扣除非经常性损益后净利润(TTM)/总市值\n    data['EPcut']=tmp_adjusted/df['market_cap']\n    #近12个月现金红利(按除息日计)/总市值\n    data['DP']=tmp_dividend/df['market_cap']\n    #扣除非经常性损益后净利润率TTM\n    data['profitmargin_ttm']=tmp_adjusted/df['operating_revenue_ttm']\n    #营业收入(YTD)同比增长率\n    #_x现在 _y前一年\n    his_date = pd.to_datetime(date) - datetime.timedelta(365)\n    name=['operating_revenue','net_profit','net_operate_cash_flow','roe']\n    temp_data=df[name]\n    his_temp_data = get_fundamentals(query(valuation.code, income.operating_revenue,income.net_profit,\\\n                                            cash_flow.net_operate_cash_flow,indicator.roe).\n                                      filter(valuation.code.in_(stock)), date = his_date)\n    his_temp_data=his_temp_data.set_index('code')\n    #重命名 his_temp_data last_year\n    for i in name:\n        his_temp_data=his_temp_data.rename(columns={i:i+'last_year'})\n\n    temp_data =pd.concat([temp_data,his_temp_data],axis=1)\n    #营业收入(YTD)同比增长率\n    data['sales_g_q']=temp_data['operating_revenue']/temp_data['operating_revenuelast_year']-1\n    #净利润(YTD)同比增长率\n    data['profit_g_q']=temp_data['net_profit']/temp_data['net_profitlast_year']-1\n    #经营性现金流(YTD)同比增长率\n    data['ocf_g_q']=temp_data['net_operate_cash_flow']/temp_data['net_operate_cash_flowlast_year']-1\n    #ROE(YTD)同比增长率\n    data['roe_g_q']=temp_data['roe']/temp_data['roelast_year']-1\n    #个股60个月收益与上证综指回归的截距项与BETA\n    stock_close=get_price(stock, count = 60*20+1, end_date=date, frequency='daily', fields=['close'])['close']\n    SZ_close=get_price('000001.XSHG', count = 60*20+1, end_date=date, frequency='daily', fields=['close'])['close']\n    stock_pchg=stock_close.pct_change().iloc[1:]\n    SZ_pchg=SZ_close.pct_change().iloc[1:]\n    beta=[]\n    stockalpha=[]\n    for i in stock:\n        temp_beta, temp_stockalpha = stats.linregress(SZ_pchg, stock_pchg[i])[:2]\n        beta.append(temp_beta)\n        stockalpha.append(temp_stockalpha)\n    #此处alpha beta为list\n    data['alpha']=stockalpha\n    data['beta']=beta\n\n    #动量\n    data['return_1m']=stock_close.iloc[-1]/stock_close.iloc[-20]-1\n    data['return_3m']=stock_close.iloc[-1]/stock_close.iloc[-60]-1\n    data['return_6m']=stock_close.iloc[-1]/stock_close.iloc[-120]-1\n    data['return_12m']=stock_close.iloc[-1]/stock_close.iloc[-240]-1\n\n    #取换手率数据\n    data_turnover_ratio=pd.DataFrame()\n    data_turnover_ratio['code']=stock\n    trade_days=list(get_trade_days(end_date=date, count=240*2))\n    for i in trade_days:\n        q = query(valuation.code,valuation.turnover_ratio).filter(valuation.code.in_(stock))\n        temp = get_fundamentals(q, i)\n        data_turnover_ratio=pd.merge(data_turnover_ratio, temp,how='left',on='code')\n        data_turnover_ratio=data_turnover_ratio.rename(columns={'turnover_ratio':i})\n    data_turnover_ratio=data_turnover_ratio.set_index('code').T   \n\n    #个股个股最近N个月内用每日换手率乘以每日收益率求算术平均值\n    data['wgt_return_1m']=mean(stock_pchg.iloc[-20:]*data_turnover_ratio.iloc[-20:])\n    data['wgt_return_3m']=mean(stock_pchg.iloc[-60:]*data_turnover_ratio.iloc[-60:])\n    data['wgt_return_6m']=mean(stock_pchg.iloc[-120:]*data_turnover_ratio.iloc[-120:])\n    data['wgt_return_12m']=mean(stock_pchg.iloc[-240:]*data_turnover_ratio.iloc[-240:])\n    #个股个股最近N个月内用每日换手率乘以函数exp(-x_i/N/4)再乘以每日收益率求算术平均值\n    temp_data=pd.DataFrame(index=data_turnover_ratio[-240:].index,columns=stock)\n    temp=[]\n    for i in range(240):\n        if i/20&lt; 1:\n            temp.append(exp(-i/1/4))\n        elif i/20&lt; 3:\n            temp.append(exp(-i/3/4))\n        elif i/20&lt; 6:\n            temp.append(exp(-i/6/4))\n        elif i/20&lt; 12:\n            temp.append(exp(-i/12/4))  \n    temp.reverse()\n    for i in stock:\n        temp_data[i]=temp\n    data['exp_wgt_return_1m']=mean(stock_pchg.iloc[-20:]*temp_data.iloc[-20:]*data_turnover_ratio.iloc[-20:])\n    data['exp_wgt_return_3m']=mean(stock_pchg.iloc[-60:]*temp_data.iloc[-60:]*data_turnover_ratio.iloc[-60:])\n    data['exp_wgt_return_6m']=mean(stock_pchg.iloc[-120:]*temp_data.iloc[-120:]*data_turnover_ratio.iloc[-120:])\n    data['exp_wgt_return_12m']=mean(stock_pchg.iloc[-240:]*temp_data.iloc[-240:]*data_turnover_ratio.iloc[-240:])\n\n    #特异波动率\n    #获取FF三因子残差数据\n    LoS=len(stock)\n    S=df.sort_values(by = 'market_cap')[:int(LoS/3)].index \n    B=df.sort_values(by = 'market_cap')[int(LoS-LoS/3):].index\n    \n    df['BTM']=df['total_owner_equities']/df['market_cap']\n    L=df.sort_values(by = 'BTM')[:int(LoS/3)].index\n    H=df.sort_values(by = 'BTM')[int(LoS-LoS/3):].index\n    df_temp=stock_pchg.iloc[-240:]\n    #求因子的值\n    SMB=sum(df_temp[S].T)/len(S)-sum(df_temp[B].T)/len(B)\n    HMI=sum(df_temp[H].T)/len(H)-sum(df_temp[L].T)/len(L)\n    #用中证800作为大盘基准\n    dp=get_price('000300.XSHG',count=12*20+1,end_date=date,frequency='daily', fields=['close'])['close']\n    RM=dp.pct_change().iloc[1:]-0.04/252\n    #将因子们计算好并且放好\n    X=pd.DataFrame({\"RM\":RM,\"SMB\":SMB,\"HMI\":HMI})\n    resd=pd.DataFrame()\n    for i in stock:\n        temp=df_temp[i]-0.04/252\n        t_r=linreg(X,temp)\n        resd[i]=list(temp-(t_r[0]+X.iloc[:,0]*t_r[1]+X.iloc[:,1]*t_r[2]+X.iloc[:,2]*t_r[3]))\n    data['std_FF3factor_1m']=resd[-1*20:].std()\n    data['std_FF3factor_3m']=resd[-3*20:].std()\n    data['std_FF3factor_6m']=resd[-6*20:].std()\n    data['std_FF3factor_12m']=resd[-12*20:].std()\n\n    #波动率\n    data['std_1m']=stock_pchg.iloc[-20:].std()\n    data['std_3m']=stock_pchg.iloc[-60:].std()\n    data['std_6m']=stock_pchg.iloc[-120:].std()\n    data['std_12m']=stock_pchg.iloc[-240:].std()\n\n    #股价\n    data['ln_price']=np.log(stock_close.iloc[-1])\n\n    #换手率\n    data['turn_1m']=mean(data_turnover_ratio.iloc[-20:])\n    data['turn_3m']=mean(data_turnover_ratio.iloc[-60:])\n    data['turn_6m']=mean(data_turnover_ratio.iloc[-120:])\n    data['turn_12m']=mean(data_turnover_ratio.iloc[-240:])\n\n    data['bias_turn_1m']=mean(data_turnover_ratio.iloc[-20:])/mean(data_turnover_ratio)-1\n    data['bias_turn_3m']=mean(data_turnover_ratio.iloc[-60:])/mean(data_turnover_ratio)-1\n    data['bias_turn_6m']=mean(data_turnover_ratio.iloc[-120:])/mean(data_turnover_ratio)-1\n    data['bias_turn_12m']=mean(data_turnover_ratio.iloc[-240:])/mean(data_turnover_ratio)-1\n    #技术指标\n    data['PSY']=pd.Series(PSY(stock, date, timeperiod=20))\n    data['RSI']=pd.Series(RSI(stock, date, N1=20))\n    data['BIAS']=pd.Series(BIAS(stock,date, N1=20)[0])\n    dif,dea,macd=MACD(stock, date, SHORT = 10, LONG = 30, MID = 15)\n    data['DIF']=pd.Series(dif)\n    data['DEA']=pd.Series(dea)\n    data['MACD']=pd.Series(macd)\n    return data\n\nperoid = 'D' #设置按日为周期获取数据，数据量会比较大，但便于之后选取选取用于模型训练\n\nstart_date = '2017-01-01' #获取因子数据的开始日期，自行设定\nend_date = '2018-12-31' #获取因子数据的结束日期，自行设定\nindustry_old_code = ['801010','801020','801030','801040','801050','801080','801110','801120','801130','801140','801150',\\\n                    '801160','801170','801180','801200','801210','801230']\nindustry_new_code = ['801010','801020','801030','801040','801050','801080','801110','801120','801130','801140','801150',\\\n                    '801160','801170','801180','801200','801210','801230','801710','801720','801730','801740','801750',\\\n                   '801760','801770','801780','801790','801880','801890']\n\ndateList = get_period_date(peroid,start_date, end_date)\nfactor_origl_data = {}\nfactor_solve_data = {}\nstarttime = datetime.datetime.now()\nfor date in dateList:\n    #获取行业因子数据\n    print ('获取数据的日期：',date,end='')\n    if datetime.datetime.strptime(date,\"%Y-%m-%d\").date()&lt; datetime.date(2014,2,21):\n        industry_code=industry_old_code\n    else:\n        industry_code=industry_new_code\n    stockList=get_stock('ZZ800',date) #获取的是中证800成分股因子数据\n\n    factor_origl_data[date] = get_factor_data(stockList,date)\n    factor_solve_data[date] = data_preprocessing(factor_origl_data[date],stockList,industry_code,date)\nendtime = datetime.datetime.now()\nprint ('取数运行时长：',int((endtime - starttime).seconds/60),'分钟')\n```\n**保存获取的因子数据**\n\n```\ncontent  = pd.Panel(data=factor_solve_data)\ncontent.to_pickle(\"factor_solve_data.pkl\") #保存因子数据字典，以便以后用于模型训练\n```\n**读取保存好的因子数据**\n\n这里在选取数据的同时，对于因子数据打了标签，首先按照股票的5天收益率排序，然后分成12组，每组为一类打标签，其中标签为0的收益最高，标签为11的收益最低。\n```\npkl_file_read = pd.read_pickle(\"factor_solve_data.pkl\")\nfactor_data = {}\nfor item in pkl_file_read.items:\n    factor_data[item] = pkl_file_read[item]\nfactor_data\n```\n**选取训练集的因子数据**\n\n```\nperoid='D'\nstart_date='2017-01-01'\nend_date='2018-12-31'\nindustry_old_code=['801010','801020','801030','801040','801050','801080','801110','801120','801130','801140','801150',\\\n                    '801160','801170','801180','801200','801210','801230']\nindustry_new_code=['801010','801020','801030','801040','801050','801080','801110','801120','801130','801140','801150',\\\n                    '801160','801170','801180','801200','801210','801230','801710','801720','801730','801740','801750',\\\n                   '801760','801770','801780','801790','801880','801890']\n\ndateList=get_period_date(peroid,start_date, end_date)\n\n# 训练集数据\ntrain_data=pd.DataFrame()\nfor date in dateList[:int(len(dateList)*4/5)]: #取前五分之四的数据为训练集，可自行修改\n    traindf=factor_data[date]\n    stockList=list(traindf.index)\n    #取收益率数据\n    if dateList.index(date)+5 &gt;=len(dateList):\n        break\n    print(date,dateList[dateList.index(date)+5],end='')\n    data_close=get_price(stockList,date,dateList[dateList.index(date)+5],'1d','close')['close']\n    traindf['pchg']=data_close.iloc[-1]/data_close.iloc[0]-1\n    #剔除空值\n    traindf=traindf.dropna()   \n    traindf=traindf.sort_values(by='pchg')\n    traindf['labetemp']=traindf['pchg'].rank(ascending=0,method='dense')\n    length = len(list(traindf['labetemp']))\n    traindf['label']=list(traindf['labetemp'].apply(lambda x:0 if x &lt; = length/12 \n                                                    else(1 if x &gt;length/12 and  x &lt; = length*2/12 \n                                                         else(2 if x &gt;length*2/12 and  x &lt; = length*3/12\n                                                             else(3 if x&gt;length*3/12 and  x &lt; = length*4/12\n                                                                 else(4 if x&gt;length*4/12and  x &lt; = length*5/12 \n                                                                      else(5 if x&gt;length*5/12and  x &lt; = length*6/12\n                                                                          else(6 if x&gt;length*6/12and  x &lt; = length*7/12\n                                                                              else(7 if x&gt;length*7/12and  x &lt; = length*8/12\n                                                                                  else(8 if x&gt;length*8/12and  x &lt; = length*9/12\n                                                                                      else(9 if x&gt;length*9/12and  x &lt; = length*10/12\n                                                                                          else(10 if x&gt;length*10/12and  x &lt; = length*11/12\n                                                                                              else 11))))))))))\n                                                   ))\n    \n    #traindf=traindf.iloc[:round(len(traindf['pchg'])/10*3),:].append(traindf.iloc[round(len(traindf['pchg'])/10*7):,:])\n    \n\n    if train_data.empty:\n        train_data=traindf\n    else:\n        train_data=train_data.append(traindf)\n```\n**应用XGBoost对打好标签的因子数据训练**\n\n```\n# 获取特征及标签\ntrain_target=train_data['label']\ntrain_feature=train_data.copy()\ndel train_feature['pchg']\ndel train_feature['label']\ndel train_feature['labetemp']\n\n# 获取模型\nclf =  XGBClassifier(n_estimators=800, max_depth=7,subsample=0.9,random_state=0 , objective ='multi:softprob', num_class = 12)\n#模型的参数可以调，由于训练时间很长，我这里只是简单粗暴地设置了几个参数，不一定准确，这块希望可以抛砖引玉，大家多测试下，看看其他参数的模型训练效果，希望大家可以在帖子里分享调参结果，非常感谢！\n\n# 模型训练\nstarttime = datetime.datetime.now()\nprint ('开始训练模型')\nclf.fit(np.array(train_feature),np.array(train_target))\nendtime = datetime.datetime.now()\nprint ('模型运行时长：',int((endtime - starttime).seconds/60),'分钟')\n```\n\n**保存训练好的模型和读取模型**\n\n```\nclf.save_model('xgb_factors.model')  #保存训练好的模型\nclf = Booster(model_file='xgb_factors.model')  \n#在研究中读取训练好的模型，如果在策略中需要读取模型，需要使用其他代码，详见策略代码\n```\n\n**XGBoost多因子选股策略**\n我这次做的回测，是使用多分类XGBoost模型对2017年至2018年中证800成份股因子数据做的训练，训练时一共分为12类。\n策略是每5天交易一次，每次持有中证800成份股中第一类（5天收益率最高的一类）预测概率最高的前20只股票，策略回测的交易时间是2019年，应该不存在未来函数。\n训练好的模型已上传百度网盘，大家可以下载上传到研究环境根目录来使用。\n链接: https://pan.baidu.com/s/1adt0AnaPSXZGNqa3P2VPfA \n提取码: bqdn\n\n\n**策略可优化方向**\n1、增加获取因子数据时长。目前只是获取两年的数据，可以考虑获取3年或更长时间的数据来做训练。\n2、增加更多有效因子。这个需要可添加其他因子来做测试。\n3、尝试更多的分类。目前的多分类模型选择的是12类，可以尝试不同的分类。\n4、模型参数调优。尝试更多的参数来对模型做优化。\n5、交易周期优化。目前尝试的是5天交易一次，还可以尝试不同的交易周期，同样，打标签的收益率周期也可以优化。\n6、尝试不同的选股范围。这次策略使用的是中证800指数成份股，可以扩大和调整这个选股范围。\n7、定期滚动训练模型。以便模型适应新的状况。\n\n**感谢**\n由于个人水平有限，研究和策略中如存在错误和不足的地方，请各位批评指正！谢谢各位！\n\n**2020年2月12日更新：**\n\n策略依然是使用17年至18年数据训练好的模型（已在帖子中做了网盘共享），每5天交易一次，每次等权持有中证800成份股中第一类（5天收益率最高的一类）预测概率最高的股票，但是这次要求预测的概率需大于0.5，每只股票的仓位是：1/持股总数。如果所有股票第一类的预测概率都不大于0.5，则空仓。\n感觉收益好了不少，貌似还自带择时属性。\n\n由于代码改动不多，这次修改只放上回测的结果，不放上代码了。\n![Img]( https://image.joinquant.com/59eae0cd27ec1d55ef2d09ecb21065cc)",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-02-07 16:04:40",
+      "modTime": "2020-02-07 16:04:40",
+      "lastActiveTime": "2026-01-30 10:16:12",
+      "lastPubTime": "2020-02-07 16:04:40",
+      "backtestId": "475bded929861207284a6fe130305610",
+      "backtestName": "XGB多因子策略",
+      "replyCount": "154",
+      "viewCount": "37686",
+      "collectionCount": "546",
+      "likeCount": "269",
+      "disLikeCount": "0",
+      "backtestCloneCount": "989",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "8",
+      "followersCount": "632",
+      "followingCount": "2",
+      "author": {
+        "userId": "5def760d95e7ddcb1b7e0708dc9f786a",
+        "alias": "cgzol",
+        "introduction": "量化小菜鸟",
+        "headImgKey": "b2eb30673700a4bf25a21d6ed7b6f0be"
+      },
+      "tags": [
+        {
+          "id": "13",
+          "name": "机器学习"
+        },
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "343",
+          "name": "XGBoost"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "475bded929861207284a6fe130305610",
+        "backtest_name": "XGB多因子策略",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=475bded929861207284a6fe130305610&postId=d1f79c31891870b33e65380b41774ccc&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2019-01-01",
+          "end_date": "2019-12-31",
+          "base_capital": 1000000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "a1e1e67840df8fb34982d85d1ddfae9b",
+            "16150492"
+          ],
+          "numeric_backtest_id": "16150492",
+          "numeric_post_id": "25313",
+          "python_version": 3,
+          "clone_count": 910
+        },
+        "stats": {
+          "trading_days": 244,
+          "benchmark_volatility": 0.20094250729232,
+          "algorithm_volatility": 0.24332690053783,
+          "treasury_return": 0.039780821917808,
+          "algorithm_return": 0.52236358342,
+          "benchmark_return": 0.33706569498178,
+          "annual_algo_return": 0.53817781636119,
+          "annual_bm_return": 0.34665039555329,
+          "sharpe": 2.0473602189485,
+          "excess_return_sharpe": "0.944",
+          "sortino": 3.0961422526196,
+          "information": 1.769581679737,
+          "beta": 1.088113466186,
+          "alpha": 0.1645073915484,
+          "excess_return": 0.13858547798636,
+          "avg_excess_return": "0.06%",
+          "max_drawdown": 0.16123380763014,
+          "max_drawdown_period": [
+            "2019-04-09",
+            "2019-08-09"
+          ],
+          "excess_return_max_drawdown": "6.59%",
+          "excess_return_max_drawdown_period": [
+            "2019-05-27",
+            "2019-08-09"
+          ],
+          "max_leverage": 0,
+          "period_label": "2019-12",
+          "__version": 101,
+          "win_ratio": 0.59135559921415,
+          "profit_loss_ratio": 1.8702408445754,
+          "win_count": 301,
+          "lose_count": 208,
+          "day_win_ratio": 0.52459016393443,
+          "avg_trade_return": 0.01957526320825,
+          "avg_position_days": 19.4,
+          "turnover_rate": 0.10768970698784,
+          "report_done_seconds": 3266.8176772594,
+          "report_done_cpu_seconds": 3022.65
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 52.236358,
+          "benchmark_return_percent": 33.706569,
+          "annual_algo_return_percent": 53.817782,
+          "annual_bm_return_percent": 34.66504,
+          "max_drawdown_percent": 16.123381,
+          "algorithm_volatility_percent": 24.33269,
+          "benchmark_volatility_percent": 20.094251,
+          "win_ratio_percent": 59.13556,
+          "day_win_ratio_percent": 52.459016,
+          "avg_trade_return_percent": 1.957526,
+          "turnover_rate_percent": 10.768971,
+          "sharpe": 2.0473602189485,
+          "sortino": 3.0961422526196,
+          "information": 1.769581679737,
+          "alpha": 0.1645073915484,
+          "beta": 1.088113466186,
+          "profit_loss_ratio": 1.8702408445754,
+          "avg_position_days": 19.4,
+          "trading_days": 244,
+          "win_count": 301,
+          "lose_count": 208,
+          "max_drawdown_period": [
+            "2019-04-09",
+            "2019-08-09"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2019-05-27",
+            "2019-08-09"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/25313",
+      "https://www.joinquant.com/community/post/detailV2?postId=25313",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=475bded929861207284a6fe130305610&postId=d1f79c31891870b33e65380b41774ccc&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=475bded929861207284a6fe130305610"
+    ]
+  }
+}

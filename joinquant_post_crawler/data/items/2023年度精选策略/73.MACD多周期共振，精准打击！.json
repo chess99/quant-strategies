@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/73.MACD多周期共振，精准打击！.txt",
+    "category": "2023年度精选策略",
+    "file_name": "73.MACD多周期共振，精准打击！.txt",
+    "strategy_name": "MACD多周期共振，精准打击！",
+    "declared_title": "MACD多周期共振，精准打击！",
+    "declared_author": "海枫",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 12339,
+    "sha256": "c9627cb5e502dcaadc7de4ee02e48d896b402279762e8bafc5afa125c39c8b50",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/33647"
+    ],
+    "primary_url": "https://www.joinquant.com/post/33647",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:09:34+08:00",
+    "requested_url": "https://www.joinquant.com/post/33647",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/db28f16156ef6b7f2d2006335b8b66c1",
+    "community_id": "db28f16156ef6b7f2d2006335b8b66c1",
+    "post": {
+      "postId": "8a2341b1812c776b42fd70794548b702",
+      "uniqueKey": "db28f16156ef6b7f2d2006335b8b66c1",
+      "title": "MACD多周期共振，精准打击！",
+      "content": "选股思路：\n1、周线即将底背离，第二波下探时，入选股票池；\n2、每天盘尾从股票池中选出60分钟MACD底背离的股票买入。\n3、止盈10%。\n希望能够抛砖引玉，大家继续优化。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-06-23 19:19:17",
+      "modTime": "2021-06-23 19:19:17",
+      "lastActiveTime": "2024-12-13 10:32:44",
+      "lastPubTime": "2021-06-23 19:19:17",
+      "backtestId": "df4ff4c9a141bd8558474ae9717afd22",
+      "backtestName": "study30A",
+      "replyCount": "48",
+      "viewCount": "3751",
+      "collectionCount": "40",
+      "likeCount": "29",
+      "disLikeCount": "0",
+      "backtestCloneCount": "257",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "4",
+      "followersCount": "26",
+      "followingCount": "3",
+      "author": {
+        "userId": "966f60407991e7bad03779b65fed0a64",
+        "alias": "海枫",
+        "introduction": "这家伙很懒，什么也没留下。",
+        "headImgKey": "78a79050cf700fcf6cb176da0a65d40c"
+      },
+      "tags": [
+        {
+          "id": "1318",
+          "name": "MACD"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "df4ff4c9a141bd8558474ae9717afd22",
+        "backtest_name": "study30A",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=df4ff4c9a141bd8558474ae9717afd22&postId=db28f16156ef6b7f2d2006335b8b66c1&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2021-01-01",
+          "end_date": null,
+          "base_capital": 1000000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 1,
+          "page_backtest_ids": [
+            "bfcc397d1138d45de7935fd07ee80a6e",
+            "21052367"
+          ],
+          "numeric_backtest_id": "21052367",
+          "numeric_post_id": "33647",
+          "python_version": 3,
+          "clone_count": 251
+        },
+        "stats": {
+          "trading_days": 112,
+          "benchmark_volatility": 0.21090826958337,
+          "algorithm_volatility": 0.24238241717464,
+          "treasury_return": 0.018520547945205,
+          "algorithm_return": 0.3414006645,
+          "benchmark_return": -0.017103250826569,
+          "annual_algo_return": 0.92632177063083,
+          "annual_bm_return": -0.037775170032856,
+          "sharpe": 3.6567081926253,
+          "excess_return_sharpe": "2.921",
+          "sortino": 5.8821201676735,
+          "information": 2.9344894035771,
+          "beta": -0.052908132974998,
+          "alpha": 0.88220683159258,
+          "excess_return": 0.36474219253248,
+          "avg_excess_return": "0.30%",
+          "max_drawdown": 0.072323606153922,
+          "max_drawdown_period": [
+            "2021-05-14",
+            "2021-05-20"
+          ],
+          "excess_return_max_drawdown": "10.44%",
+          "excess_return_max_drawdown_period": [
+            "2021-03-25",
+            "2021-04-01"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-06",
+          "__version": 101,
+          "win_ratio": 1,
+          "profit_loss_ratio": 347375,
+          "win_count": 6,
+          "lose_count": 0,
+          "day_win_ratio": 0.54464285714286,
+          "avg_trade_return": 0.10571094182288,
+          "avg_position_days": 13.714285714286,
+          "turnover_rate": 0.027050320569411,
+          "report_done_seconds": 1176.3510906696,
+          "report_done_cpu_seconds": 1178.47
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 34.140066,
+          "benchmark_return_percent": -1.710325,
+          "annual_algo_return_percent": 92.632177,
+          "annual_bm_return_percent": -3.777517,
+          "max_drawdown_percent": 7.232361,
+          "algorithm_volatility_percent": 24.238242,
+          "benchmark_volatility_percent": 21.090827,
+          "win_ratio_percent": 100,
+          "day_win_ratio_percent": 54.464286,
+          "avg_trade_return_percent": 10.571094,
+          "turnover_rate_percent": 2.705032,
+          "sharpe": 3.6567081926253,
+          "sortino": 5.8821201676735,
+          "information": 2.9344894035771,
+          "alpha": 0.88220683159258,
+          "beta": -0.052908132974998,
+          "profit_loss_ratio": 347375,
+          "avg_position_days": 13.714285714286,
+          "trading_days": 112,
+          "win_count": 6,
+          "lose_count": 0,
+          "max_drawdown_period": [
+            "2021-05-14",
+            "2021-05-20"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2021-03-25",
+            "2021-04-01"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/33647",
+      "https://www.joinquant.com/community/post/detailV2?postId=33647",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=df4ff4c9a141bd8558474ae9717afd22&postId=db28f16156ef6b7f2d2006335b8b66c1&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=df4ff4c9a141bd8558474ae9717afd22"
+    ]
+  }
+}

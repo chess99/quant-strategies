@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/48投资回报率ROIC中等市值.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "48投资回报率ROIC中等市值.txt",
+    "strategy_name": "投资回报率ROIC中等市值",
+    "declared_title": "投资回报率ROIC中等市值",
+    "declared_author": "明曦",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 4767,
+    "sha256": "42a85e42b8ec48763f6ebbcdf4df5160d90e82247f8feb1f6a23dd4c397adf0a",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/45757"
+    ],
+    "primary_url": "https://www.joinquant.com/post/45757",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:12:14+08:00",
+    "requested_url": "https://www.joinquant.com/post/45757",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/809037fc70b478fa071975f90d010c41",
+    "community_id": "809037fc70b478fa071975f90d010c41",
+    "post": {
+      "postId": "7d79a6007e1125db656e10a04fae4dca",
+      "uniqueKey": "809037fc70b478fa071975f90d010c41",
+      "title": "投资回报率ROIC中等市值",
+      "content": "市值大于500亿，使用基本面和投资回报率ROIC因子选股，每月调仓。选股时也不是按市值排序，回测结果此策略容易选到市值较大的股票。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2023-12-30 18:56:49",
+      "modTime": "2023-12-30 18:56:49",
+      "lastActiveTime": "2026-06-29 09:51:46",
+      "lastPubTime": "2023-12-30 18:56:49",
+      "backtestId": "fc2e2366b6704da65ed5115f32b6f530",
+      "backtestName": "投资回报率ROIC中等市值",
+      "replyCount": "64",
+      "viewCount": "7168",
+      "collectionCount": "112",
+      "likeCount": "59",
+      "disLikeCount": "0",
+      "backtestCloneCount": "484",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "19",
+      "followersCount": "379",
+      "followingCount": "0",
+      "author": {
+        "userId": "0fa60394cfd7d6c814915e93575ba612",
+        "alias": "明曦",
+        "headImgKey": "7d1349a7d50e52d17f1d5f9e7ce6f6ba"
+      },
+      "tags": [
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "fc2e2366b6704da65ed5115f32b6f530",
+        "backtest_name": "投资回报率ROIC中等市值",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=fc2e2366b6704da65ed5115f32b6f530&postId=809037fc70b478fa071975f90d010c41&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2016-01-01",
+          "end_date": "2023-12-29",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "4c3b8db146fa159fece974e71d713c7b",
+            "31765259"
+          ],
+          "numeric_backtest_id": "31765259",
+          "numeric_post_id": "45757",
+          "python_version": 3,
+          "clone_count": 481
+        },
+        "stats": {
+          "trading_days": 1945,
+          "benchmark_volatility": 0.1902181749664,
+          "algorithm_volatility": 0.23355832121033,
+          "treasury_return": 0.31956164383562,
+          "algorithm_return": 6.48474014912,
+          "benchmark_return": -0.080380379575514,
+          "annual_algo_return": 0.29527519056451,
+          "annual_bm_return": -0.010712789828805,
+          "sharpe": 1.0929826402315,
+          "excess_return_sharpe": "1.576",
+          "sortino": 1.573101364555,
+          "information": 1.7902266655123,
+          "beta": 0.85010100715171,
+          "alpha": 0.29838618427345,
+          "excess_return": 7.1389522177279,
+          "avg_excess_return": "0.11%",
+          "max_drawdown": 0.2617923310327,
+          "max_drawdown_period": [
+            "2018-06-12",
+            "2019-01-03"
+          ],
+          "excess_return_max_drawdown": "17.28%",
+          "excess_return_max_drawdown_period": [
+            "2021-09-22",
+            "2021-11-16"
+          ],
+          "max_leverage": 0,
+          "period_label": "2023-12",
+          "__version": 101,
+          "win_ratio": 0.59420289855072,
+          "profit_loss_ratio": 9.8731454268902,
+          "win_count": 41,
+          "lose_count": 28,
+          "day_win_ratio": 0.54241645244216,
+          "avg_trade_return": 0.31609994770709,
+          "avg_position_days": 387.55263157895,
+          "turnover_rate": 0.0053560373624541,
+          "report_done_seconds": 97.993860006332,
+          "report_done_cpu_seconds": 76.62
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 648.474015,
+          "benchmark_return_percent": -8.038038,
+          "annual_algo_return_percent": 29.527519,
+          "annual_bm_return_percent": -1.071279,
+          "max_drawdown_percent": 26.179233,
+          "algorithm_volatility_percent": 23.355832,
+          "benchmark_volatility_percent": 19.021817,
+          "win_ratio_percent": 59.42029,
+          "day_win_ratio_percent": 54.241645,
+          "avg_trade_return_percent": 31.609995,
+          "turnover_rate_percent": 0.535604,
+          "sharpe": 1.0929826402315,
+          "sortino": 1.573101364555,
+          "information": 1.7902266655123,
+          "alpha": 0.29838618427345,
+          "beta": 0.85010100715171,
+          "profit_loss_ratio": 9.8731454268902,
+          "avg_position_days": 387.55263157895,
+          "trading_days": 1945,
+          "win_count": 41,
+          "lose_count": 28,
+          "max_drawdown_period": [
+            "2018-06-12",
+            "2019-01-03"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2021-09-22",
+            "2021-11-16"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/45757",
+      "https://www.joinquant.com/community/post/detailV2?postId=45757",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=fc2e2366b6704da65ed5115f32b6f530&postId=809037fc70b478fa071975f90d010c41&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=fc2e2366b6704da65ed5115f32b6f530"
+    ]
+  }
+}

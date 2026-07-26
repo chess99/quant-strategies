@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略1/92.【机器学习研究】动态多因子选股策略研究.txt",
+    "category": "2024年度精选策略1",
+    "file_name": "92.【机器学习研究】动态多因子选股策略研究.txt",
+    "strategy_name": "【机器学习研究】动态多因子选股策略研究",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 16965,
+    "sha256": "9f25ea6444c85a1f1e4d8a0b946258cdaf566dc53747611f657f9bf95cd69431",
+    "joinquant_urls": [],
+    "primary_url": null,
+    "url_selection_method": "none"
+  },
+  "remote": null
+}

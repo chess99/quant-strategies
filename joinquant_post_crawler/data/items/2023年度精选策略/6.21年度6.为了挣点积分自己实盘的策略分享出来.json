@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/6.21年度6.为了挣点积分自己实盘的策略分享出来.txt",
+    "category": "2023年度精选策略",
+    "file_name": "6.21年度6.为了挣点积分自己实盘的策略分享出来.txt",
+    "strategy_name": "年度6.为了挣点积分自己实盘的策略分享出来",
+    "declared_title": "如何删帖呢",
+    "declared_author": "iron911",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 9985,
+    "sha256": "b4ffbfb4d757aaa417406591e7d3f1481aee32ef37e0e2f94fd82abb99defeb5",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/32660",
+      "https://www.joinquant.com/post/32536"
+    ],
+    "primary_url": "https://www.joinquant.com/post/32660",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "post_without_backtest",
+    "collected_at": "2026-07-27T02:09:25+08:00",
+    "requested_url": "https://www.joinquant.com/post/32660",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/6af2bdba9b20701f9de0a6465fc5c02b",
+    "community_id": "6af2bdba9b20701f9de0a6465fc5c02b",
+    "post": {
+      "postId": "2012258e3a2ce5913956b1f25e4f9e02",
+      "uniqueKey": "6af2bdba9b20701f9de0a6465fc5c02b",
+      "title": "如何删帖呢",
+      "content": "不知道如何删除自己发表的主题",
+      "type": 1,
+      "status": "1",
+      "addTime": "2021-04-08 21:57:51",
+      "modTime": "2022-05-14 19:10:24",
+      "lastActiveTime": "2023-04-05 09:05:59",
+      "lastPubTime": "2022-05-14 19:10:24",
+      "replyCount": "408",
+      "viewCount": "9774",
+      "collectionCount": "125",
+      "likeCount": "127",
+      "disLikeCount": "0",
+      "backtestCloneCount": "638",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "5",
+      "followersCount": "44",
+      "followingCount": "0",
+      "author": {
+        "userId": "83cc3c5781ec33e5d3de292450209268",
+        "alias": "iron911",
+        "introduction": "职业投资",
+        "headImgKey": "591a111926b305b069b87a86acbaaeba"
+      },
+      "tags": [
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "12",
+          "name": "基金"
+        },
+        {
+          "id": "5",
+          "name": "仓位管理"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        }
+      ]
+    },
+    "backtests": [],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 4,
+    "request_urls": [
+      "https://www.joinquant.com/post/32660",
+      "https://www.joinquant.com/community/post/detailV2?postId=32660",
+      "https://www.joinquant.com/community/post/replyList?page=1&postId=6af2bdba9b20701f9de0a6465fc5c02b",
+      "https://www.joinquant.com/community/post/replyList?page=2&postId=6af2bdba9b20701f9de0a6465fc5c02b",
+      "https://www.joinquant.com/community/post/replyList?page=3&postId=6af2bdba9b20701f9de0a6465fc5c02b",
+      "https://www.joinquant.com/community/post/replyList?page=4&postId=6af2bdba9b20701f9de0a6465fc5c02b",
+      "https://www.joinquant.com/community/post/replyList?page=5&postId=6af2bdba9b20701f9de0a6465fc5c02b",
+      "https://www.joinquant.com/community/post/replyList?page=6&postId=6af2bdba9b20701f9de0a6465fc5c02b",
+      "https://www.joinquant.com/community/post/replyList?page=7&postId=6af2bdba9b20701f9de0a6465fc5c02b",
+      "https://www.joinquant.com/community/post/replyList?page=8&postId=6af2bdba9b20701f9de0a6465fc5c02b",
+      "https://www.joinquant.com/community/post/replyList?page=9&postId=6af2bdba9b20701f9de0a6465fc5c02b",
+      "https://www.joinquant.com/community/post/replyList?page=10&postId=6af2bdba9b20701f9de0a6465fc5c02b",
+      "https://www.joinquant.com/community/post/replyList?page=11&postId=6af2bdba9b20701f9de0a6465fc5c02b",
+      "https://www.joinquant.com/community/post/replyList?page=12&postId=6af2bdba9b20701f9de0a6465fc5c02b",
+      "https://www.joinquant.com/community/post/replyList?page=13&postId=6af2bdba9b20701f9de0a6465fc5c02b",
+      "https://www.joinquant.com/community/post/replyList?page=14&postId=6af2bdba9b20701f9de0a6465fc5c02b"
+    ]
+  }
+}

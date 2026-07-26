@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/80基本面01加RSI择时.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "80基本面01加RSI择时.txt",
+    "strategy_name": "基本面01加RSI择时",
+    "declared_title": "基本面01加RSI择时",
+    "declared_author": "明曦",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 5002,
+    "sha256": "9c7636655e5475681faac86299d577eec561b06081a8c945e87f137ab8a5ff0f",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/45358"
+    ],
+    "primary_url": "https://www.joinquant.com/post/45358",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:12:36+08:00",
+    "requested_url": "https://www.joinquant.com/post/45358",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/c65fbcb1058b2ed4d25f5597013455d4",
+    "community_id": "c65fbcb1058b2ed4d25f5597013455d4",
+    "post": {
+      "postId": "b14e3f62c4aa5f89e03c002c544499c1",
+      "uniqueKey": "c65fbcb1058b2ed4d25f5597013455d4",
+      "title": "基本面01加RSI择时",
+      "content": "在发布过的策略‘基本面01’基础上使用RSI指标进行择时。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2023-12-05 20:36:26",
+      "modTime": "2023-12-05 20:50:10",
+      "lastActiveTime": "2026-02-25 16:58:18",
+      "lastPubTime": "2023-12-05 20:50:10",
+      "backtestId": "1030f4750e5c5faca65830726af74457",
+      "backtestName": "基本面01加RSI择时",
+      "replyCount": "44",
+      "viewCount": "3105",
+      "collectionCount": "58",
+      "likeCount": "29",
+      "disLikeCount": "0",
+      "backtestCloneCount": "298",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "19",
+      "followersCount": "379",
+      "followingCount": "0",
+      "author": {
+        "userId": "5f1d2f2483c2140ca8acbbdd405c7ca1",
+        "alias": "明曦",
+        "headImgKey": "7d1349a7d50e52d17f1d5f9e7ce6f6ba"
+      },
+      "tags": [
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "1030f4750e5c5faca65830726af74457",
+        "backtest_name": "基本面01加RSI择时",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=1030f4750e5c5faca65830726af74457&postId=c65fbcb1058b2ed4d25f5597013455d4&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2019-01-01",
+          "end_date": "2023-12-04",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "7ae0d67b5182d5c732184958e3f6bcde",
+            "31350600"
+          ],
+          "numeric_backtest_id": "31350600",
+          "numeric_post_id": "45358",
+          "python_version": 3,
+          "clone_count": 207
+        },
+        "stats": {
+          "trading_days": 1195,
+          "benchmark_volatility": 0.1928189084483,
+          "algorithm_volatility": 0.23038686906494,
+          "treasury_return": 0.19693150684932,
+          "algorithm_return": 7.8823986904,
+          "benchmark_return": 0.14929998505306,
+          "annual_algo_return": 0.57920057504307,
+          "annual_bm_return": 0.029539398600123,
+          "sharpe": 2.3404136582588,
+          "excess_return_sharpe": "2.133",
+          "sortino": 3.2479365140788,
+          "information": 2.3791003457523,
+          "beta": 0.49596313458062,
+          "alpha": 0.54438864770295,
+          "excess_return": 6.72852937085,
+          "avg_excess_return": "0.18%",
+          "max_drawdown": 0.18287591125054,
+          "max_drawdown_period": [
+            "2019-03-22",
+            "2019-03-28"
+          ],
+          "excess_return_max_drawdown": "28.37%",
+          "excess_return_max_drawdown_period": [
+            "2020-09-09",
+            "2021-02-10"
+          ],
+          "max_leverage": 0,
+          "period_label": "2023-12",
+          "__version": 101,
+          "win_ratio": 0.73741794310722,
+          "profit_loss_ratio": 3.374448565545,
+          "win_count": 337,
+          "lose_count": 120,
+          "day_win_ratio": 0.55564853556485,
+          "avg_trade_return": 0.04660747003708,
+          "avg_position_days": 36.564102564103,
+          "turnover_rate": 0.042222008659293,
+          "report_done_seconds": 101.97541546822,
+          "report_done_cpu_seconds": 94.81
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 788.239869,
+          "benchmark_return_percent": 14.929999,
+          "annual_algo_return_percent": 57.920058,
+          "annual_bm_return_percent": 2.95394,
+          "max_drawdown_percent": 18.287591,
+          "algorithm_volatility_percent": 23.038687,
+          "benchmark_volatility_percent": 19.281891,
+          "win_ratio_percent": 73.741794,
+          "day_win_ratio_percent": 55.564854,
+          "avg_trade_return_percent": 4.660747,
+          "turnover_rate_percent": 4.222201,
+          "sharpe": 2.3404136582588,
+          "sortino": 3.2479365140788,
+          "information": 2.3791003457523,
+          "alpha": 0.54438864770295,
+          "beta": 0.49596313458062,
+          "profit_loss_ratio": 3.374448565545,
+          "avg_position_days": 36.564102564103,
+          "trading_days": 1195,
+          "win_count": 337,
+          "lose_count": 120,
+          "max_drawdown_period": [
+            "2019-03-22",
+            "2019-03-28"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-09-09",
+            "2021-02-10"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/45358",
+      "https://www.joinquant.com/community/post/detailV2?postId=45358",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=1030f4750e5c5faca65830726af74457&postId=c65fbcb1058b2ed4d25f5597013455d4&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=1030f4750e5c5faca65830726af74457"
+    ]
+  }
+}

@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/53.基于大盘PE标准差偏离度的聪明基金定投策略.txt",
+    "category": "2025年度精选策略",
+    "file_name": "53.基于大盘PE标准差偏离度的聪明基金定投策略.txt",
+    "strategy_name": "基于大盘PE标准差偏离度的聪明基金定投策略",
+    "declared_title": "基于大盘PE标准差偏离度的聪明基金定投策略",
+    "declared_author": "逆熵者",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 9937,
+    "sha256": "4b49483b6ffd92e9596da5a8eeb4faf836bf8df029798fb644848783d1bc1300",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/24679"
+    ],
+    "primary_url": "https://www.joinquant.com/post/24679",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:16+08:00",
+    "requested_url": "https://www.joinquant.com/post/24679",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/665ef88fe91b9d65f73125c387bf59fd",
+    "community_id": "665ef88fe91b9d65f73125c387bf59fd",
+    "post": {
+      "postId": "74a4881c270ccf5369b4a86ecf228d86",
+      "uniqueKey": "665ef88fe91b9d65f73125c387bf59fd",
+      "title": "基于大盘PE标准差偏离度的聪明基金定投策略",
+      "content": "在上一篇文章[《定投真的有效吗？沪深300定投15年测试》](https://www.joinquant.com/view/community/detail/6eba65eb8c5406580978ec040b100de4)中我们得出了以下结论：\n- 傻瓜定投确实不太聪明\n- 只买不卖是不行的\n\n那定投真的就没有用了吗？\n\n定投受到大力吹捧的原因其实很简单，因为工薪族是社会中的大多数。基金公司希望能够多卖基金，投资者希望能够工资理财，于是定投大行其道。那么就没有比傻瓜定投好一点的工资理财策略吗？我们本次就尝试做出一个适合工薪族的定投策略。\n\n### 策略设计\n本策略PE估值计算部分参考Marshal老师的[100%胜率！历史PE估值价值投资择时交易](https://www.joinquant.com/view/community/detail/be0e61351a6f554b95622aee796f1201?type=1)\n\n由于聚宽新增的出入金函数，我们可以模拟这样一个工薪族的理财场景：\n- 10万初始资金\n- 每月第5个交易日发工资，第六个交易日账户新增5000元\n\n在这样的理财情景中，需要设计一个越低估越多买，越高估越多卖的策略，要保证资金投入的平滑可控，在不够低估时不轻易满仓。\n\n策略逻辑如下：\n- 设定一个周数N，每周买入或卖出可用资金的1/N\n- 取指数过去10年平均PE作为基准PE\n- 取指数过去10年PE的标准差std\n- 在基准PE上加减一定倍数的标准差，作为高估线stdH和低估线stdL\n- 在高估线以上越高估越减小卖出所需周数N\n- 在低估线以下越低估越减小买入所需周数N\n- 在两线中间的合理估值范围，按照标准的周数N定投\n\n\n### 回测表现\n回测中我们设置初始资金10万元，每月第6个交易日增加5000元，每周四定投。以沪深300为基准，投资沪深300ETF(510300)自该基金2012年成立至今的回测表现如下：\n![Img]( https://image.joinquant.com/4f410fff8fd05f077d13db5744283830) \n\n其中下方的自定义曲线中，绿线是当前PE，橙线和紫线分别是高估线和低估线，蓝线是当前仓位。\n可以看到，该策实现了平滑的买入卖出，在大周期上相对有效实现了低买高卖。\n\n再看一下年度收益和回撤控制\n![Img]( https://image.joinquant.com/3a48910609079d90b260bd54a19b79dd) \n![Img]( https://image.joinquant.com/abd1c4abd63873a042dce28e77e28c51) \n\n在上一篇文章中也提到了，聚宽的收益算法贴近净值计算，对于增量资金绝对收益的表现是有偏差的。我们需要再看一下绝对收益曲线和总资产曲线\n\n- 账户绝对收益：约80%\n![Img]( https://image.joinquant.com/50f6f56d460a82d348a08e84ba43f434) \n- 账户总资产曲线\n![Img]( https://image.joinquant.com/4ce895919bfc2a2646c49d81f962018e) \n\n总的来说中规中矩，不少择时策略都能做的更好。但至少在各方面都比已经比傻瓜定投“聪明”了很多。\n\n既然判断策略参考的是大盘PE，也就是大盘的整体风险，那么以此为依据投资与A股大盘相关性较高的标的都是理应可行的。\n\n我们取兴全趋势和景顺鼎益两只LOF基金做一下测试，回测时间段与之前相同。\n\n- 兴全趋势：总收益162%，最大回撤10.7%\n![Img]( https://image.joinquant.com/99617f3ae130366bfbe590dd4db62fce) \n- 景顺鼎益：总收益249%，最大回撤21.6%\n![Img]( https://image.joinquant.com/5a2675b4a8b3d05206934d78185d0673) \n\n可见该方法也可以用于操作主动型基金的参考\n\n### 优化空间\n- 本策略各项参数没有进行多次优化，有一定的拟合空间，包括PE计算周期、高低估的乘数，交易时间点和频率，预设周数，偏离对周数影响的加权等\n- 本策略的灵敏度较低，可加入其他择时策略提高灵敏度\n- 本策略减仓后的闲置资金时间较长，可买入货币基金或债券基金增加收益\n- 可将交易标的换成其他指数基金、主动基金或选股策略\n\n### 总结\n我通过历史PE标准差偏离度优化了傻瓜定投模型，使其表现显著优于简单傻瓜定投。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2019-12-27 17:17:33",
+      "modTime": "2019-12-27 17:17:33",
+      "lastActiveTime": "2024-10-15 11:46:07",
+      "lastPubTime": "2019-12-27 17:17:33",
+      "backtestId": "7ad0014d4f5f21346ad818cb2c47ba29",
+      "backtestName": "历史PE标准差定投-高005-低025",
+      "replyCount": "50",
+      "viewCount": "8841",
+      "collectionCount": "185",
+      "likeCount": "88",
+      "disLikeCount": "0",
+      "backtestCloneCount": "451",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "11",
+      "followersCount": "580",
+      "followingCount": "35",
+      "author": {
+        "userId": "eae7be5f7e6a892a0745f11f23944099",
+        "alias": "逆熵者",
+        "introduction": "进无止境",
+        "headImgKey": "50c2a3770ee3e3ccaedc473cb1c7f3f7"
+      },
+      "tags": [
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "12",
+          "name": "基金"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "612",
+          "name": "定投"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "7ad0014d4f5f21346ad818cb2c47ba29",
+        "backtest_name": "历史PE标准差定投-高005-低025",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=7ad0014d4f5f21346ad818cb2c47ba29&postId=665ef88fe91b9d65f73125c387bf59fd&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2012-06-01",
+          "end_date": "2019-12-26",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "bc34302977776197dad4b70dba2e73eb",
+            "15861227"
+          ],
+          "numeric_backtest_id": "15861227",
+          "numeric_post_id": "24679",
+          "python_version": 3,
+          "clone_count": 451
+        },
+        "stats": {
+          "trading_days": 1845,
+          "benchmark_volatility": 0.23144255278616,
+          "algorithm_volatility": 0.14691704446723,
+          "treasury_return": 0.30290410958904,
+          "algorithm_return": 1.5051851091274,
+          "benchmark_return": 0.52960821264113,
+          "annual_algo_return": 0.1325133659203,
+          "annual_bm_return": 0.059280233087452,
+          "sharpe": 0.62969797858226,
+          "excess_return_sharpe": "0.213",
+          "sortino": 0.88597456289595,
+          "information": 0.54636772799396,
+          "beta": 0.53377982011301,
+          "alpha": 0.082221966571138,
+          "excess_return": 0.63779527883269,
+          "avg_excess_return": "0.03%",
+          "max_drawdown": 0.2100312627198,
+          "max_drawdown_period": [
+            "2013-02-06",
+            "2014-03-20"
+          ],
+          "excess_return_max_drawdown": "17.14%",
+          "excess_return_max_drawdown_period": [
+            "2015-08-26",
+            "2018-01-24"
+          ],
+          "max_leverage": 0,
+          "period_label": "2019-12",
+          "__version": 101,
+          "win_ratio": 1,
+          "profit_loss_ratio": 331754.5,
+          "win_count": 73,
+          "lose_count": 0,
+          "day_win_ratio": 0.47913279132791,
+          "avg_trade_return": 0.41832749933919,
+          "avg_position_days": 1845,
+          "turnover_rate": 0.0012579486368374,
+          "report_done_seconds": 247.13110184669
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 150.518511,
+          "benchmark_return_percent": 52.960821,
+          "annual_algo_return_percent": 13.251337,
+          "annual_bm_return_percent": 5.928023,
+          "max_drawdown_percent": 21.003126,
+          "algorithm_volatility_percent": 14.691704,
+          "benchmark_volatility_percent": 23.144255,
+          "win_ratio_percent": 100,
+          "day_win_ratio_percent": 47.913279,
+          "avg_trade_return_percent": 41.83275,
+          "turnover_rate_percent": 0.125795,
+          "sharpe": 0.62969797858226,
+          "sortino": 0.88597456289595,
+          "information": 0.54636772799396,
+          "alpha": 0.082221966571138,
+          "beta": 0.53377982011301,
+          "profit_loss_ratio": 331754.5,
+          "avg_position_days": 1845,
+          "trading_days": 1845,
+          "win_count": 73,
+          "lose_count": 0,
+          "max_drawdown_period": [
+            "2013-02-06",
+            "2014-03-20"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2015-08-26",
+            "2018-01-24"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/24679",
+      "https://www.joinquant.com/community/post/detailV2?postId=24679",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=7ad0014d4f5f21346ad818cb2c47ba29&postId=665ef88fe91b9d65f73125c387bf59fd&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=7ad0014d4f5f21346ad818cb2c47ba29"
+    ]
+  }
+}

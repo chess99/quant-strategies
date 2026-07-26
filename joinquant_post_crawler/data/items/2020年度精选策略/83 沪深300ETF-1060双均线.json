@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/83 沪深300ETF-1060双均线.txt",
+    "category": "2020年度精选策略",
+    "file_name": "83 沪深300ETF-1060双均线.txt",
+    "strategy_name": "沪深300ETF-1060双均线",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 1253,
+    "sha256": "6b93db5ffc4bf83d72aea1970bc774a73b06cfdeb19d920e836adc0d68c84fec",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/15265"
+    ],
+    "primary_url": "https://www.joinquant.com/post/15265",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:21+08:00",
+    "requested_url": "https://www.joinquant.com/post/15265",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/8f057ccaacda25441f1e369793951029",
+    "community_id": "8f057ccaacda25441f1e369793951029",
+    "post": {
+      "postId": "3f1b2f2eade8bdbd0c700a37b2ef9a22",
+      "uniqueKey": "8f057ccaacda25441f1e369793951029",
+      "title": "沪深300ETF-1060双均线",
+      "content": "一个简单的双均线策略，10日上穿60日全仓买入，下穿清仓。\n1. 只做沪深300，所以没有标的拟合的问题，另外也不用考虑选择股票组合问题。\n2. 时间穿过牛熊至今，所以也没有期限拟合的问题。\n3. 参数的拟合是必要的，但我相信10日和60日线，在未来也会继续有很好的表现。\n4. 资金管理是每次全仓操作，大家可以自行调整仓位。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-11-14 17:59:25",
+      "modTime": "2018-11-14 17:59:25",
+      "lastActiveTime": "2018-11-15 15:31:01",
+      "lastPubTime": "2018-11-14 17:59:25",
+      "backtestId": "5f9ed21b6a264777aad9fb283834429f",
+      "backtestName": "沪深300ETF-1060双均线",
+      "replyCount": "7",
+      "viewCount": "2655",
+      "collectionCount": "7",
+      "likeCount": "6",
+      "disLikeCount": "0",
+      "backtestCloneCount": "108",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "1",
+      "followersCount": "3",
+      "followingCount": "1",
+      "author": {
+        "userId": "08c4647891a5b21f751d635302f2f591",
+        "alias": "小雪人",
+        "headImgKey": "dc6368889d963163b3c0f23471b38bca"
+      },
+      "tags": []
+    },
+    "backtests": [
+      {
+        "backtest_id": "5f9ed21b6a264777aad9fb283834429f",
+        "backtest_name": "沪深300ETF-1060双均线",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=5f9ed21b6a264777aad9fb283834429f&postId=8f057ccaacda25441f1e369793951029&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2014-06-01",
+          "end_date": "2018-11-13",
+          "base_capital": 200000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "9fedecebe309a04ff7a45bd3c54fe7bc",
+            "10697891"
+          ],
+          "numeric_backtest_id": "10697891",
+          "numeric_post_id": "15265",
+          "python_version": 2,
+          "clone_count": 108
+        },
+        "stats": {
+          "information": 0.53832384816198,
+          "benchmark_return": 0.50124463009817,
+          "algorithm_volatility": 0.17758947814636,
+          "annual_bm_return": 0.097854823403717,
+          "__version": 101,
+          "max_drawdown": 0.21495593824082,
+          "sortino": 1.1587412813685,
+          "period_label": "2018-11",
+          "trading_days": 1088,
+          "algorithm_return": 1.19983955,
+          "benchmark_volatility": 0.25030830056295,
+          "beta": 0.47218170818379,
+          "excess_return": 1.0218669472603,
+          "annual_algo_return": 0.19860036027847,
+          "sharpe": 0.89307295642685,
+          "alpha": 0.13128237093703,
+          "max_drawdown_period": [
+            "2015-06-12",
+            "2016-07-05"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.17797260273973,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.49448529411765,
+          "avg_position_days": 660,
+          "win_ratio": 0.52631578947368,
+          "win_count": 10,
+          "avg_trade_return": 0.058822501718759,
+          "profit_loss_ratio": 5.9355121692474,
+          "lose_count": 9,
+          "report_done_seconds": 13.634632110596
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 119.983955,
+          "benchmark_return_percent": 50.124463,
+          "annual_algo_return_percent": 19.860036,
+          "annual_bm_return_percent": 9.785482,
+          "max_drawdown_percent": 21.495594,
+          "algorithm_volatility_percent": 17.758948,
+          "benchmark_volatility_percent": 25.03083,
+          "win_ratio_percent": 52.631579,
+          "day_win_ratio_percent": 49.448529,
+          "avg_trade_return_percent": 5.88225,
+          "sharpe": 0.89307295642685,
+          "sortino": 1.1587412813685,
+          "information": 0.53832384816198,
+          "alpha": 0.13128237093703,
+          "beta": 0.47218170818379,
+          "profit_loss_ratio": 5.9355121692474,
+          "avg_position_days": 660,
+          "trading_days": 1088,
+          "win_count": 10,
+          "lose_count": 9,
+          "max_drawdown_period": [
+            "2015-06-12",
+            "2016-07-05"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/15265",
+      "https://www.joinquant.com/community/post/detailV2?postId=15265",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=5f9ed21b6a264777aad9fb283834429f&postId=8f057ccaacda25441f1e369793951029&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=5f9ed21b6a264777aad9fb283834429f"
+    ]
+  }
+}

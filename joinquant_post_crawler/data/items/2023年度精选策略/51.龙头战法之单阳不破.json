@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/51.龙头战法之单阳不破.txt",
+    "category": "2023年度精选策略",
+    "file_name": "51.龙头战法之单阳不破.txt",
+    "strategy_name": "龙头战法之单阳不破",
+    "declared_title": "龙头战法之单阳不破",
+    "declared_author": "游资小码哥",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 16672,
+    "sha256": "df9eb738a778bbffa3cdc48df1637b4b29745f3b21dd4bcb6a3c7811cf6ff3a3",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/35521"
+    ],
+    "primary_url": "https://www.joinquant.com/post/35521",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:09:16+08:00",
+    "requested_url": "https://www.joinquant.com/post/35521",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/3a2d47735ba0210bb78a78b9c0bea0d1",
+    "community_id": "3a2d47735ba0210bb78a78b9c0bea0d1",
+    "post": {
+      "postId": "6b5fb262ae3fec3cd46cd429a2e7219a",
+      "uniqueKey": "3a2d47735ba0210bb78a78b9c0bea0d1",
+      "title": "龙头战法之单阳不破",
+      "content": "大家好！我是游资小码哥，好久不和大家见面！最近研究的策略都偏经验型，最近发现了个很多龙头品种都有的形态，类似于9月7号的云天化，8月9号的百川股份，但是很多毛票也有这种形态，最好选择龙头品种的单阳不破！\n策略说明如下：\n1.前期有三个涨停板以上的涨幅。\n2.该策略还属于优化中，具有参考意义！不建议实盘。\n3.三天都没跌破最大量的前一天的涨停板最低点。\n注：单阳不破还需要多研究，看看有没有宽友搞个好一点的版本，在下试了很多种方法过滤毛票，却不尽人意！",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-11-22 16:30:42",
+      "modTime": "2021-11-22 16:30:42",
+      "lastActiveTime": "2022-04-01 09:38:55",
+      "lastPubTime": "2021-11-22 16:30:42",
+      "backtestId": "bc88cb098ec7e9432930ec9b54b5b6d1",
+      "backtestName": "单阳不破tick级别-三板",
+      "replyCount": "129",
+      "viewCount": "4368",
+      "collectionCount": "38",
+      "likeCount": "34",
+      "disLikeCount": "0",
+      "backtestCloneCount": "249",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "37",
+      "followersCount": "2643",
+      "followingCount": "19",
+      "author": {
+        "userId": "765a40cac788f29e7c08a4fff8309242",
+        "alias": "游资小码哥",
+        "introduction": "90后新生代游资，擅长通过量化分析涨停板形态，能够运用代码实现自动打板操作。 交易理念： 1.只做纯粹性的交易。  2.只做确定性的交易。 3.只做分歧性的交易。",
+        "headImgKey": "341e589ac16f899c4b87f521540eaeb1"
+      },
+      "tags": [
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "1459",
+          "name": "小码哥感想"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "bc88cb098ec7e9432930ec9b54b5b6d1",
+        "backtest_name": "单阳不破tick级别-三板",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=bc88cb098ec7e9432930ec9b54b5b6d1&postId=3a2d47735ba0210bb78a78b9c0bea0d1&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2020-01-01",
+          "end_date": "2020-12-31",
+          "base_capital": 1000000,
+          "frequency_code": "tick",
+          "frequency_label": "TICK",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "92553eca9c1adce5f24eebc0bd389def",
+            "22234265"
+          ],
+          "numeric_backtest_id": "22234265",
+          "numeric_post_id": "35521",
+          "python_version": 3,
+          "clone_count": 249
+        },
+        "stats": {
+          "trading_days": 243,
+          "benchmark_volatility": 0.22680355030882,
+          "algorithm_volatility": 0.46883080709284,
+          "treasury_return": 0.039890410958904,
+          "algorithm_return": 2.2425985092,
+          "benchmark_return": 0.2721074652515,
+          "annual_algo_return": 2.3543646001451,
+          "annual_bm_return": 0.28095765961285,
+          "sharpe": 4.9364601581883,
+          "excess_return_sharpe": "3.018",
+          "sortino": 9.8011121746695,
+          "information": 3.9794974306418,
+          "beta": -0.0021585454502595,
+          "alpha": 2.3148847182049,
+          "excess_return": 1.5489973117632,
+          "avg_excess_return": "0.44%",
+          "max_drawdown": 0.16204668212387,
+          "max_drawdown_period": [
+            "2020-08-07",
+            "2020-11-04"
+          ],
+          "excess_return_max_drawdown": "21.99%",
+          "excess_return_max_drawdown_period": [
+            "2020-02-03",
+            "2020-05-13"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-12",
+          "__version": 101,
+          "win_ratio": 0.46875,
+          "profit_loss_ratio": 3.0268679567023,
+          "win_count": 15,
+          "lose_count": 17,
+          "day_win_ratio": 0.47325102880658,
+          "avg_trade_return": 0.068410009636457,
+          "avg_position_days": 5.4666666666667,
+          "turnover_rate": 0.0706622248417,
+          "report_done_seconds": 36657.848009109,
+          "report_done_cpu_seconds": 36642.03
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 224.259851,
+          "benchmark_return_percent": 27.210747,
+          "annual_algo_return_percent": 235.43646,
+          "annual_bm_return_percent": 28.095766,
+          "max_drawdown_percent": 16.204668,
+          "algorithm_volatility_percent": 46.883081,
+          "benchmark_volatility_percent": 22.680355,
+          "win_ratio_percent": 46.875,
+          "day_win_ratio_percent": 47.325103,
+          "avg_trade_return_percent": 6.841001,
+          "turnover_rate_percent": 7.066222,
+          "sharpe": 4.9364601581883,
+          "sortino": 9.8011121746695,
+          "information": 3.9794974306418,
+          "alpha": 2.3148847182049,
+          "beta": -0.0021585454502595,
+          "profit_loss_ratio": 3.0268679567023,
+          "avg_position_days": 5.4666666666667,
+          "trading_days": 243,
+          "win_count": 15,
+          "lose_count": 17,
+          "max_drawdown_period": [
+            "2020-08-07",
+            "2020-11-04"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-02-03",
+            "2020-05-13"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/35521",
+      "https://www.joinquant.com/community/post/detailV2?postId=35521",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=bc88cb098ec7e9432930ec9b54b5b6d1&postId=3a2d47735ba0210bb78a78b9c0bea0d1&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=bc88cb098ec7e9432930ec9b54b5b6d1"
+    ]
+  }
+}

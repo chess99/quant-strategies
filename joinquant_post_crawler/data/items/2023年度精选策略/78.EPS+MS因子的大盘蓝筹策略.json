@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/78.EPS+MS因子的大盘蓝筹策略.txt",
+    "category": "2023年度精选策略",
+    "file_name": "78.EPS+MS因子的大盘蓝筹策略.txt",
+    "strategy_name": "EPS+MS因子的大盘蓝筹策略",
+    "declared_title": "EPS+MS因子的大盘蓝筹策略",
+    "declared_author": "wywy1995",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 11168,
+    "sha256": "a1a72e6dd4e40013c1cf8e81d21f61142110427b6215e01ee8c3c3cf367acbf6",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/34372"
+    ],
+    "primary_url": "https://www.joinquant.com/post/34372",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:09:40+08:00",
+    "requested_url": "https://www.joinquant.com/post/34372",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/118d16a3b00995a8507cb541a78432b0",
+    "community_id": "118d16a3b00995a8507cb541a78432b0",
+    "post": {
+      "postId": "df987bc15e081e575c65ce562fc02bbb",
+      "uniqueKey": "118d16a3b00995a8507cb541a78432b0",
+      "title": "EPS+MS因子的大盘蓝筹策略",
+      "content": "**前言**\n使用聚宽提供的因子看板写了个三因子策略，比单因子收益有所提升。聚宽因子使用eps_ttm和margin_stability，克隆之后可以修改这两项测试其它因子，还可以加入其他因子，应该还有优化的空间。最后一项是市值因子，选大市值。感觉聚宽处理过的的因子还是不错的，去极值和标准化省了不少事儿。\n\n\n**因子选择**\n为什么选择这两个因子，原因很简单，每股收益肯定越高越好，但是公司不一定能做到持续的高收益，所以在选出前25%高收益的列表后，在这个列表里再选出收益最稳定的前25%。最后经过对比发现，市值大的公司要强于市值小的，有人可能会问为什么不选小市值更有成长性的，因为首要顾虑是盈利的稳定性，小公司抗风险能力差一些，稳定性自然也差，所以按照市值排序选择最大的五只。关于市值的影响后面还有探讨。\n下图为单因子与三因子在最近十年的收益对比，可以看到明显差别，均未择时情况下，单因子最高才2倍多，而组合策略最高达到过6倍多。而且三因子策略与择时信号可以很好的结合使收益大幅提高。\n\n无择时单因子eps_ttm\n![Img]( https://image.joinquant.com/fac3452c663169e890297ef7be16ecdf) \n\n无择时单因子margin_stability\n![Img]( https://image.joinquant.com/924ae20b645488d920508d8332661876) \n\n无择时三因子eps + margin_stability + circulating_market_cap\n![Img]( https://image.joinquant.com/45c4d0daee6644eaf681a84806b578a6)  \n\n择时后三因子\n![Img]( https://image.joinquant.com/e37755aaff6c3c15c1de069688b0abdd) \n\n**市值的影响**\n1.在详细查看持仓后发现一个现象，就是这个策略会长期持有茅台，所以我想看看策略的收益在多大程度上依赖茅台，因为我不想这个策略是无意中过拟合买入茅台的策略，于是进行了不含茅台的对照实验。筛选方法是前两项因子不变，再选择市值第2-6名的股票，因为茅台在这段时间内市值基本上都是排第一的。\n\neps+ms不变，市值选择2-6位，择时后结果如下：\n![Img]( https://image.joinquant.com/6fd385a4e0e911b126fa5e7c370a27de)  \n可以看出首先茅台确实提高了策略的收益，但是去除后的收益没有下降太多，说明茅台（即最大市值股票）的影响力有限。\n\n2.接下来思考这样一种情况，如果选择的股票违规造假，出现明显利空，而上季度财务指标还没来得及变化，因子没有变化也不会有调仓信号，那么实盘中我可不可以手动换仓？这时因子上的微弱优势肯定抵不住基本面上的巨大利空，所以可以换成排名稍微靠后的基本面正常的一只股票。但是我担心会不会排名靠后会导致收益快速平庸化，所以我测试了在前两项因子不变的情况下，按照市值顺序买入排名最大的6-10位的五只股票。\n\neps+ms不变，市值选择6-10位，择时后结果如下：\n![Img]( https://image.joinquant.com/eb1fd9580eed8a99cfb6e6aae6a059f1)  \n可以看出担心的情况发生了，收益明显衰减了很多，在有择时的情形下也只能略微跑赢基准，所以万一前五大持仓中的股票出现基本面巨大利空，可以出于安全性考虑选择卖出问题股票，额外资金直接国债逆回购或者买入沪深300etf，而不是买排名靠后的股票。这里可能有人会问，为什么差5个差别就这么大，是因为前两种因子选股后的列表一共就只有20只左右的股票，5只正好相当于差了一个四分之一分位，所以差别会比较明显。\n额外多说一句关于对基本面利空的判断，至于能不能量化它不太清楚，不过市场混久了的人肯定会有一些经验，比如之前的东阿阿胶利润减少，或者长生生物的问题，一般身处其中多多少少都会有些感受。\n\n3.最后贴一下沪深300只买市值最大5只股票进行对照，可以看出只用大市值是没有意义的（结果已添加择时）\n![Img]( https://image.joinquant.com/0a3990e256b3001d395c6f2d44b0043f)  \n\n**运行时间的影响**\n这里我没有深入研究，仅随机挑选了一个不同的时间运行，之前是9:30，改为11:00运行，效果如下，有一定影响，个人感觉还可以接受。另外也可以尝试每周运行等等。（结果已添加择时）\n![Img]( https://image.joinquant.com/78ce71b15f5614dab23fe654d8432c1c) \n\n\n**感谢论坛网友提供的选股代码改写，回测速度大幅提升。**\n\n**风险提示**\n1.该策略选择结果集中在白酒行业，因子的选择可能存在过优化。\n2.长期绝对收益不高，主要超额收益集中在2016-2021年，而其他时间没有明显超额，从更长时间维度看可能存在选股的过拟合。\n3.使用择时因子RSRS和均线，其参数可能在未来失效，这也是为什么我后续策略都放弃了择时，因为我没有能力解释择时因子背后的“事在人为”。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-08-23 22:55:53",
+      "modTime": "2022-11-11 21:06:55",
+      "lastActiveTime": "2026-03-25 14:47:32",
+      "lastPubTime": "2022-11-11 21:06:55",
+      "backtestId": "7221fe1033afd9c623b91b8db2c18c51",
+      "backtestName": "RSRS-MA择时_eps-ms-cap因子_沪深300-Clone-Clone",
+      "replyCount": "147",
+      "viewCount": "7253",
+      "collectionCount": "107",
+      "likeCount": "90",
+      "disLikeCount": "0",
+      "backtestCloneCount": "351",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "37",
+      "followersCount": "9584",
+      "followingCount": "39",
+      "author": {
+        "userId": "e44f39e4218fd6c626eda8b59ffe10ac",
+        "alias": "wywy1995",
+        "introduction": "从历史中发现规律比画出美丽的图形更重要",
+        "vipType": "VIP",
+        "headImgKey": "6784510f0c6abdbcf9a1fed9081a4658"
+      },
+      "tags": [
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "7221fe1033afd9c623b91b8db2c18c51",
+        "backtest_name": "RSRS-MA择时_eps-ms-cap因子_沪深300-Clone-Clone",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=7221fe1033afd9c623b91b8db2c18c51&postId=118d16a3b00995a8507cb541a78432b0&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2011-08-20",
+          "end_date": "2021-08-20",
+          "base_capital": 5000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "8a2808d8da952537f4b1b7afadae1582",
+            "21677687"
+          ],
+          "numeric_backtest_id": "21677687",
+          "numeric_post_id": "34372",
+          "python_version": 3,
+          "clone_count": 312
+        },
+        "stats": {
+          "trading_days": 2432,
+          "benchmark_volatility": 0.22874819294749,
+          "algorithm_volatility": 0.26001747598941,
+          "treasury_return": 0.4001095890411,
+          "algorithm_return": 10.219579656346,
+          "benchmark_return": 0.69866365585576,
+          "annual_algo_return": 0.28213409252773,
+          "annual_bm_return": 0.055976204521868,
+          "sharpe": 0.93122237882809,
+          "excess_return_sharpe": "0.912",
+          "sortino": 1.3664605564722,
+          "information": 1.196626263286,
+          "beta": 0.80472100554677,
+          "alpha": 0.22927770516007,
+          "excess_return": 5.6049447856665,
+          "avg_excess_return": "0.08%",
+          "max_drawdown": 0.3817871210726,
+          "max_drawdown_period": [
+            "2018-01-23",
+            "2018-10-30"
+          ],
+          "excess_return_max_drawdown": "26.06%",
+          "excess_return_max_drawdown_period": [
+            "2014-03-19",
+            "2015-04-15"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-08",
+          "__version": 101,
+          "win_ratio": 0.51529411764706,
+          "profit_loss_ratio": 2.7693431812669,
+          "win_count": 219,
+          "lose_count": 206,
+          "day_win_ratio": 0.50123355263158,
+          "avg_trade_return": 0.035744055431508,
+          "avg_position_days": 371.13333333333,
+          "turnover_rate": 0.02918480474224,
+          "report_done_seconds": 327.22536706924,
+          "report_done_cpu_seconds": 275.63
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 1021.957966,
+          "benchmark_return_percent": 69.866366,
+          "annual_algo_return_percent": 28.213409,
+          "annual_bm_return_percent": 5.59762,
+          "max_drawdown_percent": 38.178712,
+          "algorithm_volatility_percent": 26.001748,
+          "benchmark_volatility_percent": 22.874819,
+          "win_ratio_percent": 51.529412,
+          "day_win_ratio_percent": 50.123355,
+          "avg_trade_return_percent": 3.574406,
+          "turnover_rate_percent": 2.91848,
+          "sharpe": 0.93122237882809,
+          "sortino": 1.3664605564722,
+          "information": 1.196626263286,
+          "alpha": 0.22927770516007,
+          "beta": 0.80472100554677,
+          "profit_loss_ratio": 2.7693431812669,
+          "avg_position_days": 371.13333333333,
+          "trading_days": 2432,
+          "win_count": 219,
+          "lose_count": 206,
+          "max_drawdown_period": [
+            "2018-01-23",
+            "2018-10-30"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2014-03-19",
+            "2015-04-15"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/34372",
+      "https://www.joinquant.com/community/post/detailV2?postId=34372",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=7221fe1033afd9c623b91b8db2c18c51&postId=118d16a3b00995a8507cb541a78432b0&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=7221fe1033afd9c623b91b8db2c18c51"
+    ]
+  }
+}

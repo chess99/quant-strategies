@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/62基金溢价（模拟效果好！）.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "62基金溢价（模拟效果好！）.txt",
+    "strategy_name": "基金溢价（模拟效果好！）",
+    "declared_title": "基金溢价（模拟效果好！）",
+    "declared_author": "大山深处",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 11748,
+    "sha256": "66a57814941fd2a1a4c29f7a483f35723c58575185491d85f8caa9d5f770a6f1",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/45648",
+      "https://www.joinquant.com/post/33636"
+    ],
+    "primary_url": "https://www.joinquant.com/post/45648",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:10:44+08:00",
+    "requested_url": "https://www.joinquant.com/post/45648",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/31cb82ebad4f9b1fb5a5fdddeb40aacc",
+    "community_id": "31cb82ebad4f9b1fb5a5fdddeb40aacc",
+    "post": {
+      "postId": "0578692702c4823539d5218929db4a52",
+      "uniqueKey": "31cb82ebad4f9b1fb5a5fdddeb40aacc",
+      "title": "基金溢价（模拟效果好！）",
+      "content": "基金，尤其是ETF基金，对普通散户相对友好。它不会踩雷，没有利利输送，是我们散户极佳的投资产品。\n\n大侠发锅，在２年前给我们共享了【etf基金溢价-改进版-高收益低回撤-速度已最优】，详见克隆自聚宽文章：https://www.joinquant.com/post/33636。\n策略虽然过去良久，其精湛的技巧，科学的逻辑，让我深陷策略之中，久久迷恋往返。\n\n我在大侠发锅的策略基础上，尝试作了多次调参，补充一些新的要素，在努力提高策略的年化收效和降低最大回撤方面，有明显提升。\n\n本策略中，有许多技巧参考学习了平台上众大侠的精华，在以后的策略设计中值得借鉴和复用。\n\n本策略的模拟结果非常良好！实盘方面，策略功能中也有许多功能设计，极力减少了模拟与实盘的差距。\n\n【最终代码，无任何修改与保留。因需要积分，特分享之！】\n\n以下修改过程，亦作分享。\n＝＝ 修订：王巨明  \n＝＝目标：增加年化收效，减少最大回撤\n2023-04-14：引入IOPV\n2023-04-22：\n(1) 因IOPV对施工ETF没有，且个人获取延后而没有优势，删除IOPV模块\n (2) 根据ETF基金代码在东方财富网（etf.eastmoney.com）获取ETF的现实净值\n2023-04-23：\n(1) 将买卖的市价单改成限价单，保留货币基金的市价单\n(2) 优化买入模块：从金额上确保平均持有\n (3) 优化溢价系数：原来买入-2.0%和卖出-1.8%---&gt;买入-2.50%和卖出-2.5%\n (4) 启用买卖前判断的模块：无影响\n (5) 为了实盘，将买卖时间改到9:15（结果：无成交）\n2023-4-24:\n (1) 买卖时间：在回测时9:30，在实盘时可以在9;27\n(2) 经数据分析，采用昨日收盘价和净值计算溢价时，一般比采用今日开盘价和净值计算溢价时大。\n(3) 每次最多操作2只ETF\n2023-4-25：\n(1) 发现在一创聚宽上，无法读取东方财富上的基金净值\n (2) 准备在聚宽模拟平台6:18运行，然后根据结果手工下单\n(3) 因货币基本亏本，删除货币基金的内容\n2023-4-26：\n (1) 每日早上9时前聚宽对策略【保存昨日的基金净值】进行编译运行或回测，取得昨日基金净值。\n(2) 在【一创●聚宽】上模拟或实盘时，将文件etf_value.csv拷到根目录，然后读取其中的基金净值，最后作买卖操作\n2023-5-1:\n  (1) 修改净值文件etf_value_20230426.csv--&gt;etf_value.csv\n 2023-5-3:\n (1) 在exe_sell模块中，在9:27回测检查昨日收盘价、当前价和开盘价的关系。结论：昨日收盘价=当前价,一般大于开盘价\n  (2) 在exe_buy模块中，在9:30回测检查昨日收盘价、当前价和开盘价的关系。结论：当前价=开盘价，一般小于昨日收盘价\n2023-5-4:\n (1) 因为昨日收盘价多数大于开盘价，所以卖出操作设在9:27；又经测试买入操作设在9:30最佳。\n(2)实现修改代码时重新执行所有定时运行\n (3)set_option('order_volume_ratio',0.5)，在回测时最大成交量为给定某一分钟内的成交量的50%\n2023-5-8:\n(1) 读取CSV的净值\n2023-5-16\n (1) 如果没有读取CSV文件的处理\n2023-6-20\n (1) 0620,510210.XSHG错误买入，因为没有处理好分红的前复权问题\n(２) 对于一段时间没有买入的情况，将修改g.least_premium，由2.5下降，直接到1.5",
+      "type": 1,
+      "status": "0",
+      "addTime": "2023-12-23 11:24:58",
+      "modTime": "2023-12-23 11:31:39",
+      "lastActiveTime": "2026-06-30 08:06:11",
+      "lastPubTime": "2023-12-23 11:31:39",
+      "backtestId": "4db6a5db192b28f3bd006fc617c6a830",
+      "backtestName": "基金溢价0620-改",
+      "replyCount": "99",
+      "viewCount": "9100",
+      "collectionCount": "113",
+      "likeCount": "52",
+      "disLikeCount": "0",
+      "backtestCloneCount": "411",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "8",
+      "followersCount": "91",
+      "followingCount": "70",
+      "author": {
+        "userId": "0c0c3d363ad7834db9c72b9b11ba7885",
+        "alias": "大山深处",
+        "introduction": "我从深山来，带着松花香"
+      },
+      "tags": [
+        {
+          "id": "12",
+          "name": "基金"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        },
+        {
+          "id": "2505",
+          "name": "ETF基金"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "4db6a5db192b28f3bd006fc617c6a830",
+        "backtest_name": "基金溢价0620-改",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=4db6a5db192b28f3bd006fc617c6a830&postId=31cb82ebad4f9b1fb5a5fdddeb40aacc&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2023-01-01",
+          "end_date": "2023-12-22",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "0747af2a8a49c135ae95234fe1d755fa",
+            "31634594"
+          ],
+          "numeric_backtest_id": "31634594",
+          "numeric_post_id": "45648",
+          "python_version": 3,
+          "clone_count": 396
+        },
+        "stats": {
+          "trading_days": 237,
+          "benchmark_volatility": 0.13325096015242,
+          "algorithm_volatility": 0.18742132262585,
+          "treasury_return": 0.038684931506849,
+          "algorithm_return": 1.0506247631,
+          "benchmark_return": -0.13802971874895,
+          "annual_algo_return": 1.133014851338,
+          "annual_bm_return": -0.14502405645444,
+          "sharpe": 5.8318596626277,
+          "excess_return_sharpe": "6.726",
+          "sortino": 14.339722941643,
+          "information": 5.9015170134479,
+          "beta": 0.16850444016476,
+          "alpha": 1.1241922263879,
+          "excess_return": 1.3789970579076,
+          "avg_excess_return": "0.38%",
+          "max_drawdown": 0.058453062366522,
+          "max_drawdown_period": [
+            "2023-04-14",
+            "2023-04-28"
+          ],
+          "excess_return_max_drawdown": "7.26%",
+          "excess_return_max_drawdown_period": [
+            "2023-01-03",
+            "2023-01-30"
+          ],
+          "max_leverage": 0,
+          "period_label": "2023-12",
+          "__version": 101,
+          "win_ratio": 0.67469879518072,
+          "profit_loss_ratio": 4.614346809754,
+          "win_count": 56,
+          "lose_count": 27,
+          "day_win_ratio": 0.58227848101266,
+          "avg_trade_return": 0.011716904847409,
+          "avg_position_days": 1.6785714285714,
+          "turnover_rate": 0.2316315757168,
+          "report_done_seconds": 520.93045377731,
+          "report_done_cpu_seconds": 522.34
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 105.062476,
+          "benchmark_return_percent": -13.802972,
+          "annual_algo_return_percent": 113.301485,
+          "annual_bm_return_percent": -14.502406,
+          "max_drawdown_percent": 5.845306,
+          "algorithm_volatility_percent": 18.742132,
+          "benchmark_volatility_percent": 13.325096,
+          "win_ratio_percent": 67.46988,
+          "day_win_ratio_percent": 58.227848,
+          "avg_trade_return_percent": 1.17169,
+          "turnover_rate_percent": 23.163158,
+          "sharpe": 5.8318596626277,
+          "sortino": 14.339722941643,
+          "information": 5.9015170134479,
+          "alpha": 1.1241922263879,
+          "beta": 0.16850444016476,
+          "profit_loss_ratio": 4.614346809754,
+          "avg_position_days": 1.6785714285714,
+          "trading_days": 237,
+          "win_count": 56,
+          "lose_count": 27,
+          "max_drawdown_period": [
+            "2023-04-14",
+            "2023-04-28"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2023-01-03",
+            "2023-01-30"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/45648",
+      "https://www.joinquant.com/community/post/detailV2?postId=45648",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=4db6a5db192b28f3bd006fc617c6a830&postId=31cb82ebad4f9b1fb5a5fdddeb40aacc&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=4db6a5db192b28f3bd006fc617c6a830"
+    ]
+  }
+}

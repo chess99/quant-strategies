@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/64.【复现】C-VIX 中国版 VIX 编制手册.txt",
+    "category": "2025年度精选策略",
+    "file_name": "64.【复现】C-VIX 中国版 VIX 编制手册.txt",
+    "strategy_name": "【复现】C-VIX 中国版 VIX 编制手册",
+    "declared_title": "【复现】C-VIX 中国版 VIX 编制手册",
+    "declared_author": "Hugo2046",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 19219,
+    "sha256": "5483ce9fea22822a8ca84e0f004064c53b384f54bdd0a2a51eee5d162761f983",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/26326"
+    ],
+    "primary_url": "https://www.joinquant.com/post/26326",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:23+08:00",
+    "requested_url": "https://www.joinquant.com/post/26326",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/787f5bf7ba5add2d5bc68e154046c10e",
+    "community_id": "787f5bf7ba5add2d5bc68e154046c10e",
+    "post": {
+      "postId": "fa2c26f0dda279d4fa1ead7e16fd8d46",
+      "uniqueKey": "787f5bf7ba5add2d5bc68e154046c10e",
+      "title": "【复现】C-VIX 中国版 VIX 编制手册",
+      "content": "感觉是翻译版得白皮书呢\n\n# VIX计算方法\n\n白皮书具体步骤:\n\n[CBOE Volatility Index](http://www.cboe.com/micro/vix/vixwhite.pdf)\n\n复现中根据CBOE Skew Index做出了Skew\n[CBOE Skew Index](http://www.cboe.com/micro/skew/documents/skewwhitepaperjan2011.pdf)\n\n$$\\sigma^2=\\frac{2}{T}\\sum^{n}_{i=1}\\frac{\\Delta K_i}{K^{2}_{i}}e^{rT}Q(K_i)-\\frac{1}{T}(\\frac{F}{K_0}-1)^2$$\n\nCBOE白皮书对无风险收益率的描述是:\n&gt;The risk-free interest rates, $R_1$ and $R_2$, are yields based on U.S. Treasury yield curve rates (commonly referred to as“Constant Maturity Treasury” rates or CMTs), to which a cubic spline is applied to derive yields on the expiration dates ofrelevant SPX options. \n\n所有在这里我用的SHIBOR利率,具体处理见**GetShiBor**函数\n(ShiBor提取使用了Tushare数据所以需要tushare的token)\n\n结果如下\n\n![Img]( https://image.joinquant.com/f91f3eb9631dcdca783bb71ac7bf2067) \n![Img]( https://image.joinquant.com/36f1dfcf30a4c3dd2b18e214eca273a3)\n\n一个简单的VIX在50上的择时策略如下",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-03-20 11:25:28",
+      "modTime": "2020-03-20 11:25:28",
+      "lastActiveTime": "2024-07-19 15:59:12",
+      "lastPubTime": "2020-03-20 11:25:28",
+      "backtestId": "62d8b24994a0c7929daf497f0a3b9ab9",
+      "backtestName": "VIX择时",
+      "replyCount": "152",
+      "viewCount": "10963",
+      "collectionCount": "174",
+      "likeCount": "137",
+      "disLikeCount": "0",
+      "backtestCloneCount": "210",
+      "notebookCloneCount": "209",
+      "fileDownloadCount": "357",
+      "fileName": "20200317-浙商证券-衍生品系列（一）：C~VIX~中国版VIX编制手册.pdf",
+      "fileType": "application/pdf",
+      "fileSize": "1628415",
+      "postCount": "81",
+      "followersCount": "4227",
+      "followingCount": "26",
+      "author": {
+        "userId": "8b2d3e1b3d7513230304be11c55b2433",
+        "alias": "Hugo2046",
+        "introduction": "联系邮箱:shen.lan123@gmail.com 坐标成都 纸上谈兵小能手",
+        "headImgKey": "144aa02c502f7e0f6bb2d55c98cab33c"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "295",
+          "name": "研报分享"
+        },
+        {
+          "id": "264",
+          "name": "研报复现"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "62d8b24994a0c7929daf497f0a3b9ab9",
+        "backtest_name": "VIX择时",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=62d8b24994a0c7929daf497f0a3b9ab9&postId=787f5bf7ba5add2d5bc68e154046c10e&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2015-05-01",
+          "end_date": "2020-04-25",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "b3e27635e22d96fd34710010c0b20910",
+            "17190050"
+          ],
+          "numeric_backtest_id": "17190050",
+          "numeric_post_id": "26326",
+          "python_version": 3,
+          "clone_count": 210
+        },
+        "stats": {
+          "trading_days": 1216,
+          "benchmark_volatility": 0.23845744696799,
+          "algorithm_volatility": 0.16234256867408,
+          "treasury_return": 0.19912328767123,
+          "algorithm_return": 0.1503948818,
+          "benchmark_return": -0.14596876163286,
+          "annual_algo_return": 0.029223397803404,
+          "annual_bm_return": -0.031919337108501,
+          "sharpe": -0.066381863269832,
+          "excess_return_sharpe": "0.130",
+          "sortino": -0.075778524509192,
+          "information": 0.34570906449373,
+          "beta": 0.45669341263636,
+          "alpha": 0.02206848530203,
+          "excess_return": 0.34701733393206,
+          "avg_excess_return": "0.03%",
+          "max_drawdown": 0.30392168522887,
+          "max_drawdown_period": [
+            "2015-05-27",
+            "2015-08-25"
+          ],
+          "excess_return_max_drawdown": "29.27%",
+          "excess_return_max_drawdown_period": [
+            "2018-10-18",
+            "2020-03-05"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-04",
+          "__version": 101,
+          "win_ratio": 0.63461538461538,
+          "profit_loss_ratio": 1.1619400821901,
+          "win_count": 33,
+          "lose_count": 19,
+          "day_win_ratio": 0.50657894736842,
+          "avg_trade_return": 0.0041151911684319,
+          "avg_position_days": 661,
+          "turnover_rate": 0.042709443818441,
+          "report_done_seconds": 5914.9440646172,
+          "report_done_cpu_seconds": 4863.33
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 15.039488,
+          "benchmark_return_percent": -14.596876,
+          "annual_algo_return_percent": 2.92234,
+          "annual_bm_return_percent": -3.191934,
+          "max_drawdown_percent": 30.392169,
+          "algorithm_volatility_percent": 16.234257,
+          "benchmark_volatility_percent": 23.845745,
+          "win_ratio_percent": 63.461538,
+          "day_win_ratio_percent": 50.657895,
+          "avg_trade_return_percent": 0.411519,
+          "turnover_rate_percent": 4.270944,
+          "sharpe": -0.066381863269832,
+          "sortino": -0.075778524509192,
+          "information": 0.34570906449373,
+          "alpha": 0.02206848530203,
+          "beta": 0.45669341263636,
+          "profit_loss_ratio": 1.1619400821901,
+          "avg_position_days": 661,
+          "trading_days": 1216,
+          "win_count": 33,
+          "lose_count": 19,
+          "max_drawdown_period": [
+            "2015-05-27",
+            "2015-08-25"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2018-10-18",
+            "2020-03-05"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/26326",
+      "https://www.joinquant.com/community/post/detailV2?postId=26326",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=62d8b24994a0c7929daf497f0a3b9ab9&postId=787f5bf7ba5add2d5bc68e154046c10e&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=62d8b24994a0c7929daf497f0a3b9ab9"
+    ]
+  }
+}

@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/66.基于动量和反转效应的沪深300成分股策略.txt",
+    "category": "2023年度精选策略",
+    "file_name": "66.基于动量和反转效应的沪深300成分股策略.txt",
+    "strategy_name": "基于动量和反转效应的沪深300成分股策略",
+    "declared_title": "基于动量和反转效应的沪深300成分股策略",
+    "declared_author": "糯米糍本糍",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 4985,
+    "sha256": "444026236ea246844d7d9194f4a28c4f6fc2bc65c3bc1525b9e78589bac324f1",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/30350"
+    ],
+    "primary_url": "https://www.joinquant.com/post/30350",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:09:30+08:00",
+    "requested_url": "https://www.joinquant.com/post/30350",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/017e9988e589357a5826838f174324db",
+    "community_id": "017e9988e589357a5826838f174324db",
+    "post": {
+      "postId": "5e744a983ecc124bc360da9c37073e51",
+      "uniqueKey": "017e9988e589357a5826838f174324db",
+      "title": "基于动量和反转效应的沪深300成分股策略",
+      "content": "**复现国泰君安-数量化专题12-基于动量和反转效应的选股**\n       这篇研报里的选股策略逻辑其实不复杂。将时间段分为(P,Q)，P是观察期，Q是持有期，以观察期收益率进行排行。\n       经券商研究员分析，HS300成分股具有显著的动量效应和反转效应。并且动量效应和反转效应的合理(P,Q)分别在(14, 14)和(30, 30)时能获取较高的超额收益，同时胜率和超额收益的变异系数低，即策略稳定性更高。\n       动量效应利用资金管理相比于不进行资金管理能获取多一倍的超额收益，而反转效应不进行资金管理能获取更高收益。\n       这篇研报写的时间比较早了，放到现在，如果按照之前的P和Q值进行回测，超额收益不如之前，**需要重新根据近年的数据设定合理的观测期P和持有期Q，并计算变异系数，才能得到适合当前行情的策略。**\n       代码里面已经同时包含了动量效应和反转效应两个策略，动量效应的部分被注释掉了，分享给大家作为一个思路参考。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-11-28 12:20:50",
+      "modTime": "2020-11-28 12:20:50",
+      "lastActiveTime": "2024-07-26 13:56:16",
+      "lastPubTime": "2020-11-28 12:20:50",
+      "backtestId": "0496531fa8fe48152a5ad0a07d25f88f",
+      "backtestName": "国泰君安-数量化专题12-基于动量和反转效应的选股",
+      "replyCount": "64",
+      "viewCount": "4661",
+      "collectionCount": "53",
+      "likeCount": "31",
+      "disLikeCount": "0",
+      "backtestCloneCount": "275",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "1",
+      "followersCount": "13",
+      "followingCount": "40",
+      "author": {
+        "userId": "113b108cca33cdfab1252a80849740a8",
+        "alias": "糯米糍本糍",
+        "headImgKey": "e6df6626f0716927aec7862c525ffdb6"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "295",
+          "name": "研报分享"
+        },
+        {
+          "id": "264",
+          "name": "研报复现"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "0496531fa8fe48152a5ad0a07d25f88f",
+        "backtest_name": "国泰君安-数量化专题12-基于动量和反转效应的选股",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=0496531fa8fe48152a5ad0a07d25f88f&postId=017e9988e589357a5826838f174324db&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2008-11-01",
+          "end_date": "2009-11-01",
+          "base_capital": 10000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "79d4a1731f206d5c81e94e41f9408868",
+            "18957335"
+          ],
+          "numeric_backtest_id": "18957335",
+          "numeric_post_id": "30350",
+          "python_version": 3,
+          "clone_count": 267
+        },
+        "stats": {
+          "trading_days": 243,
+          "benchmark_volatility": 0.36088254012295,
+          "algorithm_volatility": 0.43753146289263,
+          "treasury_return": 0.039561643835616,
+          "algorithm_return": 2.315105077189,
+          "benchmark_return": 0.97177908947742,
+          "annual_algo_return": 2.4315556627568,
+          "annual_bm_return": 1.0107223990093,
+          "sharpe": 5.4660198536252,
+          "excess_return_sharpe": "3.145",
+          "sortino": 7.3337417693591,
+          "information": 6.7181860137907,
+          "beta": 1.0632285562799,
+          "alpha": 1.3594558879095,
+          "excess_return": 0.68127610992548,
+          "avg_excess_return": "0.22%",
+          "max_drawdown": 0.19882630812182,
+          "max_drawdown_period": [
+            "2008-12-10",
+            "2008-12-31"
+          ],
+          "excess_return_max_drawdown": "11.19%",
+          "excess_return_max_drawdown_period": [
+            "2009-04-16",
+            "2009-06-23"
+          ],
+          "max_leverage": 0,
+          "period_label": "2009-10",
+          "__version": 101,
+          "win_ratio": 1,
+          "profit_loss_ratio": 23132434.7,
+          "win_count": 25,
+          "lose_count": 0,
+          "day_win_ratio": 0.55555555555556,
+          "avg_trade_return": 2.3320166097344,
+          "avg_position_days": 117.86274509804,
+          "turnover_rate": 0.0065469924983408,
+          "report_done_seconds": 9.2757489681244,
+          "report_done_cpu_seconds": 10.83
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 231.510508,
+          "benchmark_return_percent": 97.177909,
+          "annual_algo_return_percent": 243.155566,
+          "annual_bm_return_percent": 101.07224,
+          "max_drawdown_percent": 19.882631,
+          "algorithm_volatility_percent": 43.753146,
+          "benchmark_volatility_percent": 36.088254,
+          "win_ratio_percent": 100,
+          "day_win_ratio_percent": 55.555556,
+          "avg_trade_return_percent": 233.201661,
+          "turnover_rate_percent": 0.654699,
+          "sharpe": 5.4660198536252,
+          "sortino": 7.3337417693591,
+          "information": 6.7181860137907,
+          "alpha": 1.3594558879095,
+          "beta": 1.0632285562799,
+          "profit_loss_ratio": 23132434.7,
+          "avg_position_days": 117.86274509804,
+          "trading_days": 243,
+          "win_count": 25,
+          "lose_count": 0,
+          "max_drawdown_period": [
+            "2008-12-10",
+            "2008-12-31"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2009-04-16",
+            "2009-06-23"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/30350",
+      "https://www.joinquant.com/community/post/detailV2?postId=30350",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=0496531fa8fe48152a5ad0a07d25f88f&postId=017e9988e589357a5826838f174324db&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=0496531fa8fe48152a5ad0a07d25f88f"
+    ]
+  }
+}

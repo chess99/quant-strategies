@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/65.【分享】多因子指数增强.txt",
+    "category": "2025年度精选策略",
+    "file_name": "65.【分享】多因子指数增强.txt",
+    "strategy_name": "【分享】多因子指数增强",
+    "declared_title": "【分享】多因子指数增强",
+    "declared_author": "Hugo2046",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 2391,
+    "sha256": "9aa23daab5aced7cb04f4e4e989fb71750b16d09937de2eee77263dd2faefe5f",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/29940"
+    ],
+    "primary_url": "https://www.joinquant.com/post/29940",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:24+08:00",
+    "requested_url": "https://www.joinquant.com/post/29940",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/8c60c343407d41b09def615c52c8693d",
+    "community_id": "8c60c343407d41b09def615c52c8693d",
+    "post": {
+      "postId": "beda86b6c46792aff567d3651cdd5715",
+      "uniqueKey": "8c60c343407d41b09def615c52c8693d",
+      "title": "【分享】多因子指数增强",
+      "content": "本文参考：\n+ 华泰证券《指数增强方法汇总及实例——量化多因子指数增强策略实证》\n+ 天风证券《基于自适应风险控制的指数增强策略》\n\n配合分析的回测模块比较简单可以直接粘贴这里的代码节约积分,也可以到我的github中[下载](https://github.com/hugo2046/Quantitative-analysis/tree/master/多因子指数增强)\n\n其中特质波动率的构造见[【复现】东吴证券-特质波动率因子](https://www.joinquant.com/view/community/detail/6e4ddf0a1cf3bb17367b463cefe3b5e4)\n```\n'''\nAuthor: Hugo\nDate: 2020-06-10 20:52:43\nLastEditTime: 2020-11-02 10:08:02\nLastEditors: Please set LastEditors\nDescription: 读取指数增强研究文档生成的result_df文件进行下单\n'''\n\n\nfrom jqdata import *\nimport pandas as pd\nimport numpy as np\nfrom six import BytesIO  # 文件读取\n\nenable_profile()  # 开启性能分析\n\n\ndef initialize(context):\n\n    set_params()\n    set_variables()\n    set_backtest()\n\n    run_monthly(Trade, -1, time='open', reference_security='000300.XSHG')\n\n\ndef set_params():\n\n    g.result_df = pd.read_csv(\n        BytesIO(read_file('result_df.csv')), index_col=[0],)\n\n\ndef set_variables():\n\n    pass\n\n\ndef set_backtest():\n\n    set_option(\"avoid_future_data\", True)  # 避免数据\n    set_option(\"use_real_price\", True)  # 真实价格交易\n    set_benchmark('000300.XSHG')  # 设置基准\n    #log.set_level(\"order\", \"debuge\")\n    log.set_level('order', 'error')\n\n\n# 每日盘前运行\ndef before_trading_start(context):\n\n    # 手续费设置\n    # 将滑点设置为0\n    set_slippage(FixedSlippage(0))\n\n    # 根据不同的时间段设置手续费\n    dt = context.current_dt\n\n    if dt &gt; datetime.datetime(2013, 1, 1):\n        set_commission(PerTrade(buy_cost=0.0003, sell_cost=0.0013, min_cost=5))\n\n    elif dt &gt; datetime.datetime(2011, 1, 1):\n        set_commission(PerTrade(buy_cost=0.001, sell_cost=0.002, min_cost=5))\n\n    elif dt &gt; datetime.datetime(2009, 1, 1):\n        set_commission(PerTrade(buy_cost=0.002, sell_cost=0.003, min_cost=5))\n\n    else:\n        set_commission(PerTrade(buy_cost=0.003, sell_cost=0.004, min_cost=5))\n\n\ndef Trade(context):\n\n    bar_time = context.current_dt.strftime('%Y-%m-%d')\n    log.info('%s启动' % bar_time)\n\n    if bar_time in g.result_df.index:\n        print('存在')\n        target_slice = g.result_df.loc[bar_time]\n        BuyStock(context, target_slice)\n\n\ndef BuyStock(context, target_slice: pd.DataFrame):\n\n    order_dict = target_slice.set_index('code')['w'].to_dict()\n\n    for hold in context.portfolio.long_positions:\n        if hold not in order_dict:\n            order_target(hold, 0)\n\n    totalasset = context.portfolio.total_value\n    for buy_stock, pre in order_dict.items():\n\n        order_target_value(buy_stock, pre * totalasset)\n\n\n```",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-10-28 15:14:45",
+      "modTime": "2020-11-25 22:22:31",
+      "lastActiveTime": "2026-05-31 22:04:09",
+      "lastPubTime": "2020-11-25 22:22:31",
+      "backtestId": "474e12c56feb9a515b36de3ceb0acfd3",
+      "backtestName": "指数增强测试-加权",
+      "replyCount": "215",
+      "viewCount": "24345",
+      "collectionCount": "476",
+      "likeCount": "290",
+      "disLikeCount": "0",
+      "backtestCloneCount": "519",
+      "notebookCloneCount": "309",
+      "fileDownloadCount": "806",
+      "fileName": "多因子模型研究系列.rar",
+      "fileSize": "14186285",
+      "postCount": "81",
+      "followersCount": "4227",
+      "followingCount": "26",
+      "author": {
+        "userId": "a263c088b546d81742e15aa6d2f83040",
+        "alias": "Hugo2046",
+        "introduction": "联系邮箱:shen.lan123@gmail.com 坐标成都 纸上谈兵小能手",
+        "headImgKey": "144aa02c502f7e0f6bb2d55c98cab33c"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "295",
+          "name": "研报分享"
+        },
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "264",
+          "name": "研报复现"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "474e12c56feb9a515b36de3ceb0acfd3",
+        "backtest_name": "指数增强测试-加权",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=474e12c56feb9a515b36de3ceb0acfd3&postId=8c60c343407d41b09def615c52c8693d&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2010-01-01",
+          "end_date": "2020-10-21",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "237ee14eb0ef0223ca548ce06c29e357",
+            "18632270"
+          ],
+          "numeric_backtest_id": "18632270",
+          "numeric_post_id": "29940",
+          "python_version": 3,
+          "clone_count": 508
+        },
+        "stats": {
+          "trading_days": 2623,
+          "benchmark_volatility": 0.23130592559038,
+          "algorithm_volatility": 0.23220382292613,
+          "treasury_return": 0.4321095890411,
+          "algorithm_return": 1.727646837733,
+          "benchmark_return": 0.34039679165921,
+          "annual_algo_return": 0.1003612252779,
+          "annual_bm_return": 0.028316262575282,
+          "sharpe": 0.25994931744556,
+          "excess_return_sharpe": "0.525",
+          "sortino": 0.33246493976331,
+          "information": 1.2613876501147,
+          "beta": 0.97340296431672,
+          "alpha": 0.071734209921414,
+          "excess_return": 1.0349547646683,
+          "avg_excess_return": "0.03%",
+          "max_drawdown": 0.42360411016131,
+          "max_drawdown_period": [
+            "2015-06-08",
+            "2016-01-28"
+          ],
+          "excess_return_max_drawdown": "6.62%",
+          "excess_return_max_drawdown_period": [
+            "2018-07-19",
+            "2018-11-27"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-10",
+          "__version": 101,
+          "win_ratio": 0.50957683741648,
+          "profit_loss_ratio": 1.4832932292015,
+          "win_count": 2288,
+          "lose_count": 2202,
+          "day_win_ratio": 0.53183377811666,
+          "avg_trade_return": 0.03950274170064,
+          "avg_position_days": 293.05625,
+          "turnover_rate": 0.019175024474648,
+          "report_done_seconds": 390.48318123817,
+          "report_done_cpu_seconds": 365.44
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 172.764684,
+          "benchmark_return_percent": 34.039679,
+          "annual_algo_return_percent": 10.036123,
+          "annual_bm_return_percent": 2.831626,
+          "max_drawdown_percent": 42.360411,
+          "algorithm_volatility_percent": 23.220382,
+          "benchmark_volatility_percent": 23.130593,
+          "win_ratio_percent": 50.957684,
+          "day_win_ratio_percent": 53.183378,
+          "avg_trade_return_percent": 3.950274,
+          "turnover_rate_percent": 1.917502,
+          "sharpe": 0.25994931744556,
+          "sortino": 0.33246493976331,
+          "information": 1.2613876501147,
+          "alpha": 0.071734209921414,
+          "beta": 0.97340296431672,
+          "profit_loss_ratio": 1.4832932292015,
+          "avg_position_days": 293.05625,
+          "trading_days": 2623,
+          "win_count": 2288,
+          "lose_count": 2202,
+          "max_drawdown_period": [
+            "2015-06-08",
+            "2016-01-28"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2018-07-19",
+            "2018-11-27"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/29940",
+      "https://www.joinquant.com/community/post/detailV2?postId=29940",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=474e12c56feb9a515b36de3ceb0acfd3&postId=8c60c343407d41b09def615c52c8693d&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=474e12c56feb9a515b36de3ceb0acfd3"
+    ]
+  }
+}

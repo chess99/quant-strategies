@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/06 为什么股票市值是当前的样子？.txt",
+    "category": "2020年度精选策略",
+    "file_name": "06 为什么股票市值是当前的样子？.txt",
+    "strategy_name": "为什么股票市值是当前的样子？",
+    "declared_title": "【量化课堂】机器学习多因子策略",
+    "declared_author": "JoinQuant量化课堂",
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 4797,
+    "sha256": "7ca3b3d502e2cf56f4844938f00513e06d8e6d1366e6230ec0def686ef4e886b",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/11624",
+      "https://www.joinquant.com/post/10778"
+    ],
+    "primary_url": "https://www.joinquant.com/post/11624",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:06:20+08:00",
+    "requested_url": "https://www.joinquant.com/post/11624",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/46642d143c05930a2311fb735c593018",
+    "community_id": "46642d143c05930a2311fb735c593018",
+    "post": {
+      "postId": "47cca50ca903ae10ad15416c197c9ae1",
+      "uniqueKey": "46642d143c05930a2311fb735c593018",
+      "title": "为什么股票市值是当前的样子？",
+      "content": "今天研究了一下文章《[【量化课堂】机器学习多因子策略](https://www.joinquant.net/post/28f43874c68ec203d8e0516a5c4eed9a?f=stydy&m=algorithm)》，大受启发，这里就说说我对这个策略的理解。\r\n\r\n我觉得“机器学习多因子策略”不准确，应该叫“机器学习市值解释策略”。\r\n\r\n**因为策略用了一些因子，来描绘这个市场当前的市值情况，然后买入那些相对当前市值情况向下偏离大的股票。**\r\n\r\n这个策略应该如何理解呢？\r\n\r\n我们打个比方，这个市值情况的描绘结果，可以理解为一个平面，而那些个公司，可以理解为平面周边的一个个点。\r\n\r\n有些点在平面内，有些点在平面上方，有些点在平面下方。\r\n\r\n**那些不在平面内的点，我们预计它最终会回归到平面上，于是就去选择处于平面下方的点。**\r\n\r\n也就是买入可能会上涨的公司。\r\n\r\n文章《[【量化课堂】机器学习多因子策略](https://www.joinquant.net/post/28f43874c68ec203d8e0516a5c4eed9a?f=stydy&m=algorithm)》中，该策略所用来描绘市值的因子有净资产、财务杠杆、净利润、营业收入同比增长率、开发支出、所处行业（申万一级行业）。\r\n\r\n用来进行机器学习的数据，是交易日当天的数据，下图我将交易的时间设置为14:50分的效果：\r\n\r\n![每天14:50分执行调仓](https://upload-images.jianshu.io/upload_images/3985559-bdaf7d1227342df8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)\r\n\r\n为什么不用过去多日的数据呢？\r\n\r\n正如上面所说，每天市场整体的情况就是一个平面，而平面的位置每天都是不一样的，如果使用了多天的数据，那么其实就相当于取了多个平面的平均值。\r\n\r\n用多日面的平均值，来看当日点的偏离程度，就不是那么准确了：\r\n\r\n![采用过去10个交易日的数据进行机器学习](https://upload-images.jianshu.io/upload_images/3985559-ea6f6e071fb266d6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)\r\n\r\n而且，只使用当日数据也有一个好处，那就是策略能够自动适应市场风格的变化。\r\n\r\n例如在2017年4月左右，市场风格突变，策略虽然也因此下挫，不过后面资金曲线依然向上：\r\n\r\n![适应市场风格转变](https://upload-images.jianshu.io/upload_images/3985559-1df2f2efe808d253.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)\r\n\r\n不过策略还是有些瑕疵：\r\n\r\n![瑕疵](https://upload-images.jianshu.io/upload_images/3985559-6605585b960ee1d9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)\r\n\r\n你看上图，虽然黄色的超额收益曲线走势比较稳定，但是在牛市来临，市场快速拉升阶段，超额收益是在下降的。\r\n\r\n我猜想，是因为描绘市场市值情况的因子，大部分都是财务数据，所以这里跟不上市场的节奏。\r\n\r\n估计加上动量方面的指标，应该会有所改善。\r\n\r\n所以，这里尝试加入了一个技术指标CYE，我们看一下效果：\r\n\r\n![](https://upload-images.jianshu.io/upload_images/3985559-1d6e144fac5a4b5f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)\r\n\r\n虽然不大明显，但也能看到超额收益曲线相对于原来更加平滑了，最大回撤下降了，夏普比率也比原来提升了一点点。\r\n\r\n这也说明，增加动量方面的指标，对于市值解释还是有帮助的。\r\n\r\n欢迎关注同名公众号：止一之路\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-03-23 22:13:10",
+      "modTime": "2018-03-23 22:13:10",
+      "lastActiveTime": "2022-04-26 23:44:40",
+      "lastPubTime": "2018-03-23 22:13:10",
+      "backtestId": "656953359dee3858699510219e7be789",
+      "backtestName": "SVR市值解释策略 增加CYE指标",
+      "replyCount": "50",
+      "viewCount": "10063",
+      "collectionCount": "68",
+      "likeCount": "24",
+      "disLikeCount": "0",
+      "backtestCloneCount": "521",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "36",
+      "followersCount": "1488",
+      "followingCount": "0",
+      "author": {
+        "userId": "951d4d2a4fdb34b74ece3b9ae9938dbd",
+        "alias": "止一之路",
+        "headImgKey": "e9574a515fec4b22b8eb7064bbab3b8b"
+      },
+      "tags": [
+        {
+          "id": "2",
+          "name": "心得"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "656953359dee3858699510219e7be789",
+        "backtest_name": "SVR市值解释策略 增加CYE指标",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=656953359dee3858699510219e7be789&postId=46642d143c05930a2311fb735c593018&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2012-01-01",
+          "end_date": "2017-12-31",
+          "base_capital": 1000000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "f85cc61ca31835b8a6babe8edcd6ac19",
+            "7965476"
+          ],
+          "numeric_backtest_id": "7965476",
+          "numeric_post_id": "11624",
+          "python_version": 2,
+          "clone_count": 538
+        },
+        "stats": {
+          "information": 3.3224241227576,
+          "benchmark_return": 0.8631622224073,
+          "algorithm_volatility": 0.25214341146264,
+          "annual_bm_return": 0.112600569981,
+          "__version": 101,
+          "max_drawdown": 0.25179029526824,
+          "sortino": 2.7849279883238,
+          "period_label": "2017-12",
+          "trading_days": 1458,
+          "algorithm_return": 13.819471,
+          "benchmark_volatility": 0.24746974943354,
+          "beta": 0.85213634043099,
+          "excess_return": 13.579909356164,
+          "annual_algo_return": 0.58766936670677,
+          "sharpe": 2.1720550361789,
+          "alpha": 0.48580378268996,
+          "max_drawdown_period": [
+            "2015-08-17",
+            "2015-09-15"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.23956164383562,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.56310013717421,
+          "avg_position_days": 44.37908496732,
+          "win_ratio": 0.61637239165329,
+          "win_count": 384,
+          "avg_trade_return": 0.049114343118131,
+          "profit_loss_ratio": 2.5790498471163,
+          "lose_count": 239,
+          "report_done_seconds": 977.12157797813
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 1381.9471,
+          "benchmark_return_percent": 86.316222,
+          "annual_algo_return_percent": 58.766937,
+          "annual_bm_return_percent": 11.260057,
+          "max_drawdown_percent": 25.17903,
+          "algorithm_volatility_percent": 25.214341,
+          "benchmark_volatility_percent": 24.746975,
+          "win_ratio_percent": 61.637239,
+          "day_win_ratio_percent": 56.310014,
+          "avg_trade_return_percent": 4.911434,
+          "sharpe": 2.1720550361789,
+          "sortino": 2.7849279883238,
+          "information": 3.3224241227576,
+          "alpha": 0.48580378268996,
+          "beta": 0.85213634043099,
+          "profit_loss_ratio": 2.5790498471163,
+          "avg_position_days": 44.37908496732,
+          "trading_days": 1458,
+          "win_count": 384,
+          "lose_count": 239,
+          "max_drawdown_period": [
+            "2015-08-17",
+            "2015-09-15"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/11624",
+      "https://www.joinquant.com/community/post/detailV2?postId=11624",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=656953359dee3858699510219e7be789&postId=46642d143c05930a2311fb735c593018&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=656953359dee3858699510219e7be789"
+    ]
+  }
+}

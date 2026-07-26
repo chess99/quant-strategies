@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/71（乱改一版）股票加“钱粮”ETF组合.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "71（乱改一版）股票加“钱粮”ETF组合.txt",
+    "strategy_name": "（乱改一版）股票加“钱粮”ETF组合",
+    "declared_title": "（乱改一版）股票加“钱粮”ETF组合",
+    "declared_author": "美吉姆优秀毕业代表",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 25479,
+    "sha256": "15147b997b358f235ce72cdccbb2a08d68cce8a1a1a6e8e5cc16dc7cdf9b1abe",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/46218",
+      "https://www.joinquant.com/post/46015",
+      "https://www.joinquant.com/post/45931"
+    ],
+    "primary_url": "https://www.joinquant.com/post/46218",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:12:29+08:00",
+    "requested_url": "https://www.joinquant.com/post/46218",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/9595cc6a662f15a9e5cda71817ab5683",
+    "community_id": "9595cc6a662f15a9e5cda71817ab5683",
+    "post": {
+      "postId": "15d99f51fa09b8964b58b6e4baf38354",
+      "uniqueKey": "9595cc6a662f15a9e5cda71817ab5683",
+      "title": "（乱改一版）股票加“钱粮”ETF组合",
+      "content": "在原来的基础上将红利etf替换成红利股票，不再单独持有小市值股票，所以相对应收益略有降低，但避开了2017年长期的回撤，优化了持有体验和信心。\n原策略回测图：（只持有小市值股票）\n![Img](https://image.joinquant.com/e353483060823e89cf2f2be15bffe9c8) \n当前回测图：（持有红利股票和小市值股票）\n![Img](https://image.joinquant.com/d497cdb8b409b287d1f69ab5f9571f30)\n\n论坛网友的建议，把债券换成豆粕，重现古代经典“钱粮组合”，测试结果收益大幅提高。豆粕于2019年9月上线，所以测试时间2019年10月开始。\n\n豆粕etf：\n![Img](https://image.joinquant.com/84632d90010ed0550bd2c3763e9499ff) \n\n国债etf：\n![Img](https://image.joinquant.com/88149aa8b6c39862f5344df92daedb1f)",
+      "type": 1,
+      "status": "0",
+      "addTime": "2024-01-23 17:49:56",
+      "modTime": "2024-02-11 22:55:24",
+      "lastActiveTime": "2026-03-11 13:17:57",
+      "lastPubTime": "2024-02-11 22:55:24",
+      "backtestId": "dc1dd9414665a275e34c1fa115b09d38",
+      "backtestName": "奇怪的版本",
+      "replyCount": "44",
+      "viewCount": "3622",
+      "collectionCount": "78",
+      "likeCount": "31",
+      "disLikeCount": "0",
+      "backtestCloneCount": "274",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "70",
+      "followersCount": "1131",
+      "followingCount": "35",
+      "author": {
+        "userId": "b8aabe78456052a4ce326b6fe70d5544",
+        "alias": "美吉姆优秀毕业代表",
+        "vipType": "VIP",
+        "headImgKey": "7aec7114b934b51e3b7297d2bfbd44cd"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "dc1dd9414665a275e34c1fa115b09d38",
+        "backtest_name": "奇怪的版本",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=dc1dd9414665a275e34c1fa115b09d38&postId=9595cc6a662f15a9e5cda71817ab5683&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2017-01-01",
+          "end_date": "2024-02-01",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "a625bea2e0a19dd7ecb618166eec827c",
+            "32354123"
+          ],
+          "numeric_backtest_id": "32354123",
+          "numeric_post_id": "46218",
+          "python_version": 3,
+          "clone_count": 274
+        },
+        "stats": {
+          "trading_days": 1724,
+          "benchmark_volatility": 0.18369399362071,
+          "algorithm_volatility": 0.10687360853896,
+          "treasury_return": 0.28328767123288,
+          "algorithm_return": 3.520082791836,
+          "benchmark_return": -0.096953589078184,
+          "annual_algo_return": 0.24452557790135,
+          "annual_bm_return": -0.014679663542223,
+          "sharpe": 1.9137145334323,
+          "excess_return_sharpe": "1.580",
+          "sortino": 2.7205406321034,
+          "information": 1.8437270808606,
+          "beta": 0.37637736443195,
+          "alpha": 0.2251057655534,
+          "excess_return": 4.0053715259462,
+          "avg_excess_return": "0.10%",
+          "max_drawdown": 0.094990258733712,
+          "max_drawdown_period": [
+            "2019-04-09",
+            "2019-08-07"
+          ],
+          "excess_return_max_drawdown": "14.68%",
+          "excess_return_max_drawdown_period": [
+            "2019-01-03",
+            "2020-02-25"
+          ],
+          "max_leverage": 0,
+          "period_label": "2024-02",
+          "__version": 101,
+          "win_ratio": 0.49507389162562,
+          "profit_loss_ratio": 2.5608837898356,
+          "win_count": 603,
+          "lose_count": 615,
+          "day_win_ratio": 0.54988399071926,
+          "avg_trade_return": 0.067161089957289,
+          "avg_position_days": 100.93373493976,
+          "turnover_rate": 0.021255016970644,
+          "report_done_seconds": 2143.314627409,
+          "report_done_cpu_seconds": 2067.12
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 352.008279,
+          "benchmark_return_percent": -9.695359,
+          "annual_algo_return_percent": 24.452558,
+          "annual_bm_return_percent": -1.467966,
+          "max_drawdown_percent": 9.499026,
+          "algorithm_volatility_percent": 10.687361,
+          "benchmark_volatility_percent": 18.369399,
+          "win_ratio_percent": 49.507389,
+          "day_win_ratio_percent": 54.988399,
+          "avg_trade_return_percent": 6.716109,
+          "turnover_rate_percent": 2.125502,
+          "sharpe": 1.9137145334323,
+          "sortino": 2.7205406321034,
+          "information": 1.8437270808606,
+          "alpha": 0.2251057655534,
+          "beta": 0.37637736443195,
+          "profit_loss_ratio": 2.5608837898356,
+          "avg_position_days": 100.93373493976,
+          "trading_days": 1724,
+          "win_count": 603,
+          "lose_count": 615,
+          "max_drawdown_period": [
+            "2019-04-09",
+            "2019-08-07"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2019-01-03",
+            "2020-02-25"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/46218",
+      "https://www.joinquant.com/community/post/detailV2?postId=46218",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=dc1dd9414665a275e34c1fa115b09d38&postId=9595cc6a662f15a9e5cda71817ab5683&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=dc1dd9414665a275e34c1fa115b09d38"
+    ]
+  }
+}

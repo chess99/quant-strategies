@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-07-27T02:22:36+08:00",
+  "item_count": 593,
+  "status_counts": {
+    "ok": 503,
+    "post_without_backtest": 16,
+    "no_source_url": 73,
+    "error": 1
+  },
+  "with_source_url": 520,
+  "with_backtest": 503,
+  "issue_count": 90,
+  "files": {
+    "summary_csv": "summary.csv",
+    "summary_jsonl": "summary.jsonl",
+    "issues_jsonl": "issues.jsonl"
+  }
+}

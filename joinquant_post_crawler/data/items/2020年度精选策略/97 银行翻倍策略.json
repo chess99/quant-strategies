@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/97 银行翻倍策略.txt",
+    "category": "2020年度精选策略",
+    "file_name": "97 银行翻倍策略.txt",
+    "strategy_name": "银行翻倍策略",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 2466,
+    "sha256": "6de76d6773a94e8605d1ff1662505555759ae15fbb1b4d6e7c0cc15632420047",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/11681"
+    ],
+    "primary_url": "https://www.joinquant.com/post/11681",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:33+08:00",
+    "requested_url": "https://www.joinquant.com/post/11681",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/ae51a410053fcd4c42b5635854f8fb14",
+    "community_id": "ae51a410053fcd4c42b5635854f8fb14",
+    "post": {
+      "postId": "db1defdaafdc786b22eb3eaa9496fd74",
+      "uniqueKey": "ae51a410053fcd4c42b5635854f8fb14",
+      "title": " 银行翻倍策略",
+      "content": " 银行翻倍策略",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-03-28 11:15:13",
+      "modTime": "2018-03-28 11:15:13",
+      "lastActiveTime": "2018-03-28 11:15:13",
+      "lastPubTime": "2018-03-28 11:15:13",
+      "backtestId": "756750de0143ef5b4f17ab901b71ddbf",
+      "backtestName": "银行翻倍",
+      "replyCount": "0",
+      "viewCount": "1682",
+      "collectionCount": "4",
+      "likeCount": "2",
+      "disLikeCount": "0",
+      "backtestCloneCount": "45",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "2",
+      "followersCount": "5",
+      "followingCount": "0",
+      "author": {
+        "userId": "1d0cf5245757b2a9098941eb832f7a5c",
+        "alias": "x483zhan"
+      },
+      "tags": []
+    },
+    "backtests": [
+      {
+        "backtest_id": "756750de0143ef5b4f17ab901b71ddbf",
+        "backtest_name": "银行翻倍",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=756750de0143ef5b4f17ab901b71ddbf&postId=ae51a410053fcd4c42b5635854f8fb14&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2012-01-01",
+          "end_date": "2017-12-31",
+          "base_capital": 10000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "ab700de27e7a67b94411b5b331f05fc9",
+            "8038608"
+          ],
+          "numeric_backtest_id": "8038608",
+          "numeric_post_id": "11681",
+          "python_version": 2,
+          "clone_count": 49
+        },
+        "stats": {
+          "information": 0.36749579287534,
+          "benchmark_return": 0.71836885727415,
+          "algorithm_volatility": 0.24540636311763,
+          "annual_bm_return": 0.097273478407224,
+          "__version": 101,
+          "max_drawdown": 0.31994569917334,
+          "sortino": 0.69967802435159,
+          "period_label": "2017-12",
+          "trading_days": 1458,
+          "algorithm_return": 1.409552461,
+          "benchmark_volatility": 0.2381841459466,
+          "beta": 0.75092702207615,
+          "excess_return": 1.1699908171644,
+          "annual_algo_return": 0.16275918322288,
+          "sharpe": 0.50022819972293,
+          "alpha": 0.079750980638602,
+          "max_drawdown_period": [
+            "2015-06-08",
+            "2015-08-25"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.23956164383562,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.47325102880658,
+          "avg_position_days": 545.46153846154,
+          "win_ratio": 0.72307692307692,
+          "win_count": 94,
+          "avg_trade_return": 0.21596014538608,
+          "profit_loss_ratio": 9.5758288198242,
+          "lose_count": 36,
+          "report_done_seconds": 494.51635909081
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 140.955246,
+          "benchmark_return_percent": 71.836886,
+          "annual_algo_return_percent": 16.275918,
+          "annual_bm_return_percent": 9.727348,
+          "max_drawdown_percent": 31.99457,
+          "algorithm_volatility_percent": 24.540636,
+          "benchmark_volatility_percent": 23.818415,
+          "win_ratio_percent": 72.307692,
+          "day_win_ratio_percent": 47.325103,
+          "avg_trade_return_percent": 21.596015,
+          "sharpe": 0.50022819972293,
+          "sortino": 0.69967802435159,
+          "information": 0.36749579287534,
+          "alpha": 0.079750980638602,
+          "beta": 0.75092702207615,
+          "profit_loss_ratio": 9.5758288198242,
+          "avg_position_days": 545.46153846154,
+          "trading_days": 1458,
+          "win_count": 94,
+          "lose_count": 36,
+          "max_drawdown_period": [
+            "2015-06-08",
+            "2015-08-25"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/11681",
+      "https://www.joinquant.com/community/post/detailV2?postId=11681",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=756750de0143ef5b4f17ab901b71ddbf&postId=ae51a410053fcd4c42b5635854f8fb14&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=756750de0143ef5b4f17ab901b71ddbf"
+    ]
+  }
+}

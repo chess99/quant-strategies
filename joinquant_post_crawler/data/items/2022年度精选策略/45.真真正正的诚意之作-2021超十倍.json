@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/45.真真正正的诚意之作-2021超十倍.txt",
+    "category": "2022年度精选策略",
+    "file_name": "45.真真正正的诚意之作-2021超十倍.txt",
+    "strategy_name": "真真正正的诚意之作-2021超十倍",
+    "declared_title": "真真正正的诚意之作-2021超十倍",
+    "declared_author": "Bobby1129",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 11260,
+    "sha256": "6e33000c425cf0064144a477548c8361e970d230a26aff5f4a90eb7f383c7462",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/37233"
+    ],
+    "primary_url": "https://www.joinquant.com/post/37233",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:05+08:00",
+    "requested_url": "https://www.joinquant.com/post/37233",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/6bbe99b431f014a213349c6380c5e454",
+    "community_id": "6bbe99b431f014a213349c6380c5e454",
+    "post": {
+      "postId": "03f4c7e9f2a8f04022f6c9973760e364",
+      "uniqueKey": "6bbe99b431f014a213349c6380c5e454",
+      "title": "真真正正的诚意之作-2021超十倍",
+      "content": "源代码已经分享出来了，大家可以仔细观察，没有未来函数，没有强行撮合，不是特定标的，全市场选股买卖。\n\n之前分享过几版收益图，屡遭质疑是有未来函数的，所以发一版让大家看看不是所有的高收益都是不可能的。但是这种事情怎么说呢，真正赚钱的策略确实只愿意分享结果，而不愿意分享代码的。\n\n**这次分享代码的原因与目的如下：**\n1.这个策略在2021年跑得可以说无敌，一年十多倍，夏普超过15，胜率66.7%，但是并不是在所有年份表现都好的。（我从2013年测到2022年，抛开分享的这个时间段，其它时间段表现为：2013-2016表现平淡无奇，2017年中-2018表现糟糕，2019年中-2020年中表现糟糕，其余时间尚可，省去大家测试、打假的时间）；\n2.拿出点实在货，交几个靠谱的朋友，日常一起研究，交流心得，如果你也是这样的人，欢迎加我vx：bobby_w_1129；\n3.目前我这版相信可以继续优化到更大的覆盖面，以及更strong的抗波动能力，大家可以在此基础上多家思考，早日赚到属于自己的量化收益；\n\n**做量化以来的一些心得：**\n1.必须模块化思考量化策略。策略研发耗时耗力的，不过相信很多人都还不知道策略每个模块之间的配合也是有技巧的，在选股、买卖上深陷不可自拔。其实同样的选股方向，在不同时间段、不同的买卖止损模式、不同的过滤机制下，表现也是大相径庭的，这些模块之间的配合比起选股策略的研发更重要，或者换句话说，任何一个选股策略，在合适的其余模块的配合下，都可以做到稳定盈利；\n2.策略的有效性取决于很多东西，时间、微观宏观环境、政策、经济发展阶段等等，所以想要用一个策略覆盖所有时间段的想法我认为是错的，应该是做策略库，在不同的时间段，匹配适合这个阶段的策略，并不断的滚动更新。因此，我也认为没必要想要这个策略或者什么策略，无论在什么时候都有效；\n3.策略思考大于代码实现，很多时候过多关注眼前的代码，却没有跳脱出来在策略层面去做深入思考，这样是事半功倍的，我认为思考与代码的时间分配比例是4:1甚至更多；\n4.独立思考，在“战略”的层面一定得是自己的东西，市场上广泛流传的各种指标打法，大概率是不靠谱的，或者你可以理解为，即使阶段性靠谱，用的人多了也不行了。战略层面一定要独立，战术层面可以去学习和研讨；\n5.不要想着所有的策略都应该天天交易，就像这个策略的名字一样，“瞄准了再发射”，这个策略其实很多时候都没有交易，但是即使这样，也可以一年十多倍，不用太执着天天交易。\n\n暂时想到这么多，祝大家开心。代码里面有很多小的点，对于策略整体的影响似乎不大，但实际上还是比较关键的，如果你有没看明白的或者不知道干嘛的，咱们评论区交流。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2022-04-09 02:29:16",
+      "modTime": "2022-04-09 02:31:02",
+      "lastActiveTime": "2023-07-09 18:13:26",
+      "lastPubTime": "2022-04-09 02:31:02",
+      "backtestId": "e610a04496a30a3ff014fa3b6f5804b9",
+      "backtestName": "瞄准了再发射",
+      "replyCount": "55",
+      "viewCount": "3653",
+      "collectionCount": "71",
+      "likeCount": "40",
+      "disLikeCount": "0",
+      "backtestCloneCount": "281",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "22",
+      "followersCount": "213",
+      "followingCount": "0",
+      "author": {
+        "userId": "ed71e85b8686fe3edbeb3b23ad339941",
+        "alias": "Bobby1129",
+        "introduction": "搞着玩玩啦",
+        "headImgKey": "c00cd3839d0f75ab1f398cc248b6b38c"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "5",
+          "name": "仓位管理"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "e610a04496a30a3ff014fa3b6f5804b9",
+        "backtest_name": "瞄准了再发射",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=e610a04496a30a3ff014fa3b6f5804b9&postId=6bbe99b431f014a213349c6380c5e454&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2021-01-07",
+          "end_date": "2022-02-25",
+          "base_capital": 200000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "13c2359b61eee521dc6b80e3a5fdac7b",
+            "24169245"
+          ],
+          "numeric_backtest_id": "24169245",
+          "numeric_post_id": "37233",
+          "python_version": 3,
+          "clone_count": 277
+        },
+        "stats": {
+          "trading_days": 274,
+          "benchmark_volatility": 0.18230008332344,
+          "algorithm_volatility": 0.58717457857268,
+          "treasury_return": 0.045369863013699,
+          "algorithm_return": 11.368673571,
+          "benchmark_return": -0.15583267345556,
+          "annual_algo_return": 8.9230502299044,
+          "annual_bm_return": -0.14321322482663,
+          "sharpe": 15.128465287952,
+          "excess_return_sharpe": "17.076",
+          "sortino": 32.670874451728,
+          "information": 14.714786799225,
+          "beta": -0.024258434219212,
+          "alpha": 8.8786057639419,
+          "excess_return": 13.651921700915,
+          "avg_excess_return": "1.06%",
+          "max_drawdown": 0.24851900675376,
+          "max_drawdown_period": [
+            "2021-04-12",
+            "2021-07-16"
+          ],
+          "excess_return_max_drawdown": "28.40%",
+          "excess_return_max_drawdown_period": [
+            "2021-04-12",
+            "2021-06-01"
+          ],
+          "max_leverage": 0,
+          "period_label": "2022-02",
+          "__version": 101,
+          "win_ratio": 0.66666666666667,
+          "profit_loss_ratio": 4.7009954253878,
+          "win_count": 24,
+          "lose_count": 12,
+          "day_win_ratio": 0.53649635036496,
+          "avg_trade_return": 0.092118772932566,
+          "avg_position_days": 1.9166666666667,
+          "turnover_rate": 0.12942966123798,
+          "report_done_seconds": 1245.0669763088,
+          "report_done_cpu_seconds": 1155.9
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 1136.867357,
+          "benchmark_return_percent": -15.583267,
+          "annual_algo_return_percent": 892.305023,
+          "annual_bm_return_percent": -14.321322,
+          "max_drawdown_percent": 24.851901,
+          "algorithm_volatility_percent": 58.717458,
+          "benchmark_volatility_percent": 18.230008,
+          "win_ratio_percent": 66.666667,
+          "day_win_ratio_percent": 53.649635,
+          "avg_trade_return_percent": 9.211877,
+          "turnover_rate_percent": 12.942966,
+          "sharpe": 15.128465287952,
+          "sortino": 32.670874451728,
+          "information": 14.714786799225,
+          "alpha": 8.8786057639419,
+          "beta": -0.024258434219212,
+          "profit_loss_ratio": 4.7009954253878,
+          "avg_position_days": 1.9166666666667,
+          "trading_days": 274,
+          "win_count": 24,
+          "lose_count": 12,
+          "max_drawdown_period": [
+            "2021-04-12",
+            "2021-07-16"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2021-04-12",
+            "2021-06-01"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/37233",
+      "https://www.joinquant.com/community/post/detailV2?postId=37233",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=e610a04496a30a3ff014fa3b6f5804b9&postId=6bbe99b431f014a213349c6380c5e454&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=e610a04496a30a3ff014fa3b6f5804b9"
+    ]
+  }
+}

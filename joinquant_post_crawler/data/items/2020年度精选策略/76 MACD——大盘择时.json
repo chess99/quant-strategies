@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/76 MACD——大盘择时.txt",
+    "category": "2020年度精选策略",
+    "file_name": "76 MACD——大盘择时.txt",
+    "strategy_name": "MACD——大盘择时",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 2104,
+    "sha256": "02e1bdcd42e2442d1ce8817ae7439f03023cb3b268d6a2df0fdff57aa84f1b1a",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/11102"
+    ],
+    "primary_url": "https://www.joinquant.com/post/11102",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:16+08:00",
+    "requested_url": "https://www.joinquant.com/post/11102",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/ad28232c34b6e7f481d0b13d74d4447d",
+    "community_id": "ad28232c34b6e7f481d0b13d74d4447d",
+    "post": {
+      "postId": "83cd340721809f959e40e890c921dfd9",
+      "uniqueKey": "ad28232c34b6e7f481d0b13d74d4447d",
+      "title": "MACD——大盘择时",
+      "content": "##**MACD**\r\n\r\n大致还好，就是滞后严重，无法在股灾高点撤走，震荡市场表现更差",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-02-09 15:57:37",
+      "modTime": "2018-02-09 15:57:37",
+      "lastActiveTime": "2018-05-29 11:03:04",
+      "lastPubTime": "2018-02-09 15:57:37",
+      "backtestId": "686fd97f2d348712eb9d4b46e296e6d4",
+      "backtestName": "MACD",
+      "replyCount": "1",
+      "viewCount": "2715",
+      "collectionCount": "12",
+      "likeCount": "3",
+      "disLikeCount": "0",
+      "backtestCloneCount": "165",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "8",
+      "followersCount": "217",
+      "followingCount": "3",
+      "author": {
+        "userId": "15bcab76347c979b01aae6ca652ace13",
+        "alias": "Max_Bai",
+        "introduction": "预测18年是黄金的舞台，无可阻挡",
+        "headImgKey": "67077897f9fd3c433a2afe17796c1985"
+      },
+      "tags": []
+    },
+    "backtests": [
+      {
+        "backtest_id": "686fd97f2d348712eb9d4b46e296e6d4",
+        "backtest_name": "MACD",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=686fd97f2d348712eb9d4b46e296e6d4&postId=ad28232c34b6e7f481d0b13d74d4447d&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2005-07-01",
+          "end_date": "2018-02-01",
+          "base_capital": 10000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "69727e8a31a0cd3706452e0c810da9ba",
+            "7516651"
+          ],
+          "numeric_backtest_id": "7516651",
+          "numeric_post_id": "11102",
+          "python_version": 2,
+          "clone_count": 166
+        },
+        "stats": {
+          "information": 0.26105396259459,
+          "benchmark_return": 3.832101569844,
+          "algorithm_volatility": 0.19135521206633,
+          "annual_bm_return": 0.13706184828358,
+          "__version": 101,
+          "max_drawdown": 0.30022292878632,
+          "sortino": 1.2256846116745,
+          "period_label": "2018-02",
+          "trading_days": 3066,
+          "algorithm_return": 11.089138271,
+          "benchmark_volatility": 0.28102615648112,
+          "beta": 0.46548719465391,
+          "excess_return": 10.585247860041,
+          "annual_algo_return": 0.2253437429385,
+          "sharpe": 0.96858476409965,
+          "alpha": 0.14016269547305,
+          "max_drawdown_period": [
+            "2009-08-03",
+            "2014-07-10"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.5038904109589,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.46444879321592,
+          "avg_position_days": 1766,
+          "win_ratio": 0.42857142857143,
+          "win_count": 21,
+          "avg_trade_return": 0.075992402549223,
+          "profit_loss_ratio": 2.6903464691753,
+          "lose_count": 28,
+          "report_done_seconds": 48.668596982956
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 1108.913827,
+          "benchmark_return_percent": 383.210157,
+          "annual_algo_return_percent": 22.534374,
+          "annual_bm_return_percent": 13.706185,
+          "max_drawdown_percent": 30.022293,
+          "algorithm_volatility_percent": 19.135521,
+          "benchmark_volatility_percent": 28.102616,
+          "win_ratio_percent": 42.857143,
+          "day_win_ratio_percent": 46.444879,
+          "avg_trade_return_percent": 7.59924,
+          "sharpe": 0.96858476409965,
+          "sortino": 1.2256846116745,
+          "information": 0.26105396259459,
+          "alpha": 0.14016269547305,
+          "beta": 0.46548719465391,
+          "profit_loss_ratio": 2.6903464691753,
+          "avg_position_days": 1766,
+          "trading_days": 3066,
+          "win_count": 21,
+          "lose_count": 28,
+          "max_drawdown_period": [
+            "2009-08-03",
+            "2014-07-10"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/11102",
+      "https://www.joinquant.com/community/post/detailV2?postId=11102",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=686fd97f2d348712eb9d4b46e296e6d4&postId=ad28232c34b6e7f481d0b13d74d4447d&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=686fd97f2d348712eb9d4b46e296e6d4"
+    ]
+  }
+}

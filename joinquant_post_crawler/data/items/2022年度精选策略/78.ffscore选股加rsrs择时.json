@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/78.ffscore选股加rsrs择时.txt",
+    "category": "2022年度精选策略",
+    "file_name": "78.ffscore选股加rsrs择时.txt",
+    "strategy_name": "ffscore选股加rsrs择时",
+    "declared_title": "ffscore选股加rsrs择时",
+    "declared_author": "美吉姆优秀毕业代表",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 25354,
+    "sha256": "30c8c0f1ca0d0c5f61fabdc30e7fc15158cbd24a3998d3f35c885941fd0fcd9a",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/38552",
+      "https://www.joinquant.com/post/35511",
+      "https://www.joinquant.com/post/31359"
+    ],
+    "primary_url": "https://www.joinquant.com/post/38552",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:32+08:00",
+    "requested_url": "https://www.joinquant.com/post/38552",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/40da9c08419b155734144e7b71be6819",
+    "community_id": "40da9c08419b155734144e7b71be6819",
+    "post": {
+      "postId": "1f8d161e6ba6f39328ecdc032ce34a76",
+      "uniqueKey": "40da9c08419b155734144e7b71be6819",
+      "title": "ffscore选股加rsrs择时",
+      "content": "论坛里几个选股模型，较为成熟的有peg、ffscore、小市值。小市值选股不需要堆叠任何其他因子，但是在实盘中，有容量限制；以及众多道友在实盘，导致固定时间集中交易，冲击价格的问题。peg和ffscore基本验证了长期有效性，peg往往还要叠加其他聚宽财务因子。2017年华泰金工引入ffscore，使用了ffscore加低pb的模型，原文把股票分为三个组，123低分组，456低分组，789高分组，分层明显，单调性好。原文说明高分组都是好股票，论坛里一般只要9分的股票是不对的，其实9分的票并不一定比7分的更好。选择9分股票的目的在于缩小待买列表list，如果只是这个目的，不如在沪深300里选，沪深300成分股主观多头都研究的比较深入，可以有效减低业绩造假等造成的暴雷等不可预见因素。在ffscore提出的2017年至今，选出来的股票都产生了超额收益，证明其有效性。\n开车要上路，就一定要有刹车（风控），rsrs在《20170501-光大证券-光大证券技术择时系列报告之一：基于阻力支撑相对强度（RSRS）的市场择时》推出时，参数固定为000300、18、600、+-0.7，随后出现了成交量加权等版本，但有过拟合之嫌疑。rsrs比较有说服力的是研报在2017年之后，使用2017年研报的参数，至今躲过几次大跌（2021年春节那次失效了），也在一定程度验证了其有效性。\n本文参考了7年40倍的股票列表思想，保留一定长度的选股list，只要持股还在list里就不需要交易，长期持股，避免了交易摩擦。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2022-07-23 19:25:45",
+      "modTime": "2022-09-16 00:02:11",
+      "lastActiveTime": "2023-10-29 00:18:25",
+      "lastPubTime": "2022-09-16 00:02:11",
+      "backtestId": "12842ee53cac40d3dbde63815fa52a46",
+      "backtestName": "FScore与RSRS择时-0728",
+      "replyCount": "40",
+      "viewCount": "2838",
+      "collectionCount": "56",
+      "likeCount": "32",
+      "disLikeCount": "0",
+      "backtestCloneCount": "182",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "70",
+      "followersCount": "1131",
+      "followingCount": "35",
+      "author": {
+        "userId": "76aa1a3ada7ba830d9e11022c3e5a641",
+        "alias": "美吉姆优秀毕业代表",
+        "vipType": "VIP",
+        "headImgKey": "7aec7114b934b51e3b7297d2bfbd44cd"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "12842ee53cac40d3dbde63815fa52a46",
+        "backtest_name": "FScore与RSRS择时-0728",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=12842ee53cac40d3dbde63815fa52a46&postId=40da9c08419b155734144e7b71be6819&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2012-01-01",
+          "end_date": "2022-09-14",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "2c7ae097af5dd9f678b0ae43b8e54f3d",
+            "25937469"
+          ],
+          "numeric_backtest_id": "25937469",
+          "numeric_post_id": "38552",
+          "python_version": 3,
+          "clone_count": 182
+        },
+        "stats": {
+          "trading_days": 2601,
+          "benchmark_volatility": 0.22477676666426,
+          "algorithm_volatility": 0.26307509286485,
+          "treasury_return": 0.42805479452055,
+          "algorithm_return": 23.133699114301,
+          "benchmark_return": 0.73308209776021,
+          "annual_algo_return": 0.35798037050802,
+          "annual_bm_return": 0.054276557469214,
+          "sharpe": 1.2087057236976,
+          "excess_return_sharpe": "1.235",
+          "sortino": 1.8004695826055,
+          "information": 1.5241756465899,
+          "beta": 0.7919850504469,
+          "alpha": 0.30667355042056,
+          "excess_return": 12.925306334588,
+          "avg_excess_return": "0.11%",
+          "max_drawdown": 0.32147481959768,
+          "max_drawdown_period": [
+            "2015-11-11",
+            "2016-01-28"
+          ],
+          "excess_return_max_drawdown": "39.72%",
+          "excess_return_max_drawdown_period": [
+            "2013-10-22",
+            "2015-01-15"
+          ],
+          "max_leverage": 0,
+          "period_label": "2022-09",
+          "__version": 101,
+          "win_ratio": 0.56088560885609,
+          "profit_loss_ratio": 1.986273971574,
+          "win_count": 456,
+          "lose_count": 357,
+          "day_win_ratio": 0.52402921953095,
+          "avg_trade_return": 0.047198456863521,
+          "avg_position_days": 99.758823529412,
+          "turnover_rate": 0.039802494205891,
+          "report_done_seconds": 488.82609510422,
+          "report_done_cpu_seconds": 329.74
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 2313.369911,
+          "benchmark_return_percent": 73.30821,
+          "annual_algo_return_percent": 35.798037,
+          "annual_bm_return_percent": 5.427656,
+          "max_drawdown_percent": 32.147482,
+          "algorithm_volatility_percent": 26.307509,
+          "benchmark_volatility_percent": 22.477677,
+          "win_ratio_percent": 56.088561,
+          "day_win_ratio_percent": 52.402922,
+          "avg_trade_return_percent": 4.719846,
+          "turnover_rate_percent": 3.980249,
+          "sharpe": 1.2087057236976,
+          "sortino": 1.8004695826055,
+          "information": 1.5241756465899,
+          "alpha": 0.30667355042056,
+          "beta": 0.7919850504469,
+          "profit_loss_ratio": 1.986273971574,
+          "avg_position_days": 99.758823529412,
+          "trading_days": 2601,
+          "win_count": 456,
+          "lose_count": 357,
+          "max_drawdown_period": [
+            "2015-11-11",
+            "2016-01-28"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2013-10-22",
+            "2015-01-15"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/38552",
+      "https://www.joinquant.com/community/post/detailV2?postId=38552",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=12842ee53cac40d3dbde63815fa52a46&postId=40da9c08419b155734144e7b71be6819&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=12842ee53cac40d3dbde63815fa52a46"
+    ]
+  }
+}

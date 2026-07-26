@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/11.缠论交易策略.txt",
+    "category": "2022年度精选策略",
+    "file_name": "11.缠论交易策略.txt",
+    "strategy_name": "缠论交易策略",
+    "declared_title": "缠论交易策略",
+    "declared_author": "quancker",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 28199,
+    "sha256": "454651949b62a7899aa0e35461a3bcca4bb77e27c012bc8b4d11e8fa7c1e0c77",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/35463"
+    ],
+    "primary_url": "https://www.joinquant.com/post/35463",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:37+08:00",
+    "requested_url": "https://www.joinquant.com/post/35463",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/59cb7dafee7df4f6fea2292a10074560",
+    "community_id": "59cb7dafee7df4f6fea2292a10074560",
+    "post": {
+      "postId": "44b8012e5a25e3ac448223750938b741",
+      "uniqueKey": "59cb7dafee7df4f6fea2292a10074560",
+      "title": "缠论交易策略",
+      "content": "### 缠论实现\n缠论的合并、分型、笔、线段、中枢、MACD背驰以及部分买卖点的实现\n\n### 实现不足\n实现过程中只考虑了中枢形成时出现买卖点情况，在中枢延申后出现买卖点的情况并未考虑，并且在买卖点判断失误的情况并未做处理，如果处理了效果会更好一些。\n\n### 展望\n之后有时间会完善缠论量化交易策略中买卖点的判断\n如果能修改代码，欢迎修改代码",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-11-17 22:06:44",
+      "modTime": "2021-11-18 17:44:34",
+      "lastActiveTime": "2026-04-27 15:31:38",
+      "lastPubTime": "2021-11-18 17:44:34",
+      "backtestId": "a111c86f57d84f709e77861c8ece07d2",
+      "backtestName": "chan策略东华测试(300354.XSHE)",
+      "replyCount": "179",
+      "viewCount": "12254",
+      "collectionCount": "180",
+      "likeCount": "108",
+      "disLikeCount": "0",
+      "backtestCloneCount": "935",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "3",
+      "followersCount": "240",
+      "followingCount": "4",
+      "author": {
+        "userId": "b76913d49468875bbe54f7d3901a9edb",
+        "alias": "quancker"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "1726",
+          "name": "缠论"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "a111c86f57d84f709e77861c8ece07d2",
+        "backtest_name": "chan策略东华测试(300354.XSHE)",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=a111c86f57d84f709e77861c8ece07d2&postId=59cb7dafee7df4f6fea2292a10074560&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2021-01-14",
+          "end_date": "2021-11-13",
+          "base_capital": 3000000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "24d9fc29f106068addc849f713d44e7c",
+            "22545866"
+          ],
+          "numeric_backtest_id": "22545866",
+          "numeric_post_id": "35463",
+          "python_version": 3,
+          "clone_count": 907
+        },
+        "stats": {
+          "trading_days": 200,
+          "benchmark_volatility": 0.19145340573199,
+          "algorithm_volatility": 0.56095511717308,
+          "treasury_return": 0.033095890410959,
+          "algorithm_return": 0.9366426533,
+          "benchmark_return": -0.12362920560706,
+          "annual_algo_return": 1.2846089080609,
+          "annual_bm_return": -0.15207025577774,
+          "sharpe": 2.2187317130346,
+          "excess_return_sharpe": "2.891",
+          "sortino": 3.2664908805837,
+          "information": 2.5141110425683,
+          "beta": 0.33794446651451,
+          "alpha": 1.3095179881831,
+          "excess_return": 1.2098438990559,
+          "avg_excess_return": "0.46%",
+          "max_drawdown": 0.23218440930129,
+          "max_drawdown_period": [
+            "2021-09-09",
+            "2021-10-15"
+          ],
+          "excess_return_max_drawdown": "22.63%",
+          "excess_return_max_drawdown_period": [
+            "2021-09-09",
+            "2021-10-15"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-11",
+          "__version": 101,
+          "win_ratio": 0.73809523809524,
+          "profit_loss_ratio": 12.627938735365,
+          "win_count": 31,
+          "lose_count": 11,
+          "day_win_ratio": 0.525,
+          "avg_trade_return": 0.1788523237669,
+          "avg_position_days": 193,
+          "turnover_rate": 0.017087437721554,
+          "report_done_seconds": 273.23158812523,
+          "report_done_cpu_seconds": 231.28
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 93.664265,
+          "benchmark_return_percent": -12.362921,
+          "annual_algo_return_percent": 128.460891,
+          "annual_bm_return_percent": -15.207026,
+          "max_drawdown_percent": 23.218441,
+          "algorithm_volatility_percent": 56.095512,
+          "benchmark_volatility_percent": 19.145341,
+          "win_ratio_percent": 73.809524,
+          "day_win_ratio_percent": 52.5,
+          "avg_trade_return_percent": 17.885232,
+          "turnover_rate_percent": 1.708744,
+          "sharpe": 2.2187317130346,
+          "sortino": 3.2664908805837,
+          "information": 2.5141110425683,
+          "alpha": 1.3095179881831,
+          "beta": 0.33794446651451,
+          "profit_loss_ratio": 12.627938735365,
+          "avg_position_days": 193,
+          "trading_days": 200,
+          "win_count": 31,
+          "lose_count": 11,
+          "max_drawdown_period": [
+            "2021-09-09",
+            "2021-10-15"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2021-09-09",
+            "2021-10-15"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/35463",
+      "https://www.joinquant.com/community/post/detailV2?postId=35463",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=a111c86f57d84f709e77861c8ece07d2&postId=59cb7dafee7df4f6fea2292a10074560&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=a111c86f57d84f709e77861c8ece07d2"
+    ]
+  }
+}

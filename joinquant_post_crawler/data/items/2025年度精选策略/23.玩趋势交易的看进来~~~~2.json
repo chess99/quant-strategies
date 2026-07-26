@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/23.玩趋势交易的看进来~~~~2.txt",
+    "category": "2025年度精选策略",
+    "file_name": "23.玩趋势交易的看进来~~~~2.txt",
+    "strategy_name": "玩趋势交易的看进来~~~~2",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 4579,
+    "sha256": "d96a5d0826ca0671ef17dd53a91fe9fdc793a668986635e7954a0ae16ef7369c",
+    "joinquant_urls": [],
+    "primary_url": null,
+    "url_selection_method": "none"
+  },
+  "remote": null
+}

@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/79 DMI——大盘择时.txt",
+    "category": "2020年度精选策略",
+    "file_name": "79 DMI——大盘择时.txt",
+    "strategy_name": "DMI——大盘择时",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 1972,
+    "sha256": "7bd5db34d6d1f5e0a605cb00245e5eb15f441a0e4f72f1ecb35d9e4ecc9aef09",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/11101"
+    ],
+    "primary_url": "https://www.joinquant.com/post/11101",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:17+08:00",
+    "requested_url": "https://www.joinquant.com/post/11101",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/db73d297c4dded9bd65949c32cf273d1",
+    "community_id": "db73d297c4dded9bd65949c32cf273d1",
+    "post": {
+      "postId": "c2c1530b42d42eafe42d70ef5014f677",
+      "uniqueKey": "db73d297c4dded9bd65949c32cf273d1",
+      "title": "DMI——大盘择时",
+      "content": "##**用DMI做大盘择时**\r\n\r\n择时效果尚可，可以在股灾高点提醒横盘",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-02-09 15:51:22",
+      "modTime": "2018-02-09 15:51:22",
+      "lastActiveTime": "2024-03-24 15:56:37",
+      "lastPubTime": "2018-02-09 15:51:22",
+      "backtestId": "361a8e92e4bad745e639b090049f55dd",
+      "backtestName": "DMI——大盘择时",
+      "replyCount": "13",
+      "viewCount": "2792",
+      "collectionCount": "17",
+      "likeCount": "16",
+      "disLikeCount": "0",
+      "backtestCloneCount": "114",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "8",
+      "followersCount": "217",
+      "followingCount": "3",
+      "author": {
+        "userId": "ad34adb34ee77b0f36d179ad112115fd",
+        "alias": "Max_Bai",
+        "introduction": "预测18年是黄金的舞台，无可阻挡",
+        "headImgKey": "67077897f9fd3c433a2afe17796c1985"
+      },
+      "tags": []
+    },
+    "backtests": [
+      {
+        "backtest_id": "361a8e92e4bad745e639b090049f55dd",
+        "backtest_name": "DMI——大盘择时",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=361a8e92e4bad745e639b090049f55dd&postId=db73d297c4dded9bd65949c32cf273d1&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2005-05-31",
+          "end_date": "2016-12-31",
+          "base_capital": 10000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "d4e26e83a57b88da8258df111ec86236",
+            "7516564"
+          ],
+          "numeric_backtest_id": "7516564",
+          "numeric_post_id": "11101",
+          "python_version": 2,
+          "clone_count": 114
+        },
+        "stats": {
+          "information": 0.090952365121423,
+          "benchmark_return": 2.8686706123804,
+          "algorithm_volatility": 0.16198548210027,
+          "annual_bm_return": 0.12733214768885,
+          "__version": 101,
+          "max_drawdown": 0.28064527294268,
+          "sortino": 1.2205889741094,
+          "period_label": "2016-12",
+          "trading_days": 2822,
+          "algorithm_return": 5.964816989,
+          "benchmark_volatility": 0.29299892452088,
+          "beta": 0.30692403904136,
+          "excess_return": 5.5011457561233,
+          "annual_algo_return": 0.18760790148968,
+          "sharpe": 0.91124154816736,
+          "alpha": 0.12080356598287,
+          "max_drawdown_period": [
+            "2009-08-03",
+            "2012-05-16"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.46367123287671,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.46102055279943,
+          "avg_position_days": 1042,
+          "win_ratio": 0.47222222222222,
+          "win_count": 17,
+          "avg_trade_return": 0.066617594275914,
+          "profit_loss_ratio": 3.7581175747607,
+          "lose_count": 19,
+          "report_done_seconds": 19.568582057953
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 596.481699,
+          "benchmark_return_percent": 286.867061,
+          "annual_algo_return_percent": 18.76079,
+          "annual_bm_return_percent": 12.733215,
+          "max_drawdown_percent": 28.064527,
+          "algorithm_volatility_percent": 16.198548,
+          "benchmark_volatility_percent": 29.299892,
+          "win_ratio_percent": 47.222222,
+          "day_win_ratio_percent": 46.102055,
+          "avg_trade_return_percent": 6.661759,
+          "sharpe": 0.91124154816736,
+          "sortino": 1.2205889741094,
+          "information": 0.090952365121423,
+          "alpha": 0.12080356598287,
+          "beta": 0.30692403904136,
+          "profit_loss_ratio": 3.7581175747607,
+          "avg_position_days": 1042,
+          "trading_days": 2822,
+          "win_count": 17,
+          "lose_count": 19,
+          "max_drawdown_period": [
+            "2009-08-03",
+            "2012-05-16"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/11101",
+      "https://www.joinquant.com/community/post/detailV2?postId=11101",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=361a8e92e4bad745e639b090049f55dd&postId=db73d297c4dded9bd65949c32cf273d1&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=361a8e92e4bad745e639b090049f55dd"
+    ]
+  }
+}

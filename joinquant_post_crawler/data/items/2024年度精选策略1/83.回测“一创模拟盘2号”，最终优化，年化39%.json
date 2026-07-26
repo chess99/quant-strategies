@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略1/83.回测“一创模拟盘2号”，最终优化，年化39%.txt",
+    "category": "2024年度精选策略1",
+    "file_name": "83.回测“一创模拟盘2号”，最终优化，年化39%.txt",
+    "strategy_name": "回测“一创模拟盘2号”，最终优化，年化39%",
+    "declared_title": "回测“一创模拟盘2号”，最终优化，年化39%",
+    "declared_author": "P5张大猫",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 17717,
+    "sha256": "093282eca2315ed6ce42c361c0c7396b0fa6fae78d468527c9753e0267e80179",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/40259"
+    ],
+    "primary_url": "https://www.joinquant.com/post/40259",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:10:47+08:00",
+    "requested_url": "https://www.joinquant.com/post/40259",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/f7e126062ec07412b4a68e194fe1ada7",
+    "community_id": "f7e126062ec07412b4a68e194fe1ada7",
+    "post": {
+      "postId": "cef1ed8a42fe734ca81772f168cec443",
+      "uniqueKey": "f7e126062ec07412b4a68e194fe1ada7",
+      "title": "回测“一创模拟盘2号”，最终优化，年化39%",
+      "content": "春节之后，针对此策略再做一次最终优化：\n230220更新：\n1.试了几种不同的参数组合，最终参数调整为持仓数5个，熊市债券持仓50%，单只股票最少持有5天，同一只股票两次建仓间隔最少5天。\n2.基于上述参数，年化收益从年前版本的29%提高到39.36%\n\n\n---------------------下面的内容为老内容-------------------\n\n\n学习原帖子“7年40倍，模拟超过两年，年化高回撤低”中的策略\nhttps://www.joinquant.com/view/community/detail/6d0d64532d0ad36c2c43292ee663042a\n回测的速度比较慢，发现是每次生成买入信号的算法相对复杂，而且还是每天执行的，就基于原贴改造了一下算法，将信号生成和持仓程序分离。\n\n**特别注意：为了尊重原作者知识产权，信号生成文件除了克隆这里的研究部分，最核心函数需要回到原文件中克隆，填入get_stock_rank_m_m(stock_list)后才能使用。**\n\n**信号生成：**完全遵循原文章，生成后保持在“8.Mutifactors”目录中\n**持有策略：**亏损3%离场，最高点回撤3%离场，每日交易\n\n此文章主要目的是加速回测后，用不同的参数看看对效果的影响：\n**优化到V2.1版本证明：股债平衡，5只股票，牛熊高度2800-3500，持仓时间限制（同一只股票，两次持仓最短间隔60天，买入后最短5天后才能卖出），最终可以做到年化29%的水平。**\n\n具体如下图：\n![Img]( https://image.joinquant.com/06ff58c432f53b78e36069e3d02d7c53) \n![Img]( https://image.joinquant.com/df84be98209a4fa37784350ad47b0902)\n\n**221223更新：**\n昨天晚上逐年对比了我的版本与原版在各年的收益对比，在同样的买入信号指导下，原版的收益大幅好于我的版本，建议大家仔细学习原版的牛熊高度和仓位控制算法，里面有不少干货，向原作者致敬！！\n![Img]( https://image.joinquant.com/3130433534ee1719b5d210a9cc48ca4c) \n\n注：此程序的运行方法：\n1.在“我的策略”里面新建一个策略，将研究中的代码拷贝过去。\n2.去原文章克隆原作者的原始代码，将函数体填入get_stock_rank_m_m(stock_list)函数中，（目前是……）\n3.运行整合好后的信号生成代码，会发现研究环境中多了一个“8.Mutifactors”目录，里面每个csv就是每天的买入信号\n4.运行回测主程序，主程序会按天读取目录中的信号列表，按照参数中的设置进行调仓（这部分可以按照自己的思路单独优化，也是我复现大神代码的初衷）\n5.回测时会遇到一个小问题，可能是回测平台历史数据的问题，在15年原版代码回测会失败，我修改后发现是缺失几天（大概有5天左右）的信号导致的，实操时只能拿前一天的数据，复制后修改个文件名（假设当天的信号与昨天一致），来勉强蒙混过关吧\n6.最终得到是两个策略（都需要在回测环境中运行，而非研究环境，一个负责生成选股信号的csv文件，一个负责读取信号文件进行持仓，从而方便分别做调试）",
+      "type": 1,
+      "status": "0",
+      "addTime": "2022-12-22 11:56:55",
+      "modTime": "2023-02-20 11:49:55",
+      "lastActiveTime": "2023-02-20 11:49:55",
+      "lastPubTime": "2023-02-20 11:49:55",
+      "backtestId": "64fddb1d9b336984f5ea951da19c34b6",
+      "backtestName": "8.改造-一创模拟盘2号-230217-持有再次优化",
+      "replyCount": "64",
+      "viewCount": "2712",
+      "collectionCount": "47",
+      "likeCount": "19",
+      "disLikeCount": "0",
+      "backtestCloneCount": "94",
+      "notebookCloneCount": "23",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "15",
+      "followersCount": "73",
+      "followingCount": "7",
+      "author": {
+        "userId": "2d8ccfc9601672bfdb593d128a2a34e6",
+        "alias": "P5张大猫",
+        "introduction": "初学者",
+        "headImgKey": "f57721248e12f6d47586cd5b0ed52218"
+      },
+      "tags": [
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "2415",
+          "name": "精华帖复现"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "64fddb1d9b336984f5ea951da19c34b6",
+        "backtest_name": "8.改造-一创模拟盘2号-230217-持有再次优化",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=64fddb1d9b336984f5ea951da19c34b6&postId=f7e126062ec07412b4a68e194fe1ada7&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2013-01-01",
+          "end_date": "2023-02-15",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "8713e26b3ba61474481dfb52017ff503",
+            "27476706"
+          ],
+          "numeric_backtest_id": "27476706",
+          "numeric_post_id": "40259",
+          "python_version": 3,
+          "clone_count": 39
+        },
+        "stats": {
+          "trading_days": 2457,
+          "benchmark_volatility": 0.22527853969237,
+          "algorithm_volatility": 0.22000360353456,
+          "treasury_return": 0.40482191780822,
+          "algorithm_return": 25.08809885676,
+          "benchmark_return": 0.63447155116035,
+          "annual_algo_return": 0.39355194416615,
+          "annual_bm_return": 0.051262490044364,
+          "sharpe": 1.6070279690242,
+          "excess_return_sharpe": "1.291",
+          "sortino": 2.1118430109005,
+          "information": 1.5553065618153,
+          "beta": 0.49967549373562,
+          "alpha": 0.34792435389254,
+          "excess_return": 14.961182584206,
+          "avg_excess_return": "0.12%",
+          "max_drawdown": 0.2704781832117,
+          "max_drawdown_period": [
+            "2020-07-23",
+            "2021-02-08"
+          ],
+          "excess_return_max_drawdown": "39.38%",
+          "excess_return_max_drawdown_period": [
+            "2020-07-23",
+            "2021-02-10"
+          ],
+          "max_leverage": 0,
+          "period_label": "2023-02",
+          "__version": 101,
+          "win_ratio": 0.50697350069735,
+          "profit_loss_ratio": 1.9409735716226,
+          "win_count": 727,
+          "lose_count": 707,
+          "day_win_ratio": 0.53479853479853,
+          "avg_trade_return": 0.012098007541808,
+          "avg_position_days": 45.883161512027,
+          "turnover_rate": 0.095049013774962,
+          "report_done_seconds": 681.4947514534,
+          "report_done_cpu_seconds": 418.55
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 2508.809886,
+          "benchmark_return_percent": 63.447155,
+          "annual_algo_return_percent": 39.355194,
+          "annual_bm_return_percent": 5.126249,
+          "max_drawdown_percent": 27.047818,
+          "algorithm_volatility_percent": 22.00036,
+          "benchmark_volatility_percent": 22.527854,
+          "win_ratio_percent": 50.69735,
+          "day_win_ratio_percent": 53.479853,
+          "avg_trade_return_percent": 1.209801,
+          "turnover_rate_percent": 9.504901,
+          "sharpe": 1.6070279690242,
+          "sortino": 2.1118430109005,
+          "information": 1.5553065618153,
+          "alpha": 0.34792435389254,
+          "beta": 0.49967549373562,
+          "profit_loss_ratio": 1.9409735716226,
+          "avg_position_days": 45.883161512027,
+          "trading_days": 2457,
+          "win_count": 727,
+          "lose_count": 707,
+          "max_drawdown_period": [
+            "2020-07-23",
+            "2021-02-08"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-07-23",
+            "2021-02-10"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/40259",
+      "https://www.joinquant.com/community/post/detailV2?postId=40259",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=64fddb1d9b336984f5ea951da19c34b6&postId=f7e126062ec07412b4a68e194fe1ada7&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=64fddb1d9b336984f5ea951da19c34b6"
+    ]
+  }
+}

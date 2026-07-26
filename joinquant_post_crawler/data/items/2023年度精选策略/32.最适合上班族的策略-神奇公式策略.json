@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/32.最适合上班族的策略-神奇公式策略.txt",
+    "category": "2023年度精选策略",
+    "file_name": "32.最适合上班族的策略-神奇公式策略.txt",
+    "strategy_name": "最适合上班族的策略-神奇公式策略",
+    "declared_title": "最适合上班族的策略-神奇公式策略",
+    "declared_author": "scottchenrui",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 18013,
+    "sha256": "f209dd7b5172fba01c35eef4cf924d1037146fd521babfb540711c49ce1fcee7",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/32795"
+    ],
+    "primary_url": "https://www.joinquant.com/post/32795",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:09:04+08:00",
+    "requested_url": "https://www.joinquant.com/post/32795",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/4664d7b865799e37fd6f4cff8a6244c8",
+    "community_id": "4664d7b865799e37fd6f4cff8a6244c8",
+    "post": {
+      "postId": "134d6280865d48fbad2eae13e6bd3737",
+      "uniqueKey": "4664d7b865799e37fd6f4cff8a6244c8",
+      "title": "最适合上班族的策略-神奇公式策略",
+      "content": "但凡一个东西加了一个“最”字，感觉就不很靠谱。因为中国文化讲究中庸，太极端了可能就不受待见。从科学的角度也是，比如正态分布，大部分数据集中在中间，两端的数据很少。那么为什么我还说这个策略是“最”适合上班族的策略呢？因为这个策略的调仓时间是240个交易日，也就是说差不多一年才调仓一次，收益率年化在10%多。想想你买入股票后，什么都不用管，每天看看，一年后收割，多么惬意啊！\n\n本策略是参考了一本书，书名叫《股市稳赚》。书中有一个神奇公式，神奇公式的基本理念就是用便宜价格买到好公司股票。\n\n基于此，神奇公式的具体应用操作流程就是两步：\n\n一是寻找好公司，好公司是指资本回报率高的公司（比如ROC）；\n\n二是寻找便宜的股票，便宜股票是指息税前盈余/企业价值（EBIT/EV）高的股票。\n\n用个简单的表述就是选择Top30的Max（资本回报率+股票收益率）公司股票，一年一轮换，搞定。\n\n本策略在实现的时候有些改动：\n1.策略的标的：沪深300股票\n2.算法： \n   a.选取股票的ROA，按照从大到小排序，排在第一位的股票得分300,第二位得分299，依次类推；\n   b.选取股票的PE，按照1/PE 即市盈率的倒数从大到小排序，排在第一位的股票得分300,第二位得分299，依次类推；\n   c.将两项得分相加并且从大到小排列\n   d.选取得分最高的10只股票买入\n   e.每半年调一次仓\n   f.设置每只股票，10%止损  30%止盈  策略总收益 20% 止损 100%止盈\n   g.根据初始投资金额每次买入固定股数，每10万增加1000股，例如：10万/1000股，20万/2000股，...，50万/5000股\n\n具体效果看回测吧。\n\n后记：为什么会编写这个策略？因为我最近正在学习价值投资，看到了这本书就想实地验证下神奇公式到底是不是靠谱。\n\n另：如果哪位同学积分比较少还想看策略源码，可以添加我的微信scottchen2019，请备注聚宽-神奇策略，我会把源码发给你。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-04-17 05:43:02",
+      "modTime": "2021-04-18 06:19:39",
+      "lastActiveTime": "2025-12-06 17:16:47",
+      "lastPubTime": "2021-04-18 06:19:39",
+      "backtestId": "331604feb6387db77b9eddf7fe74d308",
+      "backtestName": "神奇公式策略",
+      "replyCount": "150",
+      "viewCount": "6611",
+      "collectionCount": "105",
+      "likeCount": "49",
+      "disLikeCount": "0",
+      "backtestCloneCount": "343",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "30",
+      "followersCount": "143",
+      "followingCount": "5",
+      "author": {
+        "userId": "0c9628d0f34e1b8d1a9688eea30a2ace",
+        "alias": "scottchenrui",
+        "introduction": "量化小白"
+      },
+      "tags": [
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "331604feb6387db77b9eddf7fe74d308",
+        "backtest_name": "神奇公式策略",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=331604feb6387db77b9eddf7fe74d308&postId=4664d7b865799e37fd6f4cff8a6244c8&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2010-01-01",
+          "end_date": "2021-04-07",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "4a34372628d4c29e16e390ebc67c4a30",
+            "20385760"
+          ],
+          "numeric_backtest_id": "20385760",
+          "numeric_post_id": "32795",
+          "python_version": 3,
+          "clone_count": 315
+        },
+        "stats": {
+          "trading_days": 2736,
+          "benchmark_volatility": 0.23035981252912,
+          "algorithm_volatility": 0.15833550309224,
+          "treasury_return": 0.45052054794521,
+          "algorithm_return": 3.2680220094,
+          "benchmark_return": 0.42734808483982,
+          "annual_algo_return": 0.14179069518736,
+          "annual_bm_return": 0.033046941741175,
+          "sharpe": 0.64287979132551,
+          "excess_return_sharpe": "0.319",
+          "sortino": 0.93135031274361,
+          "information": 0.53487601120104,
+          "beta": 0.34676159561052,
+          "alpha": 0.10420174876356,
+          "excess_return": 1.9901760157397,
+          "avg_excess_return": "0.05%",
+          "max_drawdown": 0.29498719287341,
+          "max_drawdown_period": [
+            "2011-07-15",
+            "2014-01-15"
+          ],
+          "excess_return_max_drawdown": "38.49%",
+          "excess_return_max_drawdown_period": [
+            "2014-07-18",
+            "2015-06-24"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-04",
+          "__version": 101,
+          "win_ratio": 0.45669291338583,
+          "profit_loss_ratio": 2.7176272604791,
+          "win_count": 58,
+          "lose_count": 69,
+          "day_win_ratio": 0.50438596491228,
+          "avg_trade_return": 0.078122793105069,
+          "avg_position_days": 193.26,
+          "turnover_rate": 0.0068682257380201,
+          "report_done_seconds": 55.340687274933,
+          "report_done_cpu_seconds": 43.3
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 326.802201,
+          "benchmark_return_percent": 42.734808,
+          "annual_algo_return_percent": 14.17907,
+          "annual_bm_return_percent": 3.304694,
+          "max_drawdown_percent": 29.498719,
+          "algorithm_volatility_percent": 15.83355,
+          "benchmark_volatility_percent": 23.035981,
+          "win_ratio_percent": 45.669291,
+          "day_win_ratio_percent": 50.438596,
+          "avg_trade_return_percent": 7.812279,
+          "turnover_rate_percent": 0.686823,
+          "sharpe": 0.64287979132551,
+          "sortino": 0.93135031274361,
+          "information": 0.53487601120104,
+          "alpha": 0.10420174876356,
+          "beta": 0.34676159561052,
+          "profit_loss_ratio": 2.7176272604791,
+          "avg_position_days": 193.26,
+          "trading_days": 2736,
+          "win_count": 58,
+          "lose_count": 69,
+          "max_drawdown_period": [
+            "2011-07-15",
+            "2014-01-15"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2014-07-18",
+            "2015-06-24"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/32795",
+      "https://www.joinquant.com/community/post/detailV2?postId=32795",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=331604feb6387db77b9eddf7fe74d308&postId=4664d7b865799e37fd6f4cff8a6244c8&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=331604feb6387db77b9eddf7fe74d308"
+    ]
+  }
+}

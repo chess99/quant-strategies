@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略1/70.致敬市场(12)——赚钱的策略.txt",
+    "category": "2024年度精选策略1",
+    "file_name": "70.致敬市场(12)——赚钱的策略.txt",
+    "strategy_name": "致敬市场(12)——赚钱的策略",
+    "declared_title": "致敬市场(12)——赚钱的策略",
+    "declared_author": "Gyro^.^",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 2154,
+    "sha256": "e8754f26e4de3dd9e3741832c1a9fcd605260208595edabfd4c8b0173ff7cd68",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/41444"
+    ],
+    "primary_url": "https://www.joinquant.com/post/41444",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:10:40+08:00",
+    "requested_url": "https://www.joinquant.com/post/41444",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/2897bdfacf7b431253c37f40a680d8a4",
+    "community_id": "2897bdfacf7b431253c37f40a680d8a4",
+    "post": {
+      "postId": "9fb73116f61ccff8ad3f9d47d4585c92",
+      "uniqueKey": "2897bdfacf7b431253c37f40a680d8a4",
+      "title": "致敬市场(12)——赚钱的策略",
+      "content": "本文致力于以股养老或者养家。在合理的收益率基础之上，可靠性和合理性是核心要素．\n\n年金利率5%，每年第一个交易日提取5%的分红。\n\n现金储备10%，充分保证年金。\n\n40%投资债券．回测选择了国债指数，早期没有合适的债券基金，现在则有大量的利率债ETF。债券基金超越国债指数不算是难事。\n\n现金和债券储备足够10年的年金，即使股市有熊市，也可以扛起10年开支，这是一个非常可靠的投资组合。\n\n股票50%。选择了国证50为参考，50只大型蓝筹股，规模适中。如果有更大的资金量，可以考虑直接投资沪深300的成分股。\n\n测试起点从2005年的10月开始，9月份是国证50的起点。\n\n副图是净值曲线，100万起步，从来没有跌破100万，全过程盈利。到了2023，净值积累到了333万，不含逐年提取的现金．\n\n主图是收益率曲线，2017年，股债5：5组合超越了纯股的沪深 300指数．沪深300指数有一些缺陷，回避了这些缺陷，长期收益率超越指数是必然的，这是致敬市场系列的主题之一．年化13.18%，累计收益711%，比理财强多了．\n\n投资组合由50只强大的蓝筹股和国债组成，内在的长期成长动力如大海的波涛一样澎湃不息．\n\n**怎么做一个赚钱的策略?**\n\n致敬市场系列写到这儿，到了收官子的阶段了，探讨一下这个话题。\n\n[致敬市场之三](https://www.joinquant.com/view/community/detail/597247b17765c8ee24601d8d45ebfd03)，是一次成功的＂失败＂．当时的想法，做一个alpha策略，低风险，低波动，盈利能力适中．很快做出来了，原作表保留了一张当时的测试曲线，长期年化收益率14.67%，年化波动率10.6%，很棒．\n\n致敬市场之三的策略很简单，流动性过滤之后，选择100只低波动基金。2021年之前，有大量分级A。2021年下半年开始，分级A逐渐退出。不仅如此，传统的债券LOF失去了流动性，比如招商信用，曾经非常受欢迎的低风险债基，流动性近似枯竭。低风险资金去了利率债ETF。\n\n到了2022年，利率债ETF不到10只。风险高一阶，则是黄金ETF，有10只左右。风险再高一阶，则是QDII（比如标普500）、低风险混合基金、红利类ETF，20只大约。风险再高一阶，则是类似沪深300的市场指数基金，三四十只。再向上，风险高于沪深300，还会选出三四十只。2022年，黄金、标普500、沪深300一起跌，消费医药科技跌得更多。致敬市场之三这个策略，不再是低风险了，于是，我把这个策略删除了。这是一次值得留念的“失败”。\n\n最近，金融界有一个大事，硅谷银行破产了。怎么破的？在联储低利率期，买了大量的长期债，成本0.25%，收益1.5%。坦率讲，我觉得这是一笔不错的投资哈。后来，联储加息了，美元基本利率到了4.5%，硅谷银行的债券还是1.5%，于是玩不下去了。这是投资策略的错么？\n\n这两个事件，致敬市场之三和硅谷银行破产案，有一个共同的特点，市场出现了基本的变化，市场资产结构改变，货币利率大幅变动，投资策略不再适应市场。\n\n所以，敲黑板了，所以，我们做策略，做量化，更应该研究市场。怎么做一个能赚钱的策略？研究市场，理解市场，顺应市场。\n\n致敬市场系列第一季（1~12），结束。\n\n谢谢\n\n------\n2026-4-8补遗。原策略直接采用了国债指数，新策略在国债ETF上市之前依然采用国债指数，上市之后采用国债ETF、十年国债、30年国债ETF、黄金ETF、标普500ETF。\n本策略实际是致敬系列的最高峰。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2023-03-19 23:36:00",
+      "modTime": "2026-04-08 16:08:31",
+      "lastActiveTime": "2026-07-15 13:23:26",
+      "lastPubTime": "2026-04-08 16:08:31",
+      "backtestId": "c4cd1ecc0c421841292b7c7c0b45246d",
+      "backtestName": "Gaining",
+      "replyCount": "73",
+      "viewCount": "6855",
+      "collectionCount": "73",
+      "likeCount": "55",
+      "disLikeCount": "0",
+      "backtestCloneCount": "170",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "227",
+      "followersCount": "5889",
+      "followingCount": "1",
+      "author": {
+        "userId": "b0a2690dbd9199147d442856714cafce",
+        "alias": "Gyron",
+        "introduction": "\r\n                    \r\n                     ",
+        "headImgKey": "600eaeda447f70216671ecc0af5f5fe2"
+      },
+      "tags": [
+        {
+          "id": "5",
+          "name": "仓位管理"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "c4cd1ecc0c421841292b7c7c0b45246d",
+        "backtest_name": "Gaining",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=c4cd1ecc0c421841292b7c7c0b45246d&postId=2897bdfacf7b431253c37f40a680d8a4&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2006-01-01",
+          "end_date": "2026-01-01",
+          "base_capital": 12345678,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "a0b1c5f3a2eb593549027c42eec47233",
+            "54456361"
+          ],
+          "numeric_backtest_id": "54456361",
+          "numeric_post_id": "41444",
+          "python_version": 3,
+          "clone_count": 15
+        },
+        "stats": {
+          "trading_days": 4859,
+          "benchmark_volatility": 0.25290722472031,
+          "algorithm_volatility": 0.20560942457594,
+          "treasury_return": 0.8001095890411,
+          "algorithm_return": 6.851504385198,
+          "benchmark_return": 4.0137414045157,
+          "annual_algo_return": 0.1118498585974,
+          "annual_bm_return": 0.08648559469725,
+          "sharpe": 0.34944827429765,
+          "excess_return_sharpe": "-0.172",
+          "sortino": 0.46935609731779,
+          "information": 0.26299597212244,
+          "beta": 0.75776120919916,
+          "alpha": 0.036624878149265,
+          "excess_return": 0.56599707717802,
+          "avg_excess_return": "0.01%",
+          "max_drawdown": 0.58644430649329,
+          "max_drawdown_period": [
+            "2007-10-16",
+            "2008-11-04"
+          ],
+          "excess_return_max_drawdown": "42.71%",
+          "excess_return_max_drawdown_period": [
+            "2006-01-04",
+            "2007-09-18"
+          ],
+          "max_leverage": 0,
+          "period_label": "2025-12",
+          "__version": 101,
+          "win_ratio": 0.65071770334928,
+          "profit_loss_ratio": 2.8298956487266,
+          "win_count": 136,
+          "lose_count": 73,
+          "day_win_ratio": 0.48055155381766,
+          "avg_trade_return": 0.43894180731074,
+          "avg_position_days": 1055.7077625571,
+          "turnover_rate": 0.0004831713351224,
+          "report_done_seconds": 497.83910870552,
+          "report_done_cpu_seconds": 320.54
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 685.150439,
+          "benchmark_return_percent": 401.37414,
+          "annual_algo_return_percent": 11.184986,
+          "annual_bm_return_percent": 8.648559,
+          "max_drawdown_percent": 58.644431,
+          "algorithm_volatility_percent": 20.560942,
+          "benchmark_volatility_percent": 25.290722,
+          "win_ratio_percent": 65.07177,
+          "day_win_ratio_percent": 48.055155,
+          "avg_trade_return_percent": 43.894181,
+          "turnover_rate_percent": 0.048317,
+          "sharpe": 0.34944827429765,
+          "sortino": 0.46935609731779,
+          "information": 0.26299597212244,
+          "alpha": 0.036624878149265,
+          "beta": 0.75776120919916,
+          "profit_loss_ratio": 2.8298956487266,
+          "avg_position_days": 1055.7077625571,
+          "trading_days": 4859,
+          "win_count": 136,
+          "lose_count": 73,
+          "max_drawdown_period": [
+            "2007-10-16",
+            "2008-11-04"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2006-01-04",
+            "2007-09-18"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/41444",
+      "https://www.joinquant.com/community/post/detailV2?postId=41444",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=c4cd1ecc0c421841292b7c7c0b45246d&postId=2897bdfacf7b431253c37f40a680d8a4&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=c4cd1ecc0c421841292b7c7c0b45246d"
+    ]
+  }
+}

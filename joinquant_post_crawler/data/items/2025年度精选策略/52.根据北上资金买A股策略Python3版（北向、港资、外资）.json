@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/52.根据北上资金买A股策略Python3版（北向、港资、外资）.txt",
+    "category": "2025年度精选策略",
+    "file_name": "52.根据北上资金买A股策略Python3版（北向、港资、外资）.txt",
+    "strategy_name": "根据北上资金买A股策略Python3版（北向、港资、外资）",
+    "declared_title": "根据北上资金买A股策略Python3版（北向/港资/外资）",
+    "declared_author": "逆熵者",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 6632,
+    "sha256": "3d55aa41fbe47218db2392b387662a5c2ba19895b7b4e6ac3c25a0f03167c36e",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/27792",
+      "https://www.joinquant.com/post/24681"
+    ],
+    "primary_url": "https://www.joinquant.com/post/27792",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:15+08:00",
+    "requested_url": "https://www.joinquant.com/post/27792",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/a6cf4472a7673a7d8cf4281694cebace",
+    "community_id": "a6cf4472a7673a7d8cf4281694cebace",
+    "post": {
+      "postId": "66eb3491456a7348cd5920bac16b7c83",
+      "uniqueKey": "a6cf4472a7673a7d8cf4281694cebace",
+      "title": "根据北上资金买A股策略Python3版（北向/港资/外资）",
+      "content": "本策略基于@见路不走2019 的《[根据北上资金买股票的最佳持股时间探讨](https://www.joinquant.com/view/community/detail/3f95d60b9d6d334bcfc01fba2c4d9171?type=1)》修改，上面提到的策略则基于@cgzol 的《[跟着港资（北向资金）买A股](https://www.joinquant.com/view/community/detail/4d090bae3390e22a7b54430fe3d7b36f?type=1)》参数优化。\n\n#### 策略思路说明：\n买入过去T天，北上资金净买入最多的前N只股票，持有M天后卖出并重复上述操作。\n本策略对原策略逻辑未作调整，仅对代码进行了微调。\n\n#### 调整内容说明：\n1、Python3适配\n2、~~拟合~~优化了一下参数\n3、清除了没用的代码\n4、由于本策略不是高频策略，因此从低效的handle函数改为了聚宽更推荐的run_daily函数\n\n#### 策略有效性讨论：\n1、为什么北上资金一直更聪明？我对此表示怀疑。何况策略跟在北上资金屁股后面，即便北上资金是聪明的，策略也会有延迟。\n2、本策略不是一个对任意买点均衡稳定的策略。因为本策略在买入时只看过去一小段时间T，买入后持有很长的时间M完全不操作。变更开始的日期可能对策略结果造成较大影响。但如果改为每天根据过去T日的北上净买入调仓，则放弃了持有M天的效果。可以考虑建仓时每只股票建仓 cash/(M*N)，M天后卖出M天前买入的股票，动态调整持仓，但这样意味着会同时持有M*N只股票，可能会导致持仓股票数量过多。欢迎大家集思广益。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-06-05 15:23:28",
+      "modTime": "2020-06-05 15:23:28",
+      "lastActiveTime": "2022-09-20 00:36:44",
+      "lastPubTime": "2020-06-05 15:23:28",
+      "backtestId": "cfaecc12e189a2db1d77a26e667f99e2",
+      "backtestName": "过去2日北向净买入最高策略-py3",
+      "replyCount": "126",
+      "viewCount": "7684",
+      "collectionCount": "145",
+      "likeCount": "67",
+      "disLikeCount": "0",
+      "backtestCloneCount": "527",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "11",
+      "followersCount": "580",
+      "followingCount": "35",
+      "author": {
+        "userId": "ce16a44fab9d3510ab34877eb3cf1623",
+        "alias": "逆熵者",
+        "introduction": "进无止境",
+        "headImgKey": "50c2a3770ee3e3ccaedc473cb1c7f3f7"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "14",
+          "name": "函数"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "cfaecc12e189a2db1d77a26e667f99e2",
+        "backtest_name": "过去2日北向净买入最高策略-py3",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=cfaecc12e189a2db1d77a26e667f99e2&postId=a6cf4472a7673a7d8cf4281694cebace&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2017-01-01",
+          "end_date": "2020-02-25",
+          "base_capital": 500000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "58f13121f5b21d0128e8e3372aa5b397",
+            "17268137"
+          ],
+          "numeric_backtest_id": "17268137",
+          "numeric_post_id": "27792",
+          "python_version": 3,
+          "clone_count": 527
+        },
+        "stats": {
+          "trading_days": 764,
+          "benchmark_volatility": 0.18422483239112,
+          "algorithm_volatility": 0.27883862700573,
+          "treasury_return": 0.12580821917808,
+          "algorithm_return": 2.684963518226,
+          "benchmark_return": 0.24584602184841,
+          "annual_algo_return": 0.53232601759898,
+          "annual_bm_return": 0.074578979700001,
+          "sharpe": 1.7656306189919,
+          "excess_return_sharpe": "2.078",
+          "sortino": 2.681618244645,
+          "information": 2.4638195569414,
+          "beta": 1.1369402351718,
+          "alpha": 0.45301178428686,
+          "excess_return": 1.9578001242551,
+          "avg_excess_return": "0.15%",
+          "max_drawdown": 0.28425212354445,
+          "max_drawdown_period": [
+            "2018-06-12",
+            "2018-10-30"
+          ],
+          "excess_return_max_drawdown": "16.04%",
+          "excess_return_max_drawdown_period": [
+            "2018-06-25",
+            "2018-10-30"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-02",
+          "__version": 101,
+          "win_ratio": 0.76190476190476,
+          "profit_loss_ratio": 4.1217168123965,
+          "win_count": 32,
+          "lose_count": 10,
+          "day_win_ratio": 0.52225130890052,
+          "avg_trade_return": 0.11076387029004,
+          "avg_position_days": 74.105263157895,
+          "turnover_rate": 0.014184265526843,
+          "report_done_seconds": 15.740314245224,
+          "report_done_cpu_seconds": 11.8
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 268.496352,
+          "benchmark_return_percent": 24.584602,
+          "annual_algo_return_percent": 53.232602,
+          "annual_bm_return_percent": 7.457898,
+          "max_drawdown_percent": 28.425212,
+          "algorithm_volatility_percent": 27.883863,
+          "benchmark_volatility_percent": 18.422483,
+          "win_ratio_percent": 76.190476,
+          "day_win_ratio_percent": 52.225131,
+          "avg_trade_return_percent": 11.076387,
+          "turnover_rate_percent": 1.418427,
+          "sharpe": 1.7656306189919,
+          "sortino": 2.681618244645,
+          "information": 2.4638195569414,
+          "alpha": 0.45301178428686,
+          "beta": 1.1369402351718,
+          "profit_loss_ratio": 4.1217168123965,
+          "avg_position_days": 74.105263157895,
+          "trading_days": 764,
+          "win_count": 32,
+          "lose_count": 10,
+          "max_drawdown_period": [
+            "2018-06-12",
+            "2018-10-30"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2018-06-25",
+            "2018-10-30"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/27792",
+      "https://www.joinquant.com/community/post/detailV2?postId=27792",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=cfaecc12e189a2db1d77a26e667f99e2&postId=a6cf4472a7673a7d8cf4281694cebace&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=cfaecc12e189a2db1d77a26e667f99e2"
+    ]
+  }
+}

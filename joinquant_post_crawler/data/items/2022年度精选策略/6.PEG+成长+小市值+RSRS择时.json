@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/6.PEG+成长+小市值+RSRS择时.txt",
+    "category": "2022年度精选策略",
+    "file_name": "6.PEG+成长+小市值+RSRS择时.txt",
+    "strategy_name": "PEG+成长+小市值+RSRS择时",
+    "declared_title": "PEG+成长+小市值+RSRS择时",
+    "declared_author": "量化菜鸟鸟",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 12223,
+    "sha256": "6dd6faed54b99c9865fa05625604e6de632041c97256aaaae33f5d1ecd2bf7f5",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/38233"
+    ],
+    "primary_url": "https://www.joinquant.com/post/38233",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:16+08:00",
+    "requested_url": "https://www.joinquant.com/post/38233",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/065f7abfdc613aaed5c31ba836cad701",
+    "community_id": "065f7abfdc613aaed5c31ba836cad701",
+    "post": {
+      "postId": "54cdfcf9b16b222f8c39246c6cc7b02a",
+      "uniqueKey": "065f7abfdc613aaed5c31ba836cad701",
+      "title": "PEG+成长+小市值+RSRS择时",
+      "content": "此策略参考：\nhttps://www.joinquant.com/view/community/detail/2152c474e8a94ceb5f69c8b6b0adacec?type=1\n在原策略是进行了优化，感谢原作者提供的策略\n同时择时策略的实现来源于莫急大佬，在此一并致谢。\n在原策略上做如下优化：\n1、选择净利润增速靠前的10%的股票\n2、在此基础上选择peg靠前的50%的股票\n3、按照市值进行排序，并选择排名靠前的4只\n4、每天进行调仓。使用RSRS择时进行风控\n为什么首先要选净利润增速靠前的股票？因为我认为只有净利润增长靠前对应的peg才是真实有效的peg；pe低，净利润增速也低的peg是伪peg\n谢谢！!",
+      "type": 1,
+      "status": "0",
+      "addTime": "2022-06-24 00:27:56",
+      "modTime": "2022-06-24 00:27:56",
+      "lastActiveTime": "2026-04-16 11:25:00",
+      "lastPubTime": "2022-06-24 00:27:56",
+      "backtestId": "cbe02491b96d9b4500d7b17bab1738d7",
+      "backtestName": "PEG策略",
+      "replyCount": "205",
+      "viewCount": "13215",
+      "collectionCount": "251",
+      "likeCount": "124",
+      "disLikeCount": "0",
+      "backtestCloneCount": "918",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "5",
+      "followersCount": "124",
+      "followingCount": "16",
+      "author": {
+        "userId": "78b39c33d7dbf830d01711d9c3f5c5e7",
+        "alias": "量化菜鸟鸟",
+        "introduction": "多学一门本事，就少说一句求人的话"
+      },
+      "tags": [
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "cbe02491b96d9b4500d7b17bab1738d7",
+        "backtest_name": "PEG策略",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=cbe02491b96d9b4500d7b17bab1738d7&postId=065f7abfdc613aaed5c31ba836cad701&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2015-01-01",
+          "end_date": "2022-06-22",
+          "base_capital": 200000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "3d4b93c84c6880e3364ddee28e187f7d",
+            "25076013"
+          ],
+          "numeric_backtest_id": "25076013",
+          "numeric_post_id": "38233",
+          "python_version": 3,
+          "clone_count": 806
+        },
+        "stats": {
+          "trading_days": 1816,
+          "benchmark_volatility": 0.23388090179595,
+          "algorithm_volatility": 0.31763325107517,
+          "treasury_return": 0.2986301369863,
+          "algorithm_return": 41.234290238145,
+          "benchmark_return": 0.20854138721454,
+          "annual_algo_return": 0.67416216159639,
+          "annual_bm_return": 0.026418685347424,
+          "sharpe": 1.9965232211987,
+          "excess_return_sharpe": "1.994",
+          "sortino": 2.7253180384126,
+          "information": 2.2039075636684,
+          "beta": 0.63262876329805,
+          "alpha": 0.64275409188902,
+          "excess_return": 33.946498882829,
+          "avg_excess_return": "0.21%",
+          "max_drawdown": 0.37709885742645,
+          "max_drawdown_period": [
+            "2016-11-23",
+            "2018-10-18"
+          ],
+          "excess_return_max_drawdown": "46.19%",
+          "excess_return_max_drawdown_period": [
+            "2016-11-23",
+            "2018-02-06"
+          ],
+          "max_leverage": 0,
+          "period_label": "2022-06",
+          "__version": 101,
+          "win_ratio": 0.6099173553719,
+          "profit_loss_ratio": 2.1573431759471,
+          "win_count": 369,
+          "lose_count": 236,
+          "day_win_ratio": 0.534140969163,
+          "avg_trade_return": 0.030212244777807,
+          "avg_position_days": 39.288590604027,
+          "turnover_rate": 0.088075759135124,
+          "report_done_seconds": 1523.9272813797,
+          "report_done_cpu_seconds": 1343.21
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 4123.429024,
+          "benchmark_return_percent": 20.854139,
+          "annual_algo_return_percent": 67.416216,
+          "annual_bm_return_percent": 2.641869,
+          "max_drawdown_percent": 37.709886,
+          "algorithm_volatility_percent": 31.763325,
+          "benchmark_volatility_percent": 23.38809,
+          "win_ratio_percent": 60.991736,
+          "day_win_ratio_percent": 53.414097,
+          "avg_trade_return_percent": 3.021224,
+          "turnover_rate_percent": 8.807576,
+          "sharpe": 1.9965232211987,
+          "sortino": 2.7253180384126,
+          "information": 2.2039075636684,
+          "alpha": 0.64275409188902,
+          "beta": 0.63262876329805,
+          "profit_loss_ratio": 2.1573431759471,
+          "avg_position_days": 39.288590604027,
+          "trading_days": 1816,
+          "win_count": 369,
+          "lose_count": 236,
+          "max_drawdown_period": [
+            "2016-11-23",
+            "2018-10-18"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2016-11-23",
+            "2018-02-06"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/38233",
+      "https://www.joinquant.com/community/post/detailV2?postId=38233",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=cbe02491b96d9b4500d7b17bab1738d7&postId=065f7abfdc613aaed5c31ba836cad701&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=cbe02491b96d9b4500d7b17bab1738d7"
+    ]
+  }
+}

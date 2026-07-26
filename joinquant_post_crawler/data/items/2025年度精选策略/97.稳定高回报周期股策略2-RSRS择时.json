@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/97.稳定高回报周期股策略2-RSRS择时.txt",
+    "category": "2025年度精选策略",
+    "file_name": "97.稳定高回报周期股策略2-RSRS择时.txt",
+    "strategy_name": "稳定高回报周期股策略2-RSRS择时",
+    "declared_title": "稳定高回报周期股策略2-RSRS择时",
+    "declared_author": "风轻云淡0769",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 15200,
+    "sha256": "1734cd2023e69eeff77c96f0feb5ac5770a8e0792f5ee5ab1fa2b87c38ac2076",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/29915",
+      "https://www.joinquant.com/post/23858"
+    ],
+    "primary_url": "https://www.joinquant.com/post/29915",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:46+08:00",
+    "requested_url": "https://www.joinquant.com/post/29915",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/beb9d52387675c141479c7990c4bd8f8",
+    "community_id": "beb9d52387675c141479c7990c4bd8f8",
+    "post": {
+      "postId": "3c8fdebbc9744242e14bb38e0f199cf6",
+      "uniqueKey": "beb9d52387675c141479c7990c4bd8f8",
+      "title": "稳定高回报周期股策略2-RSRS择时",
+      "content": "这个策略根据大神[jqz1226的稳定高回报周期股策略2](https://www.joinquant.com/post/23858)增加RSRS择时改进得来。\n     选股策略没做任何改动，只是增加了目前仍然有效的RSRS择时，从2010年1月至2020年10月的回测来看，策略收益达到了19倍多，年化收益33%，回测在30%以内，是一个相当优秀的策略。\n     这么优秀的策略分享出来，希望大神能够进行更深入的优化，或者找出策略的不足，进行完善。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-10-26 22:48:17",
+      "modTime": "2020-10-26 22:48:17",
+      "lastActiveTime": "2025-04-25 08:58:09",
+      "lastPubTime": "2020-10-26 22:48:17",
+      "backtestId": "a32b00afb6e7895bbbb0b2374f15181c",
+      "backtestName": "稳定高回报周期股策略2-RSRS择时20倍",
+      "replyCount": "49",
+      "viewCount": "3681",
+      "collectionCount": "42",
+      "likeCount": "29",
+      "disLikeCount": "0",
+      "backtestCloneCount": "193",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "6",
+      "followersCount": "88",
+      "followingCount": "79",
+      "author": {
+        "userId": "7970947784a706dc005ecb3c100470b3",
+        "alias": "风轻云淡0769",
+        "introduction": "着眼于量化交易策略",
+        "headImgKey": "6eef7b644ce559b9832ce6686f359b8d"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "a32b00afb6e7895bbbb0b2374f15181c",
+        "backtest_name": "稳定高回报周期股策略2-RSRS择时20倍",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=a32b00afb6e7895bbbb0b2374f15181c&postId=beb9d52387675c141479c7990c4bd8f8&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2010-01-01",
+          "end_date": "2020-10-13",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "153ac2f7f4d10194d46db7252d7ee3bf",
+            "18629174"
+          ],
+          "numeric_backtest_id": "18629174",
+          "numeric_post_id": "29915",
+          "python_version": 3,
+          "clone_count": 193
+        },
+        "stats": {
+          "trading_days": 2617,
+          "benchmark_volatility": 0.23153501189335,
+          "algorithm_volatility": 0.23640569575074,
+          "treasury_return": 0.43123287671233,
+          "algorithm_return": 19.076852755,
+          "benchmark_return": 0.35336495435834,
+          "annual_algo_return": 0.33181994153645,
+          "annual_bm_return": 0.02932842722282,
+          "sharpe": 1.2344031754808,
+          "excess_return_sharpe": "1.134",
+          "sortino": 1.8130536795718,
+          "information": 1.3647934540357,
+          "beta": 0.56308507668789,
+          "alpha": 0.29782894491207,
+          "excess_return": 13.834766254546,
+          "avg_excess_return": "0.11%",
+          "max_drawdown": 0.26546967979648,
+          "max_drawdown_period": [
+            "2019-04-08",
+            "2019-09-30"
+          ],
+          "excess_return_max_drawdown": "23.35%",
+          "excess_return_max_drawdown_period": [
+            "2015-08-26",
+            "2015-12-22"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-10",
+          "__version": 101,
+          "win_ratio": 0.7562893081761,
+          "profit_loss_ratio": 3.6430119553205,
+          "win_count": 481,
+          "lose_count": 155,
+          "day_win_ratio": 0.50630492930837,
+          "avg_trade_return": 0.092488444296992,
+          "avg_position_days": 75.728971962617,
+          "turnover_rate": 0.016741852336326,
+          "report_done_seconds": 328.56875491142,
+          "report_done_cpu_seconds": 109.06
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 1907.685275,
+          "benchmark_return_percent": 35.336495,
+          "annual_algo_return_percent": 33.181994,
+          "annual_bm_return_percent": 2.932843,
+          "max_drawdown_percent": 26.546968,
+          "algorithm_volatility_percent": 23.64057,
+          "benchmark_volatility_percent": 23.153501,
+          "win_ratio_percent": 75.628931,
+          "day_win_ratio_percent": 50.630493,
+          "avg_trade_return_percent": 9.248844,
+          "turnover_rate_percent": 1.674185,
+          "sharpe": 1.2344031754808,
+          "sortino": 1.8130536795718,
+          "information": 1.3647934540357,
+          "alpha": 0.29782894491207,
+          "beta": 0.56308507668789,
+          "profit_loss_ratio": 3.6430119553205,
+          "avg_position_days": 75.728971962617,
+          "trading_days": 2617,
+          "win_count": 481,
+          "lose_count": 155,
+          "max_drawdown_period": [
+            "2019-04-08",
+            "2019-09-30"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2015-08-26",
+            "2015-12-22"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/29915",
+      "https://www.joinquant.com/community/post/detailV2?postId=29915",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=a32b00afb6e7895bbbb0b2374f15181c&postId=beb9d52387675c141479c7990c4bd8f8&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=a32b00afb6e7895bbbb0b2374f15181c"
+    ]
+  }
+}

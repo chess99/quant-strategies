@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/17 商品期货截面动量模型，真的靠谱吗？.txt",
+    "category": "2020年度精选策略",
+    "file_name": "17 商品期货截面动量模型，真的靠谱吗？.txt",
+    "strategy_name": "商品期货截面动量模型，真的靠谱吗？",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 17399,
+    "sha256": "7b0c7ee966f0fa2c5cbc7ad497c173f40361488caca648e5b0395eb7bd123f33",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/15815"
+    ],
+    "primary_url": "https://www.joinquant.com/post/15815",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:06:29+08:00",
+    "requested_url": "https://www.joinquant.com/post/15815",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/49619ccde0cb9b9bed6f8c15b375688e",
+    "community_id": "49619ccde0cb9b9bed6f8c15b375688e",
+    "post": {
+      "postId": "b9dd3771f21dbece4aedfa748f0afa4a",
+      "uniqueKey": "49619ccde0cb9b9bed6f8c15b375688e",
+      "title": "商品期货截面动量模型，真的靠谱吗？",
+      "content": "**何谓截面动量**\n\n\n在了解和测试了时间序列动量之后，我们自然想到按照经典策略分类的截面动量。时间序列动量很好理解，就是指单个商品自身是否发生上涨、下跌，以及其幅度是否构成我们应该买入多头，卖出空头这样的操作。时间序列动量的假设是：某品种的价格产生方向会延续一定幅度，并且方向反转也是个阶段性过程，我们可以评估动量反转而做出平仓或反手交易。\n\n\n ![QQ截图20181218192724.png][1]\n\n\n截面动量就不同了，它也被称作是横截面动量，在每个日期截面上，选择上涨最多的N个品种做多，下跌最多的N个品种做空。它的假设是：**强者恒强，弱者恒弱。**动量是相对出现于品种之间的，而不是以一个绝对数值，体现出方向性。截面动量模型的持仓是对冲形态的，每一期账户内总有N个品种多头，N个品种空头。\n\n\n ![QQ图片20181218192803.png][2]\n\n\n我们查阅资料有显示：Jegadeesh和Titman (1993)等人在对美国股市的研究开始了最早的金融市场中动量效应的研究，在排序期内考察各个股票的动量表现（即历史业绩），而在持有期开始时买入近期的胜者（业绩较好），卖出近一期内的输者（业绩较差），并持有H的长度，直至下一个持有周期。之后Miffre和Rallis (2007)，Shen (2007) 以及Szakmary (2010)对国外商品期货市场中的动量效应也做了测试，发现期货市场中也确实存在着“胜者更强，输者更弱”的现象。\n\n\n\n**截面动量的几个关键问题**\n\n\n**1、截面分组大小**\n\n\n首先需要讨论的便是截面上不同品种的排名是否真的能够区分开来，也就是说截面效应是否真的有效。为了查看分组对收益表现的影响，有机构研报里，通过截面动量从大到小的排名进行分组，标记排名前20%为做多组，后20%为做空组。\n\n但是在期货品种较少的年份，横截面上品种数量不足20个的情况下，每次做多做空的品种可能只有3~4个左右，无法形成一个稳定的组合。所以我们在后期测试中，也尝试了，前20%，前30%，前40%，这样三组参数。\n\n\n**2、动量衡量和持有参数**\n\n\n华泰期货的测试显示：横截面动量策略涉及的参数主要有回溯期和持有期。回溯期指计算动量因子的时间长度，用 R 表示，代表建仓日前一天开始向前推 R 天，计算这 R 天的平均收益率；持有期指建仓后持有组合的时间长度，用 H 表示，代表每隔 H 天建仓，持有组合至下个建仓日。回溯期和持有期的取值范围均是 5 天、10 天、22 天、60 天、120 天和 250 天，用（R，H）表示，共 36 个组合如下表所示。\n\n \n![QQ图片20181218192848.png][3]\n\n\n所以按照测试思路，华泰将动量的测试周期放在250日，在此周期下，测试了多个持有期的绩效图如下：\n\n \n![QQ图片20181218192917.png][4]\n\n\n很可惜，我们不能认同250这个动量持有期。原因非常显著：动量的计算仅考虑了开始和结束两个时间端点，将近一年（250日）的考核期太过长久，这个策略变为一个典型的长线动量模型。试想，通过一年的考察期来评估各期货品种动量，这个动量是难以发生变化和排序变化的，在调仓时间点可能不会产生调仓操作。所以实际测试中，我们更倾向于采用较为短期的动量考核期，构成一个相对容易解释的策略。\n\n截面动量参数问题上，东方证券衍生品研究院的观点是，截面动量因子的表现具有很强的参数敏感性。这是因为由不同的计算周期所得到动量特征表现结果不一，不同的品种的动量特征也会表现不一，所以在构建截面动量因子组合之后，组合的整体表现就会很强地受参数选择的影响。\n\n\n![QQ图片20181218192938.png][5]\n\n\n另外一个原因则和前文中提到的换手率的结论是一样的，即持有期的长度取值较低时，交易次数会很多，由交易成本带来的负面冲击也较大。故综合考虑之后，我们认为截面动量因子的有效性只存在部分参数区域内，较为合适的K值范围为10天左右，而H的合理取值范围为25天以上。\n\n总之今天将这个框架公布出来，请大家自行确定动量的考察期和持有期参数。\n\n\n**代码介绍**\n\n\n具体到写码环节，和之前讲的价格模型类似，首先是初始化，我们给与的手续费还是挺高的，但是因为这是中低频模型，对于手续费不敏感。\n\n\n```\ndef initialize(context):\n    # 设置参数\n    set_parameter(context)\n    # 设定基准银华日利，在多品种的回测当中基准没有参考意义\n    set_benchmark('511880.XSHG')\n    # 开启动态复权模式(真实价格)\n    set_option('use_real_price', True)\n    # 过滤掉order系列API产生的比error级别低的log\n    log.set_level('order', 'error')\n    ### 期货相关设定 ###\n    # 设定账户为金融账户\n    set_subportfolios([SubPortfolioConfig(cash=context.portfolio.starting_cash, type='futures')])\n    # 期货类每笔交易时的手续费是：买入时万分之1,卖出时万分之1,平今仓为万分之1\n    set_order_cost(OrderCost(open_commission=0.0001, close_commission=0.0001,close_today_commission=0.0001), type='index_futures')\n    # 设定保证金比例\n    set_option('futures_margin_rate', 0.15)\n    # 设置滑点（单边万5，双边千1）\n    set_slippage(PriceRelatedSlippage(0.001),type='future')\n    # 开盘前运行\n    run_daily( before_market_open, time='before_open', reference_security=get_future_code('RB'))\n    # 开盘时运行\n    run_weekly(market_open, 1,time='open', reference_security=get_future_code('RB'))\n    # 交易运行 \n    run_weekly(Trade, 1, time='open', reference_security=get_future_code('RB'))\n    # 收盘后运行\n    run_daily( after_market_close, time='after_close', reference_security=get_future_code('RB'))\n    \n```\n\n\n在动量计算方面，代码如下：\ng.Momentum[ins]作为每个品种的代码dict数据结构，可以看到它实际上是很简单的一种动量计算方式。\n\n\n```\n## 开盘时运行函数\ndef market_open(context):\n    # 输出函数运行时间\n    #log.info('函数运行时间(market_open):' str(context.current_dt.time()))\n    # 以下是主循环\n    for ins in g.instruments:\n        # 过滤空主力合约品种\n        if g.MappingReal[ins] != '':\n            IndexFuture = g.MappingIndex[ins]\n            RealFuture = g.MappingReal[ins]\n            # 获取当月合约交割日期\n            end_date = get_CCFX_end_date(RealFuture)\n            # 当月合约交割日当天不开仓\n            if (context.current_dt.date() == end_date):\n                return\n            else:\n                g.LastRealPrice[RealFuture] = attribute_history(RealFuture,1,'1d',['close'])['close'][-1]\n                # 获取价格list\n                #if g.StatusTimer[ins] == 0:\n                g.PriceArray[IndexFuture] = attribute_history(IndexFuture,g.BackWindow 5,'1d',['close','open','high','low'])\n                \n                # 如果没有数据，返回\n                if len(g.PriceArray[IndexFuture]) &lt; 1:\n                    return\n                else: \n                    g.ClosePrice[ins] = g.PriceArray[IndexFuture]['close']\n                    g.CurrentPrice[ins] = g.ClosePrice[ins][-1]\n                    g.Price_DaysAgo[ins] = g.ClosePrice[ins][-g.BackWindow]\n                    \n                    g.close = np.array(g.PriceArray[IndexFuture]['close'])\n                    g.high = np.array(g.PriceArray[IndexFuture]['high'])\n                    g.low = np.array(g.PriceArray[IndexFuture]['low'])\n                    g.ATR[IndexFuture] = talib.ATR(g.high,g.low,g.close, g.BackWindow)[-1]\n                    \n                    g.Momentum[ins] = g.CurrentPrice[ins]/g.Price_DaysAgo[ins] -1\n\n```\n\n\n**动量的排序在这里：**\n\n\n\n```\n## 交易模块 \ndef Trade(context):\n    # 定义每周买卖的列表\n    log.info(g.ClosePrice.keys())\n    BuyList = []\n    SellList = []\n    # 将字典进行排序，并将数值前五品种的symbol写入列表\n    a = sorted(g.Momentum.items(), key=lambda x: x[1],reverse = True)\n    for i in range(int(g.Range*len(g.MappingReal.keys()))):\n        BuyList.append(a[i][0])\n        SellList.append(a[-i-1][0])\n```\n\n\n\n首先放上一个长期测试的绩效图如下，不知道这样的绩效你能否满意，反正我觉得很难：\n\n\n![QQ截图20181218193421.png][6]\n\n\n对于横截面动量，在2017年开始的回撤比较显著，并且在历史上也没有带来非常理想的回报。我们测试了以5日为持有期，10、15、20这3组动量测算期的绩效，并且测试了持有前20%，30%，40%的品种绩效组合，也就是3*3=9个参数绩效如下图：\n\n\n![未命名-1.png][7]\n\n\n![参数优化，周度调仓.png][8]\n\n\n![收益风险矩阵-周度.png][9]\n\n\n上图分别是多组参数测试绩效、资金曲线图、收益风险矩阵。它们都是周度调仓，或者说接近研报上的5日调仓（持有）参数H。最终发现，做多前30%涨幅最多的品种，做空后30%跌幅最多的品种，持有5日，以10日考核期动量效应，这个组合绩效最好。\n\n\n我们还测试了双周调仓，也就是每半个月调仓的效果，类似于研报中的10日调仓（持有）参数H，情况更不理想。\n\n\n![参数优化，半月度调仓.png][10]\n\n\n\n**我们感觉还需要反复迭代或者思考的是：**\n\n1、多头和空头的动量衡量周期，是不是应该保持一致，还是应该拆分？\n2、以较大的周期进行动量考核（某机构给出的250日动量考核期R参数）是否合理？\n3、较为严格的止损方案，在较短周期的截面动量模型中，是否有效？\n\n\n总之，还请大家多多提出意见，提出修改观点，来完善这个多空都持有的比较另类的动量模型。\n\n\n  [1]: https://image.joinquant.com/7ecb7943824d3d65128cb65130812d9e\n  [2]: https://image.joinquant.com/c1073b41e06f9e6129bb6f4e6c484c65\n  [3]: https://image.joinquant.com/1ab1b900b53e9ea33d15a459164a0680\n  [4]: https://image.joinquant.com/72ae8abdee6b1249241cd17ea3dcff0f\n  [5]: https://image.joinquant.com/bc580465d5c681f5f3ee00f663e0432b\n  [6]: https://image.joinquant.com/89e33155d31ee39715ede146555d47ee\n  [7]: https://image.joinquant.com/25d49286b26d19de30725f35031e289b\n  [8]: https://image.joinquant.com/569a02921d58689fb47d5168339a2ee0\n  [9]: https://image.joinquant.com/cadc76fe54ddf85d9cc8be1bc290a7fd\n  [10]: https://image.joinquant.com/2af1dc9a01814b7b6425f2c198827098",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-12-18 19:49:31",
+      "modTime": "2018-12-18 19:49:31",
+      "lastActiveTime": "2025-12-10 23:15:57",
+      "lastPubTime": "2018-12-18 19:49:31",
+      "backtestId": "3c713fb5c79dd188dc50a369ac476ab1",
+      "backtestName": "Range: 0.29999999999999999, BackWindow: 10",
+      "replyCount": "15",
+      "viewCount": "12301",
+      "collectionCount": "128",
+      "likeCount": "37",
+      "disLikeCount": "0",
+      "backtestCloneCount": "256",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "31",
+      "followersCount": "1943",
+      "followingCount": "11",
+      "author": {
+        "userId": "e5373c595d645667e6110c77814d0de0",
+        "alias": "cicikml",
+        "introduction": "我要+1s，我要+=1s...",
+        "headImgKey": "addaf492004a535fea1e488c2597eac0"
+      },
+      "tags": [
+        {
+          "id": "7",
+          "name": "期货"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "3c713fb5c79dd188dc50a369ac476ab1",
+        "backtest_name": "Range: 0.29999999999999999, BackWindow: 10",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=3c713fb5c79dd188dc50a369ac476ab1&postId=49619ccde0cb9b9bed6f8c15b375688e&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2012-01-01",
+          "end_date": "2018-10-31",
+          "base_capital": 10000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "090023d04f57d8f950ccbc12ebc71f35",
+            "11066099"
+          ],
+          "numeric_backtest_id": "11066099",
+          "numeric_post_id": "15815",
+          "python_version": 2,
+          "clone_count": 237
+        },
+        "stats": {
+          "information": 0.4688725050601,
+          "benchmark_return": 0.21656859121018,
+          "algorithm_volatility": 0.11891156010433,
+          "annual_bm_return": 0.029981693299992,
+          "__version": 101,
+          "max_drawdown": 0.21896151736388,
+          "sortino": 0.70277495910921,
+          "period_label": "2018-10",
+          "trading_days": 1659,
+          "algorithm_return": 0.83191039700001,
+          "benchmark_volatility": 0.074475130903871,
+          "beta": 0.013713880785944,
+          "excess_return": 0.55881450658905,
+          "annual_algo_return": 0.095513859761855,
+          "sharpe": 0.46684998256814,
+          "alpha": 0.055651249625616,
+          "max_drawdown_period": [
+            "2016-04-21",
+            "2018-09-25"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.27309589041096,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.49125979505726,
+          "avg_position_days": 35.679549114332,
+          "win_ratio": 0.42556508183944,
+          "win_count": 1092,
+          "avg_trade_return": -0.20147408744706,
+          "profit_loss_ratio": 1.1062155338201,
+          "lose_count": 1474,
+          "report_done_seconds": 471.75616502762
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 83.19104,
+          "benchmark_return_percent": 21.656859,
+          "annual_algo_return_percent": 9.551386,
+          "annual_bm_return_percent": 2.998169,
+          "max_drawdown_percent": 21.896152,
+          "algorithm_volatility_percent": 11.891156,
+          "benchmark_volatility_percent": 7.447513,
+          "win_ratio_percent": 42.556508,
+          "day_win_ratio_percent": 49.12598,
+          "avg_trade_return_percent": -20.147409,
+          "sharpe": 0.46684998256814,
+          "sortino": 0.70277495910921,
+          "information": 0.4688725050601,
+          "alpha": 0.055651249625616,
+          "beta": 0.013713880785944,
+          "profit_loss_ratio": 1.1062155338201,
+          "avg_position_days": 35.679549114332,
+          "trading_days": 1659,
+          "win_count": 1092,
+          "lose_count": 1474,
+          "max_drawdown_period": [
+            "2016-04-21",
+            "2018-09-25"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/15815",
+      "https://www.joinquant.com/community/post/detailV2?postId=15815",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=3c713fb5c79dd188dc50a369ac476ab1&postId=49619ccde0cb9b9bed6f8c15b375688e&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=3c713fb5c79dd188dc50a369ac476ab1"
+    ]
+  }
+}

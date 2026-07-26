@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/37微盘股扩散指数双均线择时.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "37微盘股扩散指数双均线择时.txt",
+    "strategy_name": "微盘股扩散指数双均线择时",
+    "declared_title": "微盘股扩散指数双均线择时",
+    "declared_author": "无逻辑的光",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 13647,
+    "sha256": "f821d095edd256a58df6ad94f179ef4d40106f3de1903f7146b746e4d54264d6",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/47407",
+      "https://www.joinquant.com/post/40981",
+      "https://www.joinquant.com/post/40407",
+      "https://www.joinquant.com/view/community/detail/30684f8d65a74eef0d704239f0eec8be"
+    ],
+    "primary_url": "https://www.joinquant.com/post/47407",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:12:07+08:00",
+    "requested_url": "https://www.joinquant.com/post/47407",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/61e73647809828e3cd0fb2f0f00023d9",
+    "community_id": "61e73647809828e3cd0fb2f0f00023d9",
+    "post": {
+      "postId": "c46bf4461733a58de71aaeb832a74011",
+      "uniqueKey": "61e73647809828e3cd0fb2f0f00023d9",
+      "title": "微盘股扩散指数双均线择时",
+      "content": "前几天在社区里面看到@B仔 分享的研报有提到[扩散指数择时](https://www.joinquant.com/view/community/detail/cafca28210b8e3dd7ae01b4102afa5d6)，然后我尝试复现了一下。\n4.1. 扩散指数\n        扩散指数是一种可以进行指数趋势判断的先行指标，通过对一段时间内某指数成分股中处于上升趋势股票的百分比的计算，并对该百分比进行平滑等处理，进而测算出指数整体的走向趋势。\n       构建方法：针对某一市场指数，首先判断其成分股在某个时间截面上是否处于正向趋势。判断个股状态需要基于个股某一基本面数据或因子值来进行，如最基本的可以采用收盘价进行判断。在判断方法上可以采用 ROC（Rate of Change）法。ROC 法是比较个股在一定的时间跨度（回望期，我们取 220 个交易日）内价格变化是否大于 0，如果大于 0 则表示股票处于正向趋势。基于对指数成分股个股的判断，我们可以加权计算指数的扩散指数。加权方式的选择可分为平均加权和流通市值加权两种方式。指数扩散指数可以用如下公式表达：\n![Img](https://image.joinquant.com/3f7da0b78bc6d4b34be2c3063fc1a1d1) \n\n指标计算：回望期取20个交易日，指数选择中证1000，\n每日扩散指数=中证1000成分股近20个交易日股价上涨的数量/中证1000成分股总数\n计算得到每日扩散指数后，再计算短期均线EMA与长期均线EMA\n短期均线EMA-长期均线EMA&gt;0，开仓\n短期均线EMA-长期均线EMA&lt; 0，清仓\n       由于扩散指数计算比较耗时，我就直接放在研究环境里面了，计算结果存在研究环境里面，回测时直接读取择时信号。\n      我随便选了wywy大佬的一个策略进行了回测，未加择时的结果：年化收益59.47%，最大回撤53.34%，已经腰斩。![Img](https://image.joinquant.com/224a777c75b134bd288fb1ee0dda4ab3) \n        加入择时，选短期均线为EMA6,长期均线为EMA28，最终回测结果：年化31.5%，最大回撤16.39%，回撤虽然下降了，但收益也大幅度下降。\n![Img](https://image.joinquant.com/c947cd0023dfb23679fe20ed18d4ca38) \n       考虑到中证1000的走势与微盘股并不完全一致，取流通市值最小的800只股票作为微盘股的指数成分股，重新计算扩散指数进行回测。仍然选短期均线为EMA6,长期均线为EMA28。\n年化收益提升到41.19%，最大回撤为13.83%。\n      从回测曲线可以看到，策略很多时候都是空仓的，说明错杀的情况比较多，策略的参数应该可以进一步优化或者结合其他指标使用，我就没去研究了。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2024-04-04 01:44:02",
+      "modTime": "2024-04-04 10:01:48",
+      "lastActiveTime": "2025-12-05 21:55:03",
+      "lastPubTime": "2024-04-04 10:01:48",
+      "backtestId": "4314efd4d10f1261adf3ecc94d205c84",
+      "backtestName": "微盘扩散系数择时EMA6-28WP",
+      "replyCount": "88",
+      "viewCount": "5921",
+      "collectionCount": "139",
+      "likeCount": "89",
+      "disLikeCount": "0",
+      "backtestCloneCount": "294",
+      "notebookCloneCount": "130",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "6",
+      "followersCount": "105",
+      "followingCount": "23",
+      "author": {
+        "userId": "3640bc9119d084ede1b83bb50318bf56",
+        "alias": "无逻辑的光",
+        "vipType": "VIP"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "264",
+          "name": "研报复现"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "4314efd4d10f1261adf3ecc94d205c84",
+        "backtest_name": "微盘扩散系数择时EMA6-28WP",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=4314efd4d10f1261adf3ecc94d205c84&postId=61e73647809828e3cd0fb2f0f00023d9&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2018-01-01",
+          "end_date": "2024-04-02",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "e153775a9d6b30a320c462a578760c24",
+            "33465250"
+          ],
+          "numeric_backtest_id": "33465250",
+          "numeric_post_id": "47407",
+          "python_version": 3,
+          "clone_count": 221
+        },
+        "stats": {
+          "trading_days": 1517,
+          "benchmark_volatility": 0.23836385256562,
+          "algorithm_volatility": 0.192595602527,
+          "treasury_return": 0.25008219178082,
+          "algorithm_return": 7.2984609447,
+          "benchmark_return": -0.065058540838806,
+          "annual_algo_return": 0.41726097146296,
+          "annual_bm_return": -0.011025023534738,
+          "sharpe": 1.9588244306361,
+          "excess_return_sharpe": "1.665",
+          "sortino": 2.972328972137,
+          "information": 1.8370192095618,
+          "beta": 0.34809175720102,
+          "alpha": 0.39502236156639,
+          "excess_return": 7.8759150248243,
+          "avg_excess_return": "0.16%",
+          "max_drawdown": 0.13849507938322,
+          "max_drawdown_period": [
+            "2020-03-17",
+            "2020-05-20"
+          ],
+          "excess_return_max_drawdown": "25.73%",
+          "excess_return_max_drawdown_period": [
+            "2020-04-01",
+            "2020-08-18"
+          ],
+          "max_leverage": 0,
+          "period_label": "2024-04",
+          "__version": 101,
+          "win_ratio": 0.56626506024096,
+          "profit_loss_ratio": 2.2181709050446,
+          "win_count": 423,
+          "lose_count": 324,
+          "day_win_ratio": 0.51285431773237,
+          "avg_trade_return": 0.01635861060045,
+          "avg_position_days": 12.815789473684,
+          "turnover_rate": 0.095798775703405,
+          "report_done_seconds": 1626.8971495628,
+          "report_done_cpu_seconds": 1321.92
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 729.846094,
+          "benchmark_return_percent": -6.505854,
+          "annual_algo_return_percent": 41.726097,
+          "annual_bm_return_percent": -1.102502,
+          "max_drawdown_percent": 13.849508,
+          "algorithm_volatility_percent": 19.25956,
+          "benchmark_volatility_percent": 23.836385,
+          "win_ratio_percent": 56.626506,
+          "day_win_ratio_percent": 51.285432,
+          "avg_trade_return_percent": 1.635861,
+          "turnover_rate_percent": 9.579878,
+          "sharpe": 1.9588244306361,
+          "sortino": 2.972328972137,
+          "information": 1.8370192095618,
+          "alpha": 0.39502236156639,
+          "beta": 0.34809175720102,
+          "profit_loss_ratio": 2.2181709050446,
+          "avg_position_days": 12.815789473684,
+          "trading_days": 1517,
+          "win_count": 423,
+          "lose_count": 324,
+          "max_drawdown_period": [
+            "2020-03-17",
+            "2020-05-20"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-04-01",
+            "2020-08-18"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/47407",
+      "https://www.joinquant.com/community/post/detailV2?postId=47407",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=4314efd4d10f1261adf3ecc94d205c84&postId=61e73647809828e3cd0fb2f0f00023d9&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=4314efd4d10f1261adf3ecc94d205c84"
+    ]
+  }
+}

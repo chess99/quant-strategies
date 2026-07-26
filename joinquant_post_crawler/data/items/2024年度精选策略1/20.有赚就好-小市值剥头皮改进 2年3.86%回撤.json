@@ -1,0 +1,178 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略1/20.有赚就好-小市值剥头皮改进 2年3.86%回撤.txt",
+    "category": "2024年度精选策略1",
+    "file_name": "20.有赚就好-小市值剥头皮改进 2年3.86%回撤.txt",
+    "strategy_name": "有赚就好-小市值剥头皮改进 2年3.86%回撤",
+    "declared_title": "有赚就好-小市值剥头皮改进 2年3.86%回撤",
+    "declared_author": "CMA",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 4762,
+    "sha256": "a8d801d58038afa8e3f1dd8d1e560c41f8e862ee670a83903816765cf84a421e",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/43965"
+    ],
+    "primary_url": "https://www.joinquant.com/post/43965",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:10:02+08:00",
+    "requested_url": "https://www.joinquant.com/post/43965",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/5a6380b995c209f6e12ed09f505c286e",
+    "community_id": "5a6380b995c209f6e12ed09f505c286e",
+    "post": {
+      "postId": "34b2096a692dce3197012ad9899c74f9",
+      "uniqueKey": "5a6380b995c209f6e12ed09f505c286e",
+      "title": "有赚就好-小市值剥头皮改进 2年3.86%回撤",
+      "content": "基于社区的小市值剥头皮T+1策略的改进。\n(https://www.joinquant.com/post/43870)\n原版的策略虽然在23年的数据还可以，但是22年的回测下来，回撤高达百分之十几，还有许多可以改进的地方。分析了交易记录，最关键是的很容易买入那种A杀刚下来的股，导致吃面。\n\n因为这个策略是T+1的策略，注重的是低收益和低风险，并且策略较为简单，没有复杂的因子做约束。对于这种类似博分歧的情况，没有参与的条件。所以过滤了这种涨停过后下来的股票。\n\n同时将MA5替换成ema5，在鲁棒性和回撤方面有了较好的改进。\n\n对于30创业板可以根据自己的风险偏好是否参与。加入创业板在23年确实可以拿到更高的收益。但是意味着也要承担更高的回撤。\n\n该策略理论上可以适应大部分行情。并且都能做到较好的回撤控制。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2023-09-11 15:28:07",
+      "modTime": "2023-09-11 15:28:07",
+      "lastActiveTime": "2024-10-25 21:04:37",
+      "lastPubTime": "2023-09-11 15:28:07",
+      "backtestId": "849a2398a1ddeb5b8b06c7f97c7e6e99",
+      "backtestName": "有赚就好-小市值剥头皮改进",
+      "replyCount": "191",
+      "viewCount": "7698",
+      "collectionCount": "127",
+      "likeCount": "62",
+      "disLikeCount": "1",
+      "backtestCloneCount": "480",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "2",
+      "followersCount": "64",
+      "followingCount": "5",
+      "author": {
+        "userId": "62dad3d3542f7d851590c2334c786e68",
+        "alias": "CMA"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "2896",
+          "name": "改进"
+        },
+        {
+          "id": "2897",
+          "name": "T+1"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "849a2398a1ddeb5b8b06c7f97c7e6e99",
+        "backtest_name": "有赚就好-小市值剥头皮改进",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=849a2398a1ddeb5b8b06c7f97c7e6e99&postId=5a6380b995c209f6e12ed09f505c286e&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2022-01-01",
+          "end_date": "2023-09-10",
+          "base_capital": 30000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "0c671b7f438dc4e490eadae91a803038",
+            "30150563"
+          ],
+          "numeric_backtest_id": "30150563",
+          "numeric_post_id": "43965",
+          "python_version": 3,
+          "clone_count": 466
+        },
+        "stats": {
+          "trading_days": 410,
+          "benchmark_volatility": 0.21968914887271,
+          "algorithm_volatility": 0.11317761444076,
+          "treasury_return": 0.067068493150685,
+          "algorithm_return": 1.0102903533333,
+          "benchmark_return": -0.17276313604196,
+          "annual_algo_return": 0.5307839339083,
+          "annual_bm_return": -0.10921208436556,
+          "sharpe": 4.3364046532822,
+          "excess_return_sharpe": "3.245",
+          "sortino": 6.8864595288986,
+          "information": 3.0985149370349,
+          "beta": 0.19072341203276,
+          "alpha": 0.51924217175502,
+          "excess_return": 1.4301266552784,
+          "avg_excess_return": "0.23%",
+          "max_drawdown": 0.038625269947399,
+          "max_drawdown_period": [
+            "2022-07-13",
+            "2022-07-15"
+          ],
+          "excess_return_max_drawdown": "16.87%",
+          "excess_return_max_drawdown_period": [
+            "2022-04-26",
+            "2022-08-11"
+          ],
+          "max_leverage": 0,
+          "period_label": "2023-09",
+          "__version": 101,
+          "win_ratio": 0.65026362038664,
+          "profit_loss_ratio": 3.8933411262167,
+          "win_count": 370,
+          "lose_count": 199,
+          "day_win_ratio": 0.56585365853659,
+          "avg_trade_return": 0.011511709617225,
+          "avg_position_days": 2.4741379310345,
+          "turnover_rate": 0.18610833848904,
+          "report_done_seconds": 885.13281559944,
+          "report_done_cpu_seconds": 862.93
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 101.029035,
+          "benchmark_return_percent": -17.276314,
+          "annual_algo_return_percent": 53.078393,
+          "annual_bm_return_percent": -10.921208,
+          "max_drawdown_percent": 3.862527,
+          "algorithm_volatility_percent": 11.317761,
+          "benchmark_volatility_percent": 21.968915,
+          "win_ratio_percent": 65.026362,
+          "day_win_ratio_percent": 56.585366,
+          "avg_trade_return_percent": 1.151171,
+          "turnover_rate_percent": 18.610834,
+          "sharpe": 4.3364046532822,
+          "sortino": 6.8864595288986,
+          "information": 3.0985149370349,
+          "alpha": 0.51924217175502,
+          "beta": 0.19072341203276,
+          "profit_loss_ratio": 3.8933411262167,
+          "avg_position_days": 2.4741379310345,
+          "trading_days": 410,
+          "win_count": 370,
+          "lose_count": 199,
+          "max_drawdown_period": [
+            "2022-07-13",
+            "2022-07-15"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2022-04-26",
+            "2022-08-11"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/43965",
+      "https://www.joinquant.com/community/post/detailV2?postId=43965",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=849a2398a1ddeb5b8b06c7f97c7e6e99&postId=5a6380b995c209f6e12ed09f505c286e&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=849a2398a1ddeb5b8b06c7f97c7e6e99"
+    ]
+  }
+}

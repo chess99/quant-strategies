@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/44.海龟突破系统，19-21年化150，无未来函数和过拟合.txt",
+    "category": "2023年度精选策略",
+    "file_name": "44.海龟突破系统，19-21年化150，无未来函数和过拟合.txt",
+    "strategy_name": "海龟突破系统，19-21年化150，无未来函数和过拟合",
+    "declared_title": "海龟突破系统，19-21年化150，无未来函数和过拟合",
+    "declared_author": "Trading Robot",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 4584,
+    "sha256": "970fd85b2dc48a7d65e0ff6df61ffbe6fb9c5f7d73d495a7420c03b474d8a4d5",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/33654"
+    ],
+    "primary_url": "https://www.joinquant.com/post/33654",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:09:12+08:00",
+    "requested_url": "https://www.joinquant.com/post/33654",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/9dee68ac56287895db2948f4532d4c74",
+    "community_id": "9dee68ac56287895db2948f4532d4c74",
+    "post": {
+      "postId": "6934d2bd3630732d9297dfd418abd56e",
+      "uniqueKey": "9dee68ac56287895db2948f4532d4c74",
+      "title": "海龟突破系统，19-21年化150，无未来函数和过拟合",
+      "content": "1.选81日突破并不是过拟合，只是基于中国的玄学，99归一\n2.基于市场最近九日的最低价和最高价止损止盈，\n3.小资金回测，所以并没有进行仓位管理，\n4.这个策略主要是初读通往财富自由之路和海龟交易法则之后写的，不足之处请留言讨论。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-06-24 19:29:11",
+      "modTime": "2021-06-24 19:29:11",
+      "lastActiveTime": "2023-01-09 10:16:59",
+      "lastPubTime": "2021-06-24 19:29:11",
+      "backtestId": "367274cd5709c19c306bff4920058334",
+      "backtestName": "81日突破小赚即可",
+      "replyCount": "205",
+      "viewCount": "5301",
+      "collectionCount": "49",
+      "likeCount": "36",
+      "disLikeCount": "0",
+      "backtestCloneCount": "331",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "5",
+      "followersCount": "31",
+      "followingCount": "3",
+      "author": {
+        "userId": "ad8ba098787630944aa6ff18bc741bde",
+        "alias": "Trading Robot",
+        "introduction": "短线量化"
+      },
+      "tags": [
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "1487",
+          "name": "海归交易"
+        },
+        {
+          "id": "1488",
+          "name": "通向财物自由之路"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "367274cd5709c19c306bff4920058334",
+        "backtest_name": "81日突破小赚即可",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=367274cd5709c19c306bff4920058334&postId=9dee68ac56287895db2948f4532d4c74&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2019-01-01",
+          "end_date": "2021-06-23",
+          "base_capital": 30000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "c5024b28b79ac5a953ec62fcf72d8bc2",
+            "21064675"
+          ],
+          "numeric_backtest_id": "21064675",
+          "numeric_post_id": "33654",
+          "python_version": 3,
+          "clone_count": 330
+        },
+        "stats": {
+          "trading_days": 600,
+          "benchmark_volatility": 0.21203967394274,
+          "algorithm_volatility": 0.4056854474206,
+          "treasury_return": 0.098958904109589,
+          "algorithm_return": 8.21863032,
+          "benchmark_return": 0.70972713533622,
+          "annual_algo_return": 1.5231573392248,
+          "annual_bm_return": 0.25041114293861,
+          "sharpe": 3.6559293626501,
+          "excess_return_sharpe": "2.564",
+          "sortino": 5.885152798164,
+          "information": 3.3320867502259,
+          "beta": 0.70775997019774,
+          "alpha": 1.3342367549693,
+          "excess_return": 4.3918722639839,
+          "avg_excess_return": "0.31%",
+          "max_drawdown": 0.26345224845316,
+          "max_drawdown_period": [
+            "2019-04-01",
+            "2019-10-09"
+          ],
+          "excess_return_max_drawdown": "25.07%",
+          "excess_return_max_drawdown_period": [
+            "2019-04-01",
+            "2019-10-14"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-06",
+          "__version": 101,
+          "win_ratio": 0.6,
+          "profit_loss_ratio": 2.8619842685459,
+          "win_count": 30,
+          "lose_count": 20,
+          "day_win_ratio": 0.51666666666667,
+          "avg_trade_return": 0.052795104997523,
+          "avg_position_days": 8,
+          "turnover_rate": 0.080968692387124,
+          "report_done_seconds": 3608.6983962059,
+          "report_done_cpu_seconds": 3575.28
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 821.863032,
+          "benchmark_return_percent": 70.972714,
+          "annual_algo_return_percent": 152.315734,
+          "annual_bm_return_percent": 25.041114,
+          "max_drawdown_percent": 26.345225,
+          "algorithm_volatility_percent": 40.568545,
+          "benchmark_volatility_percent": 21.203967,
+          "win_ratio_percent": 60.0,
+          "day_win_ratio_percent": 51.666667,
+          "avg_trade_return_percent": 5.27951,
+          "turnover_rate_percent": 8.096869,
+          "sharpe": 3.6559293626501,
+          "sortino": 5.885152798164,
+          "information": 3.3320867502259,
+          "alpha": 1.3342367549693,
+          "beta": 0.70775997019774,
+          "profit_loss_ratio": 2.8619842685459,
+          "avg_position_days": 8,
+          "trading_days": 600,
+          "win_count": 30,
+          "lose_count": 20,
+          "max_drawdown_period": [
+            "2019-04-01",
+            "2019-10-09"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2019-04-01",
+            "2019-10-14"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/33654",
+      "https://www.joinquant.com/community/post/detailV2?postId=33654",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=367274cd5709c19c306bff4920058334&postId=9dee68ac56287895db2948f4532d4c74&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=367274cd5709c19c306bff4920058334"
+    ]
+  }
+}

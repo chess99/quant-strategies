@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/55.【分享】券商金股组合增强.txt",
+    "category": "2023年度精选策略",
+    "file_name": "55.【分享】券商金股组合增强.txt",
+    "strategy_name": "【分享】券商金股组合增强",
+    "declared_title": "【分享】券商金股组合增强",
+    "declared_author": "Hugo2046",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 35158,
+    "sha256": "6c7edf0ef4bcee88cd335ade773e2edaf5aaf8617300d6b6c22804066a9aeacd",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/33881"
+    ],
+    "primary_url": "https://www.joinquant.com/post/33881",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:09:21+08:00",
+    "requested_url": "https://www.joinquant.com/post/33881",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/55c013c0d5c2cc8551e7f0597a51d5fc",
+    "community_id": "55c013c0d5c2cc8551e7f0597a51d5fc",
+    "post": {
+      "postId": "da398236a8334b1fd881299df1c23d04",
+      "uniqueKey": "55c013c0d5c2cc8551e7f0597a51d5fc",
+      "title": "【分享】券商金股组合增强",
+      "content": "参考:\n&gt;20210426-开源证券-开源证券量化评论（23）：“金股 ”组合的量化方案\n&gt;20190104-华泰证券-因子合成方法实证分析\n\n参考资料详情见请下载附件。\n附件中**提供2020年12月至2021年7月的金股数据**(**股票代码字段**还需自行处理)\n\n增强部分使用的因子分析\n[【复现】开源量化评论（3）：A股市场中如何构造动量因子？](https://www.joinquant.com/view/community/detail/d709c7c9abbee23149d3d4d07e128357)\n[【复现】市场微观结构研究系列（7）：振幅因子的隐藏结构](https://www.joinquant.com/view/community/detail/a35fe484e3164893d4e48fafd3e08fd2)\n[【复现】市场微观结构研究系列（3）：聪明钱因子模型](https://www.joinquant.com/view/community/detail/33207)\n\n**提示:未提供完整的本地数据 请谨慎克隆**\n\n金股数据获取情况：2020年12月至2021年7月通过【每市】进行获取VIP能获取实时金股更新普通用户数据获取时间之后24小时,前序数据通过手工方式(各个券商微信公众号,研报等渠道)汇总获取此部分不提供 谢谢。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-07-17 18:35:55",
+      "modTime": "2021-07-19 11:32:53",
+      "lastActiveTime": "2023-06-01 21:23:30",
+      "lastPubTime": "2021-07-19 11:32:53",
+      "backtestId": "77de128269bb2f6489c1d0d3b41f3a3d",
+      "backtestName": "金股组合增强_交易行为因子_maxp",
+      "replyCount": "110",
+      "viewCount": "5623",
+      "collectionCount": "123",
+      "likeCount": "80",
+      "disLikeCount": "0",
+      "backtestCloneCount": "164",
+      "notebookCloneCount": "69",
+      "fileDownloadCount": "261",
+      "fileName": "附件.7z",
+      "fileSize": "2841773",
+      "postCount": "81",
+      "followersCount": "4227",
+      "followingCount": "26",
+      "author": {
+        "userId": "5ccb5ae4ea8999c3e0fd486a5c7d8311",
+        "alias": "Hugo2046",
+        "introduction": "联系邮箱:shen.lan123@gmail.com 坐标成都 纸上谈兵小能手",
+        "headImgKey": "144aa02c502f7e0f6bb2d55c98cab33c"
+      },
+      "tags": [
+        {
+          "id": "295",
+          "name": "研报分享"
+        },
+        {
+          "id": "264",
+          "name": "研报复现"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "77de128269bb2f6489c1d0d3b41f3a3d",
+        "backtest_name": "金股组合增强_交易行为因子_maxp",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=77de128269bb2f6489c1d0d3b41f3a3d&postId=55c013c0d5c2cc8551e7f0597a51d5fc&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2019-07-01",
+          "end_date": "2021-07-01",
+          "base_capital": 5000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "2a5427250e6bd8cf0fe09adad3492a9c",
+            "21289287"
+          ],
+          "numeric_backtest_id": "21289287",
+          "numeric_post_id": "33881",
+          "python_version": 3,
+          "clone_count": 164
+        },
+        "stats": {
+          "trading_days": 488,
+          "benchmark_volatility": 0.20174788922458,
+          "algorithm_volatility": 0.35866290736974,
+          "treasury_return": 0.080109589041096,
+          "algorithm_return": 1.435912928172,
+          "benchmark_return": 0.36702051186876,
+          "annual_algo_return": 0.57791977243388,
+          "annual_bm_return": 0.17369939493616,
+          "sharpe": 1.4997920369818,
+          "excess_return_sharpe": "1.115",
+          "sortino": 2.1854038707955,
+          "information": 1.4815778621641,
+          "beta": 1.1658400443168,
+          "alpha": 0.38204766391637,
+          "excess_return": 0.7819139559523,
+          "avg_excess_return": "0.13%",
+          "max_drawdown": 0.2371300152333,
+          "max_drawdown_period": [
+            "2020-07-13",
+            "2021-03-25"
+          ],
+          "excess_return_max_drawdown": "33.52%",
+          "excess_return_max_drawdown_period": [
+            "2020-03-03",
+            "2021-02-09"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-07",
+          "__version": 101,
+          "win_ratio": 0.64329643296433,
+          "profit_loss_ratio": 1.6365334203452,
+          "win_count": 523,
+          "lose_count": 290,
+          "day_win_ratio": 0.52254098360656,
+          "avg_trade_return": 0.066201740781401,
+          "avg_position_days": 23.757575757576,
+          "turnover_rate": 0.067463185909314,
+          "report_done_seconds": 3422.9661061764,
+          "report_done_cpu_seconds": 3414.69
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 143.591293,
+          "benchmark_return_percent": 36.702051,
+          "annual_algo_return_percent": 57.791977,
+          "annual_bm_return_percent": 17.369939,
+          "max_drawdown_percent": 23.713002,
+          "algorithm_volatility_percent": 35.866291,
+          "benchmark_volatility_percent": 20.174789,
+          "win_ratio_percent": 64.329643,
+          "day_win_ratio_percent": 52.254098,
+          "avg_trade_return_percent": 6.620174,
+          "turnover_rate_percent": 6.746319,
+          "sharpe": 1.4997920369818,
+          "sortino": 2.1854038707955,
+          "information": 1.4815778621641,
+          "alpha": 0.38204766391637,
+          "beta": 1.1658400443168,
+          "profit_loss_ratio": 1.6365334203452,
+          "avg_position_days": 23.757575757576,
+          "trading_days": 488,
+          "win_count": 523,
+          "lose_count": 290,
+          "max_drawdown_period": [
+            "2020-07-13",
+            "2021-03-25"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-03-03",
+            "2021-02-09"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/33881",
+      "https://www.joinquant.com/community/post/detailV2?postId=33881",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=77de128269bb2f6489c1d0d3b41f3a3d&postId=55c013c0d5c2cc8551e7f0597a51d5fc&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=77de128269bb2f6489c1d0d3b41f3a3d"
+    ]
+  }
+}

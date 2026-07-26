@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/40.基于遗传算法挖掘因子2.txt",
+    "category": "2025年度精选策略",
+    "file_name": "40.基于遗传算法挖掘因子2.txt",
+    "strategy_name": "基于遗传算法挖掘因子2",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 12719,
+    "sha256": "77c87a1fb7c854fbb2e6acc9b0a6caa1ab72212990382d05a83d1ca823d128a0",
+    "joinquant_urls": [],
+    "primary_url": null,
+    "url_selection_method": "none"
+  },
+  "remote": null
+}

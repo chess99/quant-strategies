@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/61.简单ETF策略，年化97%.txt",
+    "category": "2022年度精选策略",
+    "file_name": "61.简单ETF策略，年化97%.txt",
+    "strategy_name": "简单ETF策略，年化97%",
+    "declared_title": "简单ETF策略，年化97%",
+    "declared_author": "奶牛哥",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 10708,
+    "sha256": "9e47ff904080216ab711f70c59b5c514c54eab2585b07e18e4d03c7f658ef63c",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/36717"
+    ],
+    "primary_url": "https://www.joinquant.com/post/36717",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:17+08:00",
+    "requested_url": "https://www.joinquant.com/post/36717",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/cec40fb3c91c95bb4e240b542764355a",
+    "community_id": "cec40fb3c91c95bb4e240b542764355a",
+    "post": {
+      "postId": "9e9ef9a591d2512c56e871b286dff557",
+      "uniqueKey": "cec40fb3c91c95bb4e240b542764355a",
+      "title": "简单ETF策略，年化97%",
+      "content": "大家好，我是奶牛哥，前段时间一直在研究进攻型的打板策略，这几天做了一个简单的防守型策略，主要玩ETF，策略比较简单，2021年年化做到97%，在2015.6.1-2018.12.27大熊市期间，大盘下跌-33.9%，策略亏损-6.75%，基本上可以接受。 因为实盘账户有策略数限制，这个策略就不准备开实盘，所以写了个发邮件功能，在模拟盘中会将操作信息发邮件给我自己，再手动操作。 \n\n###逻辑设定：  \n1、股票池   ：随意选定的N只ETF基金，可以在设置中增减  \n2.、仓位     ：每次买入满仓、卖出空仓    \n3、买入选股 ：60日均线向上  + 当前价格&lt;     60均线  + 5日均线向上      \n4.、卖出选股 ：10日均线下穿20日均线。\n\n###备注：  \n如果有宽友想直接使用发邮件功能，请在“参数初始化”中打开邮件发送开关，并增加3个邮件参数：发件人邮箱；发件人邮箱密码；收件人邮箱。 已在QQ邮箱中测试过可正常使用，其它邮箱没有测试。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2022-02-26 21:40:14",
+      "modTime": "2022-02-26 21:40:14",
+      "lastActiveTime": "2024-07-28 14:23:22",
+      "lastPubTime": "2022-02-26 21:40:14",
+      "backtestId": "62d33d3365f07432cea8b953dd00aebc",
+      "backtestName": "ETF-3.0-OK",
+      "replyCount": "77",
+      "viewCount": "3505",
+      "collectionCount": "56",
+      "likeCount": "31",
+      "disLikeCount": "0",
+      "backtestCloneCount": "219",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "3",
+      "followersCount": "123",
+      "followingCount": "0",
+      "author": {
+        "userId": "5789b4eb4e8fbe3f7b63fa412cac388b",
+        "alias": "奶牛哥",
+        "introduction": "努力再努力",
+        "headImgKey": "e50f830504b17ca70edac81c39c17fe9"
+      },
+      "tags": [
+        {
+          "id": "12",
+          "name": "基金"
+        },
+        {
+          "id": "14",
+          "name": "函数"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "5",
+          "name": "仓位管理"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "62d33d3365f07432cea8b953dd00aebc",
+        "backtest_name": "ETF-3.0-OK",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=62d33d3365f07432cea8b953dd00aebc&postId=cec40fb3c91c95bb4e240b542764355a&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2021-01-01",
+          "end_date": "2021-12-19",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "ef89cc94ab9232318db6dfecc8133b65",
+            "23673820"
+          ],
+          "numeric_backtest_id": "23673820",
+          "numeric_post_id": "36717",
+          "python_version": 3,
+          "clone_count": 216
+        },
+        "stats": {
+          "trading_days": 233,
+          "benchmark_volatility": 0.1860323538554,
+          "algorithm_volatility": 0.29012286997027,
+          "treasury_return": 0.038027397260274,
+          "algorithm_return": 0.8847418227,
+          "benchmark_return": -0.035439652290205,
+          "annual_algo_return": 0.97394306492576,
+          "annual_bm_return": -0.037975668624017,
+          "sharpe": 3.2191294158281,
+          "excess_return_sharpe": "3.847",
+          "sortino": 5.2994733595392,
+          "information": 3.8429983597921,
+          "beta": 0.71435111452378,
+          "alpha": 0.98964507071306,
+          "excess_return": 0.9539905690453,
+          "avg_excess_return": "0.30%",
+          "max_drawdown": 0.095646933844678,
+          "max_drawdown_period": [
+            "2021-08-06",
+            "2021-08-17"
+          ],
+          "excess_return_max_drawdown": "8.55%",
+          "excess_return_max_drawdown_period": [
+            "2021-08-06",
+            "2021-08-16"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-12",
+          "__version": 101,
+          "win_ratio": 0.66666666666667,
+          "profit_loss_ratio": 17.92027027027,
+          "win_count": 2,
+          "lose_count": 1,
+          "day_win_ratio": 0.55793991416309,
+          "avg_trade_return": 0.26268733396558,
+          "avg_position_days": 55.5,
+          "turnover_rate": 0.011088916753509,
+          "report_done_seconds": 81.260585784912,
+          "report_done_cpu_seconds": 83.06
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 88.474182,
+          "benchmark_return_percent": -3.543965,
+          "annual_algo_return_percent": 97.394306,
+          "annual_bm_return_percent": -3.797567,
+          "max_drawdown_percent": 9.564693,
+          "algorithm_volatility_percent": 29.012287,
+          "benchmark_volatility_percent": 18.603235,
+          "win_ratio_percent": 66.666667,
+          "day_win_ratio_percent": 55.793991,
+          "avg_trade_return_percent": 26.268733,
+          "turnover_rate_percent": 1.108892,
+          "sharpe": 3.2191294158281,
+          "sortino": 5.2994733595392,
+          "information": 3.8429983597921,
+          "alpha": 0.98964507071306,
+          "beta": 0.71435111452378,
+          "profit_loss_ratio": 17.92027027027,
+          "avg_position_days": 55.5,
+          "trading_days": 233,
+          "win_count": 2,
+          "lose_count": 1,
+          "max_drawdown_period": [
+            "2021-08-06",
+            "2021-08-17"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2021-08-06",
+            "2021-08-16"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/36717",
+      "https://www.joinquant.com/community/post/detailV2?postId=36717",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=62d33d3365f07432cea8b953dd00aebc&postId=cec40fb3c91c95bb4e240b542764355a&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=62d33d3365f07432cea8b953dd00aebc"
+    ]
+  }
+}

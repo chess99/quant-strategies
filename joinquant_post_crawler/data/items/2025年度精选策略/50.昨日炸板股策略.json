@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/50.昨日炸板股策略.txt",
+    "category": "2025年度精选策略",
+    "file_name": "50.昨日炸板股策略.txt",
+    "strategy_name": "昨日炸板股策略",
+    "declared_title": "昨日炸板股策略",
+    "declared_author": "WiseFurther",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 9564,
+    "sha256": "659859e36cde49053514af028dff909f006db54faaae0cc510ca8f3d74e0f91f",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/28789"
+    ],
+    "primary_url": "https://www.joinquant.com/post/28789",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:14+08:00",
+    "requested_url": "https://www.joinquant.com/post/28789",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/259a0a598aa3224023ebf4d02e896f93",
+    "community_id": "259a0a598aa3224023ebf4d02e896f93",
+    "post": {
+      "postId": "a2aa3d5696b5797882d9504f9a109026",
+      "uniqueKey": "259a0a598aa3224023ebf4d02e896f93",
+      "title": "昨日炸板股策略",
+      "content": "<p>受 @大思维者 启发，写了一个昨日打板策略，但受运行速度限制，监控和回测验证都很难进行。 <br /><br />突发奇想，能否反人性操作，对于通常而言唯恐避之不及的炸板股寻找买入时机。而炸板股一般表现为放巨量，资金大量出逃，尤其是连板炒作的热门股，更是如此。但也不乏有个股，在经历多空激战，大量换手之后重拾升势，该策略旨在介入那些重拾升势的票。 <br /><br /><strong>基本思路 </strong><br />选择昨日摸到涨停板，但尾盘未收在涨停板的票作为当日股票池，当天在股价上冲超过昨日最高价时介入。 <br /><br />该策略在2020年表现为高收益，低回撤！收益128%，而回撤仅有6.1%</p><p> </p><p>如果要从中选取一段惊艳的表现，非7月至今莫属了，</p><img src=\"https://image.joinquant.com/68f84cd4fc95b39e2bd73a1769abab92\" alt=\"68f84cd4fc95b39e2bd73a1769abab92\" /><p><br />而在2018年的熊市中，回撤也不高，如下：</p><img src=\"https://image.joinquant.com/6f8db4d25f5694f5efd175c89846d947\" alt=\"6f8db4d25f5694f5efd175c89846d947\" /><p> </p><p>该策略为了提高回测速度，会在开盘前缓存当日分钟数据，但在逻辑上绝无未来函数。</p><p> </p><p>策略并不复杂，仅为大家提供一种思路，希望能和大家一起交流，进步。</p>",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-08-09 10:15:16",
+      "modTime": "2020-08-09 10:15:16",
+      "lastActiveTime": "2026-03-06 15:49:51",
+      "lastPubTime": "2020-08-09 10:15:16",
+      "backtestId": "df8d4c7727b729c119608df195fc4c0e",
+      "backtestName": "昨日炸板策略",
+      "replyCount": "75",
+      "viewCount": "6780",
+      "collectionCount": "97",
+      "likeCount": "61",
+      "disLikeCount": "0",
+      "backtestCloneCount": "412",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "7",
+      "followersCount": "74",
+      "followingCount": "38",
+      "author": {
+        "userId": "0ae03d857f1503e889107e5fcae8a925",
+        "alias": "WiseFurther",
+        "vipType": "VIP",
+        "headImgKey": "4d3cfc6d895292971b799f932f03990c"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "df8d4c7727b729c119608df195fc4c0e",
+        "backtest_name": "昨日炸板策略",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=df8d4c7727b729c119608df195fc4c0e&postId=259a0a598aa3224023ebf4d02e896f93&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2020-01-01",
+          "end_date": "2020-08-07",
+          "base_capital": 100000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "760ff5e96f0c05e1b0443d2971fb4597",
+            "17892718"
+          ],
+          "numeric_backtest_id": "17892718",
+          "numeric_post_id": "28789",
+          "python_version": 3,
+          "clone_count": 410
+        },
+        "stats": {
+          "trading_days": 145,
+          "benchmark_volatility": 0.26030363472948,
+          "algorithm_volatility": 0.28178173680419,
+          "treasury_return": 0.023890410958904,
+          "algorithm_return": 1.285878604,
+          "benchmark_return": 0.14923423929229,
+          "annual_algo_return": 3.1596537071245,
+          "annual_bm_return": 0.27102087573907,
+          "sharpe": 11.071170695822,
+          "excess_return_sharpe": "6.410",
+          "sortino": 29.301246678527,
+          "information": 8.3643746420447,
+          "beta": 0.2058254415312,
+          "alpha": 3.0721037333726,
+          "excess_return": 0.98904498825903,
+          "avg_excess_return": "0.50%",
+          "max_drawdown": 0.061082176405563,
+          "max_drawdown_period": [
+            "2020-02-07",
+            "2020-02-14"
+          ],
+          "excess_return_max_drawdown": "14.05%",
+          "excess_return_max_drawdown_period": [
+            "2020-03-23",
+            "2020-06-05"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-08",
+          "__version": 101,
+          "win_ratio": 0.575,
+          "profit_loss_ratio": 3.9869085685157,
+          "win_count": 46,
+          "lose_count": 34,
+          "day_win_ratio": 0.51724137931034,
+          "avg_trade_return": 0.036001683323897,
+          "avg_position_days": 1.225,
+          "turnover_rate": 0.18677998462644,
+          "report_done_seconds": 193.94376420975,
+          "report_done_cpu_seconds": 195.32
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 128.58786,
+          "benchmark_return_percent": 14.923424,
+          "annual_algo_return_percent": 315.965371,
+          "annual_bm_return_percent": 27.102088,
+          "max_drawdown_percent": 6.108218,
+          "algorithm_volatility_percent": 28.178174,
+          "benchmark_volatility_percent": 26.030363,
+          "win_ratio_percent": 57.5,
+          "day_win_ratio_percent": 51.724138,
+          "avg_trade_return_percent": 3.600168,
+          "turnover_rate_percent": 18.677998,
+          "sharpe": 11.071170695822,
+          "sortino": 29.301246678527,
+          "information": 8.3643746420447,
+          "alpha": 3.0721037333726,
+          "beta": 0.2058254415312,
+          "profit_loss_ratio": 3.9869085685157,
+          "avg_position_days": 1.225,
+          "trading_days": 145,
+          "win_count": 46,
+          "lose_count": 34,
+          "max_drawdown_period": [
+            "2020-02-07",
+            "2020-02-14"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-03-23",
+            "2020-06-05"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/28789",
+      "https://www.joinquant.com/community/post/detailV2?postId=28789",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=df8d4c7727b729c119608df195fc4c0e&postId=259a0a598aa3224023ebf4d02e896f93&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=df8d4c7727b729c119608df195fc4c0e"
+    ]
+  }
+}

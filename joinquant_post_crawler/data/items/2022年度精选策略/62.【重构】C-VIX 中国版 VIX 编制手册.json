@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/62.【重构】C-VIX 中国版 VIX 编制手册.txt",
+    "category": "2022年度精选策略",
+    "file_name": "62.【重构】C-VIX 中国版 VIX 编制手册.txt",
+    "strategy_name": "【重构】C-VIX 中国版 VIX 编制手册",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 6242,
+    "sha256": "8e20ac78671710abdeb91a80a8b5d326a645a13c45afc623d25c4ec0bd1f883a",
+    "joinquant_urls": [],
+    "primary_url": null,
+    "url_selection_method": "none"
+  },
+  "remote": null
+}

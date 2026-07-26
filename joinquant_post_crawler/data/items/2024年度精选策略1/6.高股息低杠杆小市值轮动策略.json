@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略1/6.高股息低杠杆小市值轮动策略.txt",
+    "category": "2024年度精选策略1",
+    "file_name": "6.高股息低杠杆小市值轮动策略.txt",
+    "strategy_name": "高股息低杠杆小市值轮动策略",
+    "declared_title": "高股息低杠杆小市值轮动策略",
+    "declared_author": "wywy1995",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 13115,
+    "sha256": "172d9f3c458546dedd274ff322bcc9a6582c96481fa9ae7d1d668c6cbe04c72c",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/39774"
+    ],
+    "primary_url": "https://www.joinquant.com/post/39774",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:40+08:00",
+    "requested_url": "https://www.joinquant.com/post/39774",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/5bf34a132919716ea77eb2e7daa4ba21",
+    "community_id": "5bf34a132919716ea77eb2e7daa4ba21",
+    "post": {
+      "postId": "27fe428803cd3c996f2f742108c58222",
+      "uniqueKey": "5bf34a132919716ea77eb2e7daa4ba21",
+      "title": "高股息低杠杆小市值轮动策略",
+      "content": "股息率策略的有效性是被广泛认可的，将其与小盘轮动可以达到更好的效果。\n\n### 选股思路：\n\n- \n1.计算最近一年的股息率，选择全市场最大25%，由于半数公司不分红，所以代码里的参数为0.5，即有分红的公司的50%。\n我尝试过对股息率进行改写，比如只保留最近一年大于最近三年均值的股票；计算最近三年的加权平均选择最高分的股票；连续几年增长等，**效果都不如简单的使用最近一年股息率。**好消息是，无论如何改写因子都表现出很强的正IC，说明股息率确实是很强的因子（股息率的计算方法参考@乌龟赛跑7的代码，股息率=最近一年分红/总市值）\n\n- \n2.由于股息率变化缓慢，为了剔除交易不活跃的股票从而提高交易频率，第二步我选择在股息率筛选后的列表中剔除换手率相对波动率最小的20%，收益小幅提升。换手率类因子本身表现为负IC，一般应剔除最大值，所以这里可能存疑。\n\n- \n3.经过换手率相对波动率筛选后，选择市场杠杆（MLEV）最小的50%。低杠杆是我在测试了全部聚宽因子后发现提升效果**最显著**的，这项优化本质上是数据挖掘，而不是首先从逻辑出发的，若要解释，可能因为公司债务压力较低的情况下，未来更可能继续大额分红，延续股息率因子的有效性。关于其它因子的测试情况，详情见附件。\n\n- \n4.最小杠杆筛选后，用流通市值排序选择最小10只，每周调仓，并每天检查若有昨日涨停截止今日14:00未能继续涨停则提前卖出。\n\n\n### 收益来源\n2017年至今年化收益38%，对此我粗略估算了下，其中25%来源于小盘轮动，3%来源于对涨停异动的操作(择时因子)，剩下10%来源于股息率与其它因子的结合。总的来说，收益和回撤主要还是归因于小盘轮动。那么这个策略的意义是什么？一是扩充了小盘策略的基础股池，即在“高股息低杠杆指数”中使用小盘轮动是有效的(超过95%置信度)，目前为止使用此策略最新选出的10只股票没有发现与论坛中任何小盘策略选股有重合。二是提高了股息率策略近年来的收益，因为我在浏览了大多数之前的股息率策略后发现，大家的着重点都是在强化策略的价值性，比如选择pb，roe之类的因子，可能大家更注重逻辑上的合理性，但是策略近几年普遍收益不佳。如果股息率本身没问题，小盘轮动也是长期有效，那么二者的结合应该会带来不错的收益。\n\n### 更新\n1.参数g.limiti_days没用到，留着也无所谓没有任何影响，如果看着不顺眼要删掉，需要同时删掉115-123行才不会报错。（克隆以后因为插入了头部注释需要行数+4）\n2.附件中留下的是已经筛选过的结果，全部聚宽因子都测试过了，excel里只保留了在特定分位(最大50%或最小50%)有提升的因子。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2022-11-09 23:23:36",
+      "modTime": "2022-11-12 20:26:47",
+      "lastActiveTime": "2026-07-20 02:29:48",
+      "lastPubTime": "2022-11-12 20:26:47",
+      "backtestId": "fe644c7824e6520a299beb834e7bf069",
+      "backtestName": "DR-TV-LEV-W1",
+      "replyCount": "267",
+      "viewCount": "23055",
+      "collectionCount": "433",
+      "likeCount": "259",
+      "disLikeCount": "0",
+      "backtestCloneCount": "1429",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "1616",
+      "fileName": "股息率结合其它因子.rar",
+      "fileType": "application/octet-stream",
+      "fileSize": "17956",
+      "postCount": "37",
+      "followersCount": "9584",
+      "followingCount": "39",
+      "author": {
+        "userId": "e718069d6e868abf751e71a17342836a",
+        "alias": "wywy1995",
+        "introduction": "从历史中发现规律比画出美丽的图形更重要",
+        "vipType": "VIP",
+        "headImgKey": "6784510f0c6abdbcf9a1fed9081a4658"
+      },
+      "tags": [
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "fe644c7824e6520a299beb834e7bf069",
+        "backtest_name": "DR-TV-LEV-W1",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=fe644c7824e6520a299beb834e7bf069&postId=5bf34a132919716ea77eb2e7daa4ba21&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2008-01-01",
+          "end_date": "2022-11-08",
+          "base_capital": 25000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "c3856bf4a2480aa620fe9e9cd0905072",
+            "26427971"
+          ],
+          "numeric_backtest_id": "26427971",
+          "numeric_post_id": "39774",
+          "python_version": 3,
+          "clone_count": 1408
+        },
+        "stats": {
+          "trading_days": 3611,
+          "benchmark_volatility": 0.29388589042279,
+          "algorithm_volatility": 0.32824811035018,
+          "treasury_return": 0.59441095890411,
+          "algorithm_return": 291.30122372176,
+          "benchmark_return": 0.23984558169616,
+          "annual_algo_return": 0.48155099458235,
+          "annual_bm_return": 0.014995483113352,
+          "sharpe": 1.3451745209174,
+          "excess_return_sharpe": "2.365",
+          "sortino": 1.6918384939658,
+          "information": 2.6440720612405,
+          "beta": 0.94351036081828,
+          "alpha": 0.46514301533216,
+          "excess_return": 234.75615224751,
+          "avg_excess_return": "0.16%",
+          "max_drawdown": 0.57848598351017,
+          "max_drawdown_period": [
+            "2008-01-18",
+            "2008-10-27"
+          ],
+          "excess_return_max_drawdown": "34.37%",
+          "excess_return_max_drawdown_period": [
+            "2016-11-21",
+            "2018-02-06"
+          ],
+          "max_leverage": 0,
+          "period_label": "2022-11",
+          "__version": 101,
+          "win_ratio": 0.64513491414554,
+          "profit_loss_ratio": 2.8443034554506,
+          "win_count": 789,
+          "lose_count": 434,
+          "day_win_ratio": 0.54306286347272,
+          "avg_trade_return": 0.057474463515148,
+          "avg_position_days": 100.80403458213,
+          "turnover_rate": 0.03444124352446,
+          "report_done_seconds": 942.89024829865,
+          "report_done_cpu_seconds": 596.12
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 29130.122372,
+          "benchmark_return_percent": 23.984558,
+          "annual_algo_return_percent": 48.155099,
+          "annual_bm_return_percent": 1.499548,
+          "max_drawdown_percent": 57.848598,
+          "algorithm_volatility_percent": 32.824811,
+          "benchmark_volatility_percent": 29.388589,
+          "win_ratio_percent": 64.513491,
+          "day_win_ratio_percent": 54.306286,
+          "avg_trade_return_percent": 5.747446,
+          "turnover_rate_percent": 3.444124,
+          "sharpe": 1.3451745209174,
+          "sortino": 1.6918384939658,
+          "information": 2.6440720612405,
+          "alpha": 0.46514301533216,
+          "beta": 0.94351036081828,
+          "profit_loss_ratio": 2.8443034554506,
+          "avg_position_days": 100.80403458213,
+          "trading_days": 3611,
+          "win_count": 789,
+          "lose_count": 434,
+          "max_drawdown_period": [
+            "2008-01-18",
+            "2008-10-27"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2016-11-21",
+            "2018-02-06"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/39774",
+      "https://www.joinquant.com/community/post/detailV2?postId=39774",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=fe644c7824e6520a299beb834e7bf069&postId=5bf34a132919716ea77eb2e7daa4ba21&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=fe644c7824e6520a299beb834e7bf069"
+    ]
+  }
+}

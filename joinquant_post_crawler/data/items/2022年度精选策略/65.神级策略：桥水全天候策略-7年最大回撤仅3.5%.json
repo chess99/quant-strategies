@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/65.神级策略：桥水全天候策略-7年最大回撤仅3.5%.txt",
+    "category": "2022年度精选策略",
+    "file_name": "65.神级策略：桥水全天候策略-7年最大回撤仅3.5%.txt",
+    "strategy_name": "神级策略：桥水全天候策略-7年最大回撤仅3.5%",
+    "declared_title": "神级策略：桥水全天候策略-7年最大回撤仅3.5%",
+    "declared_author": "easy184",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 18584,
+    "sha256": "32340549346ad2e7ad6e7d7e28ac9e7dd53bad0bfd36352e434bc6cb9946e430",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/37928",
+      "https://www.joinquant.com/post/37611",
+      "https://www.joinquant.com/post/2116"
+    ],
+    "primary_url": "https://www.joinquant.com/post/37928",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:20+08:00",
+    "requested_url": "https://www.joinquant.com/post/37928",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/f22b10df1b2451d981ee8838e2063314",
+    "community_id": "f22b10df1b2451d981ee8838e2063314",
+    "post": {
+      "postId": "72f492a96be147ae33f013d2439a55e6",
+      "uniqueKey": "f22b10df1b2451d981ee8838e2063314",
+      "title": "神级策略：桥水全天候策略-7年最大回撤仅3.5%",
+      "content": "看过了很多年化30%以上的策略，我们再来看这样一种策略，回撤极小的桥水全天候策略：\n最大回撤仅为3.5%；年化收益5.5%左右；\n\n为什么可以称为神级策略：最大回撤3.5%，加6倍杠杆最大回撤也仅为20%左右，如果不考虑融资成本，则年化收益可以高达5.5%*6=33%。\n也就是说可以通过适当融资加杠杆得到一个：回撤仅为20%左右， 年化收益高达33%的策略。这也就是桥水全天候最了不起的地方。\n\n当然，如果考虑融资成本，在美国，融资成本可以控制在3%以下，只要年化收益高于3%，适当融资就能提高收益率。所以桥水全天候实际收益率也是高达20%；而回撤依然很小，在20%不到。\n\n所以一年收益高达100%的是徒弟，10年回撤小于20%收益高于20%的是师傅！\n\n请整天想着年化收益50%甚至100%以上策略的人移步！\n\n参见聚宽文章：https://www.joinquant.com/post/37611\n标题：致敬经典作品——小兵哥《一致性风险度量》——极速版\n作者：jqz1226\n\n克隆自聚宽文章：https://www.joinquant.com/post/2116\n标题：一致性风险度量（桥水全天候为例）\n作者：小兵哥",
+      "type": 1,
+      "status": "1",
+      "addTime": "2022-05-30 09:17:43",
+      "modTime": "2022-06-24 18:42:13",
+      "lastActiveTime": "2026-04-10 14:30:05",
+      "lastPubTime": "2022-06-24 18:42:13",
+      "backtestId": "9f47369aaa9fcec6dc1d2af3cba48073",
+      "backtestName": "桥水全天候策略",
+      "replyCount": "32",
+      "viewCount": "4765",
+      "collectionCount": "64",
+      "likeCount": "23",
+      "disLikeCount": "0",
+      "backtestCloneCount": "197",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": 0,
+      "followersCount": "113",
+      "followingCount": "10",
+      "author": {
+        "userId": "277005acac37ac4c8bcd295dea5ebfef",
+        "alias": "easy184",
+        "introduction": "专注于价值投资，集中于垄断性消费医药龙头研究。对量化投资也非常感兴趣，希望相互学习",
+        "headImgKey": "d41ab0fc1ce0881db2e3141b7863b7af"
+      },
+      "tags": [
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "5",
+          "name": "仓位管理"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "9f47369aaa9fcec6dc1d2af3cba48073",
+        "backtest_name": "桥水全天候策略",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=9f47369aaa9fcec6dc1d2af3cba48073&postId=f22b10df1b2451d981ee8838e2063314&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2015-01-01",
+          "end_date": "2022-05-22",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "c17dee52466e3beb94aaaa140fafca4e",
+            "24715598"
+          ],
+          "numeric_backtest_id": "24715598",
+          "numeric_post_id": "37928",
+          "python_version": 3,
+          "clone_count": 197
+        },
+        "stats": {
+          "trading_days": 1794,
+          "benchmark_volatility": 0.02644803623157,
+          "algorithm_volatility": 0.036727458573619,
+          "treasury_return": 0.29501369863014,
+          "algorithm_return": 0.46230593879,
+          "benchmark_return": 0.24814103986035,
+          "annual_algo_return": 0.054383595628471,
+          "annual_bm_return": 0.031370413468318,
+          "sharpe": 0.39163057252217,
+          "excess_return_sharpe": "-0.510",
+          "sortino": 0.53327476201053,
+          "information": 0.66294895656296,
+          "beta": 0.6028516903284,
+          "alpha": 0.01958595645593,
+          "excess_return": 0.17158709800425,
+          "avg_excess_return": "0.01%",
+          "max_drawdown": 0.03564499301332,
+          "max_drawdown_period": [
+            "2020-02-13",
+            "2020-03-19"
+          ],
+          "excess_return_max_drawdown": "4.88%",
+          "excess_return_max_drawdown_period": [
+            "2018-01-24",
+            "2018-12-26"
+          ],
+          "max_leverage": 0,
+          "period_label": "2022-05",
+          "__version": 101,
+          "win_ratio": 0.92970123022847,
+          "profit_loss_ratio": 57.887532848399,
+          "win_count": 529,
+          "lose_count": 40,
+          "day_win_ratio": 0.53734671125975,
+          "avg_trade_return": 0.13380321816523,
+          "avg_position_days": 1794,
+          "turnover_rate": 0.0013841318441563,
+          "report_done_seconds": 872.28093004227,
+          "report_done_cpu_seconds": 794.07
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 46.230594,
+          "benchmark_return_percent": 24.814104,
+          "annual_algo_return_percent": 5.43836,
+          "annual_bm_return_percent": 3.137041,
+          "max_drawdown_percent": 3.564499,
+          "algorithm_volatility_percent": 3.672746,
+          "benchmark_volatility_percent": 2.644804,
+          "win_ratio_percent": 92.970123,
+          "day_win_ratio_percent": 53.734671,
+          "avg_trade_return_percent": 13.380322,
+          "turnover_rate_percent": 0.138413,
+          "sharpe": 0.39163057252217,
+          "sortino": 0.53327476201053,
+          "information": 0.66294895656296,
+          "alpha": 0.01958595645593,
+          "beta": 0.6028516903284,
+          "profit_loss_ratio": 57.887532848399,
+          "avg_position_days": 1794,
+          "trading_days": 1794,
+          "win_count": 529,
+          "lose_count": 40,
+          "max_drawdown_period": [
+            "2020-02-13",
+            "2020-03-19"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2018-01-24",
+            "2018-12-26"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/37928",
+      "https://www.joinquant.com/community/post/detailV2?postId=37928",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=9f47369aaa9fcec6dc1d2af3cba48073&postId=f22b10df1b2451d981ee8838e2063314&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=9f47369aaa9fcec6dc1d2af3cba48073"
+    ]
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/25.基本不耍六毛的ETF轮动策略.txt",
+    "category": "2025年度精选策略",
+    "file_name": "25.基本不耍六毛的ETF轮动策略.txt",
+    "strategy_name": "基本不耍六毛的ETF轮动策略",
+    "declared_title": "基本不耍六毛的ETF轮动策略",
+    "declared_author": "jqz1226",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 9260,
+    "sha256": "d8741c3c839fa0686462abad50b35041bca561b3f3dcae1d77cdb3b1892f9f26",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/24432"
+    ],
+    "primary_url": "https://www.joinquant.com/post/24432",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:10:59+08:00",
+    "requested_url": "https://www.joinquant.com/post/24432",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/eddea80ce36079b8962f92d1ce3cfb98",
+    "community_id": "eddea80ce36079b8962f92d1ce3cfb98",
+    "post": {
+      "postId": "dc44a590cb2b0808186806ce8135203a",
+      "uniqueKey": "eddea80ce36079b8962f92d1ce3cfb98",
+      "title": "基本不耍六毛的ETF轮动策略",
+      "content": "ETF轮动耍六毛的地方主要有两处：1）成交量不足；2）上帝之眼，现在看某基金过去是大涨的，就将之作为历史回测的标的。\n   ‘\n**本策略的主要改进**：\n\n1）每月月初，计算所有ETF和LOF过去15个交易日的日均成交量，自动选取日均成交量排名前6的基金，作为本月的交易标的。（其实这也是有点耍六毛，为什么是前6名，而不是前10名，或者前20名？如果不耍六毛，应该是选取日均成交量在X000万股之上的流动性充足的所有基金作为备选。?其实只选6只的真实原因是回测收益最高） 。\n\n2）每月月初，计算所有MMF过去15个交易日的收益，自动选取收益最高的一只场内货币基金，作为资金闲置时的投资标的。当然，选出来还是511880银华日利，可如果将来又有新的场内货币基金出来了，收益更高，那么策略就可以自动切换。\n\n3）加上每笔交易数量不超过标的日成交量千分之2的限制，`set_option('order_volume_ratio', 0.002)`\n’\n**本策略的效果**：\n\n回测结果：2014-1-1至2019-10-1，收益**270.24%**，最大回撤**27.98%**。如果去掉千分之2的限制，收益**280.50%**，最大回撤**26.72%**.\n‘\n**本策略的不足之处**：\n\n1）交易逻辑有点黑。本策略的做法是顺序全力买入法，即：全仓买入排名第一的基金，如果受千分之2的限制买入不了那么多，则剩下的钱接着买入排名第二的，....，如果所有入选的基金买完了，钱还要剩余，就买入场内货币基金。之所以这样安排，是受流动性的困扰，像等额三份买入3只的买法，可能会因流动性不足，有的不能成交。\n\n2）买入的逻辑给调仓带来困扰。比如昨天全仓买入了排名第1的基金A，今天入选的排名是：基金B、基金C、基金A，为了按顺序买入，势必要先卖出A，然后再依次买入B、C、A，然而B、C可能流动性不足，还会再买入A。这样又卖又买的，手续费不说，证监会可能都来找你，因为涉嫌操纵市场。所以，本策略现在的做法是虽然A排名今天靠后了，但只要它今天还是入选了，就不调整它今天的仓位。那么，今天排名第1的B就没有机会买入，这肯定会降低总体收益。\n\n3）沿用了大盘行情监控函数`EmotionMonitor()`，其实这个并不起什么作用。\n’\n请大家抛玉扔石头，继续改进。期望能做到：1）将所有流动性充足的基金作为备选；2）交易逻辑清晰；3）有效的大盘监测。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2019-12-15 13:38:34",
+      "modTime": "2019-12-15 13:38:34",
+      "lastActiveTime": "2025-10-18 11:34:27",
+      "lastPubTime": "2019-12-15 13:38:34",
+      "backtestId": "3e1eeda5278bf2b2ac598981b0371b13",
+      "backtestName": "自动选择基金并轮动",
+      "replyCount": "28",
+      "viewCount": "5583",
+      "collectionCount": "72",
+      "likeCount": "46",
+      "disLikeCount": "0",
+      "backtestCloneCount": "223",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "114",
+      "followersCount": "7737",
+      "followingCount": "24",
+      "author": {
+        "userId": "9b254c446f85f4fd8896b28c338ec2e1",
+        "alias": "jqz1226 ZUEL",
+        "headImgKey": "f8ad1df3e2e743d648263f8a8032baa9"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "3e1eeda5278bf2b2ac598981b0371b13",
+        "backtest_name": "自动选择基金并轮动",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=3e1eeda5278bf2b2ac598981b0371b13&postId=eddea80ce36079b8962f92d1ce3cfb98&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2014-01-01",
+          "end_date": "2019-10-01",
+          "base_capital": 300000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "dae44c6e38ea6f443bec1146881fe607",
+            "15736094"
+          ],
+          "numeric_backtest_id": "15736094",
+          "numeric_post_id": "24432",
+          "python_version": 3,
+          "clone_count": 218
+        },
+        "stats": {
+          "trading_days": 1403,
+          "benchmark_volatility": 0.24019930124828,
+          "algorithm_volatility": 0.22921977565024,
+          "treasury_return": 0.22980821917808,
+          "algorithm_return": 2.7024212496643,
+          "benchmark_return": 0.63711626030565,
+          "annual_algo_return": 0.2626944135807,
+          "annual_bm_return": 0.091809183773353,
+          "sharpe": 0.97153229013061,
+          "excess_return_sharpe": "0.484",
+          "sortino": 1.3925265691111,
+          "information": 0.7161921842221,
+          "beta": 0.46196045301676,
+          "alpha": 0.19876061957434,
+          "excess_return": 1.26155059322,
+          "avg_excess_return": "0.07%",
+          "max_drawdown": 0.27981218127063,
+          "max_drawdown_period": [
+            "2015-06-03",
+            "2015-09-30"
+          ],
+          "excess_return_max_drawdown": "29.11%",
+          "excess_return_max_drawdown_period": [
+            "2016-05-26",
+            "2018-06-05"
+          ],
+          "max_leverage": 0,
+          "period_label": "2019-09",
+          "__version": 101,
+          "win_ratio": 0.67366720516963,
+          "profit_loss_ratio": 1.9420310762986,
+          "win_count": 417,
+          "lose_count": 202,
+          "day_win_ratio": 0.48681397006415,
+          "avg_trade_return": 0.0036968511615422,
+          "avg_position_days": 83.4,
+          "turnover_rate": 0.35083553839875,
+          "report_done_seconds": 118.17385625839
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 270.242125,
+          "benchmark_return_percent": 63.711626,
+          "annual_algo_return_percent": 26.269441,
+          "annual_bm_return_percent": 9.180918,
+          "max_drawdown_percent": 27.981218,
+          "algorithm_volatility_percent": 22.921978,
+          "benchmark_volatility_percent": 24.01993,
+          "win_ratio_percent": 67.366721,
+          "day_win_ratio_percent": 48.681397,
+          "avg_trade_return_percent": 0.369685,
+          "turnover_rate_percent": 35.083554,
+          "sharpe": 0.97153229013061,
+          "sortino": 1.3925265691111,
+          "information": 0.7161921842221,
+          "alpha": 0.19876061957434,
+          "beta": 0.46196045301676,
+          "profit_loss_ratio": 1.9420310762986,
+          "avg_position_days": 83.4,
+          "trading_days": 1403,
+          "win_count": 417,
+          "lose_count": 202,
+          "max_drawdown_period": [
+            "2015-06-03",
+            "2015-09-30"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2016-05-26",
+            "2018-06-05"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/24432",
+      "https://www.joinquant.com/community/post/detailV2?postId=24432",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=3e1eeda5278bf2b2ac598981b0371b13&postId=eddea80ce36079b8962f92d1ce3cfb98&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=3e1eeda5278bf2b2ac598981b0371b13"
+    ]
+  }
+}

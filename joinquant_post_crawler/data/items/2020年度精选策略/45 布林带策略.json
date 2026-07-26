@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/45 布林带策略.txt",
+    "category": "2020年度精选策略",
+    "file_name": "45 布林带策略.txt",
+    "strategy_name": "布林带策略",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 3109,
+    "sha256": "edb57ffd1877f5043773d138cc935c8fb9c433f5e00bf1f83d7c90e84ef19055",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/13156"
+    ],
+    "primary_url": "https://www.joinquant.com/post/13156",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:06:51+08:00",
+    "requested_url": "https://www.joinquant.com/post/13156",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/6bb8c9b25f9f7f24c67430bce0f9154f",
+    "community_id": "6bb8c9b25f9f7f24c67430bce0f9154f",
+    "post": {
+      "postId": "f410d2a1cfa2fd8f2e1cedf38042dcd5",
+      "uniqueKey": "6bb8c9b25f9f7f24c67430bce0f9154f",
+      "title": "布林带策略",
+      "content": "布林带突破上轨买入，跌破下轨卖出策略。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-06-12 20:50:29",
+      "modTime": "2018-06-12 20:50:29",
+      "lastActiveTime": "2024-02-10 12:47:58",
+      "lastPubTime": "2018-06-12 20:50:29",
+      "backtestId": "aa24d567f8d3938103e51a5bbb31383b",
+      "backtestName": "布林带策略",
+      "replyCount": "2",
+      "viewCount": "2448",
+      "collectionCount": "7",
+      "likeCount": "3",
+      "disLikeCount": "0",
+      "backtestCloneCount": "130",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "2",
+      "followersCount": "2",
+      "followingCount": "33",
+      "author": {
+        "userId": "231299f1b3f65f2c161e4da4e542cdd4",
+        "alias": "zimeng08"
+      },
+      "tags": [
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "aa24d567f8d3938103e51a5bbb31383b",
+        "backtest_name": "布林带策略",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=aa24d567f8d3938103e51a5bbb31383b&postId=6bb8c9b25f9f7f24c67430bce0f9154f&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2016-06-01",
+          "end_date": "2018-06-01",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "19a2404f7a4f383abd5604afcfa5397c",
+            "8932224"
+          ],
+          "numeric_backtest_id": "8932224",
+          "numeric_post_id": "13156",
+          "python_version": 2,
+          "clone_count": 125
+        },
+        "stats": {
+          "information": 1.7021126983382,
+          "benchmark_return": 0.18962576443581,
+          "algorithm_volatility": 0.13291288781011,
+          "annual_bm_return": 0.093030692704248,
+          "__version": 101,
+          "max_drawdown": 0.075797102607517,
+          "sortino": 3.6504612012647,
+          "period_label": "2018-06",
+          "trading_days": 488,
+          "algorithm_return": 0.708472,
+          "benchmark_volatility": 0.127304884408,
+          "beta": 0.51693369663494,
+          "excess_return": 0.628472,
+          "annual_algo_return": 0.31572117909669,
+          "sharpe": 2.0744502932673,
+          "alpha": 0.24830782708197,
+          "max_drawdown_period": [
+            "2018-01-12",
+            "2018-04-18"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.08,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.55327868852459,
+          "avg_position_days": 488,
+          "win_ratio": 0.5,
+          "win_count": 1,
+          "avg_trade_return": 0.44746085875561,
+          "profit_loss_ratio": 37.800657894737,
+          "lose_count": 1,
+          "report_done_seconds": 12.940066099167
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 70.8472,
+          "benchmark_return_percent": 18.962576,
+          "annual_algo_return_percent": 31.572118,
+          "annual_bm_return_percent": 9.303069,
+          "max_drawdown_percent": 7.57971,
+          "algorithm_volatility_percent": 13.291289,
+          "benchmark_volatility_percent": 12.730488,
+          "win_ratio_percent": 50.0,
+          "day_win_ratio_percent": 55.327869,
+          "avg_trade_return_percent": 44.746086,
+          "sharpe": 2.0744502932673,
+          "sortino": 3.6504612012647,
+          "information": 1.7021126983382,
+          "alpha": 0.24830782708197,
+          "beta": 0.51693369663494,
+          "profit_loss_ratio": 37.800657894737,
+          "avg_position_days": 488,
+          "trading_days": 488,
+          "win_count": 1,
+          "lose_count": 1,
+          "max_drawdown_period": [
+            "2018-01-12",
+            "2018-04-18"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/13156",
+      "https://www.joinquant.com/community/post/detailV2?postId=13156",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=aa24d567f8d3938103e51a5bbb31383b&postId=6bb8c9b25f9f7f24c67430bce0f9154f&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=aa24d567f8d3938103e51a5bbb31383b"
+    ]
+  }
+}

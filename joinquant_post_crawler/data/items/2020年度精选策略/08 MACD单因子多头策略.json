@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/08 MACD单因子多头策略.txt",
+    "category": "2020年度精选策略",
+    "file_name": "08 MACD单因子多头策略.txt",
+    "strategy_name": "MACD单因子多头策略",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 14426,
+    "sha256": "14fb90c03790eb50cebe2cdf77b994e06bd03ab0fdd3ea8091cebd6214d44ab5",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/13760"
+    ],
+    "primary_url": "https://www.joinquant.com/post/13760",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:06:22+08:00",
+    "requested_url": "https://www.joinquant.com/post/13760",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/35415b98f045efc5cf3c4daec592964e",
+    "community_id": "35415b98f045efc5cf3c4daec592964e",
+    "post": {
+      "postId": "82b46683479746f7c541a3019947757d",
+      "uniqueKey": "35415b98f045efc5cf3c4daec592964e",
+      "title": "MACD单因子多头策略   ",
+      "content": "简单，粗暴，有效。与君共享！",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-07-14 18:54:56",
+      "modTime": "2018-07-14 18:54:56",
+      "lastActiveTime": "2026-07-19 08:41:04",
+      "lastPubTime": "2018-07-14 18:54:56",
+      "backtestId": "5ee256991e38501a7d27bb6b36a273a7",
+      "backtestName": "MACD单因子策略模型",
+      "replyCount": "16",
+      "viewCount": "5449",
+      "collectionCount": "15",
+      "likeCount": "7",
+      "disLikeCount": "1",
+      "backtestCloneCount": "255",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "2",
+      "followersCount": "15",
+      "followingCount": "18",
+      "author": {
+        "userId": "66b7f4e5c234e9132b49a2fcea69d96e",
+        "alias": "江哥学量化"
+      },
+      "tags": [
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "5ee256991e38501a7d27bb6b36a273a7",
+        "backtest_name": "MACD单因子策略模型",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=5ee256991e38501a7d27bb6b36a273a7&postId=35415b98f045efc5cf3c4daec592964e&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2017-06-02",
+          "end_date": "2017-09-04",
+          "base_capital": 10000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "5e5880142a1e45b45c1b3e59f669e8d5",
+            "9296568"
+          ],
+          "numeric_backtest_id": "9296568",
+          "numeric_post_id": "13760",
+          "python_version": 2,
+          "clone_count": 234
+        },
+        "stats": {
+          "information": 17.386931239927,
+          "benchmark_return": 0.14968145180541,
+          "algorithm_volatility": 0.48871029113926,
+          "annual_bm_return": 0.6828117675925,
+          "__version": 101,
+          "max_drawdown": 0.094134791730581,
+          "sortino": 33.809430109916,
+          "period_label": "2017-09",
+          "trading_days": 67,
+          "algorithm_return": 0.864514031,
+          "benchmark_volatility": 0.15198515649198,
+          "beta": 0.44766924693794,
+          "excess_return": 0.85421266113699,
+          "annual_algo_return": 9.2228818830216,
+          "sharpe": 18.79003174174,
+          "alpha": 8.8951148231006,
+          "max_drawdown_period": [
+            "2017-07-25",
+            "2017-07-27"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.010301369863014,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.50746268656716,
+          "avg_position_days": 19.434782608696,
+          "win_ratio": 0.56521739130435,
+          "win_count": 13,
+          "avg_trade_return": 0.054585980716619,
+          "profit_loss_ratio": 33.990951593616,
+          "lose_count": 10,
+          "report_done_seconds": 4.2936279773712
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 86.451403,
+          "benchmark_return_percent": 14.968145,
+          "annual_algo_return_percent": 922.288188,
+          "annual_bm_return_percent": 68.281177,
+          "max_drawdown_percent": 9.413479,
+          "algorithm_volatility_percent": 48.871029,
+          "benchmark_volatility_percent": 15.198516,
+          "win_ratio_percent": 56.521739,
+          "day_win_ratio_percent": 50.746269,
+          "avg_trade_return_percent": 5.458598,
+          "sharpe": 18.79003174174,
+          "sortino": 33.809430109916,
+          "information": 17.386931239927,
+          "alpha": 8.8951148231006,
+          "beta": 0.44766924693794,
+          "profit_loss_ratio": 33.990951593616,
+          "avg_position_days": 19.434782608696,
+          "trading_days": 67,
+          "win_count": 13,
+          "lose_count": 10,
+          "max_drawdown_period": [
+            "2017-07-25",
+            "2017-07-27"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/13760",
+      "https://www.joinquant.com/community/post/detailV2?postId=13760",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=5ee256991e38501a7d27bb6b36a273a7&postId=35415b98f045efc5cf3c4daec592964e&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=5ee256991e38501a7d27bb6b36a273a7"
+    ]
+  }
+}

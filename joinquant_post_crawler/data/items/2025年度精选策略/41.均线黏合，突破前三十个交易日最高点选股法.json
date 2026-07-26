@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/41.均线黏合，突破前三十个交易日最高点选股法.txt",
+    "category": "2025年度精选策略",
+    "file_name": "41.均线黏合，突破前三十个交易日最高点选股法.txt",
+    "strategy_name": "均线黏合，突破前三十个交易日最高点选股法",
+    "declared_title": "均线黏合，突破前三十个交易日最高点选股法",
+    "declared_author": "fireflytxy",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 9301,
+    "sha256": "44e74b2c6f9159f4592edb2b1792d2b99e69d39645544fe5c4002827d2026f33",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/25698",
+      "https://www.joinquant.com/post/21474"
+    ],
+    "primary_url": "https://www.joinquant.com/post/25698",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:08+08:00",
+    "requested_url": "https://www.joinquant.com/post/25698",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/efa569e49d4c843cf6c47a28f55d60d7",
+    "community_id": "efa569e49d4c843cf6c47a28f55d60d7",
+    "post": {
+      "postId": "61dd37c2088afc9d9d7b6b01c8522202",
+      "uniqueKey": "efa569e49d4c843cf6c47a28f55d60d7",
+      "title": "均线黏合，突破前三十个交易日最高点选股法",
+      "content": "突破前30颗K线高点买进一直被视为一种比较好的趋势跟随策略。突破30天的最高价证明股票走势非常强劲，但是也有可能股价已经处在很高的位置了一直往上突破，就有高位接盘的危险了。所以经过本人对多只股票的观察，均线系统（楼主设置了13,34,55日线）处于黏合状态的股票，突破近30根K线的最高点买入，效果还不错。\n例如000338.XSHE这只股票，\n![Img]( https://image.joinquant.com/385f6eaa2cd32ecb5978bc93d39d2765) \n###卖出条件\n楼主认为有效跌破13MA，（即连续跌破13MA三天）则股票走势转弱，所以就设置连续三天跌破13MA卖出\n回测效果，居然有一些超额收益。各位可以优化一下止损比如大盘止损之类的，仅供各位参考哈",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-02-23 13:33:35",
+      "modTime": "2020-02-23 13:33:35",
+      "lastActiveTime": "2025-04-01 18:56:30",
+      "lastPubTime": "2020-02-23 13:33:35",
+      "backtestId": "3135ea7a1337296f829b6546aa0b55a2",
+      "backtestName": "均线粘合突破30日高点",
+      "replyCount": "17",
+      "viewCount": "3509",
+      "collectionCount": "46",
+      "likeCount": "28",
+      "disLikeCount": "0",
+      "backtestCloneCount": "135",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "11",
+      "followersCount": "240",
+      "followingCount": "15",
+      "author": {
+        "userId": "18a7ad5acdd5d57b76fb977aedcceaf0",
+        "alias": "fireflytxy",
+        "headImgKey": "636977f32680b40831c4539bb35fcfbe"
+      },
+      "tags": [
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "8",
+          "name": "事件驱动"
+        },
+        {
+          "id": "14",
+          "name": "函数"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "3135ea7a1337296f829b6546aa0b55a2",
+        "backtest_name": "均线粘合突破30日高点",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=3135ea7a1337296f829b6546aa0b55a2&postId=efa569e49d4c843cf6c47a28f55d60d7&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2019-01-01",
+          "end_date": "2020-02-08",
+          "base_capital": 500000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "479f6a852c07ec973881791446207616",
+            "16188358"
+          ],
+          "numeric_backtest_id": "16188358",
+          "numeric_post_id": "25698",
+          "python_version": 3,
+          "clone_count": 132
+        },
+        "stats": {
+          "trading_days": 265,
+          "benchmark_volatility": 0.21222565305888,
+          "algorithm_volatility": 0.25426788990834,
+          "treasury_return": 0.043945205479452,
+          "algorithm_return": 0.544372,
+          "benchmark_return": 0.29535814525103,
+          "annual_algo_return": 0.50684245622274,
+          "annual_bm_return": 0.27652160650348,
+          "sharpe": 1.8360259975848,
+          "excess_return_sharpe": "0.824",
+          "sortino": 2.4825643765387,
+          "information": 1.3467110388125,
+          "beta": 0.89301649867377,
+          "alpha": 0.2556247593223,
+          "excess_return": 0.19223552626113,
+          "avg_excess_return": "0.07%",
+          "max_drawdown": 0.1827237778274,
+          "max_drawdown_period": [
+            "2020-01-14",
+            "2020-02-03"
+          ],
+          "excess_return_max_drawdown": "13.92%",
+          "excess_return_max_drawdown_period": [
+            "2019-06-25",
+            "2019-08-26"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-02",
+          "__version": 101,
+          "win_ratio": 0.44144144144144,
+          "profit_loss_ratio": 1.8443898571836,
+          "win_count": 49,
+          "lose_count": 62,
+          "day_win_ratio": 0.51320754716981,
+          "avg_trade_return": 0.02517962571965,
+          "avg_position_days": 15.819047619048,
+          "turnover_rate": 0.064064224207597,
+          "report_done_seconds": 818.46082615852,
+          "report_done_cpu_seconds": 790.7
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 54.4372,
+          "benchmark_return_percent": 29.535815,
+          "annual_algo_return_percent": 50.684246,
+          "annual_bm_return_percent": 27.652161,
+          "max_drawdown_percent": 18.272378,
+          "algorithm_volatility_percent": 25.426789,
+          "benchmark_volatility_percent": 21.222565,
+          "win_ratio_percent": 44.144144,
+          "day_win_ratio_percent": 51.320755,
+          "avg_trade_return_percent": 2.517963,
+          "turnover_rate_percent": 6.406422,
+          "sharpe": 1.8360259975848,
+          "sortino": 2.4825643765387,
+          "information": 1.3467110388125,
+          "alpha": 0.2556247593223,
+          "beta": 0.89301649867377,
+          "profit_loss_ratio": 1.8443898571836,
+          "avg_position_days": 15.819047619048,
+          "trading_days": 265,
+          "win_count": 49,
+          "lose_count": 62,
+          "max_drawdown_period": [
+            "2020-01-14",
+            "2020-02-03"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2019-06-25",
+            "2019-08-26"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/25698",
+      "https://www.joinquant.com/community/post/detailV2?postId=25698",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=3135ea7a1337296f829b6546aa0b55a2&postId=efa569e49d4c843cf6c47a28f55d60d7&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=3135ea7a1337296f829b6546aa0b55a2"
+    ]
+  }
+}

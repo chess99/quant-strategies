@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/3.苦咖啡-默默赚钱系列-改.txt",
+    "category": "2023年度精选策略",
+    "file_name": "3.苦咖啡-默默赚钱系列-改.txt",
+    "strategy_name": "苦咖啡-默默赚钱系列-改",
+    "declared_title": "苦咖啡-默默赚钱系列-改",
+    "declared_author": "jqz1226",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 4296,
+    "sha256": "e9eb4c47cdbd819d9d6200d1ecae58837ca81aa7cc78ec061eac5afd600e7cd3",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/31267",
+      "https://www.joinquant.com/post/31232",
+      "https://www.joinquant.com/post/30863"
+    ],
+    "primary_url": "https://www.joinquant.com/post/31267",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:09:01+08:00",
+    "requested_url": "https://www.joinquant.com/post/31267",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/4e3abe6bbc17131c6b17905106f9c65d",
+    "community_id": "4e3abe6bbc17131c6b17905106f9c65d",
+    "post": {
+      "postId": "526b5aa922efe86b7838ad915af1a601",
+      "uniqueKey": "4e3abe6bbc17131c6b17905106f9c65d",
+      "title": "苦咖啡-默默赚钱系列-改",
+      "content": "原作者：苦咖啡\n原文链接：https://www.joinquant.com/view/community/detail/8bd2e02bd9a223e9e94411e510c5bbb0?type=1\n\n修改后：\n1）简化了代码，代码简洁清晰优雅版；\n2）提高了运行速度，20秒回测一年；\n3）提高了收益，年化达到363.60%，最大回撤13.48%\n\n2020年大象跳舞，2021年，会如何？市场的风格会怎么变？",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-01-15 12:02:28",
+      "modTime": "2021-01-15 12:02:28",
+      "lastActiveTime": "2026-04-16 09:40:25",
+      "lastPubTime": "2021-01-15 12:02:28",
+      "backtestId": "ca0ff8f04ad032e395225a1b3d38ee82",
+      "backtestName": "上涨趋势策略-2-改",
+      "replyCount": "169",
+      "viewCount": "12069",
+      "collectionCount": "164",
+      "likeCount": "85",
+      "disLikeCount": "0",
+      "backtestCloneCount": "965",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "114",
+      "followersCount": "7737",
+      "followingCount": "24",
+      "author": {
+        "userId": "8bc76f5d86bcd0eff6410aa1bfbab178",
+        "alias": "jqz1226 ZUEL",
+        "headImgKey": "f8ad1df3e2e743d648263f8a8032baa9"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "ca0ff8f04ad032e395225a1b3d38ee82",
+        "backtest_name": "上涨趋势策略-2-改",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=ca0ff8f04ad032e395225a1b3d38ee82&postId=4e3abe6bbc17131c6b17905106f9c65d&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2020-01-01",
+          "end_date": "2021-01-14",
+          "base_capital": 500000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "3128ce50c800b6032896cf4c07a43bed",
+            "19432089"
+          ],
+          "numeric_backtest_id": "19432089",
+          "numeric_post_id": "31267",
+          "python_version": 3,
+          "clone_count": 1198
+        },
+        "stats": {
+          "trading_days": 252,
+          "benchmark_volatility": 0.2273066456317,
+          "algorithm_volatility": 0.4215130954861,
+          "treasury_return": 0.041424657534247,
+          "algorithm_return": 3.6932862852,
+          "benchmark_return": 0.33537243261452,
+          "annual_algo_return": 3.6360473567519,
+          "annual_bm_return": 0.33231084153891,
+          "sharpe": 8.5312826464023,
+          "excess_return_sharpe": "6.375",
+          "sortino": 13.745653113527,
+          "information": 8.5918189302853,
+          "beta": 0.78853988695483,
+          "alpha": 3.3655485988091,
+          "excess_return": 2.5145897658012,
+          "avg_excess_return": "0.53%",
+          "max_drawdown": 0.13477949419501,
+          "max_drawdown_period": [
+            "2020-02-24",
+            "2020-02-28"
+          ],
+          "excess_return_max_drawdown": "13.99%",
+          "excess_return_max_drawdown_period": [
+            "2020-06-30",
+            "2020-07-06"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-01",
+          "__version": 101,
+          "win_ratio": 0.85294117647059,
+          "profit_loss_ratio": 12.300677830104,
+          "win_count": 29,
+          "lose_count": 5,
+          "day_win_ratio": 0.60714285714286,
+          "avg_trade_return": 0.15434023025944,
+          "avg_position_days": 22.3,
+          "turnover_rate": 0.053238137611332,
+          "report_done_seconds": 27.376438140869,
+          "report_done_cpu_seconds": 31.21
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 369.328629,
+          "benchmark_return_percent": 33.537243,
+          "annual_algo_return_percent": 363.604736,
+          "annual_bm_return_percent": 33.231084,
+          "max_drawdown_percent": 13.477949,
+          "algorithm_volatility_percent": 42.15131,
+          "benchmark_volatility_percent": 22.730665,
+          "win_ratio_percent": 85.294118,
+          "day_win_ratio_percent": 60.714286,
+          "avg_trade_return_percent": 15.434023,
+          "turnover_rate_percent": 5.323814,
+          "sharpe": 8.5312826464023,
+          "sortino": 13.745653113527,
+          "information": 8.5918189302853,
+          "alpha": 3.3655485988091,
+          "beta": 0.78853988695483,
+          "profit_loss_ratio": 12.300677830104,
+          "avg_position_days": 22.3,
+          "trading_days": 252,
+          "win_count": 29,
+          "lose_count": 5,
+          "max_drawdown_period": [
+            "2020-02-24",
+            "2020-02-28"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-06-30",
+            "2020-07-06"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/31267",
+      "https://www.joinquant.com/community/post/detailV2?postId=31267",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=ca0ff8f04ad032e395225a1b3d38ee82&postId=4e3abe6bbc17131c6b17905106f9c65d&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=ca0ff8f04ad032e395225a1b3d38ee82"
+    ]
+  }
+}

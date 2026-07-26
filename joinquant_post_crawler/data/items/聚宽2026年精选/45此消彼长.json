@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/45此消彼长.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "45此消彼长.txt",
+    "strategy_name": "此消彼长",
+    "declared_title": "此消彼长",
+    "declared_author": "明曦",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 10133,
+    "sha256": "2c988d7207d4e5b0d926f53fefbf14e18c327fea40001ef24548001a7958a082",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/47330"
+    ],
+    "primary_url": "https://www.joinquant.com/post/47330",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:12:13+08:00",
+    "requested_url": "https://www.joinquant.com/post/47330",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/bc67513156090a5fc86e03ca3f975a5c",
+    "community_id": "bc67513156090a5fc86e03ca3f975a5c",
+    "post": {
+      "postId": "7e834d605179753df8952b133b0873ba",
+      "uniqueKey": "bc67513156090a5fc86e03ca3f975a5c",
+      "title": "此消彼长",
+      "content": "同时持有5只小盘股和5只大盘股，小盘股采用多因子选股，大盘股采用基本面选股。每月轮换。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2024-03-29 20:08:12",
+      "modTime": "2024-03-29 20:08:12",
+      "lastActiveTime": "2026-01-20 13:50:31",
+      "lastPubTime": "2024-03-29 20:08:12",
+      "backtestId": "ca78f899fb3a5f0c5a5f36f8b650d156",
+      "backtestName": "此消彼长",
+      "replyCount": "67",
+      "viewCount": "6502",
+      "collectionCount": "101",
+      "likeCount": "63",
+      "disLikeCount": "0",
+      "backtestCloneCount": "380",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "19",
+      "followersCount": "379",
+      "followingCount": "0",
+      "author": {
+        "userId": "6fcd9be07a30f6d0634910b547d412ba",
+        "alias": "明曦",
+        "headImgKey": "7d1349a7d50e52d17f1d5f9e7ce6f6ba"
+      },
+      "tags": [
+        {
+          "id": "1395",
+          "name": "本地数据JQData"
+        },
+        {
+          "id": "13",
+          "name": "机器学习"
+        },
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "ca78f899fb3a5f0c5a5f36f8b650d156",
+        "backtest_name": "此消彼长",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=ca78f899fb3a5f0c5a5f36f8b650d156&postId=bc67513156090a5fc86e03ca3f975a5c&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2016-01-01",
+          "end_date": "2024-03-28",
+          "base_capital": 500000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "42b92a9a96c1d1a9c78d36ad86b69e6e",
+            "33337576"
+          ],
+          "numeric_backtest_id": "33337576",
+          "numeric_post_id": "47330",
+          "python_version": 3,
+          "clone_count": 379
+        },
+        "stats": {
+          "trading_days": 2002,
+          "benchmark_volatility": 0.2416544147722,
+          "algorithm_volatility": 0.21648561652597,
+          "treasury_return": 0.32942465753425,
+          "algorithm_return": 6.944948670918,
+          "benchmark_return": -0.33534583468591,
+          "annual_algo_return": 0.29538537038706,
+          "annual_bm_return": -0.049730873236316,
+          "sharpe": 1.1796874752481,
+          "excess_return_sharpe": "2.032",
+          "sortino": 1.6652056319773,
+          "information": 2.1795978340648,
+          "beta": 0.6866080949279,
+          "alpha": 0.31699531431606,
+          "excess_return": 10.953507681944,
+          "avg_excess_return": "0.13%",
+          "max_drawdown": 0.32410772576045,
+          "max_drawdown_period": [
+            "2018-01-26",
+            "2018-10-18"
+          ],
+          "excess_return_max_drawdown": "18.22%",
+          "excess_return_max_drawdown_period": [
+            "2024-02-05",
+            "2024-03-04"
+          ],
+          "max_leverage": 0,
+          "period_label": "2024-03",
+          "__version": 101,
+          "win_ratio": 0.5679347826087,
+          "profit_loss_ratio": 2.4948897541619,
+          "win_count": 209,
+          "lose_count": 159,
+          "day_win_ratio": 0.53796203796204,
+          "avg_trade_return": 0.064412965002516,
+          "avg_position_days": 120.71241830065,
+          "turnover_rate": 0.018459640308361,
+          "report_done_seconds": 599.96352028847,
+          "report_done_cpu_seconds": 517.36
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 694.494867,
+          "benchmark_return_percent": -33.534583,
+          "annual_algo_return_percent": 29.538537,
+          "annual_bm_return_percent": -4.973087,
+          "max_drawdown_percent": 32.410773,
+          "algorithm_volatility_percent": 21.648562,
+          "benchmark_volatility_percent": 24.165441,
+          "win_ratio_percent": 56.793478,
+          "day_win_ratio_percent": 53.796204,
+          "avg_trade_return_percent": 6.441297,
+          "turnover_rate_percent": 1.845964,
+          "sharpe": 1.1796874752481,
+          "sortino": 1.6652056319773,
+          "information": 2.1795978340648,
+          "alpha": 0.31699531431606,
+          "beta": 0.6866080949279,
+          "profit_loss_ratio": 2.4948897541619,
+          "avg_position_days": 120.71241830065,
+          "trading_days": 2002,
+          "win_count": 209,
+          "lose_count": 159,
+          "max_drawdown_period": [
+            "2018-01-26",
+            "2018-10-18"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2024-02-05",
+            "2024-03-04"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/47330",
+      "https://www.joinquant.com/community/post/detailV2?postId=47330",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=ca78f899fb3a5f0c5a5f36f8b650d156&postId=bc67513156090a5fc86e03ca3f975a5c&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=ca78f899fb3a5f0c5a5f36f8b650d156"
+    ]
+  }
+}

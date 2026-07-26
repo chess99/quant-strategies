@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/20.冲天炮最高板策略，收益惊呆了我.txt",
+    "category": "2025年度精选策略",
+    "file_name": "20.冲天炮最高板策略，收益惊呆了我.txt",
+    "strategy_name": "冲天炮最高板策略，收益惊呆了我",
+    "declared_title": "冲天炮最高板策略，收益惊呆了我",
+    "declared_author": "jqz1226",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 6200,
+    "sha256": "dc19dbd84e05d7f8562c6a373c7d2fd18e720d1e22f6ea86260c63121404f7bb",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/29356"
+    ],
+    "primary_url": "https://www.joinquant.com/post/29356",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:10:55+08:00",
+    "requested_url": "https://www.joinquant.com/post/29356",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/ca72ac482eb173e549c55efe40347358",
+    "community_id": "ca72ac482eb173e549c55efe40347358",
+    "post": {
+      "postId": "e7dd54c1137ecff267182a801edd4b25",
+      "uniqueKey": "ca72ac482eb173e549c55efe40347358",
+      "title": "冲天炮最高板策略，收益惊呆了我",
+      "content": "原帖子：大盘一路向上时，追总龙头2个月3倍\n原链接：https://www.joinquant.com/view/community/detail/13f4516a44013c70f5c78ba07ddb642f?type=1\n原作者：叶松\n原贴收益：2020-7-1~~2020.9.4，策略收益313.04%，最大回撤10.422%，策略年化收益161440.51%（161倍）。\n\n按照原文逻辑重写了大部分代码，速度有了显著的提升。\n\n策略逻辑也稍稍做了修改，择时不再要求龙头连板大于3，而放松至龙头连板大于2即可。选股不再要求非一字连板，而放松至包括一字板。其它逻辑同原作。\n\n修改后的收益：2020-7-1~~2020.9.4，策略收益614.32%，**最大回撤0.48%**，策略年化收益2801220.62%（**2801倍**）。\n\n是的，你没有看错，追板追到回撤0.48%，这也没谁了，惊呆了我自己！（策略绝对无未来！）\n\nps: 感谢 @自然常数 ，《也也谈最大连板数统计》，当时跟自然常数反复切磋如何提高统计速度，现在用上了。\n\n**2020-9-12：** 接受蜜蜂量化关于买入一字板股票的批评，策略已经修改。请克隆下面收益率更高的（策略收益637.93%)那一个。\n\n股市中，这种惊艳的片段，我发现过几个：\n（一） 一个惊艳的片段\nhttps://www.joinquant.com/view/community/detail/d6331f098788d443d4888f1a1c8c4967\n（二）现在便宜的300就是最好的\nhttps://www.joinquant.com/view/community/detail/f6aa36f48edbc5dfe4af60831a4ba94a?type=1\n\n这种精彩，通常只是瞬间，有效期在2个月左右。能率先发现并利用，收益自然是不用说了。\n\n盘古开天地以来就一直能挣钱的策略，那是圣杯，不知道存在不存在。至少我还没有找到。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-09-12 22:41:36",
+      "modTime": "2020-09-12 22:41:36",
+      "lastActiveTime": "2025-11-10 11:15:29",
+      "lastPubTime": "2020-09-12 22:41:36",
+      "backtestId": "e98bc9f259bca1c15dbfacfe70858f67",
+      "backtestName": "这是一个简单的策略-539",
+      "replyCount": "342",
+      "viewCount": "24975",
+      "collectionCount": "249",
+      "likeCount": "147",
+      "disLikeCount": "0",
+      "backtestCloneCount": "1489",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "114",
+      "followersCount": "7737",
+      "followingCount": "24",
+      "author": {
+        "userId": "4b55566029e84641fa07f73a4598f841",
+        "alias": "jqz1226 ZUEL",
+        "headImgKey": "f8ad1df3e2e743d648263f8a8032baa9"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "e98bc9f259bca1c15dbfacfe70858f67",
+        "backtest_name": "这是一个简单的策略-539",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=e98bc9f259bca1c15dbfacfe70858f67&postId=ca72ac482eb173e549c55efe40347358&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2020-07-01",
+          "end_date": "2020-09-04",
+          "base_capital": 1000000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "29318c43c91242774fb832d6bbaef33c",
+            "18241259"
+          ],
+          "numeric_backtest_id": "18241259",
+          "numeric_post_id": "29356",
+          "python_version": 3,
+          "clone_count": 1482
+        },
+        "stats": {
+          "trading_days": 48,
+          "benchmark_volatility": 0.27565815147182,
+          "algorithm_volatility": 0.99329234474874,
+          "treasury_return": 0.0071232876712329,
+          "algorithm_return": 6.1432139971,
+          "benchmark_return": 0.14559697979808,
+          "annual_algo_return": 28012.206163456,
+          "annual_bm_return": 1.0298203593457,
+          "sharpe": 28201.330969224,
+          "excess_return_sharpe": "13674.523",
+          "sortino": 200681.19948553,
+          "information": 27783.437696841,
+          "beta": 0.30370862089809,
+          "alpha": 28011.865546479,
+          "excess_return": 5.2353638522677,
+          "avg_excess_return": "4.07%",
+          "max_drawdown": 0.0048355187813588,
+          "max_drawdown_period": [
+            "2020-07-22",
+            "2020-07-23"
+          ],
+          "excess_return_max_drawdown": "3.73%",
+          "excess_return_max_drawdown_period": [
+            "2020-07-16",
+            "2020-07-21"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-09",
+          "__version": 101,
+          "win_ratio": 1,
+          "profit_loss_ratio": 6173537,
+          "win_count": 8,
+          "lose_count": 0,
+          "day_win_ratio": 0.66666666666667,
+          "avg_trade_return": 0.33578920399411,
+          "avg_position_days": 2.5,
+          "turnover_rate": 0.14494131775674,
+          "report_done_seconds": 92.406068086624,
+          "report_done_cpu_seconds": 94.89
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 614.3214,
+          "benchmark_return_percent": 14.559698,
+          "annual_algo_return_percent": 2801220.616346,
+          "annual_bm_return_percent": 102.982036,
+          "max_drawdown_percent": 0.483552,
+          "algorithm_volatility_percent": 99.329234,
+          "benchmark_volatility_percent": 27.565815,
+          "win_ratio_percent": 100,
+          "day_win_ratio_percent": 66.666667,
+          "avg_trade_return_percent": 33.57892,
+          "turnover_rate_percent": 14.494132,
+          "sharpe": 28201.330969224,
+          "sortino": 200681.19948553,
+          "information": 27783.437696841,
+          "alpha": 28011.865546479,
+          "beta": 0.30370862089809,
+          "profit_loss_ratio": 6173537,
+          "avg_position_days": 2.5,
+          "trading_days": 48,
+          "win_count": 8,
+          "lose_count": 0,
+          "max_drawdown_period": [
+            "2020-07-22",
+            "2020-07-23"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-07-16",
+            "2020-07-21"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/29356",
+      "https://www.joinquant.com/community/post/detailV2?postId=29356",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=e98bc9f259bca1c15dbfacfe70858f67&postId=ca72ac482eb173e549c55efe40347358&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=e98bc9f259bca1c15dbfacfe70858f67"
+    ]
+  }
+}

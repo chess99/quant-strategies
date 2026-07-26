@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/94 PE和PB策略.txt",
+    "category": "2020年度精选策略",
+    "file_name": "94 PE和PB策略.txt",
+    "strategy_name": "PE和PB策略",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 14499,
+    "sha256": "17614e21b5ae2a773a36bd75fb7f5bcb2570192f5532aab666a7b71f48223096",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/13967"
+    ],
+    "primary_url": "https://www.joinquant.com/post/13967",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:30+08:00",
+    "requested_url": "https://www.joinquant.com/post/13967",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/2cb8431cbb05e49885ec1160b2f1062b",
+    "community_id": "2cb8431cbb05e49885ec1160b2f1062b",
+    "post": {
+      "postId": "dd87609edf53f96949bb75c788aa803e",
+      "uniqueKey": "2cb8431cbb05e49885ec1160b2f1062b",
+      "title": "PE和PB策略",
+      "content": "PE和PB策略",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-07-26 16:01:48",
+      "modTime": "2018-07-26 16:01:48",
+      "lastActiveTime": "2022-08-28 01:14:56",
+      "lastPubTime": "2018-07-26 16:01:48",
+      "backtestId": "bf3c4aa95c183a14321dbedcf78efcd0",
+      "backtestName": "PB和PE策略",
+      "replyCount": "2",
+      "viewCount": "1374",
+      "collectionCount": "2",
+      "likeCount": "0",
+      "disLikeCount": "0",
+      "backtestCloneCount": "23",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "1",
+      "followersCount": "2",
+      "followingCount": "0",
+      "author": {
+        "userId": "b1364399e018330a2458911437eca455",
+        "alias": "Jenny_",
+        "headImgKey": "59825c53c8c3724bd90c17f573763b61"
+      },
+      "tags": []
+    },
+    "backtests": [
+      {
+        "backtest_id": "bf3c4aa95c183a14321dbedcf78efcd0",
+        "backtest_name": "PB和PE策略",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=bf3c4aa95c183a14321dbedcf78efcd0&postId=2cb8431cbb05e49885ec1160b2f1062b&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2017-07-01",
+          "end_date": "2018-07-01",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "373433638062b8f9e0bbeab06c54fbc3",
+            "9452513"
+          ],
+          "numeric_backtest_id": "9452513",
+          "numeric_post_id": "13967",
+          "python_version": 2,
+          "clone_count": 23
+        },
+        "stats": {
+          "information": 1.6299732258788,
+          "benchmark_return": -0.04249421777482,
+          "algorithm_volatility": 0.19824089994483,
+          "annual_bm_return": -0.043516088595237,
+          "__version": 101,
+          "max_drawdown": 0.21851052249963,
+          "sortino": 1.0465217901666,
+          "period_label": "2018-06",
+          "trading_days": 244,
+          "algorithm_return": 0.1752544,
+          "benchmark_volatility": 0.15170371652938,
+          "beta": 0.94552985333159,
+          "excess_return": 0.13569275616438,
+          "annual_algo_return": 0.17993053540271,
+          "sharpe": 0.70586107832267,
+          "alpha": 0.218897490403,
+          "max_drawdown_period": [
+            "2018-02-01",
+            "2018-06-28"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.039561643835616,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.51229508196721,
+          "avg_position_days": 77.133333333333,
+          "win_ratio": 0.57575757575758,
+          "win_count": 19,
+          "avg_trade_return": 0.051360986224062,
+          "profit_loss_ratio": 2.3595787112053,
+          "lose_count": 14,
+          "report_done_seconds": 81.448133945465
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 17.52544,
+          "benchmark_return_percent": -4.249422,
+          "annual_algo_return_percent": 17.993054,
+          "annual_bm_return_percent": -4.351609,
+          "max_drawdown_percent": 21.851052,
+          "algorithm_volatility_percent": 19.82409,
+          "benchmark_volatility_percent": 15.170372,
+          "win_ratio_percent": 57.575758,
+          "day_win_ratio_percent": 51.229508,
+          "avg_trade_return_percent": 5.136099,
+          "sharpe": 0.70586107832267,
+          "sortino": 1.0465217901666,
+          "information": 1.6299732258788,
+          "alpha": 0.218897490403,
+          "beta": 0.94552985333159,
+          "profit_loss_ratio": 2.3595787112053,
+          "avg_position_days": 77.133333333333,
+          "trading_days": 244,
+          "win_count": 19,
+          "lose_count": 14,
+          "max_drawdown_period": [
+            "2018-02-01",
+            "2018-06-28"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/13967",
+      "https://www.joinquant.com/community/post/detailV2?postId=13967",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=bf3c4aa95c183a14321dbedcf78efcd0&postId=2cb8431cbb05e49885ec1160b2f1062b&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=bf3c4aa95c183a14321dbedcf78efcd0"
+    ]
+  }
+}

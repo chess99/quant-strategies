@@ -1,0 +1,190 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/88.基于动量因子的ETF轮动加上RSRS择时.txt",
+    "category": "2025年度精选策略",
+    "file_name": "88.基于动量因子的ETF轮动加上RSRS择时.txt",
+    "strategy_name": "基于动量因子的ETF轮动加上RSRS择时",
+    "declared_title": "基于动量因子的ETF轮动加上RSRS择时",
+    "declared_author": "慕长风",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 6075,
+    "sha256": "450adeb696071244a7d0e05d7303152d61bd8bb377f9f3e13e978899d716d56f",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/26142"
+    ],
+    "primary_url": "https://www.joinquant.com/post/26142",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:41+08:00",
+    "requested_url": "https://www.joinquant.com/post/26142",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/d7776a2d774bde97c79756e316f03aa6",
+    "community_id": "d7776a2d774bde97c79756e316f03aa6",
+    "post": {
+      "postId": "e0d48be8cd6d0866d03e7f409c45eac5",
+      "uniqueKey": "d7776a2d774bde97c79756e316f03aa6",
+      "title": "基于动量因子的ETF轮动加上RSRS择时",
+      "content": "受@柱子嗨翻天 的帖子启发，花了半天时间把光大证券的几篇基于RSRS的市场择时系列研报读了下，然后照着原理用代码实现了个基于RSRS指标的信号函数，结合之前写过的基于动量因子的ETF轮动策略，用该指标优化了下，收益率和最大回撤确有小幅提升",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-03-10 23:46:39",
+      "modTime": "2020-03-10 23:46:39",
+      "lastActiveTime": "2026-03-25 17:33:19",
+      "lastPubTime": "2020-03-10 23:46:39",
+      "backtestId": "a781697ce9d11893b857f7732fa50bf3",
+      "backtestName": "动量因子加RSRS择时和ETF轮动周调仓",
+      "replyCount": "79",
+      "viewCount": "21300",
+      "collectionCount": "232",
+      "likeCount": "126",
+      "disLikeCount": "0",
+      "backtestCloneCount": "928",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "1692",
+      "fileName": "基于阻力支撑相对强度（RSRS）的市场择时.pdf",
+      "fileType": "application/pdf",
+      "fileSize": "1996167",
+      "postCount": "5",
+      "followersCount": "429",
+      "followingCount": "3",
+      "author": {
+        "userId": "7d5dea9dfe3b43903b81a65bbc37f57c",
+        "alias": "慕长风",
+        "introduction": "公众号：慕长风的小酒馆",
+        "headImgKey": "77782fd2e1e8c2f806011e7cad1db93c"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        },
+        {
+          "id": "706",
+          "name": "ETF"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "a781697ce9d11893b857f7732fa50bf3",
+        "backtest_name": "动量因子加RSRS择时和ETF轮动周调仓",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=a781697ce9d11893b857f7732fa50bf3&postId=d7776a2d774bde97c79756e316f03aa6&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2014-02-18",
+          "end_date": "2020-03-09",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "f5863672679c2a3ea66bc4d40105bd14",
+            "16454476"
+          ],
+          "numeric_backtest_id": "16454476",
+          "numeric_post_id": "26142",
+          "python_version": 3,
+          "clone_count": 921
+        },
+        "stats": {
+          "trading_days": 1478,
+          "benchmark_volatility": 0.2395063140702,
+          "algorithm_volatility": 0.22289463795033,
+          "treasury_return": 0.24230136986301,
+          "algorithm_return": 2.9949721341,
+          "benchmark_return": 0.72912421863169,
+          "annual_algo_return": 0.26399264172745,
+          "annual_bm_return": 0.097053242257496,
+          "sharpe": 1.004926111221,
+          "excess_return_sharpe": "0.557",
+          "sortino": 1.3205546136847,
+          "information": 0.83599780429388,
+          "beta": 0.58547631155768,
+          "alpha": 0.19058931988813,
+          "excess_return": 1.3104020469167,
+          "avg_excess_return": "0.06%",
+          "max_drawdown": 0.23054865981677,
+          "max_drawdown_period": [
+            "2015-06-12",
+            "2015-08-18"
+          ],
+          "excess_return_max_drawdown": "18.74%",
+          "excess_return_max_drawdown_period": [
+            "2015-07-08",
+            "2015-08-14"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-03",
+          "__version": 101,
+          "win_ratio": 0.51530612244898,
+          "profit_loss_ratio": 2.0314581200272,
+          "win_count": 101,
+          "lose_count": 95,
+          "day_win_ratio": 0.51150202976996,
+          "avg_trade_return": 0.015043076628963,
+          "avg_position_days": 303.57142857143,
+          "turnover_rate": 0.069177245958344,
+          "report_done_seconds": 179.74592876434,
+          "report_done_cpu_seconds": 174.07
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 299.497213,
+          "benchmark_return_percent": 72.912422,
+          "annual_algo_return_percent": 26.399264,
+          "annual_bm_return_percent": 9.705324,
+          "max_drawdown_percent": 23.054866,
+          "algorithm_volatility_percent": 22.289464,
+          "benchmark_volatility_percent": 23.950631,
+          "win_ratio_percent": 51.530612,
+          "day_win_ratio_percent": 51.150203,
+          "avg_trade_return_percent": 1.504308,
+          "turnover_rate_percent": 6.917725,
+          "sharpe": 1.004926111221,
+          "sortino": 1.3205546136847,
+          "information": 0.83599780429388,
+          "alpha": 0.19058931988813,
+          "beta": 0.58547631155768,
+          "profit_loss_ratio": 2.0314581200272,
+          "avg_position_days": 303.57142857143,
+          "trading_days": 1478,
+          "win_count": 101,
+          "lose_count": 95,
+          "max_drawdown_period": [
+            "2015-06-12",
+            "2015-08-18"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2015-07-08",
+            "2015-08-14"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/26142",
+      "https://www.joinquant.com/community/post/detailV2?postId=26142",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=a781697ce9d11893b857f7732fa50bf3&postId=d7776a2d774bde97c79756e316f03aa6&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=a781697ce9d11893b857f7732fa50bf3"
+    ]
+  }
+}

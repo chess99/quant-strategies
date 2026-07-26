@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/66.【复现】A股日内动量效应（一）半小时 涨跌幅间的规律.txt",
+    "category": "2025年度精选策略",
+    "file_name": "66.【复现】A股日内动量效应（一）半小时 涨跌幅间的规律.txt",
+    "strategy_name": "【复现】A股日内动量效应（一）半小时 涨跌幅间的规律",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 11981,
+    "sha256": "bfbad3a743a1c7d94b55866b613da674f564563f3a94b4ab48d076bb46b125c4",
+    "joinquant_urls": [],
+    "primary_url": null,
+    "url_selection_method": "none"
+  },
+  "remote": null
+}

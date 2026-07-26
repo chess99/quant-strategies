@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/71.期货日内策略三价均线结合ATR指标.txt",
+    "category": "2022年度精选策略",
+    "file_name": "71.期货日内策略三价均线结合ATR指标.txt",
+    "strategy_name": "期货日内策略三价均线结合ATR指标",
+    "declared_title": "期货日内策略三价均线结合ATR指标",
+    "declared_author": "PokerTrader",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 11611,
+    "sha256": "0b4668dccaab75c3ce6ac674280c6792f17356b698c1a2de786f08a872d48514",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/36328"
+    ],
+    "primary_url": "https://www.joinquant.com/post/36328",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:26+08:00",
+    "requested_url": "https://www.joinquant.com/post/36328",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/9d00bb85d15d9fb76b8e863091bafc41",
+    "community_id": "9d00bb85d15d9fb76b8e863091bafc41",
+    "post": {
+      "postId": "af634e2270b036a723e5efb8a3c74450",
+      "uniqueKey": "9d00bb85d15d9fb76b8e863091bafc41",
+      "title": "期货日内策略三价均线结合ATR指标",
+      "content": "本策略共用到了三个指标，先用最近两日的动量指标来判断今天的开仓方向，用短期三价均线与长期三价均线的交叉作为开仓和平仓条件，最后用ATR指标作为止盈平仓的参数。![Img]( https://image.joinquant.com/64f4dcd242f0a1ad722bd850097c0a4d) \n\n注：本策略未加入平今手续费",
+      "type": 1,
+      "status": "0",
+      "addTime": "2022-01-21 19:29:03",
+      "modTime": "2022-01-21 19:29:03",
+      "lastActiveTime": "2025-07-10 03:07:31",
+      "lastPubTime": "2022-01-21 19:29:03",
+      "backtestId": "b41a1530195a6a2932b0abbb6ff75479",
+      "backtestName": "股指期货日内策略三价均线结合动量及atr指标",
+      "replyCount": "88",
+      "viewCount": "3772",
+      "collectionCount": "83",
+      "likeCount": "42",
+      "disLikeCount": "0",
+      "backtestCloneCount": "267",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "30",
+      "followersCount": "350",
+      "followingCount": "11",
+      "author": {
+        "userId": "88659f20b302801c06be0008c7fcae51",
+        "alias": "PokerTrader",
+        "introduction": "概率人生",
+        "headImgKey": "e3997a9e5411c4fc7ee31c1e3251ff16"
+      },
+      "tags": [
+        {
+          "id": "7",
+          "name": "期货"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "1626",
+          "name": "双均线"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "b41a1530195a6a2932b0abbb6ff75479",
+        "backtest_name": "股指期货日内策略三价均线结合动量及atr指标",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=b41a1530195a6a2932b0abbb6ff75479&postId=9d00bb85d15d9fb76b8e863091bafc41&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2021-11-01",
+          "end_date": "2022-01-01",
+          "base_capital": 1000000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "e327892e55c3ac951a172a5aee201198",
+            "23310054"
+          ],
+          "numeric_backtest_id": "23310054",
+          "numeric_post_id": "36328",
+          "python_version": 3,
+          "clone_count": 267
+        },
+        "stats": {
+          "trading_days": 45,
+          "benchmark_volatility": 0.12326124012365,
+          "algorithm_volatility": 0.23042169875462,
+          "treasury_return": 0.0065753424657534,
+          "algorithm_return": 0.20543122170001,
+          "benchmark_return": 0.0064374578560416,
+          "annual_algo_return": 1.8235228741179,
+          "annual_bm_return": 0.036292078232047,
+          "sharpe": 7.7402557300702,
+          "excess_return_sharpe": "6.034",
+          "sortino": 21.031844151272,
+          "information": 6.3990606429163,
+          "beta": -0.31983285437774,
+          "alpha": 1.7823369589151,
+          "excess_return": 0.19772094360227,
+          "avg_excess_return": "0.42%",
+          "max_drawdown": 0.028567193643748,
+          "max_drawdown_period": [
+            "2021-11-10",
+            "2021-11-17"
+          ],
+          "excess_return_max_drawdown": "5.98%",
+          "excess_return_max_drawdown_period": [
+            "2021-12-03",
+            "2021-12-13"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-12",
+          "__version": 101,
+          "win_ratio": 0.46511627906977,
+          "profit_loss_ratio": 1.8971456692913,
+          "win_count": 40,
+          "lose_count": 46,
+          "day_win_ratio": 0.55555555555556,
+          "avg_trade_return": 1.0721606613267,
+          "avg_position_days": 0,
+          "turnover_rate": 11.422822722468,
+          "report_done_seconds": 291.83455610275,
+          "report_done_cpu_seconds": 290.78
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 20.543122,
+          "benchmark_return_percent": 0.643746,
+          "annual_algo_return_percent": 182.352287,
+          "annual_bm_return_percent": 3.629208,
+          "max_drawdown_percent": 2.856719,
+          "algorithm_volatility_percent": 23.04217,
+          "benchmark_volatility_percent": 12.326124,
+          "win_ratio_percent": 46.511628,
+          "day_win_ratio_percent": 55.555556,
+          "avg_trade_return_percent": 107.216066,
+          "turnover_rate_percent": 1142.282272,
+          "sharpe": 7.7402557300702,
+          "sortino": 21.031844151272,
+          "information": 6.3990606429163,
+          "alpha": 1.7823369589151,
+          "beta": -0.31983285437774,
+          "profit_loss_ratio": 1.8971456692913,
+          "avg_position_days": 0,
+          "trading_days": 45,
+          "win_count": 40,
+          "lose_count": 46,
+          "max_drawdown_period": [
+            "2021-11-10",
+            "2021-11-17"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2021-12-03",
+            "2021-12-13"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/36328",
+      "https://www.joinquant.com/community/post/detailV2?postId=36328",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=b41a1530195a6a2932b0abbb6ff75479&postId=9d00bb85d15d9fb76b8e863091bafc41&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=b41a1530195a6a2932b0abbb6ff75479"
+    ]
+  }
+}

@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/81.无杠杆，稳定盈利的etf轮动，06年开始3000%收益.txt",
+    "category": "2025年度精选策略",
+    "file_name": "81.无杠杆，稳定盈利的etf轮动，06年开始3000%收益.txt",
+    "strategy_name": "无杠杆，稳定盈利的etf轮动，06年开始3000%收益",
+    "declared_title": "无杠杆，稳定盈利的etf轮动，06年开始3000%收益",
+    "declared_author": "热爱大自然",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 10235,
+    "sha256": "541947cc376a3275237ef4a1f18c0eb6cb1a7a7d05b8fe76c416229125b109bc",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/24321",
+      "https://www.joinquant.com/post/22857"
+    ],
+    "primary_url": "https://www.joinquant.com/post/24321",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:36+08:00",
+    "requested_url": "https://www.joinquant.com/post/24321",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/963f2092a1ae7a9613102001c957bc24",
+    "community_id": "963f2092a1ae7a9613102001c957bc24",
+    "post": {
+      "postId": "41a37079666780dbde74a7c3e98c28f8",
+      "uniqueKey": "963f2092a1ae7a9613102001c957bc24",
+      "title": "无杠杆，稳定盈利的etf轮动，06年开始3000%收益",
+      "content": "上一篇文章[Link](https://www.joinquant.com/view/community/detail/6d4d808cf982be5db2d0225264cfe8d4)发出后，很多朋友留言进行了讨论，提出了一些问题，所以我又更新了一个更稳定的版本，主要解决以下问题。\n1.去除分级B基金，使收益更稳定，在慢熊的10-13年更稳定\n2.时间拉长到2006年，以证明没有过拟合。由于几个关键etf都是10之后才上市，所以07年大疯牛市收益不高，对比15年和19年，可知这种情况未来不会发生\n3.加入更严格的风控，要求所有指数都满足条件才开仓。\n4.减少交易频率，风控交给策略\n\n这里再解释一遍etf轮动策略的逻辑，说明他的鲁棒性。\n1.etf交易费率更低，且不会遇到停牌之类的，交易持续性，稳定性，鲁棒性天然优势。\n2.etf不用考虑股票的基本面变化，财务造假之类的踩雷问题。\n3.etf的成分股更多，天然居然有多样性，技术指标天然更稳定，适合量化。\n4.根据国外股市和今年各大etf基金的认购量趋势，股民会越来越认可etf基金的形式，未来收益会越来越好。\n\netf的问题：\n1.交易量不足，大资金玩不了\n2.etf也有新陈代谢，经常会推出新的etf，而且新的出来之后，旧的会被用户用脚投票，交易量越来越少。动态选择etf是下一步的优化点。\n3.etf刚上市的前几年不够稳定，需要成熟的etf才适合量化。\n4.etf尤其是分级基金，存在套利空间\n\n综上所述，etf基金轮动有一定的科学性，除非策略写得很死，否则并不用担心过拟合问题，拉长时间看，收益也是实实在在的",
+      "type": 1,
+      "status": "0",
+      "addTime": "2019-12-10 15:15:09",
+      "modTime": "2019-12-10 15:15:09",
+      "lastActiveTime": "2026-03-25 18:53:28",
+      "lastPubTime": "2019-12-10 15:15:09",
+      "backtestId": "ad0d7f046a53fdced874d4f5c39170a2",
+      "backtestName": "无杠杆回撤更小的etf轮动",
+      "replyCount": "322",
+      "viewCount": "22546",
+      "collectionCount": "360",
+      "likeCount": "165",
+      "disLikeCount": "0",
+      "backtestCloneCount": "1447",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "3",
+      "followersCount": "350",
+      "followingCount": "38",
+      "author": {
+        "userId": "e32f3d4f5d567c556d84e6174f3abe06",
+        "alias": "热爱大自然",
+        "headImgKey": "9d7a7c4b06197551475f18250cdfa6ee"
+      },
+      "tags": [
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "12",
+          "name": "基金"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "ad0d7f046a53fdced874d4f5c39170a2",
+        "backtest_name": "无杠杆回撤更小的etf轮动",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=ad0d7f046a53fdced874d4f5c39170a2&postId=963f2092a1ae7a9613102001c957bc24&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2006-01-01",
+          "end_date": "2019-10-01",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "9f6a9d18633e865360bb8b9f645a1490",
+            "15685206"
+          ],
+          "numeric_backtest_id": "15685206",
+          "numeric_post_id": "24321",
+          "python_version": 3,
+          "clone_count": 1386
+        },
+        "stats": {
+          "trading_days": 3343,
+          "benchmark_volatility": 0.27789483505887,
+          "algorithm_volatility": 0.21952012275002,
+          "treasury_return": 0.54980821917808,
+          "algorithm_return": 31.371984238179,
+          "benchmark_return": 3.1307379933944,
+          "annual_algo_return": 0.29698569763796,
+          "annual_bm_return": 0.11190702758824,
+          "sharpe": 1.170670344106,
+          "excess_return_sharpe": "0.536",
+          "sortino": 1.6045147644739,
+          "information": 0.789931568603,
+          "beta": 0.45658144010688,
+          "alpha": 0.22415428342791,
+          "excess_return": 6.8368524679963,
+          "avg_excess_return": "0.07%",
+          "max_drawdown": 0.36242100768937,
+          "max_drawdown_period": [
+            "2009-11-23",
+            "2012-12-05"
+          ],
+          "excess_return_max_drawdown": "47.55%",
+          "excess_return_max_drawdown_period": [
+            "2006-01-04",
+            "2007-10-31"
+          ],
+          "max_leverage": 0,
+          "period_label": "2019-09",
+          "__version": 101,
+          "win_ratio": 0.5811209439528,
+          "profit_loss_ratio": 2.0179762470464,
+          "win_count": 394,
+          "lose_count": 284,
+          "day_win_ratio": 0.50403828896201,
+          "avg_trade_return": 0.0059564616569229,
+          "avg_position_days": 321.25,
+          "turnover_rate": 0.20846217531346,
+          "report_done_seconds": 335.77093434334
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 3137.198424,
+          "benchmark_return_percent": 313.073799,
+          "annual_algo_return_percent": 29.69857,
+          "annual_bm_return_percent": 11.190703,
+          "max_drawdown_percent": 36.242101,
+          "algorithm_volatility_percent": 21.952012,
+          "benchmark_volatility_percent": 27.789484,
+          "win_ratio_percent": 58.112094,
+          "day_win_ratio_percent": 50.403829,
+          "avg_trade_return_percent": 0.595646,
+          "turnover_rate_percent": 20.846218,
+          "sharpe": 1.170670344106,
+          "sortino": 1.6045147644739,
+          "information": 0.789931568603,
+          "alpha": 0.22415428342791,
+          "beta": 0.45658144010688,
+          "profit_loss_ratio": 2.0179762470464,
+          "avg_position_days": 321.25,
+          "trading_days": 3343,
+          "win_count": 394,
+          "lose_count": 284,
+          "max_drawdown_period": [
+            "2009-11-23",
+            "2012-12-05"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2006-01-04",
+            "2007-10-31"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/24321",
+      "https://www.joinquant.com/community/post/detailV2?postId=24321",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=ad0d7f046a53fdced874d4f5c39170a2&postId=963f2092a1ae7a9613102001c957bc24&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=ad0d7f046a53fdced874d4f5c39170a2"
+    ]
+  }
+}

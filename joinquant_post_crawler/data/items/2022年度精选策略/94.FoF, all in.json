@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/94.FoF, all in.txt",
+    "category": "2022年度精选策略",
+    "file_name": "94.FoF, all in.txt",
+    "strategy_name": "FoF, all in",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 2069,
+    "sha256": "83fa41001965d26d5749c2ad3ead4449f7c652ff806c7e77ebf5cfcd81da4ed1",
+    "joinquant_urls": [],
+    "primary_url": null,
+    "url_selection_method": "none"
+  },
+  "remote": null
+}

@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略1/39.大资金优质股策略，总收益1217%！无小市值因子！.txt",
+    "category": "2024年度精选策略1",
+    "file_name": "39.大资金优质股策略，总收益1217%！无小市值因子！.txt",
+    "strategy_name": "大资金优质股策略，总收益1217%！无小市值因子！",
+    "declared_title": "大资金优质股策略，总收益1217%！无小市值因子！",
+    "declared_author": "hello friends",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 8224,
+    "sha256": "f8b6b5b809cf610092c7925771624340bc9e3484f2417928d219cd23d01e18c6",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/42029"
+    ],
+    "primary_url": "https://www.joinquant.com/post/42029",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:10:16+08:00",
+    "requested_url": "https://www.joinquant.com/post/42029",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/ea1038402975702ffe9d6aa5ac897d54",
+    "community_id": "ea1038402975702ffe9d6aa5ac897d54",
+    "post": {
+      "postId": "c933feb5c827d711e5829e130aac45ac",
+      "uniqueKey": "ea1038402975702ffe9d6aa5ac897d54",
+      "title": "大资金基本面策略，总收益1217%！无小市值因子！",
+      "content": "分享一个适合大资金的策略，持股的是基本面非常踏实的公司：现金流充沛、估值低，赢利强的股票，拿着可以安心睡觉的那种。经历了2015年的股灾和2018年的股灾，最大回撤也不大。\n基本面上考虑的是：扣非净利润、ROE、净利率、利润增长，再用标准化、中性化选股。用自由现金流与市值来衡量估值因子，整个策略无任何小市值因子。欢迎大家讨论。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2023-04-19 11:40:30",
+      "modTime": "2025-03-18 11:49:17",
+      "lastActiveTime": "2026-04-20 12:37:38",
+      "lastPubTime": "2025-03-18 11:49:17",
+      "backtestId": "69adcb0a75b1b0ade3aa5a2ed0a09011",
+      "backtestName": "分享自由组合因子策略强基本面",
+      "replyCount": "79",
+      "viewCount": "5796",
+      "collectionCount": "124",
+      "likeCount": "47",
+      "disLikeCount": "0",
+      "backtestCloneCount": "536",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "16",
+      "followersCount": "187",
+      "followingCount": "3",
+      "author": {
+        "userId": "59029797fde87ee80d7c378c83549be1",
+        "alias": "hello friends",
+        "introduction": "金融搬砖人",
+        "headImgKey": "b87f94299aa4424c54401bd8482f3d81"
+      },
+      "tags": [
+        {
+          "id": "295",
+          "name": "研报分享"
+        },
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "2452",
+          "name": "成长投资"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "69adcb0a75b1b0ade3aa5a2ed0a09011",
+        "backtest_name": "分享自由组合因子策略强基本面",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=69adcb0a75b1b0ade3aa5a2ed0a09011&postId=ea1038402975702ffe9d6aa5ac897d54&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2012-01-01",
+          "end_date": "2023-04-18",
+          "base_capital": 10000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "47dcc3e8afb05cd701d92a456788ac9b",
+            "28307674"
+          ],
+          "numeric_backtest_id": "28307674",
+          "numeric_post_id": "42029",
+          "python_version": 3,
+          "clone_count": 535
+        },
+        "stats": {
+          "trading_days": 2743,
+          "benchmark_volatility": 0.25164321319302,
+          "algorithm_volatility": 0.26729969953802,
+          "treasury_return": 0.45172602739726,
+          "algorithm_return": 12.171096944852,
+          "benchmark_return": 0.97437537881339,
+          "annual_algo_return": 0.26486320925816,
+          "annual_bm_return": 0.063961189268576,
+          "sharpe": 0.8412400374815,
+          "excess_return_sharpe": "0.812",
+          "sortino": 1.1207634648429,
+          "information": 1.1019699643537,
+          "beta": 0.80171331178013,
+          "alpha": 0.20565320485546,
+          "excess_return": 5.6710196481318,
+          "avg_excess_return": "0.08%",
+          "max_drawdown": 0.34459843460563,
+          "max_drawdown_period": [
+            "2015-06-17",
+            "2015-07-08"
+          ],
+          "excess_return_max_drawdown": "28.49%",
+          "excess_return_max_drawdown_period": [
+            "2022-06-09",
+            "2023-04-13"
+          ],
+          "max_leverage": 0,
+          "period_label": "2023-04",
+          "__version": 101,
+          "win_ratio": 0.57808857808858,
+          "profit_loss_ratio": 1.6945969725136,
+          "win_count": 248,
+          "lose_count": 181,
+          "day_win_ratio": 0.48049580751003,
+          "avg_trade_return": 0.05733301166229,
+          "avg_position_days": 80,
+          "turnover_rate": 0.020100538068731,
+          "report_done_seconds": 254.16266965866,
+          "report_done_cpu_seconds": 161.06
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 1217.109694,
+          "benchmark_return_percent": 97.437538,
+          "annual_algo_return_percent": 26.486321,
+          "annual_bm_return_percent": 6.396119,
+          "max_drawdown_percent": 34.459843,
+          "algorithm_volatility_percent": 26.72997,
+          "benchmark_volatility_percent": 25.164321,
+          "win_ratio_percent": 57.808858,
+          "day_win_ratio_percent": 48.049581,
+          "avg_trade_return_percent": 5.733301,
+          "turnover_rate_percent": 2.010054,
+          "sharpe": 0.8412400374815,
+          "sortino": 1.1207634648429,
+          "information": 1.1019699643537,
+          "alpha": 0.20565320485546,
+          "beta": 0.80171331178013,
+          "profit_loss_ratio": 1.6945969725136,
+          "avg_position_days": 80,
+          "trading_days": 2743,
+          "win_count": 248,
+          "lose_count": 181,
+          "max_drawdown_period": [
+            "2015-06-17",
+            "2015-07-08"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2022-06-09",
+            "2023-04-13"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/42029",
+      "https://www.joinquant.com/community/post/detailV2?postId=42029",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=69adcb0a75b1b0ade3aa5a2ed0a09011&postId=ea1038402975702ffe9d6aa5ac897d54&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=69adcb0a75b1b0ade3aa5a2ed0a09011"
+    ]
+  }
+}

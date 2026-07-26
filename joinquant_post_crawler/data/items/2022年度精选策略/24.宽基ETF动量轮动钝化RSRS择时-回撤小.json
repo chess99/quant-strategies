@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/24.宽基ETF动量轮动钝化RSRS择时-回撤小.txt",
+    "category": "2022年度精选策略",
+    "file_name": "24.宽基ETF动量轮动钝化RSRS择时-回撤小.txt",
+    "strategy_name": "宽基ETF动量轮动钝化RSRS择时-回撤小",
+    "declared_title": "宽基ETF动量轮动钝化RSRS择时-回撤小",
+    "declared_author": "DominicLiu",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 6953,
+    "sha256": "d555551d56c029c6b3ffcd12bcbc6b831e86e6822ae65f5def732dcc69b0d6fc",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/37120"
+    ],
+    "primary_url": "https://www.joinquant.com/post/37120",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:48+08:00",
+    "requested_url": "https://www.joinquant.com/post/37120",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/199ed5563e8c3b639e0ab41419b4f933",
+    "community_id": "199ed5563e8c3b639e0ab41419b4f933",
+    "post": {
+      "postId": "dddbe9f82cf22c5184e5a894a9c4ee09",
+      "uniqueKey": "199ed5563e8c3b639e0ab41419b4f933",
+      "title": "宽基ETF动量轮动钝化RSRS择时-回撤小",
+      "content": "策略思路来自萌新王富贵和莫急莫急两位大神，改动比较大的是择时方面，引入钝化概念，且以选出的宽基ETF作为计算依据，除此之外增加止损和买入511880功能。改动后的收益不如两个大神的收益（9年8.6倍），但是还有两点值得肯定的：1. 回撤小，只有14%+，拿得住；2. 看得懂，尤其是择时部分，由于我水平有限两位大神的择时有点看不懂，改成了我自己看得懂的，进行实盘时心里也比较有底气。具体优化部分如下：\n\n一、选股\n最后只留了沪深300ETF(510300)，中证500ETF(510500)和创业板EFT(159915)，本来想加入上证50的，但是发现通过云飞量化小工具计算上证50和沪深300的相关性非常高，就去掉了上证50。另外没加行业ETF是为了避免未来，以后有时间可以专门针对行业轮动做一个策略。\n\n二、择时\n这里是改动最大的，主要有以下三点吧：\n（1）RSRS择时引入钝化，根据光大19年针对RSRS择时的研报以及Hugo2046大神的研究复现，加入钝化概念，可以改善震荡期间反复买卖的情况。\n（2）以动量选出的宽基指数计算择时信号，光大研报中对这三个宽基指数的指标也都直接给出了。另外，由于轮动就是为了差异，个人感觉比通过沪深300计算择时信号要精确些。\n（3）择时操作按照计算出来的信号来，只有大于阈值时买入，小于阈值卖出，其他保持。由于每个宽基的参数和阈值不同，如果持仓时，第二天给出卖出信号的是其他宽基计算的，判断下持仓的信号是否达到卖出条件，再进行卖出。\n\n三、止损\n加入动态止损模块，两个条件，峰值回撤10%，或者半天跌2%即清仓，时间选在了上下午盘收盘前十分钟。\n\n四、空仓买货币基金\n因为买入条件原因，空仓时间不少，所以考虑闲置资金问题。貌似聚宽还不支持买逆回购，所以空仓即买入511880，苍蝇肉也是肉。\n\n最后，代码写的很糙，基本是一边学python，一边百度着写的，请见谅哈。另外，回测9年是因为511880是那时间左右上市的。代码中直接把ETF改成了指数的原因是，用ETF进行超过五年的回测即报错，报的错误是在计算RSRS时“ValueError: On entry to DLASCL parameter number 4 had an illegal value”，直接改成指数就能进行顺利回测，各位大神如果知道原因也给小弟指点迷津哈。\n\n参考的各位大神的链接：\n1. 萌新王富贵：https://www.joinquant.com/view/community/detail/34314 去年精选文章第5篇；\n2. 莫急莫急：https://www.joinquant.com/view/community/detail/35279 年年精选文章第8篇；\n3. Hugo2046:\nhttps://www.joinquant.com/view/community/detail/32b60d05f16c7d719d7fb836687504d6 钝化RSRS。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2022-03-31 11:41:25",
+      "modTime": "2022-04-22 16:50:01",
+      "lastActiveTime": "2023-08-02 15:32:36",
+      "lastPubTime": "2022-04-22 16:50:01",
+      "backtestId": "3816229ab49347e7fbabea0ceaad674f",
+      "backtestName": "宽基ETF动量轮动钝化RSRS择时-日-20220331",
+      "replyCount": "98",
+      "viewCount": "6438",
+      "collectionCount": "131",
+      "likeCount": "48",
+      "disLikeCount": "0",
+      "backtestCloneCount": "386",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "151",
+      "fileName": "20191117-光大证券-技术指标系列报告之六：RSRS择时~回顾与改进.pdf",
+      "fileType": "application/pdf",
+      "fileSize": "2289083",
+      "postCount": "3",
+      "followersCount": "48",
+      "followingCount": "40",
+      "author": {
+        "userId": "207676052c198fb4b7d237d4a253a63d",
+        "alias": "DominicLiu"
+      },
+      "tags": [
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "12",
+          "name": "基金"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        },
+        {
+          "id": "2002",
+          "name": "抛砖引玉"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "3816229ab49347e7fbabea0ceaad674f",
+        "backtest_name": "宽基ETF动量轮动钝化RSRS择时-日-20220331",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=3816229ab49347e7fbabea0ceaad674f&postId=199ed5563e8c3b639e0ab41419b4f933&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2013-04-01",
+          "end_date": "2022-03-30",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "4bd9a063f201aeb7431ce83772473e9c",
+            "24076438"
+          ],
+          "numeric_backtest_id": "24076438",
+          "numeric_post_id": "37120",
+          "python_version": 3,
+          "clone_count": 386
+        },
+        "stats": {
+          "trading_days": 2189,
+          "benchmark_volatility": 0.2281534713074,
+          "algorithm_volatility": 0.1778975135113,
+          "treasury_return": 0.36,
+          "algorithm_return": 8.5912881657,
+          "benchmark_return": 0.70499543100823,
+          "annual_algo_return": 0.29460599260114,
+          "annual_bm_return": 0.062831718056489,
+          "sharpe": 1.4311947793748,
+          "excess_return_sharpe": "0.827",
+          "sortino": 2.1011328485154,
+          "information": 1.0882342811217,
+          "beta": 0.36827342764688,
+          "alpha": 0.24619767753341,
+          "excess_return": 4.6254040282256,
+          "avg_excess_return": "0.09%",
+          "max_drawdown": 0.14728105737392,
+          "max_drawdown_period": [
+            "2013-10-09",
+            "2013-11-13"
+          ],
+          "excess_return_max_drawdown": "24.90%",
+          "excess_return_max_drawdown_period": [
+            "2016-02-04",
+            "2018-02-26"
+          ],
+          "max_leverage": 0,
+          "period_label": "2022-03",
+          "__version": 101,
+          "win_ratio": 0.72826086956522,
+          "profit_loss_ratio": 2.4707021382464,
+          "win_count": 134,
+          "lose_count": 50,
+          "day_win_ratio": 0.50936500685244,
+          "avg_trade_return": 0.014349860764752,
+          "avg_position_days": 544.5,
+          "turnover_rate": 0.07687013029316,
+          "report_done_seconds": 2940.8589556217,
+          "report_done_cpu_seconds": 2910
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 859.128817,
+          "benchmark_return_percent": 70.499543,
+          "annual_algo_return_percent": 29.460599,
+          "annual_bm_return_percent": 6.283172,
+          "max_drawdown_percent": 14.728106,
+          "algorithm_volatility_percent": 17.789751,
+          "benchmark_volatility_percent": 22.815347,
+          "win_ratio_percent": 72.826087,
+          "day_win_ratio_percent": 50.936501,
+          "avg_trade_return_percent": 1.434986,
+          "turnover_rate_percent": 7.687013,
+          "sharpe": 1.4311947793748,
+          "sortino": 2.1011328485154,
+          "information": 1.0882342811217,
+          "alpha": 0.24619767753341,
+          "beta": 0.36827342764688,
+          "profit_loss_ratio": 2.4707021382464,
+          "avg_position_days": 544.5,
+          "trading_days": 2189,
+          "win_count": 134,
+          "lose_count": 50,
+          "max_drawdown_period": [
+            "2013-10-09",
+            "2013-11-13"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2016-02-04",
+            "2018-02-26"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/37120",
+      "https://www.joinquant.com/community/post/detailV2?postId=37120",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=3816229ab49347e7fbabea0ceaad674f&postId=199ed5563e8c3b639e0ab41419b4f933&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=3816229ab49347e7fbabea0ceaad674f"
+    ]
+  }
+}

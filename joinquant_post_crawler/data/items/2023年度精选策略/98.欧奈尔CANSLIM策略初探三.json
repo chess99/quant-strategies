@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/98.欧奈尔CANSLIM策略初探三.txt",
+    "category": "2023年度精选策略",
+    "file_name": "98.欧奈尔CANSLIM策略初探三.txt",
+    "strategy_name": "欧奈尔CANSLIM策略初探三",
+    "declared_title": "欧奈尔CANSLIM策略初探三",
+    "declared_author": "韭菜饺子",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 9254,
+    "sha256": "34c4f67e567954bbcaf1d1345ac3a3bdc9ed42f0e611bd2bb527a3c2281a70db",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/30806"
+    ],
+    "primary_url": "https://www.joinquant.com/post/30806",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:09:51+08:00",
+    "requested_url": "https://www.joinquant.com/post/30806",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/9e4cf7563a19226d85bfb18383feff49",
+    "community_id": "9e4cf7563a19226d85bfb18383feff49",
+    "post": {
+      "postId": "bc0e1df03baa6830805c60ca4d0cc1e1",
+      "uniqueKey": "9e4cf7563a19226d85bfb18383feff49",
+      "title": "欧奈尔CANSLIM策略初探三",
+      "content": "- [欧奈尔CANSLIM策略初探一](https://www.joinquant.com/view/community/detail/30693)\n- [欧奈尔CANSLIM策略初探二](https://www.joinquant.com/view/community/detail/c3238aaefeb815c03690f567548739d5)\n\n之前两篇，我们按照研报实现了初级版本并优化了止损策略。但是研报提供的卖出方案依然过于简单，持有固定时间卖出，这并不是欧奈尔在书中描述的卖出策略。这一次我们尝试一种相对复杂的卖出策略，**趋势跟踪策略**。简单来说就是定期检查手中的股票卖出弱势股加仓强势股。\n\n我的算法很简单：\n- 卖出价格低于20日均线的股票\n- 剩下的股票如果出现“基底”形态则加仓\n\n之后的优化方向，我认为有下面这些：\n- “基底”形态识别算法\n- 止损方案\n- 股票弱势强势识别\n\n也希望各位能够给我提供思路，谢谢大家。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-12-24 20:48:07",
+      "modTime": "2020-12-24 20:48:07",
+      "lastActiveTime": "2025-04-25 16:20:27",
+      "lastPubTime": "2020-12-24 20:48:07",
+      "backtestId": "2deb0e685529abe451d6a89c7c8d058f",
+      "backtestName": "欧奈尔CANSLIM策略-趋势交易",
+      "replyCount": "39",
+      "viewCount": "4086",
+      "collectionCount": "67",
+      "likeCount": "31",
+      "disLikeCount": "0",
+      "backtestCloneCount": "286",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "34",
+      "followersCount": "340",
+      "followingCount": "24",
+      "author": {
+        "userId": "ea56f71b13521ba8eabbef15c752156e",
+        "alias": "韭菜饺子",
+        "headImgKey": "3b72ed9cbc18434c14900b1d62c948ec"
+      },
+      "tags": [
+        {
+          "id": "264",
+          "name": "研报复现"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "1193",
+          "name": "CANSLIM"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "2deb0e685529abe451d6a89c7c8d058f",
+        "backtest_name": "欧奈尔CANSLIM策略-趋势交易",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=2deb0e685529abe451d6a89c7c8d058f&postId=9e4cf7563a19226d85bfb18383feff49&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2005-05-01",
+          "end_date": "2020-12-18",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "926c859e44c61501e0cd651c3c5623b9",
+            "19195105"
+          ],
+          "numeric_backtest_id": "19195105",
+          "numeric_post_id": "30806",
+          "python_version": 3,
+          "clone_count": 283
+        },
+        "stats": {
+          "trading_days": 3803,
+          "benchmark_volatility": 0.27048800041332,
+          "algorithm_volatility": 0.30955592913451,
+          "treasury_return": 0.62487671232877,
+          "algorithm_return": 80.254356162699,
+          "benchmark_return": 4.3625307006725,
+          "annual_algo_return": 0.33520727127806,
+          "annual_bm_return": 0.11672696210274,
+          "sharpe": 0.95364760773098,
+          "excess_return_sharpe": "0.494",
+          "sortino": 1.3530996855172,
+          "information": 0.69456598578927,
+          "beta": 0.47867129733142,
+          "alpha": 0.25848027678805,
+          "excess_return": 14.152240741952,
+          "avg_excess_return": "0.09%",
+          "max_drawdown": 0.4501149910599,
+          "max_drawdown_period": [
+            "2007-09-03",
+            "2009-01-16"
+          ],
+          "excess_return_max_drawdown": "43.06%",
+          "excess_return_max_drawdown_period": [
+            "2008-11-04",
+            "2009-08-04"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-12",
+          "__version": 101,
+          "win_ratio": 0.384,
+          "profit_loss_ratio": 2.9371657924579,
+          "win_count": 96,
+          "lose_count": 154,
+          "day_win_ratio": 0.49145411517223,
+          "avg_trade_return": 0.044321556986521,
+          "avg_position_days": 39.506329113924,
+          "turnover_rate": 0.013155142629415,
+          "report_done_seconds": 801.7639799118,
+          "report_done_cpu_seconds": 547.09
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 8025.435616,
+          "benchmark_return_percent": 436.25307,
+          "annual_algo_return_percent": 33.520727,
+          "annual_bm_return_percent": 11.672696,
+          "max_drawdown_percent": 45.011499,
+          "algorithm_volatility_percent": 30.955593,
+          "benchmark_volatility_percent": 27.0488,
+          "win_ratio_percent": 38.4,
+          "day_win_ratio_percent": 49.145412,
+          "avg_trade_return_percent": 4.432156,
+          "turnover_rate_percent": 1.315514,
+          "sharpe": 0.95364760773098,
+          "sortino": 1.3530996855172,
+          "information": 0.69456598578927,
+          "alpha": 0.25848027678805,
+          "beta": 0.47867129733142,
+          "profit_loss_ratio": 2.9371657924579,
+          "avg_position_days": 39.506329113924,
+          "trading_days": 3803,
+          "win_count": 96,
+          "lose_count": 154,
+          "max_drawdown_period": [
+            "2007-09-03",
+            "2009-01-16"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2008-11-04",
+            "2009-08-04"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/30806",
+      "https://www.joinquant.com/community/post/detailV2?postId=30806",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=2deb0e685529abe451d6a89c7c8d058f&postId=9e4cf7563a19226d85bfb18383feff49&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=2deb0e685529abe451d6a89c7c8d058f"
+    ]
+  }
+}

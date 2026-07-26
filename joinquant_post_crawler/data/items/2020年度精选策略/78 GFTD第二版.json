@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/78 GFTD第二版.txt",
+    "category": "2020年度精选策略",
+    "file_name": "78 GFTD第二版.txt",
+    "strategy_name": "GFTD第二版",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 5187,
+    "sha256": "b9141922b0fa269793cc79165badbf33f67dbe9115ee543ad25e4afff8c30f27",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/11188"
+    ],
+    "primary_url": "https://www.joinquant.com/post/11188",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:17+08:00",
+    "requested_url": "https://www.joinquant.com/post/11188",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/43cad230a97f47b4fb62785ad3cbf98a",
+    "community_id": "43cad230a97f47b4fb62785ad3cbf98a",
+    "post": {
+      "postId": "a5664ead09d108e4b3df55b2e113cb54",
+      "uniqueKey": "43cad230a97f47b4fb62785ad3cbf98a",
+      "title": "GFTD第二版",
+      "content": "没有设置止损，因为没看懂研报里止损那块的意思",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-02-22 09:15:12",
+      "modTime": "2018-02-22 09:15:12",
+      "lastActiveTime": "2019-09-07 21:31:55",
+      "lastPubTime": "2018-02-22 09:15:12",
+      "backtestId": "605c32095b7eb580cb11dd314e20f1ce",
+      "backtestName": "TD组合 V2",
+      "replyCount": "5",
+      "viewCount": "2905",
+      "collectionCount": "23",
+      "likeCount": "7",
+      "disLikeCount": "0",
+      "backtestCloneCount": "177",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "2",
+      "followersCount": "34",
+      "followingCount": "3",
+      "author": {
+        "userId": "7500aeebf695b134da205a630170cbb2",
+        "alias": "lhclll"
+      },
+      "tags": []
+    },
+    "backtests": [
+      {
+        "backtest_id": "605c32095b7eb580cb11dd314e20f1ce",
+        "backtest_name": "TD组合 V2",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=605c32095b7eb580cb11dd314e20f1ce&postId=43cad230a97f47b4fb62785ad3cbf98a&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2005-01-05",
+          "end_date": "2018-02-21",
+          "base_capital": 10000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "478bfbdc8fae287daf30f9cd5951af57",
+            "7608709"
+          ],
+          "numeric_backtest_id": "7608709",
+          "numeric_post_id": "11188",
+          "python_version": 2,
+          "clone_count": 176
+        },
+        "stats": {
+          "information": 0.36194494564324,
+          "benchmark_return": 2.9533407411467,
+          "algorithm_volatility": 0.19374958169664,
+          "annual_bm_return": 0.11374054968189,
+          "__version": 101,
+          "max_drawdown": 0.32938938876752,
+          "sortino": 1.1488478815141,
+          "period_label": "2018-02",
+          "trading_days": 3190,
+          "algorithm_return": 11.80700005,
+          "benchmark_volatility": 0.27836748821524,
+          "beta": 0.48592214773014,
+          "excess_return": 11.282287721233,
+          "annual_algo_return": 0.22121055553733,
+          "sharpe": 0.93528230590481,
+          "alpha": 0.1453783892611,
+          "max_drawdown_period": [
+            "2007-10-16",
+            "2008-11-28"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.52471232876712,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.46489028213166,
+          "avg_position_days": 1838,
+          "win_ratio": 0.58823529411765,
+          "win_count": 20,
+          "avg_trade_return": 0.1134741543709,
+          "profit_loss_ratio": 3.2742016706902,
+          "lose_count": 14,
+          "report_done_seconds": 32.138794898987
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 1180.700005,
+          "benchmark_return_percent": 295.334074,
+          "annual_algo_return_percent": 22.121056,
+          "annual_bm_return_percent": 11.374055,
+          "max_drawdown_percent": 32.938939,
+          "algorithm_volatility_percent": 19.374958,
+          "benchmark_volatility_percent": 27.836749,
+          "win_ratio_percent": 58.823529,
+          "day_win_ratio_percent": 46.489028,
+          "avg_trade_return_percent": 11.347415,
+          "sharpe": 0.93528230590481,
+          "sortino": 1.1488478815141,
+          "information": 0.36194494564324,
+          "alpha": 0.1453783892611,
+          "beta": 0.48592214773014,
+          "profit_loss_ratio": 3.2742016706902,
+          "avg_position_days": 1838,
+          "trading_days": 3190,
+          "win_count": 20,
+          "lose_count": 14,
+          "max_drawdown_period": [
+            "2007-10-16",
+            "2008-11-28"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/11188",
+      "https://www.joinquant.com/community/post/detailV2?postId=11188",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=605c32095b7eb580cb11dd314e20f1ce&postId=43cad230a97f47b4fb62785ad3cbf98a&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=605c32095b7eb580cb11dd314e20f1ce"
+    ]
+  }
+}

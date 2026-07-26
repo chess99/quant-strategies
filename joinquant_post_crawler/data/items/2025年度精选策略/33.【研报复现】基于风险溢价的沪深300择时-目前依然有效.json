@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/33.【研报复现】基于风险溢价的沪深300择时-目前依然有效.txt",
+    "category": "2025年度精选策略",
+    "file_name": "33.【研报复现】基于风险溢价的沪深300择时-目前依然有效.txt",
+    "strategy_name": "【研报复现】基于风险溢价的沪深300择时-目前依然有效",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 9475,
+    "sha256": "641b219905260ea94ac86c70828f10170c6c5109e483d1a92fc591dcf933cf4c",
+    "joinquant_urls": [],
+    "primary_url": null,
+    "url_selection_method": "none"
+  },
+  "remote": null
+}

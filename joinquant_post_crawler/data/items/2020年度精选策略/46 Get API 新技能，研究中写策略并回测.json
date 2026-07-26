@@ -1,0 +1,168 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/46 Get API 新技能，研究中写策略并回测.txt",
+    "category": "2020年度精选策略",
+    "file_name": "46 Get API 新技能，研究中写策略并回测.txt",
+    "strategy_name": "Get API 新技能，研究中写策略并回测",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 6670,
+    "sha256": "6a06a6684d780c1c6cf751dc2b97d39efa779fd1d897a9dca049a4267235dff4",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/14323"
+    ],
+    "primary_url": "https://www.joinquant.com/post/14323",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:06:52+08:00",
+    "requested_url": "https://www.joinquant.com/post/14323",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/6342bc6bd43e371bda10f7402359b805",
+    "community_id": "6342bc6bd43e371bda10f7402359b805",
+    "post": {
+      "postId": "b946f242ad71233bfcc9bfb2d3820062",
+      "uniqueKey": "6342bc6bd43e371bda10f7402359b805",
+      "title": "Get API 新技能，研究中写策略并回测",
+      "content": "## Get API 新技能，研究中写策略并回测\n\n现在可以在研究中直接写代码、创建回测了~\n\n### 研究主要内容包括：\n（1）在研究中写策略代码；\n（2）并行回测；\n（3）筛选参数；\n（4）发送邮件。\n\n### 使用方法\n（1）在回测中创建一个策略，并复制策略ID；\n（2）在研究中写策略并回测，研究中的algorithm_id及上面创建的策略ID；\n\n### 参考文献\n[1] [参数优化及并行回测](https://www.joinquant.com/help/api/help?name=faq#参数优化及并行回测)\n[2] [区分create_backtest(策略ID)和get_backtest(回测ID)](https://www.joinquant.com/help/api/help?name=faq#参数优化及并行回测)\n[3][多回测运行和参数分析框架(Python3)](https://www.joinquant.com/view/community/detail/aaaf43b0b39a46f1600cbf44f3cf8513)",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-08-25 19:36:49",
+      "modTime": "2018-08-25 19:36:49",
+      "lastActiveTime": "2022-06-14 10:45:17",
+      "lastPubTime": "2018-08-25 19:36:49",
+      "backtestId": "71d9e29f7d072cae868815faa6d1ad19",
+      "backtestName": "研究中创建双均线策略",
+      "replyCount": "20",
+      "viewCount": "8448",
+      "collectionCount": "121",
+      "likeCount": "47",
+      "disLikeCount": "0",
+      "backtestCloneCount": "151",
+      "notebookCloneCount": "168",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "14",
+      "followersCount": "939",
+      "followingCount": "51",
+      "author": {
+        "userId": "16c56bce9d884a50767cd6a3acbd23e2",
+        "alias": "JoinQuant-Supercritical",
+        "headImgKey": "40c7372493208937278224262a408a34"
+      },
+      "tags": [
+        {
+          "id": "2",
+          "name": "心得"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "71d9e29f7d072cae868815faa6d1ad19",
+        "backtest_name": "研究中创建双均线策略",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=71d9e29f7d072cae868815faa6d1ad19&postId=6342bc6bd43e371bda10f7402359b805&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2017-01-01",
+          "end_date": "2018-01-01",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "6ca8bf7fb998a64b46e5ad4d7f4fca58",
+            "9817220"
+          ],
+          "numeric_backtest_id": "9817220",
+          "numeric_post_id": "14323",
+          "python_version": 2,
+          "clone_count": 189
+        },
+        "stats": {
+          "information": 0.7724400788514,
+          "benchmark_return": 0.21774972985554,
+          "algorithm_volatility": 0.13806677911218,
+          "annual_bm_return": 0.22366328102541,
+          "__version": 101,
+          "max_drawdown": 0.082129513578696,
+          "sortino": 2.904935282766,
+          "period_label": "2017-12",
+          "trading_days": 244,
+          "algorithm_return": 0.30769281,
+          "benchmark_volatility": 0.10106215198356,
+          "beta": 0.72837441623901,
+          "excess_return": 0.26824075520548,
+          "annual_algo_return": 0.31634773663857,
+          "sharpe": 2.001551266826,
+          "alpha": 0.14257210153715,
+          "max_drawdown_period": [
+            "2017-11-22",
+            "2017-12-18"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.039452054794521,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.51229508196721,
+          "avg_position_days": 176.66666666667,
+          "win_ratio": 0,
+          "win_count": 0,
+          "avg_trade_return": 0,
+          "profit_loss_ratio": 0,
+          "lose_count": 0,
+          "report_done_seconds": 2.4593150615692
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 30.769281,
+          "benchmark_return_percent": 21.774973,
+          "annual_algo_return_percent": 31.634774,
+          "annual_bm_return_percent": 22.366328,
+          "max_drawdown_percent": 8.212951,
+          "algorithm_volatility_percent": 13.806678,
+          "benchmark_volatility_percent": 10.106215,
+          "win_ratio_percent": 0,
+          "day_win_ratio_percent": 51.229508,
+          "avg_trade_return_percent": 0,
+          "sharpe": 2.001551266826,
+          "sortino": 2.904935282766,
+          "information": 0.7724400788514,
+          "alpha": 0.14257210153715,
+          "beta": 0.72837441623901,
+          "profit_loss_ratio": 0,
+          "avg_position_days": 176.66666666667,
+          "trading_days": 244,
+          "win_count": 0,
+          "lose_count": 0,
+          "max_drawdown_period": [
+            "2017-11-22",
+            "2017-12-18"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/14323",
+      "https://www.joinquant.com/community/post/detailV2?postId=14323",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=71d9e29f7d072cae868815faa6d1ad19&postId=6342bc6bd43e371bda10f7402359b805&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=71d9e29f7d072cae868815faa6d1ad19"
+    ]
+  }
+}

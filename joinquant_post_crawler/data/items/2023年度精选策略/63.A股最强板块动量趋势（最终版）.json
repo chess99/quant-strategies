@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/63.A股最强板块动量趋势（最终版）.txt",
+    "category": "2023年度精选策略",
+    "file_name": "63.A股最强板块动量趋势（最终版）.txt",
+    "strategy_name": "A股最强板块动量趋势（最终版）",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 13515,
+    "sha256": "25c512eef49a1b71cd75c05029c4cc6f26a55dd7c34bddcdecdcda3bc1e0dfad",
+    "joinquant_urls": [],
+    "primary_url": null,
+    "url_selection_method": "none"
+  },
+  "remote": null
+}

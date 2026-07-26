@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/22.菜场大妈选股法.txt",
+    "category": "2022年度精选策略",
+    "file_name": "22.菜场大妈选股法.txt",
+    "strategy_name": "菜场大妈选股法",
+    "declared_title": "菜场大妈选股法",
+    "declared_author": "开心果",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 7437,
+    "sha256": "0c8b51bacbb18f6efbf66c6ebe0d342ae57e8c14dc373ff8e1cc2819619f4029",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/40004"
+    ],
+    "primary_url": "https://www.joinquant.com/post/40004",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:46+08:00",
+    "requested_url": "https://www.joinquant.com/post/40004",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/6158d3c096bec67025c930295d6ae277",
+    "community_id": "6158d3c096bec67025c930295d6ae277",
+    "post": {
+      "postId": "51f4b5d3d0611b48ac1ae51d90663c88",
+      "uniqueKey": "6158d3c096bec67025c930295d6ae277",
+      "title": "删",
+      "content": "删",
+      "type": 1,
+      "status": "1",
+      "addTime": "2022-11-28 22:11:53",
+      "modTime": "2023-02-17 20:03:44",
+      "lastActiveTime": "2025-10-04 13:34:38",
+      "lastPubTime": "2023-02-17 20:03:44",
+      "replyCount": "120",
+      "viewCount": "9007",
+      "collectionCount": "97",
+      "likeCount": "64",
+      "disLikeCount": "0",
+      "backtestCloneCount": "530",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "72",
+      "followersCount": "2125",
+      "followingCount": "2",
+      "author": {
+        "userId": "11c4fcb6372f8616e4d0119fae8c7f49",
+        "alias": "开心果",
+        "headImgKey": "c9a997e0c5aa2e77d3ae03f7e34ca7a0"
+      },
+      "tags": [
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "865d1d3f0a31446b5e41856f3f9dcbf8",
+        "backtest_name": "大妈选股",
+        "location": "author_reply",
+        "reply_id": "cfc6bf95e63499606a902afdaa251d10",
+        "reply_add_time": "2022-11-30 12:30:29",
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=865d1d3f0a31446b5e41856f3f9dcbf8&postId=6158d3c096bec67025c930295d6ae277&replyId=cfc6bf95e63499606a902afdaa251d10&iframe=1",
+        "configuration": {
+          "start_date": "2012-01-01",
+          "end_date": "2022-11-28",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "5c46600466e355a46c6b0f7927ac987f",
+            "26671250"
+          ],
+          "numeric_backtest_id": "26671250",
+          "numeric_post_id": "40004",
+          "python_version": 3,
+          "clone_count": 280
+        },
+        "stats": {
+          "trading_days": 2649,
+          "benchmark_volatility": 0.25511567238512,
+          "algorithm_volatility": 0.27080673408708,
+          "treasury_return": 0.43627397260274,
+          "algorithm_return": 129.1108463531,
+          "benchmark_return": 0.85359283453431,
+          "annual_algo_return": 0.58321113467666,
+          "annual_bm_return": 0.059970837190653,
+          "sharpe": 2.0058996557374,
+          "excess_return_sharpe": "2.837",
+          "sortino": 2.4163223774396,
+          "information": 3.2966789483232,
+          "beta": 0.86986871456686,
+          "alpha": 0.52583912820081,
+          "excess_return": 69.19386562626,
+          "avg_excess_return": "0.17%",
+          "max_drawdown": 0.37134209561365,
+          "max_drawdown_period": [
+            "2015-08-17",
+            "2015-09-15"
+          ],
+          "excess_return_max_drawdown": "18.08%",
+          "excess_return_max_drawdown_period": [
+            "2020-10-23",
+            "2021-02-10"
+          ],
+          "max_leverage": 0,
+          "period_label": "2022-11",
+          "__version": 101,
+          "win_ratio": 0.69199178644764,
+          "profit_loss_ratio": 4.7367759355647,
+          "win_count": 337,
+          "lose_count": 150,
+          "day_win_ratio": 0.54624386560966,
+          "avg_trade_return": 0.11910694795862,
+          "avg_position_days": 118.29353233831,
+          "turnover_rate": 0.020232064792675,
+          "report_done_seconds": 374.27761936188,
+          "report_done_cpu_seconds": 308.33
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 12911.084635,
+          "benchmark_return_percent": 85.359283,
+          "annual_algo_return_percent": 58.321113,
+          "annual_bm_return_percent": 5.997084,
+          "max_drawdown_percent": 37.13421,
+          "algorithm_volatility_percent": 27.080673,
+          "benchmark_volatility_percent": 25.511567,
+          "win_ratio_percent": 69.199179,
+          "day_win_ratio_percent": 54.624387,
+          "avg_trade_return_percent": 11.910695,
+          "turnover_rate_percent": 2.023206,
+          "sharpe": 2.0058996557374,
+          "sortino": 2.4163223774396,
+          "information": 3.2966789483232,
+          "alpha": 0.52583912820081,
+          "beta": 0.86986871456686,
+          "profit_loss_ratio": 4.7367759355647,
+          "avg_position_days": 118.29353233831,
+          "trading_days": 2649,
+          "win_count": 337,
+          "lose_count": 150,
+          "max_drawdown_period": [
+            "2015-08-17",
+            "2015-09-15"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-10-23",
+            "2021-02-10"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 9,
+    "request_urls": [
+      "https://www.joinquant.com/post/40004",
+      "https://www.joinquant.com/community/post/detailV2?postId=40004",
+      "https://www.joinquant.com/community/post/replyList?page=1&postId=6158d3c096bec67025c930295d6ae277",
+      "https://www.joinquant.com/community/post/replyList?page=2&postId=6158d3c096bec67025c930295d6ae277",
+      "https://www.joinquant.com/community/post/replyList?page=3&postId=6158d3c096bec67025c930295d6ae277",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=865d1d3f0a31446b5e41856f3f9dcbf8&postId=6158d3c096bec67025c930295d6ae277&replyId=cfc6bf95e63499606a902afdaa251d10&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=865d1d3f0a31446b5e41856f3f9dcbf8"
+    ]
+  }
+}

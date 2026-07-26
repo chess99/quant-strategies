@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/13.7年40倍，模拟超过两年，年化高回撤低.txt",
+    "category": "2025年度精选策略",
+    "file_name": "13.7年40倍，模拟超过两年，年化高回撤低.txt",
+    "strategy_name": "年40倍，模拟超过两年，年化高回撤低",
+    "declared_title": "7年40倍，模拟超过两年，年化高回撤低",
+    "declared_author": "quakecat",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 10692,
+    "sha256": "354510d37f4f629287a11e976c210c26b32e364ebec34c356e9f52b8156f597c",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/30481"
+    ],
+    "primary_url": "https://www.joinquant.com/post/30481",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:46+08:00",
+    "requested_url": "https://www.joinquant.com/post/30481",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/6d0d64532d0ad36c2c43292ee663042a",
+    "community_id": "6d0d64532d0ad36c2c43292ee663042a",
+    "post": {
+      "postId": "2cd673599f088233b12198e6eb764604",
+      "uniqueKey": "6d0d64532d0ad36c2c43292ee663042a",
+      "title": "7年40倍，模拟超过两年，年化高回撤低",
+      "content": "老帖子还能编辑，感谢聚宽，我加一个说明，免得有些朋友不知道如何修改让策略运行，或者以为是骗积分的。\n当初在策略里加上黑名单功能，是为了在实盘时躲过已经暴雷的股票，回测时去掉完全不影响的，拷贝后做2处修改可以运行：\n1.**必须注释这一行**：from bwlist import *\n2.去掉blacklist：\n\n        #if hold_stocks[i] not in get_blacklist() and free_cash &gt; context.portfolio.total_value / (g.stocknum * 10): # 黑名单里的股票不买\n        if free_cash &gt; context.portfolio.total_value / (g.stocknum * 10):\n3.如果你需要黑名单功能，就不要按1和2改代码，自己添加一个名为bwlist.py的研究，里面加一个函数，以后随时可以自己增删黑名单而不需要动策略。\ndef get_blacklist():\n    return []\n\n——————————————————以下为原帖—————————————————\n\n两年多前看到一创聚宽上线，把手里的策略去掉了不少拟合参数放到了模拟盘，后来就跑实盘，再后来实盘策略又不断改动，现在回头一比，发现还是这个模拟了两年多的策略更稳。\n策略有择时，有牛熊市不同仓位配置，有多个可复用的函数，还有原创的打分方法。从14年1月1日到现在，年华74%的收益，最大回撤仅仅22.4%，看看自己现在改来改去跑的实盘，有那么一点哭笑不得。由于是以前的策略，用的是python2，毕竟在一创一直用python2，运行正常，也就没动力去改了。\n![Img]( https://image.joinquant.com/c40da63201a5f928a355a98191324791)",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-12-08 12:53:45",
+      "modTime": "2022-06-06 08:30:37",
+      "lastActiveTime": "2026-04-17 12:31:47",
+      "lastPubTime": "2022-06-06 08:30:37",
+      "backtestId": "29d28106bea8703213f46b83b23eecf5",
+      "backtestName": "一创模拟盘2号",
+      "replyCount": "964",
+      "viewCount": "58959",
+      "collectionCount": "808",
+      "likeCount": "405",
+      "disLikeCount": "0",
+      "backtestCloneCount": "3685",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "4",
+      "followersCount": "812",
+      "followingCount": "12",
+      "author": {
+        "userId": "05d601be788c25a3423da87e158aff0f",
+        "alias": "quakecat"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "14",
+          "name": "函数"
+        },
+        {
+          "id": "5",
+          "name": "仓位管理"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "29d28106bea8703213f46b83b23eecf5",
+        "backtest_name": "一创模拟盘2号",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=29d28106bea8703213f46b83b23eecf5&postId=6d0d64532d0ad36c2c43292ee663042a&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2014-01-01",
+          "end_date": "2020-12-06",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "189f47e172a95ae030abbbe7725cbf74",
+            "19041713"
+          ],
+          "numeric_backtest_id": "19041713",
+          "numeric_post_id": "30481",
+          "python_version": 2,
+          "clone_count": 3065
+        },
+        "stats": {
+          "benchmark_return": 1.1741865984558,
+          "max_drawdown": 0.22411228213528,
+          "trading_days": 1688,
+          "algorithm_volatility": 0.24408938225545,
+          "max_drawdown_period": [
+            "2015-08-17",
+            "2015-09-15"
+          ],
+          "information": 2.6377568601913,
+          "annual_bm_return": 0.12190245128101,
+          "excess_return_max_drawdown": "35.54%",
+          "benchmark_volatility": 0.23573959849325,
+          "annual_algo_return": 0.7420698664879,
+          "sharpe": 2.8762818767478,
+          "excess_return_max_drawdown_period": [
+            "2014-10-27",
+            "2015-01-16"
+          ],
+          "__version": 101,
+          "algorithm_return": 41.4301648555,
+          "beta": 0.53870690659605,
+          "alpha": 0.65794845031568,
+          "treasury_return": 0.27704109589041,
+          "max_leverage": 0,
+          "sortino": 3.6391318580729,
+          "period_label": "2020-12",
+          "avg_excess_return": "0.19%",
+          "excess_return": 18.515420104988,
+          "excess_return_sharpe": "2.171",
+          "turnover_rate": 0.08434392092157,
+          "avg_trade_return": 0.022481486818915,
+          "day_win_ratio": 0.55154028436019,
+          "profit_loss_ratio": 2.1146591651847,
+          "avg_position_days": 32.922077922078,
+          "lose_count": 375,
+          "win_ratio": 0.60567823343849,
+          "win_count": 576,
+          "report_done_seconds": 3655.6877698898,
+          "report_done_cpu_seconds": 3536.6
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 4143.016486,
+          "benchmark_return_percent": 117.41866,
+          "annual_algo_return_percent": 74.206987,
+          "annual_bm_return_percent": 12.190245,
+          "max_drawdown_percent": 22.411228,
+          "algorithm_volatility_percent": 24.408938,
+          "benchmark_volatility_percent": 23.57396,
+          "win_ratio_percent": 60.567823,
+          "day_win_ratio_percent": 55.154028,
+          "avg_trade_return_percent": 2.248149,
+          "turnover_rate_percent": 8.434392,
+          "sharpe": 2.8762818767478,
+          "sortino": 3.6391318580729,
+          "information": 2.6377568601913,
+          "alpha": 0.65794845031568,
+          "beta": 0.53870690659605,
+          "profit_loss_ratio": 2.1146591651847,
+          "avg_position_days": 32.922077922078,
+          "trading_days": 1688,
+          "win_count": 576,
+          "lose_count": 375,
+          "max_drawdown_period": [
+            "2015-08-17",
+            "2015-09-15"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2014-10-27",
+            "2015-01-16"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/30481",
+      "https://www.joinquant.com/community/post/detailV2?postId=30481",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=29d28106bea8703213f46b83b23eecf5&postId=6d0d64532d0ad36c2c43292ee663042a&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=29d28106bea8703213f46b83b23eecf5"
+    ]
+  }
+}

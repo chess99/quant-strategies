@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/62.3年复合200+%收益+超低回撤11%以内，无惧大跌.txt",
+    "category": "2023年度精选策略",
+    "file_name": "62.3年复合200+%收益+超低回撤11%以内，无惧大跌.txt",
+    "strategy_name": "年复合200+%收益+超低回撤11%以内，无惧大跌",
+    "declared_title": "3年复合200+%收益+超低回撤11%以内，无惧大跌",
+    "declared_author": "Sunj3001",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 29102,
+    "sha256": "8ba1143f5f4e7bea7c0504f0b2ebadd77dd3adf9425299a3200d18ca1cd546c1",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/32630",
+      "https://www.joinquant.com/view/community/detail/c9827c6126003147912f1b47967052d9"
+    ],
+    "primary_url": "https://www.joinquant.com/post/32630",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:09:27+08:00",
+    "requested_url": "https://www.joinquant.com/post/32630",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/1ca341674b73d2e1a048d79739dfadad",
+    "community_id": "1ca341674b73d2e1a048d79739dfadad",
+    "post": {
+      "postId": "456c6f2542ccf26c9feb2be5512703a4",
+      "uniqueKey": "1ca341674b73d2e1a048d79739dfadad",
+      "title": "3年复合200+%收益+超低回撤11%以内，无惧大跌",
+      "content": "补充2018-2021年4月5日回测，18年表现依据强劲！\n18年收益12%，超大盘近40百分点，\n18，19年，20年连续三年均大幅跑赢大盘，三年年化超40%以上\n最新最优秀的大交易量的LOF、ETF组合轮动",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-04-06 18:47:58",
+      "modTime": "2021-04-06 18:47:58",
+      "lastActiveTime": "2026-03-23 16:16:34",
+      "lastPubTime": "2021-04-06 18:47:58",
+      "backtestId": "465e2de27a5e25c8bdfbc92eccc31ff2",
+      "backtestName": "ETFLOF非行业更稳组合接近实盘",
+      "replyCount": "104",
+      "viewCount": "4213",
+      "collectionCount": "69",
+      "likeCount": "32",
+      "disLikeCount": "0",
+      "backtestCloneCount": "275",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "3",
+      "followersCount": "50",
+      "followingCount": "16",
+      "author": {
+        "userId": "5bd0fc2753eafaa5d9f726a5af4caf2b",
+        "alias": "Sunj3001",
+        "introduction": "量化风险趋势投资",
+        "vipType": "VIP"
+      },
+      "tags": [
+        {
+          "id": "12",
+          "name": "基金"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        },
+        {
+          "id": "1368",
+          "name": "ETF"
+        },
+        {
+          "id": "1369",
+          "name": "LOF"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "465e2de27a5e25c8bdfbc92eccc31ff2",
+        "backtest_name": "ETFLOF非行业更稳组合接近实盘",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=465e2de27a5e25c8bdfbc92eccc31ff2&postId=1ca341674b73d2e1a048d79739dfadad&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2018-01-01",
+          "end_date": "2021-04-05",
+          "base_capital": 500000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "3b707956c8fc7ac30eb5745b3ccecdae",
+            "20282192"
+          ],
+          "numeric_backtest_id": "20282192",
+          "numeric_post_id": "32630",
+          "python_version": 3,
+          "clone_count": 323
+        },
+        "stats": {
+          "trading_days": 790,
+          "benchmark_volatility": 0.21624703902854,
+          "algorithm_volatility": 0.21148904236551,
+          "treasury_return": 0.12997260273973,
+          "algorithm_return": 2.19803188684,
+          "benchmark_return": 0.2805140355012,
+          "annual_algo_return": 0.44468457130964,
+          "annual_bm_return": 0.081390094277377,
+          "sharpe": 1.913501365287,
+          "excess_return_sharpe": "1.366",
+          "sortino": 2.9483064633069,
+          "information": 1.681257197108,
+          "beta": 0.47898845926485,
+          "alpha": 0.38485919382289,
+          "excess_return": 1.497459456263,
+          "avg_excess_return": "0.13%",
+          "max_drawdown": 0.10438965966071,
+          "max_drawdown_period": [
+            "2021-01-12",
+            "2021-02-26"
+          ],
+          "excess_return_max_drawdown": "13.54%",
+          "excess_return_max_drawdown_period": [
+            "2020-10-14",
+            "2021-02-18"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-04",
+          "__version": 101,
+          "win_ratio": 0.63354037267081,
+          "profit_loss_ratio": 2.0736824676009,
+          "win_count": 204,
+          "lose_count": 118,
+          "day_win_ratio": 0.52405063291139,
+          "avg_trade_return": 0.0060192970998196,
+          "avg_position_days": 55.642857142857,
+          "turnover_rate": 0.35786440260537,
+          "report_done_seconds": 109.8999710083,
+          "report_done_cpu_seconds": 106.02
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 219.803189,
+          "benchmark_return_percent": 28.051404,
+          "annual_algo_return_percent": 44.468457,
+          "annual_bm_return_percent": 8.139009,
+          "max_drawdown_percent": 10.438966,
+          "algorithm_volatility_percent": 21.148904,
+          "benchmark_volatility_percent": 21.624704,
+          "win_ratio_percent": 63.354037,
+          "day_win_ratio_percent": 52.405063,
+          "avg_trade_return_percent": 0.60193,
+          "turnover_rate_percent": 35.78644,
+          "sharpe": 1.913501365287,
+          "sortino": 2.9483064633069,
+          "information": 1.681257197108,
+          "alpha": 0.38485919382289,
+          "beta": 0.47898845926485,
+          "profit_loss_ratio": 2.0736824676009,
+          "avg_position_days": 55.642857142857,
+          "trading_days": 790,
+          "win_count": 204,
+          "lose_count": 118,
+          "max_drawdown_period": [
+            "2021-01-12",
+            "2021-02-26"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-10-14",
+            "2021-02-18"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/32630",
+      "https://www.joinquant.com/community/post/detailV2?postId=32630",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=465e2de27a5e25c8bdfbc92eccc31ff2&postId=1ca341674b73d2e1a048d79739dfadad&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=465e2de27a5e25c8bdfbc92eccc31ff2"
+    ]
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/12.全市场选股？7年5倍不择时，回撤30%左右.txt",
+    "category": "2022年度精选策略",
+    "file_name": "12.全市场选股？7年5倍不择时，回撤30%左右.txt",
+    "strategy_name": "全市场选股？7年5倍不择时，回撤30%左右",
+    "declared_title": "全市场选股？7年5倍不择时，回撤30%左右",
+    "declared_author": "Jacobb75",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 11377,
+    "sha256": "d8a0ab093c89aad222913ed3a4d2d497ae54b9efaaad4715d0f76307bf850a06",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/35307",
+      "https://www.joinquant.com/post/34964",
+      "https://www.joinquant.com/post/34862"
+    ],
+    "primary_url": "https://www.joinquant.com/post/35307",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:39+08:00",
+    "requested_url": "https://www.joinquant.com/post/35307",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/2106b2efafda32d5a7d2b57d889205bc",
+    "community_id": "2106b2efafda32d5a7d2b57d889205bc",
+    "post": {
+      "postId": "8b358ff5e96df5020cd39da6807a2536",
+      "uniqueKey": "2106b2efafda32d5a7d2b57d889205bc",
+      "title": "全市场选股？7年5倍不择时，回撤30%左右",
+      "content": "#本策略的灵感来源以下二位的铺垫，在此表示感谢！\n克隆自聚宽文章：https://www.joinquant.com/post/34964\n标题：这个策略太牛逼了，今年赚了那么多\n作者：wgl\n\n克隆自聚宽文章：https://www.joinquant.com/post/34862\n标题：ROE+PB模型的优化\n作者：wywy1995\n\n#一，模型基本思路\n##1，选股标的范围\n全市场\n\n##2，选股思路\n这所有股票，怎么过滤呢？我的想法如下\n1）过滤所有当日涨跌停，停牌，退市，*st的，以及上市未满三年的。\n我不过滤st股，是因为有时候st股票并不是真的公司经营出了大问题——违规担保啊，信披不及时的情况也挺多的；而且st股中期报告必须经过审计，其实也挺不错的——这使得有些st涨的还不错（st舍得）。所以简单的帽子不能说明一切；未满三年是保证所有股票都过完持续督导期。过滤完，还剩1650左右个\n\n2）选出资产负债率中间80%的股票（10%-90%）。\n太高的ALR，大多是银行股，要么就是快崩了的股票，我不喜欢；太低的经营思路太保守，加不上杠杆也有经营的风险。这样一操作金融地产类再见，一些小的妖股也能过滤掉不少，剩下的大部分是财务状况相对健康的制造业企业\n\n3）选出所谓“不良资产”在中间80%的股票（10%-90%）。\n所谓不良资产的问题，在上述两位宽友的分享中有所说明。总而言之不良资产就是一些审计中重大错报风险较高的资产类项目，比如应收款，存货，商誉，无形资产，在建工程等等；这东西如果太高了，财务风险会相应提高，容易出事；太低的话也不好：太低表明企业信用政策或者扩大再生产能力堪忧，发展前景不乐观。这样一来，就只有600个左右了，大部分都是拥有优质先进资产的规模制造业企业。\n\n4）选出运用“优质资产”最好的前75%的公司。\n这个思路我是通过“优质资产周转率”来实现的。总资产-不良资产=优质资产，单位优质资产创造的收入最高的前75%公司。75%是参数调整试出来的，我也不知道为什么。也许其他参数会更好。还剩450个左右，都是一些资产经营管理比较有优势的企业\n\n5）选出ROA的变化最靠前的20%。这是最重要的筛选步骤。\n因为结合以上的指标，一个公司财务杠杆相对适中，信用政策和扩大再生产的能力也可以，公司日常重要的生产用资产的管理也比较到位，那这个公司一定是一个好公司；如果这样的好公司在同类公司中实现了资产回报率的快速增长（我们这里的标准是选出max（本期ROA-连续4个季度的平均ROA）最靠前的20%），那一定会刺激投资者，起码中期会有很大可能去提高股价。从模型的实际效果来看，选出了不少扭亏为盈的企业，这从中期来看是很有刺激效果的利好信号。这步完后，还剩50家左右。\n\n6）最后，找到了好公司，我的目标是从这些好公司里找出便宜的公司。便宜与否的标准只有2个：市净率和市销率。\n市净率破净没什么太大关系，只要别太低就好，所以我定的标准是市净率&gt;0.7；市销率比较微妙：一般而言上述方法选出来的应该都是制造业企业，市销率不会太高，我定的一个标准是最多1年半的收入能买下自己公司（市销率&lt; 1.5）。我也试过市销率&lt; 3，但是选出来的公司还是有点多，表明3这个门槛还不够低。用这种方法能选出相对低估的制造业公司股票还是挺不错的\n\n通过以上6步，也就能挑出10来个股票；按照市净率从小到大选出前10个凑个整吧。\n\n#二，交易情况\n## 1，交易参数\n每月倒数第四天中午11：30运行代码；玄学，别问，问就是我瞎选的时间，反正不择时。（一般日历效应月底跌概率大，中午11：30有可能早盘冲高回落，手动下单的话可下午开盘的时候买入这时候低吸）。虽然每周比每月好是因为有时候公司的每期财报不都是在某一个月份的固定时间同时披露（比如4月披露上年年报，4月的每周都有可能，所以每周运行能够及时遍历所有更新的财务信息），但是每周调仓回测太慢了。\n\n交易佣金万5，券商也要赚点钱不是吗\n\n业绩基准，国证全A最好\n\n仓位基本满仓干，由于每周一调仓，也不怕周转不开，而且大部分每周只有一两只股票调仓，不是全仓换股问题不大。\n\n## 2，回测表现\n\n21年翻倍爆炸。其他年份也还可以，就是回撤大。\n\n\n##三，缺陷\n没考虑金融地产等高杠杆行业，不是很抓热点，也没有周期轮动；止损暂时没加。\n\n\n欢迎大家讨论！！！\n\n\nPS：最近改了下，没用1800指数里的，换成全市场选股效果更好些\n\nPPS:有不少朋友反应上述说明和模型代码表明的信息不一致：确实，代码改过一次，今天有空把说明也改了，欢迎讨论",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-11-06 23:13:42",
+      "modTime": "2022-02-09 09:11:14",
+      "lastActiveTime": "2025-12-06 17:15:56",
+      "lastPubTime": "2022-02-09 09:11:14",
+      "backtestId": "c423527f54e310ca9b6a518c2900ba62",
+      "backtestName": "全市场选股",
+      "replyCount": "138",
+      "viewCount": "10256",
+      "collectionCount": "208",
+      "likeCount": "97",
+      "disLikeCount": "0",
+      "backtestCloneCount": "561",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "8",
+      "followersCount": "337",
+      "followingCount": "8",
+      "author": {
+        "userId": "d419f3809d8587335bc8948cba7c8abc",
+        "alias": "Jacobb75"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "c423527f54e310ca9b6a518c2900ba62",
+        "backtest_name": "全市场选股",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=c423527f54e310ca9b6a518c2900ba62&postId=2106b2efafda32d5a7d2b57d889205bc&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2010-10-24",
+          "end_date": "2022-01-05",
+          "base_capital": 500000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "1ffde4f78c9611472cad92813bc27a05",
+            "23108255"
+          ],
+          "numeric_backtest_id": "23108255",
+          "numeric_post_id": "35307",
+          "python_version": 3,
+          "clone_count": 499
+        },
+        "stats": {
+          "trading_days": 2727,
+          "benchmark_volatility": 0.23247101375701,
+          "algorithm_volatility": 0.27652663513291,
+          "treasury_return": 0.44821917808219,
+          "algorithm_return": 13.22034285264,
+          "benchmark_return": 0.86652857653931,
+          "annual_algo_return": 0.27553973544583,
+          "annual_bm_return": 0.058881417940044,
+          "sharpe": 0.85177955943601,
+          "excess_return_sharpe": "1.145",
+          "sortino": 1.0837789637831,
+          "information": 1.5103625398791,
+          "beta": 1.0170874924985,
+          "alpha": 0.21633568141838,
+          "excess_return": 6.6186044143004,
+          "avg_excess_return": "0.08%",
+          "max_drawdown": 0.44342611098877,
+          "max_drawdown_period": [
+            "2015-06-15",
+            "2015-09-15"
+          ],
+          "excess_return_max_drawdown": "17.69%",
+          "excess_return_max_drawdown_period": [
+            "2020-12-11",
+            "2021-02-09"
+          ],
+          "max_leverage": 0,
+          "period_label": "2022-01",
+          "__version": 101,
+          "win_ratio": 0.5495145631068,
+          "profit_loss_ratio": 2.8640181375074,
+          "win_count": 283,
+          "lose_count": 232,
+          "day_win_ratio": 0.52035203520352,
+          "avg_trade_return": 0.063831106728255,
+          "avg_position_days": 87.456591639871,
+          "turnover_rate": 0.019948356693387,
+          "report_done_seconds": 374.4784386158,
+          "report_done_cpu_seconds": 180.9
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 1322.034285,
+          "benchmark_return_percent": 86.652858,
+          "annual_algo_return_percent": 27.553974,
+          "annual_bm_return_percent": 5.888142,
+          "max_drawdown_percent": 44.342611,
+          "algorithm_volatility_percent": 27.652664,
+          "benchmark_volatility_percent": 23.247101,
+          "win_ratio_percent": 54.951456,
+          "day_win_ratio_percent": 52.035204,
+          "avg_trade_return_percent": 6.383111,
+          "turnover_rate_percent": 1.994836,
+          "sharpe": 0.85177955943601,
+          "sortino": 1.0837789637831,
+          "information": 1.5103625398791,
+          "alpha": 0.21633568141838,
+          "beta": 1.0170874924985,
+          "profit_loss_ratio": 2.8640181375074,
+          "avg_position_days": 87.456591639871,
+          "trading_days": 2727,
+          "win_count": 283,
+          "lose_count": 232,
+          "max_drawdown_period": [
+            "2015-06-15",
+            "2015-09-15"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-12-11",
+            "2021-02-09"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/35307",
+      "https://www.joinquant.com/community/post/detailV2?postId=35307",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=c423527f54e310ca9b6a518c2900ba62&postId=2106b2efafda32d5a7d2b57d889205bc&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=c423527f54e310ca9b6a518c2900ba62"
+    ]
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/86 5日线穿十日线策略（供初学）.txt",
+    "category": "2020年度精选策略",
+    "file_name": "86 5日线穿十日线策略（供初学）.txt",
+    "strategy_name": "5日线穿十日线策略（供初学）",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 1355,
+    "sha256": "52c30458631e22e4f5146c62155cf356b131454329197143de69e7a600a53383",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/12056"
+    ],
+    "primary_url": "https://www.joinquant.com/post/12056",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:24+08:00",
+    "requested_url": "https://www.joinquant.com/post/12056",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/d8165978cbb6275ec836a835ef82fe4f",
+    "community_id": "d8165978cbb6275ec836a835ef82fe4f",
+    "post": {
+      "postId": "c875ed161b70b110e55f172e406e6683",
+      "uniqueKey": "d8165978cbb6275ec836a835ef82fe4f",
+      "title": "5日线穿十日线策略（供初学）",
+      "content": "策略：\r\n     5日线金叉十日线买入，判断昨日收盘价是否大于5日线。\r\n     昨日收盘价下于5日线卖出，判断是否持股。\r\n\r\n只是一只股票。选了中国国航。和选择的股票很有关系。选择温氏股份，收益率为负。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-04-12 16:08:00",
+      "modTime": "2018-04-12 16:08:00",
+      "lastActiveTime": "2018-04-12 16:08:00",
+      "lastPubTime": "2018-04-12 16:08:00",
+      "backtestId": "f1e58bc551493f401c2ee9ac24c8f69d",
+      "backtestName": "初学策略5日均线上穿10日均线",
+      "replyCount": "0",
+      "viewCount": "1010",
+      "collectionCount": "1",
+      "likeCount": "1",
+      "disLikeCount": "0",
+      "backtestCloneCount": "10",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "2",
+      "followersCount": "2",
+      "followingCount": "6",
+      "author": {
+        "userId": "e2b91a97b36c7deadcc30afb6829d0ff",
+        "alias": "开心的叶子",
+        "introduction": "50岁的老同志，努力成为宽客"
+      },
+      "tags": []
+    },
+    "backtests": [
+      {
+        "backtest_id": "f1e58bc551493f401c2ee9ac24c8f69d",
+        "backtest_name": "初学策略5日均线上穿10日均线",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=f1e58bc551493f401c2ee9ac24c8f69d&postId=d8165978cbb6275ec836a835ef82fe4f&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2017-04-01",
+          "end_date": "2018-04-11",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "0f294b30dae946e5ceed8f8d83a69002",
+            "8216763"
+          ],
+          "numeric_backtest_id": "8216763",
+          "numeric_post_id": "12056",
+          "python_version": 2,
+          "clone_count": 10
+        },
+        "stats": {
+          "information": 0.32811506083391,
+          "benchmark_return": 0.13955096945338,
+          "algorithm_volatility": 0.20769806931918,
+          "annual_bm_return": 0.13955096945338,
+          "__version": 101,
+          "max_drawdown": 0.12893363090943,
+          "sortino": 1.3746963314154,
+          "period_label": "2018-04",
+          "trading_days": 250,
+          "algorithm_return": 0.2170356,
+          "benchmark_volatility": 0.13109634951386,
+          "beta": 0.13259276698405,
+          "excess_return": 0.17637806575342,
+          "annual_algo_return": 0.2170356,
+          "sharpe": 0.85236998389207,
+          "alpha": 0.16383586150423,
+          "max_drawdown_period": [
+            "2017-11-22",
+            "2018-01-05"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.040657534246575,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.448,
+          "avg_position_days": 71,
+          "win_ratio": 0.33333333333333,
+          "win_count": 7,
+          "avg_trade_return": 0.010989702113639,
+          "profit_loss_ratio": 1.7063030418614,
+          "lose_count": 14,
+          "report_done_seconds": 4.5561368465424
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 21.70356,
+          "benchmark_return_percent": 13.955097,
+          "annual_algo_return_percent": 21.70356,
+          "annual_bm_return_percent": 13.955097,
+          "max_drawdown_percent": 12.893363,
+          "algorithm_volatility_percent": 20.769807,
+          "benchmark_volatility_percent": 13.109635,
+          "win_ratio_percent": 33.333333,
+          "day_win_ratio_percent": 44.8,
+          "avg_trade_return_percent": 1.09897,
+          "sharpe": 0.85236998389207,
+          "sortino": 1.3746963314154,
+          "information": 0.32811506083391,
+          "alpha": 0.16383586150423,
+          "beta": 0.13259276698405,
+          "profit_loss_ratio": 1.7063030418614,
+          "avg_position_days": 71,
+          "trading_days": 250,
+          "win_count": 7,
+          "lose_count": 14,
+          "max_drawdown_period": [
+            "2017-11-22",
+            "2018-01-05"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/12056",
+      "https://www.joinquant.com/community/post/detailV2?postId=12056",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=f1e58bc551493f401c2ee9ac24c8f69d&postId=d8165978cbb6275ec836a835ef82fe4f&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=f1e58bc551493f401c2ee9ac24c8f69d"
+    ]
+  }
+}

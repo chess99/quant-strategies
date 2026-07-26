@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/64.ETF轮动策略升级-增加盘中止损.txt",
+    "category": "2022年度精选策略",
+    "file_name": "64.ETF轮动策略升级-增加盘中止损.txt",
+    "strategy_name": "ETF轮动策略升级-增加盘中止损",
+    "declared_title": "ETF轮动策略升级-增加盘中止损",
+    "declared_author": "长鸿",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 12562,
+    "sha256": "47f52dbc69ddf56582b101b7f1a812dbeaf7f38ae9aae4e2ac94cfc37b020d77",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/38838",
+      "https://www.joinquant.com/view/community/detail/a01c4c8a03d5388f5db75f3bf4ff51e5"
+    ],
+    "primary_url": "https://www.joinquant.com/post/38838",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:19+08:00",
+    "requested_url": "https://www.joinquant.com/post/38838",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/72e9ea87f98149feff11eb3f5aba6065",
+    "community_id": "72e9ea87f98149feff11eb3f5aba6065",
+    "post": {
+      "postId": "fa0c32dc24c22339acd1ad3b5d55f417",
+      "uniqueKey": "72e9ea87f98149feff11eb3f5aba6065",
+      "title": "删除-再迭代中",
+      "content": "删除-再迭代中",
+      "type": 1,
+      "status": "1",
+      "addTime": "2022-08-16 22:53:50",
+      "modTime": "2024-04-21 17:09:15",
+      "lastActiveTime": "2024-04-21 17:09:15",
+      "lastPubTime": "2024-04-21 17:09:15",
+      "replyCount": "75",
+      "viewCount": "2827",
+      "collectionCount": "42",
+      "likeCount": "59",
+      "disLikeCount": "0",
+      "backtestCloneCount": "148",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "3",
+      "followersCount": "44",
+      "followingCount": "38",
+      "author": {
+        "userId": "02048805272212720bd9c81d02c1b527",
+        "alias": "长鸿"
+      },
+      "tags": [
+        {
+          "id": "11",
+          "name": "轮动"
+        },
+        {
+          "id": "2203",
+          "name": "ETF"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "ce138ddf9f5c5f1d06f75f56799ffc97",
+        "backtest_name": "ETF轮动策略升级-增加盘中止损",
+        "location": "author_reply",
+        "reply_id": "f41911dcf01e68cfb10c252419d24bb6",
+        "reply_add_time": "2022-08-18 08:49:28",
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=ce138ddf9f5c5f1d06f75f56799ffc97&postId=72e9ea87f98149feff11eb3f5aba6065&replyId=f41911dcf01e68cfb10c252419d24bb6&iframe=1",
+        "configuration": {
+          "start_date": "2020-01-01",
+          "end_date": "2022-08-17",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "8df51274455020d6950bc12fbc5cfb20",
+            "25658961"
+          ],
+          "numeric_backtest_id": "25658961",
+          "numeric_post_id": "38838",
+          "python_version": 3,
+          "clone_count": 145
+        },
+        "stats": {
+          "trading_days": 637,
+          "benchmark_volatility": 0.208594960266,
+          "algorithm_volatility": 0.42548157416073,
+          "treasury_return": 0.10498630136986,
+          "algorithm_return": 1.5048849003,
+          "benchmark_return": 0.029385487406568,
+          "annual_algo_return": 0.43387111374662,
+          "annual_bm_return": 0.011431410810709,
+          "sharpe": 0.9257066290674,
+          "excess_return_sharpe": "0.918",
+          "sortino": 1.3757897880676,
+          "information": 1.0273412648075,
+          "beta": 0.63733672057035,
+          "alpha": 0.41207892469184,
+          "excess_return": 1.4333788759844,
+          "avg_excess_return": "0.17%",
+          "max_drawdown": 0.25721527420332,
+          "max_drawdown_period": [
+            "2022-03-09",
+            "2022-05-10"
+          ],
+          "excess_return_max_drawdown": "19.92%",
+          "excess_return_max_drawdown_period": [
+            "2022-03-09",
+            "2022-05-11"
+          ],
+          "max_leverage": 0,
+          "period_label": "2022-08",
+          "__version": 101,
+          "win_ratio": 0.47619047619048,
+          "profit_loss_ratio": 1.3762579539675,
+          "win_count": 130,
+          "lose_count": 143,
+          "day_win_ratio": 0.51177394034537,
+          "avg_trade_return": 0.0046212232024561,
+          "avg_position_days": 24.136363636364,
+          "turnover_rate": 0.43127634314795,
+          "report_done_seconds": 174.00509643555,
+          "report_done_cpu_seconds": 171.8
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 150.48849,
+          "benchmark_return_percent": 2.938549,
+          "annual_algo_return_percent": 43.387111,
+          "annual_bm_return_percent": 1.143141,
+          "max_drawdown_percent": 25.721527,
+          "algorithm_volatility_percent": 42.548157,
+          "benchmark_volatility_percent": 20.859496,
+          "win_ratio_percent": 47.619048,
+          "day_win_ratio_percent": 51.177394,
+          "avg_trade_return_percent": 0.462122,
+          "turnover_rate_percent": 43.127634,
+          "sharpe": 0.9257066290674,
+          "sortino": 1.3757897880676,
+          "information": 1.0273412648075,
+          "alpha": 0.41207892469184,
+          "beta": 0.63733672057035,
+          "profit_loss_ratio": 1.3762579539675,
+          "avg_position_days": 24.136363636364,
+          "trading_days": 637,
+          "win_count": 130,
+          "lose_count": 143,
+          "max_drawdown_period": [
+            "2022-03-09",
+            "2022-05-10"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2022-03-09",
+            "2022-05-11"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 2,
+    "request_urls": [
+      "https://www.joinquant.com/post/38838",
+      "https://www.joinquant.com/community/post/detailV2?postId=38838",
+      "https://www.joinquant.com/community/post/replyList?page=1&postId=72e9ea87f98149feff11eb3f5aba6065",
+      "https://www.joinquant.com/community/post/replyList?page=2&postId=72e9ea87f98149feff11eb3f5aba6065",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=ce138ddf9f5c5f1d06f75f56799ffc97&postId=72e9ea87f98149feff11eb3f5aba6065&replyId=f41911dcf01e68cfb10c252419d24bb6&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=ce138ddf9f5c5f1d06f75f56799ffc97"
+    ]
+  }
+}

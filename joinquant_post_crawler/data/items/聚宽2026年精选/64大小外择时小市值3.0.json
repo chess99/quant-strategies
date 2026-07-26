@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/64大小外择时小市值3.0.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "64大小外择时小市值3.0.txt",
+    "strategy_name": "大小外择时小市值3.0",
+    "declared_title": "大小外择时小市值3.0",
+    "declared_author": "kautz",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 21402,
+    "sha256": "0733c340de7f090b1232d6df2b69ae0053f88b04f2f5d211bb864a1f6cfdaa6f",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/50567"
+    ],
+    "primary_url": "https://www.joinquant.com/post/50567",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:12:24+08:00",
+    "requested_url": "https://www.joinquant.com/post/50567",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/1f1ea70ca47bb2c80773e5fa6f487f17",
+    "community_id": "1f1ea70ca47bb2c80773e5fa6f487f17",
+    "post": {
+      "postId": "04ec80bef7d33153cdd2c6e922d7c13e",
+      "uniqueKey": "1f1ea70ca47bb2c80773e5fa6f487f17",
+      "title": "大小外择时小市值3.0",
+      "content": "其实不是新版本，只是发现其中没有ETF时候空仓，把空仓时间同时又有国债ETF时候，买入国债ETF。本策略改进了多次有些更好的结果，希望和有大市值策略sharp 1.5以上的人交换。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2024-11-13 19:18:40",
+      "modTime": "2024-11-13 19:18:40",
+      "lastActiveTime": "2026-02-24 09:07:15",
+      "lastPubTime": "2024-11-13 19:18:40",
+      "backtestId": "22a47585f728e55430941d6e22572838",
+      "backtestName": "大小外3.0(无外盘时增加国债ETF)",
+      "replyCount": "35",
+      "viewCount": "5607",
+      "collectionCount": "89",
+      "likeCount": "44",
+      "disLikeCount": "0",
+      "backtestCloneCount": "339",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "17",
+      "followersCount": "438",
+      "followingCount": "3722",
+      "author": {
+        "userId": "a033c5d564d60fe651e2a73539a4978e",
+        "alias": "kautz"
+      },
+      "tags": [
+        {
+          "id": "12",
+          "name": "基金"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "22a47585f728e55430941d6e22572838",
+        "backtest_name": "大小外3.0(无外盘时增加国债ETF)",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=22a47585f728e55430941d6e22572838&postId=1f1ea70ca47bb2c80773e5fa6f487f17&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2013-01-01",
+          "end_date": "2024-11-11",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "6cd63a853c91d58ef33e5de8e08610e6",
+            "37270246"
+          ],
+          "numeric_backtest_id": "37270246",
+          "numeric_post_id": "50567",
+          "python_version": 3,
+          "clone_count": 308
+        },
+        "stats": {
+          "trading_days": 2878,
+          "benchmark_volatility": 0.21945273091244,
+          "algorithm_volatility": 0.24376049152868,
+          "treasury_return": 0.47441095890411,
+          "algorithm_return": 403.60522863314,
+          "benchmark_return": 0.63742047999367,
+          "annual_algo_return": 0.68446535159769,
+          "annual_bm_return": 0.043766167546366,
+          "sharpe": 2.6438466199182,
+          "excess_return_sharpe": "2.404",
+          "sortino": 3.776104696875,
+          "information": 2.6986287855903,
+          "beta": 0.5316920907873,
+          "alpha": 0.64246291010071,
+          "excess_return": 246.09916211302,
+          "avg_excess_return": "0.20%",
+          "max_drawdown": 0.22275293663795,
+          "max_drawdown_period": [
+            "2021-04-19",
+            "2021-11-04"
+          ],
+          "excess_return_max_drawdown": "42.94%",
+          "excess_return_max_drawdown_period": [
+            "2014-11-04",
+            "2015-01-05"
+          ],
+          "max_leverage": 0,
+          "period_label": "2024-11",
+          "__version": 101,
+          "win_ratio": 0.60741206030151,
+          "profit_loss_ratio": 4.1506840260118,
+          "win_count": 967,
+          "lose_count": 625,
+          "day_win_ratio": 0.5316191799861,
+          "avg_trade_return": 0.037988939746982,
+          "avg_position_days": 74.632743362832,
+          "turnover_rate": 0.071668854117921,
+          "report_done_seconds": 240.44843268394,
+          "report_done_cpu_seconds": 171.4
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 40360.522863,
+          "benchmark_return_percent": 63.742048,
+          "annual_algo_return_percent": 68.446535,
+          "annual_bm_return_percent": 4.376617,
+          "max_drawdown_percent": 22.275294,
+          "algorithm_volatility_percent": 24.376049,
+          "benchmark_volatility_percent": 21.945273,
+          "win_ratio_percent": 60.741206,
+          "day_win_ratio_percent": 53.161918,
+          "avg_trade_return_percent": 3.798894,
+          "turnover_rate_percent": 7.166885,
+          "sharpe": 2.6438466199182,
+          "sortino": 3.776104696875,
+          "information": 2.6986287855903,
+          "alpha": 0.64246291010071,
+          "beta": 0.5316920907873,
+          "profit_loss_ratio": 4.1506840260118,
+          "avg_position_days": 74.632743362832,
+          "trading_days": 2878,
+          "win_count": 967,
+          "lose_count": 625,
+          "max_drawdown_period": [
+            "2021-04-19",
+            "2021-11-04"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2014-11-04",
+            "2015-01-05"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/50567",
+      "https://www.joinquant.com/community/post/detailV2?postId=50567",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=22a47585f728e55430941d6e22572838&postId=1f1ea70ca47bb2c80773e5fa6f487f17&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=22a47585f728e55430941d6e22572838"
+    ]
+  }
+}

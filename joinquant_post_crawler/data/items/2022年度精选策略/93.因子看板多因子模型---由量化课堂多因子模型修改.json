@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/93.因子看板多因子模型---由量化课堂多因子模型修改.txt",
+    "category": "2022年度精选策略",
+    "file_name": "93.因子看板多因子模型---由量化课堂多因子模型修改.txt",
+    "strategy_name": "因子看板多因子模型---由量化课堂多因子模型修改",
+    "declared_title": "因子看板多因子模型---由量化课堂多因子模型修改",
+    "declared_author": "游星",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 10955,
+    "sha256": "cd154d8d42bba617cc7b16d9c8ca12cc3bb30f7da7e29cb96840637740d46034",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/35605",
+      "https://www.joinquant.com/post/1399"
+    ],
+    "primary_url": "https://www.joinquant.com/post/35605",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:42+08:00",
+    "requested_url": "https://www.joinquant.com/post/35605",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/84f20d2508bda078cd27f434d593cfe4",
+    "community_id": "84f20d2508bda078cd27f434d593cfe4",
+    "post": {
+      "postId": "51878f030778d37186ea9528bd06ea02",
+      "uniqueKey": "84f20d2508bda078cd27f434d593cfe4",
+      "title": "因子看板多因子模型---由量化课堂多因子模型修改",
+      "content": "使用的基础模型是【量化课堂】多因子策略入门https://www.joinquant.com/view/community/detail/fd9bf8d85320864d6718ed35e16d4c6a 里面的模型。\n\n\n但是它不能直接调用因子看板的因子，所以我做了点修改，\n现在可以直接调用因子看板的因子了\n然后就是原模型获取因子的数据日期交易的当天改为了交易的前一天，防止未来函数\n\n\n有任何不懂或建议欢迎交流,私下交流也可\n\n---------------------2021-11-29更新-----------------------\n有人问道要长期的回测数据，我实际的说一下，长期回测数据十分的糟糕，也就2020年的回测数据较好而已\n这个模型主要是可以添加和更换聚宽里面的因子看板里面的因子。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-11-27 19:33:42",
+      "modTime": "2021-11-29 00:24:11",
+      "lastActiveTime": "2026-03-09 18:37:12",
+      "lastPubTime": "2021-11-29 00:24:11",
+      "backtestId": "5768044c03ab84de87d68874815da839",
+      "backtestName": "因子看板多因子模型",
+      "replyCount": "20",
+      "viewCount": "5196",
+      "collectionCount": "34",
+      "likeCount": "14",
+      "disLikeCount": "0",
+      "backtestCloneCount": "362",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "3",
+      "followersCount": "10",
+      "followingCount": "17",
+      "author": {
+        "userId": "b6d4a744dd8a1294a4f7a1ca5f98bc8b",
+        "alias": "游星",
+        "headImgKey": "8a4edeedd22402c4d3e2bd7957c1c95e"
+      },
+      "tags": [
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1752",
+          "name": "因子看板"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "5768044c03ab84de87d68874815da839",
+        "backtest_name": "因子看板多因子模型",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=5768044c03ab84de87d68874815da839&postId=84f20d2508bda078cd27f434d593cfe4&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2020-01-01",
+          "end_date": "2020-12-01",
+          "base_capital": 10000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "d96fbae33df367182421137a7d9218c9",
+            "22654343"
+          ],
+          "numeric_backtest_id": "22654343",
+          "numeric_post_id": "35605",
+          "python_version": 3,
+          "clone_count": 381
+        },
+        "stats": {
+          "trading_days": 221,
+          "benchmark_volatility": 0.23377021670756,
+          "algorithm_volatility": 0.25236018652919,
+          "treasury_return": 0.036602739726027,
+          "algorithm_return": 0.606423455502,
+          "benchmark_return": 0.23690981257537,
+          "annual_algo_return": 0.7095166879852,
+          "annual_bm_return": 0.27190533964226,
+          "sharpe": 2.6530202612121,
+          "excess_return_sharpe": "2.867",
+          "sortino": 3.53060826858,
+          "information": 4.1165572665272,
+          "beta": 0.97928908829769,
+          "alpha": 0.44241431935557,
+          "excess_return": 0.2987393576879,
+          "avg_excess_return": "0.12%",
+          "max_drawdown": 0.14274597435682,
+          "max_drawdown_period": [
+            "2020-03-05",
+            "2020-03-23"
+          ],
+          "excess_return_max_drawdown": "8.12%",
+          "excess_return_max_drawdown_period": [
+            "2020-08-10",
+            "2020-10-23"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-12",
+          "__version": 101,
+          "win_ratio": 0.68702290076336,
+          "profit_loss_ratio": 5.2948710273523,
+          "win_count": 90,
+          "lose_count": 41,
+          "day_win_ratio": 0.55656108597285,
+          "avg_trade_return": 0.2105379411221,
+          "avg_position_days": 65.346534653465,
+          "turnover_rate": 0.017834334541455,
+          "report_done_seconds": 21.399413347244,
+          "report_done_cpu_seconds": 21.61
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 60.642346,
+          "benchmark_return_percent": 23.690981,
+          "annual_algo_return_percent": 70.951669,
+          "annual_bm_return_percent": 27.190534,
+          "max_drawdown_percent": 14.274597,
+          "algorithm_volatility_percent": 25.236019,
+          "benchmark_volatility_percent": 23.377022,
+          "win_ratio_percent": 68.70229,
+          "day_win_ratio_percent": 55.656109,
+          "avg_trade_return_percent": 21.053794,
+          "turnover_rate_percent": 1.783433,
+          "sharpe": 2.6530202612121,
+          "sortino": 3.53060826858,
+          "information": 4.1165572665272,
+          "alpha": 0.44241431935557,
+          "beta": 0.97928908829769,
+          "profit_loss_ratio": 5.2948710273523,
+          "avg_position_days": 65.346534653465,
+          "trading_days": 221,
+          "win_count": 90,
+          "lose_count": 41,
+          "max_drawdown_period": [
+            "2020-03-05",
+            "2020-03-23"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-08-10",
+            "2020-10-23"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/35605",
+      "https://www.joinquant.com/community/post/detailV2?postId=35605",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=5768044c03ab84de87d68874815da839&postId=84f20d2508bda078cd27f434d593cfe4&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=5768044c03ab84de87d68874815da839"
+    ]
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/72 基金定投-沪深300-5年回测.txt",
+    "category": "2020年度精选策略",
+    "file_name": "72 基金定投-沪深300-5年回测.txt",
+    "strategy_name": "基金定投-沪深300-5年回测",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 5692,
+    "sha256": "40c4560c75f8d1dc104c2f1d36b16c39a51667c597a37fbf776fd4a8e5651608",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/11251"
+    ],
+    "primary_url": "https://www.joinquant.com/post/11251",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:13+08:00",
+    "requested_url": "https://www.joinquant.com/post/11251",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/ba484de70f789dd1dc169c7f8b405b26",
+    "community_id": "ba484de70f789dd1dc169c7f8b405b26",
+    "post": {
+      "postId": "8a2283d05bf1e0e4178546713f26e9fc",
+      "uniqueKey": "ba484de70f789dd1dc169c7f8b405b26",
+      "title": "基金定投-沪深300-5年回测",
+      "content": "1、当前PE百分比 &lt; 40% ：\r\n     本月定投金额=每月增长价值 * 1.5\r\n2、当前PE百分比 &lt; 60% ：\r\n     本月定投金额=每月增长价值\r\n3、当前PE百分比 &lt; 80% ：\r\n     本月定投金额=每月增长价值 * 0.5\r\n4、当前PE百分比 &gt;= 80% ：\r\n     全部赎回。\r\n\r\n本月增长价值=上月增长价值*1.01",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-02-28 13:24:34",
+      "modTime": "2018-02-28 13:24:34",
+      "lastActiveTime": "2020-02-25 12:36:18",
+      "lastPubTime": "2018-02-28 13:24:34",
+      "backtestId": "983c46c6de3eba4b12c50c4a45ea39c7",
+      "backtestName": "基金定投-沪深300",
+      "replyCount": "4",
+      "viewCount": "4867",
+      "collectionCount": "16",
+      "likeCount": "7",
+      "disLikeCount": "0",
+      "backtestCloneCount": "185",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "16",
+      "followersCount": "73",
+      "followingCount": "0",
+      "author": {
+        "userId": "0c6296866c74513a21b344ee5a1977a7",
+        "alias": "傲雪神骄",
+        "introduction": "最近研究基金定投~ 欢迎大家互相讨论",
+        "headImgKey": "25491b4914f5e64718fcef5fcaf97e9f"
+      },
+      "tags": []
+    },
+    "backtests": [
+      {
+        "backtest_id": "983c46c6de3eba4b12c50c4a45ea39c7",
+        "backtest_name": "基金定投-沪深300",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=983c46c6de3eba4b12c50c4a45ea39c7&postId=ba484de70f789dd1dc169c7f8b405b26&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2012-01-01",
+          "end_date": "2017-01-01",
+          "base_capital": 67000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "b31ddf52d970dbdc96b9a4b7d6b7256d",
+            "7688388"
+          ],
+          "numeric_backtest_id": "7688388",
+          "numeric_post_id": "11251",
+          "python_version": 2,
+          "clone_count": 187
+        },
+        "stats": {
+          "information": 0.25219518641565,
+          "benchmark_return": 0.41110181767645,
+          "algorithm_volatility": 0.11570374350869,
+          "annual_bm_return": 0.073491653270414,
+          "__version": 101,
+          "max_drawdown": 0.106570175292,
+          "sortino": 1.4389000129746,
+          "period_label": "2016-12",
+          "trading_days": 1214,
+          "algorithm_return": 1.0675134328358,
+          "benchmark_volatility": 0.25708041335172,
+          "beta": 0.27813716055207,
+          "excess_return": 0.86784219995912,
+          "annual_algo_return": 0.16134306608159,
+          "sharpe": 1.0487393268523,
+          "alpha": 0.11202779273876,
+          "max_drawdown_period": [
+            "2013-02-08",
+            "2014-03-20"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.19967123287671,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.48434925864909,
+          "avg_position_days": 1196,
+          "win_ratio": 1,
+          "win_count": 1,
+          "avg_trade_return": 1.0643277822908,
+          "profit_loss_ratio": 71064.57,
+          "lose_count": 0,
+          "report_done_seconds": 522.18401885033
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 106.751343,
+          "benchmark_return_percent": 41.110182,
+          "annual_algo_return_percent": 16.134307,
+          "annual_bm_return_percent": 7.349165,
+          "max_drawdown_percent": 10.657018,
+          "algorithm_volatility_percent": 11.570374,
+          "benchmark_volatility_percent": 25.708041,
+          "win_ratio_percent": 100,
+          "day_win_ratio_percent": 48.434926,
+          "avg_trade_return_percent": 106.432778,
+          "sharpe": 1.0487393268523,
+          "sortino": 1.4389000129746,
+          "information": 0.25219518641565,
+          "alpha": 0.11202779273876,
+          "beta": 0.27813716055207,
+          "profit_loss_ratio": 71064.57,
+          "avg_position_days": 1196,
+          "trading_days": 1214,
+          "win_count": 1,
+          "lose_count": 0,
+          "max_drawdown_period": [
+            "2013-02-08",
+            "2014-03-20"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/11251",
+      "https://www.joinquant.com/community/post/detailV2?postId=11251",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=983c46c6de3eba4b12c50c4a45ea39c7&postId=ba484de70f789dd1dc169c7f8b405b26&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=983c46c6de3eba4b12c50c4a45ea39c7"
+    ]
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/47.高收益低回撤的小市值策略.txt",
+    "category": "2025年度精选策略",
+    "file_name": "47.高收益低回撤的小市值策略.txt",
+    "strategy_name": "高收益低回撤的小市值策略",
+    "declared_title": "高收益低回撤的小市值策略",
+    "declared_author": "曹经伟",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 11219,
+    "sha256": "fa7649e9021333db8fc34199e9f621b4fbc6b0d50cda3297122346130a823daf",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/28824"
+    ],
+    "primary_url": "https://www.joinquant.com/post/28824",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:11+08:00",
+    "requested_url": "https://www.joinquant.com/post/28824",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/0d33a25cb54fe1f6e57faaa94089f24f",
+    "community_id": "0d33a25cb54fe1f6e57faaa94089f24f",
+    "post": {
+      "postId": "085df99a7a0747a8c3afe5cf6df79beb",
+      "uniqueKey": "0d33a25cb54fe1f6e57faaa94089f24f",
+      "title": "高收益低回撤的小市值策略",
+      "content": "原策略地址：https://www.joinquant.com/view/community/detail/bfa5476274b1e98f9ac7aa6aa8ebd995\n\n原策略没有风控和大盘止损，回撤过大，不适合实盘，经过优化，年化收益47.17%，最大回撤30.74%，适合实盘。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-08-11 22:57:56",
+      "modTime": "2020-08-11 22:57:56",
+      "lastActiveTime": "2026-04-29 16:29:38",
+      "lastPubTime": "2020-08-11 22:57:56",
+      "backtestId": "3000c388004eb38747b2cf08d0ad6c23",
+      "backtestName": "策略REUI52SI",
+      "replyCount": "32",
+      "viewCount": "3843",
+      "collectionCount": "29",
+      "likeCount": "24",
+      "disLikeCount": "0",
+      "backtestCloneCount": "251",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "214",
+      "followersCount": "1727",
+      "followingCount": "0",
+      "author": {
+        "userId": "4b76cfe5340ddcb6318e8e73d523d66e",
+        "alias": "曹经伟",
+        "introduction": "我们只能赚认知范围内的钱，人和人之间最大的区别就是认知。",
+        "headImgKey": "4876ebd22b383c8a66c59493b4157e91"
+      },
+      "tags": [
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "483",
+          "name": "稳定收益"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "3000c388004eb38747b2cf08d0ad6c23",
+        "backtest_name": "策略REUI52SI",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=3000c388004eb38747b2cf08d0ad6c23&postId=0d33a25cb54fe1f6e57faaa94089f24f&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2005-06-01",
+          "end_date": "2020-08-10",
+          "base_capital": 100000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "772da5dfeb9d69989f16a128baee236c",
+            "17919676"
+          ],
+          "numeric_backtest_id": "17919676",
+          "numeric_post_id": "28824",
+          "python_version": 3,
+          "clone_count": 296
+        },
+        "stats": {
+          "trading_days": 3698,
+          "benchmark_volatility": 0.27281726854616,
+          "algorithm_volatility": 0.23087874725114,
+          "treasury_return": 0.6081095890411,
+          "algorithm_return": 302.77645213581,
+          "benchmark_return": 4.520030375606,
+          "annual_algo_return": 0.47173921397131,
+          "annual_bm_return": 0.12242748517246,
+          "sharpe": 1.8699824869618,
+          "excess_return_sharpe": "1.133",
+          "sortino": 2.4253832134666,
+          "information": 1.4646744648678,
+          "beta": 0.47599749305709,
+          "alpha": 0.39250393767022,
+          "excess_return": 54.031663136901,
+          "avg_excess_return": "0.12%",
+          "max_drawdown": 0.30743380551275,
+          "max_drawdown_period": [
+            "2011-03-24",
+            "2012-12-03"
+          ],
+          "excess_return_max_drawdown": "76.50%",
+          "excess_return_max_drawdown_period": [
+            "2005-06-03",
+            "2007-11-01"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-08",
+          "__version": 101,
+          "win_ratio": 0.62348484848485,
+          "profit_loss_ratio": 2.224192218325,
+          "win_count": 823,
+          "lose_count": 497,
+          "day_win_ratio": 0.52028123309897,
+          "avg_trade_return": 0.038015324927756,
+          "avg_position_days": 87.10824742268,
+          "turnover_rate": 0.062746020550244,
+          "report_done_seconds": 443.02641177177,
+          "report_done_cpu_seconds": 240.19
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 30277.645214,
+          "benchmark_return_percent": 452.003038,
+          "annual_algo_return_percent": 47.173921,
+          "annual_bm_return_percent": 12.242749,
+          "max_drawdown_percent": 30.743381,
+          "algorithm_volatility_percent": 23.087875,
+          "benchmark_volatility_percent": 27.281727,
+          "win_ratio_percent": 62.348485,
+          "day_win_ratio_percent": 52.028123,
+          "avg_trade_return_percent": 3.801532,
+          "turnover_rate_percent": 6.274602,
+          "sharpe": 1.8699824869618,
+          "sortino": 2.4253832134666,
+          "information": 1.4646744648678,
+          "alpha": 0.39250393767022,
+          "beta": 0.47599749305709,
+          "profit_loss_ratio": 2.224192218325,
+          "avg_position_days": 87.10824742268,
+          "trading_days": 3698,
+          "win_count": 823,
+          "lose_count": 497,
+          "max_drawdown_period": [
+            "2011-03-24",
+            "2012-12-03"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2005-06-03",
+            "2007-11-01"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/28824",
+      "https://www.joinquant.com/community/post/detailV2?postId=28824",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=3000c388004eb38747b2cf08d0ad6c23&postId=0d33a25cb54fe1f6e57faaa94089f24f&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=3000c388004eb38747b2cf08d0ad6c23"
+    ]
+  }
+}

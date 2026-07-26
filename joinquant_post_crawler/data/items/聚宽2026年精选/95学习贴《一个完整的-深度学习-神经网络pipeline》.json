@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/95学习贴《一个完整的-深度学习-神经网络pipeline》.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "95学习贴《一个完整的-深度学习-神经网络pipeline》.txt",
+    "strategy_name": "学习贴《一个完整的-深度学习-神经网络pipeline》",
+    "declared_title": "学习贴《一个完整的-深度学习-神经网络pipeline》",
+    "declared_author": "MarioC",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 8896,
+    "sha256": "cb13a8f4beb4ed820a09b73e970a82433df91398de210070057cb73422f143e2",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/48096"
+    ],
+    "primary_url": "https://www.joinquant.com/post/48096",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:12:49+08:00",
+    "requested_url": "https://www.joinquant.com/post/48096",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/b7d70989af9f8038611281b829010e43",
+    "community_id": "b7d70989af9f8038611281b829010e43",
+    "post": {
+      "postId": "896cfdd25aea03cb268048b51e91b02b",
+      "uniqueKey": "b7d70989af9f8038611281b829010e43",
+      "title": "学习贴《一个完整的-深度学习-神经网络pipeline》",
+      "content": "无广告！！！\n求别封号\ngithub：https://github.com/caihaihua057200/DL-in-A-share-Trading\n**\n进入主题**\n教大家如何训练一个深度学习模型\n1、这里只有ETF版本，因为股票数据太多，不可能在线上训练\n2、研究中包含：数据提取 、模型训练 、模型应用。\n一条龙服务！\n特征：（Batch，60，6）表示，一批次进入训练包含Batch个样本，每个样本都是一个60*6的二维特征。可视化长这样：\n![Img](https://image.joinquant.com/69b4f347b7658e21468ba55b67582351) \n3、模型结构如下图所示（ps：我自己瞎捏的结构）\n![Img](https://image.joinquant.com/f0947054a29d3b51b0b6a74bda65589f) \n\nPS：如果没有基础，这个看着有点难，但我会尽力为大家解惑。\nPS：研究环境训练神经网络非常慢，我只是教大家思路，训练还是建议本地训练。\nPS:示例中训练出来的模型回测是非常差的，如果想要现成的能用的策略，大家不要浪费积分来克隆这个~~~~~~~~~~~~~",
+      "type": 1,
+      "status": "0",
+      "addTime": "2024-05-10 19:15:22",
+      "modTime": "2024-09-16 17:49:53",
+      "lastActiveTime": "2025-09-11 08:17:14",
+      "lastPubTime": "2024-09-16 17:49:53",
+      "backtestId": "7e67ce8cb5f77a0e37b684c373e6aa9f",
+      "backtestName": "深度学习ETF",
+      "replyCount": "48",
+      "viewCount": "6812",
+      "collectionCount": "153",
+      "likeCount": "76",
+      "disLikeCount": "0",
+      "backtestCloneCount": "125",
+      "notebookCloneCount": "116",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "62",
+      "followersCount": "4970",
+      "followingCount": "36",
+      "author": {
+        "userId": "6ca44e2c0174d2d6e72e42cfd822a2b7",
+        "alias": "MarioC",
+        "introduction": "人工智能爱好者，gzh：Mario量化",
+        "headImgKey": "44901f16b2618622495468b8b1a70019"
+      },
+      "tags": [
+        {
+          "id": "13",
+          "name": "机器学习"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "7e67ce8cb5f77a0e37b684c373e6aa9f",
+        "backtest_name": "深度学习ETF",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=7e67ce8cb5f77a0e37b684c373e6aa9f&postId=b7d70989af9f8038611281b829010e43&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2010-01-01",
+          "end_date": "2024-05-30",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "13c437c0304310593a46877644db0fd1",
+            "34730025"
+          ],
+          "numeric_backtest_id": "34730025",
+          "numeric_post_id": "48096",
+          "python_version": 3,
+          "clone_count": 101
+        },
+        "stats": {
+          "trading_days": 3498,
+          "benchmark_volatility": 0.21129097466607,
+          "algorithm_volatility": 0.20483571628216,
+          "treasury_return": 0.57643835616438,
+          "algorithm_return": 6.610405604049,
+          "benchmark_return": 0.24020139449202,
+          "annual_algo_return": 0.15609546250336,
+          "annual_bm_return": 0.015504456366783,
+          "sharpe": 0.5667735325193,
+          "excess_return_sharpe": "0.533",
+          "sortino": 0.80755781716449,
+          "information": 0.76674264837094,
+          "beta": 0.59336406328944,
+          "alpha": 0.13063023780605,
+          "excess_return": 5.1364272269393,
+          "avg_excess_return": "0.06%",
+          "max_drawdown": 0.37623537105809,
+          "max_drawdown_period": [
+            "2011-04-18",
+            "2012-12-03"
+          ],
+          "excess_return_max_drawdown": "43.84%",
+          "excess_return_max_drawdown_period": [
+            "2013-07-29",
+            "2015-04-22"
+          ],
+          "max_leverage": 0,
+          "period_label": "2024-05",
+          "__version": 101,
+          "win_ratio": 0.52702702702703,
+          "profit_loss_ratio": 2.2851971962366,
+          "win_count": 234,
+          "lose_count": 210,
+          "day_win_ratio": 0.49742710120069,
+          "avg_trade_return": 0.012413550474478,
+          "avg_position_days": 50.926470588235,
+          "turnover_rate": 0.042715073764342,
+          "report_done_seconds": 8303.4428935051,
+          "report_done_cpu_seconds": 35285.09
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 661.04056,
+          "benchmark_return_percent": 24.020139,
+          "annual_algo_return_percent": 15.609546,
+          "annual_bm_return_percent": 1.550446,
+          "max_drawdown_percent": 37.623537,
+          "algorithm_volatility_percent": 20.483572,
+          "benchmark_volatility_percent": 21.129097,
+          "win_ratio_percent": 52.702703,
+          "day_win_ratio_percent": 49.74271,
+          "avg_trade_return_percent": 1.241355,
+          "turnover_rate_percent": 4.271507,
+          "sharpe": 0.5667735325193,
+          "sortino": 0.80755781716449,
+          "information": 0.76674264837094,
+          "alpha": 0.13063023780605,
+          "beta": 0.59336406328944,
+          "profit_loss_ratio": 2.2851971962366,
+          "avg_position_days": 50.926470588235,
+          "trading_days": 3498,
+          "win_count": 234,
+          "lose_count": 210,
+          "max_drawdown_period": [
+            "2011-04-18",
+            "2012-12-03"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2013-07-29",
+            "2015-04-22"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/48096",
+      "https://www.joinquant.com/community/post/detailV2?postId=48096",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=7e67ce8cb5f77a0e37b684c373e6aa9f&postId=b7d70989af9f8038611281b829010e43&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=7e67ce8cb5f77a0e37b684c373e6aa9f"
+    ]
+  }
+}

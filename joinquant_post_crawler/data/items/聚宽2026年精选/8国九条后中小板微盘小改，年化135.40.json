@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/8国九条后中小板微盘小改，年化135.40.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "8国九条后中小板微盘小改，年化135.40.txt",
+    "strategy_name": "国九条后中小板微盘小改，年化135.40",
+    "declared_title": "国九条后中小板微盘小改，年化135.40%",
+    "declared_author": "子匀",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 15141,
+    "sha256": "b1231d178313c6e3ecb330b78558f61b586ac321cb412ba11d6a3fe35a3b0ddb",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/47946"
+    ],
+    "primary_url": "https://www.joinquant.com/post/47946",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:12:43+08:00",
+    "requested_url": "https://www.joinquant.com/post/47946",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/dedbb2e56c2a9517cdb744b4b961ea79",
+    "community_id": "dedbb2e56c2a9517cdb744b4b961ea79",
+    "post": {
+      "postId": "7a8f8e65767f5413138e534fadbd88df",
+      "uniqueKey": "dedbb2e56c2a9517cdb744b4b961ea79",
+      "title": "国九条后中小板微盘小改，年化135.40%",
+      "content": "#### 试跑原作后，收益不错，看看代码，仍不住动手精简一下代码，结果收益增加到135.4%。欢迎各位提出策略究竟如何提高了收益。    \n#### 增加：在1月和4月关闭仓位前，检查是否下跌，如果下跌，再关闭仓位，可以明显提高收益。    \n#### 审计意见会大幅度增加回测时长，实测增加此项筛选不影响选股，可能原因是季度收入超过1亿，净利润为正的，都能出具标准无意见。\n#### 修改此类代码，先将stock code转成position,然后又在position中取stock_code。无实际效用        \n                position = context.portfolio.positions[stock]\n                close_position(position)  \n     def close_position(position):\n        security = position.security\n        order = order_target_value_(security, 0)  # 可能会因停牌失败\n       if order != None:\n            if order.status == OrderStatus.held and order.filled == order.amount:\n                return True\n         return False\n原作克隆自以下链接，一并致谢！\n 克隆自聚宽文章：https://www.joinquant.com/post/47933    \n标题：小市值排除3个bug版，22年至今收益506%回撤11%    \n作者：1616    \n\n克隆自聚宽文章：https://www.joinquant.com/post/47791    \n标题：国九小市值策略【年化100.5%|回撤25.6%】    \n作者：zycash    \n\n本策略为www.joinquant.com/post/47346的改进版本",
+      "type": 1,
+      "status": "0",
+      "addTime": "2024-04-30 19:25:01",
+      "modTime": "2024-04-30 19:25:01",
+      "lastActiveTime": "2026-04-12 22:54:30",
+      "lastPubTime": "2024-04-30 19:25:01",
+      "backtestId": "51c9165cbe26c12cb19f98f7f73ce5fd",
+      "backtestName": "动态持仓 止损线9 单价不超过50 修复4个bug-Clone",
+      "replyCount": "169",
+      "viewCount": "20913",
+      "collectionCount": "369",
+      "likeCount": "184",
+      "disLikeCount": "0",
+      "backtestCloneCount": "1487",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "26",
+      "followersCount": "1125",
+      "followingCount": "11",
+      "author": {
+        "userId": "bd61776ccbbe00f79669058e7bddf0ce",
+        "alias": "子匀",
+        "introduction": "1 . 多追求长久有效的东西，少去猜测、拟合市场的变化。两个因素比较可靠，长久的价值和不同周期下的均值回归。 ",
+        "vipType": "VIP",
+        "headImgKey": "39002ac135774423832558583797d3ad"
+      },
+      "tags": [
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "51c9165cbe26c12cb19f98f7f73ce5fd",
+        "backtest_name": "动态持仓 止损线9 单价不超过50 修复4个bug-Clone",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=51c9165cbe26c12cb19f98f7f73ce5fd&postId=dedbb2e56c2a9517cdb744b4b961ea79&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2022-01-01",
+          "end_date": "2024-04-29",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "c1717ed7519784768aa20a855ff1a387",
+            "34072326"
+          ],
+          "numeric_backtest_id": "34072326",
+          "numeric_post_id": "47946",
+          "python_version": 3,
+          "clone_count": 1368
+        },
+        "stats": {
+          "trading_days": 561,
+          "benchmark_volatility": 0.20458582677396,
+          "algorithm_volatility": 0.28585883115833,
+          "treasury_return": 0.092712328767123,
+          "algorithm_return": 5.8284859275,
+          "benchmark_return": -0.30551411079423,
+          "annual_algo_return": 1.3539775987687,
+          "annual_bm_return": -0.149958694875,
+          "sharpe": 4.596596136087,
+          "excess_return_sharpe": "6.474",
+          "sortino": 7.1040255047398,
+          "information": 5.641798270346,
+          "beta": 0.6272896130799,
+          "alpha": 1.433136714978,
+          "excess_return": 8.8324329315161,
+          "avg_excess_return": "0.42%",
+          "max_drawdown": 0.11746189776735,
+          "max_drawdown_period": [
+            "2023-03-21",
+            "2023-05-09"
+          ],
+          "excess_return_max_drawdown": "13.25%",
+          "excess_return_max_drawdown_period": [
+            "2023-03-21",
+            "2023-04-07"
+          ],
+          "max_leverage": 0,
+          "period_label": "2024-04",
+          "__version": 101,
+          "win_ratio": 0.7741935483871,
+          "profit_loss_ratio": 8.6697077005566,
+          "win_count": 168,
+          "lose_count": 49,
+          "day_win_ratio": 0.59358288770053,
+          "avg_trade_return": 0.038021392175999,
+          "avg_position_days": 64.413793103448,
+          "turnover_rate": 0.12383755038301,
+          "report_done_seconds": 203.211561203,
+          "report_done_cpu_seconds": 196.41
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 582.848593,
+          "benchmark_return_percent": -30.551411,
+          "annual_algo_return_percent": 135.39776,
+          "annual_bm_return_percent": -14.995869,
+          "max_drawdown_percent": 11.74619,
+          "algorithm_volatility_percent": 28.585883,
+          "benchmark_volatility_percent": 20.458583,
+          "win_ratio_percent": 77.419355,
+          "day_win_ratio_percent": 59.358289,
+          "avg_trade_return_percent": 3.802139,
+          "turnover_rate_percent": 12.383755,
+          "sharpe": 4.596596136087,
+          "sortino": 7.1040255047398,
+          "information": 5.641798270346,
+          "alpha": 1.433136714978,
+          "beta": 0.6272896130799,
+          "profit_loss_ratio": 8.6697077005566,
+          "avg_position_days": 64.413793103448,
+          "trading_days": 561,
+          "win_count": 168,
+          "lose_count": 49,
+          "max_drawdown_period": [
+            "2023-03-21",
+            "2023-05-09"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2023-03-21",
+            "2023-04-07"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/47946",
+      "https://www.joinquant.com/community/post/detailV2?postId=47946",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=51c9165cbe26c12cb19f98f7f73ce5fd&postId=dedbb2e56c2a9517cdb744b4b961ea79&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=51c9165cbe26c12cb19f98f7f73ce5fd"
+    ]
+  }
+}

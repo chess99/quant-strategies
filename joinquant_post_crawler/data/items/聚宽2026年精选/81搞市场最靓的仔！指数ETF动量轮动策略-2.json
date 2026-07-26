@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/81搞市场最靓的仔！指数ETF动量轮动策略-2.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "81搞市场最靓的仔！指数ETF动量轮动策略-2.txt",
+    "strategy_name": "搞市场最靓的仔！指数ETF动量轮动策略-2",
+    "declared_title": "搞市场最靓的仔！指数ETF动量轮动策略-2",
+    "declared_author": "野蛮生涨",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 6374,
+    "sha256": "8d1a703edbb5c173d3f6136da01556d2295d19a8800d5a393927bf1982277210",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/46429"
+    ],
+    "primary_url": "https://www.joinquant.com/post/46429",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:12:37+08:00",
+    "requested_url": "https://www.joinquant.com/post/46429",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/39b8ae922bfa8848e8dd23c5de94fd5c",
+    "community_id": "39b8ae922bfa8848e8dd23c5de94fd5c",
+    "post": {
+      "postId": "48f2ee8de0916a478a28d38aed421616",
+      "uniqueKey": "39b8ae922bfa8848e8dd23c5de94fd5c",
+      "title": "搞市场最靓的仔！指数ETF动量轮动策略-2",
+      "content": "[搞市场最靓的仔](https://www.joinquant.com/view/community/detail/59177f662446aadf12b30db689f14c51?type=1)\n这个策略，在23年底就轮动到了日经ETF，我自己跟踪的目前持有日经ETF已经十几个点的收益，有效的避开了24年开年A股的跳水。\n因为之前也看过一些讲动量轮动的书，对动量轮动这个思路一直很坚信，即便会有短暂的不适用期。任何地方的股市总是**强者恒强，价格上涨吸引买家，价格下跌吸引卖家**。这些做趋势交易的观念《海龟交易法则》《双动量轮动》等书中都有介绍。\n《双动量轮动》书中介绍的动量是用线性回归线的斜率来判断动量，这个算法合理，但目前我还没能用Python代码实现怎么计算二阶线性回归线的斜率，继续努力学习。\n搞市场上最强的标的无论何时一直有效。\n以下是我关于策略我的一些思考\n\n- 市场覆盖面可以足够广，目前市面上跟踪各种行业指数的ETF非常丰富，可以把你觉得未来可期的ETF加入轮动。\n- 动量的计算，可以用不同的周期，日线，周线，甚至分钟线，长短快慢结合。也可以用不同的算法。\n- 可以加入择时条件，再某些情况下不进行交易，合理避开一些显而易见的下跌。\n- 加入止盈止损条件，看历史交易可以看得出很多次，买入之后盈利很多了，但一直没有轮动到新标的，持仓标的开始下跌导致到手的利润又白白飞走了，加入止盈合理保留到手的利润。加入止损，少亏。\n\n原来的策略动量计算用一天的价格进行判断，有时候一天涨跌太大，导致频繁换仓适得其反，用近3日均价跟21日前3日均价的涨幅来计算稍微平滑一点，收益和回测略有提高。并且修改了几处BUG，代码注释都写的很清楚，不同的动量计算都有注释。\n后续会不断优化，把成绩更好的分享出来（但过渡优化貌似也不太可取，理论上量化因子越简单越适用）。\n还有，打算把该ETF轮动和蒋老师的小市值策略、W的小市值成长策略做成一个组合，几个策略年化都在40出头，形成一个组合，年化收益不会减少，然后定期进行资金平衡，类似一个仓位管理的作用，回撤应该能减少很多，曲线平滑上行，这样才能更加符合实盘的要求。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2024-02-04 10:34:31",
+      "modTime": "2024-02-04 10:41:01",
+      "lastActiveTime": "2026-06-03 16:01:29",
+      "lastPubTime": "2024-02-04 10:41:01",
+      "backtestId": "f7c84df02bd71ee1e4a4fcdebb58be87",
+      "backtestName": "ETF轮动-AI-2号-Clone",
+      "replyCount": "22",
+      "viewCount": "4635",
+      "collectionCount": "88",
+      "likeCount": "37",
+      "disLikeCount": "0",
+      "backtestCloneCount": "304",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "5",
+      "followersCount": "68",
+      "followingCount": "7",
+      "author": {
+        "userId": "b3be9c5219c0af55455425a2803a7e37",
+        "alias": "野蛮生涨",
+        "introduction": "程序员一枚"
+      },
+      "tags": [
+        {
+          "id": "12",
+          "name": "基金"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        },
+        {
+          "id": "3157",
+          "name": "动量"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "f7c84df02bd71ee1e4a4fcdebb58be87",
+        "backtest_name": "ETF轮动-AI-2号-Clone",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=f7c84df02bd71ee1e4a4fcdebb58be87&postId=39b8ae922bfa8848e8dd23c5de94fd5c&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2020-01-01",
+          "end_date": "2024-02-03",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "faa44e3adf4d083babf305f83f21d393",
+            "32307827"
+          ],
+          "numeric_backtest_id": "32307827",
+          "numeric_post_id": "46429",
+          "python_version": 3,
+          "clone_count": 303
+        },
+        "stats": {
+          "trading_days": 994,
+          "benchmark_volatility": 0.19005396538906,
+          "algorithm_volatility": 0.33854799203203,
+          "treasury_return": 0.16350684931507,
+          "algorithm_return": 3.3838065036,
+          "benchmark_return": -0.22383305098399,
+          "annual_algo_return": 0.45021179399956,
+          "annual_bm_return": -0.061741035084363,
+          "sharpe": 1.2116798907516,
+          "excess_return_sharpe": "1.511",
+          "sortino": 1.6661972346943,
+          "information": 1.5325947769099,
+          "beta": 0.54194152437582,
+          "alpha": 0.46534948564475,
+          "excess_return": 4.6480200672775,
+          "avg_excess_return": "0.20%",
+          "max_drawdown": 0.21285786975774,
+          "max_drawdown_period": [
+            "2020-02-13",
+            "2020-06-15"
+          ],
+          "excess_return_max_drawdown": "24.99%",
+          "excess_return_max_drawdown_period": [
+            "2020-02-13",
+            "2020-07-06"
+          ],
+          "max_leverage": 0,
+          "period_label": "2024-02",
+          "__version": 101,
+          "win_ratio": 0.52336448598131,
+          "profit_loss_ratio": 2.0473836451638,
+          "win_count": 56,
+          "lose_count": 51,
+          "day_win_ratio": 0.53420523138833,
+          "avg_trade_return": 0.014901492519649,
+          "avg_position_days": 96.4,
+          "turnover_rate": 0.099972256070546,
+          "report_done_seconds": 128.33538484573,
+          "report_done_cpu_seconds": 125.89
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 338.38065,
+          "benchmark_return_percent": -22.383305,
+          "annual_algo_return_percent": 45.021179,
+          "annual_bm_return_percent": -6.174104,
+          "max_drawdown_percent": 21.285787,
+          "algorithm_volatility_percent": 33.854799,
+          "benchmark_volatility_percent": 19.005397,
+          "win_ratio_percent": 52.336449,
+          "day_win_ratio_percent": 53.420523,
+          "avg_trade_return_percent": 1.490149,
+          "turnover_rate_percent": 9.997226,
+          "sharpe": 1.2116798907516,
+          "sortino": 1.6661972346943,
+          "information": 1.5325947769099,
+          "alpha": 0.46534948564475,
+          "beta": 0.54194152437582,
+          "profit_loss_ratio": 2.0473836451638,
+          "avg_position_days": 96.4,
+          "trading_days": 994,
+          "win_count": 56,
+          "lose_count": 51,
+          "max_drawdown_period": [
+            "2020-02-13",
+            "2020-06-15"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-02-13",
+            "2020-07-06"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/46429",
+      "https://www.joinquant.com/community/post/detailV2?postId=46429",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=f7c84df02bd71ee1e4a4fcdebb58be87&postId=39b8ae922bfa8848e8dd23c5de94fd5c&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=f7c84df02bd71ee1e4a4fcdebb58be87"
+    ]
+  }
+}

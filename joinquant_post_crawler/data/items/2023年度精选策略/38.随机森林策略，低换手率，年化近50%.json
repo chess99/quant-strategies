@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/38.随机森林策略，低换手率，年化近50%.txt",
+    "category": "2023年度精选策略",
+    "file_name": "38.随机森林策略，低换手率，年化近50%.txt",
+    "strategy_name": "随机森林策略，低换手率，年化近50%",
+    "declared_title": "随机森林策略，低换手率，年化近50%",
+    "declared_author": "寒芳",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 3435,
+    "sha256": "331d507fb811e9aac14d16403ca37143fd8d81499cc9fa58ff1900f32474b061",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/35566"
+    ],
+    "primary_url": "https://www.joinquant.com/post/35566",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:09+08:00",
+    "requested_url": "https://www.joinquant.com/post/35566",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/68e09fa9ebd59a77f2ef04ea8837e598",
+    "community_id": "68e09fa9ebd59a77f2ef04ea8837e598",
+    "post": {
+      "postId": "fdb15f1b8aa4e326978eab40c4c6687d",
+      "uniqueKey": "68e09fa9ebd59a77f2ef04ea8837e598",
+      "title": "随机森林策略，低换手率，年化近50%",
+      "content": "   在 [非线性模型预测收益率（一）](https://www.joinquant.com/view/community/detail/0f50692045a5e96fc7b2f021ba44c9cd) 中，我们做了一次失败的尝试，当时用的中证全指股票池，使用了基本面和动量两类特征，按月进行调仓。结果发现虽然模型有一定区分度，但是预测的换手率很高，在回测上表现很差。想了下具体原因，我觉得有如下几个方面：\n1. 中证全指的股票池太大，包括很多小盘股，质量参差不齐。模型做的是按调仓周期拟合收益率，我感觉容易因过拟合而忽略基本面因素，比如选出很多妖股。所以股票池的选择是很重要的，这里换成了质量较高的沪深300。\n2. 模型按月调仓，使用了基本面和动量两类特征。我认为有两个问题，一是如果模型预测的标的变动较大，会导致调仓频繁，我们是买一蓝子股票，比如选10%就是30支，如果与上个月预测的差异度在80%，就要调30*2*80%=48支股票。二是基本面和动量的差别挺大的，基本面包含不少财务信息，一般是季度更新，倾向于长期作用，而动量主要看短期的涨跌趋势，在样本不够充足的情况下放在一起，可能会互相干扰。所以这里做了两个改动：1是按季度来调仓，2是只使用基本面特征。\n\n   好了，下边再重复下策略逻辑：\n   使用沪深300股票池，选用巨宽因子库里的[基础因子](https://www.joinquant.com/help/api/help#factor_values)，做了中性化和标准化处理。训练集的时间范围是2006.1 – 2015.12， 按季度切分。Label的取法如下：1. 计算季度收益率。2.将收益率排序，前30%的为正样本，后30%的为负样本，模型选用随机森林。回测时间范围是2016.6 – 2021.10， 按季度调仓，对模型预测的股票做等额分配。\n\n   那么看下结果吧，首先是模型的结果，对回测区间的股票做预测（预测的是季度收益率的排序），平均准确率在0.596（同样top 30%的为正，bottom 30%的为负），说明有一定区分度。\n![Img]( https://image.joinquant.com/e32be0cebfda353e413779060f57d302) \n   特征重要性排序如下，其中几个top特征分别是market_cap(市值)，operating_assets(经营性资产)，net_debt(净债务)，financial liability(金融负债)，net_interest_expense(净利息费用)，interest_carry_current_liability(带息流动负债) …\n![Img]( https://image.joinquant.com/9e55b099c1ece743f8e80e297e3d9d3a) \n   再看下预测的调仓股票，列出2019.03-2021.09 预测的top持仓如下，策略里每次用30支（10%）股票进行调仓，可以看出换手率是不高的：\n![Img]( https://image.joinquant.com/68f44c4c8932b904acf0d43a63103143) \n\n   最后看下回测结果，将预测结果10等分，对每个区间进行回测（区间编号越小，表示预测得分越高）。下边给出的是超额收益的两个图，可以看出0档（0%-10%）和1档（10%-20%）有多头收益，尤其是0档的收益较大。后边的几档有空头收益，但最后一档又反转了，值得研究一下原因。\n![Img]( https://image.joinquant.com/b057b260e905741780433320c52dc540) \n![Img]( https://image.joinquant.com/af6cc731a1f3177a48597c332c272397)",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-11-24 13:30:54",
+      "modTime": "2021-11-24 20:44:09",
+      "lastActiveTime": "2026-03-25 22:14:31",
+      "lastPubTime": "2021-11-24 20:44:09",
+      "backtestId": "762f1571c0761248ebda60199fd664c4",
+      "backtestName": "&#123;&#39;quantile&#39;: (0, 10)}",
+      "replyCount": "148",
+      "viewCount": "15490",
+      "collectionCount": "379",
+      "likeCount": "175",
+      "disLikeCount": "0",
+      "backtestCloneCount": "675",
+      "notebookCloneCount": "345",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "33",
+      "followersCount": "430",
+      "followingCount": "34",
+      "author": {
+        "userId": "1b48d1b6046c78958f1e96fa2e595e4f",
+        "alias": "寒芳"
+      },
+      "tags": [
+        {
+          "id": "13",
+          "name": "机器学习"
+        },
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "762f1571c0761248ebda60199fd664c4",
+        "backtest_name": "&#123;&#39;quantile&#39;: (0, 10)}",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=762f1571c0761248ebda60199fd664c4&postId=68e09fa9ebd59a77f2ef04ea8837e598&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2016-06-30",
+          "end_date": "2021-09-30",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "746ab976fe603d6a23ef20e592b27c9e",
+            "22611399"
+          ],
+          "numeric_backtest_id": "22611399",
+          "numeric_post_id": "35566",
+          "python_version": 3,
+          "clone_count": 675
+        },
+        "stats": {
+          "trading_days": 1281,
+          "benchmark_volatility": 0.18712910307297,
+          "algorithm_volatility": 0.2581372565565,
+          "treasury_return": 0.21019178082192,
+          "algorithm_return": 6.888252087238,
+          "benchmark_return": 0.54420113029489,
+          "annual_algo_return": 0.4964244559838,
+          "annual_bm_return": 0.088497541271952,
+          "sharpe": 1.7681463810084,
+          "excess_return_sharpe": "1.733",
+          "sortino": 2.7636343452827,
+          "information": 2.1138280894636,
+          "beta": 0.91969960908025,
+          "alpha": 0.41182128623464,
+          "excess_return": 4.1083061218402,
+          "avg_excess_return": "0.13%",
+          "max_drawdown": 0.29113549239292,
+          "max_drawdown_period": [
+            "2020-08-07",
+            "2021-08-20"
+          ],
+          "excess_return_max_drawdown": "31.39%",
+          "excess_return_max_drawdown_period": [
+            "2020-08-07",
+            "2021-04-29"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-09",
+          "__version": 101,
+          "win_ratio": 0.61797752808989,
+          "profit_loss_ratio": 2.6874265199355,
+          "win_count": 110,
+          "lose_count": 68,
+          "day_win_ratio": 0.52849336455894,
+          "avg_trade_return": 0.27162707400017,
+          "avg_position_days": 178.5,
+          "turnover_rate": 0.011675808541895,
+          "report_done_seconds": 29.797258615494,
+          "report_done_cpu_seconds": 23.71
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 688.825209,
+          "benchmark_return_percent": 54.420113,
+          "annual_algo_return_percent": 49.642446,
+          "annual_bm_return_percent": 8.849754,
+          "max_drawdown_percent": 29.113549,
+          "algorithm_volatility_percent": 25.813726,
+          "benchmark_volatility_percent": 18.71291,
+          "win_ratio_percent": 61.797753,
+          "day_win_ratio_percent": 52.849336,
+          "avg_trade_return_percent": 27.162707,
+          "turnover_rate_percent": 1.167581,
+          "sharpe": 1.7681463810084,
+          "sortino": 2.7636343452827,
+          "information": 2.1138280894636,
+          "alpha": 0.41182128623464,
+          "beta": 0.91969960908025,
+          "profit_loss_ratio": 2.6874265199355,
+          "avg_position_days": 178.5,
+          "trading_days": 1281,
+          "win_count": 110,
+          "lose_count": 68,
+          "max_drawdown_period": [
+            "2020-08-07",
+            "2021-08-20"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-08-07",
+            "2021-04-29"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/35566",
+      "https://www.joinquant.com/community/post/detailV2?postId=35566",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=762f1571c0761248ebda60199fd664c4&postId=68e09fa9ebd59a77f2ef04ea8837e598&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=762f1571c0761248ebda60199fd664c4"
+    ]
+  }
+}

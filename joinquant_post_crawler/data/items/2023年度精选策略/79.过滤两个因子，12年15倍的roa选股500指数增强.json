@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/79.过滤两个因子，12年15倍的roa选股500指数增强.txt",
+    "category": "2023年度精选策略",
+    "file_name": "79.过滤两个因子，12年15倍的roa选股500指数增强.txt",
+    "strategy_name": "过滤两个因子，12年15倍的roa选股500指数增强",
+    "declared_title": "过滤两个因子，12年15倍的roa选股500指数增强",
+    "declared_author": "将就",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 19602,
+    "sha256": "2bfa6a28c1bf84502f2bd057c47db286e4ea49c9eaec3e46e5bcbf2ae8d2fc4d",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/30484",
+      "https://www.joinquant.com/post/23237"
+    ],
+    "primary_url": "https://www.joinquant.com/post/30484",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:09:40+08:00",
+    "requested_url": "https://www.joinquant.com/post/30484",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/44b269d4e23bbaed957256a955c1ea19",
+    "community_id": "44b269d4e23bbaed957256a955c1ea19",
+    "post": {
+      "postId": "6cc38e689ff7276e44e4240bda878986",
+      "uniqueKey": "44b269d4e23bbaed957256a955c1ea19",
+      "title": "过滤两个因子，12年15倍的roa选股500指数增强",
+      "content": "&gt; https://www.joinquant.com/post/23237\n 标题：换手率相对波动率因子在ROE选股中的表现\n 作者：逆熵者\n\n\n\n受到上文启发，可以看出有些因子虽然不单调，但是最大分位可以获得稳定持续有效的负ic。\n\n\n### 存在的问题\n\n\n\n**原文中，作者使用中证800指数过滤换手波动率因子，认为800指数的后一半分位稳定负ic，但其实这里有值得提高的地方。**\n\n之所以换手率相对波动率有效，大概是因为有些股票会被一轮爆炒，炒作过后容易暴跌，这是基本逻辑。\n\n**因为中证800是由500和300组成，沪深300中的公司质地通常都比较优秀，而且市值较大，通常很难有游资爆炒这类股票，反而是中小创炒作的机会更大。**\n![Img]( https://image.joinquant.com/734a8a7fce445956b79beb97e7fe073c) \n\n![Img]( https://image.joinquant.com/23625543929517d6b44616ddd1b1b417) \n\n上面两张图是近三年沪深300和中证500的换手率相对波动率因子分析，可以看到沪深300最大最小分位并没有明显差异，单调性不足，反而是中证500，单调明显。\n\n也就是说，原文中证800中的负ic过滤，其实是由中证500贡献的，何不直接回测中证500呢？\n\n### 乖离率因子\n近十年来看，中证500指数中10日乖离率率获得了最大负ic和稳定ir。\n![Img]( https://image.joinquant.com/0cba8ed7f71a0fe4022b535689c00e50) \n\n\n![Img]( https://image.joinquant.com/2e4554cde5653c0d9a3a3d1a9b28e13d) \n逻辑也很简单，中证500中公司质地鱼龙混杂，而且市值偏小，一旦炒作，乖离率变高，后面就容易下跌。\n\n可以看到10日乖离率基本单调，第四和最大分位稳定负ic。\n\n## 回测逻辑：\n\n使用中证500股票池构建多因子回测，过滤换手率相对波动率和10日乖离率，同时使用roa排序选股\n\n最大同时持有10只股票，调仓周期一个月。\n默认滑点和万三的手续费。\n\n最终获得了12年年化27%的结果，可见因子是长期有效的。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-12-08 15:22:42",
+      "modTime": "2020-12-08 15:22:42",
+      "lastActiveTime": "2023-12-15 19:10:55",
+      "lastPubTime": "2020-12-08 15:22:42",
+      "backtestId": "dd38dff010e669fe62ca8b14435cf249",
+      "backtestName": "双因子丢弃及roa选股500指数增强",
+      "replyCount": "59",
+      "viewCount": "4064",
+      "collectionCount": "88",
+      "likeCount": "42",
+      "disLikeCount": "0",
+      "backtestCloneCount": "253",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "7",
+      "followersCount": "314",
+      "followingCount": "4",
+      "author": {
+        "userId": "8f4c85d9439839bab33d9710d904ae5b",
+        "alias": "将就",
+        "headImgKey": "ba0b2e11f21de2036e216b0c2ef4b7a3"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "dd38dff010e669fe62ca8b14435cf249",
+        "backtest_name": "双因子丢弃及roa选股500指数增强",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=dd38dff010e669fe62ca8b14435cf249&postId=44b269d4e23bbaed957256a955c1ea19&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2008-12-01",
+          "end_date": "2020-12-07",
+          "base_capital": 10000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "7964d8ce19e623e33d5c58c3830b20d4",
+            "19051483"
+          ],
+          "numeric_backtest_id": "19051483",
+          "numeric_post_id": "30484",
+          "python_version": 3,
+          "clone_count": 253
+        },
+        "stats": {
+          "trading_days": 2923,
+          "benchmark_volatility": 0.27736553147825,
+          "algorithm_volatility": 0.27238753071788,
+          "treasury_return": 0.48098630136986,
+          "algorithm_return": 15.598733175635,
+          "benchmark_return": 2.4889244888539,
+          "annual_algo_return": 0.27160217186815,
+          "annual_bm_return": 0.11279619516642,
+          "sharpe": 0.85026715891788,
+          "excess_return_sharpe": "0.826",
+          "sortino": 1.0897614860567,
+          "information": 1.2814366369902,
+          "beta": 0.8823966342385,
+          "alpha": 0.16736705426792,
+          "excess_return": 3.7575501357691,
+          "avg_excess_return": "0.06%",
+          "max_drawdown": 0.40854374764751,
+          "max_drawdown_period": [
+            "2015-06-12",
+            "2015-09-15"
+          ],
+          "excess_return_max_drawdown": "18.41%",
+          "excess_return_max_drawdown_period": [
+            "2009-02-02",
+            "2009-08-03"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-12",
+          "__version": 101,
+          "win_ratio": 0.57439134355275,
+          "profit_loss_ratio": 1.7095340987591,
+          "win_count": 637,
+          "lose_count": 472,
+          "day_win_ratio": 0.50803968525488,
+          "avg_trade_return": 0.033460161558494,
+          "avg_position_days": 76.713910761155,
+          "turnover_rate": 0.035195653120476,
+          "report_done_seconds": 192.22492027283,
+          "report_done_cpu_seconds": 142.48
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 1559.873318,
+          "benchmark_return_percent": 248.892449,
+          "annual_algo_return_percent": 27.160217,
+          "annual_bm_return_percent": 11.27962,
+          "max_drawdown_percent": 40.854375,
+          "algorithm_volatility_percent": 27.238753,
+          "benchmark_volatility_percent": 27.736553,
+          "win_ratio_percent": 57.439134,
+          "day_win_ratio_percent": 50.803969,
+          "avg_trade_return_percent": 3.346016,
+          "turnover_rate_percent": 3.519565,
+          "sharpe": 0.85026715891788,
+          "sortino": 1.0897614860567,
+          "information": 1.2814366369902,
+          "alpha": 0.16736705426792,
+          "beta": 0.8823966342385,
+          "profit_loss_ratio": 1.7095340987591,
+          "avg_position_days": 76.713910761155,
+          "trading_days": 2923,
+          "win_count": 637,
+          "lose_count": 472,
+          "max_drawdown_period": [
+            "2015-06-12",
+            "2015-09-15"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2009-02-02",
+            "2009-08-03"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/30484",
+      "https://www.joinquant.com/community/post/detailV2?postId=30484",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=dd38dff010e669fe62ca8b14435cf249&postId=44b269d4e23bbaed957256a955c1ea19&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=dd38dff010e669fe62ca8b14435cf249"
+    ]
+  }
+}

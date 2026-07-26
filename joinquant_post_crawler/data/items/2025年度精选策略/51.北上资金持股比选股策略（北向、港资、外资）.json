@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/51.北上资金持股比选股策略（北向、港资、外资）.txt",
+    "category": "2025年度精选策略",
+    "file_name": "51.北上资金持股比选股策略（北向、港资、外资）.txt",
+    "strategy_name": "北上资金持股比选股策略（北向、港资、外资）",
+    "declared_title": "北上资金持股比选股策略（北向/港资/外资）",
+    "declared_author": "逆熵者",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 9547,
+    "sha256": "5c1e9fddfabbcb4177d962e1eece850a94534486a58da581c0a2c3d215b00a15",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/29535"
+    ],
+    "primary_url": "https://www.joinquant.com/post/29535",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:15+08:00",
+    "requested_url": "https://www.joinquant.com/post/29535",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/115a4547d12f088acbb33330286a9956",
+    "community_id": "115a4547d12f088acbb33330286a9956",
+    "post": {
+      "postId": "c785bd8afc59669769f845219f69ad35",
+      "uniqueKey": "115a4547d12f088acbb33330286a9956",
+      "title": "北上资金持股比选股策略（北向/港资/外资）",
+      "content": "### 一、前言\n自17年至今，北上资金重仓股业绩优秀，持续跑赢大盘，是市场聪明资金的代表。cgzol在《[北上资金（北向资金/港资/外资）因子分析与策略分享](https://www.joinquant.com/view/community/detail/1fe0f985bef3d3ef51ae948c04883d63)》一文中分析了3种北上资金因子，也是目前比较主流的北上资金跟踪方法：\n1、北上资金持股市值因子：每只股票北上资金的持股市值\n2、北上资金持股比例因子：每只股票北上资金的持股比例\n3、北上资金N日净买入金额因子：每只股票北上资金N日净买入金额\n### 二、为什么选择北上资金持股比因子\n根据我的测试，这上面提到的三个因子中，N日净买入因子操作频率较高，且在拟合好的情况下业绩最为突出，但也最可能出现参数过拟合。北上资金持股比例因子和北上资金持股市值因子相对低频。在这两个因子中，北上资金持股比例因子的业绩更优，怀疑是由于持股市值因子更偏向于大盘超大盘，而持股比因子则在规模分布上更为均衡。（测试过程写的比较乱就不放了）\n\n我个人偏好使用低频因子，因此使用北上资金持股比例因子构建策略。这里需要说明的是：开头提到cgzol老师的分析文章中，北上资金持股市值因子的构建是存在问题的。聚宽提供的沪港通和深港通数据，在港资持股方面的统计口径不同，一个用的总市值，一个用的流通市值，需要分开计算再合并才行。直接放在一起计算再排名是错误的。\n\n本策略中的函数提供了按总市值持股比排名和按流通市值持股比排名两种方法。\n### 三、策略构建\n满仓10股不择时，相当于一个Smart Beta指数\n**选股函数：**\n既然选择跟随北上资金，选股方面就不再纳入其他限制条件\n1、股票池为全A股\n2、根据北上资金占总股本比例进行排序\n**买卖规则：**\n1、买入：等权买入排名前10，涨停/停牌/退市/ST 不买，过去10交易日内卖出不买，最高持有10只股\n2、卖出：持有股的排名超出前30卖出，涨停/停牌 不卖\n3、个股持仓控制：个股持仓低于总仓位5%加仓，高于20%减仓\n### 四、回测表现\n17年至今回测表现优秀，alpha达到0.28，且表现比较稳定，夏普率和信息比率显著超越基准\n![Img]( https://image.joinquant.com/495492e569d32db8561d2ca63083b613) \n行业上偏向泛消费、泛健康和泛制造方向\n![Img]( https://image.joinquant.com/e7d67b4f6a8d5fd51ef820d06034ae8f) \n但由于本策略的交易频率很低且买卖条件不完全对称，策略表现很大程度上是买入时的持仓决定的，可能导致不同的开始时间的策略表现差异较大，因此我又进行了分年度测试：\n2017年度：\n![2017年度]( https://image.joinquant.com/dbffc653764fdf080a5f532fb2801d95) \n2018年度：\n![2018年度]( https://image.joinquant.com/d00b482ab71587eb64b45c843d6767b9) \n2019年度：\n![2019年度]( https://image.joinquant.com/0845c1eac7dbf37502fc7b9007a60df0) \n2020年度：\n![2020年度]( https://image.joinquant.com/de52156fbcb8cae07eafae2b58b6926c) \n虽然不同的开始时间导致策略结果不同，但各年度均跑赢了基准，策略选股还是比较可靠的\n### 五、改进思路\n本策略偏向非周期白马风格，且换手率极低，几乎没有进行参数拟合。在金融市场加速开放，外资持续流入A股的大环境里，本策略可以作为其他策略的基础股票池。我暂时可以想到以下几个改进方向：\n1、可以加入大盘风控/择时策略\n2、可以配合北上资金N日净流入因子，增加交易频率，尝试提高alpha\n3、可以配合其他因子组合形成多因子策略\n\n******\n欢迎各位老师补充和指正，谢谢！",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-09-25 12:06:47",
+      "modTime": "2020-09-25 12:06:47",
+      "lastActiveTime": "2023-07-02 15:29:10",
+      "lastPubTime": "2020-09-25 12:06:47",
+      "backtestId": "51e9234e3a5aafb84ae0620316c5d21f",
+      "backtestName": "港资持股比例17至今每日-stocknum10-checkout30-max020-min005",
+      "replyCount": "80",
+      "viewCount": "7777",
+      "collectionCount": "156",
+      "likeCount": "79",
+      "disLikeCount": "0",
+      "backtestCloneCount": "431",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "11",
+      "followersCount": "580",
+      "followingCount": "35",
+      "author": {
+        "userId": "f3c457eceec038c1daa00bc05ba8fc95",
+        "alias": "逆熵者",
+        "introduction": "进无止境",
+        "headImgKey": "50c2a3770ee3e3ccaedc473cb1c7f3f7"
+      },
+      "tags": [
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "5",
+          "name": "仓位管理"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "51e9234e3a5aafb84ae0620316c5d21f",
+        "backtest_name": "港资持股比例17至今每日-stocknum10-checkout30-max020-min005",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=51e9234e3a5aafb84ae0620316c5d21f&postId=115a4547d12f088acbb33330286a9956&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2017-03-20",
+          "end_date": "2020-09-24",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "9c60d2d9f325ab2439df4dab24ee474f",
+            "18358742"
+          ],
+          "numeric_backtest_id": "18358742",
+          "numeric_post_id": "29535",
+          "python_version": 3,
+          "clone_count": 429
+        },
+        "stats": {
+          "trading_days": 861,
+          "benchmark_volatility": 0.19842688908559,
+          "algorithm_volatility": 0.24689016481838,
+          "treasury_return": 0.14071232876712,
+          "algorithm_return": 1.91327973725,
+          "benchmark_return": 0.32423601417374,
+          "annual_algo_return": 0.36407432234439,
+          "annual_bm_return": 0.084960376443558,
+          "sharpe": 1.3126254850321,
+          "excess_return_sharpe": "1.596",
+          "sortino": 1.8776231560958,
+          "information": 2.0488465920308,
+          "beta": 1.0383886057779,
+          "alpha": 0.27738797973392,
+          "excess_return": 1.1999701760624,
+          "avg_excess_return": "0.10%",
+          "max_drawdown": 0.3056519066161,
+          "max_drawdown_period": [
+            "2018-06-12",
+            "2018-10-29"
+          ],
+          "excess_return_max_drawdown": "20.10%",
+          "excess_return_max_drawdown_period": [
+            "2018-07-18",
+            "2018-10-29"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-09",
+          "__version": 101,
+          "win_ratio": 0.76923076923077,
+          "profit_loss_ratio": 11.617434614611,
+          "win_count": 10,
+          "lose_count": 3,
+          "day_win_ratio": 0.55400696864111,
+          "avg_trade_return": 2.6759719696223,
+          "avg_position_days": 429.45,
+          "turnover_rate": 0.001209309967602,
+          "report_done_seconds": 478.45700836182,
+          "report_done_cpu_seconds": 346.77
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 191.327974,
+          "benchmark_return_percent": 32.423601,
+          "annual_algo_return_percent": 36.407432,
+          "annual_bm_return_percent": 8.496038,
+          "max_drawdown_percent": 30.565191,
+          "algorithm_volatility_percent": 24.689016,
+          "benchmark_volatility_percent": 19.842689,
+          "win_ratio_percent": 76.923077,
+          "day_win_ratio_percent": 55.400697,
+          "avg_trade_return_percent": 267.597197,
+          "turnover_rate_percent": 0.120931,
+          "sharpe": 1.3126254850321,
+          "sortino": 1.8776231560958,
+          "information": 2.0488465920308,
+          "alpha": 0.27738797973392,
+          "beta": 1.0383886057779,
+          "profit_loss_ratio": 11.617434614611,
+          "avg_position_days": 429.45,
+          "trading_days": 861,
+          "win_count": 10,
+          "lose_count": 3,
+          "max_drawdown_period": [
+            "2018-06-12",
+            "2018-10-29"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2018-07-18",
+            "2018-10-29"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/29535",
+      "https://www.joinquant.com/community/post/detailV2?postId=29535",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=51e9234e3a5aafb84ae0620316c5d21f&postId=115a4547d12f088acbb33330286a9956&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=51e9234e3a5aafb84ae0620316c5d21f"
+    ]
+  }
+}

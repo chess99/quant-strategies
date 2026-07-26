@@ -1,0 +1,190 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/98.【漂亮50】“漂亮50”策略复现以及股息率排序函数.txt",
+    "category": "2022年度精选策略",
+    "file_name": "98.【漂亮50】“漂亮50”策略复现以及股息率排序函数.txt",
+    "strategy_name": "【漂亮50】“漂亮50”策略复现以及股息率排序函数",
+    "declared_title": "【漂亮50】“漂亮50”策略复现以及股息率排序函数",
+    "declared_author": "山东大鹧鸪",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 14893,
+    "sha256": "16f849a15c1608a90ab68cf588d038009956c817b87c56a1f198a7b82194be44",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/36018",
+      "https://www.joinquant.com/post/35174"
+    ],
+    "primary_url": "https://www.joinquant.com/post/36018",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:45+08:00",
+    "requested_url": "https://www.joinquant.com/post/36018",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/cbb7c3479896001864adf3f6161cbc91",
+    "community_id": "cbb7c3479896001864adf3f6161cbc91",
+    "post": {
+      "postId": "72c8989220a43959960551da422ca446",
+      "uniqueKey": "cbb7c3479896001864adf3f6161cbc91",
+      "title": "【漂亮50】“漂亮50”策略复现以及股息率排序函数",
+      "content": "![Img]( https://image.joinquant.com/a82dfc75df67d5265e8a35098862abda) \n![Img]( https://image.joinquant.com/0fcf29db7314a1521c2533cf21e98227) \n![Img]( https://image.joinquant.com/ef616009ce4762ee0edb0ff701c933b7) \n![Img]( https://image.joinquant.com/ce61f418510f6ab0ca353da55aa7b7c9) \n![Img]( https://image.joinquant.com/75e2cf4a4ad7bffbb09d1a5a83a8b35e) \n![Img]( https://image.joinquant.com/9ca1e9d31e3dc10e19a29a3d1ec3e02b) \n![Img]( https://image.joinquant.com/539358051b6279f7763ffc6d8388bc30) \n![Img]( https://image.joinquant.com/930529a779488af364c3b10b0588dc68) \n![Img]( https://image.joinquant.com/2c7141a44623009832bdab99698f322c) \n最后补充一下这个策略可能面临的过拟合问题：经过我对这个策略的轮动天数进行修改，发现这个参数会对回测结果，尤其是最大回撤产生较大的影响，如果实验结果对某个参数较为敏感，这是就要谨慎了，因为这意味着可能要面对一个难以摆脱的问题，也是做量化最大的敌人——过拟合。\n用最常见的技术指标MACD在一个股票历史数据上优化，能轻松获得年化好几倍的收益，但这是没用的，我做过实验，用过去1年的数据优化MACD的参数，然后用在后一天，或者后一个月上，在指数ETF和我挑选的几只股票上都试验过，测试时间当时好像是5年还是10年的，最后都是远远跑不过买入并持有。\n一旦实验结果对某个参数敏感，就意味着你的结果可能很大程度上都要仰仗这个参数在过去一段时间的有效性，我做机器学习的实验经常会碰见过拟合的问题，过拟合最恶心的地方可能并不是说一组参数在过去一年收益是100%，那么我对未来一年的预期降低一些，算他个30%，这样还不行嘛，实际上，我做机器学习的经验往往是，模型一旦过拟合，这就变成了一坨屎，而你只能寄希望于运气不要让你亏得太惨。至于如何应对过拟合，我也不知道，我只知道我做科研的时候复现过的近几年的发表在顶刊顶会的股票预测模型，一换数据集以后基本上都变成了一坨屎。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-12-29 15:24:02",
+      "modTime": "2021-12-29 15:24:02",
+      "lastActiveTime": "2024-06-01 00:04:40",
+      "lastPubTime": "2021-12-29 15:24:02",
+      "backtestId": "9f45ee5288439e046baa2e4a821b336f",
+      "backtestName": "漂亮10止损3.0-自己改动版本",
+      "replyCount": "69",
+      "viewCount": "2444",
+      "collectionCount": "47",
+      "likeCount": "34",
+      "disLikeCount": "0",
+      "backtestCloneCount": "135",
+      "notebookCloneCount": "18",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "21",
+      "followersCount": "612",
+      "followingCount": "24",
+      "author": {
+        "userId": "2f678c572c595301c220a896b8d90b99",
+        "alias": "山东大鹧鸪",
+        "introduction": "东北大鹌鹑的粉丝",
+        "vipType": "VIP",
+        "headImgKey": "d7aa070fe3d211ff5d6a5a6c77f51ae4"
+      },
+      "tags": [
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "264",
+          "name": "研报复现"
+        },
+        {
+          "id": "14",
+          "name": "函数"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "9f45ee5288439e046baa2e4a821b336f",
+        "backtest_name": "漂亮10止损3.0-自己改动版本",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=9f45ee5288439e046baa2e4a821b336f&postId=cbb7c3479896001864adf3f6161cbc91&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2014-01-01",
+          "end_date": "2021-12-28",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "f69ff8f7a458182dbd37554ec901f63d",
+            "23009593"
+          ],
+          "numeric_backtest_id": "23009593",
+          "numeric_post_id": "36018",
+          "python_version": 3,
+          "clone_count": 135
+        },
+        "stats": {
+          "trading_days": 1947,
+          "benchmark_volatility": 0.26264173890613,
+          "algorithm_volatility": 0.28147063482998,
+          "treasury_return": 0.31967123287671,
+          "algorithm_return": 5.412806812216,
+          "benchmark_return": 0.9028048366457,
+          "annual_algo_return": 0.26948372871178,
+          "annual_bm_return": 0.086112888831236,
+          "sharpe": 0.81530255847258,
+          "excess_return_sharpe": "0.708",
+          "sortino": 1.1447152613515,
+          "information": 1.0142672770515,
+          "beta": 0.83734207940187,
+          "alpha": 0.19087146649061,
+          "excess_return": 2.3701863106048,
+          "avg_excess_return": "0.07%",
+          "max_drawdown": 0.40173111760419,
+          "max_drawdown_period": [
+            "2018-01-23",
+            "2019-01-02"
+          ],
+          "excess_return_max_drawdown": "21.76%",
+          "excess_return_max_drawdown_period": [
+            "2014-02-10",
+            "2015-06-17"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-12",
+          "__version": 101,
+          "win_ratio": 0.4468802698145,
+          "profit_loss_ratio": 1.7080585281297,
+          "win_count": 265,
+          "lose_count": 328,
+          "day_win_ratio": 0.50128402670776,
+          "avg_trade_return": 0.042592602779275,
+          "avg_position_days": 86.272727272727,
+          "turnover_rate": 0.031045469594714,
+          "report_done_seconds": 787.97371935844,
+          "report_done_cpu_seconds": 666.07
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 541.280681,
+          "benchmark_return_percent": 90.280484,
+          "annual_algo_return_percent": 26.948373,
+          "annual_bm_return_percent": 8.611289,
+          "max_drawdown_percent": 40.173112,
+          "algorithm_volatility_percent": 28.147063,
+          "benchmark_volatility_percent": 26.264174,
+          "win_ratio_percent": 44.688027,
+          "day_win_ratio_percent": 50.128403,
+          "avg_trade_return_percent": 4.25926,
+          "turnover_rate_percent": 3.104547,
+          "sharpe": 0.81530255847258,
+          "sortino": 1.1447152613515,
+          "information": 1.0142672770515,
+          "alpha": 0.19087146649061,
+          "beta": 0.83734207940187,
+          "profit_loss_ratio": 1.7080585281297,
+          "avg_position_days": 86.272727272727,
+          "trading_days": 1947,
+          "win_count": 265,
+          "lose_count": 328,
+          "max_drawdown_period": [
+            "2018-01-23",
+            "2019-01-02"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2014-02-10",
+            "2015-06-17"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/36018",
+      "https://www.joinquant.com/community/post/detailV2?postId=36018",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=9f45ee5288439e046baa2e4a821b336f&postId=cbb7c3479896001864adf3f6161cbc91&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=9f45ee5288439e046baa2e4a821b336f"
+    ]
+  }
+}

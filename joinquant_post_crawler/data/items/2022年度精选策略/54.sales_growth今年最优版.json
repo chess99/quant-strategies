@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/54.sales_growth今年最优版.txt",
+    "category": "2022年度精选策略",
+    "file_name": "54.sales_growth今年最优版.txt",
+    "strategy_name": "sales_growth今年最优版",
+    "declared_title": "sales_growth今年最优版",
+    "declared_author": "jycs",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 11353,
+    "sha256": "496cb07d01a59e556ac880a8a5bf81c31ab66f70a6ce3fdd9abb85186edd06ed",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/38476",
+      "https://www.joinquant.com/post/35690"
+    ],
+    "primary_url": "https://www.joinquant.com/post/38476",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:12+08:00",
+    "requested_url": "https://www.joinquant.com/post/38476",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/7a09f9a656837ed4db1f45021e48f741",
+    "community_id": "7a09f9a656837ed4db1f45021e48f741",
+    "post": {
+      "postId": "5b738a623eb914772639449c397f1fbf",
+      "uniqueKey": "7a09f9a656837ed4db1f45021e48f741",
+      "title": "sales_growth今年最优版",
+      "content": "5年营收增长率（sales_growth）因子版流传很广，历史回测收益也很稳定，但是今年以来表现欠佳，2022年1-7月以来基本零增长。仔细研究了一下，发现除今年指数波动较大以外，选股策略上也较为保守，因此做了一点针对性优化。增加了指数避险因素，同时采取较为积极的选股策略。总体回测来看，2019年7月至今总收益205%，三年年化68%，不如原版300%的。但是平滑了曲线，最大回撤减小到了16%，特别是今年的收益至今达到了30%，效果非常不错。\n特此共享，请大家关注两点：\n第一，盈亏同源，此项优化是否优于原版\n第二，优化策略迎合目前震荡趋势，未来能否持续",
+      "type": 1,
+      "status": "0",
+      "addTime": "2022-07-14 19:07:48",
+      "modTime": "2022-07-14 19:07:48",
+      "lastActiveTime": "2025-04-02 15:00:13",
+      "lastPubTime": "2022-07-14 19:07:48",
+      "backtestId": "4c832641617982b5015eae785547cd1b",
+      "backtestName": "salse_growth今年最优版",
+      "replyCount": "33",
+      "viewCount": "2520",
+      "collectionCount": "36",
+      "likeCount": "20",
+      "disLikeCount": "0",
+      "backtestCloneCount": "171",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "9",
+      "followersCount": "30",
+      "followingCount": "32",
+      "author": {
+        "userId": "29f225a7a46d0fc1fcd0a1c2efd03839",
+        "alias": "jycs"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "4c832641617982b5015eae785547cd1b",
+        "backtest_name": "salse_growth今年最优版",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=4c832641617982b5015eae785547cd1b&postId=7a09f9a656837ed4db1f45021e48f741&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2019-07-01",
+          "end_date": null,
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 1,
+          "page_backtest_ids": [
+            "bd49b337124bba99d2ac36996786152b",
+            "25298667"
+          ],
+          "numeric_backtest_id": "25298667",
+          "numeric_post_id": "38476",
+          "python_version": 3,
+          "clone_count": 171
+        },
+        "stats": {
+          "trading_days": 738,
+          "benchmark_volatility": 0.212223759965,
+          "algorithm_volatility": 0.21598461482701,
+          "treasury_return": 0.12142465753425,
+          "algorithm_return": 2.0554552478,
+          "benchmark_return": 0.26623882936604,
+          "annual_algo_return": 0.45989329360674,
+          "annual_bm_return": 0.083247052376308,
+          "sharpe": 1.944088906254,
+          "excess_return_sharpe": "1.252",
+          "sortino": 3.084618239494,
+          "information": 1.5483906253858,
+          "beta": 0.36099492292289,
+          "alpha": 0.40428132726751,
+          "excess_return": 1.4130165470678,
+          "avg_excess_return": "0.13%",
+          "max_drawdown": 0.15866242980685,
+          "max_drawdown_period": [
+            "2021-01-04",
+            "2021-02-05"
+          ],
+          "excess_return_max_drawdown": "22.27%",
+          "excess_return_max_drawdown_period": [
+            "2020-04-01",
+            "2020-07-14"
+          ],
+          "max_leverage": 0,
+          "period_label": "2022-07",
+          "__version": 101,
+          "win_ratio": 0.50077760497667,
+          "profit_loss_ratio": 1.8104677940869,
+          "win_count": 322,
+          "lose_count": 321,
+          "day_win_ratio": 0.46747967479675,
+          "avg_trade_return": 0.011047923048491,
+          "avg_position_days": 30.653333333333,
+          "turnover_rate": 0.1764312156656,
+          "report_done_seconds": 149.78586816788,
+          "report_done_cpu_seconds": 121.13
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 205.545525,
+          "benchmark_return_percent": 26.623883,
+          "annual_algo_return_percent": 45.989329,
+          "annual_bm_return_percent": 8.324705,
+          "max_drawdown_percent": 15.866243,
+          "algorithm_volatility_percent": 21.598461,
+          "benchmark_volatility_percent": 21.222376,
+          "win_ratio_percent": 50.07776,
+          "day_win_ratio_percent": 46.747967,
+          "avg_trade_return_percent": 1.104792,
+          "turnover_rate_percent": 17.643122,
+          "sharpe": 1.944088906254,
+          "sortino": 3.084618239494,
+          "information": 1.5483906253858,
+          "alpha": 0.40428132726751,
+          "beta": 0.36099492292289,
+          "profit_loss_ratio": 1.8104677940869,
+          "avg_position_days": 30.653333333333,
+          "trading_days": 738,
+          "win_count": 322,
+          "lose_count": 321,
+          "max_drawdown_period": [
+            "2021-01-04",
+            "2021-02-05"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-04-01",
+            "2020-07-14"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/38476",
+      "https://www.joinquant.com/community/post/detailV2?postId=38476",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=4c832641617982b5015eae785547cd1b&postId=7a09f9a656837ed4db1f45021e48f741&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=4c832641617982b5015eae785547cd1b"
+    ]
+  }
+}

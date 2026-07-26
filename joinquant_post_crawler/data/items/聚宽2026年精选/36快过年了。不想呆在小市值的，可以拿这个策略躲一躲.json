@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/36快过年了。不想呆在小市值的，可以拿这个策略躲一躲.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "36快过年了。不想呆在小市值的，可以拿这个策略躲一躲.txt",
+    "strategy_name": "快过年了。不想呆在小市值的，可以拿这个策略躲一躲",
+    "declared_title": "快过年了。不想呆在小市值的，可以拿这个策略躲一躲",
+    "declared_author": "MarioC",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 15142,
+    "sha256": "d04b32513f71be1dfd02b1efb7335b7f9345c71b8b646200aa9bc25f9fdb678e",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/49995"
+    ],
+    "primary_url": "https://www.joinquant.com/post/49995",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "post_without_backtest",
+    "collected_at": "2026-07-27T02:12:07+08:00",
+    "requested_url": "https://www.joinquant.com/post/49995",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/74f1ebc4473963eb4e9cf0ac2c7e9a77",
+    "community_id": "74f1ebc4473963eb4e9cf0ac2c7e9a77",
+    "post": {
+      "postId": "b20d55a02e1397116b292d6b6d6ed1d1",
+      "uniqueKey": "74f1ebc4473963eb4e9cf0ac2c7e9a77",
+      "title": "快过年了。不想呆在小市值的，可以拿这个策略躲一躲",
+      "content": "沪深300，搞个300选股增强策略..........\n感兴趣关注VX-GZH：Mario量化\n```\n# 克隆自聚宽文章：https://www.joinquant.com/post/49995\n# 标题：快过节了。搞点东西给大家学习。shui一波积分（狗头保命）。\n# 作者：MarioC\n\n# 克隆自聚宽文章：https://www.joinquant.com/post/49995\n# 标题：快过节了。搞点东西给大家学习。shui一波积分（狗头保命）。\n# 作者：MarioC\n\nfrom jqdata import *\nfrom jqfactor import *\nimport numpy as np\nimport pandas as pd\nimport pickle\n\nimport talib\n\n# 初始化函数\ndef initialize(context):\n    # 设定基准\n    set_benchmark('000300.XSHG')\n    # 用真实价格交易\n    set_option('use_real_price', True)\n    # 打开防未来函数\n    set_option(\"avoid_future_data\", True)\n    # 将滑点设置为0\n    set_slippage(FixedSlippage(0))\n    # 设置交易成本万分之三，不同滑点影响可在归因分析中查看\n    set_order_cost(OrderCost(open_tax=0, close_tax=0.001, open_commission=0.0003, close_commission=0.0003,\n                             close_today_commission=0, min_commission=5), type='stock')\n    # 过滤order中低于error级别的日志\n    log.set_level('order', 'error')\n    # 初始化全局变量\n    g.hold_list = []  # 当前持仓的全部股票\n    g.yesterday_HL_list = []  # 记录持仓中昨日涨停的股票\n    g.stock_num = 5\n    # 设置交易运行时间\n    run_daily(prepare_stock_list, '9:05')\n    run_monthly(weekly_adjustment, 1, '9:30')\n    run_daily(check_limit_up, '14:00')  # 检查持仓中的涨停股是否需要卖出\n\n# 1-1 准备股票池\ndef prepare_stock_list(context):\n    # 获取已持有列表\n    g.hold_list = []\n    for position in list(context.portfolio.positions.values()):\n        stock = position.security\n        g.hold_list.append(stock)\n    # 获取昨日涨停列表\n    if g.hold_list != []:\n        df = get_price(g.hold_list, end_date=context.previous_date, frequency='daily', fields=['close', 'high_limit'],\n                       count=1, panel=False, fill_paused=False)\n        df = df[df['close'] == df['high_limit']]\n        g.yesterday_HL_list = list(df.code)\n    else:\n        g.yesterday_HL_list = []\n\n# 1-2 选股模块\ndef get_stock_list(context):\n    # 指定日期防止未来数据\n    yesterday = context.previous_date\n    today = context.current_dt\n    # 获取初始列表\n    initial_list = get_index_stocks('000300.XSHG', today)\n    initial_list = filter_all_stock2(context, initial_list)\n    final_list = []\n    #构建查询\n    lst = get_delta_stocks(context,initial_list,today)\n    q = query(\n    valuation.code\n    ).filter(\n\tvaluation.code.in_(lst)\n\t).order_by(\n        valuation.market_cap.desc())\n    lst = list(get_fundamentals(q).code)[:g.stock_num*3]\n    lst = filter_paused_stock(lst)\n    lst = filter_limitup_stock(context, lst)\n    lst = filter_limitdown_stock(context, lst)\n    lst = lst[:min(g.stock_num, len(lst))]\n    for stock in lst:\n        if stock not in final_list:\n            final_list.append(stock)\n    return final_list\n    \n#取财务基本面的三角合集\ndef get_delta_stocks(context,stocklist,today_date):\n    lastd_date = context.previous_date\n    current_data = get_current_data()\n    poollist=[]\n    # df = get_history_fundamentals(stocklist,[indicator.roe,indicator.inc_net_profit_year_on_year,indicator.ocf_to_revenue]\n    # , watch_date=lastd_date, count=4)  # 连续的4个季度    \n    df = get_history_fundamentals(stocklist,[indicator.roe,indicator.inc_total_revenue_year_on_year,indicator.ocf_to_revenue]\n    , watch_date=lastd_date, count=4)  # 连续的4个季度\n    grouped = df.groupby('code')\n    mask = grouped.apply(lambda x: x.isna().any().any())\n    df = df[~df['code'].isin(mask[mask].index)]\n    grouped = df.groupby('code')\n    result = []\n    for code, group in grouped:\n        group_sorted = group.sort_values('statDate')\n        roe_values = group_sorted['roe'].values #股本回报率\n        ocf_values = group_sorted['ocf_to_revenue'].values # 经营现金流/收入\n        # inc_net_profit_year_on_year = group_sorted['inc_net_profit_year_on_year'].values\n        revenue_growth_values = group_sorted['inc_total_revenue_year_on_year'].values #总收入同比增长率\n\n        if (\n            # (inc_net_profit_year_on_year[-1] &gt; 0  and roe_values[-1] &gt; 0 and ocf_values[-1] &gt;0)\n            (revenue_growth_values[-1] &gt; 0.01  and roe_values[-1] &gt; 0.01 and ocf_values[-1] &gt;0.01)\n            and\n            roe_values[-1] == np.max(roe_values) and\n            ocf_values[-1] == np.max(ocf_values) and\n            # inc_net_profit_year_on_year[-1] == np.max(inc_net_profit_year_on_year) \n            revenue_growth_values[-1] == np.max(revenue_growth_values) \n            \n            # roe_values[-1] == np.min(roe_values) and\n            # ocf_values[-1] == np.min(ocf_values) and\n            # inc_net_profit_year_on_year[-1] == np.min(inc_net_profit_year_on_year) \n            # revenue_growth_values[-1] == np.max(revenue_growth_values)             \n\n            ):\n            result.append(code)\n    return result\n\ndef weekly_adjustment(context):\n    today = context.current_dt\n\n    target_list = get_stock_list(context)\n    for stock in g.hold_list:\n        if (stock not in target_list) and (stock not in g.yesterday_HL_list):\n            position = context.portfolio.positions[stock]\n            close_position(position)\n    position_count = len(context.portfolio.positions)\n    target_num = len(target_list)\n    if target_num &gt; position_count:\n        value = context.portfolio.cash / (target_num - position_count)\n        for stock in target_list:\n            if stock not in list(context.portfolio.positions.keys()):\n                if open_position(stock, value):\n                    if len(context.portfolio.positions) == target_num:\n                        break\n\ndef check_limit_up(context):\n    now_time = context.current_dt\n    if g.yesterday_HL_list != []:\n        # 对昨日涨停股票观察到尾盘如不涨停则提前卖出，如果涨停即使不在应买入列表仍暂时持有\n        for stock in g.yesterday_HL_list:\n            current_data = get_price(stock, end_date=now_time, frequency='1m', fields=['close', 'high_limit'],\n                                     skip_paused=False, fq='pre', count=1, panel=False, fill_paused=True)\n            if current_data.iloc[0, 0] &lt; current_data.iloc[0, 1]:\n                log.info(\"[%s]涨停打开，卖出\" % (stock))\n                position = context.portfolio.positions[stock]\n                close_position(position)\n            else:\n                log.info(\"[%s]涨停，继续持有\" % (stock))\n\ndef filter_all_stock2(context, stock_list):\n    # 过滤次新股（新股、老股的分界日期，两种指定方法）\n    # 新老股的分界日期, 自然日180天\n    # by_date = context.previous_date - datetime.timedelta(days=180)\n    # 新老股的分界日期，120个交易日\n    by_date = get_trade_days(end_date=context.previous_date, count=375)[0]\n    all_stocks = get_all_securities(date=by_date).index.tolist()\n    stock_list = list(set(stock_list).intersection(set(all_stocks)))\n\n    curr_data = get_current_data()\n    return [stock for stock in stock_list if not (\n            stock.startswith(( '68', '4', '8','3')) or  # 创业，科创，北交所\n            curr_data[stock].paused or\n            curr_data[stock].is_st or  # ST\n            ('ST' in curr_data[stock].name) or\n            ('*' in curr_data[stock].name) or\n            ('退' in curr_data[stock].name) or\n            (curr_data[stock].day_open == curr_data[stock].high_limit) or  # 涨停开盘, 其它时间用last_price\n            (curr_data[stock].day_open == curr_data[stock].low_limit)  # 跌停开盘, 其它时间用last_price\n    )]\n\ndef order_target_value_(security, value):\n    if value == 0:\n        log.debug(\"Selling out %s\" % (security))\n    else:\n        log.debug(\"Order %s to value %f\" % (security, value))\n    return order_target_value(security, value)\n\ndef open_position(security, value):\n    order = order_target_value_(security, value)\n    if order != None and order.filled &gt; 0:\n        return True\n    return False\n\ndef close_position(position):\n    security = position.security\n    order = order_target_value_(security, 0)  # 可能会因停牌失败\n    if order != None:\n        if order.status == OrderStatus.held and order.filled == order.amount:\n            return True\n    return False\n\n#2-1 过滤停牌股票\ndef filter_paused_stock(stock_list):\n    current_data = get_current_data()\n    return [stock for stock in stock_list if not current_data[stock].paused]\n\n\n#2-4 过滤涨停的股票\ndef filter_limitup_stock(context, stock_list):\n    last_prices = history(1, unit='1m', field='close', security_list=stock_list)\n    current_data = get_current_data()\n    return [stock for stock in stock_list if stock in context.portfolio.positions.keys()\n            or last_prices[stock][-1] &lt; current_data[stock].high_limit]\n\n#2-5 过滤跌停的股票\ndef filter_limitdown_stock(context, stock_list):\n    last_prices = history(1, unit='1m', field='close', security_list=stock_list)\n    current_data = get_current_data()\n    return [stock for stock in stock_list if stock in context.portfolio.positions.keys()\n            or last_prices[stock][-1] &gt; current_data[stock].low_limit]\ncode \n```",
+      "type": 1,
+      "status": "0",
+      "addTime": "2024-09-29 10:30:27",
+      "modTime": "2024-12-24 10:31:13",
+      "lastActiveTime": "2026-07-22 19:44:58",
+      "lastPubTime": "2024-12-24 10:31:13",
+      "replyCount": "45",
+      "viewCount": "10494",
+      "collectionCount": "138",
+      "likeCount": "122",
+      "disLikeCount": "0",
+      "backtestCloneCount": "466",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "62",
+      "followersCount": "4970",
+      "followingCount": "36",
+      "author": {
+        "userId": "1a47d1433cdae2bba68ab55a66470b3e",
+        "alias": "MarioC",
+        "introduction": "人工智能爱好者，gzh：Mario量化",
+        "headImgKey": "44901f16b2618622495468b8b1a70019"
+      },
+      "tags": [
+        {
+          "id": "10",
+          "name": "研究"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 3,
+    "request_urls": [
+      "https://www.joinquant.com/post/49995",
+      "https://www.joinquant.com/community/post/detailV2?postId=49995",
+      "https://www.joinquant.com/community/post/replyList?page=1&postId=74f1ebc4473963eb4e9cf0ac2c7e9a77",
+      "https://www.joinquant.com/community/post/replyList?page=2&postId=74f1ebc4473963eb4e9cf0ac2c7e9a77"
+    ]
+  }
+}

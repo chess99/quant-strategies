@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/81.拥挤率指标-择时大盘顶底-Clone1-第二版.txt",
+    "category": "2023年度精选策略",
+    "file_name": "81.拥挤率指标-择时大盘顶底-Clone1-第二版.txt",
+    "strategy_name": "拥挤率指标-择时大盘顶底-Clone1-第二版",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 6957,
+    "sha256": "d0350173eed29f6464d5a350efea957e876d718479b4ca1cd62dbd4694ef3e86",
+    "joinquant_urls": [],
+    "primary_url": null,
+    "url_selection_method": "none"
+  },
+  "remote": null
+}

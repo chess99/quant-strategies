@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/22 海龟交易法则升级版---（分钟级回测+合约变更移仓）.txt",
+    "category": "2020年度精选策略",
+    "file_name": "22 海龟交易法则升级版---（分钟级回测+合约变更移仓）.txt",
+    "strategy_name": "海龟交易法则升级版---（分钟级回测+合约变更移仓）",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 12195,
+    "sha256": "9c4de2f241ff8bb293a96ebd9cf042c0f1dfca68b6895add41f4936aabbac1bf",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/14203"
+    ],
+    "primary_url": "https://www.joinquant.com/post/14203",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:06:32+08:00",
+    "requested_url": "https://www.joinquant.com/post/14203",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/b0cd56cf049e62cd8ee9c0c85d6f6a4c",
+    "community_id": "b0cd56cf049e62cd8ee9c0c85d6f6a4c",
+    "post": {
+      "postId": "db966f181312c267dc85e5cb2201bf3f",
+      "uniqueKey": "b0cd56cf049e62cd8ee9c0c85d6f6a4c",
+      "title": "海龟交易法则升级版---（分钟级回测+合约变更移仓）",
+      "content": "前一阵子学习了ScintiGimcki 同学写的[商品期货策略——海龟交易法][1] ，颇有收获。在学习的基础上，自己对策略进行了升级，主要体现在以下三个方面：\n\n1.\t上一个帖子中，对于主力合约变更时，策略将原主力合约平仓了结。本贴加入一个移仓选项g.shift(第17行)。如果为True则移仓，将原主力合约平仓，再对新主力合约进行相同数量相同方向开仓。为False则不移仓，对原主力合约平仓了结，不对新主力合约开仓。\n2.\t海龟交易法则为日级别的回测，本贴升级为分钟级回测，修改g.frequency(第18行)为’1d’为日回测，’1m’为分钟级回测。 注意：别忘了右上边也跟着调整。\n3.\t如果希望变更回测标的，修改g.symbol(第13行)即可。\n\n如果有同学不了解海龟交易法则，可以拜读上述ScintiGimcki的帖子有详细的解释。我对海龟交易法则的交易规则进行一个简单的总结：\n\n以多头为例，\n\n【突破开仓】如果价格突破过去20日的最高价，则买入一个单位。值得注意有两点，一是如果已经持有多头头寸，则即使突破也不开仓。二是如果已经持有空头头寸，需要将原来的空头头寸平掉再开多仓。\n【顺势加仓】如果股价相比于上一次多开的价格又上涨了0.5个ATR，那么则再买入一个单位，加仓有最多4次的限制。\n【回调止损】如果股价相比于上一次多开的价格下降了2个ATR，那么则平掉所有持有的多仓。\n【止盈止损】自持有头寸起，如果股价相比于期间最高价下跌5%，则平仓结束交易。\n【ATR】A就是平均，TR是真实波幅。TR=max(h-l,abs(h-c0),abs(l-c0)),c0为昨日收盘价。\n【一个单位】(total_value*0.01/ATR)/future_multiplier\n\n![1.png][2]\n\n问题：\n\n策略有一个缺点，如果组合期初金额设置较小的话，则可能因为资金问题而导致开仓失败，但是日志中显示是理论开仓数量。只要策略资金够的话，这个问题不会发生。\n如果大家在回测过程中发现其他什么问题，请留言。根据大家的问题汇总，有必要的话可以再写一版。\n\n\n  [1]: https://www.joinquant.com/post/9184\n  [2]: https://image.joinquant.com/ac34fe327f60925988beae547ab7dbb9",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-08-13 13:37:32",
+      "modTime": "2018-08-13 13:37:32",
+      "lastActiveTime": "2020-06-10 15:03:32",
+      "lastPubTime": "2018-08-13 13:37:32",
+      "backtestId": "fa62d1489f4d88325277e28bb1152876",
+      "backtestName": "NinjaTurtle",
+      "replyCount": "7",
+      "viewCount": "11717",
+      "collectionCount": "51",
+      "likeCount": "17",
+      "disLikeCount": "0",
+      "backtestCloneCount": "314",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "33",
+      "followersCount": "1292",
+      "followingCount": "21",
+      "author": {
+        "userId": "27609d9d679b97a2d8c82ae173e4fa66",
+        "alias": "颖硕",
+        "headImgKey": "566c25f14de3c99d140af327e66efb16"
+      },
+      "tags": [
+        {
+          "id": "7",
+          "name": "期货"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "fa62d1489f4d88325277e28bb1152876",
+        "backtest_name": "NinjaTurtle",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=fa62d1489f4d88325277e28bb1152876&postId=b0cd56cf049e62cd8ee9c0c85d6f6a4c&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2016-06-01",
+          "end_date": "2016-12-31",
+          "base_capital": 10000000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "f8824a40a32d8d4f289e031a9da93696",
+            "9676660"
+          ],
+          "numeric_backtest_id": "9676660",
+          "numeric_post_id": "14203",
+          "python_version": 2,
+          "clone_count": 315
+        },
+        "stats": {
+          "information": 0.30970986380876,
+          "benchmark_return": 0.27183650615902,
+          "algorithm_volatility": 0.37578197177579,
+          "annual_bm_return": 0.5181137611646,
+          "__version": 101,
+          "max_drawdown": 0.22327415343091,
+          "sortino": 2.9274255866442,
+          "period_label": "2016-12",
+          "trading_days": 144,
+          "algorithm_return": 0.317881565,
+          "benchmark_volatility": 0.18177421298418,
+          "beta": 1.1620971244367,
+          "excess_return": 0.29464868828767,
+          "annual_algo_return": 0.61479992444311,
+          "sharpe": 1.529610166573,
+          "alpha": 0.019185297440084,
+          "max_drawdown_period": [
+            "2016-07-04",
+            "2016-10-27"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.023232876712329,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.46527777777778,
+          "avg_position_days": 11.714285714286,
+          "win_ratio": 0.28571428571429,
+          "win_count": 4,
+          "avg_trade_return": 0.14936173704054,
+          "profit_loss_ratio": 1.9534307506306,
+          "lose_count": 10,
+          "report_done_seconds": 264.04649305344
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 31.788156,
+          "benchmark_return_percent": 27.183651,
+          "annual_algo_return_percent": 61.479992,
+          "annual_bm_return_percent": 51.811376,
+          "max_drawdown_percent": 22.327415,
+          "algorithm_volatility_percent": 37.578197,
+          "benchmark_volatility_percent": 18.177421,
+          "win_ratio_percent": 28.571429,
+          "day_win_ratio_percent": 46.527778,
+          "avg_trade_return_percent": 14.936174,
+          "sharpe": 1.529610166573,
+          "sortino": 2.9274255866442,
+          "information": 0.30970986380876,
+          "alpha": 0.019185297440084,
+          "beta": 1.1620971244367,
+          "profit_loss_ratio": 1.9534307506306,
+          "avg_position_days": 11.714285714286,
+          "trading_days": 144,
+          "win_count": 4,
+          "lose_count": 10,
+          "max_drawdown_period": [
+            "2016-07-04",
+            "2016-10-27"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/14203",
+      "https://www.joinquant.com/community/post/detailV2?postId=14203",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=fa62d1489f4d88325277e28bb1152876&postId=b0cd56cf049e62cd8ee9c0c85d6f6a4c&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=fa62d1489f4d88325277e28bb1152876"
+    ]
+  }
+}

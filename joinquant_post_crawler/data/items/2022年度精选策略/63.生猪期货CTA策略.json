@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/63.生猪期货CTA策略.txt",
+    "category": "2022年度精选策略",
+    "file_name": "63.生猪期货CTA策略.txt",
+    "strategy_name": "生猪期货CTA策略",
+    "declared_title": "生猪期货CTA策略",
+    "declared_author": "PokerTrader",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 22685,
+    "sha256": "eef12754fb9ce461300e2529f0ecb75cc2404faec6110bcf68a591acd273cc37",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/35604"
+    ],
+    "primary_url": "https://www.joinquant.com/post/35604",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:18+08:00",
+    "requested_url": "https://www.joinquant.com/post/35604",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/9713c378b6024cb38215268793b0b36c",
+    "community_id": "9713c378b6024cb38215268793b0b36c",
+    "post": {
+      "postId": "fd588e6a4c41717ba9c8e745d762cf14",
+      "uniqueKey": "9713c378b6024cb38215268793b0b36c",
+      "title": "生猪期货CTA策略",
+      "content": "本策略用到了动能穿透+macd指标+相关品种趋势一致性过滤\n![Img]( https://image.joinquant.com/0978e0cfef6810ec633da95ab6ea44a4) \n\n相关品种选取的是国内最大的生猪养殖企业牧原股份，经研究分析其走势与生猪期货具有相关性，因此将其作为开仓信号的过滤条件，即当生猪期货与牧原股份同期趋势相同时才会产生交易信号。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-11-27 18:25:53",
+      "modTime": "2021-11-27 18:25:53",
+      "lastActiveTime": "2026-01-13 16:02:52",
+      "lastPubTime": "2021-11-27 18:25:53",
+      "backtestId": "1803e0d9e98fc9902bc18cfb734323cc",
+      "backtestName": "动能突破做多生猪期货",
+      "replyCount": "48",
+      "viewCount": "3289",
+      "collectionCount": "81",
+      "likeCount": "33",
+      "disLikeCount": "0",
+      "backtestCloneCount": "311",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "30",
+      "followersCount": "350",
+      "followingCount": "11",
+      "author": {
+        "userId": "d3bd1b46e041625f60e86ff54429bb84",
+        "alias": "PokerTrader",
+        "introduction": "概率人生",
+        "headImgKey": "e3997a9e5411c4fc7ee31c1e3251ff16"
+      },
+      "tags": [
+        {
+          "id": "7",
+          "name": "期货"
+        },
+        {
+          "id": "1751",
+          "name": "CTA"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "1803e0d9e98fc9902bc18cfb734323cc",
+        "backtest_name": "动能突破做多生猪期货",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=1803e0d9e98fc9902bc18cfb734323cc&postId=9713c378b6024cb38215268793b0b36c&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2021-04-01",
+          "end_date": "2021-11-01",
+          "base_capital": 1000000,
+          "frequency_code": "tick",
+          "frequency_label": "TICK",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "14f926e1b995ac40c1064a99b81d5e12",
+            "22652017"
+          ],
+          "numeric_backtest_id": "22652017",
+          "numeric_post_id": "35604",
+          "python_version": 3,
+          "clone_count": 370
+        },
+        "stats": {
+          "trading_days": 141,
+          "benchmark_volatility": 0.26816280041062,
+          "algorithm_volatility": 0.56544123869311,
+          "treasury_return": 0.023452054794521,
+          "algorithm_return": 1.81391807416,
+          "benchmark_return": -0.40408745633124,
+          "annual_algo_return": 5.2611124720344,
+          "annual_bm_return": -0.60061894526142,
+          "sharpe": 9.2336959435464,
+          "excess_return_sharpe": "21.172",
+          "sortino": 21.793636973123,
+          "information": 8.6283617526428,
+          "beta": -0.4859447271101,
+          "alpha": 4.9098070734978,
+          "excess_return": 3.7220319559578,
+          "avg_excess_return": "1.20%",
+          "max_drawdown": 0.16723960688,
+          "max_drawdown_period": [
+            "2021-04-01",
+            "2021-05-06"
+          ],
+          "excess_return_max_drawdown": "16.30%",
+          "excess_return_max_drawdown_period": [
+            "2021-04-07",
+            "2021-05-06"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-11",
+          "__version": 101,
+          "win_ratio": 0.76923076923077,
+          "profit_loss_ratio": 7.0749533208856,
+          "win_count": 10,
+          "lose_count": 3,
+          "day_win_ratio": 0.56737588652482,
+          "avg_trade_return": 3.8404083245526,
+          "avg_position_days": 27.5,
+          "turnover_rate": 0.24118843908796,
+          "report_done_seconds": 787.72899103165,
+          "report_done_cpu_seconds": 777.21
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 181.391807,
+          "benchmark_return_percent": -40.408746,
+          "annual_algo_return_percent": 526.111247,
+          "annual_bm_return_percent": -60.061895,
+          "max_drawdown_percent": 16.723961,
+          "algorithm_volatility_percent": 56.544124,
+          "benchmark_volatility_percent": 26.81628,
+          "win_ratio_percent": 76.923077,
+          "day_win_ratio_percent": 56.737589,
+          "avg_trade_return_percent": 384.040832,
+          "turnover_rate_percent": 24.118844,
+          "sharpe": 9.2336959435464,
+          "sortino": 21.793636973123,
+          "information": 8.6283617526428,
+          "alpha": 4.9098070734978,
+          "beta": -0.4859447271101,
+          "profit_loss_ratio": 7.0749533208856,
+          "avg_position_days": 27.5,
+          "trading_days": 141,
+          "win_count": 10,
+          "lose_count": 3,
+          "max_drawdown_period": [
+            "2021-04-01",
+            "2021-05-06"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2021-04-07",
+            "2021-05-06"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/35604",
+      "https://www.joinquant.com/community/post/detailV2?postId=35604",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=1803e0d9e98fc9902bc18cfb734323cc&postId=9713c378b6024cb38215268793b0b36c&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=1803e0d9e98fc9902bc18cfb734323cc"
+    ]
+  }
+}

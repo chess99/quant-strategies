@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/20.北向资金股票轮动-优质策略可直接实盘.txt",
+    "category": "2023年度精选策略",
+    "file_name": "20.北向资金股票轮动-优质策略可直接实盘.txt",
+    "strategy_name": "北向资金股票轮动-优质策略可直接实盘",
+    "declared_title": "北向资金股票轮动-优质策略可直接实盘",
+    "declared_author": "Funine",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 5768,
+    "sha256": "4cf0557251d53d18eebb1c7732dfa04f6eb2e377cd756cdb144cb0e51d832e40",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/30772"
+    ],
+    "primary_url": "https://www.joinquant.com/post/30772",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:55+08:00",
+    "requested_url": "https://www.joinquant.com/post/30772",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/6d6d193c0644409b8b91e22b1600a67c",
+    "community_id": "6d6d193c0644409b8b91e22b1600a67c",
+    "post": {
+      "postId": "13faef4005c5470b4af47e78754d62f1",
+      "uniqueKey": "6d6d193c0644409b8b91e22b1600a67c",
+      "title": "北向资金股票轮动-优质策略可直接实盘",
+      "content": "策略逻辑：\n选股：前一日，北向资金持仓市值占比排名前M；\n择时：前三日，北向资金净流入大于-10，则均衡持有，小于-10，则清仓。\n\n高夏普，可直接进行实盘。由于需要购买股票组合，数量比较多，建议实盘资金在30万以上。若资金量小，可考虑本人，另外一个策略北向资金基金轮动。\n\n实盘策略改进，可在当天下午，尾盘时，再进行择时，回测中使用，前三天数据，避免未来函数。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-12-23 17:25:07",
+      "modTime": "2020-12-23 17:30:48",
+      "lastActiveTime": "2022-08-07 13:27:56",
+      "lastPubTime": "2020-12-23 17:30:48",
+      "backtestId": "779cad4ac4b550bec98ba71cef141676",
+      "backtestName": "北向资金-股票轮动",
+      "replyCount": "60",
+      "viewCount": "6473",
+      "collectionCount": "101",
+      "likeCount": "47",
+      "disLikeCount": "0",
+      "backtestCloneCount": "420",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "22",
+      "followersCount": "432",
+      "followingCount": "12",
+      "author": {
+        "userId": "2ebd0cd8e6dbc642211ea5b684bae598",
+        "alias": "Funine",
+        "introduction": "长长久久，坚守投资",
+        "headImgKey": "18757fc7358eef945620b04ff8afa127"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        },
+        {
+          "id": "1086",
+          "name": "北向资金"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "779cad4ac4b550bec98ba71cef141676",
+        "backtest_name": "北向资金-股票轮动",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=779cad4ac4b550bec98ba71cef141676&postId=6d6d193c0644409b8b91e22b1600a67c&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2017-01-01",
+          "end_date": "2020-12-22",
+          "base_capital": 3000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "8f187098df91587f426709cca663086f",
+            "19203643"
+          ],
+          "numeric_backtest_id": "19203643",
+          "numeric_post_id": "30772",
+          "python_version": 3,
+          "clone_count": 353
+        },
+        "stats": {
+          "trading_days": 967,
+          "benchmark_volatility": 0.19171917024044,
+          "algorithm_volatility": 0.18165176184863,
+          "treasury_return": 0.15879452054795,
+          "algorithm_return": 1.8925017585333,
+          "benchmark_return": 0.49989426237432,
+          "annual_algo_return": 0.31599361679604,
+          "annual_bm_return": 0.11049659057448,
+          "sharpe": 1.5193555734737,
+          "excess_return_sharpe": "0.966",
+          "sortino": 2.2726769934374,
+          "information": 1.3828028107638,
+          "beta": 0.6484470354304,
+          "alpha": 0.23028031163007,
+          "excess_return": 0.9284704469464,
+          "avg_excess_return": "0.07%",
+          "max_drawdown": 0.18053734900569,
+          "max_drawdown_period": [
+            "2018-06-12",
+            "2018-09-17"
+          ],
+          "excess_return_max_drawdown": "9.46%",
+          "excess_return_max_drawdown_period": [
+            "2018-07-16",
+            "2018-10-08"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-12",
+          "__version": 101,
+          "win_ratio": 0.72727272727273,
+          "profit_loss_ratio": 2.0937788571763,
+          "win_count": 1840,
+          "lose_count": 690,
+          "day_win_ratio": 0.50879007238883,
+          "avg_trade_return": 0.039167723412424,
+          "avg_position_days": 182.16666666667,
+          "turnover_rate": 0.18102954464735,
+          "report_done_seconds": 111.90203547478,
+          "report_done_cpu_seconds": 88.72
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 189.250176,
+          "benchmark_return_percent": 49.989426,
+          "annual_algo_return_percent": 31.599362,
+          "annual_bm_return_percent": 11.049659,
+          "max_drawdown_percent": 18.053735,
+          "algorithm_volatility_percent": 18.165176,
+          "benchmark_volatility_percent": 19.171917,
+          "win_ratio_percent": 72.727273,
+          "day_win_ratio_percent": 50.879007,
+          "avg_trade_return_percent": 3.916772,
+          "turnover_rate_percent": 18.102954,
+          "sharpe": 1.5193555734737,
+          "sortino": 2.2726769934374,
+          "information": 1.3828028107638,
+          "alpha": 0.23028031163007,
+          "beta": 0.6484470354304,
+          "profit_loss_ratio": 2.0937788571763,
+          "avg_position_days": 182.16666666667,
+          "trading_days": 967,
+          "win_count": 1840,
+          "lose_count": 690,
+          "max_drawdown_period": [
+            "2018-06-12",
+            "2018-09-17"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2018-07-16",
+            "2018-10-08"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/30772",
+      "https://www.joinquant.com/community/post/detailV2?postId=30772",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=779cad4ac4b550bec98ba71cef141676&postId=6d6d193c0644409b8b91e22b1600a67c&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=779cad4ac4b550bec98ba71cef141676"
+    ]
+  }
+}

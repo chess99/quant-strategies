@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/7.ETF动量轮动RSRS择时-魔改3小优化.txt",
+    "category": "2023年度精选策略",
+    "file_name": "7.ETF动量轮动RSRS择时-魔改3小优化.txt",
+    "strategy_name": "ETF动量轮动RSRS择时-魔改3小优化",
+    "declared_title": "ETF动量轮动RSRS择时-魔改3小优化",
+    "declared_author": "莫急莫急",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 8440,
+    "sha256": "e853b55be636530723810ba09160b80091dfd03a1674f8156681279d080b4938",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/35279"
+    ],
+    "primary_url": "https://www.joinquant.com/post/35279",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:43+08:00",
+    "requested_url": "https://www.joinquant.com/post/35279",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/29b074f390c55695296fe0d37aab7793",
+    "community_id": "29b074f390c55695296fe0d37aab7793",
+    "post": {
+      "postId": "b26acc846af827b6ab19a50271a45ccd",
+      "uniqueKey": "29b074f390c55695296fe0d37aab7793",
+      "title": "ETF动量轮动RSRS择时-魔改3小优化",
+      "content": "编辑好了刷新了一次，草稿全没了。。。全没了。。。苦哈哈的再写一次。\n\n主要有两个改变：\n1、将按日运行改为按分钟运行，其实就是选择什么时间执行交易。按天运行是取的收盘价计算，将执行时间改为开盘9:30后，绩效略有提升：年化从62%提高3个点，2018.1.1-2021.10.29的总绩效从508%提升到546%。这里的重点是修改交易时间对绩效的影响，为什么提前交易能改善业绩？原因在于RSRS择时是为了卖出弱势ETF而买入强势ETF，强势ETF当然是越早买入越好，所以提前交易就提升了绩效。至于其他时间节点，大伙可以试试。\n\n2、按同样的思路也修改了MA乖离择时，同样提升了绩效：年化从46%提升到了51%，大伙可以再研究研究。\n\n备注：\n1、回测时间依然是：2018.1.1-2021.10.29，目的是为了与之前的做对比，也回测了到最新日期的，效果大差不差。\n2、考虑到接入实盘太过麻烦，后面添加了一个研究笔记本，在收盘后运行可以根据当天的数据获得这个策略的标的和择时信号，即次日应该针对哪个ETF做什么操作。这个笔记本是为了手动做个实盘检验，我已经按这个系统开始实测了，大伙有兴趣的可以考虑同样实测实测。\n3、针对ETF这种指数，感觉还是越简单的策略越好，目前个人觉得这个轮动策略优化的大体比较符合预期了。当然，人力有尽时，还有很多方式和思路没有尝试，也有可能进一步优化绩效，限于精力，不做后面的尝试了，毕竟是边际效应递减的事情。后面一遍实盘测试下这个策略，一方面更多研究股票量化。\n4、关于未来函数：在策略中去掉未来数据的限制(使用get_price而不是attribute_history)，效果竟然比不使用未来数据更差，这点有点不好理解。大伙可以尝试下，将注释掉的减去一天去掉就行了。\n5、关于备选池的问题，不同的选择有不同的结果，大伙可以根据自己的理解优化下备选ETF池或者动量、择时的参数，不管结果好坏，至少能让我们加深对市场的思考：为什么加了效果更差？为什么减了就不行了？···总体思路是，学习的过程中找到符合自己预期的策略就OK。这里有个点有点tricky，加入中证500和创业板宽指后，效果要更差，我理解这个效果有两个原因：第一是多重共线性以及大小盘的轮动没有大家想象的那么极端和长周期（可能几天就轮动了一波，据我观察是这样的），第二是窄指ETF相对于宽指ETF背后的公司要具有更好的投资价值，为什么？一是行业龙头的地位决定的，市占率、产品质量等更好；二是好公司的规模能够支撑它做更多有利于提高收益的尝试。龙头效应很好理解，大伙平常采购的时候，某些产品是不是第一反应就是做的最好的那几个公司的产品？比如茅台酒、海底捞等等。根据这个思路，是否也可以考虑股票质地的量化？---&gt;其实有N多的基本面和价投策略已经证实了这个事情。\n6、上次回测基准选的是创业板指，这次选了沪深300指数，忘了改过来，就不改了，不影响结论。\n\nps：思路已经说出来了，会改的就不用克隆了，别浪费积分了。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-11-04 20:25:30",
+      "modTime": "2021-11-27 23:23:28",
+      "lastActiveTime": "2026-07-13 14:20:30",
+      "lastPubTime": "2021-11-27 23:23:28",
+      "backtestId": "df7b4fe05bf97a0c92a67cee585ee9ec",
+      "backtestName": "9.ETF动量轮动RSRS择时-魔改3-择时去均线及股票池优化",
+      "replyCount": "488",
+      "viewCount": "19442",
+      "collectionCount": "310",
+      "likeCount": "164",
+      "disLikeCount": "0",
+      "backtestCloneCount": "1030",
+      "notebookCloneCount": "159",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "19",
+      "followersCount": "1787",
+      "followingCount": "13",
+      "author": {
+        "userId": "02d49731e4971b57962fdc3048f18f7f",
+        "alias": "莫急莫急"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "df7b4fe05bf97a0c92a67cee585ee9ec",
+        "backtest_name": "9.ETF动量轮动RSRS择时-魔改3-择时去均线及股票池优化",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=df7b4fe05bf97a0c92a67cee585ee9ec&postId=29b074f390c55695296fe0d37aab7793&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2018-01-01",
+          "end_date": "2021-10-29",
+          "base_capital": 100000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "2121cdd0035c0eb5e16dd5a6e4a9d605",
+            "22382270"
+          ],
+          "numeric_backtest_id": "22382270",
+          "numeric_post_id": "35279",
+          "python_version": 3,
+          "clone_count": 1369
+        },
+        "stats": {
+          "trading_days": 928,
+          "benchmark_volatility": 0.20987650858278,
+          "algorithm_volatility": 0.26289895994467,
+          "treasury_return": 0.15298630136986,
+          "algorithm_return": 5.4676010404,
+          "benchmark_return": 0.21780021583537,
+          "annual_algo_return": 0.65352752395652,
+          "annual_bm_return": 0.054517744074533,
+          "sharpe": 2.3337008411354,
+          "excess_return_sharpe": "2.904",
+          "sortino": 3.5939525350389,
+          "information": 3.307800003022,
+          "beta": 0.91230160197544,
+          "alpha": 0.60028296278025,
+          "excess_return": 4.3108884004947,
+          "avg_excess_return": "0.19%",
+          "max_drawdown": 0.20173761487034,
+          "max_drawdown_period": [
+            "2021-02-10",
+            "2021-03-25"
+          ],
+          "excess_return_max_drawdown": "17.04%",
+          "excess_return_max_drawdown_period": [
+            "2020-08-13",
+            "2020-12-29"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-10",
+          "__version": 101,
+          "win_ratio": 0.65671641791045,
+          "profit_loss_ratio": 3.2523834489216,
+          "win_count": 44,
+          "lose_count": 23,
+          "day_win_ratio": 0.53987068965517,
+          "avg_trade_return": 0.031328324767611,
+          "avg_position_days": 195.75,
+          "turnover_rate": 0.069116866291832,
+          "report_done_seconds": 97.224768877029,
+          "report_done_cpu_seconds": 95.35
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 546.760104,
+          "benchmark_return_percent": 21.780022,
+          "annual_algo_return_percent": 65.352752,
+          "annual_bm_return_percent": 5.451774,
+          "max_drawdown_percent": 20.173761,
+          "algorithm_volatility_percent": 26.289896,
+          "benchmark_volatility_percent": 20.987651,
+          "win_ratio_percent": 65.671642,
+          "day_win_ratio_percent": 53.987069,
+          "avg_trade_return_percent": 3.132832,
+          "turnover_rate_percent": 6.911687,
+          "sharpe": 2.3337008411354,
+          "sortino": 3.5939525350389,
+          "information": 3.307800003022,
+          "alpha": 0.60028296278025,
+          "beta": 0.91230160197544,
+          "profit_loss_ratio": 3.2523834489216,
+          "avg_position_days": 195.75,
+          "trading_days": 928,
+          "win_count": 44,
+          "lose_count": 23,
+          "max_drawdown_period": [
+            "2021-02-10",
+            "2021-03-25"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-08-13",
+            "2020-12-29"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/35279",
+      "https://www.joinquant.com/community/post/detailV2?postId=35279",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=df7b4fe05bf97a0c92a67cee585ee9ec&postId=29b074f390c55695296fe0d37aab7793&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=df7b4fe05bf97a0c92a67cee585ee9ec"
+    ]
+  }
+}

@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/16集合竞价三合一，今年收益1067.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "16集合竞价三合一，今年收益1067.txt",
+    "strategy_name": "集合竞价三合一，今年收益1067",
+    "declared_title": "集合竞价三合一，今年收益1067%，年化198%",
+    "declared_author": "jevon y",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 20943,
+    "sha256": "d8d2e920b82c77555044b53060ad9ae57cce3f8d4cd8be733294f34d72c702af",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/49474",
+      "https://www.joinquant.com/post/44901",
+      "https://www.joinquant.com/post/48523",
+      "https://www.joinquant.com/post/49364"
+    ],
+    "primary_url": "https://www.joinquant.com/post/49474",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:54+08:00",
+    "requested_url": "https://www.joinquant.com/post/49474",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/2d7b56568f14e2a5983f7bdf183296bd",
+    "community_id": "2d7b56568f14e2a5983f7bdf183296bd",
+    "post": {
+      "postId": "72051c71a6b5ec5b8582251058cb71fd",
+      "uniqueKey": "2d7b56568f14e2a5983f7bdf183296bd",
+      "title": "集合竞价三合一，今年收益1067%，年化198%",
+      "content": "新人第一次写文章，试着整合了社区的几种竞价模式（**一进二，首板低开和弱转强**）回馈社区，发现今年意外的好使。今年收益1067%，胜率接近80%了。去年就不灵了。\n\n**一进二模式**在今年2月份到6月份表现不错，7月份成交量低迷后**首板低开模式**表现亮眼。\n\n自己原创的点，修改了止损卖出点，尾盘价格跌破5日均线才止损（博弈5日线），这在近期成交量低迷的情况下收益率更高（最近的一进二大都走N字）。\n\n附2020年至今的回测情况，年化198%，2020、2022和2024这几年表现优秀。\n![Img](https://image.joinquant.com/fb96145f3bfbb2f8ca0e5faf58e07a80) \n\n附参考的几位大神：\n# 克隆自聚宽文章：https://www.joinquant.com/post/44901\n# 标题：首板低开策略\n# 作者：wywy1995\n\n# 克隆自聚宽文章：https://www.joinquant.com/post/48523\n# 标题：一进二集合竞价策略\n# 作者：十足的小市值迷\n\n# 克隆自聚宽文章：https://www.joinquant.com/post/49364\n# 标题：一种弱转强的选股策略，年化100%以上\n# 作者：紫露薇霜",
+      "type": 1,
+      "status": "0",
+      "addTime": "2024-08-14 16:34:49",
+      "modTime": "2024-08-14 18:48:33",
+      "lastActiveTime": "2025-12-02 11:46:38",
+      "lastPubTime": "2024-08-14 18:48:33",
+      "backtestId": "0c70faae57ddfbb07b370cbc57edd386",
+      "backtestName": "集合竞价三合一(一进二-首板低开-弱转强)",
+      "replyCount": "57",
+      "viewCount": "12563",
+      "collectionCount": "199",
+      "likeCount": "92",
+      "disLikeCount": "0",
+      "backtestCloneCount": "881",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "1",
+      "followersCount": "114",
+      "followingCount": "1",
+      "author": {
+        "userId": "45bea128168f29c84a7ff82f3d32a6a1",
+        "alias": "jevon y",
+        "vipType": "VIP",
+        "headImgKey": "047168d7cabba91c59289feab8222b55"
+      },
+      "tags": [
+        {
+          "id": "295",
+          "name": "研报分享"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "0c70faae57ddfbb07b370cbc57edd386",
+        "backtest_name": "集合竞价三合一(一进二-首板低开-弱转强)",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=0c70faae57ddfbb07b370cbc57edd386&postId=2d7b56568f14e2a5983f7bdf183296bd&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2024-01-01",
+          "end_date": "2024-08-13",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "d6639c092ca5032a05cfae6ec4c8d981",
+            "35994036"
+          ],
+          "numeric_backtest_id": "35994036",
+          "numeric_post_id": "49474",
+          "python_version": 3,
+          "clone_count": 825
+        },
+        "stats": {
+          "trading_days": 149,
+          "benchmark_volatility": 0.13927134099599,
+          "algorithm_volatility": 0.78146617122662,
+          "treasury_return": 0.024547945205479,
+          "algorithm_return": 10.674896934,
+          "benchmark_return": -0.028189128299588,
+          "annual_algo_return": 60.75797478043,
+          "annual_bm_return": -0.046843935389278,
+          "sharpe": 77.697508882726,
+          "excess_return_sharpe": "82.669",
+          "sortino": 191.10991513777,
+          "information": 78.748359541871,
+          "beta": 0.87346965481728,
+          "alpha": 60.793830322697,
+          "excess_return": 11.013548390925,
+          "avg_excess_return": "1.79%",
+          "max_drawdown": 0.13737233403793,
+          "max_drawdown_period": [
+            "2024-01-23",
+            "2024-01-30"
+          ],
+          "excess_return_max_drawdown": "14.09%",
+          "excess_return_max_drawdown_period": [
+            "2024-01-23",
+            "2024-01-30"
+          ],
+          "max_leverage": 0,
+          "period_label": "2024-08",
+          "__version": 101,
+          "win_ratio": 0.7962962962963,
+          "profit_loss_ratio": 7.4542299456027,
+          "win_count": 43,
+          "lose_count": 11,
+          "day_win_ratio": 0.6241610738255,
+          "avg_trade_return": 0.06385683432662,
+          "avg_position_days": 1.5090909090909,
+          "turnover_rate": 0.25610607545297,
+          "report_done_seconds": 1126.7652041912,
+          "report_done_cpu_seconds": 1045.93
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 1067.489693,
+          "benchmark_return_percent": -2.818913,
+          "annual_algo_return_percent": 6075.797478,
+          "annual_bm_return_percent": -4.684394,
+          "max_drawdown_percent": 13.737233,
+          "algorithm_volatility_percent": 78.146617,
+          "benchmark_volatility_percent": 13.927134,
+          "win_ratio_percent": 79.62963,
+          "day_win_ratio_percent": 62.416107,
+          "avg_trade_return_percent": 6.385683,
+          "turnover_rate_percent": 25.610608,
+          "sharpe": 77.697508882726,
+          "sortino": 191.10991513777,
+          "information": 78.748359541871,
+          "alpha": 60.793830322697,
+          "beta": 0.87346965481728,
+          "profit_loss_ratio": 7.4542299456027,
+          "avg_position_days": 1.5090909090909,
+          "trading_days": 149,
+          "win_count": 43,
+          "lose_count": 11,
+          "max_drawdown_period": [
+            "2024-01-23",
+            "2024-01-30"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2024-01-23",
+            "2024-01-30"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/49474",
+      "https://www.joinquant.com/community/post/detailV2?postId=49474",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=0c70faae57ddfbb07b370cbc57edd386&postId=2d7b56568f14e2a5983f7bdf183296bd&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=0c70faae57ddfbb07b370cbc57edd386"
+    ]
+  }
+}

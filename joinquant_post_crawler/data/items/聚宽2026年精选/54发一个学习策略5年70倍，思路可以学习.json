@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/54发一个学习策略5年70倍，思路可以学习.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "54发一个学习策略5年70倍，思路可以学习.txt",
+    "strategy_name": "发一个学习策略5年70倍，思路可以学习",
+    "declared_title": "发一个学习策略5年70倍，思路可以学习",
+    "declared_author": "xxzlw",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 8950,
+    "sha256": "778debe8a0b3b7467552521eda0d5afa25230c1436745cff980ceb6fc22d5bbc",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/46977"
+    ],
+    "primary_url": "https://www.joinquant.com/post/46977",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:12:18+08:00",
+    "requested_url": "https://www.joinquant.com/post/46977",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/eb0a5d06ccaa9419dd526d3d0446c5e5",
+    "community_id": "eb0a5d06ccaa9419dd526d3d0446c5e5",
+    "post": {
+      "postId": "b2c58ba46f86fbbed84aec57ecad39aa",
+      "uniqueKey": "eb0a5d06ccaa9419dd526d3d0446c5e5",
+      "title": "发一个学习策略5年70倍，思路可以学习",
+      "content": "理论收益很高，实盘调整参数以后可以达到该策略60左右的效果，完全可用于实盘，今年1-2月也可基本躲过。已PT实盘，有兴趣的朋友可以加群探讨。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2024-03-08 21:08:46",
+      "modTime": "2025-02-18 08:19:52",
+      "lastActiveTime": "2026-05-23 17:38:30",
+      "lastPubTime": "2025-02-18 08:19:52",
+      "backtestId": "df817c24379cc39008abc602d483cc4b",
+      "backtestName": "EMA-一创",
+      "replyCount": "89",
+      "viewCount": "5622",
+      "collectionCount": "56",
+      "likeCount": "32",
+      "disLikeCount": "0",
+      "backtestCloneCount": "336",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "22",
+      "followersCount": "164",
+      "followingCount": "2",
+      "author": {
+        "userId": "93731feab87ba0a3b2aa01949a9a57d2",
+        "alias": "xxzlw"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "df817c24379cc39008abc602d483cc4b",
+        "backtest_name": "EMA-一创",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=df817c24379cc39008abc602d483cc4b&postId=eb0a5d06ccaa9419dd526d3d0446c5e5&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2023-01-01",
+          "end_date": "2023-12-31",
+          "base_capital": 100000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "b8a1e2e8759ab575c6fc92a526991647",
+            "31799044"
+          ],
+          "numeric_backtest_id": "31799044",
+          "numeric_post_id": "46977",
+          "python_version": 3,
+          "clone_count": 352
+        },
+        "stats": {
+          "trading_days": 242,
+          "benchmark_volatility": 0.13090628297168,
+          "algorithm_volatility": 0.16619600753586,
+          "treasury_return": 0.039452054794521,
+          "algorithm_return": 1.642106648,
+          "benchmark_return": -0.074216425354723,
+          "annual_algo_return": 1.7283439282741,
+          "annual_bm_return": -0.076573472887952,
+          "sharpe": 10.158751424338,
+          "excess_return_sharpe": "11.040",
+          "sortino": 21.320109831717,
+          "information": 10.438163048978,
+          "beta": 0.43351702339269,
+          "alpha": 1.7388805132471,
+          "excess_return": 1.8539139388084,
+          "avg_excess_return": "0.44%",
+          "max_drawdown": 0.034907217913566,
+          "max_drawdown_period": [
+            "2023-03-02",
+            "2023-03-13"
+          ],
+          "excess_return_max_drawdown": "3.40%",
+          "excess_return_max_drawdown_period": [
+            "2023-01-03",
+            "2023-01-19"
+          ],
+          "max_leverage": 0,
+          "period_label": "2023-12",
+          "__version": 101,
+          "win_ratio": 0.66281755196305,
+          "profit_loss_ratio": 3.4274239406707,
+          "win_count": 287,
+          "lose_count": 146,
+          "day_win_ratio": 0.65289256198347,
+          "avg_trade_return": 0.012949657844374,
+          "avg_position_days": 1.6666666666667,
+          "turnover_rate": 0.34689351238862,
+          "report_done_seconds": 1306.4614322186,
+          "report_done_cpu_seconds": 1231.83
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 164.210665,
+          "benchmark_return_percent": -7.421643,
+          "annual_algo_return_percent": 172.834393,
+          "annual_bm_return_percent": -7.657347,
+          "max_drawdown_percent": 3.490722,
+          "algorithm_volatility_percent": 16.619601,
+          "benchmark_volatility_percent": 13.090628,
+          "win_ratio_percent": 66.281755,
+          "day_win_ratio_percent": 65.289256,
+          "avg_trade_return_percent": 1.294966,
+          "turnover_rate_percent": 34.689351,
+          "sharpe": 10.158751424338,
+          "sortino": 21.320109831717,
+          "information": 10.438163048978,
+          "alpha": 1.7388805132471,
+          "beta": 0.43351702339269,
+          "profit_loss_ratio": 3.4274239406707,
+          "avg_position_days": 1.6666666666667,
+          "trading_days": 242,
+          "win_count": 287,
+          "lose_count": 146,
+          "max_drawdown_period": [
+            "2023-03-02",
+            "2023-03-13"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2023-01-03",
+            "2023-01-19"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/46977",
+      "https://www.joinquant.com/community/post/detailV2?postId=46977",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=df817c24379cc39008abc602d483cc4b&postId=eb0a5d06ccaa9419dd526d3d0446c5e5&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=df817c24379cc39008abc602d483cc4b"
+    ]
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/80.公募基金抱团.txt",
+    "category": "2025年度精选策略",
+    "file_name": "80.公募基金抱团.txt",
+    "strategy_name": "公募基金抱团",
+    "declared_title": "公募基金抱团",
+    "declared_author": "dejiangwang",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 6847,
+    "sha256": "870d544c5f576d8b5f7ac250a133ae2b655a59b73ce6b395223526119d8dee50",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/29768"
+    ],
+    "primary_url": "https://www.joinquant.com/post/29768",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:35+08:00",
+    "requested_url": "https://www.joinquant.com/post/29768",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/856e0ae7a27466fc3371b6edb5fed35a",
+    "community_id": "856e0ae7a27466fc3371b6edb5fed35a",
+    "post": {
+      "postId": "c96db9a4034101f1a1ab2ac30dc667a4",
+      "uniqueKey": "856e0ae7a27466fc3371b6edb5fed35a",
+      "title": "公募基金抱团",
+      "content": "V1.0\n每季度选取排名前50的公募基金持仓最多的50只股票买入，个股买入比例为该个股占公募总持仓比重，每季度调仓。\n\n过几天有时间了会写策略细节，包括每只股票持仓权重选择，公募的选择。\n\nV2.0\n1.改进了交易日历与卖出规则，避免了无谓的卖出手续费支出\n2.回测区间加上了15年股灾，回测区间为2014-01-30 到 2020-10-24\n总体来看，策略偏稳健，15年股市大涨时候本策略并没有跑赢大盘，但是在随后暴跌行情时策略表现可圈可点，大盘腰斩情况下本策略回测刚刚过20%",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-10-17 19:59:22",
+      "modTime": "2020-10-17 19:59:22",
+      "lastActiveTime": "2021-11-26 11:20:06",
+      "lastPubTime": "2020-10-17 19:59:22",
+      "backtestId": "d1b59a2084d2ece14987fdd738d065f0",
+      "backtestName": "公募基金抱团效应",
+      "replyCount": "39",
+      "viewCount": "3715",
+      "collectionCount": "51",
+      "likeCount": "29",
+      "disLikeCount": "0",
+      "backtestCloneCount": "134",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "4",
+      "followersCount": "71",
+      "followingCount": "1",
+      "author": {
+        "userId": "99343b0ab5bb43deef547ef770f0192f",
+        "alias": "dejiangwang",
+        "introduction": "学习！",
+        "headImgKey": "115314305fa393c8d4ff579e7f8cbc11"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "d1b59a2084d2ece14987fdd738d065f0",
+        "backtest_name": "公募基金抱团效应",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=d1b59a2084d2ece14987fdd738d065f0&postId=856e0ae7a27466fc3371b6edb5fed35a&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2014-01-30",
+          "end_date": "2020-10-24",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "27a8fda25a6cb51fc4c9eec53dbf8fd6",
+            "18618204"
+          ],
+          "numeric_backtest_id": "18618204",
+          "numeric_post_id": "29768",
+          "python_version": 3,
+          "clone_count": 134
+        },
+        "stats": {
+          "trading_days": 1638,
+          "benchmark_volatility": 0.23774857614472,
+          "algorithm_volatility": 0.13684934163655,
+          "treasury_return": 0.2693698630137,
+          "algorithm_return": 1.760142805071,
+          "benchmark_return": 1.1180233236675,
+          "annual_algo_return": 0.16760849340359,
+          "annual_bm_return": 0.12136043465162,
+          "sharpe": 0.93247429529112,
+          "excess_return_sharpe": "0.009",
+          "sortino": 1.2699724395929,
+          "information": 0.33895540856195,
+          "beta": 0.500982562448,
+          "alpha": 0.086848334369941,
+          "excess_return": 0.30316922114511,
+          "avg_excess_return": "0.02%",
+          "max_drawdown": 0.21267625928706,
+          "max_drawdown_period": [
+            "2015-06-11",
+            "2015-09-15"
+          ],
+          "excess_return_max_drawdown": "29.41%",
+          "excess_return_max_drawdown_period": [
+            "2014-06-23",
+            "2015-06-08"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-10",
+          "__version": 101,
+          "win_ratio": 0.62142857142857,
+          "profit_loss_ratio": 3.2324263354099,
+          "win_count": 696,
+          "lose_count": 424,
+          "day_win_ratio": 0.5042735042735,
+          "avg_trade_return": 0.08443550538583,
+          "avg_position_days": 266.15073529412,
+          "turnover_rate": 0.0075743858951193,
+          "report_done_seconds": 327.39058613777,
+          "report_done_cpu_seconds": 257.24
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 176.014281,
+          "benchmark_return_percent": 111.802332,
+          "annual_algo_return_percent": 16.760849,
+          "annual_bm_return_percent": 12.136043,
+          "max_drawdown_percent": 21.267626,
+          "algorithm_volatility_percent": 13.684934,
+          "benchmark_volatility_percent": 23.774858,
+          "win_ratio_percent": 62.142857,
+          "day_win_ratio_percent": 50.42735,
+          "avg_trade_return_percent": 8.443551,
+          "turnover_rate_percent": 0.757439,
+          "sharpe": 0.93247429529112,
+          "sortino": 1.2699724395929,
+          "information": 0.33895540856195,
+          "alpha": 0.086848334369941,
+          "beta": 0.500982562448,
+          "profit_loss_ratio": 3.2324263354099,
+          "avg_position_days": 266.15073529412,
+          "trading_days": 1638,
+          "win_count": 696,
+          "lose_count": 424,
+          "max_drawdown_period": [
+            "2015-06-11",
+            "2015-09-15"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2014-06-23",
+            "2015-06-08"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/29768",
+      "https://www.joinquant.com/community/post/detailV2?postId=29768",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=d1b59a2084d2ece14987fdd738d065f0&postId=856e0ae7a27466fc3371b6edb5fed35a&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=d1b59a2084d2ece14987fdd738d065f0"
+    ]
+  }
+}

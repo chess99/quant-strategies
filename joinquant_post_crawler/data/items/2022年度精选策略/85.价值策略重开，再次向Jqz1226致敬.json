@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/85.价值策略重开，再次向Jqz1226致敬.txt",
+    "category": "2022年度精选策略",
+    "file_name": "85.价值策略重开，再次向Jqz1226致敬.txt",
+    "strategy_name": "价值策略重开，再次向Jqz1226致敬",
+    "declared_title": "价值策略重开，再次向Jqz1226致敬",
+    "declared_author": "南开小楼",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 38424,
+    "sha256": "188c031920d94efb982e7d9ba8b4236022281a4129fa0c43b4f5c593b762e7d8",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/36092"
+    ],
+    "primary_url": "https://www.joinquant.com/post/36092",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:38+08:00",
+    "requested_url": "https://www.joinquant.com/post/36092",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/8236d6740212c7ef40530d66a2aba7c7",
+    "community_id": "8236d6740212c7ef40530d66a2aba7c7",
+    "post": {
+      "postId": "ece1dee5b7d9c2f5852df7a2c922eb60",
+      "uniqueKey": "8236d6740212c7ef40530d66a2aba7c7",
+      "title": "价值策略重开，再次向Jqz1226致敬",
+      "content": "上篇帖子提及的这个策略在2020年8月清仓获利并结束了。\n\n这个策略是站在巨人肩膀上的成果。\n原策略见：\n\n原始版周期股策略：https://www.joinquant.com/view/community/detail/d7fdcc62de0b90a1cff20c773ed19548\n由于原版策略运行速度较慢，所以请求Jqz1226老师优化了一次，效果十分显著。\nJqz1226老师优化策略见：\nhttps://www.joinquant.com/view/community/detail/1edca153a30a134063675c5318b183d3\n\n后来看到蒋老师修改的另一个策略，与我的投资理念也不谋而合\n\n蒋老师修改的：\n原作：师傅 我坚持不住了！\n链接：https://www.joinquant.com/post/28473\n作者：宇宙小王\n链接：https://www.joinquant.com/view/community/detail/d6331f098788d443d4888f1a1c8c4967?type=1\n\n于是在实盘清仓后忍不住动手拼接了这两个策略，并且在一创跑了2021年的模拟，2021年整理来说对蓝筹和行业周期股不算太好的交易时点，所以成绩也不是很理想，这也符合2020年清仓后对市场的理解，至少大方向上没错。\n\n这个策略怎么说呢？如果你追求暴利，那请右上角关闭吧，不适合你。相对来说这个策略适合具有一定的耐性和相对合理的交易计划制订者，从长远来看交易风险的承受度是不一样的。举个例子：小市值自然暴力，但是小市值的周期性不容易把握，不同的小市值策略表现天差地别。而题材或者蓝筹呢？蓝筹波动性又太小，题材那就复杂了，选个质地好的题材股必然一飞冲天，比如2020-2021年度的生物制药（凯莱因等),2021年下半年的元宇宙（东方电缆等),但是又有几个人能看到、买到并拿得住题材呢？这个就复杂的太多了。聪明的交易者是抓机会赚钱，而我这种愚钝的人只能是去等机会赚钱，等到了就开仓，等不到就空仓。\n\n我在策略里写了2中模式的不同转换，这个其实才是重点。与择时的性质类似但不是一种择时方式，这也是我一直在追求的一种理想的操作模式，即：在稳定赚钱的阶段里重仓，在不确定能否赚钱的阶段里轻仓或者空仓。\n\nA股其实相对来说还是比较温和的市场，像我这么笨的人基本上也能做到5-8年整体是盈利的，虽然不高，但跑赢cpi问题不大。赚钱是一辈子的事儿，只要大方向不错，慢一点儿也没关系。\n\nps：年纪大了，由于我的代码水平属于小学生级别，所以回测的很慢，就只回测了一年，介意积分的同学就别克隆了。欢迎拍砖，但请轻拍，没必要为了10积分大动干戈吧？股市，如我所说：每个盈利的人都是孤独的，其有属于自己的盈利模式和固定的交易逻辑，认可你的未必能让你赚钱，能让你赚钱的未必能让别人认可你。所以，这个策略没有绝对意义上的对与错，仅仅是适合我这种比较笨的人而已。假如不适合您，烦请略过。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2022-01-04 18:29:49",
+      "modTime": "2022-01-04 18:29:49",
+      "lastActiveTime": "2024-03-03 11:16:39",
+      "lastPubTime": "2022-01-04 18:29:49",
+      "backtestId": "fddb1c0ab5a417c9e8de1a7935929442",
+      "backtestName": "价值投资实盘策略",
+      "replyCount": "51",
+      "viewCount": "3056",
+      "collectionCount": "49",
+      "likeCount": "24",
+      "disLikeCount": "0",
+      "backtestCloneCount": "194",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "12",
+      "followersCount": "498",
+      "followingCount": "7",
+      "author": {
+        "userId": "6c6da4e1eb6b9ab7ca5938b7dcb41e70",
+        "alias": "南开小楼",
+        "headImgKey": "7ca08f716a0139778db6d2a6f105a1f6"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "fddb1c0ab5a417c9e8de1a7935929442",
+        "backtest_name": "价值投资实盘策略",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=fddb1c0ab5a417c9e8de1a7935929442&postId=8236d6740212c7ef40530d66a2aba7c7&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2019-01-01",
+          "end_date": "2019-12-31",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "100131cb8a3ffc56fd324991d9fc6073",
+            "23078792"
+          ],
+          "numeric_backtest_id": "23078792",
+          "numeric_post_id": "36092",
+          "python_version": 2,
+          "clone_count": 194
+        },
+        "stats": {
+          "benchmark_return": 0.3606961951738,
+          "max_drawdown": 0.11037310628564,
+          "trading_days": 244,
+          "algorithm_volatility": 0.21714900866272,
+          "max_drawdown_period": [
+            "2019-04-08",
+            "2019-09-26"
+          ],
+          "information": 0.46022573943799,
+          "annual_bm_return": 0.37104080192874,
+          "excess_return_max_drawdown": "11.77%",
+          "benchmark_volatility": 0.19774779702109,
+          "annual_algo_return": 0.46004126028204,
+          "sharpe": 1.9343457419806,
+          "excess_return_max_drawdown_period": [
+            "2019-08-07",
+            "2019-11-18"
+          ],
+          "__version": 101,
+          "algorithm_return": 0.44683953,
+          "beta": 0.62474599797243,
+          "alpha": 0.21322484411147,
+          "treasury_return": 0.039780821917808,
+          "max_leverage": 0,
+          "sortino": 2.8881105103265,
+          "period_label": "2019-12",
+          "avg_excess_return": "0.03%",
+          "excess_return": 0.063308279343868,
+          "excess_return_sharpe": "0.128",
+          "turnover_rate": 0.35647311410594,
+          "avg_trade_return": 0.012799603705871,
+          "day_win_ratio": 0.49180327868852,
+          "profit_loss_ratio": 4.7555469917788,
+          "avg_position_days": 39.15,
+          "lose_count": 35,
+          "win_ratio": 0.71074380165289,
+          "win_count": 86,
+          "report_done_seconds": 971.17924785614,
+          "report_done_cpu_seconds": 428.08
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 44.683953,
+          "benchmark_return_percent": 36.06962,
+          "annual_algo_return_percent": 46.004126,
+          "annual_bm_return_percent": 37.10408,
+          "max_drawdown_percent": 11.037311,
+          "algorithm_volatility_percent": 21.714901,
+          "benchmark_volatility_percent": 19.77478,
+          "win_ratio_percent": 71.07438,
+          "day_win_ratio_percent": 49.180328,
+          "avg_trade_return_percent": 1.27996,
+          "turnover_rate_percent": 35.647311,
+          "sharpe": 1.9343457419806,
+          "sortino": 2.8881105103265,
+          "information": 0.46022573943799,
+          "alpha": 0.21322484411147,
+          "beta": 0.62474599797243,
+          "profit_loss_ratio": 4.7555469917788,
+          "avg_position_days": 39.15,
+          "trading_days": 244,
+          "win_count": 86,
+          "lose_count": 35,
+          "max_drawdown_period": [
+            "2019-04-08",
+            "2019-09-26"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2019-08-07",
+            "2019-11-18"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/36092",
+      "https://www.joinquant.com/community/post/detailV2?postId=36092",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=fddb1c0ab5a417c9e8de1a7935929442&postId=8236d6740212c7ef40530d66a2aba7c7&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=fddb1c0ab5a417c9e8de1a7935929442"
+    ]
+  }
+}

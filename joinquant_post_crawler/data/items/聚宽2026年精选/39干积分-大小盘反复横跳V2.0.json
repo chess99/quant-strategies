@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/39干积分-大小盘反复横跳V2.0.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "39干积分-大小盘反复横跳V2.0.txt",
+    "strategy_name": "干积分-大小盘反复横跳V2.0",
+    "declared_title": "干积分-大小盘反复横跳V2.0",
+    "declared_author": "MarioC",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 12623,
+    "sha256": "e4c5a76bc7870d5ca3243643d8c61300081c22ff60f2a3ac276944a425cbdf13",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/47337"
+    ],
+    "primary_url": "https://www.joinquant.com/post/47337",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:12:10+08:00",
+    "requested_url": "https://www.joinquant.com/post/47337",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/7b1e76b35cc2c028cfa2ffae618c8cff",
+    "community_id": "7b1e76b35cc2c028cfa2ffae618c8cff",
+    "post": {
+      "postId": "c54faf74260822a0a1cb8a5c1858219d",
+      "uniqueKey": "7b1e76b35cc2c028cfa2ffae618c8cff",
+      "title": "干积分-大小盘反复横跳V2.0",
+      "content": "无广告！！！\n求别封号\n\n\n最近花了很多心思在研究深度学习和强化学习。\n但是不妨碍我搞点传统策略搞搞积分。\n\n首先：\n该文章引用自@明曦 大佬的此消彼长\nhttps://www.joinquant.com/view/community/detail/bc67513156090a5fc86e03ca3f975a5c?type=1\n\n这个策略：\n1、2000/500的进行大小盘择时\n2、和明曦大佬的雨露均沾不同，这个策略彻底倒向一方\n3、以后再也不说水积分了，求聚宽管家别老是警告我",
+      "type": 1,
+      "status": "0",
+      "addTime": "2024-03-30 14:00:59",
+      "modTime": "2024-06-14 19:26:44",
+      "lastActiveTime": "2026-06-30 14:15:26",
+      "lastPubTime": "2024-06-14 19:26:44",
+      "backtestId": "c37a0d28ab9f8f1d399c65224f71b5ef",
+      "backtestName": "大小盘反复横跳v2.0",
+      "replyCount": "97",
+      "viewCount": "6116",
+      "collectionCount": "96",
+      "likeCount": "64",
+      "disLikeCount": "0",
+      "backtestCloneCount": "427",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "62",
+      "followersCount": "4970",
+      "followingCount": "36",
+      "author": {
+        "userId": "90de7bec4fd4900c368bc815969d9754",
+        "alias": "MarioC",
+        "introduction": "人工智能爱好者，gzh：Mario量化",
+        "headImgKey": "44901f16b2618622495468b8b1a70019"
+      },
+      "tags": [
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "c37a0d28ab9f8f1d399c65224f71b5ef",
+        "backtest_name": "大小盘反复横跳v2.0",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=c37a0d28ab9f8f1d399c65224f71b5ef&postId=7b1e76b35cc2c028cfa2ffae618c8cff&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2015-01-01",
+          "end_date": "2024-03-29",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "3c3be15e70e2b7cf0b1f2fb9b59b91b9",
+            "33342956"
+          ],
+          "numeric_backtest_id": "33342956",
+          "numeric_post_id": "47337",
+          "python_version": 3,
+          "clone_count": 418
+        },
+        "stats": {
+          "trading_days": 2247,
+          "benchmark_volatility": 0.23045488241259,
+          "algorithm_volatility": 0.27468101372024,
+          "treasury_return": 0.36942465753425,
+          "algorithm_return": 27.47548803658,
+          "benchmark_return": 0.021727897606063,
+          "annual_algo_return": 0.45152216962291,
+          "annual_bm_return": 0.0023944075677691,
+          "sharpe": 1.498182069628,
+          "excess_return_sharpe": "1.923",
+          "sortino": 2.0161059801603,
+          "information": 2.1254355020413,
+          "beta": 0.78994224793645,
+          "alpha": 0.44122841584381,
+          "excess_return": 26.869932986364,
+          "avg_excess_return": "0.16%",
+          "max_drawdown": 0.3593104199413,
+          "max_drawdown_period": [
+            "2018-01-26",
+            "2018-10-18"
+          ],
+          "excess_return_max_drawdown": "22.53%",
+          "excess_return_max_drawdown_period": [
+            "2022-04-22",
+            "2022-07-07"
+          ],
+          "max_leverage": 0,
+          "period_label": "2024-03",
+          "__version": 101,
+          "win_ratio": 0.6267029972752,
+          "profit_loss_ratio": 2.7414465243181,
+          "win_count": 230,
+          "lose_count": 137,
+          "day_win_ratio": 0.53093012906097,
+          "avg_trade_return": 0.05296488092549,
+          "avg_position_days": 65.980519480519,
+          "turnover_rate": 0.033199899078263,
+          "report_done_seconds": 998.97172045708,
+          "report_done_cpu_seconds": 971.34
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 2747.548804,
+          "benchmark_return_percent": 2.17279,
+          "annual_algo_return_percent": 45.152217,
+          "annual_bm_return_percent": 0.239441,
+          "max_drawdown_percent": 35.931042,
+          "algorithm_volatility_percent": 27.468101,
+          "benchmark_volatility_percent": 23.045488,
+          "win_ratio_percent": 62.6703,
+          "day_win_ratio_percent": 53.093013,
+          "avg_trade_return_percent": 5.296488,
+          "turnover_rate_percent": 3.31999,
+          "sharpe": 1.498182069628,
+          "sortino": 2.0161059801603,
+          "information": 2.1254355020413,
+          "alpha": 0.44122841584381,
+          "beta": 0.78994224793645,
+          "profit_loss_ratio": 2.7414465243181,
+          "avg_position_days": 65.980519480519,
+          "trading_days": 2247,
+          "win_count": 230,
+          "lose_count": 137,
+          "max_drawdown_period": [
+            "2018-01-26",
+            "2018-10-18"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2022-04-22",
+            "2022-07-07"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/47337",
+      "https://www.joinquant.com/community/post/detailV2?postId=47337",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=c37a0d28ab9f8f1d399c65224f71b5ef&postId=7b1e76b35cc2c028cfa2ffae618c8cff&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=c37a0d28ab9f8f1d399c65224f71b5ef"
+    ]
+  }
+}

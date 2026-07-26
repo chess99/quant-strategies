@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/18.【复现】FFScore财务模型.txt",
+    "category": "2023年度精选策略",
+    "file_name": "18.【复现】FFScore财务模型.txt",
+    "strategy_name": "【复现】FFScore财务模型",
+    "declared_title": "【复现】FFScore财务模型",
+    "declared_author": "Hugo2046",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 12970,
+    "sha256": "67873dc4ab259eb22bb79fcf98d506eb7dd285b1c54f89afa6ddefb2cf89f01b",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/34748"
+    ],
+    "primary_url": "https://www.joinquant.com/post/34748",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:53+08:00",
+    "requested_url": "https://www.joinquant.com/post/34748",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/c4bb321a8124ed575a66a88caf100b9f",
+    "community_id": "c4bb321a8124ed575a66a88caf100b9f",
+    "post": {
+      "postId": "4306306f42dd6b8fcc0b23b8697de419",
+      "uniqueKey": "c4bb321a8124ed575a66a88caf100b9f",
+      "title": "【复现】FFScore财务模型",
+      "content": "其实这个的本地化改造还能做的更好，比如加上【销售费用/营业收入】，【(应收+合同资产)/总资产 这个值越小越好】，【(预收账款+合同负债)/营业收入】对模型可能都能有所改善\n\n在审计上常看的一些指标及逻辑\n\n1.货币资金造假识别\na.利息收入/货币资金&lt; 2%\nb.利息费用/有息负债平均余额&gt;6%\n逻辑:资金收益率过低且无合理解释,公司资金大概率被占用或那个啥了；融资成本高了\n\n2.应收造假及虚增销售\n(应收+合同资产)/总资产&gt;20%\n逻辑:纸面富贵,如果行业都这样则产业链无话语权\n\n3.假库存\na.应收账款/总资产&gt;5%\nb.存货/总资产&gt;15%\na&b时需关注\n\n4.假购买\n预付/总资产&gt;10%\n\n5.假工程\na.在建工程/总资产,如果高于同行业需关注\nb.在建工程常年保持高数额且不转固\nc.固定资产周转天数没有显然提高,且高于同行\nd.对比同行业 固定资产/营收\n\n7.假收购\n商誉/净资产 &gt; 30%\n\n策略的具体实施方法：\n\n1. 在全A中选股(过滤st/*st,上市不足180日的次新,近一个月停牌的股票)\n2. 月度轮动\n3. 使用的研究中的第三版财务打分模型",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-09-23 21:03:04",
+      "modTime": "2021-09-23 22:08:08",
+      "lastActiveTime": "2025-02-26 11:55:43",
+      "lastPubTime": "2021-09-23 22:08:08",
+      "backtestId": "a57e964d80d7cc7af281ede7b9482700",
+      "backtestName": "FFSCore",
+      "replyCount": "154",
+      "viewCount": "13999",
+      "collectionCount": "367",
+      "likeCount": "205",
+      "disLikeCount": "0",
+      "backtestCloneCount": "591",
+      "notebookCloneCount": "203",
+      "fileDownloadCount": "469",
+      "fileName": "20170209-华泰证券-华泰价值选股之FFScore模型：比乔斯基选股模型A股实证研究 (1).pdf",
+      "fileType": "application/pdf",
+      "fileSize": "1604089",
+      "postCount": "81",
+      "followersCount": "4227",
+      "followingCount": "26",
+      "author": {
+        "userId": "74b6c61b57fc4777804f23e1fc7dfc14",
+        "alias": "Hugo2046",
+        "introduction": "联系邮箱:shen.lan123@gmail.com 坐标成都 纸上谈兵小能手",
+        "headImgKey": "144aa02c502f7e0f6bb2d55c98cab33c"
+      },
+      "tags": [
+        {
+          "id": "295",
+          "name": "研报分享"
+        },
+        {
+          "id": "264",
+          "name": "研报复现"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "a57e964d80d7cc7af281ede7b9482700",
+        "backtest_name": "FFSCore",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=a57e964d80d7cc7af281ede7b9482700&postId=c4bb321a8124ed575a66a88caf100b9f&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2014-01-01",
+          "end_date": "2021-09-22",
+          "base_capital": 50000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "da6cc4743d533c954e89f136963bda1d",
+            "21941403"
+          ],
+          "numeric_backtest_id": "21941403",
+          "numeric_post_id": "34748",
+          "python_version": 3,
+          "clone_count": 575
+        },
+        "stats": {
+          "trading_days": 1883,
+          "benchmark_volatility": 0.26573863276529,
+          "algorithm_volatility": 0.29649156677733,
+          "treasury_return": 0.30904109589041,
+          "algorithm_return": 4.4866510308792,
+          "benchmark_return": 0.94657230158524,
+          "annual_algo_return": 0.25358998807741,
+          "annual_bm_return": 0.092459992944691,
+          "sharpe": 0.72039144451559,
+          "excess_return_sharpe": "0.819",
+          "sortino": 0.8541325229754,
+          "information": 1.2334651833227,
+          "beta": 1.0015967459197,
+          "alpha": 0.16104622985304,
+          "excess_return": 1.8186217518923,
+          "avg_excess_return": "0.06%",
+          "max_drawdown": 0.52217561999652,
+          "max_drawdown_period": [
+            "2015-06-12",
+            "2015-09-15"
+          ],
+          "excess_return_max_drawdown": "15.27%",
+          "excess_return_max_drawdown_period": [
+            "2019-05-30",
+            "2019-09-23"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-09",
+          "__version": 101,
+          "win_ratio": 0.53333333333333,
+          "profit_loss_ratio": 1.9667230207356,
+          "win_count": 456,
+          "lose_count": 399,
+          "day_win_ratio": 0.5077004779607,
+          "avg_trade_return": 0.036764021861081,
+          "avg_position_days": 84.501650165016,
+          "turnover_rate": 0.023628095632266,
+          "report_done_seconds": 2114.784548521,
+          "report_done_cpu_seconds": 1687.14
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 448.665103,
+          "benchmark_return_percent": 94.65723,
+          "annual_algo_return_percent": 25.358999,
+          "annual_bm_return_percent": 9.245999,
+          "max_drawdown_percent": 52.217562,
+          "algorithm_volatility_percent": 29.649157,
+          "benchmark_volatility_percent": 26.573863,
+          "win_ratio_percent": 53.333333,
+          "day_win_ratio_percent": 50.770048,
+          "avg_trade_return_percent": 3.676402,
+          "turnover_rate_percent": 2.36281,
+          "sharpe": 0.72039144451559,
+          "sortino": 0.8541325229754,
+          "information": 1.2334651833227,
+          "alpha": 0.16104622985304,
+          "beta": 1.0015967459197,
+          "profit_loss_ratio": 1.9667230207356,
+          "avg_position_days": 84.501650165016,
+          "trading_days": 1883,
+          "win_count": 456,
+          "lose_count": 399,
+          "max_drawdown_period": [
+            "2015-06-12",
+            "2015-09-15"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2019-05-30",
+            "2019-09-23"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/34748",
+      "https://www.joinquant.com/community/post/detailV2?postId=34748",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=a57e964d80d7cc7af281ede7b9482700&postId=c4bb321a8124ed575a66a88caf100b9f&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=a57e964d80d7cc7af281ede7b9482700"
+    ]
+  }
+}

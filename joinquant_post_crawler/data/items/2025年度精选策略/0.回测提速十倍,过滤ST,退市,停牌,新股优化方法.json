@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/0.回测提速十倍,过滤ST,退市,停牌,新股优化方法.txt",
+    "category": "2025年度精选策略",
+    "file_name": "0.回测提速十倍,过滤ST,退市,停牌,新股优化方法.txt",
+    "strategy_name": "回测提速十倍,过滤ST,退市,停牌,新股优化方法",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 3780,
+    "sha256": "68aecb3161ba91b4dfc927371d029e2ac5210fcbe1c1490846c0a38a3bdc7220",
+    "joinquant_urls": [],
+    "primary_url": null,
+    "url_selection_method": "none"
+  },
+  "remote": null
+}

@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/82回报社区——基于Gyro老师策略的思考.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "82回报社区——基于Gyro老师策略的思考.txt",
+    "strategy_name": "回报社区——基于Gyro老师策略的思考",
+    "declared_title": "回报社区——基于Gyro老师策略的思考",
+    "declared_author": "琼楼",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 2995,
+    "sha256": "8b5f534977719c45138fb8a4cebda8ca41f00c3afa6a874a6a179ce3db998981",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/45654",
+      "https://www.joinquant.com/view/community/detail/45f88aadf6fd346fccfc4f5237ab6c78"
+    ],
+    "primary_url": "https://www.joinquant.com/post/45654",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:12:38+08:00",
+    "requested_url": "https://www.joinquant.com/post/45654",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/425e860c41b4fb87985793b2b38ce17e",
+    "community_id": "425e860c41b4fb87985793b2b38ce17e",
+    "post": {
+      "postId": "d62ee80d9bba1359af2c5869182a7c3f",
+      "uniqueKey": "425e860c41b4fb87985793b2b38ce17e",
+      "title": "回报社区——基于Gyro老师策略的思考",
+      "content": "原贴：\n[优质策略集锦（4）——small-100](https://www.joinquant.com/view/community/detail/45f88aadf6fd346fccfc4f5237ab6c78?type=1)\n\n使用聚宽4年了，实盘两年，今年终于把之前交的学费赚回来了，特地回报社区，发表一些自己的想法。\n\nGyro老师是我最早关注、也是聚宽策略研究方面最佩服的大神，老师最新发表的帖子提到2018年发布的小市值策略，该策略逻辑比较简单，代码也很优秀，非常值的佩服。\n\n在这个基础上，我还有一些想法：\n\n老师通过基本面进行了一些筛选，然后通过小市值进行排序计算出一个排名，然后选取了排名前100的股票进行持仓，那么逻辑上可以理解为，排名越靠前的，赚钱的可能性越高，既然这样，我们何不给排名越靠前的股票越大的仓位，排名越靠后的越小的仓位？每月对排名重新进行计算，本身按照市值排名，市值越小越靠前，如果股票上涨多，市值增加，排名就靠后，就适当减仓，如果股票下跌，市值减少，排名就靠前，就适当加仓，通过动态调仓的方式达到网格交易的目的,长期应该是有更高的风险收益比才对。\n\n另外，为了避免频繁交易，可以取上次交易价格和现价对比，差距达到10%以上再交易。\n\n如果总金额比较小，可以去申请免5的券商账号，回测也是基于免5的逻辑。\n\n这个市场上唯一恒久不变的就是变化本身，也就是唯有波动是永恒的，我们能够盈利的最主要根源也是波动，涨多了就卖一些，跌多了就买一些，跌破选股逻辑了就止损，仅此而已。\n\n再次感谢Gyro老师。\n\n——————————————————————————\n\n补充一些对比：\n\n老师原版策略（按照100W计算）\n![Img](https://image.joinquant.com/94fce955bdad2d8fbff47fca8262b3ae) \n\n因为要做对比，将手续费调整为现行手续费标准\n![Img](https://image.joinquant.com/e2b2bef85fcae1e594129d2c9ea20369) \n\n通过对比可以发现，胜率与盈亏比都有提升，但收益提升却不明显，确实是交易次数提高后，手续费占用了大部分收益：\n![Img](https://image.joinquant.com/a66c4ae3210ceb07de8453ee4632bcf0) \n\n但是拉长看就有效了\n原版：\n![Img](https://image.joinquant.com/6477ba8e4441614790faf8a4a4c3828a) \n\n仓位调整版：\n![Img](https://image.joinquant.com/25aa859c5160f97d65edc9e8909082cd)\n\n————————————————————————\n再次更新，既然要做波动的网格交易，那干嘛要等月初再调仓？每日判断调仓不行吗？\n更新了回测，果然好一些。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2023-12-23 22:06:53",
+      "modTime": "2023-12-24 08:21:04",
+      "lastActiveTime": "2026-04-27 08:20:12",
+      "lastPubTime": "2023-12-24 08:21:04",
+      "backtestId": "8419ab9709b8e7cf242bd0bcf6370e15",
+      "backtestName": "网格交易日级",
+      "replyCount": "116",
+      "viewCount": "4894",
+      "collectionCount": "103",
+      "likeCount": "54",
+      "disLikeCount": "0",
+      "backtestCloneCount": "278",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "7",
+      "followersCount": "72",
+      "followingCount": "8",
+      "author": {
+        "userId": "edd03c48c00d50d79d8e251789c90aa7",
+        "alias": "琼楼",
+        "introduction": "路漫漫其修远兮，吾将上下而求索。",
+        "vipType": "VIP",
+        "headImgKey": "2b2d692b119d5c320ad5ddcd2470403b"
+      },
+      "tags": [
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "8419ab9709b8e7cf242bd0bcf6370e15",
+        "backtest_name": "网格交易日级",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=8419ab9709b8e7cf242bd0bcf6370e15&postId=425e860c41b4fb87985793b2b38ce17e&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2018-12-31",
+          "end_date": "2023-12-01",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "5a1025e9caca326458d8283579c02a52",
+            "31645296"
+          ],
+          "numeric_backtest_id": "31645296",
+          "numeric_post_id": "45654",
+          "python_version": 3,
+          "clone_count": 444
+        },
+        "stats": {
+          "trading_days": 1194,
+          "benchmark_volatility": 0.19287618774965,
+          "algorithm_volatility": 0.17065492825383,
+          "treasury_return": 0.19660273972603,
+          "algorithm_return": 2.015564891713,
+          "benchmark_return": 0.15685317124209,
+          "annual_algo_return": 0.25999936518381,
+          "annual_bm_return": 0.030977560925279,
+          "sharpe": 1.2891474476294,
+          "excess_return_sharpe": "1.129",
+          "sortino": 1.6072664365116,
+          "information": 1.4218035518122,
+          "beta": 0.54269835297893,
+          "alpha": 0.22489582800951,
+          "excess_return": 1.6066963091567,
+          "avg_excess_return": "0.09%",
+          "max_drawdown": 0.17796018955229,
+          "max_drawdown_period": [
+            "2019-04-17",
+            "2019-08-09"
+          ],
+          "excess_return_max_drawdown": "33.91%",
+          "excess_return_max_drawdown_period": [
+            "2020-03-23",
+            "2021-02-10"
+          ],
+          "max_leverage": 0,
+          "period_label": "2023-12",
+          "__version": 101,
+          "win_ratio": 0.74814674016347,
+          "profit_loss_ratio": 3.5483806394195,
+          "win_count": 3936,
+          "lose_count": 1325,
+          "day_win_ratio": 0.52596314907873,
+          "avg_trade_return": 0.066368270748167,
+          "avg_position_days": 123.79130434783,
+          "turnover_rate": 0.016446732379595,
+          "report_done_seconds": 1021.3253803253,
+          "report_done_cpu_seconds": 915.47
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 201.556489,
+          "benchmark_return_percent": 15.685317,
+          "annual_algo_return_percent": 25.999937,
+          "annual_bm_return_percent": 3.097756,
+          "max_drawdown_percent": 17.796019,
+          "algorithm_volatility_percent": 17.065493,
+          "benchmark_volatility_percent": 19.287619,
+          "win_ratio_percent": 74.814674,
+          "day_win_ratio_percent": 52.596315,
+          "avg_trade_return_percent": 6.636827,
+          "turnover_rate_percent": 1.644673,
+          "sharpe": 1.2891474476294,
+          "sortino": 1.6072664365116,
+          "information": 1.4218035518122,
+          "alpha": 0.22489582800951,
+          "beta": 0.54269835297893,
+          "profit_loss_ratio": 3.5483806394195,
+          "avg_position_days": 123.79130434783,
+          "trading_days": 1194,
+          "win_count": 3936,
+          "lose_count": 1325,
+          "max_drawdown_period": [
+            "2019-04-17",
+            "2019-08-09"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-03-23",
+            "2021-02-10"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/45654",
+      "https://www.joinquant.com/community/post/detailV2?postId=45654",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=8419ab9709b8e7cf242bd0bcf6370e15&postId=425e860c41b4fb87985793b2b38ce17e&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=8419ab9709b8e7cf242bd0bcf6370e15"
+    ]
+  }
+}

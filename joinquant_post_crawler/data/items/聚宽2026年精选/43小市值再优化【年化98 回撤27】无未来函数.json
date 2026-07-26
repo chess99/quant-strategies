@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/43小市值再优化【年化98 回撤27】无未来函数.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "43小市值再优化【年化98 回撤27】无未来函数.txt",
+    "strategy_name": "小市值再优化【年化98 回撤27】无未来函数",
+    "declared_title": "小市值再优化【年化98%|胜率69%|回撤27%】无未来函数",
+    "declared_author": "zycash",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 12501,
+    "sha256": "589ae09ec68a99d0f4e68ee127fcedc4ffd97479185c0f35041c1e22e43250ca",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/47562"
+    ],
+    "primary_url": "https://www.joinquant.com/post/47562",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:12:11+08:00",
+    "requested_url": "https://www.joinquant.com/post/47562",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/52748442c2187ff43b30f63510cd3f62",
+    "community_id": "52748442c2187ff43b30f63510cd3f62",
+    "post": {
+      "postId": "d650f25ba2dd93b474190e0f45d2d15d",
+      "uniqueKey": "52748442c2187ff43b30f63510cd3f62",
+      "title": "小市值再优化【年化98%|胜率69%|回撤27%】无未来函数",
+      "content": "本策略为[我之前的策略](www.joinquant.com/post/47346)的再次优化改良版本。感谢大家提出的意见与建议。\n\n本版本有了以下提升：\n\n&gt; - 年化收益从86.42%提升到了98.42%\n\n&gt; - 回撤从33.43%降低到了27.55%\n\n&gt; - 胜率从66.5%提升到了69.6%\n\n&gt; - 盈亏比从2.2提升到了4.8\n\n**参考之前的评论，本策略进行了以下改进。**\n\n\n@Casper灬  提出市值排序两次的问题，我优化了该段代码。\n\n@ggxxff123 提出了止损函数中的绝对值问题。这点我也进行了回测，加上abs反而收益更高。主要是因为从14年至今只出现过两次中小盘平权涨幅超过5%的情况，其中一次是15年全面牛。考虑到未来全面牛的可能性越来越低，我没进行额外的修改。\n\n@jason_99 提出not_buy_again变量没用的问题。我进行了修改，只记录了卖出的涨停股避免再次买入。\n\n@沧海ZHF @李精荠  优化了买入股票数量，我也进行了回测，最终选择持仓9只股票。\n\n除了以上内容，我还进行了代码上与策略上的优化。如下：\n\n&gt; - 空仓月份的优化。经过实际回测，历年来1月和4月小市值策略的累计收益是负的，所以我选择了1月4月空仓。这也说现在很多大资金量化策略的选择。此外我优化了空仓代码，全局变量g.pass_months输入一个list，其中包含哪些数字就跳过哪些月份。![Img](https://image.joinquant.com/7f3498894dea6998af5deca317bfccd3) \n如上图，标红色的为负收益。1月4月显著负收益。\n\n&gt; - 优化了代码逻辑。主要包括市值排序选择、止损策略的重写、股票筛选的重写。\n\n&gt; - 空仓时资金的有效利用。考虑到很多空仓时间，我选择了银华日利ETF进行空仓时持有，保证低保收益。如下图，该ETF月线图。\n![Img](https://image.joinquant.com/c218ef6b813d68afe8e258cbd4625ddc) \n\n&gt; -  优化了日志记录。\n\n### 点赞是免费的，请大家多多点赞。如果有什么问题，请直接指出。欢迎大家多多克隆评论。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2024-04-11 12:32:47",
+      "modTime": "2024-04-11 12:32:47",
+      "lastActiveTime": "2026-03-20 17:54:10",
+      "lastPubTime": "2024-04-11 12:32:47",
+      "backtestId": "d8f524d206601a71792e1b9996afc331",
+      "backtestName": "小市值 止损 择时 2.0 1.4月空仓 且持有etf 优化",
+      "replyCount": "118",
+      "viewCount": "8090",
+      "collectionCount": "136",
+      "likeCount": "188",
+      "disLikeCount": "0",
+      "backtestCloneCount": "540",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "18",
+      "followersCount": "1168",
+      "followingCount": "1",
+      "author": {
+        "userId": "7301bc88729dd88d92cc66a08f666f50",
+        "alias": "zycash",
+        "vipType": "VIP"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        },
+        {
+          "id": "3019",
+          "name": "小市值"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "d8f524d206601a71792e1b9996afc331",
+        "backtest_name": "小市值 止损 择时 2.0 1.4月空仓 且持有etf 优化",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=d8f524d206601a71792e1b9996afc331&postId=52748442c2187ff43b30f63510cd3f62&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2014-01-01",
+          "end_date": "2024-04-04",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "52d1e09cfd575a8be0e20c342af4831b",
+            "33617494"
+          ],
+          "numeric_backtest_id": "33617494",
+          "numeric_post_id": "47562",
+          "python_version": 3,
+          "clone_count": 510
+        },
+        "stats": {
+          "trading_days": 2495,
+          "benchmark_volatility": 0.20384124067083,
+          "algorithm_volatility": 0.27236377540828,
+          "treasury_return": 0.41030136986301,
+          "algorithm_return": 932.058846675,
+          "benchmark_return": 0.45053355891833,
+          "annual_algo_return": 0.98420287992747,
+          "annual_bm_return": 0.03797082914365,
+          "sharpe": 3.4666977226031,
+          "excess_return_sharpe": "3.741",
+          "sortino": 4.6398050697936,
+          "information": 4.0901029367794,
+          "beta": 0.74861711045057,
+          "alpha": 0.94572195195056,
+          "excess_return": 642.25216120528,
+          "avg_excess_return": "0.27%",
+          "max_drawdown": 0.27550451479848,
+          "max_drawdown_period": [
+            "2015-06-12",
+            "2015-06-29"
+          ],
+          "excess_return_max_drawdown": "38.42%",
+          "excess_return_max_drawdown_period": [
+            "2014-10-29",
+            "2015-01-26"
+          ],
+          "max_leverage": 0,
+          "period_label": "2024-04",
+          "__version": 101,
+          "win_ratio": 0.6957345971564,
+          "profit_loss_ratio": 4.8091518320827,
+          "win_count": 734,
+          "lose_count": 321,
+          "day_win_ratio": 0.57635270541082,
+          "avg_trade_return": 0.062497224512061,
+          "avg_position_days": 123.76595744681,
+          "turnover_rate": 0.063610993216523,
+          "report_done_seconds": 1358.0188956261,
+          "report_done_cpu_seconds": 1173.78
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 93205.884668,
+          "benchmark_return_percent": 45.053356,
+          "annual_algo_return_percent": 98.420288,
+          "annual_bm_return_percent": 3.797083,
+          "max_drawdown_percent": 27.550451,
+          "algorithm_volatility_percent": 27.236378,
+          "benchmark_volatility_percent": 20.384124,
+          "win_ratio_percent": 69.57346,
+          "day_win_ratio_percent": 57.635271,
+          "avg_trade_return_percent": 6.249722,
+          "turnover_rate_percent": 6.361099,
+          "sharpe": 3.4666977226031,
+          "sortino": 4.6398050697936,
+          "information": 4.0901029367794,
+          "alpha": 0.94572195195056,
+          "beta": 0.74861711045057,
+          "profit_loss_ratio": 4.8091518320827,
+          "avg_position_days": 123.76595744681,
+          "trading_days": 2495,
+          "win_count": 734,
+          "lose_count": 321,
+          "max_drawdown_period": [
+            "2015-06-12",
+            "2015-06-29"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2014-10-29",
+            "2015-01-26"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/47562",
+      "https://www.joinquant.com/community/post/detailV2?postId=47562",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=d8f524d206601a71792e1b9996afc331&postId=52748442c2187ff43b30f63510cd3f62&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=d8f524d206601a71792e1b9996afc331"
+    ]
+  }
+}

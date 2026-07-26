@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/25.年初至今4倍，极致的Day Trading，56.8%胜率.txt",
+    "category": "2022年度精选策略",
+    "file_name": "25.年初至今4倍，极致的Day Trading，56.8%胜率.txt",
+    "strategy_name": "年初至今4倍，极致的Day Trading，56.8%胜率",
+    "declared_title": "年初至今4倍，极致的Day Trading，56.8%胜率",
+    "declared_author": "Dr.QYQ",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 25274,
+    "sha256": "c5a1c7d68652c6acbec4736c29c3056931094e089b464317b7a0c4c6b4e4ca83",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/38940"
+    ],
+    "primary_url": "https://www.joinquant.com/post/38940",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:49+08:00",
+    "requested_url": "https://www.joinquant.com/post/38940",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/4e7c4cd9a584ada2d93771abbebffd33",
+    "community_id": "4e7c4cd9a584ada2d93771abbebffd33",
+    "post": {
+      "postId": "0b48efed061bc549bf5d8670e4f82854",
+      "uniqueKey": "4e7c4cd9a584ada2d93771abbebffd33",
+      "title": "年初至今4倍，极致的Day Trading，56.8%胜率",
+      "content": "# 起因\n最近本地的JQData受到了每日查询条数的限制（最基础版100万条/日）没有办法花了一天时间给算法（[捉妖神器](https://www.joinquant.com/view/community/detail/2791f71894f03013c1427319977d85af)）做了个优化升级，没想到收益率大大提升，可能是修复了一些潜在的bug吧。\n# 优化\n主要的优化就是把原来代码中需要多次查询的代码整合到了一个函数当中，只需要查询一次然后构建一个Pandas Dataframe，之后就只用在已经查询的Dataframe当中操作就好。好处：大大减少了查询的次数，并且数据是连续的。\n# Inspiration\n在回测的过程中突发奇想把日k换成120分钟k线会不会有什么提升，于是就做了，结果就是**提升巨大**，收益率提高了，回撤降低了，不过想想也是，我们的策略本来就是跟随趋势，从日k换到2小时k线加快了频率，也就相当于加快了反应速度，因此胜率也得到了提升。但是也不能一味的追求频率，频率太高换手也会增加，犯错的概率也会增加，所以这里选了120分钟的数据，对于60分钟或者30分钟k线更加稳定，对于日k又更能凸显特征。\n![Img]( https://image.joinquant.com/492ebc69fc9f0999652cd1c70943d84d) \n![Img]( https://image.joinquant.com/fcd1f6adf5650d62aaab7b72818878d0) \n![Img]( https://image.joinquant.com/eddc9db40804dfada24d1feeebf6ecee) \n![Img]( https://image.joinquant.com/f5850c1b72c5fbc63d5cfac95983051b)",
+      "type": 1,
+      "status": "0",
+      "addTime": "2022-08-25 11:27:14",
+      "modTime": "2022-08-25 11:27:14",
+      "lastActiveTime": "2026-04-29 08:48:57",
+      "lastPubTime": "2022-08-25 11:27:14",
+      "backtestId": "28978c40b61905c532ff99d8b367f841",
+      "backtestName": "RSRS策略-魔改3-拟合截距-abs(R2)-120m",
+      "replyCount": "217",
+      "viewCount": "10952",
+      "collectionCount": "162",
+      "likeCount": "81",
+      "disLikeCount": "0",
+      "backtestCloneCount": "764",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "9",
+      "followersCount": "242",
+      "followingCount": "5",
+      "author": {
+        "userId": "97eae5f13635138ca788d795bc72bb46",
+        "alias": "Dr.QYQ",
+        "introduction": "一个划水摸鱼的物理博士",
+        "headImgKey": "6ef10a6c678f6f1eb853381a87c17f56"
+      },
+      "tags": [
+        {
+          "id": "1395",
+          "name": "本地数据JQData"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        },
+        {
+          "id": "1720",
+          "name": "RSRS择时"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "28978c40b61905c532ff99d8b367f841",
+        "backtest_name": "RSRS策略-魔改3-拟合截距-abs(R2)-120m",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=28978c40b61905c532ff99d8b367f841&postId=4e7c4cd9a584ada2d93771abbebffd33&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2022-01-01",
+          "end_date": "2022-08-23",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "8399bf4579055d14487aa00acb9a092d",
+            "25728138"
+          ],
+          "numeric_backtest_id": "25728138",
+          "numeric_post_id": "38940",
+          "python_version": 3,
+          "clone_count": 759
+        },
+        "stats": {
+          "trading_days": 155,
+          "benchmark_volatility": 0.21122085297066,
+          "algorithm_volatility": 0.88194884058805,
+          "treasury_return": 0.025315068493151,
+          "algorithm_return": 3.7648013315,
+          "benchmark_return": -0.15773919767143,
+          "annual_algo_return": 11.405681900052,
+          "annual_bm_return": -0.24185449569526,
+          "sharpe": 12.887008153981,
+          "excess_return_sharpe": "17.272",
+          "sortino": 19.104187541221,
+          "information": 13.185722283384,
+          "beta": 0.4723866159736,
+          "alpha": 11.498826191471,
+          "excess_return": 4.6571566886728,
+          "avg_excess_return": "1.28%",
+          "max_drawdown": 0.30863733727523,
+          "max_drawdown_period": [
+            "2022-01-12",
+            "2022-01-28"
+          ],
+          "excess_return_max_drawdown": "27.99%",
+          "excess_return_max_drawdown_period": [
+            "2022-01-12",
+            "2022-02-09"
+          ],
+          "max_leverage": 0,
+          "period_label": "2022-08",
+          "__version": 101,
+          "win_ratio": 0.59090909090909,
+          "profit_loss_ratio": 2.2747455117831,
+          "win_count": 26,
+          "lose_count": 18,
+          "day_win_ratio": 0.56774193548387,
+          "avg_trade_return": 0.045705666768245,
+          "avg_position_days": 2.4285714285714,
+          "turnover_rate": 0.28460159473544,
+          "report_done_seconds": 3406.185051918,
+          "report_done_cpu_seconds": 3385.41
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 376.480133,
+          "benchmark_return_percent": -15.77392,
+          "annual_algo_return_percent": 1140.56819,
+          "annual_bm_return_percent": -24.18545,
+          "max_drawdown_percent": 30.863734,
+          "algorithm_volatility_percent": 88.194884,
+          "benchmark_volatility_percent": 21.122085,
+          "win_ratio_percent": 59.090909,
+          "day_win_ratio_percent": 56.774194,
+          "avg_trade_return_percent": 4.570567,
+          "turnover_rate_percent": 28.460159,
+          "sharpe": 12.887008153981,
+          "sortino": 19.104187541221,
+          "information": 13.185722283384,
+          "alpha": 11.498826191471,
+          "beta": 0.4723866159736,
+          "profit_loss_ratio": 2.2747455117831,
+          "avg_position_days": 2.4285714285714,
+          "trading_days": 155,
+          "win_count": 26,
+          "lose_count": 18,
+          "max_drawdown_period": [
+            "2022-01-12",
+            "2022-01-28"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2022-01-12",
+            "2022-02-09"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/38940",
+      "https://www.joinquant.com/community/post/detailV2?postId=38940",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=28978c40b61905c532ff99d8b367f841&postId=4e7c4cd9a584ada2d93771abbebffd33&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=28978c40b61905c532ff99d8b367f841"
+    ]
+  }
+}

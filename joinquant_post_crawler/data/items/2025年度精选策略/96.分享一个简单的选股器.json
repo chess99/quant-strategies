@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/96.分享一个简单的选股器.txt",
+    "category": "2025年度精选策略",
+    "file_name": "96.分享一个简单的选股器.txt",
+    "strategy_name": "分享一个简单的选股器",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 7216,
+    "sha256": "9f157db1512273a91515b8fbcb0f9b8386651fee5412ab2fe558b09363b1e0de",
+    "joinquant_urls": [],
+    "primary_url": null,
+    "url_selection_method": "none"
+  },
+  "remote": null
+}

@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/54.ETF轮动策略-入门1.0.txt",
+    "category": "2023年度精选策略",
+    "file_name": "54.ETF轮动策略-入门1.0.txt",
+    "strategy_name": "ETF轮动策略-入门1.0",
+    "declared_title": "ETF轮动策略-入门1.0",
+    "declared_author": "vzhb1998",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 13582,
+    "sha256": "d8722005b2ba5d3f1b028bfcb49ca35bd8157deefa9b9a4e1ab5de9e500996c3",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/35136"
+    ],
+    "primary_url": "https://www.joinquant.com/post/35136",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:09:20+08:00",
+    "requested_url": "https://www.joinquant.com/post/35136",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/e6c3feec4cd43fdc5f8c0f6a2255da02",
+    "community_id": "e6c3feec4cd43fdc5f8c0f6a2255da02",
+    "post": {
+      "postId": "dbcdbccfd414421b8475436797778b4b",
+      "uniqueKey": "e6c3feec4cd43fdc5f8c0f6a2255da02",
+      "title": "ETF轮动策略-入门1.0",
+      "content": "策略说明：\n基于光大证券RSRS阻尼进行择时优化；\n**注：该策略仅供学习，不做实盘推荐！**\n现在放的版本为1.0\nps：1.0加强版本不确定是否过拟合，接受建议后已撤回\n后续会根据收到的建议持续进行优化~\n尽量出2.0版本\n\n长期可用",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-10-25 17:20:43",
+      "modTime": "2024-07-07 17:02:46",
+      "lastActiveTime": "2026-04-02 22:57:37",
+      "lastPubTime": "2024-07-07 17:02:46",
+      "backtestId": "57867e2155319a05aa9296908bbb1eda",
+      "backtestName": "ETF轮动策略-300etf平仓",
+      "replyCount": "105",
+      "viewCount": "2724",
+      "collectionCount": "51",
+      "likeCount": "28",
+      "disLikeCount": "0",
+      "backtestCloneCount": "229",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "168",
+      "fileName": "光大证券RSRS阻尼择时报告.pdf",
+      "fileType": "application/pdf",
+      "fileSize": "1996167",
+      "postCount": "3",
+      "followersCount": "56",
+      "followingCount": "5",
+      "author": {
+        "userId": "9d19d6e8f4fae98d2b17c1d13b410646",
+        "alias": "vzhb",
+        "headImgKey": "e31f9ef4a67f825e32323402318afa15"
+      },
+      "tags": [
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        },
+        {
+          "id": "1697",
+          "name": "适合入门学习"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "57867e2155319a05aa9296908bbb1eda",
+        "backtest_name": "ETF轮动策略-300etf平仓",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=57867e2155319a05aa9296908bbb1eda&postId=e6c3feec4cd43fdc5f8c0f6a2255da02&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2015-01-01",
+          "end_date": "2021-10-26",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "e8110dc85a6d67c59982094d7a0f933f",
+            "22288345"
+          ],
+          "numeric_backtest_id": "22288345",
+          "numeric_post_id": "35136",
+          "python_version": 3,
+          "clone_count": 158
+        },
+        "stats": {
+          "trading_days": 1657,
+          "benchmark_volatility": 0.2365517443481,
+          "algorithm_volatility": 0.23478418308693,
+          "treasury_return": 0.27243835616438,
+          "algorithm_return": 9.5660435073,
+          "benchmark_return": 0.40450519285734,
+          "annual_algo_return": 0.42719350227467,
+          "annual_bm_return": 0.052586017193907,
+          "sharpe": 1.6491464509401,
+          "excess_return_sharpe": "1.361",
+          "sortino": 2.4260647470214,
+          "information": 1.6286625087791,
+          "beta": 0.51983090778093,
+          "alpha": 0.38065090153142,
+          "excess_return": 6.5229650705701,
+          "avg_excess_return": "0.13%",
+          "max_drawdown": 0.15672468102123,
+          "max_drawdown_period": [
+            "2018-03-20",
+            "2019-02-27"
+          ],
+          "excess_return_max_drawdown": "23.90%",
+          "excess_return_max_drawdown_period": [
+            "2016-02-29",
+            "2017-11-22"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-10",
+          "__version": 101,
+          "win_ratio": 0.64705882352941,
+          "profit_loss_ratio": 4.2213201086155,
+          "win_count": 44,
+          "lose_count": 24,
+          "day_win_ratio": 0.51478575739288,
+          "avg_trade_return": 0.038504774938924,
+          "avg_position_days": 445,
+          "turnover_rate": 0.037472793321128,
+          "report_done_seconds": 135.05429601669,
+          "report_done_cpu_seconds": 126.11
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 956.604351,
+          "benchmark_return_percent": 40.450519,
+          "annual_algo_return_percent": 42.71935,
+          "annual_bm_return_percent": 5.258602,
+          "max_drawdown_percent": 15.672468,
+          "algorithm_volatility_percent": 23.478418,
+          "benchmark_volatility_percent": 23.655174,
+          "win_ratio_percent": 64.705882,
+          "day_win_ratio_percent": 51.478576,
+          "avg_trade_return_percent": 3.850477,
+          "turnover_rate_percent": 3.747279,
+          "sharpe": 1.6491464509401,
+          "sortino": 2.4260647470214,
+          "information": 1.6286625087791,
+          "alpha": 0.38065090153142,
+          "beta": 0.51983090778093,
+          "profit_loss_ratio": 4.2213201086155,
+          "avg_position_days": 445,
+          "trading_days": 1657,
+          "win_count": 44,
+          "lose_count": 24,
+          "max_drawdown_period": [
+            "2018-03-20",
+            "2019-02-27"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2016-02-29",
+            "2017-11-22"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/35136",
+      "https://www.joinquant.com/community/post/detailV2?postId=35136",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=57867e2155319a05aa9296908bbb1eda&postId=e6c3feec4cd43fdc5f8c0f6a2255da02&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=57867e2155319a05aa9296908bbb1eda"
+    ]
+  }
+}

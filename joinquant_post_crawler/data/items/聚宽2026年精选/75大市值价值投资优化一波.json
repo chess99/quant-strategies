@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "聚宽2026年精选/75大市值价值投资优化一波.txt",
+    "category": "聚宽2026年精选",
+    "file_name": "75大市值价值投资优化一波.txt",
+    "strategy_name": "大市值价值投资优化一波",
+    "declared_title": "大市值价值投资优化一波",
+    "declared_author": "七八十",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 6818,
+    "sha256": "6401435e1967c322c3579fb1c04150f219e5cfbcf14b34c5e4bdc580ce89c611",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/46876",
+      "https://www.joinquant.com/post/41921"
+    ],
+    "primary_url": "https://www.joinquant.com/post/46876",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:12:32+08:00",
+    "requested_url": "https://www.joinquant.com/post/46876",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/93f37f88cf6ad44d291b93e1349f7491",
+    "community_id": "93f37f88cf6ad44d291b93e1349f7491",
+    "post": {
+      "postId": "eefc8276da231da9b405f97f36aa856c",
+      "uniqueKey": "93f37f88cf6ad44d291b93e1349f7491",
+      "title": "大市值价值投资优化一波",
+      "content": "看了 95 大佬的[极简价投](https://www.joinquant.com/view/community/detail/0db3cf08cedcc67052ba01fab20f0acf)及相关说明，深受震撼。回头一搜索，才发现 Ahfu 大佬的[大市值价值投资](https://www.joinquant.com/view/community/detail/ab6fb75961ead6e3c38dd36aa8d17196)早就克隆过，但一直没重视，收藏夹吃灰中。赶紧拿出来调一波参数。\n\n最终效果，10年年化收益与 95 的相似，胜率稍微提高，回撤大大降低。。改成周测试收益有一定提高，但回撤增加。当然拉更长时间测，还是比不过 95 大佬的那个截图。\n\n修改内容如下：\n涨跌停过滤放到交易时\n增加两个涨停卖出\n增加国债ETF\n分离选股为独立函数\n放开创业板过滤，虽然没多大用，但不排除未来有用。。。**刚发现没放开，设想中是有的，大家可以自己注释下带 **创业** 那行。。**\n\n---\n最新的已经注释了 **创业** 那行了，胜率稍微有点下降，不过收益上升",
+      "type": 1,
+      "status": "0",
+      "addTime": "2024-03-02 21:26:32",
+      "modTime": "2024-03-02 22:35:24",
+      "lastActiveTime": "2026-05-04 12:14:44",
+      "lastPubTime": "2024-03-02 22:35:24",
+      "backtestId": "37af76b36b8839887a4f24fdb5183884",
+      "backtestName": "大市值价值投资-1-month",
+      "replyCount": "44",
+      "viewCount": "5469",
+      "collectionCount": "114",
+      "likeCount": "51",
+      "disLikeCount": "0",
+      "backtestCloneCount": "449",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "14",
+      "followersCount": "138",
+      "followingCount": "10",
+      "author": {
+        "userId": "115618e6d74156ab1456c3dd78270191",
+        "alias": "四五十",
+        "introduction": "宏而不细，留下操作空间和时间",
+        "vipType": "VIP",
+        "headImgKey": "1731875aa4f79c8f75f7cc185dd7b754"
+      },
+      "tags": [
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "3259",
+          "name": "单吊"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "37af76b36b8839887a4f24fdb5183884",
+        "backtest_name": "大市值价值投资-1-month",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=37af76b36b8839887a4f24fdb5183884&postId=93f37f88cf6ad44d291b93e1349f7491&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2014-01-01",
+          "end_date": "2023-12-31",
+          "base_capital": 200000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "6a1b70f0458789e366b52664e4df856d",
+            "32727003"
+          ],
+          "numeric_backtest_id": "32727003",
+          "numeric_post_id": "46876",
+          "python_version": 3,
+          "clone_count": 449
+        },
+        "stats": {
+          "trading_days": 2434,
+          "benchmark_volatility": 0.21925064687562,
+          "algorithm_volatility": 0.31081439554704,
+          "treasury_return": 0.39978082191781,
+          "algorithm_return": 70.4654806638,
+          "benchmark_return": 0.47256043913598,
+          "annual_algo_return": 0.55037648710531,
+          "annual_bm_return": 0.040550249293263,
+          "sharpe": 1.6420619328363,
+          "excess_return_sharpe": "1.501",
+          "sortino": 2.5403865711359,
+          "information": 1.7097911368016,
+          "beta": 0.5800279871957,
+          "alpha": 0.51005732711529,
+          "excess_return": 47.531441402658,
+          "avg_excess_return": "0.18%",
+          "max_drawdown": 0.24836746559507,
+          "max_drawdown_period": [
+            "2019-04-17",
+            "2019-08-09"
+          ],
+          "excess_return_max_drawdown": "36.40%",
+          "excess_return_max_drawdown_period": [
+            "2014-11-10",
+            "2015-06-12"
+          ],
+          "max_leverage": 0,
+          "period_label": "2023-12",
+          "__version": 101,
+          "win_ratio": 0.68269230769231,
+          "profit_loss_ratio": 4.8592829487449,
+          "win_count": 71,
+          "lose_count": 33,
+          "day_win_ratio": 0.48767460969597,
+          "avg_trade_return": 0.049670617459054,
+          "avg_position_days": 58,
+          "turnover_rate": 0.03492749062812,
+          "report_done_seconds": 136.21206688881,
+          "report_done_cpu_seconds": 122.13
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 7046.548066,
+          "benchmark_return_percent": 47.256044,
+          "annual_algo_return_percent": 55.037649,
+          "annual_bm_return_percent": 4.055025,
+          "max_drawdown_percent": 24.836747,
+          "algorithm_volatility_percent": 31.08144,
+          "benchmark_volatility_percent": 21.925065,
+          "win_ratio_percent": 68.269231,
+          "day_win_ratio_percent": 48.767461,
+          "avg_trade_return_percent": 4.967062,
+          "turnover_rate_percent": 3.492749,
+          "sharpe": 1.6420619328363,
+          "sortino": 2.5403865711359,
+          "information": 1.7097911368016,
+          "alpha": 0.51005732711529,
+          "beta": 0.5800279871957,
+          "profit_loss_ratio": 4.8592829487449,
+          "avg_position_days": 58,
+          "trading_days": 2434,
+          "win_count": 71,
+          "lose_count": 33,
+          "max_drawdown_period": [
+            "2019-04-17",
+            "2019-08-09"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2014-11-10",
+            "2015-06-12"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/46876",
+      "https://www.joinquant.com/community/post/detailV2?postId=46876",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=37af76b36b8839887a4f24fdb5183884&postId=93f37f88cf6ad44d291b93e1349f7491&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=37af76b36b8839887a4f24fdb5183884"
+    ]
+  }
+}

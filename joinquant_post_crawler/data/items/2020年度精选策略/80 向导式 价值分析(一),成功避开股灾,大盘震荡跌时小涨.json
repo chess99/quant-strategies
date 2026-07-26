@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/80 向导式 价值分析(一),成功避开股灾,大盘震荡跌时小涨.txt",
+    "category": "2020年度精选策略",
+    "file_name": "80 向导式 价值分析(一),成功避开股灾,大盘震荡跌时小涨.txt",
+    "strategy_name": "向导式 价值分析(一),成功避开股灾,大盘震荡跌时小涨",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 14667,
+    "sha256": "1acf85348ce9bac6d5ea9bf27630d324d2746025b8474e037585f4b2b3ea1180",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/13378"
+    ],
+    "primary_url": "https://www.joinquant.com/post/13378",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:19+08:00",
+    "requested_url": "https://www.joinquant.com/post/13378",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/3dd493a9b6127189ebc7cbb7c95de7f4",
+    "community_id": "3dd493a9b6127189ebc7cbb7c95de7f4",
+    "post": {
+      "postId": "a3b8b2d0411138f442c8f39ad31ef25e",
+      "uniqueKey": "3dd493a9b6127189ebc7cbb7c95de7f4",
+      "title": "向导式 价值分析(一),成功避开股灾,大盘震荡跌时小涨",
+      "content": "#### 很多宽友都听过价值投资，由于国情，价值投资在A股适不适用曾经引起过争议。\r\n#### 有些人认为价值投资是一种哲学，而投机客都把哲学家作为笑柄，他们这样想，只是因为他们没有找到价值选股的合适指标。\r\n#### 毕竟索罗斯就是哲学转投资的代表人物，哲学，也是很重要滴～\r\n\r\n---\r\n\r\n#### 价值投资有几大重要指标：市净率 ( PB )，市盈率 ( PE )，净资产收益率 ( ROE ) ，资产回报率 ( ROA )。\r\n\r\n---\r\n\r\n#### 还有其他指标：市销率 ( PS )，市现率 ( PCF ) ，股息率（Dividend Yield Ratio），每股收益（EPS）等等，下次再说。\r\n\r\n---\r\n\r\n## 傻傻分不清～ 了解一下都是啥：\r\n\r\n---\r\n\r\n - 市净率（Price to book ratio即P/B）http://wiki.mbalib.com/wiki/PB\r\n - 市盈率（Price to Earnings ratio，简称 P/E ratio）http://wiki.mbalib.com/wiki/%E5%B8%82%E7%9B%88%E7%8E%87\r\n - 股本回报率，产权收益率，产权报酬率(Return On Equity,简称ROE) http://wiki.mbalib.com/wiki/%E8%82%A1%E6%9C%AC%E5%9B%9E%E6%8A%A5%E7%8E%87\r\n - 净资产收益率（Rate of Return on Common Stockholders&#39; Equity，ROE/Profit Margin on Net Assets）http://wiki.mbalib.com/wiki/Rate_of_Return_on_Common_Stockholders%27_Equity\r\n - 资产收益率/资产回报率(Return On Assets,ROA) http://wiki.mbalib.com/wiki/ROA\r\n\r\n---\r\n\r\n - 市售率（EV/Sales）(重定向自市销率) http://wiki.mbalib.com/wiki/%E5%B8%82%E9%94%80%E7%8E%87\r\n - 股息率（Dividend Yield Ratio）http://wiki.mbalib.com/wiki/%E8%82%A1%E6%81%AF%E7%8E%87\r\n - 每股收益（EPS） http://wiki.mbalib.com/wiki/%E6%AF%8F%E8%82%A1%E6%94%B6%E7%9B%8A\r\n\r\n---\r\n\r\n## 以下指标取值仅供参考，会不会误导，我就不知道了～\r\n\r\n---\r\n\r\n# 1，市盈率 ( PE )  ( 5.5~11.5 或 3.1 ～ 23.1 )\r\n\r\n---\r\n\r\n![屏幕快照 2018-06-28 下午6.20.24.png][1]\r\n\r\n---\r\n\r\n参考：【苍老师推荐】价值投资 -- 成长股内在价值投资 https://www.joinquant.com/post/541\r\n\r\n---\r\n### ***既然格雷厄姆大师已经钦定市盈率为 8.5，***\r\n\r\n### ***那么，我选定市盈率范围就在 8.5 ✖️ e^(-0.5) ～ 8.5 ✖️ e^ 0.5 之间。也就是 5.5 ～ 11.5 之间。***\r\n### ***（至于为啥要把 8.5 乘以 e 的指数，额，不知道，直觉。）***\r\n### ***如果更激进一点，可以选择 8.5 ✖️ e^(-1) ～ 8.5 ✖️ e^1，也就是 3.1 ～ 23.1。***\r\n### ***（还是直觉……我就是喜欢乘 e 的指数。）***\r\n\r\n---\r\n\r\n# 2，市净率 ( PB ) （ &lt; 2 或 0.7 ～ 5.4）\r\n\r\n---\r\n\r\n### ***随大流，市净率都小于 2 ，那就小于 2 吧。***\r\n### ***要来个区间也行，那就乘除 e 的一次幂就是 0.7 ～ 5.4***\r\n\r\n---\r\n\r\n# 3，净资产收益率 ( ROE )  ( &gt; 5%， 10%，巴菲特选择15% )\r\n\r\n---\r\n\r\n### ***额，有 5% 的，有 10% 的，还有 15% 的，那就取个中 10% 吧。***\r\n\r\n---\r\n\r\n# 4，资产回报率 ( ROA ) ( &gt; 0.5% )\r\n\r\n---\r\n\r\n### ***大家都 0.5 ,那就 0.5 吧。***\r\n\r\n---\r\n\r\n# 参考链接（一）：\r\n\r\n---\r\n\r\n - 【苍老师推荐】价值投资 -- 成长股内在价值投资 https://www.joinquant.com/post/541\r\n - 查尔斯·布兰德斯 价值投资策略   https://www.joinquant.com/post/13245\r\n - 测试一个简单的pe+pb+roe的策略，不专业，护住你们的眼先。哈哈~\r\n   https://www.joinquant.com/post/7860\r\n - 价值投资 -- 三一投资管理公司价值选股法 https://www.joinquant.com/post/556\r\n - ROE选股：股灾以来表现。。。https://www.joinquant.com/post/9974\r\n - 【新手入门教程】白马股策略 https://www.joinquant.com/post/6879\r\n - 【量化课堂】因子研究系列之一 -- 估值和资本结构因子 https://www.joinquant.com/post/3709\r\n - 【量化课堂】因子研究系列之二 -- 成长因子 https://www.joinquant.com/post/3794\r\n - 华泰价值选股之FFScore模型 https://www.joinquant.com/post/4872\r\n - 【量化选股专题】在稳定增长中寻找超额收益 https://www.joinquant.com/post/708\r\n - 向导式——一个策略和它背后的逻辑 https://www.joinquant.com/post/6700\r\n\r\n---\r\n\r\n# 参考链接 ( 二 ) ：\r\n\r\n---\r\n\r\n - 基于基本面量化策略 https://www.joinquant.com/post/13296\r\n - 惠特尼 · 乔治小型价值投资法 https://www.joinquant.com/post/3466\r\n - 基本面选股之高股息率模型 https://www.joinquant.com/post/13001\r\n - 基本面选股之低市销率模型 https://www.joinquant.com/post/12915\r\n - 小费雪选股法（一）—— 静态市收率PS https://www.joinquant.com/post/6944\r\n - 小费雪选股法（二）—— 相对市收率 https://www.joinquant.net/post/7027\r\n - 小费雪选股法（终）https://www.joinquant.net/post/7029\r\n\r\n ---\r\n\r\n - 肯尼斯·费雪：低市收率选股策略 http://finance.sina.com.cn/stock/gsdjt/20131021/114717056892.shtml\r\n\r\n---\r\n策略总结：\r\n\r\n选股\r\n动态市盈率\t区间 5.5 - 11.5 倍\r\n净资产收益率ROE\t大于 5 %\r\n总资产净利率ROA\t大于 0.5 %\r\n市净率\t区间 0.7 - 5.4 倍\r\n\r\n调仓周期 365 交易日\r\n最大持仓股票数量 5 只\r\n\r\n---\r\n\r\n  [1]: https://image.joinquant.com/f784069125011363b2cad9dd36e39b42\r\n  [2]: https://image.joinquant.com/2966d6d46c6522daa51c48df29c3a22e\r\n  [3]: https://image.joinquant.com/1d3bc20f85e81b62ef503f75b451cc79\r\n  [4]: https://image.joinquant.com/6cfeb14b9e8d597b859a92b09ebd6c5c\r\n  [5]: https://image.joinquant.com/3289eb3b4721833a80593b66da81e473\r\n  [6]: https://image.joinquant.com/dd889392b99999fcb6ea9bed7bacdc36\r\n  [7]: https://image.joinquant.com/17faa48bdd6380dd2249de18d2c4bac5\r\n  [8]: https://image.joinquant.com/2ef8c7af27110c1b6da9f1ccf82c12a1",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-06-28 18:59:03",
+      "modTime": "2018-06-28 18:59:03",
+      "lastActiveTime": "2020-08-14 19:24:28",
+      "lastPubTime": "2018-06-28 18:59:03",
+      "backtestId": "f0fb8f08950ce6fc39e1e6475f60d67d",
+      "backtestName": "向导式策略生成器",
+      "replyCount": "12",
+      "viewCount": "4374",
+      "collectionCount": "62",
+      "likeCount": "28",
+      "disLikeCount": "0",
+      "backtestCloneCount": "170",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "37",
+      "followersCount": "268",
+      "followingCount": "31",
+      "author": {
+        "userId": "52f3ef3b792c9c3ee8a182fdf3d9c444",
+        "alias": "Guhhhhaa",
+        "introduction": "Loua Capital Co.,Ltd.",
+        "headImgKey": "4b99578d93d9edbdebdf95233f6a6bb9"
+      },
+      "tags": []
+    },
+    "backtests": [
+      {
+        "backtest_id": "f0fb8f08950ce6fc39e1e6475f60d67d",
+        "backtest_name": "向导式策略生成器",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=f0fb8f08950ce6fc39e1e6475f60d67d&postId=3dd493a9b6127189ebc7cbb7c95de7f4&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2006-06-01",
+          "end_date": "2018-06-01",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "faf83b3d46dadd81d78125942bb5ba20",
+            "9106914"
+          ],
+          "numeric_backtest_id": "9106914",
+          "numeric_post_id": "13378",
+          "python_version": 2,
+          "clone_count": 170
+        },
+        "stats": {
+          "information": 0.56174335767447,
+          "benchmark_return": 1.7614246135526,
+          "algorithm_volatility": 0.20275833963083,
+          "annual_bm_return": 0.090760718994755,
+          "__version": 101,
+          "max_drawdown": 0.24849835210222,
+          "sortino": 1.2467157803483,
+          "period_label": "2018-06",
+          "trading_days": 2923,
+          "algorithm_return": 9.6512715000001,
+          "benchmark_volatility": 0.2849141888098,
+          "beta": 0.40536711949016,
+          "excess_return": 9.1709427328768,
+          "annual_algo_return": 0.22425580988941,
+          "sharpe": 0.90874590029144,
+          "alpha": 0.16367908344726,
+          "max_drawdown_period": [
+            "2011-04-18",
+            "2012-12-03"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.48032876712329,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.48682860075265,
+          "avg_position_days": 249.94285714286,
+          "win_ratio": 0.70666666666667,
+          "win_count": 53,
+          "avg_trade_return": 0.21754347269672,
+          "profit_loss_ratio": 3.4266069236459,
+          "lose_count": 22,
+          "report_done_seconds": 29.150688886642
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 965.12715,
+          "benchmark_return_percent": 176.142461,
+          "annual_algo_return_percent": 22.425581,
+          "annual_bm_return_percent": 9.076072,
+          "max_drawdown_percent": 24.849835,
+          "algorithm_volatility_percent": 20.275834,
+          "benchmark_volatility_percent": 28.491419,
+          "win_ratio_percent": 70.666667,
+          "day_win_ratio_percent": 48.68286,
+          "avg_trade_return_percent": 21.754347,
+          "sharpe": 0.90874590029144,
+          "sortino": 1.2467157803483,
+          "information": 0.56174335767447,
+          "alpha": 0.16367908344726,
+          "beta": 0.40536711949016,
+          "profit_loss_ratio": 3.4266069236459,
+          "avg_position_days": 249.94285714286,
+          "trading_days": 2923,
+          "win_count": 53,
+          "lose_count": 22,
+          "max_drawdown_period": [
+            "2011-04-18",
+            "2012-12-03"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/13378",
+      "https://www.joinquant.com/community/post/detailV2?postId=13378",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=f0fb8f08950ce6fc39e1e6475f60d67d&postId=3dd493a9b6127189ebc7cbb7c95de7f4&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=f0fb8f08950ce6fc39e1e6475f60d67d"
+    ]
+  }
+}

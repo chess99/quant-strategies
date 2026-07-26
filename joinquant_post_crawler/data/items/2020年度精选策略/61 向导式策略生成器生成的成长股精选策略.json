@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/61 向导式策略生成器生成的成长股精选策略.txt",
+    "category": "2020年度精选策略",
+    "file_name": "61 向导式策略生成器生成的成长股精选策略.txt",
+    "strategy_name": "向导式策略生成器生成的成长股精选策略",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 14436,
+    "sha256": "22281e20a22b8dc8759e0c34fe674b557a1c91bd288890f4fd5e37cf92e2709c",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/11372"
+    ],
+    "primary_url": "https://www.joinquant.com/post/11372",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:04+08:00",
+    "requested_url": "https://www.joinquant.com/post/11372",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/95f2e333ca68e4dbd56ca9289315ddf4",
+    "community_id": "95f2e333ca68e4dbd56ca9289315ddf4",
+    "post": {
+      "postId": "b1e777ef46e11a3808a3e5afbe71ba1c",
+      "uniqueKey": "95f2e333ca68e4dbd56ca9289315ddf4",
+      "title": "向导式策略生成器生成的成长股精选策略",
+      "content": "选股指标：\r\n营收增长&gt;30%\r\n利润增长&gt;20%\r\nPE&lt;30\r\nROE&gt;5%",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-03-08 23:20:23",
+      "modTime": "2018-03-08 23:20:23",
+      "lastActiveTime": "2021-02-20 09:42:28",
+      "lastPubTime": "2018-03-08 23:20:23",
+      "backtestId": "9860a7d95081f78ed3f2a4c56fd4445b",
+      "backtestName": "成长股精选组合",
+      "replyCount": "3",
+      "viewCount": "1674",
+      "collectionCount": "4",
+      "likeCount": "8",
+      "disLikeCount": "0",
+      "backtestCloneCount": "49",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "1",
+      "followersCount": "2",
+      "followingCount": "3",
+      "author": {
+        "userId": "8a48b2e2fd00fbf5cd43bb765a1585a8",
+        "alias": "airsiva"
+      },
+      "tags": []
+    },
+    "backtests": [
+      {
+        "backtest_id": "9860a7d95081f78ed3f2a4c56fd4445b",
+        "backtest_name": "成长股精选组合",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=9860a7d95081f78ed3f2a4c56fd4445b&postId=95f2e333ca68e4dbd56ca9289315ddf4&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2016-06-01",
+          "end_date": "2016-12-01",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "e0195a290fb9a91921e2c4955b706473",
+            "7792863"
+          ],
+          "numeric_backtest_id": "7792863",
+          "numeric_post_id": "11372",
+          "python_version": 2,
+          "clone_count": 50
+        },
+        "stats": {
+          "information": 0.053723808431847,
+          "benchmark_return": 0.12477322560691,
+          "algorithm_volatility": 0.1778413010606,
+          "annual_bm_return": 0.26996159874179,
+          "__version": 101,
+          "max_drawdown": 0.092123160776791,
+          "sortino": 2.2487099218115,
+          "period_label": "2016-12",
+          "trading_days": 123,
+          "algorithm_return": 0.1236422,
+          "benchmark_volatility": 0.1220216805963,
+          "beta": 1.1147130038949,
+          "excess_return": 0.10358740547945,
+          "annual_algo_return": 0.26736737492169,
+          "sharpe": 1.278484657758,
+          "alpha": -0.02897380959226,
+          "max_drawdown_period": [
+            "2016-08-15",
+            "2016-09-26"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.020054794520548,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.47154471544715,
+          "avg_position_days": 38.0625,
+          "win_ratio": 0.81818181818182,
+          "win_count": 9,
+          "avg_trade_return": 0.049288012727171,
+          "profit_loss_ratio": 3.9437203791469,
+          "lose_count": 2,
+          "report_done_seconds": 14.103887081146
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 12.36422,
+          "benchmark_return_percent": 12.477323,
+          "annual_algo_return_percent": 26.736737,
+          "annual_bm_return_percent": 26.99616,
+          "max_drawdown_percent": 9.212316,
+          "algorithm_volatility_percent": 17.78413,
+          "benchmark_volatility_percent": 12.202168,
+          "win_ratio_percent": 81.818182,
+          "day_win_ratio_percent": 47.154472,
+          "avg_trade_return_percent": 4.928801,
+          "sharpe": 1.278484657758,
+          "sortino": 2.2487099218115,
+          "information": 0.053723808431847,
+          "alpha": -0.02897380959226,
+          "beta": 1.1147130038949,
+          "profit_loss_ratio": 3.9437203791469,
+          "avg_position_days": 38.0625,
+          "trading_days": 123,
+          "win_count": 9,
+          "lose_count": 2,
+          "max_drawdown_period": [
+            "2016-08-15",
+            "2016-09-26"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/11372",
+      "https://www.joinquant.com/community/post/detailV2?postId=11372",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=9860a7d95081f78ed3f2a4c56fd4445b&postId=95f2e333ca68e4dbd56ca9289315ddf4&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=9860a7d95081f78ed3f2a4c56fd4445b"
+    ]
+  }
+}

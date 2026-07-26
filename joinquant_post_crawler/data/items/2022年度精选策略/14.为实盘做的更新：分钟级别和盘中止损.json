@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/14.为实盘做的更新：分钟级别和盘中止损.txt",
+    "category": "2022年度精选策略",
+    "file_name": "14.为实盘做的更新：分钟级别和盘中止损.txt",
+    "strategy_name": "为实盘做的更新：分钟级别和盘中止损",
+    "declared_title": "为实盘做的更新: 分钟级别和盘中止损",
+    "declared_author": "蚂蚁量化",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 14481,
+    "sha256": "d639352d8af0e58a5bf4ce334d52c3ea2c6720a791bff6c6231bd7a36c359d19",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/36805",
+      "https://www.joinquant.com/post/36375"
+    ],
+    "primary_url": "https://www.joinquant.com/post/36805",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:39+08:00",
+    "requested_url": "https://www.joinquant.com/post/36805",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/097924a1db013128befc41c42f3a6d1b",
+    "community_id": "097924a1db013128befc41c42f3a6d1b",
+    "post": {
+      "postId": "16f9e9e463aec96624aced58da27d966",
+      "uniqueKey": "097924a1db013128befc41c42f3a6d1b",
+      "title": "为实盘做的更新: 分钟级别和盘中止损",
+      "content": "克隆自聚宽文章：https://www.joinquant.com/post/36375\n标题：2021年度文章精选第一篇策略的修订及详解-Python2版\n\n这个帖子很多人克隆后要在一创实盘，我觉得如果要实盘，就要添加风控部分。\n\n人大代表，原证监会副主席刘新华刚刚说：\n**实现退市的常态化，使上市公司的“壳价值”趋于归零。**\n\n这个**策略锚定的是小市值，政策风险很大**，要有风控才行。\n\n升级内容：\n1. 由按天的策略改成按分钟策略，好处是可以盘中进行风控；\n2. 每分钟监控个股盈亏，个股浮亏6.5%止损卖出；\n3. 每分钟监控账户净值，策略如果从最高回落30%， 说明策略可能失效，清仓后不再买入，等待重新评估；\n4. 设置风控模块在2020年以后有效，回测结果不但回撤有所降低，收益还提高了约20%。\n5. 交易时间提前到2:39分，分钟级别取分钟历史数据，不存在未来数据，这个时间大家可以自己选2:39到2:45之间的任意时间，收益差不多，避免太拥挤滑点太大。\n\n**有刹车的汽车才敢开出去呀！**\n\n修改前后图对比：\n![Img]( https://image.joinquant.com/01ba6ae415a812f1d9a59b5d58092dbf) \n\n模拟了3周，看上去还不错：\n![Img]( https://image.joinquant.com/faee401b8d8d9288f1b03a1bd49c5bbf) \n\n\n最后祝大家好运！！！",
+      "type": 1,
+      "status": "0",
+      "addTime": "2022-03-06 16:27:42",
+      "modTime": "2022-03-06 22:18:42",
+      "lastActiveTime": "2026-03-23 10:51:54",
+      "lastPubTime": "2022-03-06 22:18:42",
+      "backtestId": "4fc2fcaa6209db5cd2e5e290767038d8",
+      "backtestName": "为实盘做的更新: 分钟级别和盘中止损",
+      "replyCount": "87",
+      "viewCount": "8158",
+      "collectionCount": "166",
+      "likeCount": "53",
+      "disLikeCount": "0",
+      "backtestCloneCount": "554",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "60",
+      "followersCount": "3872",
+      "followingCount": "5",
+      "author": {
+        "userId": "634253a49b27e9e7b470114df6fd4fdd",
+        "alias": "蚂蚁量化",
+        "introduction": "交易模型，就是参与者的行为模型。WX: JQ2016-001",
+        "vipType": "VIP",
+        "headImgKey": "b902612ea09bdf430a87e71b42da8d1c"
+      },
+      "tags": [
+        {
+          "id": "14",
+          "name": "函数"
+        },
+        {
+          "id": "5",
+          "name": "仓位管理"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "4fc2fcaa6209db5cd2e5e290767038d8",
+        "backtest_name": "为实盘做的更新: 分钟级别和盘中止损",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=4fc2fcaa6209db5cd2e5e290767038d8&postId=097924a1db013128befc41c42f3a6d1b&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2020-01-01",
+          "end_date": "2022-03-04",
+          "base_capital": 1000000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "d6c9c69e3260d2ae0aceeced36df24ee",
+            "23764729"
+          ],
+          "numeric_backtest_id": "23764729",
+          "numeric_post_id": "36805",
+          "python_version": 2,
+          "clone_count": 543
+        },
+        "stats": {
+          "benchmark_return": 0.097605807771358,
+          "max_drawdown": 0.19887028616238,
+          "trading_days": 525,
+          "algorithm_volatility": 0.21233152824236,
+          "max_drawdown_period": [
+            "2020-12-07",
+            "2021-02-08"
+          ],
+          "information": 1.071939536357,
+          "annual_bm_return": 0.045346305647196,
+          "excess_return_max_drawdown": "33.86%",
+          "benchmark_volatility": 0.20411243346667,
+          "annual_algo_return": 0.31121638089327,
+          "sharpe": 1.2773250545425,
+          "excess_return_max_drawdown_period": [
+            "2020-09-22",
+            "2021-02-10"
+          ],
+          "__version": 101,
+          "algorithm_return": 0.7665102796,
+          "beta": 0.30278408169006,
+          "alpha": 0.26959760464745,
+          "treasury_return": 0.086794520547945,
+          "max_leverage": 0,
+          "sortino": 1.8017984068228,
+          "period_label": "2022-03",
+          "avg_excess_return": "0.10%",
+          "excess_return": 0.60942140346982,
+          "excess_return_sharpe": "0.861",
+          "turnover_rate": 0.096290535352546,
+          "avg_trade_return": 0.014948049025455,
+          "day_win_ratio": 0.49333333333333,
+          "profit_loss_ratio": 1.7068599527576,
+          "avg_position_days": 25.152173913043,
+          "lose_count": 154,
+          "win_ratio": 0.56,
+          "win_count": 196,
+          "report_done_seconds": 1025.1993219852,
+          "report_done_cpu_seconds": 1003.23
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 76.651028,
+          "benchmark_return_percent": 9.760581,
+          "annual_algo_return_percent": 31.121638,
+          "annual_bm_return_percent": 4.534631,
+          "max_drawdown_percent": 19.887029,
+          "algorithm_volatility_percent": 21.233153,
+          "benchmark_volatility_percent": 20.411243,
+          "win_ratio_percent": 56.0,
+          "day_win_ratio_percent": 49.333333,
+          "avg_trade_return_percent": 1.494805,
+          "turnover_rate_percent": 9.629054,
+          "sharpe": 1.2773250545425,
+          "sortino": 1.8017984068228,
+          "information": 1.071939536357,
+          "alpha": 0.26959760464745,
+          "beta": 0.30278408169006,
+          "profit_loss_ratio": 1.7068599527576,
+          "avg_position_days": 25.152173913043,
+          "trading_days": 525,
+          "win_count": 196,
+          "lose_count": 154,
+          "max_drawdown_period": [
+            "2020-12-07",
+            "2021-02-08"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-09-22",
+            "2021-02-10"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/36805",
+      "https://www.joinquant.com/community/post/detailV2?postId=36805",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=4fc2fcaa6209db5cd2e5e290767038d8&postId=097924a1db013128befc41c42f3a6d1b&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=4fc2fcaa6209db5cd2e5e290767038d8"
+    ]
+  }
+}

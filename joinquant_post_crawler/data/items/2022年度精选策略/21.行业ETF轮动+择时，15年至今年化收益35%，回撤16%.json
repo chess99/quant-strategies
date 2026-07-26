@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/21.行业ETF轮动+择时，15年至今年化收益35%，回撤16%.txt",
+    "category": "2022年度精选策略",
+    "file_name": "21.行业ETF轮动+择时，15年至今年化收益35%，回撤16%.txt",
+    "strategy_name": "行业ETF轮动+择时，15年至今年化收益35%，回撤16%",
+    "declared_title": "行业ETF轮动+择时，15年至今年化收益35%，回撤16%",
+    "declared_author": "Jacobb75",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 15566,
+    "sha256": "44f4e5011adaa95c5698d14ce20953626d69aab8228b706c66944fa1ed7b1d6d",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/36544",
+      "https://www.joinquant.com/view/community/detail/c9827c6126003147912f1b47967052d9"
+    ],
+    "primary_url": "https://www.joinquant.com/post/36544",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:46+08:00",
+    "requested_url": "https://www.joinquant.com/post/36544",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/6941139fc291619c9514334341df8a20",
+    "community_id": "6941139fc291619c9514334341df8a20",
+    "post": {
+      "postId": "5e7d265e530f38f466b557765b422c16",
+      "uniqueKey": "6941139fc291619c9514334341df8a20",
+      "title": "行业ETF轮动+择时，15年至今年化收益35%，回撤16%",
+      "content": "#本策略是根据论坛内某位大神的BBI指数+择时的代码修改来的，不过我好像找不到源码了。如果原作者看到请回复我，我把您的citation加上。\n\n\n#程序运行原理：\n1、给定大盘指数：上证，深成指，创业板指数，科创50，沪深300，中证500,1000指数\n2、给定17只行业指数基金（消费能源军工医疗化工材料电力金融都涵盖在内了）\n3、判断指数基金是否正常上市\n4、判断7个大盘是否处于上涨趋势（获取大盘上涨最大的代码）\n5、判断17只大盘指数基金的中期BBI指标（多空指标）\n6、如果涨幅最好的大盘指数是上涨的（市场今天可以），则买入BBI指标中多头力量最强的行业指数基金\n\n7、下一周重新进入1-5的判断，如果大盘都是下跌的，清仓，套现的钱买银华日利\n                            如果表现做好的大盘是上涨的，则买入BBI最小的基金，清空持有的基金，套现的钱买银华日利；\n                            如果买入BBI最小的基金已经持仓，则不操作；\n如果大盘不好（300etf 5日均线空头排列），清仓，买入银华日利基金；\n如果大盘上涨，则买入BBI指标中的多头最强的，第二天循环判断；\n\n程序实现了亏小，赢大的可能\n\n##为什么选周三运行？\n不清楚，只是周三运行表现最好；我判断可能因为周三是周内情绪发酵的拐点，变数最大\n\n##为什么选中午11：15交易？\n牛市11：15开盘原因：各大机构收盘后制定第二套买卖计划，会在9点30到10点30之间完成，有买入的这段\n时间都是上涨的，之后会有一段时间回落，在回落时间段内，我们买入。（一般来说中午收盘前都可以，模型表现差异不大，自己选个时间就好）\n\n\n#程序参数\n佣金万1.5，滑点0.004。\n（佣金设定的有点低了，不过17年之前基本是消费etf在择时，所以个人感觉影响不大；介意的可以改个参数，不过走势应该差不多）\n\n#表现\n15年至今翻了8倍，最大回撤16%不到，个人觉得经受住了考验。\n\n#展望\n随着ETF市场不断发展，未来还会有更多的行业主题ETF基金上市交易；电力ETF就是我新加入的。所以以后该策略的应用前景还是比较广泛的\n\nPS：东数西算火了，中证全指通信指数和通信ETF也可以加到模型里去看看效果\n\nPPS:有朋友质疑我周三11:15选取的时间不具有普世性~说实话，我也疑惑，但是看看大盘，2022年3月16日上午11:18分~这个反弹，我觉得，不用再说什么了吧？无论是模型历史表现，还是实际应用，值得大家参考~\n\n![Img]( https://image.joinquant.com/8285c040ff3b2ab1e16fbd920bde43ac)\n\nPPPS：2022年4月27日，周三，又是中午收盘前这个坑~啧啧\n\n![Img]( https://image.joinquant.com/e612deaf99879b49ed7d698313b9800e)",
+      "type": 1,
+      "status": "0",
+      "addTime": "2022-02-12 19:51:16",
+      "modTime": "2022-04-27 15:14:06",
+      "lastActiveTime": "2025-10-16 22:32:06",
+      "lastPubTime": "2022-04-27 15:14:06",
+      "backtestId": "3fbab37731ad8ee4a6df4fb21d4ed48d",
+      "backtestName": "行业etf每周三上午轮动-BBI-10万-5日均",
+      "replyCount": "81",
+      "viewCount": "8005",
+      "collectionCount": "188",
+      "likeCount": "77",
+      "disLikeCount": "0",
+      "backtestCloneCount": "550",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "8",
+      "followersCount": "337",
+      "followingCount": "8",
+      "author": {
+        "userId": "39111f6bd496beaea09f9ba75573a75e",
+        "alias": "Jacobb75"
+      },
+      "tags": [
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "3fbab37731ad8ee4a6df4fb21d4ed48d",
+        "backtest_name": "行业etf每周三上午轮动-BBI-10万-5日均",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=3fbab37731ad8ee4a6df4fb21d4ed48d&postId=6941139fc291619c9514334341df8a20&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2015-01-01",
+          "end_date": "2022-02-11",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "aa8c429fee6e18875db927de8f0357c9",
+            "23514854"
+          ],
+          "numeric_backtest_id": "23514854",
+          "numeric_post_id": "36544",
+          "python_version": 3,
+          "clone_count": 536
+        },
+        "stats": {
+          "trading_days": 1729,
+          "benchmark_volatility": 0.23334918131575,
+          "algorithm_volatility": 0.19801739844842,
+          "treasury_return": 0.28427397260274,
+          "algorithm_return": 7.2039646232805,
+          "benchmark_return": 0.30214789031327,
+          "annual_algo_return": 0.35569113017955,
+          "annual_bm_return": 0.038912549711024,
+          "sharpe": 1.594259558267,
+          "excess_return_sharpe": "1.038",
+          "sortino": 2.4906767400358,
+          "information": 1.2545783205663,
+          "beta": 0.27462308565161,
+          "alpha": 0.3159897691334,
+          "excess_return": 5.3003324617043,
+          "avg_excess_return": "0.12%",
+          "max_drawdown": 0.15562660282363,
+          "max_drawdown_period": [
+            "2015-06-12",
+            "2015-09-15"
+          ],
+          "excess_return_max_drawdown": "20.68%",
+          "excess_return_max_drawdown_period": [
+            "2015-02-02",
+            "2015-06-08"
+          ],
+          "max_leverage": 0,
+          "period_label": "2022-02",
+          "__version": 101,
+          "win_ratio": 0.72727272727273,
+          "profit_loss_ratio": 3.0939518326285,
+          "win_count": 176,
+          "lose_count": 66,
+          "day_win_ratio": 0.49797570850202,
+          "avg_trade_return": 0.0079045135080754,
+          "avg_position_days": 133.71428571429,
+          "turnover_rate": 0.13183487157977,
+          "report_done_seconds": 166.81380367279,
+          "report_done_cpu_seconds": 159.95
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 720.396462,
+          "benchmark_return_percent": 30.214789,
+          "annual_algo_return_percent": 35.569113,
+          "annual_bm_return_percent": 3.891255,
+          "max_drawdown_percent": 15.56266,
+          "algorithm_volatility_percent": 19.80174,
+          "benchmark_volatility_percent": 23.334918,
+          "win_ratio_percent": 72.727273,
+          "day_win_ratio_percent": 49.797571,
+          "avg_trade_return_percent": 0.790451,
+          "turnover_rate_percent": 13.183487,
+          "sharpe": 1.594259558267,
+          "sortino": 2.4906767400358,
+          "information": 1.2545783205663,
+          "alpha": 0.3159897691334,
+          "beta": 0.27462308565161,
+          "profit_loss_ratio": 3.0939518326285,
+          "avg_position_days": 133.71428571429,
+          "trading_days": 1729,
+          "win_count": 176,
+          "lose_count": 66,
+          "max_drawdown_period": [
+            "2015-06-12",
+            "2015-09-15"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2015-02-02",
+            "2015-06-08"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/36544",
+      "https://www.joinquant.com/community/post/detailV2?postId=36544",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=3fbab37731ad8ee4a6df4fb21d4ed48d&postId=6941139fc291619c9514334341df8a20&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=3fbab37731ad8ee4a6df4fb21d4ed48d"
+    ]
+  }
+}

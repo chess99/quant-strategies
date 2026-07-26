@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/59 小市值轮动，修改了内容，剔除了停牌股，同时PE要求为正的股票。.txt",
+    "category": "2020年度精选策略",
+    "file_name": "59 小市值轮动，修改了内容，剔除了停牌股，同时PE要求为正的股票。.txt",
+    "strategy_name": "小市值轮动，修改了内容，剔除了停牌股，同时PE要求为正的股票。",
+    "declared_title": "【新手入门教程】简单市值轮动策略",
+    "declared_author": "JoinQuant-TWist",
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 2401,
+    "sha256": "4ca0e6ef4b7590881f4c3d6864efd521b7b35e75ddf61c471d6cfcd12d01994b",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/13017",
+      "https://www.joinquant.com/post/6596"
+    ],
+    "primary_url": "https://www.joinquant.com/post/13017",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:01+08:00",
+    "requested_url": "https://www.joinquant.com/post/13017",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/bb29acb8b300afea25f75b92b4356d4a",
+    "community_id": "bb29acb8b300afea25f75b92b4356d4a",
+    "post": {
+      "postId": "80fa8616e14a44fdf286cd44b4ee2b49",
+      "uniqueKey": "bb29acb8b300afea25f75b92b4356d4a",
+      "title": "小市值轮动，修改了内容，剔除了停牌股，同时PE要求为正的股票。",
+      "content": "在股票池中做了剔除。内容如下，同时股票从5只改成10只。\r\n求助问题，哪位大神帮忙？为什么我选了PE为正的股票，在回测中依然会有ST的股票，甚至有新都退这样的股票？？？\r\nfilter(\r\n                valuation.code.in_(unsuspened_stocks), valuation.pe_ratio&gt;0\r\n这个语句不是可以剔除pe为负的股票吗？？？\r\n\r\nsuspened_info_df = get_price(list(scu), start_date=context.current_dt, end_date=context.current_dt, frequency=&#39;daily&#39;, fields=&#39;paused&#39;)[&#39;paused&#39;].T\r\n         # 过滤停牌股票 返回dataframe\r\n        unsuspened_index = suspened_info_df.iloc[:,0]&lt;1\r\n         # 得到当日未停牌股票的代码list:\r\n        unsuspened_stocks = suspened_info_df[unsuspened_index].index\r\n        # 选出在scu内的股票的股票代码，并按照当前时间市值从小到大排序,剔除PE为负值得股票\r\n        df = get_fundamentals(query(\r\n                valuation.code,valuation.market_cap,valuation.pe_ratio\r\n            ).filter(\r\n                valuation.code.in_(unsuspened_stocks), valuation.pe_ratio&gt;0\r\n            ).order_by(\r\n                valuation.market_cap.asc()\r\n            ), date=date\r\n            )\r\n",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-06-05 09:42:35",
+      "modTime": "2018-06-05 09:42:35",
+      "lastActiveTime": "2022-05-02 19:29:54",
+      "lastPubTime": "2018-06-05 09:42:35",
+      "backtestId": "189767ba4bf576e36dba3cccf53d9c7d",
+      "backtestName": "小市值轮动-Clone",
+      "replyCount": "4",
+      "viewCount": "2133",
+      "collectionCount": "1",
+      "likeCount": "4",
+      "disLikeCount": "0",
+      "backtestCloneCount": "53",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "2",
+      "followersCount": "2",
+      "followingCount": "6",
+      "author": {
+        "userId": "f38d15d7f385c02567adbed53b1353ed",
+        "alias": "开心的叶子",
+        "introduction": "50岁的老同志，努力成为宽客"
+      },
+      "tags": []
+    },
+    "backtests": [
+      {
+        "backtest_id": "189767ba4bf576e36dba3cccf53d9c7d",
+        "backtest_name": "小市值轮动-Clone",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=189767ba4bf576e36dba3cccf53d9c7d&postId=bb29acb8b300afea25f75b92b4356d4a&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2015-01-01",
+          "end_date": null,
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 1,
+          "page_backtest_ids": [
+            "16f815f7a705d258224bcb956a6e17ac",
+            "8839674"
+          ],
+          "numeric_backtest_id": "8839674",
+          "numeric_post_id": "13017",
+          "python_version": 2,
+          "clone_count": 58
+        },
+        "stats": {
+          "information": 1.7131527890235,
+          "benchmark_return": 0.076032096623798,
+          "algorithm_volatility": 0.33893813555714,
+          "annual_bm_return": 0.022290620199176,
+          "__version": 101,
+          "max_drawdown": 0.31579326608836,
+          "sortino": 1.6751908103791,
+          "period_label": "2018-05",
+          "trading_days": 831,
+          "algorithm_return": 2.9600193,
+          "benchmark_volatility": 0.25756579157763,
+          "beta": 0.7476918176876,
+          "excess_return": 2.8239097109589,
+          "annual_algo_return": 0.51290851164526,
+          "sharpe": 1.3952649821122,
+          "alpha": 0.48614967001866,
+          "max_drawdown_period": [
+            "2015-08-17",
+            "2015-09-02"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.1361095890411,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.56197352587244,
+          "avg_position_days": 73.087912087912,
+          "win_ratio": 0.71929824561404,
+          "win_count": 123,
+          "avg_trade_return": 0.12142179339757,
+          "profit_loss_ratio": 2.9388181758944,
+          "lose_count": 48,
+          "report_done_seconds": 152.7812640667
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 296.00193,
+          "benchmark_return_percent": 7.60321,
+          "annual_algo_return_percent": 51.290851,
+          "annual_bm_return_percent": 2.229062,
+          "max_drawdown_percent": 31.579327,
+          "algorithm_volatility_percent": 33.893814,
+          "benchmark_volatility_percent": 25.756579,
+          "win_ratio_percent": 71.929825,
+          "day_win_ratio_percent": 56.197353,
+          "avg_trade_return_percent": 12.142179,
+          "sharpe": 1.3952649821122,
+          "sortino": 1.6751908103791,
+          "information": 1.7131527890235,
+          "alpha": 0.48614967001866,
+          "beta": 0.7476918176876,
+          "profit_loss_ratio": 2.9388181758944,
+          "avg_position_days": 73.087912087912,
+          "trading_days": 831,
+          "win_count": 123,
+          "lose_count": 48,
+          "max_drawdown_period": [
+            "2015-08-17",
+            "2015-09-02"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/13017",
+      "https://www.joinquant.com/community/post/detailV2?postId=13017",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=189767ba4bf576e36dba3cccf53d9c7d&postId=bb29acb8b300afea25f75b92b4356d4a&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=189767ba4bf576e36dba3cccf53d9c7d"
+    ]
+  }
+}

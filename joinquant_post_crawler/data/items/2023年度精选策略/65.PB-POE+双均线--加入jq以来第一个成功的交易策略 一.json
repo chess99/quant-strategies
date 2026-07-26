@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/65.PB-POE+双均线--加入jq以来第一个成功的交易策略 一.txt",
+    "category": "2023年度精选策略",
+    "file_name": "65.PB-POE+双均线--加入jq以来第一个成功的交易策略 一.txt",
+    "strategy_name": "PB-POE+双均线--加入jq以来第一个成功的交易策略 一",
+    "declared_title": "PB-POE+双均线--加入jq以来第一个成功的交易策略 一",
+    "declared_author": "帅帅Hiber",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 4959,
+    "sha256": "a0962a9e76dfe804436e657dc6dd39c27c75bdbc774cda19f55370434c415f95",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/35005"
+    ],
+    "primary_url": "https://www.joinquant.com/post/35005",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:09:29+08:00",
+    "requested_url": "https://www.joinquant.com/post/35005",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/5069aff9c5ea7cbd3ad4eff7bd07f767",
+    "community_id": "5069aff9c5ea7cbd3ad4eff7bd07f767",
+    "post": {
+      "postId": "7b12b921de10fbfbff710642e24f8e57",
+      "uniqueKey": "5069aff9c5ea7cbd3ad4eff7bd07f767",
+      "title": "PB-POE+双均线--加入jq以来第一个成功的交易策略 一",
+      "content": "10.20 更新\n根据@ 赚者12138 的评论的建议修改了模型，在持仓期内如果短线跌到长线之下则卖出，这样能更有效地规避一些亏损。在2020.1.1到2021.10.20期间回测，收益增长了30%。\n\n    纪念一下。\n    本人的第一个选股策略撰写完毕，站在前人的肩膀上，把自己的一些选股交易小想法用代码的形式呈现出来，效果还不错。\n\n    方法很简单，数字指标也是随便定的，先通过财务数据选出符合要求的优质股票，ROE&gt;7, PB&lt; 20, 市值&gt;800亿，再根据均线，若短期均线在长期均线之上，当前价格在均线之上则买入，开盘买入，持有30个交易日，然后换仓。\n\n    选股指标如果想要科学严谨的求最优值，应该是需要统计学知识和机器学习，本人在学习中，理论和小case都有掌握，但是还没有这样的大型应用经验，预估半年后能比较熟练的把机器学习融入进来，但有的怕代码写的不好计算量太大会把被JQ拉黑。。。\n\n    说回这个代码，本人在不同的时间维度上回测，2016年之后结果都比较好，本人随机试了七八个2016-2021内长度不等的时间段，都是正收益。但是主要的收益来源是2020到2021上半年，在这一年半的时间内本策略表现极其好，贡献了绝大部分收益。\n\n    现在的困惑就是这代码虽然效果好，背后的思想还是太简单，操作也太直接，人手动操作也完全没问题。这既是好事也是坏事，好事是简洁就是最好的，坏事是没有任何壁垒，也经不起推敲，女朋友听完了说感觉我和门口老大爷一个水平，这很让人难受。\n\n    目前从结果来看这个策略是倾向于消费股和原材料的，这也可以解释为什么16年之后收益明显变好，可能是赶上了16年之后的消费长牛，个人预测后续应该是科技股和医药股的天下，到时候表现如何就要再看了。\n![Img]( https://image.joinquant.com/2a41789e746d30d7ccf64e14ba6fc8a4) \n有什么可以丰富一下这个的策略的建议大家可以提，一起进步一起提高一起赚钱。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-10-16 11:00:43",
+      "modTime": "2021-10-26 07:26:45",
+      "lastActiveTime": "2025-06-08 22:48:00",
+      "lastPubTime": "2021-10-26 07:26:45",
+      "backtestId": "31980a024813e779a527f18114b1f40b",
+      "backtestName": "PB-ROE加均线选股策略",
+      "replyCount": "84",
+      "viewCount": "4103",
+      "collectionCount": "62",
+      "likeCount": "37",
+      "disLikeCount": "0",
+      "backtestCloneCount": "260",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "6",
+      "followersCount": "91",
+      "followingCount": "11",
+      "author": {
+        "userId": "09ea9f1b7a824e266507747ffc93455d",
+        "alias": "帅帅Hiber",
+        "introduction": "本科对外经贸，研究生ESSEC金融，写代码其实比泡妞爽",
+        "headImgKey": "9fe7047b27d073560f6ee0dfcd6ed88e"
+      },
+      "tags": [
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "31980a024813e779a527f18114b1f40b",
+        "backtest_name": "PB-ROE加均线选股策略",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=31980a024813e779a527f18114b1f40b&postId=5069aff9c5ea7cbd3ad4eff7bd07f767&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2020-01-03",
+          "end_date": "2021-10-15",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "e52e1af447a9c3427a0f80cd5aa85160",
+            "22204495"
+          ],
+          "numeric_backtest_id": "22204495",
+          "numeric_post_id": "35005",
+          "python_version": 3,
+          "clone_count": 254
+        },
+        "stats": {
+          "trading_days": 430,
+          "benchmark_volatility": 0.21547909990326,
+          "algorithm_volatility": 0.33297058351036,
+          "treasury_return": 0.071342465753425,
+          "algorithm_return": 1.96654775722,
+          "benchmark_return": 0.1878191048687,
+          "annual_algo_return": 0.88176217687299,
+          "annual_bm_return": 0.10524734503314,
+          "sharpe": 2.5280376662667,
+          "excess_return_sharpe": "2.509",
+          "sortino": 3.6345522675934,
+          "information": 2.9366199603689,
+          "beta": 0.94096376652273,
+          "alpha": 0.780366789335,
+          "excess_return": 1.4974743587307,
+          "avg_excess_return": "0.23%",
+          "max_drawdown": 0.17107445427533,
+          "max_drawdown_period": [
+            "2020-02-25",
+            "2020-03-18"
+          ],
+          "excess_return_max_drawdown": "16.84%",
+          "excess_return_max_drawdown_period": [
+            "2021-09-15",
+            "2021-10-14"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-10",
+          "__version": 101,
+          "win_ratio": 0.51063829787234,
+          "profit_loss_ratio": 3.0957034034165,
+          "win_count": 24,
+          "lose_count": 23,
+          "day_win_ratio": 0.55348837209302,
+          "avg_trade_return": 0.15759771808884,
+          "avg_position_days": 51.540540540541,
+          "turnover_rate": 0.022607906897744,
+          "report_done_seconds": 16.908480167389,
+          "report_done_cpu_seconds": 17.02
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 196.654776,
+          "benchmark_return_percent": 18.78191,
+          "annual_algo_return_percent": 88.176218,
+          "annual_bm_return_percent": 10.524735,
+          "max_drawdown_percent": 17.107445,
+          "algorithm_volatility_percent": 33.297058,
+          "benchmark_volatility_percent": 21.54791,
+          "win_ratio_percent": 51.06383,
+          "day_win_ratio_percent": 55.348837,
+          "avg_trade_return_percent": 15.759772,
+          "turnover_rate_percent": 2.260791,
+          "sharpe": 2.5280376662667,
+          "sortino": 3.6345522675934,
+          "information": 2.9366199603689,
+          "alpha": 0.780366789335,
+          "beta": 0.94096376652273,
+          "profit_loss_ratio": 3.0957034034165,
+          "avg_position_days": 51.540540540541,
+          "trading_days": 430,
+          "win_count": 24,
+          "lose_count": 23,
+          "max_drawdown_period": [
+            "2020-02-25",
+            "2020-03-18"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2021-09-15",
+            "2021-10-14"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/35005",
+      "https://www.joinquant.com/community/post/detailV2?postId=35005",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=31980a024813e779a527f18114b1f40b&postId=5069aff9c5ea7cbd3ad4eff7bd07f767&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=31980a024813e779a527f18114b1f40b"
+    ]
+  }
+}

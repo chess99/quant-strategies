@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/76.日内交易策略R-breaker - 300346.XSHE.txt",
+    "category": "2025年度精选策略",
+    "file_name": "76.日内交易策略R-breaker - 300346.XSHE.txt",
+    "strategy_name": "日内交易策略R-breaker - 300346.XSHE",
+    "declared_title": "日内交易策略R-breaker - 300346.XSHE",
+    "declared_author": "Pole",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 5003,
+    "sha256": "50de55ed9b615907c9d57025ddef7d8d2dd6f93286199b7b160fc1ef08217be9",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/26397"
+    ],
+    "primary_url": "https://www.joinquant.com/post/26397",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:32+08:00",
+    "requested_url": "https://www.joinquant.com/post/26397",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/682ae9d9a94c50e994091c8eb2577e14",
+    "community_id": "682ae9d9a94c50e994091c8eb2577e14",
+    "post": {
+      "postId": "9c95697b895de19a060b99a3b7e5f481",
+      "uniqueKey": "682ae9d9a94c50e994091c8eb2577e14",
+      "title": "日内交易策略R-breaker - 300346.XSHE",
+      "content": "R-Breaker是一种中高频的日内交易策略，这个策略也长期被Future Truth杂志评为最赚钱的策略之一。R-Breaker策略结合了趋势和反转两种交易方式，所以交易机会相对较多，比较适合日内1-Min和5-Min级别的数据。它的交易思想是：\n\n1、根据昨日的开高低收价位计算出今日的六个价位，按照价格高低依次是：突破买入价（Bbreak）、观察卖出价（Ssetup）、反转卖出价（Senter）、反转买入价（Benter）、观察买入价（Bsetup）、突破卖出价（Sbreak），依次作为交易的六个触发价位。其中六个价位的计算方式如下:\n\nSsetup= High + 0.35 * (Close – Low)\nBsetup= Low – 0.35 * (High – Close)\nSenter= 1.07 / 2 * (High + Low) – 0.07 * Low\nBenter= 1.07 / 2 * (High + Low) – 0.07 * High\nBbreak= Ssetup+ 0.25 * (Ssetup– Bsetup)\nSbreak = Bsetup– 0.25 * (Ssetup– Bsetup)\n\n![Img]( https://image.joinquant.com/6e0d1a9f837a42cff9ea6acebfcc186d) \n\n2、根据价格的走势满足哪种情况来决定是否开仓：\n情况1，如果持空仓，价格超过突破买入价，采取趋势策略，顺势开仓做多；\n情况2，如果持有多单（空仓），价格超过观察卖出价，之后跌破反转卖出价，采取反转策略，反手做空（开空）；\n情况3，如果持有空单（空仓），价格跌破观察买入价，之后超过反转买入价，采取反转策略，反手做多（开多）；\n情况4，如果持空仓，价格跌破突破卖出价，采取趋势策略，顺势开仓做空；\n\n3、设定相应的止盈止损。\n\n4、收盘前平仓。\n\n5、也可以根据昨日价格的波幅进行过滤，如果波幅较小则今日不开仓。同时也可以以其他指标如ATR、CCI、RSI进行过滤。\n\n\n注：本篇代码回测无止盈止损\n\n————————————————\n版权声明：本文为CSDN博主「敲代码的quant」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。\n原文链接：https://blog.csdn.net/FrankieHello/article/details/100864269",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-03-23 13:57:01",
+      "modTime": "2020-03-23 13:57:01",
+      "lastActiveTime": "2024-10-30 15:51:50",
+      "lastPubTime": "2020-03-23 13:57:01",
+      "backtestId": "9b8fa7dd495fae57ac241e97526da9c1",
+      "backtestName": "R-breaker",
+      "replyCount": "52",
+      "viewCount": "6134",
+      "collectionCount": "108",
+      "likeCount": "38",
+      "disLikeCount": "0",
+      "backtestCloneCount": "389",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "2",
+      "followersCount": "25",
+      "followingCount": "4",
+      "author": {
+        "userId": "d1f1449e99bdaa4c39659ceb8f5cac80",
+        "alias": "Pole",
+        "vipType": "VIP"
+      },
+      "tags": [
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "734",
+          "name": "日内CTA策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "9b8fa7dd495fae57ac241e97526da9c1",
+        "backtest_name": "R-breaker",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=9b8fa7dd495fae57ac241e97526da9c1&postId=682ae9d9a94c50e994091c8eb2577e14&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2019-01-01",
+          "end_date": "2020-03-21",
+          "base_capital": 1000000,
+          "frequency_code": "tick",
+          "frequency_label": "TICK",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "5e53d6801449e56be3f9cbf7840745bb",
+            "16571363"
+          ],
+          "numeric_backtest_id": "16571363",
+          "numeric_post_id": "26397",
+          "python_version": 3,
+          "clone_count": 342
+        },
+        "stats": {
+          "trading_days": 295,
+          "benchmark_volatility": 0.22108442202819,
+          "algorithm_volatility": 0.60613462838543,
+          "treasury_return": 0.048547945205479,
+          "algorithm_return": 1.58577288075,
+          "benchmark_return": 0.21343231528076,
+          "annual_algo_return": 1.2369324069644,
+          "annual_bm_return": 0.17814738661375,
+          "sharpe": 1.9746972882125,
+          "excess_return_sharpe": "1.471",
+          "sortino": 3.1119178949733,
+          "information": 1.8126719766076,
+          "beta": 0.76826042690493,
+          "alpha": 1.0907992367487,
+          "excess_return": 1.1309576547347,
+          "avg_excess_return": "0.32%",
+          "max_drawdown": 0.28602761733131,
+          "max_drawdown_period": [
+            "2020-02-25",
+            "2020-03-12"
+          ],
+          "excess_return_max_drawdown": "25.59%",
+          "excess_return_max_drawdown_period": [
+            "2020-02-25",
+            "2020-03-11"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-03",
+          "__version": 101,
+          "win_ratio": 0.49610894941634,
+          "profit_loss_ratio": 2.408713051899,
+          "win_count": 255,
+          "lose_count": 259,
+          "day_win_ratio": 0.46440677966102,
+          "avg_trade_return": 0.049709374630211,
+          "avg_position_days": 294,
+          "turnover_rate": 0.11876435134519,
+          "report_done_seconds": 2530.9967973232,
+          "report_done_cpu_seconds": 2523.88
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 158.577288,
+          "benchmark_return_percent": 21.343232,
+          "annual_algo_return_percent": 123.693241,
+          "annual_bm_return_percent": 17.814739,
+          "max_drawdown_percent": 28.602762,
+          "algorithm_volatility_percent": 60.613463,
+          "benchmark_volatility_percent": 22.108442,
+          "win_ratio_percent": 49.610895,
+          "day_win_ratio_percent": 46.440678,
+          "avg_trade_return_percent": 4.970937,
+          "turnover_rate_percent": 11.876435,
+          "sharpe": 1.9746972882125,
+          "sortino": 3.1119178949733,
+          "information": 1.8126719766076,
+          "alpha": 1.0907992367487,
+          "beta": 0.76826042690493,
+          "profit_loss_ratio": 2.408713051899,
+          "avg_position_days": 294,
+          "trading_days": 295,
+          "win_count": 255,
+          "lose_count": 259,
+          "max_drawdown_period": [
+            "2020-02-25",
+            "2020-03-12"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-02-25",
+            "2020-03-11"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/26397",
+      "https://www.joinquant.com/community/post/detailV2?postId=26397",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=9b8fa7dd495fae57ac241e97526da9c1&postId=682ae9d9a94c50e994091c8eb2577e14&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=9b8fa7dd495fae57ac241e97526da9c1"
+    ]
+  }
+}

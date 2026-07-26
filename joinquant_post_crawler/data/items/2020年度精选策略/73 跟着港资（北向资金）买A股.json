@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/73 跟着港资（北向资金）买A股.txt",
+    "category": "2020年度精选策略",
+    "file_name": "73 跟着港资（北向资金）买A股.txt",
+    "strategy_name": "跟着港资（北向资金）买A股",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 6531,
+    "sha256": "26cc8a6f92143e1c20d5cdd00f9f9e83ba248f222650101d50bf75cdb7ad05c2",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/13848"
+    ],
+    "primary_url": "https://www.joinquant.com/post/13848",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:14+08:00",
+    "requested_url": "https://www.joinquant.com/post/13848",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/4d090bae3390e22a7b54430fe3d7b36f",
+    "community_id": "4d090bae3390e22a7b54430fe3d7b36f",
+    "post": {
+      "postId": "2fba70bf7f0cf0963f79d8d046847e46",
+      "uniqueKey": "4d090bae3390e22a7b54430fe3d7b36f",
+      "title": "跟着港资（北向资金）买A股",
+      "content": "大家都知道，17年一整年，北向资金几乎引领了A股市场走向，当时很多媒体甚至鼓吹A股被港股化和美股化了（可惜18年上半年A股又被打回原形）\r\n最近聚宽上线了市场通数据，当中包含了深股通和沪股通的交易数据，让人小兴奋了一把。终于可以测试下用北向资金作为因子做选股策略了！\r\n\r\n今天晚上测试了一个很简单的策略：\r\n每天9点30分，卖出前一交易日非北向资金净买入金额最多的A股股票，同时买入前一交易日北向资金净买入金额最多的A股股票\r\n回测结果年化收益36.25%\r\n\r\n希望这个策略可以起到抛砖引入的作用，大家不妨自行测试下持有前N个交易日内北向资金净买入金额最多的N只A股票的策略，以及结合其他技术指标（如RSI、MACD等）的策略\r\n",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-07-19 23:10:12",
+      "modTime": "2018-07-19 23:10:12",
+      "lastActiveTime": "2023-07-27 17:03:27",
+      "lastPubTime": "2018-07-19 23:10:12",
+      "backtestId": "52b5d75a58376bd292bec072c14cbb4b",
+      "backtestName": "测试港资策略",
+      "replyCount": "20",
+      "viewCount": "8345",
+      "collectionCount": "75",
+      "likeCount": "39",
+      "disLikeCount": "0",
+      "backtestCloneCount": "527",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "8",
+      "followersCount": "632",
+      "followingCount": "2",
+      "author": {
+        "userId": "030116ab6b8c04eccf75fade642b1e38",
+        "alias": "cgzol",
+        "introduction": "量化小菜鸟",
+        "headImgKey": "b2eb30673700a4bf25a21d6ed7b6f0be"
+      },
+      "tags": []
+    },
+    "backtests": [
+      {
+        "backtest_id": "52b5d75a58376bd292bec072c14cbb4b",
+        "backtest_name": "测试港资策略",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=52b5d75a58376bd292bec072c14cbb4b&postId=4d090bae3390e22a7b54430fe3d7b36f&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2017-01-01",
+          "end_date": "2018-07-18",
+          "base_capital": 100000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "2b5f8f9a3eedee5bb3a4feb5e40c9e67",
+            "9365241"
+          ],
+          "numeric_backtest_id": "9365241",
+          "numeric_post_id": "13848",
+          "python_version": 2,
+          "clone_count": 515
+        },
+        "stats": {
+          "information": 1.2121712069781,
+          "benchmark_return": 0.036627262996117,
+          "algorithm_volatility": 0.31739602909871,
+          "annual_bm_return": 0.024206162569598,
+          "__version": 101,
+          "max_drawdown": 0.1474622308277,
+          "sortino": 2.0089239303433,
+          "period_label": "2018-07",
+          "trading_days": 376,
+          "algorithm_return": 0.5924226,
+          "benchmark_volatility": 0.13912640762304,
+          "beta": 1.0899545796359,
+          "excess_return": 0.5309431479452,
+          "annual_algo_return": 0.36253383475042,
+          "sharpe": 1.0161873658795,
+          "alpha": 0.33974840018771,
+          "max_drawdown_period": [
+            "2017-11-21",
+            "2018-04-27"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.061479452054795,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.46010638297872,
+          "avg_position_days": 6.9230769230769,
+          "win_ratio": 0.47857142857143,
+          "win_count": 134,
+          "avg_trade_return": 0.0035275661449022,
+          "profit_loss_ratio": 1.4691767675101,
+          "lose_count": 146,
+          "report_done_seconds": 46.66686296463
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 59.24226,
+          "benchmark_return_percent": 3.662726,
+          "annual_algo_return_percent": 36.253383,
+          "annual_bm_return_percent": 2.420616,
+          "max_drawdown_percent": 14.746223,
+          "algorithm_volatility_percent": 31.739603,
+          "benchmark_volatility_percent": 13.912641,
+          "win_ratio_percent": 47.857143,
+          "day_win_ratio_percent": 46.010638,
+          "avg_trade_return_percent": 0.352757,
+          "sharpe": 1.0161873658795,
+          "sortino": 2.0089239303433,
+          "information": 1.2121712069781,
+          "alpha": 0.33974840018771,
+          "beta": 1.0899545796359,
+          "profit_loss_ratio": 1.4691767675101,
+          "avg_position_days": 6.9230769230769,
+          "trading_days": 376,
+          "win_count": 134,
+          "lose_count": 146,
+          "max_drawdown_period": [
+            "2017-11-21",
+            "2018-04-27"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/13848",
+      "https://www.joinquant.com/community/post/detailV2?postId=13848",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=52b5d75a58376bd292bec072c14cbb4b&postId=4d090bae3390e22a7b54430fe3d7b36f&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=52b5d75a58376bd292bec072c14cbb4b"
+    ]
+  }
+}

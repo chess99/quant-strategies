@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/41.手把手教你“机器学习-动态多因子选股”(附保姆级教程).txt",
+    "category": "2022年度精选策略",
+    "file_name": "41.手把手教你“机器学习-动态多因子选股”(附保姆级教程).txt",
+    "strategy_name": "手把手教你“机器学习-动态多因子选股”(附保姆级教程)",
+    "declared_title": "手把手教你“机器学习-动态多因子选股”(附保姆级教程)",
+    "declared_author": "量客攻城狮",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 16276,
+    "sha256": "c4f71186410c5523251f48cb632245351856a261af07e3c2adcba10310b03e69",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/38299"
+    ],
+    "primary_url": "https://www.joinquant.com/post/38299",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:03+08:00",
+    "requested_url": "https://www.joinquant.com/post/38299",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/4fa769264b0bf6489b36351b43e37012",
+    "community_id": "4fa769264b0bf6489b36351b43e37012",
+    "post": {
+      "postId": "631483f55668f725678745af9371991d",
+      "uniqueKey": "4fa769264b0bf6489b36351b43e37012",
+      "title": "手把手教你“机器学习-动态多因子选股”(附保姆级教程)",
+      "content": "欢迎访问我的个人Github查看更多内容（国内访问Github可能存在问题，可以换个时间段访问，或者百度解决方案）：\n\nhttps://github.com/charliedream1/ai_quant_trade\n\n股票AI操盘手：包含股票知识、策略实例、机器学习、深度学习、C++部署和聚宽实例代码等，可以方便学习、模拟及实盘交易\n\nGithub后续会持续更新，欢迎关注。本文在Github的ai_wiki目录下。\n\n对上一版进行了更新：\n1. 择时选择，更换为上证指数\n2. 根据研究环境中的实验，回归模型将SVM更换为随机森林\n3. 根据研究环境中的实验，将特征选择模型更换为随机森林     \n4. 择时策略中引入了未来，进行了剔除。虽然该函数在开盘前运行，我原以为不会获取未来，但是发现还是能够获取到\n\n本文是上一个策略“机器学习-动态因子选择策略”的详细分析讲解篇\n\n欢迎访问我的Github: https://github.com/charliedream1/ai_quant_trade\n\n采用notebook，结合markdown和代码，详细分解了步骤，并演示了中间结果，加入了详细的代码说明和实验分析结论\n\n策略说明：\n问题：如果回测某个区间最大回撤很大，说明这个时间点选取的因子可能不合适，如何自动判断因子重要性，并选择？\n\n因子选择：\n- 基本面因子：https://www.joinquant.com/help/api/help#name:Stock\n- 技术分析指标因子：https://www.joinquant.com/help/api/help#name:technicalanalysis\n\n策略思路\n1. 因子筛选：通过基本面和技术面人工选择需要使用的因子\n2. 训练决策树：对长周期收益增加的打标签1，否则0。对收益进行分类。之后，按照因子的重要性，选择top的因子\n3. 训练回归支持向量机：使用挑选的重要因子训练。真实市值和模型预测的市值差，找到预测和真实值差值最小的选择购买\n4. 买入策略：大盘近期涨时，进行买入\n5. 卖出策略：大盘跌时卖出持仓股票，或者市值低于均值，或者持仓不在购买列表中\n\n未来改进：\n1. 因子选取：通过测试，发现所使用的因子，只在19-20年效果很好，其它时间段效果微弱。另外，通过随机森林的重要性分析，发现只有1个最重要，生效的重要程度相比第一个都低。因此，可以增加更多的因子，以及替换有效的因子        \n2. 择时策略：虽然本策略中引入了机器学习进行动态多因子选股，但是目前择时测率还是根据固定的调仓周期，按照大盘来决定是否进行交易，可能会错过最佳的买点卖点\n3. 超参数：目前策略里有大量超参，需要调优      \n4. 模型优化：目前模型只选取了10天内的数据，进行训练，数据量少，需要增加数据",
+      "type": 1,
+      "status": "0",
+      "addTime": "2022-06-28 08:13:01",
+      "modTime": "2022-09-30 22:38:22",
+      "lastActiveTime": "2026-04-08 19:34:14",
+      "lastPubTime": "2022-09-30 22:38:22",
+      "backtestId": "b8c77c207aca029da3615db687787192",
+      "backtestName": "v2-SVM动态因子选择策略",
+      "replyCount": "93",
+      "viewCount": "11015",
+      "collectionCount": "256",
+      "likeCount": "122",
+      "disLikeCount": "0",
+      "backtestCloneCount": "212",
+      "notebookCloneCount": "106",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "21",
+      "followersCount": "785",
+      "followingCount": "3",
+      "author": {
+        "userId": "ed877fd4c0dc0e58c9c3cb1f74ecc1fd",
+        "alias": "量客攻城狮",
+        "introduction": "以无法为有法，以无限为有限",
+        "headImgKey": "ac887923afb9c9077d2db4e713b8c7c1"
+      },
+      "tags": [
+        {
+          "id": "13",
+          "name": "机器学习"
+        },
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "b8c77c207aca029da3615db687787192",
+        "backtest_name": "v2-SVM动态因子选择策略",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=b8c77c207aca029da3615db687787192&postId=4fa769264b0bf6489b36351b43e37012&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2019-03-01",
+          "end_date": "2020-03-05",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "1e4650204b481b95fe87ed34333c06d8",
+            "25372469"
+          ],
+          "numeric_backtest_id": "25372469",
+          "numeric_post_id": "38299",
+          "python_version": 3,
+          "clone_count": 234
+        },
+        "stats": {
+          "trading_days": 247,
+          "benchmark_volatility": 0.19448818338018,
+          "algorithm_volatility": 0.22566436121595,
+          "treasury_return": 0.040547945205479,
+          "algorithm_return": 0.330981308,
+          "benchmark_return": 0.044451622774953,
+          "annual_algo_return": 0.33561140158433,
+          "annual_bm_return": 0.045003492499472,
+          "sharpe": 1.3099605094552,
+          "excess_return_sharpe": "2.179",
+          "sortino": 1.6204919726054,
+          "information": 2.6545550193234,
+          "beta": 1.0147245799774,
+          "alpha": 0.29053423475938,
+          "excess_return": 0.27433504719326,
+          "avg_excess_return": "0.10%",
+          "max_drawdown": 0.13262006684225,
+          "max_drawdown_period": [
+            "2019-04-09",
+            "2019-06-06"
+          ],
+          "excess_return_max_drawdown": "5.62%",
+          "excess_return_max_drawdown_period": [
+            "2019-07-22",
+            "2019-08-30"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-03",
+          "__version": 101,
+          "win_ratio": 0.66666666666667,
+          "profit_loss_ratio": 1.453087390384,
+          "win_count": 4,
+          "lose_count": 2,
+          "day_win_ratio": 0.57085020242915,
+          "avg_trade_return": 0.14862546597175,
+          "avg_position_days": 177.85714285714,
+          "turnover_rate": 0.0022559182272562,
+          "report_done_seconds": 150.12632036209,
+          "report_done_cpu_seconds": 149.87
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 33.098131,
+          "benchmark_return_percent": 4.445162,
+          "annual_algo_return_percent": 33.56114,
+          "annual_bm_return_percent": 4.500349,
+          "max_drawdown_percent": 13.262007,
+          "algorithm_volatility_percent": 22.566436,
+          "benchmark_volatility_percent": 19.448818,
+          "win_ratio_percent": 66.666667,
+          "day_win_ratio_percent": 57.08502,
+          "avg_trade_return_percent": 14.862547,
+          "turnover_rate_percent": 0.225592,
+          "sharpe": 1.3099605094552,
+          "sortino": 1.6204919726054,
+          "information": 2.6545550193234,
+          "alpha": 0.29053423475938,
+          "beta": 1.0147245799774,
+          "profit_loss_ratio": 1.453087390384,
+          "avg_position_days": 177.85714285714,
+          "trading_days": 247,
+          "win_count": 4,
+          "lose_count": 2,
+          "max_drawdown_period": [
+            "2019-04-09",
+            "2019-06-06"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2019-07-22",
+            "2019-08-30"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/38299",
+      "https://www.joinquant.com/community/post/detailV2?postId=38299",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=b8c77c207aca029da3615db687787192&postId=4fa769264b0bf6489b36351b43e37012&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=b8c77c207aca029da3615db687787192"
+    ]
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/42 低估值+TRIX+RSI 低回撤策略.txt",
+    "category": "2020年度精选策略",
+    "file_name": "42 低估值+TRIX+RSI 低回撤策略.txt",
+    "strategy_name": "低估值+TRIX+RSI 低回撤策略",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 10197,
+    "sha256": "a55f8924168ba7d2bc4d9bc204911af9bd614494f713367f9f6acc3dd4dcd9d2",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/11292"
+    ],
+    "primary_url": "https://www.joinquant.com/post/11292",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:06:48+08:00",
+    "requested_url": "https://www.joinquant.com/post/11292",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/a2b7f3910e82abf34d6b1b0b43c5e79e",
+    "community_id": "a2b7f3910e82abf34d6b1b0b43c5e79e",
+    "post": {
+      "postId": "da7bce1e05fdf34bd2935ea4827bfb67",
+      "uniqueKey": "a2b7f3910e82abf34d6b1b0b43c5e79e",
+      "title": "低估值+TRIX+RSI 低回撤策略",
+      "content": "  首先在沪深300股票中经过基本面过滤，选出相对低估值股票，再结合TRIX和RSI指标择时，回撤很小。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-03-02 19:37:32",
+      "modTime": "2018-03-02 19:37:32",
+      "lastActiveTime": "2026-02-14 10:39:55",
+      "lastPubTime": "2018-03-02 19:37:32",
+      "backtestId": "0aa6244e5150769635c23b9d6493630b",
+      "backtestName": "低估值三指标",
+      "replyCount": "12",
+      "viewCount": "3519",
+      "collectionCount": "6",
+      "likeCount": "4",
+      "disLikeCount": "1",
+      "backtestCloneCount": "149",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "1",
+      "followersCount": "7",
+      "followingCount": "0",
+      "author": {
+        "userId": "eadbb7ed277799a904209695e27f5611",
+        "alias": "观天之道执天之行"
+      },
+      "tags": [
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "0aa6244e5150769635c23b9d6493630b",
+        "backtest_name": "低估值三指标",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=0aa6244e5150769635c23b9d6493630b&postId=a2b7f3910e82abf34d6b1b0b43c5e79e&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2005-06-03",
+          "end_date": "2018-02-01",
+          "base_capital": 20000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "518ec9fa12af2196ea936ce101c29184",
+            "7692541"
+          ],
+          "numeric_backtest_id": "7692541",
+          "numeric_post_id": "11292",
+          "python_version": 2,
+          "clone_count": 146
+        },
+        "stats": {
+          "information": 0.070853094745537,
+          "benchmark_return": 4.1881829812349,
+          "algorithm_volatility": 0.07478777538715,
+          "annual_bm_return": 0.14267865715409,
+          "__version": 101,
+          "max_drawdown": 0.08026492740275,
+          "sortino": 3.1641593065931,
+          "period_label": "2018-02",
+          "trading_days": 3086,
+          "algorithm_return": 9.2965309800038,
+          "benchmark_volatility": 0.28164199415625,
+          "beta": 0.10564897579955,
+          "excess_return": 8.7895720758942,
+          "annual_algo_return": 0.20792264390126,
+          "sharpe": 2.2453220868248,
+          "alpha": 0.15707474893646,
+          "max_drawdown_period": [
+            "2006-06-05",
+            "2006-07-31"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.50695890410959,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.47440051847051,
+          "avg_position_days": 29.120805369128,
+          "win_ratio": 0.66148325358852,
+          "win_count": 553,
+          "avg_trade_return": 0.025673454777709,
+          "profit_loss_ratio": 3.9971534220964,
+          "lose_count": 283,
+          "report_done_seconds": 250.54284787178
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 929.653098,
+          "benchmark_return_percent": 418.818298,
+          "annual_algo_return_percent": 20.792264,
+          "annual_bm_return_percent": 14.267866,
+          "max_drawdown_percent": 8.026493,
+          "algorithm_volatility_percent": 7.478778,
+          "benchmark_volatility_percent": 28.164199,
+          "win_ratio_percent": 66.148325,
+          "day_win_ratio_percent": 47.440052,
+          "avg_trade_return_percent": 2.567345,
+          "sharpe": 2.2453220868248,
+          "sortino": 3.1641593065931,
+          "information": 0.070853094745537,
+          "alpha": 0.15707474893646,
+          "beta": 0.10564897579955,
+          "profit_loss_ratio": 3.9971534220964,
+          "avg_position_days": 29.120805369128,
+          "trading_days": 3086,
+          "win_count": 553,
+          "lose_count": 283,
+          "max_drawdown_period": [
+            "2006-06-05",
+            "2006-07-31"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/11292",
+      "https://www.joinquant.com/community/post/detailV2?postId=11292",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=0aa6244e5150769635c23b9d6493630b&postId=a2b7f3910e82abf34d6b1b0b43c5e79e&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=0aa6244e5150769635c23b9d6493630b"
+    ]
+  }
+}

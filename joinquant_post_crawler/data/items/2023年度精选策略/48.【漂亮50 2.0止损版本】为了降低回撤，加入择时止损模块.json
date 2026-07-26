@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/48.【漂亮50 2.0止损版本】为了降低回撤，加入择时止损模块.txt",
+    "category": "2023年度精选策略",
+    "file_name": "48.【漂亮50 2.0止损版本】为了降低回撤，加入择时止损模块.txt",
+    "strategy_name": "【漂亮50 2.0止损版本】为了降低回撤，加入择时止损模块",
+    "declared_title": "【漂亮50 2.0止损版本】为了降低回撤，加入择时止损模块",
+    "declared_author": "潜水的白鱼",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 14543,
+    "sha256": "c593fa9979b1ec51acdbce370fe2ee0252817580711bd2911dec1767b17807b1",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/35174"
+    ],
+    "primary_url": "https://www.joinquant.com/post/35174",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:09:13+08:00",
+    "requested_url": "https://www.joinquant.com/post/35174",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/9e1a4e0eb30bd30719f843c1fd923fb2",
+    "community_id": "9e1a4e0eb30bd30719f843c1fd923fb2",
+    "post": {
+      "postId": "34afce29b3fd9768bef473ac2e61e5cc",
+      "uniqueKey": "9e1a4e0eb30bd30719f843c1fd923fb2",
+      "title": "【漂亮50 2.0止损版本】为了降低回撤，加入择时止损模块",
+      "content": "大家好我是白鱼，上一篇文章介绍了漂亮50的思路，这篇文章主要做的是优化和改进。\n**优化部分**\n1、股票池不再是全市场选股，改为中证500\n2、持仓数量为10，因为股票池缩小了，此外散户不像机构可以持仓那么多股票。\n3、择时止损，降低回撤。基本面因子选股还是要假如动量止损比较好，不然容易受极端风险的打击。\n\n止损思路，每日对持仓股票，在尾盘时进行判断：\n如果当前价格低于5日内最高的收盘价的15%，我们认为已经突破心理限度，也就是破位下跌，此时卖出该股票。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-10-28 10:13:43",
+      "modTime": "2021-10-29 09:11:34",
+      "lastActiveTime": "2025-03-26 21:54:38",
+      "lastPubTime": "2021-10-29 09:11:34",
+      "backtestId": "514f264bed3590d790fb55051006f98a",
+      "backtestName": "漂亮10止损3.0",
+      "replyCount": "78",
+      "viewCount": "4870",
+      "collectionCount": "76",
+      "likeCount": "39",
+      "disLikeCount": "0",
+      "backtestCloneCount": "407",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "59",
+      "followersCount": "1037",
+      "followingCount": "52",
+      "author": {
+        "userId": "214d1b55404ee563554b21b5792b293b",
+        "alias": "潜水的白鱼",
+        "introduction": "联系邮箱：1027389254@qq.com,坐标广州，曾在交易团队担任可转债职业交易员。",
+        "headImgKey": "c340ff611053c038c50ed8a98c9bfe39"
+      },
+      "tags": [
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "264",
+          "name": "研报复现"
+        },
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "514f264bed3590d790fb55051006f98a",
+        "backtest_name": "漂亮10止损3.0",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=514f264bed3590d790fb55051006f98a&postId=9e1a4e0eb30bd30719f843c1fd923fb2&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2019-01-01",
+          "end_date": "2021-10-27",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "918b70bd2cc4964d325b29222c54eeb3",
+            "22297546"
+          ],
+          "numeric_backtest_id": "22297546",
+          "numeric_post_id": "35174",
+          "python_version": 3,
+          "clone_count": 386
+        },
+        "stats": {
+          "trading_days": 683,
+          "benchmark_volatility": 0.22363437734571,
+          "algorithm_volatility": 0.26888539322079,
+          "treasury_return": 0.11276712328767,
+          "algorithm_return": 3.1097983712,
+          "benchmark_return": 0.69110661126093,
+          "annual_algo_return": 0.67756007037027,
+          "annual_bm_return": 0.21204273003416,
+          "sharpe": 2.3711219963769,
+          "excess_return_sharpe": "2.016",
+          "sortino": 3.4241565812385,
+          "information": 2.7276244821791,
+          "beta": 0.93161250286694,
+          "alpha": 0.47728291204308,
+          "excess_return": 1.4302420343184,
+          "avg_excess_return": "0.14%",
+          "max_drawdown": 0.20168167050261,
+          "max_drawdown_period": [
+            "2021-01-25",
+            "2021-03-24"
+          ],
+          "excess_return_max_drawdown": "14.40%",
+          "excess_return_max_drawdown_period": [
+            "2021-02-08",
+            "2021-03-15"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-10",
+          "__version": 101,
+          "win_ratio": 0.52608695652174,
+          "profit_loss_ratio": 2.4663181060185,
+          "win_count": 121,
+          "lose_count": 109,
+          "day_win_ratio": 0.53587115666179,
+          "avg_trade_return": 0.069164442524017,
+          "avg_position_days": 59.514285714286,
+          "turnover_rate": 0.03304058836396,
+          "report_done_seconds": 223.17436718941,
+          "report_done_cpu_seconds": 150.91
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 310.979837,
+          "benchmark_return_percent": 69.110661,
+          "annual_algo_return_percent": 67.756007,
+          "annual_bm_return_percent": 21.204273,
+          "max_drawdown_percent": 20.168167,
+          "algorithm_volatility_percent": 26.888539,
+          "benchmark_volatility_percent": 22.363438,
+          "win_ratio_percent": 52.608696,
+          "day_win_ratio_percent": 53.587116,
+          "avg_trade_return_percent": 6.916444,
+          "turnover_rate_percent": 3.304059,
+          "sharpe": 2.3711219963769,
+          "sortino": 3.4241565812385,
+          "information": 2.7276244821791,
+          "alpha": 0.47728291204308,
+          "beta": 0.93161250286694,
+          "profit_loss_ratio": 2.4663181060185,
+          "avg_position_days": 59.514285714286,
+          "trading_days": 683,
+          "win_count": 121,
+          "lose_count": 109,
+          "max_drawdown_period": [
+            "2021-01-25",
+            "2021-03-24"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2021-02-08",
+            "2021-03-15"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/35174",
+      "https://www.joinquant.com/community/post/detailV2?postId=35174",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=514f264bed3590d790fb55051006f98a&postId=9e1a4e0eb30bd30719f843c1fd923fb2&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=514f264bed3590d790fb55051006f98a"
+    ]
+  }
+}

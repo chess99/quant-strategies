@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/42.实盘出现的问题和解决办法.txt",
+    "category": "2022年度精选策略",
+    "file_name": "42.实盘出现的问题和解决办法.txt",
+    "strategy_name": "实盘出现的问题和解决办法",
+    "declared_title": "实盘出现的问题和解决办法",
+    "declared_author": "蚂蚁量化",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 13586,
+    "sha256": "43a7358cc6c3a9b439bff90f30c67e462f5151a743a52b957f52832522fbe9de",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/39545",
+      "https://www.joinquant.com/post/36375"
+    ],
+    "primary_url": "https://www.joinquant.com/post/39545",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:03+08:00",
+    "requested_url": "https://www.joinquant.com/post/39545",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/d31120360d8a23af0143dab1f96d4622",
+    "community_id": "d31120360d8a23af0143dab1f96d4622",
+    "post": {
+      "postId": "9b089857d373115340867e1f92051095",
+      "uniqueKey": "d31120360d8a23af0143dab1f96d4622",
+      "title": "实盘出现的问题和解决办法",
+      "content": "原贴位置：\n- [2021年度文章精选第一篇策略的修订及详解-Python2版](https://www.joinquant.com/view/community/detail/c9bc18e0184b143b28d2bcda3062723b?type=1)\n\n\n\n\n策略来源：\n- [7年40倍，模拟超过两年，年化高回撤低](https://www.joinquant.com/view/community/detail/30481)\n\n###一些朋友在一创实盘，陆续反馈了些实盘出现的问题，这里一并升级更新并说明。\n\n1) 问题一: 股票不存在的错误\n可能原因：平台在基本面数据库保存了退市股票的数据，而在交易数据库剔除了退市股票，所以在基本面过滤后的退市股票代码在交易时出现股票不存在的错误。\n解决办法：在过滤ST股票时，代码如果不存在就跳过。\n\n```\n#### 过滤ST及退市的股票 ，跳过不存在的股票代码       \ndef filter_st_stock(stock_list):\n    current_data = get_current_data()\n    selection = []\n    for stock in stock_list:\n        try:\n            if not current_data[stock].is_st \\\n                and 'ST' not in current_data[stock].name \\\n                and '*' not in current_data[stock].name \\\n                and '退' not in current_data[stock].name:\n                selection.append(stock)\n        except Exception as e:\n            print(e, \"跳过\", stock)\n    \n    return selection\n\n```\n\n\n2) 问题二: 策略超额下单\n可能原因：实盘时前面下的单子如果成交回报还没有回来，这时取持仓市值context.portfolio.positions_value就有可能没有包含已经下单但未成交的仓位价值，就让资金虚高，策略继续下单。\n解决办法：1. 在下单前先计算一次free_cash， 2.不管有没有成交，只要下单了就从free_cash中扣除tobuy的资金, free_cash 不足就不能下单了。\n\n        \n ```\n# 买入函数\ndef mybuy(context):\n    if not g.nohold:\n        # 避免卖出的股票马上买入\n        hold_stocks = filter_buyagain(g.chosen_stock_list)\n        log.info(\"待买股票列表：%s\" %(hold_stocks))\n        \n        # 正常最低买入7成仓，如果熊市打折\n        if g.choose_time_signal and (not g.isbull):\n            free_value = context.portfolio.total_value * g.bearpercent\n            minpercent = 0.7 / g.stocknum * g.bearpercent\n        else:\n            free_value = context.portfolio.total_value\n            minpercent = 0.7 / g.stocknum\n                \n        buycash = free_value / g.stocknum\n        \n        # 1. 在下单前先计算一次free_cash\n        free_cash = free_value - context.portfolio.positions_value\n    \n        for i in range(min(g.buyrank, len(hold_stocks))):\n            if hold_stocks[i] not in get_blacklist() and free_cash &gt; context.portfolio.total_value / (g.stocknum * 10): # 黑名单里的股票不买\n                if hold_stocks[i] in context.portfolio.positions.keys():\n                    log.info(\"已经持有股票：[%s]\" %(hold_stocks[i]))\n                    current_percent = context.portfolio.positions[hold_stocks[i]].value / context.portfolio.total_value\n                    if  current_percent &gt;= minpercent:continue\n                    tobuy = min(free_cash, buycash - context.portfolio.positions[hold_stocks[i]].value)\n                else:\n                    tobuy = min(buycash, free_cash)\n                order_value(hold_stocks[i], tobuy)\n                \n                # 2. 不管有没有成交，只要下单了就从free_cash中扣除tobuy的资金\n                free_cash += -tobuy\n\n```\n\n4) 问题三: 策略熊市超额持仓\n@ethology朋友反馈：\n“模拟盘发现有bug。程序选出的股票池有10个，实际买的是前4个，再叠加牛熊判断仓位，问题出现在牛-熊-牛-熊切换时持仓的和加仓的票不一致，导致仓位没有按设计仓位增减。 如牛市持有ABCD4只，仓位100%，切换熊市后每只减仓变成A-,B-,C-,D-（减号表示仓位降低），仓位30%；再切换牛市时，假设此时股票池排序a&gt;b&gt;c&gt;d&gt;A&gt;B&gt;C&gt;D，则可能买入新的票a,b,c,d，持仓变成变成6只，a，b，A,B,C-，D-，仓位100%，再次切换熊市时，持股变成a-，b-，A-,B-,C-，D-,仓位60%，而不是计划中的30%。 相当于重仓渡过熊市。”\n可能原因：策略牛熊切换时只对仓位比重做调整，并不对持仓股数上再做过滤。\n解决办法：在卖出函数里加一个牛熊切换判断，在调仓函数里，当牛转熊*当天*卖出排序在前4以外的股票\n```\n#运行牛熊判断函数, 牛熊切换判断返回g.direction\n    temp0 = g.isbull\n    get_bull_bear_signal_minute()\n    temp1 = g.isbull\n    \n    if temp0 and not temp1:\n        g.direction = -1     # 牛转熊: -1;  \n    elif not temp0 and temp1:\n        g.direction = 1     #  熊转牛 +1;\n    else: \n        g.direction = 0     #  牛熊不变: 0; \n\n# 调仓函数里加入下面这句\n   if g.direction == -1: # 当由牛转熊:时，股票排序不在前g.stocknum（=4）内都卖出\n       sell_2 = stock not in hold_stocks[:g.stocknum]\n```\n股市投资有风险，代码仅供大家参考。**积分不多的朋友可以下载附件。**\n\n\n\n###@起风了朋友问到的排序问题：在get_stock_rank_m_m函数，通过取最小值，并计算比值后的对数，这里背后的原理是什么呢\n\n我试着回答：因子内部排序要有基准，就都和最小值比较，看比最小值大几倍。取对数是为了降低不同因子内部分布范围对结果的影响。比如因子A最大值是最小值的100倍，因子B最大值是最小值的10倍，假如等权求和，因子A的作用是B的10倍，但这个并不是说A更重要，而是A的分布范围大而已。取10底对数后，A、B分别变成2和1，对求和结果的影响就只多一倍了，大大降低了单纯的分布范围对结果的影响。\n\n可以参考一下这个帖子：\n###[一键即得标准化、规范化、二值化等多种机器学习数据预处理方式](https://www.joinquant.com/view/community/detail/5f24c549d358ddbf9a8a0979f4ab8324?type=1)",
+      "type": 1,
+      "status": "0",
+      "addTime": "2022-10-22 14:21:09",
+      "modTime": "2022-12-08 11:35:50",
+      "lastActiveTime": "2025-11-11 22:24:35",
+      "lastPubTime": "2022-12-08 11:35:50",
+      "backtestId": "57be2a0419847aef897a24a21e472620",
+      "backtestName": "改进版-2010-至今",
+      "replyCount": "90",
+      "viewCount": "7300",
+      "collectionCount": "188",
+      "likeCount": "108",
+      "disLikeCount": "0",
+      "backtestCloneCount": "237",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "709",
+      "fileName": "一创小市值策略代码2.txt",
+      "fileType": "text/plain",
+      "fileSize": "12473",
+      "postCount": "60",
+      "followersCount": "3872",
+      "followingCount": "5",
+      "author": {
+        "userId": "f58c13101d9b24a56ea11a1297adbb23",
+        "alias": "蚂蚁量化",
+        "introduction": "交易模型，就是参与者的行为模型。WX: JQ2016-001",
+        "vipType": "VIP",
+        "headImgKey": "b902612ea09bdf430a87e71b42da8d1c"
+      },
+      "tags": [
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "57be2a0419847aef897a24a21e472620",
+        "backtest_name": "改进版-2010-至今",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=57be2a0419847aef897a24a21e472620&postId=d31120360d8a23af0143dab1f96d4622&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2010-01-01",
+          "end_date": "2022-10-21",
+          "base_capital": 1000000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "36e96ac2f2ed0408d3b70255a138e455",
+            "26252389"
+          ],
+          "numeric_backtest_id": "26252389",
+          "numeric_post_id": "39545",
+          "python_version": 2,
+          "clone_count": 234
+        },
+        "stats": {
+          "benchmark_return": 0.046763133166282,
+          "max_drawdown": 0.22098275634952,
+          "trading_days": 3109,
+          "algorithm_volatility": 0.21393634276309,
+          "max_drawdown_period": [
+            "2015-08-17",
+            "2015-09-25"
+          ],
+          "information": 2.5044708804986,
+          "annual_bm_return": 0.0036817911519544,
+          "excess_return_max_drawdown": "39.23%",
+          "benchmark_volatility": 0.22521884665797,
+          "annual_algo_return": 0.5527852016358,
+          "sharpe": 2.3969055234512,
+          "excess_return_max_drawdown_period": [
+            "2020-03-23",
+            "2021-02-10"
+          ],
+          "__version": 101,
+          "algorithm_return": 237.04615171385,
+          "beta": 0.47731345417407,
+          "alpha": 0.53012037135048,
+          "treasury_return": 0.5121095890411,
+          "max_leverage": 0,
+          "sortino": 3.07770884886,
+          "period_label": "2022-10",
+          "avg_excess_return": "0.18%",
+          "excess_return": 226.41166952814,
+          "excess_return_sharpe": "2.303",
+          "turnover_rate": 0.069099978908371,
+          "avg_trade_return": 0.013125208749147,
+          "day_win_ratio": 0.55966548729495,
+          "profit_loss_ratio": 1.936953847018,
+          "avg_position_days": 37.077120822622,
+          "lose_count": 942,
+          "win_ratio": 0.56001868285848,
+          "win_count": 1199,
+          "report_done_seconds": 3147.6886808872,
+          "report_done_cpu_seconds": 3026.28
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 23704.615171,
+          "benchmark_return_percent": 4.676313,
+          "annual_algo_return_percent": 55.27852,
+          "annual_bm_return_percent": 0.368179,
+          "max_drawdown_percent": 22.098276,
+          "algorithm_volatility_percent": 21.393634,
+          "benchmark_volatility_percent": 22.521885,
+          "win_ratio_percent": 56.001868,
+          "day_win_ratio_percent": 55.966549,
+          "avg_trade_return_percent": 1.312521,
+          "turnover_rate_percent": 6.909998,
+          "sharpe": 2.3969055234512,
+          "sortino": 3.07770884886,
+          "information": 2.5044708804986,
+          "alpha": 0.53012037135048,
+          "beta": 0.47731345417407,
+          "profit_loss_ratio": 1.936953847018,
+          "avg_position_days": 37.077120822622,
+          "trading_days": 3109,
+          "win_count": 1199,
+          "lose_count": 942,
+          "max_drawdown_period": [
+            "2015-08-17",
+            "2015-09-25"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-03-23",
+            "2021-02-10"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/39545",
+      "https://www.joinquant.com/community/post/detailV2?postId=39545",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=57be2a0419847aef897a24a21e472620&postId=d31120360d8a23af0143dab1f96d4622&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=57be2a0419847aef897a24a21e472620"
+    ]
+  }
+}

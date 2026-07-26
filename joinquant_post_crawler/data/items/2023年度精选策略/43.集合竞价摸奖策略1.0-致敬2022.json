@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/43.集合竞价摸奖策略1.0-致敬2022.txt",
+    "category": "2023年度精选策略",
+    "file_name": "43.集合竞价摸奖策略1.0-致敬2022.txt",
+    "strategy_name": "集合竞价摸奖策略1.0-致敬2022",
+    "declared_title": "集合竞价摸奖策略1.0-致敬2022",
+    "declared_author": "矢南",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 14197,
+    "sha256": "6d201e70dee9a0e0ede70e7497fe7e1bba27ea9a8354ba34808575ed3441b612",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/36149"
+    ],
+    "primary_url": "https://www.joinquant.com/post/36149",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:01+08:00",
+    "requested_url": "https://www.joinquant.com/post/36149",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/0838dfaa2889275f09d6f2c6879e549c",
+    "community_id": "0838dfaa2889275f09d6f2c6879e549c",
+    "post": {
+      "postId": "ad055ed43b9daf4ac904dcd102e048a3",
+      "uniqueKey": "0838dfaa2889275f09d6f2c6879e549c",
+      "title": "集合竞价摸奖策略1.0-致敬2022",
+      "content": "* 抛砖引玉欢迎交流。\n 5个月收益122.90%, 年化599.72%。\n\n\n**策略思路** \n龙头股一般从涨停板开始，涨停板是多空双方最准确的攻击信号，能涨停的个股极有可能是龙头，那么中奖的机会就在涨停板的股票列表里。打板手法又可以分为打首板，一进二板，二进三板，三进四板，四进五板及更高，博取的是打板次日的情绪或者惯性溢价，所以涨停当日能够封死涨停及其关键。据网友统计：首板的封死成功率70%；二板的封死成功率20%；三板的封死成功率33%；四板的封死成功率46%；五板的封死成功率46%。可见，首板成功率较高；二板之后晋级概率较高而且连板的溢价较高；但高板之后因是高位接盘回调幅度相对也较大。故本策略选的是1板票、3板的股票，力图最高成功率和收益最大化。\n1.圈选：昨天收盘后选出1板票、3板票。\n2.观察：交易日9:25观察第1步选好的股票，筛选攻击力强的股票，同时技术规避陷阱，准备摸奖。\n3.摸奖： 开盘即均仓买入第2步选好的股票（或开盘前提高一些价格比如提高1个点挂单）。\n4.中奖：等待中奖，或止损。\n5.策略回测效果：  \n     集合竞价摸奖策略1.0回测效果：2021年7月15至12月15日，5个月收益122.90%，年化599.72%。\n     策略核心“摸奖公式”可以不断扩展，如2.0效果有不少提升。\n     [集合竞价摸奖策略2.0](https://mp.weixin.qq.com/s?__biz=MzkyMDIzMjIyNg==&mid=2247484937&idx=1&sn=7a507f81a0a0259995e29d463339f902&chksm=c1974e44f6e0c752345941dd59e373e3bdccd7241745b45926f7f0a11fb928beef5490b6384c#rd)回测效果：2021年7月15至12月15日，5个月收益239.45%，年化1842.21%。\n     ......\n2025\n![Img](https://image.joinquant.com/6e814a3a45eda973e998d760e8ae28f1) \n![Img](https://image.joinquant.com/270d4db3d08c7354f4147b7d0f3f96c4)",
+      "type": 1,
+      "status": "0",
+      "addTime": "2022-01-08 14:18:10",
+      "modTime": "2025-06-19 09:18:34",
+      "lastActiveTime": "2025-06-19 09:18:34",
+      "lastPubTime": "2025-06-19 09:18:34",
+      "backtestId": "66302098d0eaa2c1bb92410fb918f143",
+      "backtestName": "集合竞价摸奖策略1.0",
+      "replyCount": "250",
+      "viewCount": "16792",
+      "collectionCount": "196",
+      "likeCount": "126",
+      "disLikeCount": "0",
+      "backtestCloneCount": "1096",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "83",
+      "fileSize": 0,
+      "postCount": "92",
+      "followersCount": "551",
+      "followingCount": "25",
+      "author": {
+        "userId": "0f2cdfcd98fa745aa4a3d237e389287e",
+        "alias": "矢南",
+        "vipType": "VIP",
+        "headImgKey": "e6791e0bace482887ebe217ddf2d1fb8"
+      },
+      "tags": [
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "1825",
+          "name": "打板"
+        },
+        {
+          "id": "1826",
+          "name": "龙头"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "66302098d0eaa2c1bb92410fb918f143",
+        "backtest_name": "集合竞价摸奖策略1.0",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=66302098d0eaa2c1bb92410fb918f143&postId=0838dfaa2889275f09d6f2c6879e549c&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2021-07-15",
+          "end_date": "2021-12-15",
+          "base_capital": 100000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "6cbba5666355728ab5b7d2c2b0f845fc",
+            "23128538"
+          ],
+          "numeric_backtest_id": "23128538",
+          "numeric_post_id": "36149",
+          "python_version": 3,
+          "clone_count": 1066
+        },
+        "stats": {
+          "trading_days": 103,
+          "benchmark_volatility": 0.16139498522835,
+          "algorithm_volatility": 0.44341066756752,
+          "treasury_return": 0.016767123287671,
+          "algorithm_return": 1.228993188,
+          "benchmark_return": -0.015183707515915,
+          "annual_algo_return": 5.997197450406,
+          "annual_bm_return": -0.036455215741071,
+          "sharpe": 13.43494391573,
+          "excess_return_sharpe": "13.356",
+          "sortino": 35.765781359608,
+          "information": 12.940593799345,
+          "beta": 0.10106276218533,
+          "alpha": 5.9649242256923,
+          "excess_return": 1.2633593747496,
+          "avg_excess_return": "0.84%",
+          "max_drawdown": 0.062746253731096,
+          "max_drawdown_period": [
+            "2021-12-01",
+            "2021-12-02"
+          ],
+          "excess_return_max_drawdown": "10.70%",
+          "excess_return_max_drawdown_period": [
+            "2021-12-01",
+            "2021-12-13"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-12",
+          "__version": 101,
+          "win_ratio": 0.75,
+          "profit_loss_ratio": 8.9508413688788,
+          "win_count": 9,
+          "lose_count": 3,
+          "day_win_ratio": 0.59223300970874,
+          "avg_trade_return": 0.075267612493887,
+          "avg_position_days": 1.4545454545455,
+          "turnover_rate": 0.12107939371226,
+          "report_done_seconds": 297.69185066223,
+          "report_done_cpu_seconds": 233.25
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 122.899319,
+          "benchmark_return_percent": -1.518371,
+          "annual_algo_return_percent": 599.719745,
+          "annual_bm_return_percent": -3.645522,
+          "max_drawdown_percent": 6.274625,
+          "algorithm_volatility_percent": 44.341067,
+          "benchmark_volatility_percent": 16.139499,
+          "win_ratio_percent": 75.0,
+          "day_win_ratio_percent": 59.223301,
+          "avg_trade_return_percent": 7.526761,
+          "turnover_rate_percent": 12.107939,
+          "sharpe": 13.43494391573,
+          "sortino": 35.765781359608,
+          "information": 12.940593799345,
+          "alpha": 5.9649242256923,
+          "beta": 0.10106276218533,
+          "profit_loss_ratio": 8.9508413688788,
+          "avg_position_days": 1.4545454545455,
+          "trading_days": 103,
+          "win_count": 9,
+          "lose_count": 3,
+          "max_drawdown_period": [
+            "2021-12-01",
+            "2021-12-02"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2021-12-01",
+            "2021-12-13"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/36149",
+      "https://www.joinquant.com/community/post/detailV2?postId=36149",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=66302098d0eaa2c1bb92410fb918f143&postId=0838dfaa2889275f09d6f2c6879e549c&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=66302098d0eaa2c1bb92410fb918f143"
+    ]
+  }
+}

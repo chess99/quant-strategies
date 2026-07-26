@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/27.基于RSRS的趋势交易与网格交易相结合的尝试.txt",
+    "category": "2025年度精选策略",
+    "file_name": "27.基于RSRS的趋势交易与网格交易相结合的尝试.txt",
+    "strategy_name": "基于RSRS的趋势交易与网格交易相结合的尝试",
+    "declared_title": "基于RSRS的趋势交易与网格交易相结合的尝试",
+    "declared_author": "最爱苹果",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 6992,
+    "sha256": "6626f61422014578fe8f5aa7b89b909dc08518e7d45f56ca4e8db4518d841fc8",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/24680"
+    ],
+    "primary_url": "https://www.joinquant.com/post/24680",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:01+08:00",
+    "requested_url": "https://www.joinquant.com/post/24680",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/4f45c285a333c35bfabd653ecee51c8a",
+    "community_id": "4f45c285a333c35bfabd653ecee51c8a",
+    "post": {
+      "postId": "e696fc005b46d68201c7a0087fa640a4",
+      "uniqueKey": "4f45c285a333c35bfabd653ecee51c8a",
+      "title": "基于RSRS的趋势交易与网格交易相结合的尝试",
+      "content": "- 鱼与熊掌不可兼得。然而趋势与震荡相互包含，互相转化。如何在一套系统中，兼顾趋势与震荡，是我们非常感兴趣的话题。\n\n\n- RSRS指标是近年来较为优秀的趋势判断指标，而网格交易又是我们常用的应付震荡的方法。经典的资产配置方法，是把不同源的交易系统或交易品种按一定比例进行配置，如40:60、50:50；或加入投资时钟轮动、全天候、主成分分析等手段，较为复杂。\n\n\n- 我本次尝试的，是在海龟交易分仓方法的启发下，采用类网格方式，RSRS指标发出买入信号时建立底仓，如有盈利再增加仓位。网格的大小由ATR动态计算而出。RSRS指标发出卖出信号时清仓。从交易结果来看，由于仓位的降低，与满仓操作相比，总利润小幅减少，但最大回撤大幅降低。总体来说，起到了平滑收益的作用。\n\n\n\n- 可以再增加追踪止损等模块。不过本次测试发现，不论海龟跟随止损、追踪止损和硬止损，都没有起到明显的好处，就没有放在源码里了。\n\n\n- 本次测试以日交易做测试。希望哪位VVIP可以用tick或分钟交易测试一下，告诉我们答案。\n\n---\n以上为原帖。这几天我对策略做了更新，主要有两点：\n1、改正了一个小错误，但是收益居然有点下降；\n2、把策略从日线级别改成了分钟级别，这部分提高了收益；\n3、更改下单语句，主要是解决烦人的Warning。\n\n---\n结论：\n1、分钟级别价格比日线价格更优，这跟我们尽量降低滑点的努力是一样的，所以实盘尽量使用tick模式吧；\n2、我也尝试在策略里加入了减仓模块，但是绩效下滑明显，证明了趋势加仓策略不需要减仓。\n\n接下来，我会继续编写趋势策略与传统网格（即跌买涨卖）相结合的策略，来一个PK，看看究竟哪个策略最优。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2019-12-27 17:38:43",
+      "modTime": "2019-12-27 17:38:43",
+      "lastActiveTime": "2025-11-10 22:58:13",
+      "lastPubTime": "2019-12-27 17:38:43",
+      "backtestId": "6a746128fe87e7fc28f1fcdd26438164",
+      "backtestName": "RSRS趋势加仓分钟版",
+      "replyCount": "102",
+      "viewCount": "12554",
+      "collectionCount": "167",
+      "likeCount": "72",
+      "disLikeCount": "0",
+      "backtestCloneCount": "576",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "1",
+      "followersCount": "67",
+      "followingCount": "3",
+      "author": {
+        "userId": "d18c5404de03a3e91107a95733b0a160",
+        "alias": "最爱苹果",
+        "headImgKey": "7a6a3cb3afd0e8fa2c79e40f6b3e3eb4"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "5",
+          "name": "仓位管理"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "6a746128fe87e7fc28f1fcdd26438164",
+        "backtest_name": "RSRS趋势加仓分钟版",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=6a746128fe87e7fc28f1fcdd26438164&postId=4f45c285a333c35bfabd653ecee51c8a&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2010-02-01",
+          "end_date": "2019-12-26",
+          "base_capital": 100000000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "fb25c97fe649e7b95865454794899f46",
+            "15916784"
+          ],
+          "numeric_backtest_id": "15916784",
+          "numeric_post_id": "24680",
+          "python_version": 3,
+          "clone_count": 536
+        },
+        "stats": {
+          "trading_days": 2408,
+          "benchmark_volatility": 0.23039534183493,
+          "algorithm_volatility": 0.12779123370729,
+          "treasury_return": 0.39616438356164,
+          "algorithm_return": 2.403020389392,
+          "benchmark_return": 0.25648844002795,
+          "annual_algo_return": 0.13558198905928,
+          "annual_bm_return": 0.023987592733694,
+          "sharpe": 0.74795419283774,
+          "excess_return_sharpe": "0.382",
+          "sortino": 1.0641967411422,
+          "information": 0.62738712657115,
+          "beta": 0.35581055828223,
+          "alpha": 0.10127937262814,
+          "excess_return": 1.708357897281,
+          "avg_excess_return": "0.05%",
+          "max_drawdown": 0.1413990128507,
+          "max_drawdown_period": [
+            "2018-01-24",
+            "2018-10-18"
+          ],
+          "excess_return_max_drawdown": "27.41%",
+          "excess_return_max_drawdown_period": [
+            "2016-02-29",
+            "2018-03-12"
+          ],
+          "max_leverage": 0,
+          "period_label": "2019-12",
+          "__version": 101,
+          "win_ratio": 0.64516129032258,
+          "profit_loss_ratio": 7.6322064262687,
+          "win_count": 20,
+          "lose_count": 11,
+          "day_win_ratio": 0.4875415282392,
+          "avg_trade_return": 0.044700711426781,
+          "avg_position_days": 1307,
+          "turnover_rate": 0.0093519558281914,
+          "report_done_seconds": 568.03373599052
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 240.302039,
+          "benchmark_return_percent": 25.648844,
+          "annual_algo_return_percent": 13.558199,
+          "annual_bm_return_percent": 2.398759,
+          "max_drawdown_percent": 14.139901,
+          "algorithm_volatility_percent": 12.779123,
+          "benchmark_volatility_percent": 23.039534,
+          "win_ratio_percent": 64.516129,
+          "day_win_ratio_percent": 48.754153,
+          "avg_trade_return_percent": 4.470071,
+          "turnover_rate_percent": 0.935196,
+          "sharpe": 0.74795419283774,
+          "sortino": 1.0641967411422,
+          "information": 0.62738712657115,
+          "alpha": 0.10127937262814,
+          "beta": 0.35581055828223,
+          "profit_loss_ratio": 7.6322064262687,
+          "avg_position_days": 1307,
+          "trading_days": 2408,
+          "win_count": 20,
+          "lose_count": 11,
+          "max_drawdown_period": [
+            "2018-01-24",
+            "2018-10-18"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2016-02-29",
+            "2018-03-12"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/24680",
+      "https://www.joinquant.com/community/post/detailV2?postId=24680",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=6a746128fe87e7fc28f1fcdd26438164&postId=4f45c285a333c35bfabd653ecee51c8a&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=6a746128fe87e7fc28f1fcdd26438164"
+    ]
+  }
+}

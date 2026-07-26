@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/43 无模型评估的多因子模型.txt",
+    "category": "2020年度精选策略",
+    "file_name": "43 无模型评估的多因子模型.txt",
+    "strategy_name": "无模型评估的多因子模型",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 4461,
+    "sha256": "31f82bd4d547a173365fccc8ad9ecb8fd14b1a920ad6c1bee6414626708b0dc0",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/15426"
+    ],
+    "primary_url": "https://www.joinquant.com/post/15426",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:06:49+08:00",
+    "requested_url": "https://www.joinquant.com/post/15426",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/b5fa3d2cb83c22df7663f42d807572ae",
+    "community_id": "b5fa3d2cb83c22df7663f42d807572ae",
+    "post": {
+      "postId": "929a26e7eb175cfa6bf9057c7c0d204b",
+      "uniqueKey": "b5fa3d2cb83c22df7663f42d807572ae",
+      "title": "无模型评估的多因子模型",
+      "content": "1",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-11-27 11:36:49",
+      "modTime": "2018-11-27 11:36:49",
+      "lastActiveTime": "2018-11-27 19:18:57",
+      "lastPubTime": "2018-11-27 11:36:49",
+      "backtestId": "ddbd50850a36a68ef6aaf599d1856c18",
+      "backtestName": "SVR市值因子策略-Clone",
+      "replyCount": "1",
+      "viewCount": "1876",
+      "collectionCount": "5",
+      "likeCount": "5",
+      "disLikeCount": "0",
+      "backtestCloneCount": "73",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "8",
+      "followersCount": "12",
+      "followingCount": "0",
+      "author": {
+        "userId": "d9c67a6062b8fcfc1c0b573803556485",
+        "alias": "菜鸟学python"
+      },
+      "tags": [
+        {
+          "id": "4",
+          "name": "多因子"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "ddbd50850a36a68ef6aaf599d1856c18",
+        "backtest_name": "SVR市值因子策略-Clone",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=ddbd50850a36a68ef6aaf599d1856c18&postId=b5fa3d2cb83c22df7663f42d807572ae&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2012-01-01",
+          "end_date": "2017-12-31",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "f36acb2b2afd592e74f5ca974e487773",
+            "10850706"
+          ],
+          "numeric_backtest_id": "10850706",
+          "numeric_post_id": "15426",
+          "python_version": 2,
+          "clone_count": 156
+        },
+        "stats": {
+          "information": 2.8643279340848,
+          "benchmark_return": 0.50365756016254,
+          "algorithm_volatility": 0.25680691782391,
+          "annual_bm_return": 0.07244575131467,
+          "__version": 101,
+          "max_drawdown": 0.24828818168912,
+          "sortino": 2.6604249524257,
+          "period_label": "2017-12",
+          "trading_days": 1458,
+          "algorithm_return": 13.46798088,
+          "benchmark_volatility": 0.22482455671833,
+          "beta": 0.84036581607417,
+          "excess_return": 13.228419236164,
+          "annual_algo_return": 0.58114810721216,
+          "sharpe": 2.1072177953681,
+          "alpha": 0.51388180693047,
+          "max_drawdown_period": [
+            "2015-12-30",
+            "2016-01-28"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.23956164383562,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.58504801097394,
+          "avg_position_days": 65.809523809524,
+          "win_ratio": 0.68028846153846,
+          "win_count": 283,
+          "avg_trade_return": 0.075118891181009,
+          "profit_loss_ratio": 3.2734580114237,
+          "lose_count": 133,
+          "report_done_seconds": 136.26590204239
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 1346.798088,
+          "benchmark_return_percent": 50.365756,
+          "annual_algo_return_percent": 58.114811,
+          "annual_bm_return_percent": 7.244575,
+          "max_drawdown_percent": 24.828818,
+          "algorithm_volatility_percent": 25.680692,
+          "benchmark_volatility_percent": 22.482456,
+          "win_ratio_percent": 68.028846,
+          "day_win_ratio_percent": 58.504801,
+          "avg_trade_return_percent": 7.511889,
+          "sharpe": 2.1072177953681,
+          "sortino": 2.6604249524257,
+          "information": 2.8643279340848,
+          "alpha": 0.51388180693047,
+          "beta": 0.84036581607417,
+          "profit_loss_ratio": 3.2734580114237,
+          "avg_position_days": 65.809523809524,
+          "trading_days": 1458,
+          "win_count": 283,
+          "lose_count": 133,
+          "max_drawdown_period": [
+            "2015-12-30",
+            "2016-01-28"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/15426",
+      "https://www.joinquant.com/community/post/detailV2?postId=15426",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=ddbd50850a36a68ef6aaf599d1856c18&postId=b5fa3d2cb83c22df7663f42d807572ae&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=ddbd50850a36a68ef6aaf599d1856c18"
+    ]
+  }
+}

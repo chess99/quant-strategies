@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/98 机器学习SVM用法示例策略.txt",
+    "category": "2020年度精选策略",
+    "file_name": "98 机器学习SVM用法示例策略.txt",
+    "strategy_name": "机器学习SVM用法示例策略",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 3236,
+    "sha256": "0aba6027a1f433627ff7903c0b5a8df3094bde7013ca1231cc3b498d2efed572",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/13324"
+    ],
+    "primary_url": "https://www.joinquant.com/post/13324",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:33+08:00",
+    "requested_url": "https://www.joinquant.com/post/13324",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/2437ecc43cf725a4677039191bf406f1",
+    "community_id": "2437ecc43cf725a4677039191bf406f1",
+    "post": {
+      "postId": "c4dba622b399ec846e8b5e675e1cfc1c",
+      "uniqueKey": "2437ecc43cf725a4677039191bf406f1",
+      "title": "机器学习SVM用法示例策略",
+      "content": "策略思路：\r\n选择标的为同仁堂600085\r\n选取标的的7个特征变量一年的数据作为训练集，训练支持向量机模型\r\n训练样本的标签是后5个交易日的涨跌情况，涨了就是1，跌了就是0，\r\n每周三进行调仓,将拟合模型进行未来5天涨跌幅预测，为1时买入，否则空仓\r\n选取的特征值为：\r\n收盘价/区间均收盘价均值\r\n现量/区间均量\r\n最高价/区间最高价均值\r\n最低价/区间最低价均值\r\n成交量比值（相对前一日）\r\n区间收益率\r\n区间标准差\r\n![1.jpeg][1]\r\n\r\n  [1]: https://image.joinquant.com/6d372a9381b540e1021eda5abd9b654c\r\n注意：\r\n该示例策略只为说明思路和用法，因存在特征值量纲不统一、标的单一等问题，策略开发需要更为精细化处理。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-06-25 00:04:24",
+      "modTime": "2018-06-25 00:04:24",
+      "lastActiveTime": "2018-06-25 06:29:00",
+      "lastPubTime": "2018-06-25 00:04:24",
+      "backtestId": "ca2c1c2f7e8f3362cb5ba11098a7fdd0",
+      "backtestName": "机器学习SVM涨跌预测",
+      "replyCount": "1",
+      "viewCount": "3870",
+      "collectionCount": "22",
+      "likeCount": "7",
+      "disLikeCount": "0",
+      "backtestCloneCount": "215",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "3",
+      "followersCount": "128",
+      "followingCount": "1",
+      "author": {
+        "userId": "84c1eee4a63cd336cebd53caddecd9f1",
+        "alias": "JoinQuant聚宽-客服小A",
+        "headImgKey": "1b775e16ecdeec77f0de6697d2da9a0c"
+      },
+      "tags": []
+    },
+    "backtests": [
+      {
+        "backtest_id": "ca2c1c2f7e8f3362cb5ba11098a7fdd0",
+        "backtest_name": "机器学习SVM涨跌预测",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=ca2c1c2f7e8f3362cb5ba11098a7fdd0&postId=2437ecc43cf725a4677039191bf406f1&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2015-06-01",
+          "end_date": "2018-06-23",
+          "base_capital": 200000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "f906061b0604c6853ecb309439e425ef",
+            "9056035"
+          ],
+          "numeric_backtest_id": "9056035",
+          "numeric_post_id": "13324",
+          "python_version": 2,
+          "clone_count": 216
+        },
+        "stats": {
+          "information": 0.55376782225706,
+          "benchmark_return": -0.0048341023950748,
+          "algorithm_volatility": 0.2856959366238,
+          "annual_bm_return": -0.0016182829026054,
+          "__version": 101,
+          "max_drawdown": 0.29384496815628,
+          "sortino": 0.66911695867388,
+          "period_label": "2018-06",
+          "trading_days": 748,
+          "algorithm_return": 0.59775625,
+          "benchmark_volatility": 0.42082173634437,
+          "beta": 0.46070543869653,
+          "excess_return": 0.47534529109589,
+          "annual_algo_return": 0.1695484659213,
+          "sharpe": 0.4534487520272,
+          "alpha": 0.14872223520375,
+          "max_drawdown_period": [
+            "2015-07-13",
+            "2015-08-25"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.12241095890411,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.49064171122995,
+          "avg_position_days": 491,
+          "win_ratio": 0.5,
+          "win_count": 11,
+          "avg_trade_return": 0.034102677082884,
+          "profit_loss_ratio": 1.9148570185787,
+          "lose_count": 11,
+          "report_done_seconds": 51.871675014496
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 59.775625,
+          "benchmark_return_percent": -0.48341,
+          "annual_algo_return_percent": 16.954847,
+          "annual_bm_return_percent": -0.161828,
+          "max_drawdown_percent": 29.384497,
+          "algorithm_volatility_percent": 28.569594,
+          "benchmark_volatility_percent": 42.082174,
+          "win_ratio_percent": 50.0,
+          "day_win_ratio_percent": 49.064171,
+          "avg_trade_return_percent": 3.410268,
+          "sharpe": 0.4534487520272,
+          "sortino": 0.66911695867388,
+          "information": 0.55376782225706,
+          "alpha": 0.14872223520375,
+          "beta": 0.46070543869653,
+          "profit_loss_ratio": 1.9148570185787,
+          "avg_position_days": 491,
+          "trading_days": 748,
+          "win_count": 11,
+          "lose_count": 11,
+          "max_drawdown_period": [
+            "2015-07-13",
+            "2015-08-25"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/13324",
+      "https://www.joinquant.com/community/post/detailV2?postId=13324",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=ca2c1c2f7e8f3362cb5ba11098a7fdd0&postId=2437ecc43cf725a4677039191bf406f1&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=ca2c1c2f7e8f3362cb5ba11098a7fdd0"
+    ]
+  }
+}

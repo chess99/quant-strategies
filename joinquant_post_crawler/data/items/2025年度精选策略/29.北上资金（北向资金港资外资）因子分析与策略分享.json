@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/29.北上资金（北向资金港资外资）因子分析与策略分享.txt",
+    "category": "2025年度精选策略",
+    "file_name": "29.北上资金（北向资金港资外资）因子分析与策略分享.txt",
+    "strategy_name": "北上资金（北向资金港资外资）因子分析与策略分享",
+    "declared_title": "北上资金（北向资金/港资/外资）因子分析与策略分享",
+    "declared_author": "cgzol",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 8945,
+    "sha256": "92f18864f41f9ba58e26901bca315efc8f580318eaa2819f2e19ac5f6a423aba",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/25613"
+    ],
+    "primary_url": "https://www.joinquant.com/post/25613",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:02+08:00",
+    "requested_url": "https://www.joinquant.com/post/25613",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/1fe0f985bef3d3ef51ae948c04883d63",
+    "community_id": "1fe0f985bef3d3ef51ae948c04883d63",
+    "post": {
+      "postId": "ea39236da14a1d8d8c655f3d9afb03d1",
+      "uniqueKey": "1fe0f985bef3d3ef51ae948c04883d63",
+      "title": "北上资金（北向资金/港资/外资）因子分析与策略分享",
+      "content": "**一、前言**\n2018年的时候，由于聚宽开始有了沪股通与深股通的数据，于是当时我写了个帖子《[跟着港资（北向资金）买A股](https://www.joinquant.com/view/community/detail/4d090bae3390e22a7b54430fe3d7b36f?type=1)》，分享了一个很简单的策略，就是每天滚动持有上一个交易日北向资金净买入金额最多的A股股票。\n由于聚宽在2019年新增了[沪深港通持股数据](https://www.joinquant.com/help/api/help?name=Stock#沪深港通持股数据)，加上论坛上有小伙伴又开始讨论了北上资金的策略（具体见[《根据北上资金买股票的最佳持股时间探讨》](https://www.joinquant.com/view/community/detail/3f95d60b9d6d334bcfc01fba2c4d9171?type=1)），于是我打算对北上资金的相关因子做一个稍微深入点的研究，然后就有了本帖。\n**二、北上资金因子构建**\n这次一共构建了三个北上资金因子：\n**1、北上资金持股市值因子**：每只股票北上资金的持股市值\n**2、北上资金持股比例因子**：每只股票北上资金的持股比例\n**3、北上资金5日净买入金额因子**：每只股票北上资金5日净买入金额\n**三、因子分析方法**\n此次因子分析主要使用了[聚宽的开源因子分析框架](https://www.joinquant.com/help/api/help?name=factor)，在中证800指数的成份股里面对上述因子做了收益分析和IC分析，分析依然比较粗糙，大家可以进一步细化和深入分析。但是初步的分析已经可以获得一些值得我们关注的结论。\n**四、因子分析主要结论**\n1、从分层收益和IC值来看，上述三个因子都是不错的因子。不同调仓周期下，三个因子的分层收益都有着很好的区分度和单调性。\n2、三个因子中，北上资金5日净买入金额表现最优秀，1日的调仓周期下的alpha为0.395，IC值为0.03，是三个因子中最高的\n3、另外两个因子，北上资金持股市值与北上资金持股比例的IC值都高于0.02，也是比较优秀的因子。\n4、三个因子调仓周期越短，收益率越高。\n5、可以考虑做空或者回避北上资金持股市值与持股比例低的股票，这类股票从因子分析的结果来看，做多收益都不太好。\n具体分析过程及数据请看本帖下面的研究文档。\n**五、因子策略分享**\n这次分享了北上资金持股市值因子策略，每天滚动持有上一交易日北上资金持股市值最多的10只股票。\n该策略2018年收益不佳，但是2017年和2019年收益还是可以的。\n**六、感谢**\n以上是我个人对北向资金相关因子的粗浅分析，由于个人水平有限，错误和不足之处（包括分析过程及代码部分）恳请大家指正！同时欢迎大家在本帖子继续深入探讨北上资金因子。谢谢！",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-02-20 12:02:14",
+      "modTime": "2020-02-20 12:02:14",
+      "lastActiveTime": "2026-04-11 00:09:15",
+      "lastPubTime": "2020-02-20 12:02:14",
+      "backtestId": "0d32d6e98519634d778668a956a02d80",
+      "backtestName": "北向资金持股市值策略",
+      "replyCount": "164",
+      "viewCount": "25160",
+      "collectionCount": "450",
+      "likeCount": "292",
+      "disLikeCount": "0",
+      "backtestCloneCount": "793",
+      "notebookCloneCount": "244",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "8",
+      "followersCount": "632",
+      "followingCount": "2",
+      "author": {
+        "userId": "bbb2ed3f375e5457a0e073491e24b8f0",
+        "alias": "cgzol",
+        "introduction": "量化小菜鸟",
+        "headImgKey": "b2eb30673700a4bf25a21d6ed7b6f0be"
+      },
+      "tags": [
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "687",
+          "name": "北上资金"
+        },
+        {
+          "id": "688",
+          "name": "北向资金"
+        },
+        {
+          "id": "689",
+          "name": "港资"
+        },
+        {
+          "id": "690",
+          "name": "因子分析"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "0d32d6e98519634d778668a956a02d80",
+        "backtest_name": "北向资金持股市值策略",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=0d32d6e98519634d778668a956a02d80&postId=1fe0f985bef3d3ef51ae948c04883d63&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2017-04-01",
+          "end_date": "2020-02-14",
+          "base_capital": 500000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "8f6c11729f0aa55dc57b36475459c447",
+            "16221414"
+          ],
+          "numeric_backtest_id": "16221414",
+          "numeric_post_id": "25613",
+          "python_version": 2,
+          "clone_count": 791
+        },
+        "stats": {
+          "benchmark_return": 0.15384036689284,
+          "max_drawdown": 0.31576456378518,
+          "trading_days": 698,
+          "algorithm_volatility": 0.23140146342712,
+          "max_drawdown_period": [
+            "2018-01-23",
+            "2019-01-03"
+          ],
+          "information": 1.5873367403626,
+          "annual_bm_return": 0.052588204158086,
+          "excess_return_max_drawdown": "11.00%",
+          "benchmark_volatility": 0.19030829305058,
+          "annual_algo_return": 0.22421172431442,
+          "sharpe": 0.79606983286188,
+          "excess_return_max_drawdown_period": [
+            "2018-06-26",
+            "2018-12-27"
+          ],
+          "__version": 101,
+          "algorithm_return": 0.75911991037999,
+          "beta": 1.0778546896253,
+          "alpha": 0.17064346942867,
+          "treasury_return": 0.11452054794521,
+          "max_leverage": 0,
+          "sortino": 1.1808825160273,
+          "period_label": "2020-02",
+          "avg_excess_return": "0.06%",
+          "excess_return": 0.52457823530399,
+          "excess_return_sharpe": "1.139",
+          "turnover_rate": 0.0082562831999805,
+          "avg_trade_return": 0.024175799337588,
+          "day_win_ratio": 0.54011461318052,
+          "profit_loss_ratio": 1.5549647475184,
+          "avg_position_days": 268.46153846154,
+          "lose_count": 43,
+          "win_ratio": 0.3943661971831,
+          "win_count": 28,
+          "report_done_seconds": 1743.061013937,
+          "report_done_cpu_seconds": 1721.23
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 75.911991,
+          "benchmark_return_percent": 15.384037,
+          "annual_algo_return_percent": 22.421172,
+          "annual_bm_return_percent": 5.25882,
+          "max_drawdown_percent": 31.576456,
+          "algorithm_volatility_percent": 23.140146,
+          "benchmark_volatility_percent": 19.030829,
+          "win_ratio_percent": 39.43662,
+          "day_win_ratio_percent": 54.011461,
+          "avg_trade_return_percent": 2.41758,
+          "turnover_rate_percent": 0.825628,
+          "sharpe": 0.79606983286188,
+          "sortino": 1.1808825160273,
+          "information": 1.5873367403626,
+          "alpha": 0.17064346942867,
+          "beta": 1.0778546896253,
+          "profit_loss_ratio": 1.5549647475184,
+          "avg_position_days": 268.46153846154,
+          "trading_days": 698,
+          "win_count": 28,
+          "lose_count": 43,
+          "max_drawdown_period": [
+            "2018-01-23",
+            "2019-01-03"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2018-06-26",
+            "2018-12-27"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/25613",
+      "https://www.joinquant.com/community/post/detailV2?postId=25613",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=0d32d6e98519634d778668a956a02d80&postId=1fe0f985bef3d3ef51ae948c04883d63&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=0d32d6e98519634d778668a956a02d80"
+    ]
+  }
+}

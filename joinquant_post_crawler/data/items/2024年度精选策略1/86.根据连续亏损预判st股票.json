@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2024年度精选策略1/86.根据连续亏损预判st股票.txt",
+    "category": "2024年度精选策略1",
+    "file_name": "86.根据连续亏损预判st股票.txt",
+    "strategy_name": "根据连续亏损预判st股票",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 7656,
+    "sha256": "fc7743b373d4cabc22b21df702c32fdf79c53e7bd2a071a77b6c91d56f267d1b",
+    "joinquant_urls": [],
+    "primary_url": null,
+    "url_selection_method": "none"
+  },
+  "remote": null
+}

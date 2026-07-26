@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/40 kdj指标配合accer过滤.txt",
+    "category": "2020年度精选策略",
+    "file_name": "40 kdj指标配合accer过滤.txt",
+    "strategy_name": "kdj指标配合accer过滤",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 3289,
+    "sha256": "ace154d21468927e2e91e62087ca847a5b6c6b5d1014c16c5634dbf178ea487d",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/14847"
+    ],
+    "primary_url": "https://www.joinquant.com/post/14847",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:06:47+08:00",
+    "requested_url": "https://www.joinquant.com/post/14847",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/79e7c6a5836b504a9821dd88268a2a13",
+    "community_id": "79e7c6a5836b504a9821dd88268a2a13",
+    "post": {
+      "postId": "648546211bb92b8b0781b5159ed59661",
+      "uniqueKey": "79e7c6a5836b504a9821dd88268a2a13",
+      "title": "kdj指标配合accer过滤",
+      "content": "4%的止损，3%的移动止损，小盘股的表现还可以，涨停板的卖出策略还得改，牛股容易卖飞",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-10-11 13:48:00",
+      "modTime": "2018-10-11 13:48:00",
+      "lastActiveTime": "2021-12-26 18:46:07",
+      "lastPubTime": "2018-10-11 13:48:00",
+      "backtestId": "13be3834252ff8168055734ccf0838a0",
+      "backtestName": "tick回测多指标止盈止损",
+      "replyCount": "21",
+      "viewCount": "3818",
+      "collectionCount": "34",
+      "likeCount": "15",
+      "disLikeCount": "0",
+      "backtestCloneCount": "152",
+      "notebookCloneCount": "51",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "8",
+      "followersCount": "39",
+      "followingCount": "0",
+      "author": {
+        "userId": "7e70e5703fd638046bd2611de988227b",
+        "alias": "leonardo1001",
+        "introduction": "保守的冒险主义者",
+        "headImgKey": "7682b7101f6113ad1221c0bb3a667f50"
+      },
+      "tags": [
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "13be3834252ff8168055734ccf0838a0",
+        "backtest_name": "tick回测多指标止盈止损",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=13be3834252ff8168055734ccf0838a0&postId=79e7c6a5836b504a9821dd88268a2a13&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2018-01-01",
+          "end_date": "2018-10-09",
+          "base_capital": 500000,
+          "frequency_code": "tick",
+          "frequency_label": "TICK",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "24696ac179c9d374693b55d3fe0ec154",
+            "10302025"
+          ],
+          "numeric_backtest_id": "10302025",
+          "numeric_post_id": "14847",
+          "python_version": 2,
+          "clone_count": 219
+        },
+        "stats": {
+          "information": 2.6677628115645,
+          "benchmark_return": -0.18411997469516,
+          "algorithm_volatility": 0.30399903160616,
+          "annual_bm_return": -0.24041552094102,
+          "__version": 101,
+          "max_drawdown": 0.16381491964437,
+          "sortino": 4.7206016346197,
+          "period_label": "2018-10",
+          "trading_days": 185,
+          "algorithm_return": 0.53073422,
+          "benchmark_volatility": 0.20078297682872,
+          "beta": -0.16029644209139,
+          "excess_return": 0.50004928849315,
+          "annual_algo_return": 0.77772501080579,
+          "sharpe": 2.4267347396078,
+          "alpha": 0.69277540049174,
+          "max_drawdown_period": [
+            "2018-06-05",
+            "2018-08-02"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.030684931506849,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.50810810810811,
+          "avg_position_days": 24,
+          "win_ratio": 0.57142857142857,
+          "win_count": 8,
+          "avg_trade_return": 0.035696276194836,
+          "profit_loss_ratio": 2.6402621689911,
+          "lose_count": 6,
+          "report_done_seconds": 75.377486944199
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 53.073422,
+          "benchmark_return_percent": -18.411997,
+          "annual_algo_return_percent": 77.772501,
+          "annual_bm_return_percent": -24.041552,
+          "max_drawdown_percent": 16.381492,
+          "algorithm_volatility_percent": 30.399903,
+          "benchmark_volatility_percent": 20.078298,
+          "win_ratio_percent": 57.142857,
+          "day_win_ratio_percent": 50.810811,
+          "avg_trade_return_percent": 3.569628,
+          "sharpe": 2.4267347396078,
+          "sortino": 4.7206016346197,
+          "information": 2.6677628115645,
+          "alpha": 0.69277540049174,
+          "beta": -0.16029644209139,
+          "profit_loss_ratio": 2.6402621689911,
+          "avg_position_days": 24,
+          "trading_days": 185,
+          "win_count": 8,
+          "lose_count": 6,
+          "max_drawdown_period": [
+            "2018-06-05",
+            "2018-08-02"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/14847",
+      "https://www.joinquant.com/community/post/detailV2?postId=14847",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=13be3834252ff8168055734ccf0838a0&postId=79e7c6a5836b504a9821dd88268a2a13&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=13be3834252ff8168055734ccf0838a0"
+    ]
+  }
+}

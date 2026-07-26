@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2022年度精选策略/79.实盘一周50%的妖股探测器.txt",
+    "category": "2022年度精选策略",
+    "file_name": "79.实盘一周50%的妖股探测器.txt",
+    "strategy_name": "实盘一周50%的妖股探测器",
+    "declared_title": "实盘一周50%的妖股探测器",
+    "declared_author": "Dr.QYQ",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 21166,
+    "sha256": "c840bac85684fb2f255b9620115046824bfb8be6a72ba56195a786604ec03d35",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/37894"
+    ],
+    "primary_url": "https://www.joinquant.com/post/37894",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:32+08:00",
+    "requested_url": "https://www.joinquant.com/post/37894",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/2791f71894f03013c1427319977d85af",
+    "community_id": "2791f71894f03013c1427319977d85af",
+    "post": {
+      "postId": "4bf7fee5081a62fe76b19007cbae56c5",
+      "uniqueKey": "2791f71894f03013c1427319977d85af",
+      "title": "实盘一周50%的妖股探测器",
+      "content": "最近在准备考试都没有时间把这个最新的策略发出来，其实文章和回测都在几周前就想好了，今天才有时间来写一下。在我的上一篇文章[有效防止RSRS策略回撤的方法](https://www.joinquant.com/view/community/detail/05f09e4e904b67edfc1c28813dd7b8f2)中，我分享了一个能够有效控制回撤的方法，最近我在这基础上又进一步优化了一下，实盘了一周，盈利50%，吃到了新华的第二波，可惜自己太怂只吃了8个点就溜溜球了。好了接下来就简单说一说是怎样改进的。\n![Img]( https://image.joinquant.com/e565640e0d8d7fbd778be3228223f3b7) \n\n# 数学建模\n因为我们的策略是想要尽量的找到股价表现强势, 且有能够形成趋势的个股, 我们对股票的收盘价进行建模:\n$$\ny = (1+N\\%)^n*x\n$$\n这里$y\\,$是n天之后的收盘价，$x\\,$是期初的收盘价。这就是一个复利问题，这么一看是一个指数函数不太好处理，我们对两边取对数：\n$$\n\\log y =\\log[(1+N\\%)^n*x]\n$$\n可以化简为\n$$\n\\log y = n*\\log(1+N\\%) + \\log x\n$$\n我们重新定义一下变量$Y = \\log y, k = \\log (1+N\\%), n = x, b = \\log x$，那么我们的模型就变为了一个很简单的一次函数模型：\n$$\nY = k*x+b\n$$\n接下来我们要做的就是对股票池里的所有个股都按照这个模型进行打分，我们构造一个统计量来为这个模型评分，我们称这个统计量为年化收益 $\\alpha$:\n$$\n\\alpha=(e^{k*250} - 1) * R^2\n$$\n这里假设了一年有250个交易日，每个交易日的收益率为$e^k$即$1+N\\%$，$R^2$是评价模型拟合好坏的一个量，它等于\n$$\nR^2 = \\frac{\\sum (y-y')^2}{\\sum (y-\\bar{y})^2}\n$$\n这里$y'$是模型预测值，$\\bar{y}$是n天收盘价的平均值。就是这样一个简单的数学模型，接下来让我们以天保基建这只大牛股为例，来介绍一下该模型的应用。\n# 实际应用\n## 策略\n在进行实例之前先介绍一下我们的策略：通过上面构建的统计量$\\alpha\\,$给股票池里的所有个股打分，只够买得分最高的那一只。\n## 实例\n以天保基建为例，获取其22年2月24日到4月25日总共41天的日线数据来进行实验。\n![Img]( https://image.joinquant.com/365ca9efb0cf04b77398c9dfa3898454) \n在开头也说了，我们的目的是为了在早期的时候尽早的介入然后在转弱的时候即使止盈，为此需要使我们的评分$\\alpha\\,$在连板时尽快的变大，在冲高回落后分数要尽快的降低，为此$\\alpha\\,$得尽可能的对收盘价敏感，接下来我们就来看看2种不同方法所构建出来的$\\alpha\\,$对收盘价的敏感程度。\n### Mod 1\n在有了历史数据后，我们可以做一件最简单的事，用第一天和最后一天的收盘价计算斜率*k*，把第一天的收盘价设为截距*b*，这样我们就有了第一个模型。\n选取4月25日和之前28天的数据拟合如下\n![Img]( https://image.joinquant.com/4ea783ed6aa557945727d2e4cd98769c) \n这样我们就得出了4月26日的关于该股的分数，可见*k*是很小的，所以$\\alpha\\,$也会很小，代表该股的趋势已经过去了。依次类推，我们可以计算出$41-29=12$个得分，我们把得分和收盘价画在一张图上\n![Img]( https://image.joinquant.com/9b4f3e14d2e2d7bc4ed465622e74d3e4) \n这里的得分是画的对数，所以分数的增长是很迅猛的，然后在股价开始下降后分数也开始骤降，符合我们所想要的效果。\n### Mod 2\n另一种方法就是用所有的数据点来进行线性回归，拟合出斜率*k*和截距*b*，然后带入Eq.(5)中计算年化收益。我们首先定义 **Momentum** 参数为要选取的数据长度，我们取 $\\mathrm{Momentum}=29$，即取29天的数据来进行模型的拟合，可以根据当时的行情来调整**Momentum**的值，如果行情比较稳定这选取较大的值，如果轮动很快这可以适当调小。\n一次函数的拟合结果如下\n![Img]( https://image.joinquant.com/ab36112fc865f4f8e0252c64d0a3183c) \n可以看到拟合出的斜率为负，也说明该股的时代已经过去了。同样的为他计算12天的得分，并且和Mod 1 一起展示出来\n![Img]( https://image.joinquant.com/11b6f4a2f80ca9a52e1a3e1019c2e221) \n可以发现Mod 2 的下降有一些滞后，表示Mod2对收盘价的敏感度没有Mod1的好，这有一定的几率给我们带来很大的回撤，特别是这种趋势股，一被杀就是几十个点，所以我们宁可少赚一点也要及时的卖出，在这一点上，Mod1要优于Mod2。\n\n# 结论\n看起来简单的算法却要比复杂的表现要好，直接取第一天和最后一天的收盘价来计算得分在及时性上要优于线性回归的模型。其实我还试了下机器学习看把其他量也加进去（比如成交量，换手率等）能不能得到一个更好的模型，但是结果不太理想。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2022-05-28 00:54:18",
+      "modTime": "2022-05-28 00:54:18",
+      "lastActiveTime": "2024-03-06 17:09:34",
+      "lastPubTime": "2022-05-28 00:54:18",
+      "backtestId": "92279944e261cebb682382ce00e632ed",
+      "backtestName": "RSRS策略-魔改2-MoM29-ABS-RS-1yr",
+      "replyCount": "71",
+      "viewCount": "5590",
+      "collectionCount": "131",
+      "likeCount": "74",
+      "disLikeCount": "0",
+      "backtestCloneCount": "318",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "9",
+      "followersCount": "242",
+      "followingCount": "5",
+      "author": {
+        "userId": "0b1b1279dbfe89861faa5d2f35b4ac03",
+        "alias": "Dr.QYQ",
+        "introduction": "一个划水摸鱼的物理博士",
+        "headImgKey": "6ef10a6c678f6f1eb853381a87c17f56"
+      },
+      "tags": [
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        },
+        {
+          "id": "1720",
+          "name": "RSRS择时"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "92279944e261cebb682382ce00e632ed",
+        "backtest_name": "RSRS策略-魔改2-MoM29-ABS-RS-1yr",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=92279944e261cebb682382ce00e632ed&postId=2791f71894f03013c1427319977d85af&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2021-01-01",
+          "end_date": "2022-05-13",
+          "base_capital": 100000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "9e7838371bac32517833cc4352e0123a",
+            "24631808"
+          ],
+          "numeric_backtest_id": "24631808",
+          "numeric_post_id": "37894",
+          "python_version": 3,
+          "clone_count": 382
+        },
+        "stats": {
+          "trading_days": 327,
+          "benchmark_volatility": 0.20212190442794,
+          "algorithm_volatility": 0.92438321540343,
+          "treasury_return": 0.05413698630137,
+          "algorithm_return": 2.703227819,
+          "benchmark_return": -0.23462328905127,
+          "annual_algo_return": 1.7207868413789,
+          "annual_bm_return": -0.1848836491735,
+          "sharpe": 1.8182792735428,
+          "excess_return_sharpe": "2.433",
+          "sortino": 3.0943799856948,
+          "information": 2.0233527636272,
+          "beta": 0.10132363555339,
+          "alpha": 1.7035728702896,
+          "excess_return": 3.8384380737293,
+          "avg_excess_return": "0.66%",
+          "max_drawdown": 0.45369903381407,
+          "max_drawdown_period": [
+            "2021-01-04",
+            "2021-04-02"
+          ],
+          "excess_return_max_drawdown": "44.25%",
+          "excess_return_max_drawdown_period": [
+            "2021-01-04",
+            "2021-04-02"
+          ],
+          "max_leverage": 0,
+          "period_label": "2022-05",
+          "__version": 101,
+          "win_ratio": 0.44705882352941,
+          "profit_loss_ratio": 1.561149352957,
+          "win_count": 38,
+          "lose_count": 47,
+          "day_win_ratio": 0.51681957186544,
+          "avg_trade_return": 0.034932662172852,
+          "avg_position_days": 4.3921568627451,
+          "turnover_rate": 0.20893271291124,
+          "report_done_seconds": 3249.1846859455,
+          "report_done_cpu_seconds": 3190.84
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 270.322782,
+          "benchmark_return_percent": -23.462329,
+          "annual_algo_return_percent": 172.078684,
+          "annual_bm_return_percent": -18.488365,
+          "max_drawdown_percent": 45.369903,
+          "algorithm_volatility_percent": 92.438322,
+          "benchmark_volatility_percent": 20.21219,
+          "win_ratio_percent": 44.705882,
+          "day_win_ratio_percent": 51.681957,
+          "avg_trade_return_percent": 3.493266,
+          "turnover_rate_percent": 20.893271,
+          "sharpe": 1.8182792735428,
+          "sortino": 3.0943799856948,
+          "information": 2.0233527636272,
+          "alpha": 1.7035728702896,
+          "beta": 0.10132363555339,
+          "profit_loss_ratio": 1.561149352957,
+          "avg_position_days": 4.3921568627451,
+          "trading_days": 327,
+          "win_count": 38,
+          "lose_count": 47,
+          "max_drawdown_period": [
+            "2021-01-04",
+            "2021-04-02"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2021-01-04",
+            "2021-04-02"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/37894",
+      "https://www.joinquant.com/community/post/detailV2?postId=37894",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=92279944e261cebb682382ce00e632ed&postId=2791f71894f03013c1427319977d85af&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=92279944e261cebb682382ce00e632ed"
+    ]
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/60 投资期末作业.txt",
+    "category": "2020年度精选策略",
+    "file_name": "60 投资期末作业.txt",
+    "strategy_name": "投资期末作业",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 15081,
+    "sha256": "ddd8506b5f44505604bd3c867b2831b6d90e7624a5310c3ad3635a7fc3bfb1bd",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/13976"
+    ],
+    "primary_url": "https://www.joinquant.com/post/13976",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:03+08:00",
+    "requested_url": "https://www.joinquant.com/post/13976",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/afe868a9a7e278df92a0b5f0f9cd1133",
+    "community_id": "afe868a9a7e278df92a0b5f0f9cd1133",
+    "post": {
+      "postId": "2a7896b84466da89548a4914733bfe04",
+      "uniqueKey": "afe868a9a7e278df92a0b5f0f9cd1133",
+      "title": "投资期末作业",
+      "content": "投资期末作业",
+      "type": 1,
+      "status": "0",
+      "addTime": "2018-07-26 19:20:58",
+      "modTime": "2018-07-26 19:20:58",
+      "lastActiveTime": "2018-07-26 19:20:58",
+      "lastPubTime": "2018-07-26 19:20:58",
+      "backtestId": "9f1f1066974971c9af0682672da4d27f",
+      "backtestName": "投资作业",
+      "replyCount": "0",
+      "viewCount": "885",
+      "collectionCount": "0",
+      "likeCount": "3",
+      "disLikeCount": "0",
+      "backtestCloneCount": "17",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "1",
+      "followersCount": "0",
+      "followingCount": "0",
+      "author": {
+        "userId": "b2400660fdd097acb92cd8ca70b8390d",
+        "alias": "这个话"
+      },
+      "tags": []
+    },
+    "backtests": [
+      {
+        "backtest_id": "9f1f1066974971c9af0682672da4d27f",
+        "backtest_name": "投资作业",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=9f1f1066974971c9af0682672da4d27f&postId=afe868a9a7e278df92a0b5f0f9cd1133&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2017-06-30",
+          "end_date": "2018-06-30",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "c6e1df941f8b7ca39d22cb099220ce45",
+            "9470471"
+          ],
+          "numeric_backtest_id": "9470471",
+          "numeric_post_id": "13976",
+          "python_version": 2,
+          "clone_count": 17
+        },
+        "stats": {
+          "information": 2.1711063800677,
+          "benchmark_return": -0.043024067713832,
+          "algorithm_volatility": 0.18314364705587,
+          "annual_bm_return": -0.043882559268406,
+          "__version": 101,
+          "max_drawdown": 0.13924685971167,
+          "sortino": 1.9669922410463,
+          "period_label": "2018-06",
+          "trading_days": 245,
+          "algorithm_return": 0.2811932,
+          "benchmark_volatility": 0.15139312785054,
+          "beta": 0.72291195139292,
+          "excess_return": 0.24130278904109,
+          "annual_algo_return": 0.2876885730836,
+          "sharpe": 1.3524278732313,
+          "alpha": 0.30832827769215,
+          "max_drawdown_period": [
+            "2018-01-22",
+            "2018-04-20"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.039890410958904,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.51020408163265,
+          "avg_position_days": 39.227272727273,
+          "win_ratio": 0.78,
+          "win_count": 39,
+          "avg_trade_return": 0.032194205879242,
+          "profit_loss_ratio": 3.3094342251951,
+          "lose_count": 11,
+          "report_done_seconds": 68.122568130493
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 28.11932,
+          "benchmark_return_percent": -4.302407,
+          "annual_algo_return_percent": 28.768857,
+          "annual_bm_return_percent": -4.388256,
+          "max_drawdown_percent": 13.924686,
+          "algorithm_volatility_percent": 18.314365,
+          "benchmark_volatility_percent": 15.139313,
+          "win_ratio_percent": 78.0,
+          "day_win_ratio_percent": 51.020408,
+          "avg_trade_return_percent": 3.219421,
+          "sharpe": 1.3524278732313,
+          "sortino": 1.9669922410463,
+          "information": 2.1711063800677,
+          "alpha": 0.30832827769215,
+          "beta": 0.72291195139292,
+          "profit_loss_ratio": 3.3094342251951,
+          "avg_position_days": 39.227272727273,
+          "trading_days": 245,
+          "win_count": 39,
+          "lose_count": 11,
+          "max_drawdown_period": [
+            "2018-01-22",
+            "2018-04-20"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/13976",
+      "https://www.joinquant.com/community/post/detailV2?postId=13976",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=9f1f1066974971c9af0682672da4d27f&postId=afe868a9a7e278df92a0b5f0f9cd1133&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=9f1f1066974971c9af0682672da4d27f"
+    ]
+  }
+}

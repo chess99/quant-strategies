@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/89.2020年效果很好的策略-龙回头策略v3.0.txt",
+    "category": "2025年度精选策略",
+    "file_name": "89.2020年效果很好的策略-龙回头策略v3.0.txt",
+    "strategy_name": "年效果很好的策略-龙回头策略v3.0",
+    "declared_title": "2020年效果很好的策略-龙回头策略v3.0",
+    "declared_author": "橘座量化",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 12312,
+    "sha256": "636fde31b8cf9a254dd1629ea7b5b3858f5e9f598a78588caa56f16cb78f2c44",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/27429"
+    ],
+    "primary_url": "https://www.joinquant.com/post/27429",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:43+08:00",
+    "requested_url": "https://www.joinquant.com/post/27429",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/cb321cc0be77a6504208515a200d0ad3",
+    "community_id": "cb321cc0be77a6504208515a200d0ad3",
+    "post": {
+      "postId": "e49d8483d03fba424ed374345d7c4b3a",
+      "uniqueKey": "cb321cc0be77a6504208515a200d0ad3",
+      "title": "2020年效果很好的策略-龙回头策略v3.0",
+      "content": "# 选股条件\n\n- 近期有进入龙湖板的股票\n\n- 连板次数大于等于2次\n\n- 回调天数大于等于2天\n\n- 回调过程中必须有大资金介入\n\n- 回调有涨幅限制\n\n- 等等细节条件\n\n#买入条件\n\n- 早盘放量冲高买入\n\n\n# 卖出条件\n\n- 不涨停卖出\n\n\n======================\n# 总结\n2020年效果不错，资金偏好2+n模式",
+      "type": 1,
+      "status": "0",
+      "addTime": "2020-05-16 18:07:12",
+      "modTime": "2020-05-16 18:07:12",
+      "lastActiveTime": "2026-03-23 17:11:12",
+      "lastPubTime": "2020-05-16 18:07:12",
+      "backtestId": "63b61e2518427050dd437fb06e094a37",
+      "backtestName": "连板-回调-冲高-阉割上传版本",
+      "replyCount": "49",
+      "viewCount": "7195",
+      "collectionCount": "95",
+      "likeCount": "56",
+      "disLikeCount": "0",
+      "backtestCloneCount": "469",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "8",
+      "followersCount": "216",
+      "followingCount": "3",
+      "author": {
+        "userId": "4aa94a2164a6cb58a34c5f5de27dcf77",
+        "alias": "橘座量化",
+        "introduction": "一个老码农的量化之路。个人公众号：小歪的量化交易。个人vx：juzuolianghua。个人公众号：小歪的量化交易",
+        "headImgKey": "a2f45e213ac8724583443adf941cf893"
+      },
+      "tags": [
+        {
+          "id": "6",
+          "name": "选股"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "790",
+          "name": "涨停"
+        },
+        {
+          "id": "791",
+          "name": "强势股"
+        },
+        {
+          "id": "794",
+          "name": "龙回头"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "63b61e2518427050dd437fb06e094a37",
+        "backtest_name": "连板-回调-冲高-阉割上传版本",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=63b61e2518427050dd437fb06e094a37&postId=cb321cc0be77a6504208515a200d0ad3&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2020-01-01",
+          "end_date": "2020-05-09",
+          "base_capital": 100000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "6a234521a9740320a1f35f4fc442df4d",
+            "17072295"
+          ],
+          "numeric_backtest_id": "17072295",
+          "numeric_post_id": "27429",
+          "python_version": 3,
+          "clone_count": 424
+        },
+        "stats": {
+          "trading_days": 82,
+          "benchmark_volatility": 0.27252304993844,
+          "algorithm_volatility": 0.39116943299773,
+          "treasury_return": 0.013917808219178,
+          "algorithm_return": 0.860622932,
+          "benchmark_return": -0.032456341631313,
+          "annual_algo_return": 5.639405206304,
+          "annual_bm_return": -0.095699615038616,
+          "sharpe": 14.3145264787,
+          "excess_return_sharpe": "13.210",
+          "sortino": 29.711371717437,
+          "information": 12.247600779784,
+          "beta": 0.053936509179143,
+          "alpha": 5.6067243698361,
+          "excess_return": 0.92303770057991,
+          "avg_excess_return": "0.84%",
+          "max_drawdown": 0.068609669934534,
+          "max_drawdown_period": [
+            "2020-03-10",
+            "2020-03-18"
+          ],
+          "excess_return_max_drawdown": "8.85%",
+          "excess_return_max_drawdown_period": [
+            "2020-03-30",
+            "2020-05-06"
+          ],
+          "max_leverage": 0,
+          "period_label": "2020-05",
+          "__version": 101,
+          "win_ratio": 0.56666666666667,
+          "profit_loss_ratio": 3.1270096463023,
+          "win_count": 17,
+          "lose_count": 13,
+          "day_win_ratio": 0.52439024390244,
+          "avg_trade_return": 0.04766256241709,
+          "avg_position_days": 1.3448275862069,
+          "turnover_rate": 0.19500492187296,
+          "report_done_seconds": 861.7866153717,
+          "report_done_cpu_seconds": 837.01
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 86.062293,
+          "benchmark_return_percent": -3.245634,
+          "annual_algo_return_percent": 563.940521,
+          "annual_bm_return_percent": -9.569962,
+          "max_drawdown_percent": 6.860967,
+          "algorithm_volatility_percent": 39.116943,
+          "benchmark_volatility_percent": 27.252305,
+          "win_ratio_percent": 56.666667,
+          "day_win_ratio_percent": 52.439024,
+          "avg_trade_return_percent": 4.766256,
+          "turnover_rate_percent": 19.500492,
+          "sharpe": 14.3145264787,
+          "sortino": 29.711371717437,
+          "information": 12.247600779784,
+          "alpha": 5.6067243698361,
+          "beta": 0.053936509179143,
+          "profit_loss_ratio": 3.1270096463023,
+          "avg_position_days": 1.3448275862069,
+          "trading_days": 82,
+          "win_count": 17,
+          "lose_count": 13,
+          "max_drawdown_period": [
+            "2020-03-10",
+            "2020-03-18"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-03-30",
+            "2020-05-06"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/27429",
+      "https://www.joinquant.com/community/post/detailV2?postId=27429",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=63b61e2518427050dd437fb06e094a37&postId=cb321cc0be77a6504208515a200d0ad3&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=63b61e2518427050dd437fb06e094a37"
+    ]
+  }
+}

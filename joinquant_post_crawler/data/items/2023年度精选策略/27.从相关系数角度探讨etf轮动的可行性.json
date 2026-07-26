@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/27.从相关系数角度探讨etf轮动的可行性.txt",
+    "category": "2023年度精选策略",
+    "file_name": "27.从相关系数角度探讨etf轮动的可行性.txt",
+    "strategy_name": "从相关系数角度探讨etf轮动的可行性",
+    "declared_title": "从相关系数角度探讨etf轮动的可行性",
+    "declared_author": "wywy1995",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 9088,
+    "sha256": "0e60cde5dfd8f828dc872be2d44aa950c80b22ebc82b395522906ac291eff3fc",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/34475"
+    ],
+    "primary_url": "https://www.joinquant.com/post/34475",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:08:59+08:00",
+    "requested_url": "https://www.joinquant.com/post/34475",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/70111684c3fb07f8860e00b6f37ebd5f",
+    "community_id": "70111684c3fb07f8860e00b6f37ebd5f",
+    "post": {
+      "postId": "08116d58946d7bce0e2ecb46bd42905d",
+      "uniqueKey": "70111684c3fb07f8860e00b6f37ebd5f",
+      "title": "从相关系数角度探讨etf轮动的可行性",
+      "content": "**前言**\n很多轮动策略一开始就设定好一个静态的的etf股票池，这种做法与股票策略中预选一个牛股池子是一个道理，很有可能是一种未来函数，是不可取的。\n另一种做法是选择大量etf从中海选，这里虽然降低了未来函数的可能，却又出现了新的问题：交易成本。轮动策略往往是根据动量进行调仓，但是几个相近的指数间动量微弱的变化所带来的成本消耗要大于收益。所以在选择动量最高的品种的轮动策略中，随着股票池中etf数量的增加，回测结果中的交易次数也随之显著增加，无用交易，手续费，更易受滑点影响的缺点，均会导致收益不理想。\n一种解决方案是从海选列表中选出一个合格的列表，只要买入的品种还在合格列表中，就不进行调仓。举个例子说明，以前只要排名第一的尖子生，现在是只要考试及格都可以留下，这样就降低了交易次数。缺点是这种策略不能及时更换到最优解，当尖子生远超合格生的时候，策略不会进行任何反应，也会导致收益不理想。\n所以，理想状况下的轮动池子应该是可以根据一定标准更新的动态股票池，其更新标准应该是：一直保持无交集且高度差异化的少数几只etf，且这几只etf的并集又可以代表市场上绝大多数风格。\n\n\n**相关系数的计算结果**\n为了达到上述标准，可以先从相关性系数的角度出发。计算相关性系数的方法采用pearson系数，取值为[-1,1]。系数计算公式如下：\n![Img]( https://image.joinquant.com/346628f923cfc9ff83c8a80d8d4e72b7) \n```\ndef get_matrix(index_list, start_dt, end_dt):\n    total_close_list = []\n    df = get_price(index_list, start_dt, end_dt, fields='close', panel=False)\n    for index in index_list:\n        df_i = df[df.code == index]\n        close_list = df_i.close.values\n        total_close_list.append(close_list)\n    matrix = np.corrcoef(total_close_list)\n    print(matrix)\n```\n指数间的相关性\n&gt; ![Img]( https://image.joinquant.com/07e1b82ad20e0be1a82d392702cc3748) \n\n\n**对相关系数的选择**\n1.排除掉相关性系数小于零的品种\n有人认为风格的差异化体现在相关性系数上应该是负相关，即系数小于零。然而从常识上判断，主流指数会不断创新高，如果一个品种与主流指数长期负相关，那一定是不断创新低的，而长期创新低的品种没有轮动价值。从上图指数间的相关性也能看出，指数间长期的相关性没有为负数的。\n不过值得一提的是，长期正相关，但是短期负相关，对于两个指数来说可能是轮动的机会。如果是股票与指数出现了短期负相关，可能是资金控盘，比如指数下跌时的抗跌，上涨时的滞涨，机会还是风险不能一概而论。\n负相关示例\n![Img]( https://image.joinquant.com/13276bf70c2fd68d14926a84eec1f87d) \n\n2.排除高度正相关的品种\n试过轮动模型的人应该都清楚，典型的组合如沪深300与上证50间就没有轮动价值，因为二者走势高度一致。其背后的原因是成分股的大量重合\n通过下属代码可以查看两个指数间重合的股票数量\n```\ndef get_intersection_list(index_1, index_2):\n    stock_list1 = get_index_stocks(index_1)\n    stock_list2 = get_index_stocks(index_2)\n    inter_list = list(set(stock_list1).intersection(set(stock_list2)))\n    print('{}包含股票数量{}只'.format(index_1, len(get_index_stocks(index_1))))\n    print('{}包含股票数量{}只'.format(index_2, len(get_index_stocks(index_2))))\n    print('交集股票数量{}只'.format(len(inter_list)))\n    return inter_list\n```\n000016.XSHG包含股票数量50只\n000300.XSHG包含股票数量300只\n交集股票数量50只\n\n可见沪深300是完全包含上证50的，同理也可以测试其它任意两个指数，如果指数间重合度较高，则没有轮动的必要。\n高度正相关的另一种典型是一个指数长期碾压另一个指数，比如纳斯达克与德国30，这种情况也没有轮动的必要。\n上述二者均体现在相关系数大于0.9\n\n沪深300与上证50示例\n![Img]( https://image.joinquant.com/640b9b5de4425b47a302f83d12fbc320) \n德30与纳指示例\n![Img]( https://image.joinquant.com/238f7572184872a9a736f1ff32474fad) \n\n3.从基本面出发的筛选\n既然我不想要负相关，也不想要高度正相关，那么选择的区间可以在[0,0.9]。因为相关性会在一定范围呢变化，所以出于安全性考虑，可以缩小一点范围到[0.15,0.85]。\n现在的问题是，选择0.15与0.85有没有区别？答案是这时候从数字上就很难区分了。比如下面三种情况：\n图一：\n![Img]( https://image.joinquant.com/7c7ddae63c17dd41c6fcaa1f5979ef22) \n图二：\n![Img]( https://image.joinquant.com/2e3422d474ce569cd9c80e32c4d81b15) \n图三：\n![Img]( https://image.joinquant.com/40daccf4944b1cadffe7d9cf5727cc94) \n图一是不适合轮动的，因为二者长期趋势都是下降！无论选哪个长期来看，只能是下降的缓慢。这种情况可能会出现在某些行业的etf上，对于这方面判断需要基本面分析。不过，总得来讲，大盘指数的相关etf应该不会出现图一的情形，所以出于稳健的考虑，可以放弃行业etf，只在指数etf间轮动，除非对某个行业很有自信。\n再看图二，相关系数与图一非常相近，但二者的趋势都是上升，这就是非常理想的轮动品种。图三与图二的相关系数差别显著，但是不影响进行轮动。\n所以在这一阶段，应该更多的从基本面上分析轮动的可行性，而不再是相关系数。\n从基本面出发，大盘蓝筹与小盘成长股之间，由于价值因子的风格不同猜测可能存在轮动；新兴行业与传统行业之间，由于发展的周期不同猜测可能存在轮动；国家之间，由于财政政策的不同猜测可能存在轮动；以上三中猜测可能出现图二，三的形态。\n\n**结论**\netf间的轮动应该重质而不是量，不是选的越多越好，因为很多etf的成分股都是重合的。etf间应该有一定差异性，但是从相关系数的角度出发，只能说系数小于零和接近一是不好的。从基本面考虑，应该利用大企业与小企业，新兴产业与传统产业，发达国家与发展中国家的差别进行轮动。\n\n**风险提示**\n1.轮动效应不存在时期，导致的暂时失效\n2.基于历史拟合的参数在未来不能正确捕捉轮动效应\n3.轮动标的的选择存在问题或失效，即预设股票池本身是一种过拟合\n4.欢迎补充",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-09-02 15:55:12",
+      "modTime": "2022-11-11 21:50:46",
+      "lastActiveTime": "2026-07-21 16:13:45",
+      "lastPubTime": "2022-11-11 21:50:46",
+      "backtestId": "76538ea719edbb12361d6ab3895f8e6d",
+      "backtestName": "最高评分轮动_ETF",
+      "replyCount": "229",
+      "viewCount": "18103",
+      "collectionCount": "512",
+      "likeCount": "310",
+      "disLikeCount": "0",
+      "backtestCloneCount": "653",
+      "notebookCloneCount": "196",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "37",
+      "followersCount": "9584",
+      "followingCount": "39",
+      "author": {
+        "userId": "6b674503a18b507d1a063c433305ee02",
+        "alias": "wywy1995",
+        "introduction": "从历史中发现规律比画出美丽的图形更重要",
+        "vipType": "VIP",
+        "headImgKey": "6784510f0c6abdbcf9a1fed9081a4658"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        },
+        {
+          "id": "10",
+          "name": "研究"
+        },
+        {
+          "id": "2",
+          "name": "心得"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "76538ea719edbb12361d6ab3895f8e6d",
+        "backtest_name": "最高评分轮动_ETF",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=76538ea719edbb12361d6ab3895f8e6d&postId=70111684c3fb07f8860e00b6f37ebd5f&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2011-08-01",
+          "end_date": "2021-08-31",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "74e4fda6ea18aea7c0a835db5425513a",
+            "21711143"
+          ],
+          "numeric_backtest_id": "21711143",
+          "numeric_post_id": "34475",
+          "python_version": 3,
+          "clone_count": 632
+        },
+        "stats": {
+          "trading_days": 2454,
+          "benchmark_volatility": 0.22852020210222,
+          "algorithm_volatility": 0.27002906456296,
+          "treasury_return": 0.40361643835616,
+          "algorithm_return": 7.9552903341,
+          "benchmark_return": 0.61691811795106,
+          "annual_algo_return": 0.25023781764072,
+          "annual_bm_return": 0.050170915911459,
+          "sharpe": 0.77857477298225,
+          "excess_return_sharpe": "0.699",
+          "sortino": 1.0425856659885,
+          "information": 0.93119642211885,
+          "beta": 0.75617304919434,
+          "alpha": 0.20254684514285,
+          "excess_return": 4.5384934058678,
+          "avg_excess_return": "0.08%",
+          "max_drawdown": 0.41377653137039,
+          "max_drawdown_period": [
+            "2015-06-03",
+            "2016-05-13"
+          ],
+          "excess_return_max_drawdown": "34.33%",
+          "excess_return_max_drawdown_period": [
+            "2016-02-01",
+            "2018-03-08"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-08",
+          "__version": 101,
+          "win_ratio": 0.53333333333333,
+          "profit_loss_ratio": 2.308060934549,
+          "win_count": 56,
+          "lose_count": 49,
+          "day_win_ratio": 0.51752241238794,
+          "avg_trade_return": 0.025082651300684,
+          "avg_position_days": 818,
+          "turnover_rate": 0.045107715218066,
+          "report_done_seconds": 291.95222783089,
+          "report_done_cpu_seconds": 275.53
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 795.529033,
+          "benchmark_return_percent": 61.691812,
+          "annual_algo_return_percent": 25.023782,
+          "annual_bm_return_percent": 5.017092,
+          "max_drawdown_percent": 41.377653,
+          "algorithm_volatility_percent": 27.002906,
+          "benchmark_volatility_percent": 22.85202,
+          "win_ratio_percent": 53.333333,
+          "day_win_ratio_percent": 51.752241,
+          "avg_trade_return_percent": 2.508265,
+          "turnover_rate_percent": 4.510772,
+          "sharpe": 0.77857477298225,
+          "sortino": 1.0425856659885,
+          "information": 0.93119642211885,
+          "alpha": 0.20254684514285,
+          "beta": 0.75617304919434,
+          "profit_loss_ratio": 2.308060934549,
+          "avg_position_days": 818,
+          "trading_days": 2454,
+          "win_count": 56,
+          "lose_count": 49,
+          "max_drawdown_period": [
+            "2015-06-03",
+            "2016-05-13"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2016-02-01",
+            "2018-03-08"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/34475",
+      "https://www.joinquant.com/community/post/detailV2?postId=34475",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=76538ea719edbb12361d6ab3895f8e6d&postId=70111684c3fb07f8860e00b6f37ebd5f&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=76538ea719edbb12361d6ab3895f8e6d"
+    ]
+  }
+}

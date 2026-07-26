@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/56.韶华研究之五-ETF轮动，躺赚，夏普2.txt",
+    "category": "2023年度精选策略",
+    "file_name": "56.韶华研究之五-ETF轮动，躺赚，夏普2.txt",
+    "strategy_name": "韶华研究之五-ETF轮动，躺赚，夏普2",
+    "declared_title": "韶华研究之五-ETF轮动，躺赚，夏普2",
+    "declared_author": "韶华不负",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 16865,
+    "sha256": "e60642e66d27ca76257bc82f066857878f68fddc6b8aed974d05ff154f579e63",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/32253",
+      "https://www.joinquant.com/post/32187",
+      "https://www.joinquant.com/post/27798",
+      "https://www.joinquant.com/view/community/detail/51d97afb8d619ffb5219d2e166414d70"
+    ],
+    "primary_url": "https://www.joinquant.com/post/32253",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:09:21+08:00",
+    "requested_url": "https://www.joinquant.com/post/32253",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/90c46f217bf2b4d4f2437091cf57676b",
+    "community_id": "90c46f217bf2b4d4f2437091cf57676b",
+    "post": {
+      "postId": "da2d018756c8b701626238b965f09b3a",
+      "uniqueKey": "90c46f217bf2b4d4f2437091cf57676b",
+      "title": "韶华研究之五-ETF轮动，躺赚，夏普2",
+      "content": "刚入坑量化时，就研究过行业轮动这个主题，开发(ni he)了一个抓取行业盘整低谷的策略，以为发现了宝，实盘是坨翔。\n反面参考：https://www.joinquant.com/view/community/detail/29873\n\n随着坑越入越深，发现闭门造出的轮子肯定没有专家们的好，同样去选的个股肯定没有基金经理们选好的篮子稳，于是乎有了这一个轮动新篇。\n\n澄清:\netf_list中我是选自集思录ETF列表，我没有去打开一个个看表现。\n我的选择标准是，1-有指数对应，2-在JQ数据能查到，3-规模10亿以上，4-同指数对应多个时我会选更早发行，规模更大的，5-同行业不同指数的ETF我会选择代表面更广的，比如对应中证，国证指数，全指。\n\n策略主旨，\n1，以场内ETF为标的，代表市场的ETF和代表行业的ETF经回测发现共存会降低收益。\n2，以BBI，或者周期涨幅为择时点，框架具备可选参数，分享的是20日涨幅为择时点。\n3，ETF的选择要有区分度，ETF池最终是选自集思录上10亿规模以上，同指数的多个ETF则选择发布早的，规模大的。g.etf_list已经构造了多个池子，回测时可自行切换。\n4，同时以几个主要的市场指数和阈值做对比判断是否开关仓。\n\n策略意义，\n从你选择个股进行投资升级为你选择基金，择时的选择让你尽量在上升的通道上，进入稳赚模式。\n\n后续提升，\n1，有时间的宽友可以试试更多的择时指标，比如RSI，计算线性系数，金叉等。\n2，我没有找到比较有代表性的AI指数/ETF，芯片指数/ETF，可以加入测试。\n3，是否可以通过市场和行业指数的定位矩阵找到更精确的个股为增长标的。\n\n参考，\n参考1，将就的宽基BBI轮动思路构建，原帖-https://www.joinquant.com/post/32187\n参考2，hugo的复现基金经理的超额收益，https://www.joinquant.com/view/community/detail/51d97afb8d619ffb5219d2e166414d70\n\n附图是行业ETF的20年至今回测，收益更高，但回撤也会更大些。\n![Img]( https://image.joinquant.com/e4aae2b3679f19e3cdd83fc617132946)\n回测是市场ETF的20年至今回测，收益稍逊，但回撤更小",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-03-14 13:45:07",
+      "modTime": "2021-03-15 19:46:38",
+      "lastActiveTime": "2026-05-15 14:54:50",
+      "lastPubTime": "2021-03-15 19:46:38",
+      "backtestId": "2d88272baf1669e19b55331534ad6499",
+      "backtestName": "市场ETF精选-涨幅中20-持1池2-中开关",
+      "replyCount": "60",
+      "viewCount": "6647",
+      "collectionCount": "104",
+      "likeCount": "46",
+      "disLikeCount": "0",
+      "backtestCloneCount": "293",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "50",
+      "followersCount": "2273",
+      "followingCount": "40",
+      "author": {
+        "userId": "49969393594dbc7763ce8b6d90ce9672",
+        "alias": "韶华不负",
+        "vipType": "VIP",
+        "headImgKey": "734ca8e800f5981ca6212705718a8ed1"
+      },
+      "tags": [
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "11",
+          "name": "轮动"
+        },
+        {
+          "id": "1334",
+          "name": "etf"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "2d88272baf1669e19b55331534ad6499",
+        "backtest_name": "市场ETF精选-涨幅中20-持1池2-中开关",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=2d88272baf1669e19b55331534ad6499&postId=90c46f217bf2b4d4f2437091cf57676b&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2020-01-01",
+          "end_date": "2021-03-11",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "5c2549a9a14c593f9ef94207fe9c10e5",
+            "20036637"
+          ],
+          "numeric_backtest_id": "20036637",
+          "numeric_post_id": "32253",
+          "python_version": 3,
+          "clone_count": 290
+        },
+        "stats": {
+          "trading_days": 287,
+          "benchmark_volatility": 0.23270640058965,
+          "algorithm_volatility": 0.28072107321629,
+          "treasury_return": 0.047561643835616,
+          "algorithm_return": 0.72661587637,
+          "benchmark_return": 0.25182957491371,
+          "annual_algo_return": 0.60922395736142,
+          "annual_bm_return": 0.21610113306834,
+          "sharpe": 2.0277207935966,
+          "excess_return_sharpe": "1.485",
+          "sortino": 2.7649507231232,
+          "information": 2.0603012803902,
+          "beta": 0.89145607487285,
+          "alpha": 0.41223753249566,
+          "excess_return": 0.37927391313552,
+          "avg_excess_return": "0.12%",
+          "max_drawdown": 0.13558249546275,
+          "max_drawdown_period": [
+            "2020-08-03",
+            "2020-10-23"
+          ],
+          "excess_return_max_drawdown": "12.59%",
+          "excess_return_max_drawdown_period": [
+            "2020-08-03",
+            "2020-10-23"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-03",
+          "__version": 101,
+          "win_ratio": 0.52,
+          "profit_loss_ratio": 2.798385999042,
+          "win_count": 13,
+          "lose_count": 12,
+          "day_win_ratio": 0.49825783972125,
+          "avg_trade_return": 0.025208046192275,
+          "avg_position_days": 39.833333333333,
+          "turnover_rate": 0.087663073518476,
+          "report_done_seconds": 51.547479867935,
+          "report_done_cpu_seconds": 53.03
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 72.661588,
+          "benchmark_return_percent": 25.182957,
+          "annual_algo_return_percent": 60.922396,
+          "annual_bm_return_percent": 21.610113,
+          "max_drawdown_percent": 13.55825,
+          "algorithm_volatility_percent": 28.072107,
+          "benchmark_volatility_percent": 23.27064,
+          "win_ratio_percent": 52.0,
+          "day_win_ratio_percent": 49.825784,
+          "avg_trade_return_percent": 2.520805,
+          "turnover_rate_percent": 8.766307,
+          "sharpe": 2.0277207935966,
+          "sortino": 2.7649507231232,
+          "information": 2.0603012803902,
+          "alpha": 0.41223753249566,
+          "beta": 0.89145607487285,
+          "profit_loss_ratio": 2.798385999042,
+          "avg_position_days": 39.833333333333,
+          "trading_days": 287,
+          "win_count": 13,
+          "lose_count": 12,
+          "max_drawdown_period": [
+            "2020-08-03",
+            "2020-10-23"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-08-03",
+            "2020-10-23"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/32253",
+      "https://www.joinquant.com/community/post/detailV2?postId=32253",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=2d88272baf1669e19b55331534ad6499&postId=90c46f217bf2b4d4f2437091cf57676b&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=2d88272baf1669e19b55331534ad6499"
+    ]
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/30.跟着基金报团！！！174% 回撤 7.33%.txt",
+    "category": "2023年度精选策略",
+    "file_name": "30.跟着基金报团！！！174% 回撤 7.33%.txt",
+    "strategy_name": "跟着基金报团！！！174% 回撤 7.33%",
+    "declared_title": "跟着基金报团！！！174%  回撤  7.33%",
+    "declared_author": "仓又加错了啊",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 7690,
+    "sha256": "30290425ab0baedb0b0eebe31e39e0c5386e4ac1de2bba617edf9443d75c7a22",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/31496"
+    ],
+    "primary_url": "https://www.joinquant.com/post/31496",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:09:02+08:00",
+    "requested_url": "https://www.joinquant.com/post/31496",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/8fd3921d5d1115915beac151e1efb0ad",
+    "community_id": "8fd3921d5d1115915beac151e1efb0ad",
+    "post": {
+      "postId": "85d99d270c7fd9cae8fa8037fda026e8",
+      "uniqueKey": "8fd3921d5d1115915beac151e1efb0ad",
+      "title": "跟着基金报团！！！174%  回撤  7.33%",
+      "content": "克隆超过100 已经没有积分了。大家觉得好就点赞吧。谢谢\n\n我最早写过一个基金相关的策略。不过现在已经删帖了。那个策略引起了论坛大佬的各种关注\n\n其中 比较有意思的是 Gyro   的 \n利用聚宽的数据库，研究基金\nhttps://www.joinquant.com/view/community/detail/54ab7d71e14677f57c0a079dc9cf70b8\n\n\n核心代码是一个股票一个股票提取、综合基金持股市值，\n以基金持股权重与指数成分股权重的差，算出最受欢迎的股票\n\n\n我以此为蓝本 每次选10个股票，配以rsrs 大盘择时。\n\n年化 65.31%  回撤  7.33%\n\n\n\n\n另外 这个策略是我把原来的py3 改成py2的。可以直接实盘。  不吃亏 ，不上当。\n\n\n交流qq  64521233",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-01-26 13:37:57",
+      "modTime": "2021-02-15 21:15:41",
+      "lastActiveTime": "2022-08-14 16:53:31",
+      "lastPubTime": "2021-02-15 21:15:41",
+      "backtestId": "1e63792abfb65ca1f95838db2870ab56",
+      "backtestName": "超配股票",
+      "replyCount": "53",
+      "viewCount": "5619",
+      "collectionCount": "79",
+      "likeCount": "66",
+      "disLikeCount": "0",
+      "backtestCloneCount": "302",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "19",
+      "followersCount": "194",
+      "followingCount": "198",
+      "author": {
+        "userId": "13c5e4512162faba7a9bdd52a3b89e40",
+        "alias": "仓又加错了啊",
+        "headImgKey": "a522678e6a5d2e129d19fb37deb8abe8"
+      },
+      "tags": [
+        {
+          "id": "3",
+          "name": "择时"
+        },
+        {
+          "id": "12",
+          "name": "基金"
+        },
+        {
+          "id": "1",
+          "name": "策略"
+        },
+        {
+          "id": "1273",
+          "name": "基金抱团"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "1e63792abfb65ca1f95838db2870ab56",
+        "backtest_name": "超配股票",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=1e63792abfb65ca1f95838db2870ab56&postId=8fd3921d5d1115915beac151e1efb0ad&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2019-01-01",
+          "end_date": "2021-01-25",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "b825a41fa27a52fded90c5616b35ef22",
+            "19546333"
+          ],
+          "numeric_backtest_id": "19546333",
+          "numeric_post_id": "31496",
+          "python_version": 2,
+          "clone_count": 274
+        },
+        "stats": {
+          "benchmark_return": 0.86867287794994,
+          "max_drawdown": 0.073329273452732,
+          "trading_days": 503,
+          "algorithm_volatility": 0.17280682504897,
+          "max_drawdown_period": [
+            "2020-07-13",
+            "2020-07-24"
+          ],
+          "information": 1.5447015432717,
+          "annual_bm_return": 0.36444771929859,
+          "excess_return_max_drawdown": "20.48%",
+          "benchmark_volatility": 0.21239101800614,
+          "annual_algo_return": 0.65306715237691,
+          "sharpe": 3.5477021940723,
+          "excess_return_max_drawdown_period": [
+            "2020-03-23",
+            "2020-08-28"
+          ],
+          "__version": 101,
+          "algorithm_return": 1.749162925,
+          "beta": 0.44403921084555,
+          "alpha": 0.46899964313892,
+          "treasury_return": 0.082630136986301,
+          "max_leverage": 0,
+          "sortino": 6.0464521111533,
+          "period_label": "2021-01",
+          "avg_excess_return": "0.08%",
+          "excess_return": 0.47118468804235,
+          "excess_return_sharpe": "0.912",
+          "turnover_rate": 0.37932517437726,
+          "avg_trade_return": 0.019495279105761,
+          "day_win_ratio": 0.53876739562624,
+          "profit_loss_ratio": 8.7398843182776,
+          "avg_position_days": 81.838709677419,
+          "lose_count": 72,
+          "win_ratio": 0.80645161290323,
+          "win_count": 300,
+          "report_done_seconds": 758.14898490906,
+          "report_done_cpu_seconds": 463.12
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 174.916292,
+          "benchmark_return_percent": 86.867288,
+          "annual_algo_return_percent": 65.306715,
+          "annual_bm_return_percent": 36.444772,
+          "max_drawdown_percent": 7.332927,
+          "algorithm_volatility_percent": 17.280683,
+          "benchmark_volatility_percent": 21.239102,
+          "win_ratio_percent": 80.645161,
+          "day_win_ratio_percent": 53.87674,
+          "avg_trade_return_percent": 1.949528,
+          "turnover_rate_percent": 37.932517,
+          "sharpe": 3.5477021940723,
+          "sortino": 6.0464521111533,
+          "information": 1.5447015432717,
+          "alpha": 0.46899964313892,
+          "beta": 0.44403921084555,
+          "profit_loss_ratio": 8.7398843182776,
+          "avg_position_days": 81.838709677419,
+          "trading_days": 503,
+          "win_count": 300,
+          "lose_count": 72,
+          "max_drawdown_period": [
+            "2020-07-13",
+            "2020-07-24"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-03-23",
+            "2020-08-28"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/31496",
+      "https://www.joinquant.com/community/post/detailV2?postId=31496",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=1e63792abfb65ca1f95838db2870ab56&postId=8fd3921d5d1115915beac151e1efb0ad&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=1e63792abfb65ca1f95838db2870ab56"
+    ]
+  }
+}

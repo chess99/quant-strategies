@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2020年度精选策略/11 酒股地中短线策略.txt",
+    "category": "2020年度精选策略",
+    "file_name": "11 酒股地中短线策略.txt",
+    "strategy_name": "酒股地中短线策略",
+    "declared_title": null,
+    "declared_author": null,
+    "extension": ".txt",
+    "encoding": "gb18030",
+    "size": 1835,
+    "sha256": "7cdc630620241a99acd8c35416b7716eb363af435c658646dd42797e71589638",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/14594"
+    ],
+    "primary_url": "https://www.joinquant.com/post/14594",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:06:23+08:00",
+    "requested_url": "https://www.joinquant.com/post/14594",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/d494acfec874f37d1def5a2456ec35b4",
+    "community_id": "d494acfec874f37d1def5a2456ec35b4",
+    "post": {
+      "postId": "89ab39813beec42a676b4c8406a53220",
+      "uniqueKey": "d494acfec874f37d1def5a2456ec35b4",
+      "title": "酒股地中短线策略",
+      "content": "酒股近年来发展地比较好，所以想到了中短线策略，通过阶梯式的做多做空策略，最大化收益率的情况下尽可能减小波动率。",
+      "type": 1,
+      "status": "1",
+      "addTime": "2018-09-12 13:32:55",
+      "modTime": "2018-09-12 13:32:55",
+      "lastActiveTime": "2020-03-06 15:35:53",
+      "lastPubTime": "2018-09-12 13:32:55",
+      "backtestId": "efe7dd56affeac1587eb9827f34828ea",
+      "backtestName": "这是一个简单的策略-19",
+      "replyCount": "8",
+      "viewCount": "2177",
+      "collectionCount": "7",
+      "likeCount": "6",
+      "disLikeCount": "0",
+      "backtestCloneCount": "101",
+      "notebookCloneCount": "11",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "2",
+      "followersCount": "19",
+      "followingCount": "0",
+      "author": {
+        "userId": "93948d6ed429d5bc2efaaf3e3f9177d6",
+        "alias": "可爱的阿飞",
+        "introduction": "成都市市草"
+      },
+      "tags": []
+    },
+    "backtests": [
+      {
+        "backtest_id": "efe7dd56affeac1587eb9827f34828ea",
+        "backtest_name": "这是一个简单的策略-19",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=efe7dd56affeac1587eb9827f34828ea&postId=d494acfec874f37d1def5a2456ec35b4&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2015-01-01",
+          "end_date": "2016-01-01",
+          "base_capital": 1000000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "6159e4989e7c6101c7c5a016914fb374",
+            "9995637"
+          ],
+          "numeric_backtest_id": "9995637",
+          "numeric_post_id": "14594",
+          "python_version": 2,
+          "clone_count": 381
+        },
+        "stats": {
+          "information": 4.8322291195783,
+          "benchmark_return": 0.055833749563135,
+          "algorithm_volatility": 0.22878228563449,
+          "annual_bm_return": 0.057245288023416,
+          "__version": 101,
+          "max_drawdown": 0.068439698662499,
+          "sortino": 13.135670204332,
+          "period_label": "2015-12",
+          "trading_days": 244,
+          "algorithm_return": 1.76519555,
+          "benchmark_volatility": 0.39268677460641,
+          "beta": 0.23074320668047,
+          "excess_return": 1.7257434952055,
+          "annual_algo_return": 1.8352278116081,
+          "sharpe": 7.8468829290228,
+          "alpha": 1.7912485785495,
+          "max_drawdown_period": [
+            "2015-04-03",
+            "2015-04-09"
+          ],
+          "max_leverage": 0,
+          "treasury_return": 0.039452054794521,
+          "avg_excess_return": null,
+          "excess_return_max_drawdown": null,
+          "excess_return_sharpe": null,
+          "day_win_ratio": 0.52868852459016,
+          "avg_position_days": 18.459459459459,
+          "win_ratio": 0.81111111111111,
+          "win_count": 73,
+          "avg_trade_return": 0.061889448847462,
+          "profit_loss_ratio": 15.953829902934,
+          "lose_count": 17,
+          "report_done_seconds": 68.803884983063
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 176.519555,
+          "benchmark_return_percent": 5.583375,
+          "annual_algo_return_percent": 183.522781,
+          "annual_bm_return_percent": 5.724529,
+          "max_drawdown_percent": 6.84397,
+          "algorithm_volatility_percent": 22.878229,
+          "benchmark_volatility_percent": 39.268677,
+          "win_ratio_percent": 81.111111,
+          "day_win_ratio_percent": 52.868852,
+          "avg_trade_return_percent": 6.188945,
+          "sharpe": 7.8468829290228,
+          "sortino": 13.135670204332,
+          "information": 4.8322291195783,
+          "alpha": 1.7912485785495,
+          "beta": 0.23074320668047,
+          "profit_loss_ratio": 15.953829902934,
+          "avg_position_days": 18.459459459459,
+          "trading_days": 244,
+          "win_count": 73,
+          "lose_count": 17,
+          "max_drawdown_period": [
+            "2015-04-03",
+            "2015-04-09"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/14594",
+      "https://www.joinquant.com/community/post/detailV2?postId=14594",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=efe7dd56affeac1587eb9827f34828ea&postId=d494acfec874f37d1def5a2456ec35b4&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=efe7dd56affeac1587eb9827f34828ea"
+    ]
+  }
+}

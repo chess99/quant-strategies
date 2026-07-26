@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2025年度精选策略/31.RSRS择时+货币基金--6年8倍行业周期股策略.txt",
+    "category": "2025年度精选策略",
+    "file_name": "31.RSRS择时+货币基金--6年8倍行业周期股策略.txt",
+    "strategy_name": "RSRS择时+货币基金--6年8倍行业周期股策略",
+    "declared_title": "RSRS择时+货币基金--6年8倍行业周期股策略",
+    "declared_author": "南开小楼",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 13282,
+    "sha256": "10616b089bcd46f4a635957838c6a2f2040ba0d4c3d3cc05723fd3819c387e8f",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/24224",
+      "https://www.joinquant.com/post/22062"
+    ],
+    "primary_url": "https://www.joinquant.com/post/24224",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:11:04+08:00",
+    "requested_url": "https://www.joinquant.com/post/24224",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/dddd7e26aa6a73e6a2b23ab976c252ac",
+    "community_id": "dddd7e26aa6a73e6a2b23ab976c252ac",
+    "post": {
+      "postId": "59f95066c66888a5c23fa3376226e669",
+      "uniqueKey": "dddd7e26aa6a73e6a2b23ab976c252ac",
+      "title": "RSRS择时+货币基金--6年8倍行业周期股策略",
+      "content": "## 写在卷首:为避免骗分嫌疑，首先声明这个策略源自论坛里的大神：K线放荡不羁 和 只看年报来投资 两位大神的源码，我进行了简单的整合，并加入了银华日利的对冲，跑起来还行。\n\n\n## K线放荡不羁 大神的源码请移步：https://www.joinquant.com/view/community/detail/713a60a2a1daaac2276dab73eb322ddc\n\n\n## 只看年报来投资 大神的源码请移步：\n\n## https://www.joinquant.com/view/community/detail/d7fdcc62de0b90a1cff20c773ed19548\n\n\n\nK线大神的RSRS择时思路非常值得学习，利用5年周期的数据计算RSRS的斜率，值得学习。但我不喜欢ROA选股的策略，因为波动太大，所以采用只看年报大神的行业周期股策略。\n只看年报大神的策略非常适合我一直以来的投资理念，即：赚取市场给予你该赚的钱。但大神的策略没有止损相关的模块，我加入了K线大神的RSRS择时策略，同时为了避免空仓的时候资金站岗，在RSRS进入买空阶段买入银华日利货币基金，保证小资金也能稳定获利。\n\n通过整合，将原本40%以上回撤的策略尽量控制在26%，很完美，可以接近实战了。\n\nPS:初学PY,源码整理的比较乱，见笑了。有能力的同学发个更好的学习学习。",
+      "type": 1,
+      "status": "0",
+      "addTime": "2019-12-05 00:57:36",
+      "modTime": "2019-12-05 00:57:36",
+      "lastActiveTime": "2025-01-28 21:01:50",
+      "lastPubTime": "2019-12-05 00:57:36",
+      "backtestId": "8b12481ddabbfc255932a18b8ae3dc22",
+      "backtestName": "这是一个简单的策略-196",
+      "replyCount": "24",
+      "viewCount": "3870",
+      "collectionCount": "52",
+      "likeCount": "20",
+      "disLikeCount": "0",
+      "backtestCloneCount": "204",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "12",
+      "followersCount": "498",
+      "followingCount": "7",
+      "author": {
+        "userId": "9c64d10599bbd224778aa4b94a2718ef",
+        "alias": "南开小楼",
+        "headImgKey": "7ca08f716a0139778db6d2a6f105a1f6"
+      },
+      "tags": [
+        {
+          "id": "1",
+          "name": "策略"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "8b12481ddabbfc255932a18b8ae3dc22",
+        "backtest_name": "这是一个简单的策略-196",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=8b12481ddabbfc255932a18b8ae3dc22&postId=dddd7e26aa6a73e6a2b23ab976c252ac&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2013-04-18",
+          "end_date": "2019-12-01",
+          "base_capital": 100000,
+          "frequency_code": "day",
+          "frequency_label": "每天",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "9b2821921ae5c0e9be762b027de355bf",
+            "15634665"
+          ],
+          "numeric_backtest_id": "15634665",
+          "numeric_post_id": "24224",
+          "python_version": 2,
+          "clone_count": 194
+        },
+        "stats": {
+          "benchmark_return": 0.557338507283,
+          "max_drawdown": 0.26810038521626,
+          "trading_days": 1613,
+          "algorithm_volatility": 0.22423259541206,
+          "max_drawdown_period": [
+            "2019-04-08",
+            "2019-11-15"
+          ],
+          "information": 1.4852967783509,
+          "annual_bm_return": 0.07106931988467,
+          "excess_return_max_drawdown": "23.85%",
+          "benchmark_volatility": 0.23572502293005,
+          "annual_algo_return": 0.40874429031295,
+          "sharpe": 1.6444722928677,
+          "excess_return_max_drawdown_period": [
+            "2019-04-08",
+            "2019-11-18"
+          ],
+          "__version": 101,
+          "algorithm_return": 8.125678269,
+          "beta": 0.48735253294299,
+          "alpha": 0.35360257857034,
+          "treasury_return": 0.26476712328767,
+          "max_leverage": 0,
+          "sortino": 2.3306629504789,
+          "period_label": "2019-11",
+          "avg_excess_return": "0.12%",
+          "excess_return": 4.8597910642569,
+          "excess_return_sharpe": "1.196",
+          "turnover_rate": 0.027179948482388,
+          "avg_trade_return": 0.078782982747102,
+          "day_win_ratio": 0.50650960942343,
+          "profit_loss_ratio": 4.2529333335888,
+          "avg_position_days": 80.757575757576,
+          "lose_count": 46,
+          "win_ratio": 0.72289156626506,
+          "win_count": 120,
+          "report_done_seconds": 414.05353498459
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 812.567827,
+          "benchmark_return_percent": 55.733851,
+          "annual_algo_return_percent": 40.874429,
+          "annual_bm_return_percent": 7.106932,
+          "max_drawdown_percent": 26.810039,
+          "algorithm_volatility_percent": 22.42326,
+          "benchmark_volatility_percent": 23.572502,
+          "win_ratio_percent": 72.289157,
+          "day_win_ratio_percent": 50.650961,
+          "avg_trade_return_percent": 7.878298,
+          "turnover_rate_percent": 2.717995,
+          "sharpe": 1.6444722928677,
+          "sortino": 2.3306629504789,
+          "information": 1.4852967783509,
+          "alpha": 0.35360257857034,
+          "beta": 0.48735253294299,
+          "profit_loss_ratio": 4.2529333335888,
+          "avg_position_days": 80.757575757576,
+          "trading_days": 1613,
+          "win_count": 120,
+          "lose_count": 46,
+          "max_drawdown_period": [
+            "2019-04-08",
+            "2019-11-15"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2019-04-08",
+            "2019-11-18"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/24224",
+      "https://www.joinquant.com/community/post/detailV2?postId=24224",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=8b12481ddabbfc255932a18b8ae3dc22&postId=dddd7e26aa6a73e6a2b23ab976c252ac&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=8b12481ddabbfc255932a18b8ae3dc22"
+    ]
+  }
+}

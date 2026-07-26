@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "local": {
+    "source_root": "D:\\BaiduNetdiskDownload\\2020-2026聚宽600条源码",
+    "relative_path": "2023年度精选策略/47.动量ETF轮动-RSRS择时-卡尔曼滤波.txt",
+    "category": "2023年度精选策略",
+    "file_name": "47.动量ETF轮动-RSRS择时-卡尔曼滤波.txt",
+    "strategy_name": "动量ETF轮动-RSRS择时-卡尔曼滤波",
+    "declared_title": "动量ETF轮动-RSRS择时-卡尔曼滤波",
+    "declared_author": "莫急莫急",
+    "extension": ".txt",
+    "encoding": "utf-8-sig",
+    "size": 8581,
+    "sha256": "3bfda3a9fe80661ed94e1a19ed1b214b6576d12b8cf1bdcdaaf58a5d4a2d2805",
+    "joinquant_urls": [
+      "https://www.joinquant.com/post/35416"
+    ],
+    "primary_url": "https://www.joinquant.com/post/35416",
+    "url_selection_method": "source_hint"
+  },
+  "remote": {
+    "status": "ok",
+    "collected_at": "2026-07-27T02:07:42+08:00",
+    "requested_url": "https://www.joinquant.com/post/35416",
+    "canonical_url": "https://www.joinquant.com/view/community/detail/c47541c508df3938c6eb7bdcf40f85a9",
+    "community_id": "c47541c508df3938c6eb7bdcf40f85a9",
+    "post": {
+      "postId": "4dcca4bed1b0a71f72f4fccec4092445",
+      "uniqueKey": "c47541c508df3938c6eb7bdcf40f85a9",
+      "title": "动量ETF轮动-RSRS择时-卡尔曼滤波",
+      "content": "试了下卡尔曼滤波的效果，基本与不滤波条件差不多，比预期差点，按说滤波后效果应该能多多少少提升一点的。\n也许参数还可以优化优化，感兴趣的可以试试。\n卡尔曼滤波效果如下，相对MA具有更高的灵敏性。\n![Img]( https://image.joinquant.com/e6295cea6b34096befe3bf2b124efb77) \n\n经过前几次滤波的测试，好像滤波效果不是很大，这个结论不是很严格，可能我的参数没优化、滤波方法没选好等等。\n\n滤波代码：\nfrom pykalman import KalmanFilter\ndef kalman_filter(observations,damping=1):\n    observation_covariance = damping\n    initial_value_guess = observations[0]\n    transition_matrix = 1\n    transition_covariance = 0.1\n\n    kf = KalmanFilter(\n        initial_state_mean=initial_value_guess,\n        initial_state_covariance=observation_covariance,\n        transition_matrices=transition_matrix,\n        observation_covariance=observation_covariance,\n        transition_covariance=transition_covariance,\n        transition_offsets=None)\n    pre, cov = kf.smooth(observations)\n    return pre",
+      "type": 1,
+      "status": "0",
+      "addTime": "2021-11-14 22:09:17",
+      "modTime": "2021-11-14 22:09:17",
+      "lastActiveTime": "2025-04-23 08:18:30",
+      "lastPubTime": "2021-11-14 22:09:17",
+      "backtestId": "ab22a1550da3713d006b253ef7f2ecda",
+      "backtestName": "11.ETF动量轮动RSRS择时-魔改4-卡尔曼滤波",
+      "replyCount": "244",
+      "viewCount": "10152",
+      "collectionCount": "141",
+      "likeCount": "80",
+      "disLikeCount": "0",
+      "backtestCloneCount": "520",
+      "notebookCloneCount": "0",
+      "fileDownloadCount": "0",
+      "fileSize": 0,
+      "postCount": "19",
+      "followersCount": "1787",
+      "followingCount": "13",
+      "author": {
+        "userId": "b35841006a9196b290acbf2ce2770099",
+        "alias": "莫急莫急"
+      },
+      "tags": [
+        {
+          "id": "21",
+          "name": "讨论"
+        }
+      ]
+    },
+    "backtests": [
+      {
+        "backtest_id": "ab22a1550da3713d006b253ef7f2ecda",
+        "backtest_name": "11.ETF动量轮动RSRS择时-魔改4-卡尔曼滤波",
+        "location": "post",
+        "reply_id": null,
+        "reply_add_time": null,
+        "summary_url": "https://www.joinquant.com/algorithm/backtest/summary?backtestId=ab22a1550da3713d006b253ef7f2ecda&postId=c47541c508df3938c6eb7bdcf40f85a9&replyId=&iframe=1",
+        "configuration": {
+          "start_date": "2018-01-01",
+          "end_date": "2021-10-29",
+          "base_capital": 100000,
+          "frequency_code": "minute",
+          "frequency_label": "分钟",
+          "backtest_type": 0,
+          "page_backtest_ids": [
+            "c5c03c7ea0bb5e33a3ceb8c121e7e2f8",
+            "22499805"
+          ],
+          "numeric_backtest_id": "22499805",
+          "numeric_post_id": "35416",
+          "python_version": 3,
+          "clone_count": 1047
+        },
+        "stats": {
+          "trading_days": 928,
+          "benchmark_volatility": 0.28654384701933,
+          "algorithm_volatility": 0.26237919015966,
+          "treasury_return": 0.15298630136986,
+          "algorithm_return": 5.4996550415,
+          "benchmark_return": 0.91177359997718,
+          "annual_algo_return": 0.65573125069885,
+          "annual_bm_return": 0.19074293079305,
+          "sharpe": 2.3467228872998,
+          "excess_return_sharpe": "1.794",
+          "sortino": 3.609368593587,
+          "information": 2.3926206027624,
+          "beta": 0.6892263543535,
+          "alpha": 0.51183525006379,
+          "excess_return": 2.3998037432767,
+          "avg_excess_return": "0.14%",
+          "max_drawdown": 0.20181621397806,
+          "max_drawdown_period": [
+            "2021-02-10",
+            "2021-03-25"
+          ],
+          "excess_return_max_drawdown": "14.80%",
+          "excess_return_max_drawdown_period": [
+            "2020-08-20",
+            "2020-12-21"
+          ],
+          "max_leverage": 0,
+          "period_label": "2021-10",
+          "__version": 101,
+          "win_ratio": 0.63768115942029,
+          "profit_loss_ratio": 3.2671042490634,
+          "win_count": 44,
+          "lose_count": 25,
+          "day_win_ratio": 0.52155172413793,
+          "avg_trade_return": 0.030582396773824,
+          "avg_position_days": 195.75,
+          "turnover_rate": 0.070585533581966,
+          "report_done_seconds": 134.19991111755,
+          "report_done_cpu_seconds": 132.17
+        },
+        "display_metrics": {
+          "algorithm_return_percent": 549.965504,
+          "benchmark_return_percent": 91.17736,
+          "annual_algo_return_percent": 65.573125,
+          "annual_bm_return_percent": 19.074293,
+          "max_drawdown_percent": 20.181621,
+          "algorithm_volatility_percent": 26.237919,
+          "benchmark_volatility_percent": 28.654385,
+          "win_ratio_percent": 63.768116,
+          "day_win_ratio_percent": 52.155172,
+          "avg_trade_return_percent": 3.05824,
+          "turnover_rate_percent": 7.058553,
+          "sharpe": 2.3467228872998,
+          "sortino": 3.609368593587,
+          "information": 2.3926206027624,
+          "alpha": 0.51183525006379,
+          "beta": 0.6892263543535,
+          "profit_loss_ratio": 3.2671042490634,
+          "avg_position_days": 195.75,
+          "trading_days": 928,
+          "win_count": 44,
+          "lose_count": 25,
+          "max_drawdown_period": [
+            "2021-02-10",
+            "2021-03-25"
+          ],
+          "excess_return_max_drawdown_period": [
+            "2020-08-20",
+            "2020-12-21"
+          ]
+        }
+      }
+    ],
+    "backtest_errors": [],
+    "other_user_reply_backtest_count": 0,
+    "request_urls": [
+      "https://www.joinquant.com/post/35416",
+      "https://www.joinquant.com/community/post/detailV2?postId=35416",
+      "https://www.joinquant.com/algorithm/backtest/summary?backtestId=ab22a1550da3713d006b253ef7f2ecda&postId=c47541c508df3938c6eb7bdcf40f85a9&replyId=&iframe=1",
+      "https://www.joinquant.com/algorithm/backtest/stats?backtestId=ab22a1550da3713d006b253ef7f2ecda"
+    ]
+  }
+}

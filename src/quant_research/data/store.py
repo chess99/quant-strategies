@@ -84,6 +84,34 @@ class ResearchDataStore:
             raise FileNotFoundError(f"dataset file does not exist: {path}")
         return pd.read_parquet(path)
 
+    def write_quarantine_parquet(
+        self,
+        dataset: str,
+        frame: pd.DataFrame,
+        filename: str = "data.parquet",
+    ) -> dict:
+        self.initialize()
+        target = self.quarantine_dir / dataset / filename
+        target.parent.mkdir(parents=True, exist_ok=True)
+        handle, temporary_name = tempfile.mkstemp(
+            prefix=f".{target.name}.",
+            suffix=".tmp",
+            dir=target.parent,
+        )
+        os.close(handle)
+        temporary = Path(temporary_name)
+        try:
+            frame.to_parquet(temporary, index=False)
+            temporary.replace(target)
+        finally:
+            if temporary.exists():
+                temporary.unlink()
+        return {
+            "path": target.relative_to(self.root).as_posix(),
+            "bytes": target.stat().st_size,
+            "sha256": sha256_file(target),
+        }
+
     def write_raw_csv(
         self,
         provider: str,

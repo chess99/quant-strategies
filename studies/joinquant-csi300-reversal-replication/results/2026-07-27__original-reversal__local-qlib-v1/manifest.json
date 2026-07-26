@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "platform": "local-qlib",
+  "study": "joinquant-csi300-reversal-replication",
+  "variant": "original-reversal-branch",
+  "run_id": "2026-07-27__original-reversal__local-qlib-v1",
+  "period": {
+    "start": "2008-11-03",
+    "end": "2009-10-30"
+  },
+  "benchmark": "SH000300",
+  "initial_cash": 10000000.0,
+  "costs": {
+    "buy_commission": 0.0003,
+    "sell_commission": 0.0003,
+    "minimum_commission": 5.0,
+    "sell_stamp_tax": 0.001,
+    "maximum_volume_ratio": 0.1
+  },
+  "quality": {
+    "bars": "B",
+    "index_membership": "B",
+    "market_state": "C"
+  },
+  "local_metrics": {
+    "total_return": 1.9935494891502912,
+    "annualized_return": 2.117618552136623,
+    "maximum_drawdown": 0.19546663826993982,
+    "sharpe": 2.8423498468984105,
+    "annualized_volatility": 0.4340036246464599,
+    "longest_underwater_trading_days": 56,
+    "yearly_returns": {
+      "2008": 0.27333014694835134,
+      "2009": 1.350960979228046
+    }
+  },
+  "joinquant_metrics": {
+    "period": [
+      "2008-11-01",
+      "2009-11-01"
+    ],
+    "initial_cash": 10000000.0,
+    "total_return": 2.31510508,
+    "annualized_return": 2.43155566,
+    "maximum_drawdown": 0.19882631,
+    "sharpe": 5.46602
+  },
+  "turnover": 3.144293398977134,
+  "rejected_orders": 0,
+  "source_post": "https://www.joinquant.com/post/30350",
+  "source_strategy_path": "joinquant_post_crawler/sources/2023年度精选策略/66.基于动量和反转效应的沪深300成分股策略.py",
+  "source_strategy_sha256": "d2ade43a303d46fdc33aed0a8a32cf3d74c751b557d771d3fb355e57b45baf29",
+  "source_sha256": "58b0136f2a2810184ee1e6ad2a2530ac64127055e5b545764e90fab5f3c8e8fb",
+  "engine_sha256": "06b5a1f59248f65be39d4c6be9e0e0ddfe5a90116f8084b9e9c02824043963dc",
+  "limitations": [
+    "历史 ST 缺失，按非 ST 涨跌停规则进行探索性复现。",
+    "聚宽 5d 聚合边界以 150 日窗口近似。",
+    "免费 Qlib 价格、复权与聚宽数据可能不同。"
+  ]
+}

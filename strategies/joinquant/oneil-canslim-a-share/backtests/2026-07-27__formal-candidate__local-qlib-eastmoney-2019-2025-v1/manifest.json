@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "strategy_id": "oneil-canslim-a-share",
+  "platform": "joinquant",
+  "strategy_family": "oneil-canslim-a-share",
+  "variant": "formal-candidate",
+  "engine": "local-qlib-eastmoney-daily-v2",
+  "run_id": "local-qlib-eastmoney-2019-2025-v1",
+  "archived_at": "2026-07-27",
+  "period": {
+    "start": "2019-01-01",
+    "end": "2025-12-31"
+  },
+  "benchmark": "沪深300",
+  "costs": {
+    "commission_rate": 0.0003,
+    "minimum_commission": 5.0,
+    "sell_tax_rate": 0.001,
+    "fixed_slippage_per_share": 0.002
+  },
+  "metrics": {
+    "total_return": -0.00994313073698716,
+    "annualized_return": -0.0014810735439843015,
+    "benchmark_total_return": 0.5378539562225342,
+    "benchmark_annualized_return": 0.06591781813737518,
+    "annualized_excess_return": -0.0632308518860627,
+    "max_drawdown": -0.1867319450010122,
+    "max_drawdown_peak": "2019-04-08",
+    "max_drawdown_trough": "2025-07-18",
+    "sharpe": 0.00539244158237665,
+    "calmar": -0.007931548851891802,
+    "annualized_volatility": 0.060084144539435884,
+    "turnover": 16.53689954491185,
+    "longest_underwater_trading_days": 1636,
+    "trade_count": 210,
+    "average_holding_days": 20.114583333333332,
+    "daily_win_rate": 0.18010594467333726,
+    "average_cash_ratio": 0.9295736397788609,
+    "final_equity": 990056.8692630129,
+    "runtime_seconds": 930.2732311999998,
+    "excluded_symbol_count": 2,
+    "scan_count": 359,
+    "eligible_scan_count": 319,
+    "average_watchlist_size": 3.9415041782729805
+  },
+  "source_file": "source.py",
+  "source_sha256": "5a9b6f1df7deab1c9fc39a4d88fd288079db850a358d53e39a701f6da00d8a92",
+  "engine_file": "engine.py",
+  "engine_sha256": "555f502f7cedf8965439520913682e602634b8de9496b03cdf9f9b08c4c21a4b",
+  "common_engine_file": "common_engine.py",
+  "common_engine_sha256": "75db5daffa812602a2c887b6f4ec30df952fbf0b0d17da0f809e765d15692408",
+  "data": {
+    "qlib": {
+      "root": "D:\\code\\_open-source\\_data\\qlib\\cn_data",
+      "calendar_first": "2000-01-04",
+      "calendar_last": "2026-07-23",
+      "calendar_rows": 6434,
+      "files": {
+        "calendars/day.txt": {
+          "size": 70774,
+          "sha256": "6bfe26c7ec40e1c1f433794d80632a281d78213edda2889009e69085753bc99d"
+        },
+        "instruments/all.txt": {
+          "size": 189751,
+          "sha256": "9c3f6c7e13bde3380c06d83a24ee38bc26c31f1339f4b1aa9e3252d0e385622f"
+        },
+        "instruments/csi300.txt": {
+          "size": 502138,
+          "sha256": "d6da9986c9aa1479787de88394cc5c8ab008c2fdcdad4b6199aaad714ce06d33"
+        },
+        "instruments/csi500.txt": {
+          "size": 697593,
+          "sha256": "7f743de9d04082e826b32a1881a911f725704e553ff2c6f83c47d0acc75fc92c"
+        }
+      }
+    },
+    "financials": {
+      "root": "D:\\code\\_open-source\\_data\\oneil",
+      "financials": {
+        "rows": 99713,
+        "symbols": 1310,
+        "first_report": "1988-12-31",
+        "last_report": "2026-06-30",
+        "sha256": "1aaeb1347a989a66d1a80babc98b0f17a0c01bfd00332bf446c7242cb4252b1f"
+      },
+      "industries": {
+        "rows": 1310,
+        "sha256": "b00eb59283e764c9e2e0a641d4e6ab0d555fcda23cc7dd091df106965683510b"
+      }
+    }
+  },
+  "limitations": [
+    "research-grade local backtest, not JoinQuant official matching",
+    "current industry proxy instead of point-in-time SW industry",
+    "historical financial revisions may be backfilled",
+    "local index coverage proxies the JoinQuant market regime",
+    "local financial cache does not include point-in-time earnings forecasts",
+    "daily bars approximate 10:00 execution and limit/paused states",
+    "universe limited to historical CSI300 and CSI500 constituents"
+  ]
+}

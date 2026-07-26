@@ -3,6 +3,7 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+import pytest
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -165,3 +166,22 @@ def test_eastmoney_code_mapping_matches_qlib_symbols():
     assert engine.eastmoney_code("BJ430047") == "430047.BJ"
     assert engine.qlib_symbol("600519.SH") == "SH600519"
     assert engine.qlib_symbol("000001.SZ") == "SZ000001"
+
+
+def test_local_engine_can_load_the_formal_candidate_variant():
+    engine = load_engine()
+
+    logic = engine.load_strategy_logic("formal-candidate")
+
+    assert logic.MIN_LISTING_DAYS == 120
+    assert hasattr(logic, "aggregate_market_states")
+    with pytest.raises(ValueError, match="不支持的策略变体"):
+        engine.load_strategy_logic("unknown")
+
+
+def test_market_risk_budget_only_allows_exposure_gap():
+    engine = load_engine()
+
+    assert engine.market_risk_budget(1_000_000, 400_000, 0.70) == 100_000
+    assert engine.market_risk_budget(1_000_000, 100_000, 0.35) == 0.0
+    assert engine.market_risk_budget(1_000_000, 1_000_000, 0.0) == 0.0

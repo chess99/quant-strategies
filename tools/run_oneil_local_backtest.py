@@ -1,4 +1,4 @@
-"""运行欧奈尔 CAN SLIM 基线的本地 Qlib + 东方财富回测。"""
+"""运行欧奈尔 CAN SLIM 策略族的本地 Qlib + 东方财富回测。"""
 
 import argparse
 import importlib.util
@@ -30,7 +30,7 @@ def load_engine():
 
 def build_parser():
     parser = argparse.ArgumentParser(
-        description="使用本地 Qlib 与东方财富财务缓存回测欧奈尔 CAN SLIM 基线"
+        description="使用本地 Qlib 与东方财富财务缓存回测欧奈尔 CAN SLIM 策略"
     )
     parser.add_argument("--qlib-dir", type=Path, default=DEFAULT_QLIB_DIR)
     parser.add_argument(
@@ -39,6 +39,17 @@ def build_parser():
     parser.add_argument("--start-date", default="2019-01-01")
     parser.add_argument("--end-date", default="2025-12-31")
     parser.add_argument("--initial-cash", type=float, default=1_000_000.0)
+    parser.add_argument(
+        "--variant",
+        choices=("baseline", "formal-candidate"),
+        default="baseline",
+    )
+    parser.add_argument(
+        "--market-symbols",
+        nargs="+",
+        default=("SH000300", "SH000905"),
+        help="formal-candidate 的市场广度代理指数",
+    )
     parser.add_argument(
         "--run-id", default="local-qlib-eastmoney-2019-2025-v1"
     )
@@ -61,6 +72,8 @@ def main():
         start_date=args.start_date,
         end_date=args.end_date,
         initial_cash=args.initial_cash,
+        variant=args.variant,
+        market_symbols=tuple(args.market_symbols),
         verbose=args.verbose,
     )
     backtester = engine.LocalBacktester(

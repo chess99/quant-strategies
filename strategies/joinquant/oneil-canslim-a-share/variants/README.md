@@ -4,6 +4,11 @@
 
 | 变体 | 假设 | 状态 |
 |---|---|---|
+| formal-candidate | 正式候选系统：双基本面通道、点时业绩预告、多指数风险预算和20/50日线持仓退出 | research |
 | institutional-disclosure | 严格按披露日加入基金或流通股东机构持仓变化 | planned |
 | multi-index-market | 用多个 A 股主要指数分别判断市场方向 | planned |
 | chart-patterns | 将通用整理拆成杯柄、双底和平底识别器 | planned |
+
+`formal-candidate` 已完成首次 2019—2025 本地研究回测。它显著增加候选和成交，也捕获过
+2025 年澜起科技、协创数据等主升段，但累计收益 -0.99%、最大回撤 -18.67%，没有达到
+提升为基线的标准。完整事实和限制见策略族 README 与对应不可变回测归档。

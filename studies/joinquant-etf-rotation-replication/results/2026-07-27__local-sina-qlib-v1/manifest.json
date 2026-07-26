@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "study_id": "joinquant-etf-rotation-replication",
+  "run_id": "local-sina-qlib-v1",
+  "archived_at": "2026-07-27",
+  "source_path": "joinquant_post_crawler/sources/2024年度精选策略/3.【回顾3】ETF策略之核心资产轮动.py",
+  "source_sha256": "7f1eecf4411183cecb8992a6574a7d3f340a1e28645a522028040c1a88bfea96",
+  "engine_file": "engine.py",
+  "engine_sha256": "ea07b6d050b521f3aa06a1d07f4242cc94412a5bb8283b2aeb223d7a234ea984",
+  "period": {
+    "start": "2014-01-01",
+    "end": "2023-06-09"
+  },
+  "data_manifests": {
+    "etf_daily": {
+      "path": "D:\\code\\_open-source\\_data\\quant-research\\manifests\\etf_daily.json",
+      "sha256": "286cd491e3803b7de6234078f1738ee60e1d7cc9cd0cae95998a8f1e52b949f8"
+    },
+    "security_master": {
+      "path": "D:\\code\\_open-source\\_data\\quant-research\\manifests\\security_master.json",
+      "sha256": "31e9df725f0d92bc043d8c206e1050d40d3b012cb72180a9946fccd314221be5"
+    }
+  },
+  "joinquant_metrics": {
+    "total_return": 16.95179316,
+    "annualized_return": 0.3692858,
+    "benchmark_total_return": 0.64663116,
+    "benchmark_annualized_return": 0.05578097,
+    "max_drawdown": 0.30612221,
+    "sharpe": 1.337019315484
+  },
+  "local_metrics": {
+    "trading_days": 2297,
+    "total_return": 16.86553540854669,
+    "annualized_return": 0.3685681806908594,
+    "benchmark_total_return": 0.651305079460144,
+    "benchmark_annualized_return": 0.05610671864333705,
+    "max_drawdown": 0.30613696178734573,
+    "sharpe": 1.3985632850471528,
+    "annualized_volatility": 0.2462086365461041,
+    "turnover": 269.7862531601571,
+    "average_cash_ratio": 0.00045715703313210256,
+    "longest_underwater_trading_days": 361
+  },
+  "artifacts": {
+    "equity": "raw/equity.csv",
+    "trades": "raw/trades.csv",
+    "scores": "raw/scores.csv"
+  }
+}

@@ -84,6 +84,30 @@ class ResearchDataStore:
             raise FileNotFoundError(f"dataset file does not exist: {path}")
         return pd.read_parquet(path)
 
+    def write_raw_csv(
+        self,
+        provider: str,
+        dataset: str,
+        filename: str,
+        frame: pd.DataFrame,
+    ) -> dict:
+        """不可变保存原始表；同名内容不同则拒绝覆盖。"""
+        self.initialize()
+        target = self.raw_dir / provider / dataset / filename
+        target.parent.mkdir(parents=True, exist_ok=True)
+        payload = frame.to_csv(index=False).encode("utf-8-sig")
+        expected_hash = hashlib.sha256(payload).hexdigest()
+        if target.exists():
+            if sha256_file(target) != expected_hash:
+                raise FileExistsError(f"raw artifact already exists with other data: {target}")
+        else:
+            target.write_bytes(payload)
+        return {
+            "path": target.relative_to(self.root).as_posix(),
+            "bytes": target.stat().st_size,
+            "sha256": sha256_file(target),
+        }
+
     def write_manifest(self, manifest: DatasetManifest) -> Path:
         self.initialize()
         target = self.manifest_path(manifest.dataset)

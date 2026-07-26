@@ -22,6 +22,7 @@ quant-strategies/
       tests/
       backtests/
   studies/
+  src/quant_research/
   templates/
     strategy-family/
   tools/
@@ -39,6 +40,13 @@ quant-strategies/
 
 - `studies/joinquant-index-timing-replication/`：用本地 Qlib 日线数据独立复现聚宽
   MACD、基础 RSRS 和成交量加权 RSRS 指数择时结果。
+
+本地研究基础设施：
+
+- `src/quant_research/`：日频数据契约、数据源适配、聚宽兼容接口与本地撮合器。
+- 外部数据默认保存在 `D:/code/_open-source/_data/quant-research/`，不提交仓库。
+- 建设范围与质量要求见
+  [`docs/local-research/roadmap.md`](docs/local-research/roadmap.md)。
 
 ## 常用命令
 

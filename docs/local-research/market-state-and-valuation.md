@@ -37,6 +37,17 @@ ST 状态达到 A/B 级，覆盖率 99.9977%，剩余 410 行证据不足而保�
 含“可能”或“申请撤销”的预告/申请不会改变状态；公告生效日固定为公告后的下一交易日。
 当前只分类标题、未解析 PDF 正文，因此该证据层诚实标为 B。
 
+三源交叉核验使用 Baostock 显式状态、固定 Dolt 快照的真实涨跌停/ST 和独立 Qlib
+OHLCV，按四个板块及历史停牌事件确定性抽取 375 只历史股票：
+
+- 停牌比较 594,679 行，一致率 99.9948%；31 行分歧保留在机器报告，不静默覆盖；
+- ST 比较 509,897 行，一致率 100%；
+- Qlib 实际高低价与真实涨跌停边界比较 525,716 行，一致率 100%；
+- 覆盖 2,932 个一字涨跌停、2,928 个买入阻塞和 2,445 个卖出阻塞事件。
+
+该核验满足抽样和第二数据源要求，但不冒充三方全市场逐行共识数据。免费公开源没有
+独立的一字板权威字段，因此一字板由 Qlib 四价与 Dolt 真实限价联合确认。
+
 涨跌停规则包含：
 
 - 科创板上市前 5 个交易日无价格限制；
@@ -64,6 +75,8 @@ D:\code\_open-source\_venvs\quant-research-py312\Scripts\python.exe `
   tools\sync_local_market_state.py --stage all
 
 # 机器验收
+D:\code\_open-source\_venvs\quant-research-py312\Scripts\python.exe `
+  tools\audit_market_state_crosscheck.py
 D:\code\_open-source\_venvs\quant-research-py312\Scripts\python.exe `
   tools\verify_local_market_valuation.py
 ```

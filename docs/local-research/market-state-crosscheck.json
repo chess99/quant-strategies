@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-07-27T05:46:00.399222+00:00",
+  "status": "passed",
+  "scope": {
+    "historical_stock_master": 6115,
+    "selection": "deterministic_stratified_sample_per_board_64",
+    "symbols_checked": 375,
+    "boards": {
+      "beijing": 93,
+      "chinext": 95,
+      "main": 96,
+      "star": 91
+    },
+    "date_range": {
+      "start": "2000-01-04",
+      "end": "2026-07-23"
+    }
+  },
+  "sources": {
+    "qlib_daily": {
+      "provider": "qlib-community-cn",
+      "calendar_sha256": "6bfe26c7ec40e1c1f433794d80632a281d78213edda2889009e69085753bc99d"
+    },
+    "official_status": {
+      "provider": "dolthub/chenditc-investment-data/baostock",
+      "manifest_sha256": "6f916f292139a62bc5d7c2e1b62d2a6e6f586c186543df0c3faae8be54746f5a"
+    },
+    "price_limit": {
+      "provider": "dolthub/chenditc-investment-data",
+      "manifest_sha256": "1d0eae3d1f33616b03174712eaebfb3b700f852fc0084c68deea4b62465ca772"
+    }
+  },
+  "comparisons": {
+    "paused": {
+      "compared_rows": 594679,
+      "matching_rows": 594648,
+      "agreement_ratio": 0.999947871036307
+    },
+    "st": {
+      "compared_rows": 509897,
+      "matching_rows": 509897,
+      "agreement_ratio": 1.0
+    },
+    "price_bounds": {
+      "compared_rows": 525716,
+      "matching_rows": 525716,
+      "agreement_ratio": 1.0
+    },
+    "one_price_limit_events": 2932,
+    "buy_blocked_events": 2928,
+    "sell_blocked_events": 2445
+  },
+  "checks": {
+    "all_requested_symbols_checked": true,
+    "all_stock_boards_sampled": true,
+    "paused_cross_source_rows_present": true,
+    "paused_agreement": true,
+    "st_cross_source_rows_present": true,
+    "st_agreement": true,
+    "price_limit_cross_source_rows_present": true,
+    "price_bounds_agreement": true,
+    "one_price_limit_events_observed": true,
+    "buy_blocked_events_observed": true,
+    "sell_blocked_events_observed": true
+  },
+  "external_report": {
+    "path": "D:/code/_open-source/_data/quant-research/manifests/market_state_crosscheck.json",
+    "sha256": "a1f6b35cc94eb09757594a389c24b72fec56d86a1c3fb45688e90d4d665c8bc0"
+  },
+  "limitations": [
+    "按板块与历史停牌事件确定性抽样，不替代三方全量逐行共识数据。",
+    "一字板及买卖阻塞由独立 Qlib OHLC 与 Dolt 真实涨跌停价联合验证；免费源没有单独的一字板权威字段。",
+    "31 行停牌分歧完整保留在外部报告的 mismatch_samples。"
+  ]
+}

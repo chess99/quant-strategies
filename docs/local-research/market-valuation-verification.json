@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-27T02:37:51.326141+00:00",
+  "generated_at": "2026-07-27T05:46:10.470532+00:00",
   "status": "passed",
   "thresholds": {
     "minimum_current_valuation_coverage": 0.95,
@@ -55,6 +55,22 @@
     "date_range": {
       "start": "2000-01-04",
       "end": "2026-07-23"
+    },
+    "crosscheck": {
+      "symbols_checked": 375,
+      "boards": {
+        "beijing": 93,
+        "chinext": 95,
+        "main": 96,
+        "star": 91
+      },
+      "paused_agreement_ratio": 0.999947871036307,
+      "st_agreement_ratio": 1.0,
+      "price_bounds_agreement_ratio": 1.0,
+      "one_price_limit_events": 2932,
+      "buy_blocked_events": 2928,
+      "sell_blocked_events": 2445,
+      "status": "passed"
     }
   },
   "reference_sources": {
@@ -71,6 +87,7 @@
   "checks": {
     "valuation_current_coverage": true,
     "valuation_second_source": true,
+    "market_state_second_source": true,
     "price_limit_has_full_history": true,
     "official_status_has_full_history": true,
     "market_state_all_symbols": true,
@@ -84,7 +101,8 @@
     "daily_official_status": "6f916f292139a62bc5d7c2e1b62d2a6e6f586c186543df0c3faae8be54746f5a",
     "st_name_events": "9891ab5962bf07fc54c9361f72d81e8eac8862c9e6645f8cf41677ace328033a",
     "risk_warning_events": "386f002006831c8232fd0dec73cd8fd650813ffd710c2367fd87c1750e0b8b8d",
-    "daily_market_state": "b7cdf65997babc0538f2bf51fb4e3fc5f508a7553326de7bfef135a5f248a0a8"
+    "daily_market_state": "b7cdf65997babc0538f2bf51fb4e3fc5f508a7553326de7bfef135a5f248a0a8",
+    "market_state_crosscheck": "a1f6b35cc94eb09757594a389c24b72fec56d86a1c3fb45688e90d4d665c8bc0"
   },
   "limitations": [
     "上交所和北交所 2023-06 后由最后显式状态与发行人公告标题承接，未解析公告 PDF，质量为 B。",

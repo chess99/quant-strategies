@@ -83,12 +83,12 @@
         "股票指数Qlib与ETF分区通过CompositeDailyBarSource统一路由，分区查询只读取manifest列出的目标证券",
         "实现聚宽SH/SZ/BJ代码双向转换、get_price(count/panel=False/fill_paused)、attribute_history和history常见日频形式",
         "get_current_data保持惰性映射并拒绝.get()；停牌、退市、缺字段、缺分区和质量不足均有测试",
-        "DataFrame attrs或last_query_provenance记录来源、质量、manifest路径和SHA-256",
+        "DataFrame attrs或last_query_provenance记录来源、质量和可复现版本；Qlib以日历/证券清单内容哈希并绑定全平台审计SHA-256，规范化数据绑定manifest SHA-256",
         "扫描593份源码、成功解析576份；八类目标API共4135次调用，3633次直接兼容，覆盖87.86%",
         "query DSL、statDate与pandas Panel不静默模拟，502次需迁移形式及替代写法写入机器报告",
         "同一兼容层真实运行指数择时、四ETF轮动和公告日基本面质量筛选，五项端到端检查全部通过",
-        "v1归档器异常与v2失败验收均保留，v3源码及三份原始输出SHA-256全部通过",
-        "207项全仓测试、仓库验证、Ruff和差异格式检查全部通过"
+        "v1归档器异常、v2失败验收和v3缺Qlib数据版本的审计前结果均保留；v4源码及三份原始输出SHA-256全部通过",
+        "反审计后接口聚焦31项、Qlib版本溯源与绑定测试通过；全仓235项测试、仓库验证、Ruff和差异格式检查全部通过"
       ],
       "remaining": []
     },

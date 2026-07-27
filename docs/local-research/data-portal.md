@@ -23,7 +23,9 @@ Qlib 日线适配器把成交量从“手”统一为“股”。`raw` 返回不
 
 DataFrame 返回值在 `attrs["quant_research_provenance"]` 保存数据集、来源、质量、manifest
 路径及 SHA-256；列表和惰性对象可通过 `portal.last_query_provenance` 或
-`api.last_query_provenance` 追溯。复合行情同时列出实际命中的 Qlib/ETF 子来源。
+`api.last_query_provenance` 追溯。复合行情同时列出实际命中的 Qlib/ETF 子来源。Qlib
+行情用交易日历与证券清单内容哈希形成 `data_version`，并绑定最近一次全平台审计报告
+SHA-256；不再只返回无法复现的“Qlib/B级”标签。
 
 ## 聚宽薄兼容
 
@@ -62,6 +64,6 @@ api.get_fundamentals(
 财务。17 个本身语法残缺的源码单独记录在报告中，不计为已验证兼容。
 
 三类真实数据端到端验收位于
-`studies/joinquant-api-compat-validation/results/2026-07-27__three-strategy-migration__v3/`：
+`studies/joinquant-api-compat-validation/results/2026-07-27__three-strategy-migration__v4/`：
 同一兼容层运行指数择时、四 ETF 轮动和公告日基本面质量筛选，五项机器检查全部通过。
 v1 的归档器异常与 v2 的失败验收也保留，未覆盖成成功结果。

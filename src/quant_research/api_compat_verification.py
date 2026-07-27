@@ -19,7 +19,7 @@ def build_api_compat_verification(repo_root: Path | str) -> dict:
         / "studies"
         / "joinquant-api-compat-validation"
         / "results"
-        / "2026-07-27__three-strategy-migration__v3"
+        / "2026-07-27__three-strategy-migration__v4"
     )
     coverage = json.loads(coverage_path.read_text(encoding="utf-8"))
     manifest = json.loads((result / "manifest.json").read_text(encoding="utf-8"))
@@ -43,6 +43,9 @@ def build_api_compat_verification(repo_root: Path | str) -> dict:
         "three_strategy_validation": manifest["status"] == "passed",
         "point_in_time_validation": manifest["checks"]["notice_dates_point_in_time"],
         "provenance_validation": manifest["checks"]["all_three_have_provenance"],
+        "versioned_provenance_validation": manifest["checks"][
+            "all_three_have_versioned_provenance"
+        ],
         "archive_source_sha256": source_matches,
         "archive_raw_sha256": raw_matches,
     }

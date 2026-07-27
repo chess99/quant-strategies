@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import copy
+import hashlib
 from dataclasses import dataclass, field as dataclass_field
 from pathlib import Path
 from typing import Iterable, Protocol
@@ -79,6 +81,32 @@ class QlibDailyBarSource:
     provider_uri: Path | str = Path("D:/code/_open-source/_data/qlib/cn_data")
     quality_grade: QualityGrade = QualityGrade.B
     _initialized: bool = False
+    last_provenance: dict | None = dataclass_field(default=None, init=False)
+
+    def _build_provenance(self) -> dict:
+        root = Path(self.provider_uri).resolve()
+        source_files = []
+        for relative in (Path("calendars/day.txt"), Path("instruments/all.txt")):
+            path = root / relative
+            if path.is_file():
+                source_files.append(
+                    {"path": str(path), "sha256": sha256_file(path)}
+                )
+        identities = "\n".join(
+            f"{item['path']}={item['sha256']}" for item in source_files
+        )
+        return {
+            "dataset": "qlib_daily_bars",
+            "provider": "qlib-community-cn",
+            "provider_uri": str(root),
+            "quality_grade": self.quality_grade.value,
+            "data_version": (
+                hashlib.sha256(identities.encode("utf-8")).hexdigest()
+                if identities
+                else None
+            ),
+            "source_files": source_files,
+        }
 
     def _initialize(self):
         if self._initialized:
@@ -94,7 +122,11 @@ class QlibDailyBarSource:
         self._initialize()
         from qlib.data import D
 
-        return pd.DatetimeIndex(D.calendar(start_date, end_date, freq="day")).normalize()
+        result = pd.DatetimeIndex(
+            D.calendar(start_date, end_date, freq="day")
+        ).normalize()
+        self.last_provenance = self._build_provenance()
+        return result
 
     def load(self, symbols, start_date, end_date, fields, adjustment):
         if adjustment not in {"raw", "pre"}:
@@ -132,6 +164,7 @@ class QlibDailyBarSource:
             frame["volume"] = pd.to_numeric(frame["volume"], errors="coerce") * 100.0
         if "money" in fields:
             frame.rename(columns={"amount": "money"}, inplace=True)
+        self.last_provenance = self._build_provenance()
         return frame[["symbol", "trade_date", *fields]].copy()
 
 
@@ -148,6 +181,15 @@ class PartitionedDailyBarSource:
         return QualityGrade(self.store.read_manifest(self.dataset)["quality_grade"])
 
     def calendar(self, start_date, end_date) -> pd.DatetimeIndex:
+        manifest = self.store.read_manifest(self.dataset)
+        manifest_path = self.store.manifest_path(self.dataset)
+        self.last_provenance = {
+            "dataset": self.dataset,
+            "provider": manifest.get("provider"),
+            "quality_grade": manifest.get("quality_grade"),
+            "manifest_path": str(manifest_path),
+            "manifest_sha256": sha256_file(manifest_path),
+        }
         calendar = self.store.read_parquet("trading_calendar")
         dates = pd.to_datetime(calendar["trade_date"]).dt.normalize()
         return pd.DatetimeIndex(
@@ -163,6 +205,7 @@ class PartitionedDailyBarSource:
             "dataset": self.dataset,
             "provider": manifest.get("provider"),
             "quality_grade": manifest.get("quality_grade"),
+            "manifest_path": str(manifest_path),
             "manifest_sha256": sha256_file(manifest_path),
         }
         requested = set(symbols)
@@ -220,7 +263,19 @@ class CompositeDailyBarSource:
         )
 
     def calendar(self, start_date, end_date) -> pd.DatetimeIndex:
-        return self.default.calendar(start_date, end_date)
+        result = self.default.calendar(start_date, end_date)
+        source = getattr(self.default, "last_provenance", None) or {
+            "dataset": "daily_bars",
+            "provider": type(self.default).__name__,
+            "quality_grade": self.default.quality_grade.value,
+        }
+        self.last_provenance = {
+            "dataset": "composite_daily_bars",
+            "provider": type(self).__name__,
+            "quality_grade": self.quality_grade.value,
+            "sources": [source],
+        }
+        return result
 
     def load(self, symbols, start_date, end_date, fields, adjustment):
         master = self.store.read_parquet("security_master").set_index("symbol")
@@ -303,6 +358,18 @@ class LocalDataPortal:
             result.attrs["quant_research_provenance"] = provenance.copy()
         return provenance
 
+    def _bar_provenance(self, provenance: dict) -> dict:
+        """绑定行情源版本，并附上最近一次全平台数据审计清单。"""
+
+        result = copy.deepcopy(provenance)
+        audit_path = self.store.manifest_path("platform_coverage")
+        if audit_path.is_file():
+            result["platform_audit"] = {
+                "path": str(audit_path),
+                "sha256": sha256_file(audit_path),
+            }
+        return result
+
     def _read_dataset(self, dataset: str, manifest: dict, symbols=None, filters=None):
         partitioning = manifest.get("partitioning") or {}
         if partitioning.get("columns") == ["symbol"] and symbols is not None:
@@ -329,11 +396,12 @@ class LocalDataPortal:
         if end < start:
             raise ValueError("end_date must not be earlier than start_date")
         result = self.daily_bars.calendar(start, end)
-        self.last_query_provenance = {
+        source = getattr(self.daily_bars, "last_provenance", None) or {
             "dataset": "daily_bars",
             "provider": type(self.daily_bars).__name__,
             "quality_grade": self.daily_bars.quality_grade.value,
         }
+        self.last_query_provenance = self._bar_provenance(source)
         return result
 
     def instruments(
@@ -388,8 +456,9 @@ class LocalDataPortal:
             "quality_grade": self.daily_bars.quality_grade.value,
             "adjustment": adjustment,
         }
+        provenance = self._bar_provenance(provenance)
         self.last_query_provenance = provenance
-        result.attrs["quant_research_provenance"] = provenance.copy()
+        result.attrs["quant_research_provenance"] = copy.deepcopy(provenance)
         return result
 
     def index_members(

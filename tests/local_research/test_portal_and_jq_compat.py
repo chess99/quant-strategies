@@ -12,6 +12,7 @@ from quant_research.portal import (
     LocalDataPortal,
     PartitionedDailyBarSource,
     PointInTimeError,
+    QlibDailyBarSource,
 )
 
 
@@ -227,6 +228,34 @@ def test_composite_daily_source_routes_etf_to_partitioned_store(tmp_path):
         "SH600000": 10.0,
         "SH510300": 4.1,
     }
+
+
+def test_qlib_provenance_has_content_version_and_source_hashes(tmp_path):
+    root = tmp_path / "qlib"
+    (root / "calendars").mkdir(parents=True)
+    (root / "instruments").mkdir(parents=True)
+    (root / "calendars" / "day.txt").write_text(
+        "2024-01-02\n", encoding="utf-8"
+    )
+    (root / "instruments" / "all.txt").write_text(
+        "SH600000\t2024-01-02\t2024-01-02\n", encoding="utf-8"
+    )
+
+    provenance = QlibDailyBarSource(root)._build_provenance()
+
+    assert provenance["data_version"]
+    assert len(provenance["source_files"]) == 2
+    assert all(item["sha256"] for item in provenance["source_files"])
+
+
+def test_portal_bars_bind_platform_audit_manifest(portal):
+    portal.store.write_json_report("platform_coverage", {"status": "passed"})
+
+    frame = portal.bars("SH600000", "2024-01-02", "2024-01-03")
+
+    provenance = frame.attrs["quant_research_provenance"]
+    assert provenance["platform_audit"]["sha256"]
+    assert portal.last_query_provenance == provenance
 
 
 def test_retired_security_paused_rows_and_missing_fields_are_explicit(tmp_path):

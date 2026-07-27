@@ -11,7 +11,7 @@
     "migration_required_calls": 502,
     "direct_coverage_ratio": 0.8785973397823458
   },
-  "three_strategy_archive": "studies/joinquant-api-compat-validation/results/2026-07-27__three-strategy-migration__v3",
+  "three_strategy_archive": "studies/joinquant-api-compat-validation/results/2026-07-27__three-strategy-migration__v4",
   "checks": {
     "parsed_source_files": true,
     "target_calls_profiled": true,
@@ -20,13 +20,14 @@
     "three_strategy_validation": true,
     "point_in_time_validation": true,
     "provenance_validation": true,
+    "versioned_provenance_validation": true,
     "archive_source_sha256": true,
     "archive_raw_sha256": true
   },
   "sha256": {
     "coverage_report": "fe9f8b297af6f67d2a20f436f7143093ff26904c9e168255f4addc79c35bdad5",
-    "study_manifest": "a629dbf3dfc6dade247b336c3e49eeec723c3b601dcb3c6cf27b63ffe363680f",
-    "study_source": "6efc277ea85a84537ba4be62e89db58bae9a0198a3c385ff3b3b1fb6d07bc457"
+    "study_manifest": "8b001e07a8c9ce92360e0cf3b86f62c3fd6355405e0ced827c120e55b7f15419",
+    "study_source": "c36624a8699f017463ca4081bc06c525020c542754b9a69d0d39f9cddd2b4ef3"
   },
   "limitations": [
     "17个本地源码本身语法残缺，保留错误位置但无法做AST调用审计。",

@@ -92,7 +92,7 @@
     "etf_master_manifest_sha256": "53e2862faf4a1efc35b6e78744e1c7b087f550be8357f1bcc45a08fe12e51008",
     "etf_profiles_manifest_sha256": "79ab4e222b5828fd24c2fe72932418792f5d4c314cff92473014652cece2e3c2",
     "security_master_manifest_sha256": "50cc55dffa7730579dba53347c05e5167a42fb4f0f38662556a86c927bf18483",
-    "platform_coverage_manifest_sha256": "9b4c0aa8cb7698d24c4148fa3fa3ce33181f31e6d69e8e37ec04efcf3847d14d"
+    "platform_coverage_manifest_sha256": "80e94dc8c50682d80ace701f59606825c4f493eb0fe6292578821e998ee55591"
   },
   "limitations": [
     "上交所逐月历史快照从2012年开始；更早历史由巨潮终止上市公告和逐只行情补证。",

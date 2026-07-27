@@ -18,22 +18,23 @@
   },
   "shenwan_industry": {
     "historical_stock_universe": 6115,
-    "covered_symbols": 5871,
+    "covered_symbols": 5867,
     "missing_symbols": 248,
     "current_expected": 5530,
     "current_covered": 5530,
     "current_coverage_ratio": 1.0,
-    "sw_l1_rows": 9184,
-    "sw_l2_rows": 11193,
+    "sw_l1_rows": 9174,
+    "sw_l2_rows": 11180,
     "quality_grade": "B",
     "overlapping_intervals": 0,
+    "non_stock_symbols": 0,
     "duplicate_primary_keys": 0,
     "source_sha256": "63974937b615feec19c6588fac1dec571f714da0364457fbe419b562b5ddadec",
-    "manifest_sha256": "514ff681576f3ee33f640272217d29d470b5a452034f7c1c0cdd1c65c9fa8b57",
-    "coverage_report_sha256": "427d598316b0a492fd370e557cf413dc8bd23fecf57b8c3fc09b4f454eb26b72"
+    "manifest_sha256": "022c96bd34bf7dc1b9f95f8f7bcb84145e077e50de58ab4a4756adf38b60a96d",
+    "coverage_report_sha256": "c9679d94908f85f466425cd589fc4363cf43ba6fc0b330e5d2fa1892c5d9f91b"
   },
   "local_value_quality_preflight": {
-    "run_id": "2026-07-27__monthly-value-quality__local-preflight-v2",
+    "run_id": "2026-07-27__monthly-value-quality__local-preflight-v4",
     "period": {
       "start": "2019-01-02",
       "end": "2023-06-30"
@@ -47,11 +48,14 @@
     "maximum_drawdown": 0.30554493331059995,
     "sharpe": 0.6038642102024109,
     "average_cash_ratio": 0.006080379718865563,
+    "archive_manifest_sha256": "322c543cb131f0f92835e3359d0f23c4b4ff7fd82f72d98a7ab86c27ba801e34",
+    "archive_report_sha256": "5814a4a6723dfa66ae6278db6457c177791ede9313991e94890aacee77d09344",
+    "industry_manifest_sha256": "022c96bd34bf7dc1b9f95f8f7bcb84145e077e50de58ab4a4756adf38b60a96d",
     "checks_passed": true,
     "joinquant_golden_status": "blocked_browser_runtime_or_manual_run_required"
   },
   "validation": {
-    "pytest": "228 passed",
+    "pytest": "236 passed",
     "repository_validation": "passed",
     "ruff_changed_files": "passed",
     "git_diff_check": "passed"

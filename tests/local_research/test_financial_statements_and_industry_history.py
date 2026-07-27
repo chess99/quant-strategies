@@ -160,3 +160,26 @@ def test_normalize_shenwan_history_builds_level_intervals_without_future_backfil
     assert new_l2["start_date"] == pd.Timestamp("2021-07-30")
     assert new_l2["quality_grade"] == "B"
     assert new_l2["industry_name"] == "银行新分类"
+
+
+def test_shenwan_numeric_code_collision_never_maps_to_index():
+    raw = pd.DataFrame(
+        {
+            "stock_code": ["000905"],
+            "included_date": ["2005-01-04"],
+            "industry_code": ["420101"],
+            "updated_at": ["2025-12-15"],
+        }
+    )
+    master = pd.DataFrame(
+        {
+            "symbol": ["SH000905", "SZ000905"],
+            "asset_type": ["index", "stock"],
+            "listing_date": ["2005-01-04", "1999-04-29"],
+            "delisting_date": [pd.NaT, pd.NaT],
+        }
+    )
+
+    result = normalize_shenwan_history(raw, master)
+
+    assert set(result["symbol"]) == {"SZ000905"}

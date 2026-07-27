@@ -115,7 +115,7 @@ def parse_args():
         default=(
             STUDY_DIR
             / "results"
-            / "2026-07-27__monthly-value-quality__local-preflight-v2"
+            / "2026-07-27__monthly-value-quality__local-preflight-v4"
         ),
     )
     parser.add_argument(

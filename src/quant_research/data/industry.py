@@ -129,6 +129,8 @@ def normalize_shenwan_history(
     frame["updated_at"] = pd.to_datetime(frame["updated_at"], errors="coerce").dt.normalize()
     frame = frame.dropna(subset=list(required))
     master = security_master.copy()
+    if "asset_type" in master.columns:
+        master = master[master["asset_type"].eq("stock")].copy()
     master["symbol"] = master["symbol"].astype("string").str.upper()
     master["stock_code"] = master["symbol"].str[-6:]
     master["listing_date"] = pd.to_datetime(master["listing_date"], errors="coerce").dt.normalize()
@@ -194,15 +196,21 @@ def import_shenwan_history(
         security_master,
         industry_names=industry_names,
     )
+    stock_master = security_master[security_master.get("asset_type", "stock").eq("stock")].copy()
+    expected = set(stock_master["symbol"].astype(str))
+    covered = set(data["symbol"].astype(str))
+    unexpected_symbols = sorted(covered - expected)
+    if unexpected_symbols:
+        raise ValueError(
+            "industry membership contains non-stock symbols: "
+            f"{unexpected_symbols[:10]}"
+        )
     artifacts = store.write_partitioned_parquet(
         "industry_membership",
         data,
         ["symbol"],
         filename="data.parquet",
     )
-    stock_master = security_master[security_master.get("asset_type", "stock").eq("stock")].copy()
-    expected = set(stock_master["symbol"].astype(str))
-    covered = set(data["symbol"].astype(str))
     active = set(
         stock_master.loc[
             stock_master.get("active_at_source_end", False).astype(bool), "symbol"
@@ -256,6 +264,7 @@ def import_shenwan_history(
         ],
         checks={
             "overlapping_intervals": 0,
+            "non_stock_symbols": 0,
             "duplicate_primary_keys": int(
                 data.duplicated(["symbol", "classification", "start_date"]).sum()
             ),

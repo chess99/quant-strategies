@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "iteration": 5,
+  "iteration_status": "in_progress",
+  "local_preflight_status": "passed",
+  "checks": {
+    "local_preflight_status_passed": true,
+    "full_history_master_used": true,
+    "all_rebalances_have_ten_targets": true,
+    "all_future_data_checks_passed": true,
+    "all_filled_orders_use_a_or_b_state": true,
+    "source_sha256_valid": true,
+    "engine_sha256_valid": true,
+    "joinquant_source_sha256_valid": true,
+    "coverage_sha256_valid": true,
+    "all_raw_sha256_valid": true,
+    "all_order_apis_present": true,
+    "all_ledgers_present": true,
+    "all_required_metrics_present": true,
+    "open_and_close_execution_supported": true,
+    "daily_weekly_monthly_scheduler_present": true,
+    "performance_metrics_callable": true,
+    "candidate_archive_has_54_dates": true,
+    "real_trades_present": true
+  },
+  "details": {
+    "order_apis": {
+      "order_value": true,
+      "order_target": true,
+      "order_target_value": true,
+      "order_target_percent": true,
+      "order_target_weight": true,
+      "rebalance_to_weights": true
+    },
+    "ledgers": {
+      "equity.csv": true,
+      "orders.csv": true,
+      "trades.csv": true,
+      "holdings-daily.csv": true,
+      "holdings-monthly.csv": true,
+      "cash-ledger.csv": true,
+      "fees-ledger.csv": true,
+      "rejections.csv": true,
+      "corporate-actions.csv": true
+    },
+    "metrics": {
+      "annualized_return": true,
+      "maximum_drawdown": true,
+      "sharpe": true,
+      "turnover": true,
+      "longest_underwater_trading_days": true,
+      "yearly_returns": true,
+      "average_cash_ratio": true
+    },
+    "raw_hashes": {
+      "equity.csv": true,
+      "orders.csv": true,
+      "trades.csv": true,
+      "holdings-daily.csv": true,
+      "holdings-monthly.csv": true,
+      "candidates-top50.csv": true,
+      "rebalance-coverage.csv": true,
+      "cash-ledger.csv": true,
+      "fees-ledger.csv": true,
+      "rejections.csv": true,
+      "corporate-actions.csv": true
+    },
+    "period": {
+      "start": "2019-01-02",
+      "end": "2023-06-30"
+    },
+    "rebalance_dates": 54,
+    "selected_unique_symbols": 73,
+    "local_metrics": {
+      "total_return": 2.082131890594817,
+      "annualized_return": 0.29723546697055725,
+      "maximum_drawdown": 0.337502132952863,
+      "sharpe": 1.0750445759117697,
+      "annualized_volatility": 0.27837500332713727,
+      "turnover": 29.71269901329081,
+      "average_cash_ratio": 0.0038759407433819,
+      "maximum_cash_ratio": 0.10744828036660185,
+      "longest_underwater_trading_days": 232,
+      "yearly_returns": {
+        "2019": 0.5109865246727412,
+        "2020": 0.08411679110641823,
+        "2021": 0.3355349745695442,
+        "2022": 0.3066122846985546,
+        "2023": 0.07823283770995326
+      }
+    },
+    "data_quality": {
+      "bars": "B",
+      "valuation": "B",
+      "market_state_dataset": "C",
+      "market_state_row_gate": "B"
+    },
+    "result_manifest_sha256": "8c408017170c3a2854b11d2e83c9aa7d7f55a0adbbf5a544477cbe025d92443e"
+  },
+  "remaining": [
+    "run the prepared JoinQuant strategy exactly once",
+    "import all 54 candidate/holding logs and aggregate stats",
+    "pass >=80% candidate and holding overlap",
+    "pass <=3 percentage-point annualized and drawdown differences"
+  ],
+  "root": "D:\\code\\quant-strategies"
+}

@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "status": "failed",
+  "platform": "local-qlib",
+  "study": "joinquant-small-cap-golden-comparison",
+  "run_id": "2026-07-27__monthly-small-cap__local-preflight-v2",
+  "period": {
+    "start": "2019-01-02",
+    "end": "2025-12-31"
+  },
+  "initial_cash": 1000000.0,
+  "strategy": {
+    "frequency": "monthly_first_session_open",
+    "observation_lag_sessions": 1,
+    "stock_count": 10,
+    "minimum_listing_days": 375,
+    "ranking": "daily_valuation.market_cap ascending",
+    "exchange_filter": [
+      "XSHG",
+      "XSHE"
+    ]
+  },
+  "data_provenance": [
+    {
+      "dataset": "security_master",
+      "quality_grade": "B",
+      "provider": "qlib-community-cn + akshare/exchange-lists + supplemental point-in-time masters",
+      "row_count": 7818,
+      "manifest_sha256": "13fe3d0608e5249a5bd2ddcccb790b8bec61a84ceb8d102a1424e4617bcac78f"
+    },
+    {
+      "dataset": "daily_valuation",
+      "quality_grade": "B",
+      "provider": "akshare/eastmoney-stock-value + baidu-stock-valuation",
+      "row_count": 9618793,
+      "manifest_sha256": "ec992f9a2bed7c89ff0197bee319eddfc54a5cee8c0add8d3df8d1f0bf111098"
+    },
+    {
+      "dataset": "daily_market_state",
+      "quality_grade": "C",
+      "provider": "qlib-community-cn + dolthub/chenditc-investment-data",
+      "row_count": 17679198,
+      "manifest_sha256": "b7cdf65997babc0538f2bf51fb4e3fc5f508a7553326de7bfef135a5f248a0a8"
+    }
+  ],
+  "quality": {
+    "bars": "B",
+    "valuation": "B",
+    "market_state_dataset": "C",
+    "market_state_row_gate": "B"
+  },
+  "metrics": {
+    "total_return": 4.562863046091065,
+    "annualized_return": 0.2898658627872466,
+    "maximum_drawdown": 0.4050273652269576,
+    "sharpe": 1.006252434528114,
+    "annualized_volatility": 0.2971714594262941,
+    "turnover": 22.262859702255653,
+    "average_cash_ratio": 0.0023402042682848373,
+    "maximum_cash_ratio": 0.10749936998829036,
+    "longest_underwater_trading_days": 285,
+    "yearly_returns": {
+      "2019": 0.5115242462403988,
+      "2020": 0.08420437791426028,
+      "2021": 0.33621874992815615,
+      "2022": 0.3065239247132958,
+      "2023": 0.22847216005808058,
+      "2024": -0.09438246601061029,
+      "2025": 0.747700553451597
+    }
+  },
+  "checks": {
+    "full_master_is_6115": true,
+    "all_rebalances_have_ten_targets": false,
+    "no_valuation_future_data": true,
+    "no_partition_read_failures": true,
+    "known_st_for_archived_candidates": true,
+    "all_filled_orders_use_a_or_b_state": true,
+    "nonnegative_cash": true,
+    "orders_and_ledgers_present": true
+  },
+  "coverage_sha256": "158ecdd95b965a96dea805e07208068d50f0d7a64b320e2a8e932e6e336fcdb1",
+  "source_sha256": "5ad67120fc74d14b468fd7807fadf9820bc1830fe33f7126c9283c095665fe23",
+  "engine_sha256": "ae742accd9304351ed59872dd52959a49fd628c9c9bf767eb6227b5b9f0437f6",
+  "joinquant_strategy_sha256": "346c7cb9d207e49ef10889991e77178da9bfd904579a83114e0d01ac2a949170",
+  "raw_sha256": {
+    "equity.csv": "16fe195d27d58dad4de1d2a30aa3452a09743a8813b7924c964e24367386aa6b",
+    "orders.csv": "48d69f4a414df6e088e396c43496816790850389d748c8e7a1a77db5250d29e7",
+    "trades.csv": "3c314f98126dcd0cceba6d1f57baa6af02b3978848bdc722b82ca1350185881b",
+    "holdings-daily.csv": "e7bbe356e8e30800e3d619abb70b3240f37ce149a95dd3d5e63eb7be5f29a61d",
+    "holdings-monthly.csv": "1269cc49e877b2bbe3c974ed5e6343b5ccc94e93e92aa5f132cf65bea3e4060b",
+    "candidates-top50.csv": "f8c52be1b6d19e3847de996cb300a94ac44599f2be99459041247334d2cdb6e1",
+    "rebalance-coverage.csv": "f8cd18091fccad3fe04fcea5f8ffc85f50457ce589860ddd8f9c72e7f1aa6610",
+    "cash-ledger.csv": "8f5ae37e3fac69efe6118d981dc3c7ee4ea285f09a60b6d154419fea8be95e65",
+    "fees-ledger.csv": "9b09f59f6b6169e4de8d69d587a4de742f1b08063a5b0c4569f308a1fc5a5467",
+    "rejections.csv": "750b048a38ed6a3324072d21fefd90d806109eb54e56486ba447b05d0a85e10e",
+    "corporate-actions.csv": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+  },
+  "joinquant_golden_status": "pending_single_run"
+}

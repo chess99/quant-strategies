@@ -1,0 +1,177 @@
+"""流式读取全市场证券分区，构建点时横截面。"""
+
+from __future__ import annotations
+
+from collections.abc import Iterable
+from dataclasses import dataclass
+
+import pandas as pd
+
+from .data.store import ResearchDataStore
+
+
+@dataclass(frozen=True)
+class CrossSectionBuildResult:
+    frame: pd.DataFrame
+    audit: dict
+
+
+def _dates(values: Iterable) -> pd.DatetimeIndex:
+    result = pd.DatetimeIndex(pd.to_datetime(list(values))).normalize().sort_values().unique()
+    if result.empty:
+        raise ValueError("at least one observation date is required")
+    return result
+
+
+def _symbol_artifacts(store: ResearchDataStore, dataset: str, symbols=None):
+    manifest = store.read_manifest(dataset)
+    if (manifest.get("partitioning") or {}).get("columns") != ["symbol"]:
+        raise ValueError(f"{dataset} must be partitioned by symbol")
+    selected = None if symbols is None else {str(symbol).upper() for symbol in symbols}
+    artifacts = []
+    for artifact in manifest.get("data_files", []):
+        symbol = (artifact.get("partition_values") or {}).get("symbol")
+        if symbol is not None and (selected is None or symbol in selected):
+            artifacts.append((symbol, artifact))
+    return manifest, artifacts
+
+
+def build_asof_cross_sections(
+    store: ResearchDataStore,
+    dataset: str,
+    observation_dates: Iterable,
+    fields: Iterable[str],
+    *,
+    maximum_age_days: int = 10,
+    symbols: Iterable[str] | None = None,
+) -> CrossSectionBuildResult:
+    """逐证券读取最近可见记录，不把全市场几十年数据一次装入内存。"""
+
+    dates = _dates(observation_dates)
+    requested_fields = list(dict.fromkeys(fields))
+    manifest, artifacts = _symbol_artifacts(store, dataset, symbols)
+    required = {"symbol", "trade_date", *requested_fields}
+    missing_fields = required.difference(manifest.get("columns", []))
+    if missing_fields:
+        raise ValueError(f"{dataset} fields are unavailable: {sorted(missing_fields)}")
+    earliest = dates.min() - pd.Timedelta(days=maximum_age_days)
+    latest = dates.max()
+    targets = pd.DataFrame({"observation_date": dates})
+    frames = []
+    failures = []
+    empty_symbols = []
+    for symbol, artifact in artifacts:
+        path = store.root / artifact["path"]
+        try:
+            source = pd.read_parquet(
+                path,
+                columns=["symbol", "trade_date", *requested_fields],
+                filters=[("trade_date", ">=", earliest), ("trade_date", "<=", latest)],
+            )
+            if source.empty:
+                empty_symbols.append(symbol)
+                continue
+            source["trade_date"] = pd.to_datetime(source["trade_date"]).dt.normalize()
+            source = source.sort_values("trade_date").drop_duplicates("trade_date", keep="last")
+            matched = pd.merge_asof(
+                targets,
+                source,
+                left_on="observation_date",
+                right_on="trade_date",
+                direction="backward",
+                tolerance=pd.Timedelta(days=maximum_age_days),
+            )
+            matched = matched.dropna(subset=["trade_date"])
+            if not matched.empty:
+                matched["symbol"] = symbol
+                matched["age_days"] = (
+                    matched["observation_date"] - matched["trade_date"]
+                ).dt.days
+                frames.append(matched)
+            else:
+                empty_symbols.append(symbol)
+        except Exception as exc:  # pragma: no cover - real-data failure evidence
+            failures.append({"symbol": symbol, "error": f"{type(exc).__name__}: {exc}"})
+    result = (
+        pd.concat(frames, ignore_index=True)
+        if frames
+        else pd.DataFrame(
+            columns=["observation_date", "symbol", "trade_date", *requested_fields, "age_days"]
+        )
+    )
+    expected = len(artifacts) * len(dates)
+    audit = {
+        "dataset": dataset,
+        "mode": "asof",
+        "quality_grade": manifest.get("quality_grade"),
+        "observation_date_count": len(dates),
+        "target_symbols": len(artifacts),
+        "successful_symbols": int(result["symbol"].nunique()) if not result.empty else 0,
+        "empty_symbols": empty_symbols,
+        "failed_symbols": failures,
+        "expected_symbol_dates": expected,
+        "matched_symbol_dates": len(result),
+        "coverage_ratio": len(result) / expected if expected else 0.0,
+        "maximum_age_days": maximum_age_days,
+    }
+    return CrossSectionBuildResult(result, audit)
+
+
+def build_exact_cross_sections(
+    store: ResearchDataStore,
+    dataset: str,
+    observation_dates: Iterable,
+    fields: Iterable[str],
+    *,
+    symbols: Iterable[str] | None = None,
+) -> CrossSectionBuildResult:
+    """逐证券读取指定日期的精确记录。"""
+
+    dates = _dates(observation_dates)
+    requested_fields = list(dict.fromkeys(fields))
+    manifest, artifacts = _symbol_artifacts(store, dataset, symbols)
+    required = {"symbol", "trade_date", *requested_fields}
+    missing_fields = required.difference(manifest.get("columns", []))
+    if missing_fields:
+        raise ValueError(f"{dataset} fields are unavailable: {sorted(missing_fields)}")
+    frames = []
+    failures = []
+    empty_symbols = []
+    for symbol, artifact in artifacts:
+        path = store.root / artifact["path"]
+        try:
+            source = pd.read_parquet(
+                path,
+                columns=["symbol", "trade_date", *requested_fields],
+                filters=[("trade_date", ">=", dates.min()), ("trade_date", "<=", dates.max())],
+            )
+            source["trade_date"] = pd.to_datetime(source["trade_date"]).dt.normalize()
+            source = source[source["trade_date"].isin(dates)]
+            if source.empty:
+                empty_symbols.append(symbol)
+                continue
+            source = source.drop_duplicates(["symbol", "trade_date"], keep="last")
+            source.rename(columns={"trade_date": "observation_date"}, inplace=True)
+            frames.append(source)
+        except Exception as exc:  # pragma: no cover - real-data failure evidence
+            failures.append({"symbol": symbol, "error": f"{type(exc).__name__}: {exc}"})
+    result = (
+        pd.concat(frames, ignore_index=True)
+        if frames
+        else pd.DataFrame(columns=["observation_date", "symbol", *requested_fields])
+    )
+    expected = len(artifacts) * len(dates)
+    audit = {
+        "dataset": dataset,
+        "mode": "exact",
+        "quality_grade": manifest.get("quality_grade"),
+        "observation_date_count": len(dates),
+        "target_symbols": len(artifacts),
+        "successful_symbols": int(result["symbol"].nunique()) if not result.empty else 0,
+        "empty_symbols": empty_symbols,
+        "failed_symbols": failures,
+        "expected_symbol_dates": expected,
+        "matched_symbol_dates": len(result),
+        "coverage_ratio": len(result) / expected if expected else 0.0,
+    }
+    return CrossSectionBuildResult(result, audit)

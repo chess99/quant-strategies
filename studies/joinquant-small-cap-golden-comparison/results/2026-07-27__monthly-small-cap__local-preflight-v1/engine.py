@@ -78,7 +78,6 @@ class BacktestConfig:
     block_st_buys: bool = True
     t_plus_one_asset_types: tuple[str, ...] = ("stock",)
     participate_rights_issues: bool = False
-    minimum_state_quality: Literal["A", "B", "C"] = "C"
 
 
 def scheduled_dates(
@@ -388,16 +387,6 @@ class DailyBacktester:
     def _tradability_reason(self, state: pd.Series | None, side: str) -> str | None:
         if state is None:
             return "missing_market_state"
-        quality_rank = {"A": 0, "B": 1, "C": 2}
-        minimum_rank = quality_rank[self.config.minimum_state_quality]
-        for field in ("status_quality", "st_quality", "limit_quality"):
-            if field not in state:
-                if self.config.minimum_state_quality != "C":
-                    return f"missing_{field}"
-                continue
-            actual = state.get(field)
-            if pd.isna(actual) or quality_rank.get(str(actual), 99) > minimum_rank:
-                return f"insufficient_{field}"
         if bool(state.get("paused", False)):
             return "paused"
         if side == "buy":

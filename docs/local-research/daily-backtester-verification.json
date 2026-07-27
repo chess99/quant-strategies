@@ -95,7 +95,7 @@
       "market_state_dataset": "C",
       "market_state_row_gate": "B"
     },
-    "result_manifest_sha256": "8c408017170c3a2854b11d2e83c9aa7d7f55a0adbbf5a544477cbe025d92443e"
+    "result_manifest_sha256": "ccaceaa10ed5e84741981d35fc7daa4c2ec7a989ebf0f61c4636015588ed6cd4"
   },
   "remaining": [
     "run the prepared JoinQuant strategy exactly once",

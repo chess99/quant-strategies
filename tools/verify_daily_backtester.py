@@ -20,7 +20,7 @@ RESULT_DIR = (
     / "studies"
     / "joinquant-small-cap-golden-comparison"
     / "results"
-    / "2026-07-27__monthly-small-cap__local-preflight-v3"
+    / "2026-07-27__monthly-small-cap__local-preflight-v4"
 )
 OUTPUT = ROOT / "docs" / "local-research" / "daily-backtester-verification.json"
 

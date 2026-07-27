@@ -110,7 +110,7 @@ def parse_args():
     parser.add_argument(
         "--local-result-dir",
         type=Path,
-        default=STUDY_DIR / "results" / "2026-07-27__monthly-small-cap__local-preflight-v3",
+        default=STUDY_DIR / "results" / "2026-07-27__monthly-small-cap__local-preflight-v4",
     )
     parser.add_argument(
         "--run-id",

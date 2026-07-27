@@ -318,6 +318,37 @@ def test_market_state_rejection_reasons_are_explicit():
     ]
 
 
+@pytest.mark.parametrize(
+    ("field", "side", "expected_reason"),
+    [
+        ("paused", "buy", "unknown_paused"),
+        ("buy_blocked", "buy", "unknown_buy_blocked"),
+        ("sell_blocked", "sell", "unknown_sell_blocked"),
+    ],
+)
+def test_nullable_market_state_flags_are_rejected_instead_of_crashing(
+    field,
+    side,
+    expected_reason,
+):
+    date = pd.Timestamp("2024-01-02")
+    bars = make_bars([("SH600000", date, 10.0, 10.0, 1_000_000)])
+    state = make_state([("SH600000", date, False, False, False, False)])
+    state[field] = pd.array(state[field], dtype="boolean")
+    state.loc[0, field] = pd.NA
+    engine = DailyBacktester(
+        bars,
+        state,
+        config=BacktestConfig(initial_cash=100_000, maximum_volume_ratio=1.0),
+    )
+    if side == "sell":
+        engine.positions["SH600000"] = Position("SH600000", 100, 10.0, 10.0)
+
+    engine.order_target(date, "SH600000", 100 if side == "buy" else 0)
+
+    assert engine.rejections.iloc[0]["reason"] == expected_reason
+
+
 def test_scheduler_uses_actual_first_or_last_trading_session():
     calendar = pd.to_datetime(
         ["2024-01-02", "2024-01-03", "2024-01-05", "2024-01-08", "2024-02-01"]
@@ -380,6 +411,48 @@ def test_corporate_actions_and_all_ledgers_are_auditable():
     assert not engine.fees_ledger.empty
     assert not engine.holdings.empty
     assert "cash_ratio" in engine.equity
+
+
+@pytest.mark.parametrize(
+    "action",
+    [
+        ("cash_dividend", float("nan"), None, None, None),
+        ("bonus", None, float("inf"), None, None),
+        ("split", None, 0.0, None, None),
+        ("rights_issue", None, None, -0.1, 5.0),
+        ("rights_issue", None, None, 0.1, float("nan")),
+    ],
+)
+def test_invalid_corporate_action_numbers_are_rejected_at_input(action):
+    date = pd.Timestamp("2024-01-02")
+    bars = make_bars([("SH600000", date, 10.0, 10.0, 1_000_000)])
+    state = make_state([("SH600000", date, False, False, False, False)])
+    action_type, cash, multiplier, rights_ratio, subscription_price = action
+    actions = pd.DataFrame(
+        [
+            (
+                date,
+                "SH600000",
+                action_type,
+                cash,
+                multiplier,
+                rights_ratio,
+                subscription_price,
+            )
+        ],
+        columns=[
+            "action_date",
+            "symbol",
+            "action_type",
+            "cash_per_share",
+            "share_multiplier",
+            "rights_ratio",
+            "subscription_price",
+        ],
+    )
+
+    with pytest.raises(ValueError, match="invalid corporate action"):
+        DailyBacktester(bars, state, corporate_actions=actions)
 
 
 def test_stamp_tax_history_and_etf_exemption():

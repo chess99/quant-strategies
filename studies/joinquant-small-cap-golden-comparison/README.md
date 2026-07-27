@@ -14,4 +14,5 @@
 - 本地先完成全市场覆盖、未来数据和撮合账本审计，之后只运行一次必要的聚宽黄金对照。
 
 `joinquant_strategy.py` 是聚宽侧的自包含策略。其 `QR_*` 结构化日志用于导出逐次候选、
-订单和实际持仓；`run_local.py` 生成本地不可变预检归档。
+订单和实际持仓；`run_local.py` 生成本地不可变预检归档。当前最终本地证据是
+`results/2026-07-27__monthly-small-cap__local-preflight-v4/`；v1-v3 保持不可变。

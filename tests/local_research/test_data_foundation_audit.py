@@ -170,3 +170,37 @@ def test_normalized_dataset_audit_detects_duplicate_and_unknown_symbol(tmp_path)
     assert report["symbol_coverage"]["coverage_ratio"] == 1.0
     assert report["status"] == "failed"
     json.dumps(report)
+
+
+def test_candidate_dataset_can_report_unverified_symbols_without_passing_as_known(
+    tmp_path,
+):
+    store = ResearchDataStore(tmp_path / "data")
+    frame = pd.DataFrame({"symbol": ["SH510300", "SH599999"]})
+    data_file = store.write_parquet("etf_candidates", frame)
+    manifest = DatasetManifest(
+        schema_version=1,
+        dataset="etf_candidates",
+        provider="fixture",
+        quality_grade=QualityGrade.B,
+        row_count=2,
+        columns=list(frame.columns),
+        data_files=[data_file],
+        primary_key=["symbol"],
+        checks={"allows_unverified_candidates": True},
+    )
+    store.write_manifest(manifest)
+    master = pd.DataFrame(
+        {
+            "symbol": ["SH510300"],
+            "asset_type": ["etf"],
+            "start_date": [pd.Timestamp("2024-01-01")],
+            "end_date": [pd.Timestamp("2024-12-31")],
+        }
+    )
+
+    report = audit_normalized_dataset(store, "etf_candidates", master)
+
+    assert report["unknown_symbols"] == ["SH599999"]
+    assert report["unknown_symbols_permitted"] == ["SH599999"]
+    assert report["status"] == "passed"

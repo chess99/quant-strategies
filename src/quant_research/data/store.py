@@ -125,6 +125,32 @@ class ResearchDataStore:
             raise FileNotFoundError(f"dataset file does not exist: {path}")
         return pd.read_parquet(path)
 
+    def read_symbol_partitions(
+        self,
+        dataset: str,
+        symbols: Iterable[str],
+    ) -> pd.DataFrame:
+        """只读取指定证券的 Hive 分区，避免把全市场历史一次装入内存。"""
+
+        frames = []
+        missing = []
+        for symbol in dict.fromkeys(str(item) for item in symbols):
+            path = self.normalized_path(
+                dataset,
+                f"symbol={symbol}/data.parquet",
+            )
+            if not path.is_file():
+                missing.append(symbol)
+                continue
+            frames.append(pd.read_parquet(path))
+        if missing:
+            raise FileNotFoundError(
+                f"{dataset} symbol partitions do not exist: {missing}"
+            )
+        if not frames:
+            raise ValueError("at least one symbol is required")
+        return pd.concat(frames, ignore_index=True)
+
     def write_quarantine_parquet(
         self,
         dataset: str,

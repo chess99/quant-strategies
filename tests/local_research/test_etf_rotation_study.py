@@ -72,3 +72,52 @@ def test_rotation_keeps_position_when_sell_day_has_no_quote():
 
     assert trades["side"].tolist() == ["buy"]
     assert equity.loc[dates[1], "held_symbol"] == "SH510180"
+
+
+def test_reference_comparison_accepts_local_target_inside_rounded_score_tie():
+    dates = pd.to_datetime(["2024-01-02", "2024-01-03", "2024-01-04"])
+    local_targets = pd.Series(
+        ["SH510180", "SZ159915", "SH513100"],
+        index=dates,
+        dtype="string",
+    )
+    local_scores = pd.DataFrame(
+        {
+            "SH510180": [1.001, 0.5, 0.1],
+            "SZ159915": [1.004, 0.6, 0.2],
+            "SH513100": [0.2, 0.4, 0.8],
+            "SH518880": [0.1, 0.2, 0.3],
+        },
+        index=dates,
+    )
+    reference_scores = pd.DataFrame(
+        {
+            "SH510180": [1.0, 0.5, 0.1],
+            "SZ159915": [1.0, 0.6, 0.2],
+            "SH513100": [0.2, 0.4, 0.8],
+            "SH518880": [0.1, 0.2, 0.3],
+        },
+        index=dates,
+    )
+    local_trades = pd.DataFrame(
+        {"date": [dates[0], dates[1], dates[1]], "side": ["buy", "sell", "buy"]}
+    )
+    reference_orders = pd.DataFrame(
+        {
+            "buy_value": [100.0, 100.0, 0.0],
+            "sell_value": [0.0, -100.0, 0.0],
+        },
+        index=dates,
+    )
+
+    comparison = MODULE.compare_joinquant_reference(
+        local_targets,
+        local_scores,
+        local_trades,
+        reference_scores,
+        reference_orders,
+    )
+
+    assert comparison["target_compatible_match_rate"] == 1.0
+    assert comparison["target_compatible_dates"] == 3
+    assert comparison["order_event_date_jaccard"] == 1.0

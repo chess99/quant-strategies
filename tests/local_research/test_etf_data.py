@@ -50,6 +50,27 @@ def test_sina_etf_normalization_repairs_common_share_split():
     )
 
 
+def test_sina_etf_normalization_repairs_three_for_two_share_split():
+    quotes = pd.DataFrame(
+        {
+            "date": ["2021-09-10", "2021-09-13"],
+            "open": [1.497, 1.045],
+            "high": [1.575, 1.048],
+            "low": [1.490, 0.997],
+            "close": [1.561, 1.001],
+            "volume": [44399602, 89485300],
+            "amount": [68120731, 90288000],
+        }
+    )
+
+    frame = normalize_sina_etf("SZ159813", quotes)
+
+    assert frame.loc[1, "corporate_action_multiplier"] == pytest.approx(1.5)
+    assert frame.loc[1, "adjusted_close"] / frame.loc[0, "adjusted_close"] == (
+        pytest.approx(1.001 * 1.5 / 1.561)
+    )
+
+
 def test_sina_etf_normalization_rejects_duplicate_or_broken_ohlc():
     frame = pd.DataFrame(
         {

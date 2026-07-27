@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -454,7 +455,10 @@ def audit_normalized_dataset(
         )
     if primary_key and not state.sorted_keys:
         failures.append({"code": "primary_key_not_sorted"})
-    if unknown_symbols:
+    allows_unverified_candidates = bool(
+        manifest.get("checks", {}).get("allows_unverified_candidates", False)
+    )
+    if unknown_symbols and not allows_unverified_candidates:
         failures.append(
             {"code": "unknown_symbols", "count": len(unknown_symbols)}
         )
@@ -479,7 +483,10 @@ def audit_normalized_dataset(
     partitioning = manifest.get("partitioning")
     is_large = expected_rows >= 1_000_000
     target_asset_type = {
+        "etf_candidates": "etf",
         "etf_daily": "etf",
+        "etf_master": "etf",
+        "etf_profiles": "etf",
         "daily_market_state": "stock",
         "daily_valuation": "stock",
         "fundamentals_pit": "stock",
@@ -520,6 +527,9 @@ def audit_normalized_dataset(
         "primary_key_sorted": state.sorted_keys if primary_key else None,
         "duplicate_primary_keys": state.duplicate_keys,
         "unknown_symbols": sorted(unknown_symbols),
+        "unknown_symbols_permitted": (
+            sorted(unknown_symbols) if allows_unverified_candidates else []
+        ),
         "time_inversions": state.time_inversions,
         "notice_before_report_date": state.notice_before_report,
         "rows_outside_security_interval": state.rows_outside_active_interval,
@@ -542,6 +552,9 @@ def build_platform_coverage_report(
     datasets = []
     for manifest_path in sorted(store.manifest_dir.glob("*.json")):
         if manifest_path.stem in {"platform_coverage"}:
+            continue
+        manifest_payload = json.loads(manifest_path.read_text(encoding="utf-8"))
+        if "dataset" not in manifest_payload:
             continue
         datasets.append(
             audit_normalized_dataset(store, manifest_path.stem, master)

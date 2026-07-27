@@ -20,9 +20,10 @@
 运行：
 
 ```powershell
-D:\code\_open-source\_venvs\qlib\Scripts\python.exe `
+D:\code\_open-source\_venvs\quant-research-py312\Scripts\python.exe `
   studies\joinquant-etf-rotation-replication\run_backtest.py `
-  --data-root D:\code\_open-source\_data\quant-research
+  --data-root D:\code\_open-source\_data\quant-research `
+  --run-id local-full-etf-universe-v2
 ```
 
 归档目录存在时程序拒绝覆盖。
@@ -41,3 +42,19 @@ D:\code\_open-source\_venvs\qlib\Scripts\python.exe `
 
 年化差 `-0.07` 个百分点，最大回撤差小于 `0.01` 个百分点，ETF 数据和轮动逻辑
 通过首次近似复现验收。固定资产池仍有事后选择风险，本结果不证明策略未来有效。
+
+## 全量 ETF 数据验收
+
+完整归档见
+[`results/2026-07-27__local-full-etf-universe-v2/`](results/2026-07-27__local-full-etf-universe-v2/)。
+
+本次使用 1,735 只候选、1,687 只有历史日线的全量数据底座。聚宽公开黄金回测接口
+提供逐日四资产评分和订单总额，不需要重新运行聚宽：
+
+- 逐日目标兼容匹配率 100%（2,297/2,297）；
+- 唯一最高评分日期严格匹配率 100%（2,217/2,217）；
+- 订单事件日期 Jaccard 98.55%；
+- 年化和最大回撤与首次结果一致。
+
+ETF 全量覆盖、历史终止产品和质量限制见
+[`docs/local-research/etf-data.md`](../../docs/local-research/etf-data.md)。

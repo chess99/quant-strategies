@@ -7,6 +7,8 @@ import json
 import sys
 from pathlib import Path
 
+import pandas as pd
+
 
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "src"
@@ -15,6 +17,7 @@ if str(SRC) not in sys.path:
 
 from quant_research.data.audit import build_platform_coverage_report  # noqa: E402
 from quant_research.data.calendar import build_trading_calendar  # noqa: E402
+from quant_research.data.etf_universe import etf_security_supplemental  # noqa: E402
 from quant_research.data.security_master import build_security_master  # noqa: E402
 from quant_research.data.security_lifecycle import (  # noqa: E402
     load_latest_security_lifecycle_snapshot,
@@ -46,6 +49,24 @@ def _existing_supplemental_master(store: ResearchDataStore):
     current = store.read_parquet("security_master")
     supplemental = current[current["asset_type"].isin(["etf", "fund"])].copy()
     sources = []
+    etf_master_path = store.normalized_path("etf_master")
+    if etf_master_path.is_file():
+        etf_manifest = store.read_manifest("etf_master")
+        etf_master = store.read_parquet("etf_master")
+        etf = etf_security_supplemental(
+            etf_master,
+            source_end=etf_manifest["date_range"]["end"],
+        )
+        funds = supplemental[supplemental["asset_type"] == "fund"].copy()
+        supplemental = pd.concat([funds, etf], ignore_index=True)
+        path = store.manifest_path("etf_master")
+        sources.append(
+            {
+                "path": str(path),
+                "bytes": path.stat().st_size,
+                "sha256": sha256_file(path),
+            }
+        )
     for dataset in ("etf_daily", "fund_daily"):
         path = store.manifest_path(dataset)
         if path.is_file():

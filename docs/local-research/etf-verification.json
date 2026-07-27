@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "verified_at": "2026-07-27T08:35:00+08:00",
+  "status": "passed",
+  "quality": {
+    "successful_daily_history": "B",
+    "profiles": "B",
+    "master_overall": "C",
+    "unverified_candidates_are_tradable": false
+  },
+  "universe": {
+    "candidate_count": 1735,
+    "current_expected": 1618,
+    "current_with_daily_history": 1608,
+    "current_coverage_ratio": 0.9938195302843016,
+    "current_coverage_target": 0.95,
+    "current_coverage_passed": true,
+    "security_master_etfs": 1697,
+    "lifecycle_status_counts": {
+      "active": 1608,
+      "active_no_history": 10,
+      "delisted": 79,
+      "unverified_candidate": 38
+    }
+  },
+  "daily_history": {
+    "successful_symbols": 1687,
+    "empty_symbols": 48,
+    "failed_symbols": 0,
+    "rows": 1493394,
+    "partition_files": 1687,
+    "start": "2005-02-23",
+    "end": "2026-07-24",
+    "profile_success": 1735,
+    "profile_failed": 0
+  },
+  "category_counts": {
+    "sector_equity": 799,
+    "broad_equity": 540,
+    "cross_border": 254,
+    "bond": 57,
+    "money": 30,
+    "commodity": 30,
+    "other": 25
+  },
+  "survivorship": {
+    "historical_success_not_current": 79,
+    "noncurrent_candidates": 117,
+    "rule": "按观察日的listing_date和delisting_date构造历史ETF池"
+  },
+  "golden_comparison": {
+    "joinquant_backtest_id": "28965593",
+    "trading_days": 2297,
+    "target_compatible_matches": 2297,
+    "target_compatible_match_rate": 1.0,
+    "unique_reference_target_matches": 2217,
+    "unique_reference_target_match_rate": 1.0,
+    "order_event_date_jaccard": 0.9855072463768116,
+    "joinquant_annualized_return": 0.3692858,
+    "local_annualized_return": 0.3685681806908594,
+    "annualized_return_delta_percentage_points": -0.07176213091406128,
+    "joinquant_max_drawdown": 0.30612221,
+    "local_max_drawdown": 0.30613696178734573,
+    "max_drawdown_delta_percentage_points": 0.0014751787345745888,
+    "target_match_passed": true
+  },
+  "platform_audit": {
+    "security_master_rows": 7818,
+    "qlib_expected_instruments": 6121,
+    "qlib_successful_instruments": 6121,
+    "etf_candidates": "passed",
+    "etf_daily": "passed",
+    "etf_master": "passed",
+    "etf_profiles": "passed"
+  },
+  "validation": {
+    "pytest_passed": 181,
+    "repository_validation": "passed",
+    "ruff": "passed"
+  },
+  "external_artifacts": {
+    "etf_candidates_manifest_sha256": "7cc681e4cb01d03a42ac28a26ed83092868b6d44ff3755e29092eab4e1236928",
+    "etf_coverage_manifest_sha256": "ac8507572f0dc4fd76722b38ac13c6972b534e8005997c04c592dc96bb07ce98",
+    "etf_daily_manifest_sha256": "8d3d511d3eb36833328b48c2c8663963b7f6d23cca9b0d0a4aae4226c714a51d",
+    "etf_master_manifest_sha256": "379fdd345efbd3336891a19004fed3c74a1c034adaf0458d857dd14a45371571",
+    "etf_profiles_manifest_sha256": "65cb50808eab71df32c63b3c676bf0749568e111031086fc37492b89f163f013",
+    "security_master_manifest_sha256": "ac6c7ffb51dc2412e58c031c44bdee3aa0a493439f5041efb94015eafd58bb5a",
+    "platform_coverage_manifest_sha256": "b7fafcdad10e6eea903c088f2eb79ffe5cbe5cef992ee8d533a93c13dce1ba8f"
+  },
+  "limitations": [
+    "上交所逐月历史快照从2013年开始，更早短期存续产品可能遗漏。",
+    "深交所没有同等公开历史快照，38只非当前候选保持C级且禁止交易。",
+    "10只新成立产品尚无新浪日线，状态为active_no_history。",
+    "免费源没有权威完整公司行为因子，成功日线质量为B而非A。"
+  ]
+}

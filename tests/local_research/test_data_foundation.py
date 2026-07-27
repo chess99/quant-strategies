@@ -88,6 +88,26 @@ def test_store_writes_parquet_and_hash_bound_manifest(tmp_path):
     assert payload["data_files"][0]["sha256"] == sha256_file(path)
 
 
+def test_store_reads_only_requested_symbol_partitions(tmp_path):
+    store = ResearchDataStore(tmp_path / "data")
+    store.write_parquet(
+        "prices",
+        pd.DataFrame({"symbol": ["SH510300"], "close": [1.0]}),
+        filename="symbol=SH510300/data.parquet",
+    )
+    store.write_parquet(
+        "prices",
+        pd.DataFrame({"symbol": ["SZ159915"], "close": [2.0]}),
+        filename="symbol=SZ159915/data.parquet",
+    )
+
+    frame = store.read_symbol_partitions("prices", ["SZ159915"])
+
+    assert frame.to_dict("records") == [{"symbol": "SZ159915", "close": 2.0}]
+    with pytest.raises(FileNotFoundError, match="SH599999"):
+        store.read_symbol_partitions("prices", ["SH599999"])
+
+
 def test_security_master_validation_rejects_inverted_dates():
     frame = pd.DataFrame(
         [

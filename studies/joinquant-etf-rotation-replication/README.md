@@ -23,7 +23,7 @@
 D:\code\_open-source\_venvs\quant-research-py312\Scripts\python.exe `
   studies\joinquant-etf-rotation-replication\run_backtest.py `
   --data-root D:\code\_open-source\_data\quant-research `
-  --run-id local-full-etf-universe-v2
+  --run-id local-full-etf-universe-v4
 ```
 
 归档目录存在时程序拒绝覆盖。
@@ -46,15 +46,20 @@ D:\code\_open-source\_venvs\quant-research-py312\Scripts\python.exe `
 ## 全量 ETF 数据验收
 
 完整归档见
-[`results/2026-07-27__local-full-etf-universe-v2/`](results/2026-07-27__local-full-etf-universe-v2/)。
+[`results/2026-07-27__local-full-etf-universe-v4/`](results/2026-07-27__local-full-etf-universe-v4/)。
 
-本次使用 1,735 只候选、1,687 只有历史日线的全量数据底座。聚宽公开黄金回测接口
+本次使用 1,781 只候选、1,733 只有历史日线的全量数据底座；历史池含 125 只
+已终止 ETF（上交所 79、深交所 46）。聚宽公开黄金回测接口
 提供逐日四资产评分和订单总额，不需要重新运行聚宽：
 
 - 逐日目标兼容匹配率 100%（2,297/2,297）；
 - 唯一最高评分日期严格匹配率 100%（2,217/2,217）；
 - 订单事件日期 Jaccard 98.55%；
 - 年化和最大回撤与首次结果一致。
+
+`local-full-etf-universe-v3` 是过滤巨潮公告假阳性之前生成的中间归档；它没有覆盖或
+删除，但不作为最终数据底座证据。v4 已排除标题仅表示“流动性服务商终止”的
+`SZ159892` 假阳性，并锁定最终 ETF 日线与统一证券主表 manifest 哈希。
 
 ETF 全量覆盖、历史终止产品和质量限制见
 [`docs/local-research/etf-data.md`](../../docs/local-research/etf-data.md)。

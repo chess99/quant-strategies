@@ -5,11 +5,15 @@ from quant_research.data.etf_universe import (
     build_etf_master,
     classify_etf,
     etf_security_supplemental,
+    normalize_cninfo_terminated_etfs,
     normalize_current_etf_lists,
     summarize_etf_coverage,
 )
-from quant_research.data.etf_sync import normalize_eastmoney_etf_profile
-from quant_research.data.etf_sync import sync_etf_daily
+from quant_research.data.etf_sync import (
+    _write_immutable_snapshot,
+    normalize_eastmoney_etf_profile,
+    sync_etf_daily,
+)
 from quant_research.data.store import ResearchDataStore
 
 
@@ -40,6 +44,28 @@ def test_current_etf_union_requires_a_real_latest_trade_date():
     assert pending["in_ths"]
 
 
+def test_changed_same_day_source_snapshot_gets_content_addressed_version(tmp_path):
+    store = ResearchDataStore(tmp_path / "data")
+
+    first = _write_immutable_snapshot(
+        store,
+        "provider",
+        "dataset",
+        "current__2026-07-24.csv",
+        pd.DataFrame({"symbol": ["SH510300"]}),
+    )
+    second = _write_immutable_snapshot(
+        store,
+        "provider",
+        "dataset",
+        "current__2026-07-24.csv",
+        pd.DataFrame({"symbol": ["SH510300", "SZ159915"]}),
+    )
+
+    assert first["path"] != second["path"]
+    assert "__sha256-" in second["path"]
+
+
 def test_candidate_pool_keeps_historical_exchange_records():
     current = pd.DataFrame(
         {
@@ -67,13 +93,70 @@ def test_candidate_pool_keeps_historical_exchange_records():
             "统计日期": ["2020-01-31", "2014-01-31"],
         }
     )
+    terminated = pd.DataFrame(
+        {
+            "代码": ["159911", "150160"],
+            "简称": ["民营ETF", "通福B"],
+            "公告标题": [
+                "关于基金份额<em>终止</em><em>上市</em>的公告",
+                "关于终止上市的公告",
+            ],
+            "公告时间": ["2020-06-10", "2016-12-09"],
+            "公告链接": ["https://example/etf", "https://example/not-etf"],
+        }
+    )
 
-    candidates = build_etf_candidates(current, fund_names, historical)
+    candidates = build_etf_candidates(
+        current,
+        fund_names,
+        historical,
+        terminated,
+    )
 
-    assert set(candidates["symbol"]) == {"SH510190", "SH510300", "SZ159901"}
+    assert set(candidates["symbol"]) == {
+        "SH510190",
+        "SH510300",
+        "SZ159901",
+        "SZ159911",
+    }
     old = candidates.set_index("symbol").loc["SH510190"]
     assert old["seen_in_historical_exchange_snapshot"]
     assert not old["expected_active"]
+    terminated_row = candidates.set_index("symbol").loc["SZ159911"]
+    assert terminated_row["seen_in_termination_announcement"]
+    assert terminated_row["candidate_sources"] == "cninfo-termination"
+    assert terminated_row["termination_announcement_date"] == pd.Timestamp(
+        "2020-06-10"
+    )
+
+
+def test_cninfo_termination_normalization_keeps_only_exchange_etfs():
+    announcements = pd.DataFrame(
+        {
+            "代码": [159911.0, 510700.0, 150160.0, 160123.0, 159892.0],
+            "简称": ["民营ETF", "百强ETF", "通福B", "南方50债", "恒生医药ETF"],
+            "公告标题": [
+                "终止上市公告",
+                "终止上市公告",
+                "终止上市公告",
+                "终止上市公告",
+                "关于香港上市生物科技ETF流动性服务商终止的公告",
+            ],
+            "公告时间": [
+                "2020-06-10",
+                "2015-10-08",
+                "2016-12-09",
+                "2016-08-12",
+                "2024-04-15",
+            ],
+            "公告链接": ["a", "b", "c", "d", "e"],
+        }
+    )
+
+    result = normalize_cninfo_terminated_etfs(announcements)
+
+    assert result["symbol"].tolist() == ["SH510700", "SZ159911"]
+    assert set(result["candidate_source"]) == {"cninfo-termination"}
 
 
 def test_etf_classification_covers_supported_research_categories():

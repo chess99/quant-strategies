@@ -31,6 +31,8 @@ ETF_MASTER_COLUMNS = [
     "in_sina",
     "in_ths",
     "seen_in_historical_exchange_snapshot",
+    "seen_in_termination_announcement",
+    "termination_announcement_date",
     "candidate_sources",
     "bar_status",
     "bar_row_count",
@@ -159,13 +161,70 @@ def _normalize_fund_name_candidates(fund_names: pd.DataFrame) -> pd.DataFrame:
 
 def _normalize_historical_candidates(snapshots: pd.DataFrame) -> pd.DataFrame:
     if snapshots is None or snapshots.empty:
-        return pd.DataFrame(columns=["symbol", "display_name", "reported_fund_type"])
+        return pd.DataFrame(
+            columns=[
+                "symbol",
+                "display_name",
+                "reported_fund_type",
+                "candidate_source",
+            ]
+        )
     frame = snapshots.copy()
     frame["symbol"] = frame["基金代码"].map(symbol_for_etf_code)
     frame["display_name"] = frame.get("基金简称")
     frame["reported_fund_type"] = frame.get("ETF类型")
-    return frame[["symbol", "display_name", "reported_fund_type"]].drop_duplicates(
-        "symbol", keep="last"
+    frame["candidate_source"] = frame.get("candidate_source", "sse-history")
+    return frame[
+        ["symbol", "display_name", "reported_fund_type", "candidate_source"]
+    ].drop_duplicates("symbol", keep="last")
+
+
+def normalize_cninfo_terminated_etfs(announcements: pd.DataFrame) -> pd.DataFrame:
+    """从巨潮基金终止上市公告恢复沪深历史 ETF 候选。"""
+
+    columns = [
+        "symbol",
+        "display_name",
+        "termination_announcement_date",
+        "termination_announcement_url",
+        "candidate_source",
+    ]
+    if announcements is None or announcements.empty:
+        return pd.DataFrame(columns=columns)
+    frame = announcements.copy()
+    codes = (
+        frame["代码"]
+        .astype("string")
+        .str.replace(r"\.0$", "", regex=True)
+        .str.zfill(6)
+    )
+    titles = (
+        frame.get("公告标题", pd.Series(index=frame.index, dtype="object"))
+        .astype("string")
+        .str.replace(r"<[^>]+>", "", regex=True)
+    )
+    valid = codes.str.fullmatch(
+        r"(?:15[89]\d{3}|5[1268]\d{4})", na=False
+    ) & titles.str.contains("终止上市", na=False)
+    frame = frame.loc[valid].copy()
+    if frame.empty:
+        return pd.DataFrame(columns=columns)
+    frame["symbol"] = codes.loc[valid].map(symbol_for_etf_code)
+    frame["display_name"] = (
+        frame.get("简称", pd.Series(index=frame.index, dtype="object"))
+        .astype("string")
+        .str.replace(r"<[^>]+>", "", regex=True)
+    )
+    frame["termination_announcement_date"] = pd.to_datetime(
+        frame.get("公告时间"), errors="coerce"
+    ).dt.normalize()
+    frame["termination_announcement_url"] = frame.get("公告链接")
+    frame["candidate_source"] = "cninfo-termination"
+    frame = frame.sort_values(
+        ["symbol", "termination_announcement_date"], na_position="first"
+    )
+    return frame[columns].drop_duplicates("symbol", keep="last").reset_index(
+        drop=True
     )
 
 
@@ -173,19 +232,25 @@ def build_etf_candidates(
     current: pd.DataFrame,
     fund_names: pd.DataFrame,
     historical_exchange_snapshots: pd.DataFrame,
+    termination_announcements: pd.DataFrame | None = None,
 ) -> pd.DataFrame:
     """建立候选池，保留当前、基金字典和历史交易所快照的来源证据。"""
 
     names = _normalize_fund_name_candidates(fund_names)
     history = _normalize_historical_candidates(historical_exchange_snapshots)
+    terminated = normalize_cninfo_terminated_etfs(termination_announcements)
     symbols = sorted(
         set(current.get("symbol", pd.Series(dtype=str)).dropna())
         | set(names["symbol"])
         | set(history["symbol"])
+        | set(terminated["symbol"])
     )
     current_by = current.set_index("symbol") if not current.empty else pd.DataFrame()
     names_by = names.set_index("symbol") if not names.empty else pd.DataFrame()
     history_by = history.set_index("symbol") if not history.empty else pd.DataFrame()
+    terminated_by = (
+        terminated.set_index("symbol") if not terminated.empty else pd.DataFrame()
+    )
     records = []
     for symbol in symbols:
         current_row = (
@@ -199,6 +264,11 @@ def build_etf_candidates(
             if symbol in history_by.index
             else pd.Series(dtype=object)
         )
+        terminated_row = (
+            terminated_by.loc[symbol]
+            if symbol in terminated_by.index
+            else pd.Series(dtype=object)
+        )
         sources = []
         if symbol in current_by.index and bool(current_row.get("in_sina", False)):
             sources.append("sina-current")
@@ -207,7 +277,11 @@ def build_etf_candidates(
         if symbol in names_by.index:
             sources.append("eastmoney-fund-name")
         if symbol in history_by.index:
-            sources.append("sse-history")
+            sources.extend(
+                str(history_row.get("candidate_source", "sse-history")).split("|")
+            )
+        if symbol in terminated_by.index:
+            sources.append("cninfo-termination")
         records.append(
             {
                 "symbol": symbol,
@@ -218,6 +292,7 @@ def build_etf_candidates(
                         current_row.get("display_name"),
                         name_row.get("display_name"),
                         history_row.get("display_name"),
+                        terminated_row.get("display_name"),
                     ]
                 ),
                 "reported_fund_type": _first_non_empty(
@@ -231,7 +306,11 @@ def build_etf_candidates(
                 "in_sina": bool(current_row.get("in_sina", False)),
                 "in_ths": bool(current_row.get("in_ths", False)),
                 "seen_in_historical_exchange_snapshot": symbol in history_by.index,
-                "candidate_sources": "|".join(sources),
+                "seen_in_termination_announcement": symbol in terminated_by.index,
+                "termination_announcement_date": terminated_row.get(
+                    "termination_announcement_date", pd.NaT
+                ),
+                "candidate_sources": "|".join(dict.fromkeys(sources)),
             }
         )
     return pd.DataFrame(records).sort_values("symbol").reset_index(drop=True)
@@ -370,13 +449,31 @@ def build_etf_master(
                 "seen_in_historical_exchange_snapshot": bool(
                     payload.get("seen_in_historical_exchange_snapshot", False)
                 ),
+                "seen_in_termination_announcement": bool(
+                    payload.get("seen_in_termination_announcement", False)
+                ),
+                "termination_announcement_date": pd.to_datetime(
+                    payload.get("termination_announcement_date"), errors="coerce"
+                ),
                 "candidate_sources": payload.get("candidate_sources", ""),
                 "bar_status": status,
                 "bar_row_count": int(bars.get("row_count") or 0),
                 "bar_error": bars.get("error"),
                 "profile_status": profile.get("profile_status", "not_attempted"),
                 "quality_grade": grade,
-                "source": "sse-history|sina|ths|eastmoney",
+                "source": "|".join(
+                    dict.fromkeys(
+                        filter(
+                            None,
+                            [
+                                payload.get("candidate_sources"),
+                                "sina",
+                                "ths",
+                                "eastmoney",
+                            ],
+                        )
+                    )
+                ),
             }
         )
     result = pd.DataFrame(records, columns=ETF_MASTER_COLUMNS)
@@ -432,6 +529,26 @@ def summarize_etf_coverage(master: pd.DataFrame) -> dict:
         "category_counts": {
             str(key): int(value)
             for key, value in master["etf_category"].value_counts(dropna=False).items()
+        },
+        "historical_source_counts": {
+            "exchange_snapshot": int(
+                master.get(
+                    "seen_in_historical_exchange_snapshot",
+                    pd.Series(False, index=master.index),
+                )
+                .fillna(False)
+                .astype(bool)
+                .sum()
+            ),
+            "cninfo_termination": int(
+                master.get(
+                    "seen_in_termination_announcement",
+                    pd.Series(False, index=master.index),
+                )
+                .fillna(False)
+                .astype(bool)
+                .sum()
+            ),
         },
     }
 

@@ -7,3 +7,7 @@
 *.yml text eol=lf
 *.csv text eol=lf
 *.png binary
+
+# 回测 source.py 是平台实际运行源码的不可变快照，保留原始尾随空白。
+**/results/**/source.py whitespace=-blank-at-eol,-blank-at-eof
+**/backtests/**/source.py whitespace=-blank-at-eol,-blank-at-eof

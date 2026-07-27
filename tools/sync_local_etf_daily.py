@@ -35,7 +35,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--workers", type=int, default=8)
     parser.add_argument("--attempts", type=int, default=3)
     parser.add_argument("--checkpoint-every", type=int, default=25)
-    parser.add_argument("--history-start", default="2013-01-01")
+    parser.add_argument("--history-start", default="2012-01-01")
+    parser.add_argument("--termination-start", default="2005-01-01")
+    parser.add_argument("--termination-year-span", type=int, default=4)
     parser.add_argument("--no-resume", action="store_true")
     return parser.parse_args()
 
@@ -57,6 +59,8 @@ def main() -> int:
             store,
             calendar,
             history_start=args.history_start,
+            termination_start=args.termination_start,
+            termination_year_span=args.termination_year_span,
             attempts=args.attempts,
         )
         candidates, candidate_manifest = write_etf_candidates(store, snapshot)

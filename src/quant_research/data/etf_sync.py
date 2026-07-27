@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -28,6 +29,7 @@ class EtfSourceSnapshot:
     current: pd.DataFrame
     fund_names: pd.DataFrame
     sse_history: pd.DataFrame
+    termination_announcements: pd.DataFrame
     source_files: list[dict]
     source_end: pd.Timestamp
 
@@ -59,6 +61,25 @@ def _retry(
                 time.sleep(initial_delay * (2**attempt))
     assert error is not None
     raise error
+
+
+def _write_immutable_snapshot(
+    store: ResearchDataStore,
+    provider: str,
+    dataset: str,
+    filename: str,
+    frame: pd.DataFrame,
+) -> dict:
+    """同名上游快照变化时保留旧文件，并用内容哈希保存新版本。"""
+
+    try:
+        return store.write_raw_csv(provider, dataset, filename, frame)
+    except FileExistsError:
+        payload = frame.to_csv(index=False).encode("utf-8-sig")
+        digest = hashlib.sha256(payload).hexdigest()
+        path = Path(filename)
+        versioned = f"{path.stem}__sha256-{digest[:16]}{path.suffix}"
+        return store.write_raw_csv(provider, dataset, versioned, frame)
 
 
 def normalize_eastmoney_etf_profile(symbol: str, raw: pd.DataFrame) -> dict:
@@ -201,6 +222,19 @@ class AkshareEtfProvider:
     def sse_snapshot(self, date: pd.Timestamp) -> pd.DataFrame:
         return self.ak.fund_etf_scale_sse(date.strftime("%Y%m%d"))
 
+    def termination_announcements(
+        self,
+        start_date: pd.Timestamp,
+        end_date: pd.Timestamp,
+    ) -> pd.DataFrame:
+        return self.ak.stock_zh_a_disclosure_report_cninfo(
+            symbol="",
+            market="基金",
+            keyword="终止上市",
+            start_date=start_date.strftime("%Y%m%d"),
+            end_date=end_date.strftime("%Y%m%d"),
+        )
+
     def quotes(self, symbol: str) -> pd.DataFrame:
         return self.ak.fund_etf_hist_sina(symbol.lower())
 
@@ -216,10 +250,12 @@ def collect_etf_source_snapshot(
     calendar: pd.Series,
     *,
     provider: AkshareEtfProvider | None = None,
-    history_start: str = "2013-01-01",
+    history_start: str = "2012-01-01",
+    termination_start: str = "2005-01-01",
+    termination_year_span: int = 4,
     attempts: int = 3,
 ) -> EtfSourceSnapshot:
-    """下载当前交叉列表和上交所逐月历史快照。"""
+    """下载当前交叉列表、上交所历史快照和巨潮终止上市公告。"""
 
     provider = provider or AkshareEtfProvider()
     current_sina = _retry(provider.current_sina, attempts=attempts)
@@ -245,19 +281,22 @@ def collect_etf_source_snapshot(
         current_szse = pd.DataFrame()
 
     source_files = [
-        store.write_raw_csv(
+        _write_immutable_snapshot(
+            store,
             "sina",
             "etf_universe",
             f"current__{source_end:%Y-%m-%d}.csv",
             current_sina,
         ),
-        store.write_raw_csv(
+        _write_immutable_snapshot(
+            store,
             "ths",
             "etf_universe",
             f"current__{source_end:%Y-%m-%d}.csv",
             current_ths,
         ),
-        store.write_raw_csv(
+        _write_immutable_snapshot(
+            store,
             "eastmoney",
             "etf_universe",
             f"fund_names__{source_end:%Y-%m-%d}.csv",
@@ -266,7 +305,8 @@ def collect_etf_source_snapshot(
     ]
     if not current_sse.empty:
         source_files.append(
-            store.write_raw_csv(
+            _write_immutable_snapshot(
+                store,
                 "sse",
                 "etf_universe",
                 f"current__{source_end:%Y-%m-%d}.csv",
@@ -275,7 +315,8 @@ def collect_etf_source_snapshot(
         )
     if not current_szse.empty:
         source_files.append(
-            store.write_raw_csv(
+            _write_immutable_snapshot(
+                store,
                 "szse",
                 "etf_universe",
                 f"current__{source_end:%Y-%m-%d}.csv",
@@ -285,29 +326,102 @@ def collect_etf_source_snapshot(
 
     history_frames = []
     for date in _month_end_sessions(calendar, history_start, source_end):
-        try:
-            frame = _retry(
-                lambda selected=date: provider.sse_snapshot(selected),
-                attempts=attempts,
-            )
-        except Exception:  # noqa: BLE001 - empty old dates are recorded by omission
-            continue
+        cached_path = (
+            store.raw_dir
+            / "sse"
+            / "etf_universe_history"
+            / f"{date:%Y-%m-%d}.csv"
+        )
+        if cached_path.is_file():
+            frame = pd.read_csv(cached_path, encoding="utf-8-sig")
+        else:
+            try:
+                frame = _retry(
+                    lambda selected=date: provider.sse_snapshot(selected),
+                    attempts=attempts,
+                )
+            except Exception:  # noqa: BLE001 - old unavailable dates are explicit
+                continue
         if frame.empty:
             continue
         frame = frame.copy()
         frame["requested_snapshot_date"] = date
+        frame["candidate_source"] = "sse-history"
         history_frames.append(frame)
-        source_files.append(
-            store.write_raw_csv(
-                "sse",
-                "etf_universe_history",
-                f"{date:%Y-%m-%d}.csv",
-                frame,
+        if cached_path.is_file():
+            source_files.append(
+                {
+                    "path": cached_path.relative_to(store.root).as_posix(),
+                    "bytes": cached_path.stat().st_size,
+                    "sha256": sha256_file(cached_path),
+                }
             )
-        )
+        else:
+            source_files.append(
+                _write_immutable_snapshot(
+                    store,
+                    "sse",
+                    "etf_universe_history",
+                    f"{date:%Y-%m-%d}.csv",
+                    frame,
+                )
+            )
     sse_history = (
         pd.concat(history_frames, ignore_index=True)
         if history_frames
+        else pd.DataFrame()
+    )
+    if termination_year_span < 1:
+        raise ValueError("termination_year_span must be positive")
+    termination_frames = []
+    start_year = pd.Timestamp(termination_start).year
+    for first_year in range(start_year, source_end.year + 1, termination_year_span):
+        start_date = pd.Timestamp(f"{first_year}-01-01")
+        end_year = min(first_year + termination_year_span - 1, source_end.year)
+        end_date = min(pd.Timestamp(f"{end_year}-12-31"), source_end)
+        cached_path = (
+            store.raw_dir
+            / "cninfo"
+            / "etf_termination"
+            / f"{start_date:%Y-%m-%d}__{end_date:%Y-%m-%d}.csv"
+        )
+        if cached_path.is_file():
+            frame = pd.read_csv(cached_path, encoding="utf-8-sig")
+        else:
+            frame = _retry(
+                lambda selected_start=start_date, selected_end=end_date: (
+                    provider.termination_announcements(
+                        selected_start,
+                        selected_end,
+                    )
+                ),
+                attempts=attempts,
+            )
+        if not frame.empty:
+            termination_frames.append(frame)
+        if cached_path.is_file():
+            source_files.append(
+                {
+                    "path": cached_path.relative_to(store.root).as_posix(),
+                    "bytes": cached_path.stat().st_size,
+                    "sha256": sha256_file(cached_path),
+                }
+            )
+        else:
+            source_files.append(
+                _write_immutable_snapshot(
+                    store,
+                    "cninfo",
+                    "etf_termination",
+                    f"{start_date:%Y-%m-%d}__{end_date:%Y-%m-%d}.csv",
+                    frame,
+                )
+            )
+    termination_announcements = (
+        pd.concat(termination_frames, ignore_index=True)
+        .drop_duplicates(["代码", "公告标题", "公告时间"])
+        .reset_index(drop=True)
+        if termination_frames
         else pd.DataFrame()
     )
     current = normalize_current_etf_lists(current_sina, current_ths)
@@ -319,6 +433,7 @@ def collect_etf_source_snapshot(
         current=current,
         fund_names=fund_names,
         sse_history=sse_history,
+        termination_announcements=termination_announcements,
         source_files=source_files,
         source_end=source_end,
     )
@@ -332,12 +447,13 @@ def write_etf_candidates(
         snapshot.current,
         snapshot.fund_names,
         snapshot.sse_history,
+        snapshot.termination_announcements,
     )
     data_file = store.write_parquet("etf_candidates", candidates)
     manifest = DatasetManifest(
         schema_version=1,
         dataset="etf_candidates",
-        provider="SSE + SZSE + Sina + THS + Eastmoney",
+        provider="SSE + SZSE + CNINFO + Sina + THS + Eastmoney",
         quality_grade=QualityGrade.B,
         row_count=len(candidates),
         columns=list(candidates.columns),
@@ -350,13 +466,22 @@ def write_etf_candidates(
             "historical_sse_symbols": int(
                 candidates["seen_in_historical_exchange_snapshot"].sum()
             ),
+            "cninfo_termination_symbols": int(
+                candidates["seen_in_termination_announcement"].sum()
+            ),
             "candidate_count": int(len(candidates)),
         },
         limitations=[
-            "上交所历史池来自2013年以来逐月官方规模快照；更早短期存续产品可能遗漏。",
-            "深交所缺少同等可查询的历史快照，历史退市候选还需由逐只行情和基金档案补证。",
+            "上交所历史池来自2012年以来逐月官方规模快照。",
+            "沪深终止上市候选来自巨潮基金公告2005年至观察日的完整关键词分页；逐只行情决定实际交易区间。",
+            "未正式上市或仅预留代码的候选保持C级，禁止进入历史可交易池。",
         ],
-        checks={"allows_unverified_candidates": True},
+        checks={
+            "allows_unverified_candidates": True,
+            "historical_sources_cover_both_exchanges": bool(
+                candidates["seen_in_termination_announcement"].any()
+            ),
+        },
     )
     store.write_manifest(manifest)
     return candidates, manifest
@@ -804,7 +929,7 @@ def finalize_etf_master(
     manifest = DatasetManifest(
         schema_version=1,
         dataset="etf_master",
-        provider="SSE + SZSE + Sina + THS + Eastmoney",
+        provider="SSE + SZSE + CNINFO + Sina + THS + Eastmoney",
         quality_grade=QualityGrade.worst(master["quality_grade"]),
         row_count=len(master),
         columns=list(master.columns),

@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "study_id": "joinquant-etf-rotation-replication",
+  "run_id": "local-full-etf-universe-v3",
+  "archived_at": "2026-07-27",
+  "source_path": "joinquant_post_crawler/sources/2024年度精选策略/3.【回顾3】ETF策略之核心资产轮动.py",
+  "source_file": "source.py",
+  "source_sha256": "7f1eecf4411183cecb8992a6574a7d3f340a1e28645a522028040c1a88bfea96",
+  "engine_file": "engine.py",
+  "engine_sha256": "e31ddc164aa8a82f3a6bdea794f8091901c28c20d619a9cf7fe9e54655dd82c8",
+  "period": {
+    "start": "2014-01-01",
+    "end": "2023-06-09"
+  },
+  "data_manifests": {
+    "etf_daily": {
+      "path": "D:\\code\\_open-source\\_data\\quant-research\\manifests\\etf_daily.json",
+      "sha256": "df62ef9d3b84c453f1259f8ff2763bb0204010e6a853179bf9076a757e6413c2"
+    },
+    "security_master": {
+      "path": "D:\\code\\_open-source\\_data\\quant-research\\manifests\\security_master.json",
+      "sha256": "7c0d9426d38db41e5cfb613140da0facfc8dfcfc7c39904a0a27087c6ecfced1"
+    }
+  },
+  "joinquant_metrics": {
+    "total_return": 16.95179316,
+    "annualized_return": 0.3692858,
+    "benchmark_total_return": 0.64663116,
+    "benchmark_annualized_return": 0.05578097,
+    "max_drawdown": 0.30612221,
+    "sharpe": 1.337019315484
+  },
+  "local_metrics": {
+    "trading_days": 2297,
+    "total_return": 16.86553540854669,
+    "annualized_return": 0.3685681806908594,
+    "benchmark_total_return": 0.651305079460144,
+    "benchmark_annualized_return": 0.05610671864333705,
+    "max_drawdown": 0.30613696178734573,
+    "sharpe": 1.3985632850471519,
+    "annualized_volatility": 0.24620863654610425,
+    "turnover": 269.7862531601571,
+    "average_cash_ratio": 0.00045715703313210256,
+    "longest_underwater_trading_days": 361
+  },
+  "reference_comparison": {
+    "target_compatible_dates": 2297,
+    "target_compatible_matches": 2297,
+    "target_compatible_match_rate": 1.0,
+    "unique_reference_target_dates": 2217,
+    "unique_reference_target_matches": 2217,
+    "unique_reference_target_match_rate": 1.0,
+    "rounded_score_mean_absolute_error": 3.289473684210527e-05,
+    "local_order_event_dates": 137,
+    "joinquant_order_event_dates": 137,
+    "order_event_date_intersection": 136,
+    "order_event_date_jaccard": 0.9855072463768116,
+    "target_match_threshold": 0.95,
+    "target_match_passed": true
+  },
+  "artifacts": {
+    "equity": "raw/equity.csv",
+    "trades": "raw/trades.csv",
+    "scores": "raw/scores.csv",
+    "joinquant_scores": "raw/joinquant_scores.csv",
+    "joinquant_orders": "raw/joinquant_orders.csv",
+    "joinquant_equity": "raw/joinquant_equity.csv",
+    "joinquant_result_pages": "raw/joinquant_result_pages.json"
+  }
+}

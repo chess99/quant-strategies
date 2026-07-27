@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "status": "failed",
+  "platform": "local-qlib-eastmoney-swsresearch",
+  "study": "joinquant-value-quality-golden-comparison",
+  "run_id": "2026-07-27__monthly-value-quality__local-preflight-v1",
+  "period": {
+    "start": "2019-01-02",
+    "end": "2023-06-30"
+  },
+  "initial_cash": 1000000.0,
+  "benchmark": "SH000300",
+  "strategy": {
+    "frequency": "monthly_first_session_open",
+    "observation_lag_sessions": 1,
+    "holdings": 20,
+    "maximum_per_sw_l1": 3,
+    "minimum_listing_days": 375
+  },
+  "data_provenance": [
+    {
+      "dataset": "security_master",
+      "quality_grade": "B",
+      "provider": "qlib-community-cn + akshare/exchange-lists + supplemental point-in-time masters",
+      "row_count": 7818,
+      "manifest_sha256": "13fe3d0608e5249a5bd2ddcccb790b8bec61a84ceb8d102a1424e4617bcac78f"
+    },
+    {
+      "dataset": "daily_valuation",
+      "quality_grade": "B",
+      "provider": "akshare/eastmoney-stock-value + baidu-stock-valuation",
+      "row_count": 9618793,
+      "manifest_sha256": "ec992f9a2bed7c89ff0197bee319eddfc54a5cee8c0add8d3df8d1f0bf111098"
+    },
+    {
+      "dataset": "daily_market_state",
+      "quality_grade": "C",
+      "provider": "qlib-community-cn + dolthub/chenditc-investment-data",
+      "row_count": 17679198,
+      "manifest_sha256": "b7cdf65997babc0538f2bf51fb4e3fc5f508a7553326de7bfef135a5f248a0a8"
+    },
+    {
+      "dataset": "fundamentals_pit",
+      "quality_grade": "B",
+      "provider": "eastmoney/securities-financial-statements",
+      "row_count": 340162,
+      "manifest_sha256": "34b9ebe790e7cf08c31c8dc61a66de0c148ec4bd59b27adc256b9c097a829415"
+    },
+    {
+      "dataset": "industry_membership",
+      "quality_grade": "B",
+      "provider": "swsresearch/official-industry-history",
+      "row_count": 20377,
+      "manifest_sha256": "514ff681576f3ee33f640272217d29d470b5a452034f7c1c0cdd1c65c9fa8b57"
+    }
+  ],
+  "quality": {
+    "bars": "B",
+    "valuation": "B",
+    "fundamentals": "B",
+    "industry": "B",
+    "market_state_row_gate": "B"
+  },
+  "metrics": {
+    "total_return": 0.6069065106544342,
+    "annualized_return": 0.11589547694396507,
+    "maximum_drawdown": 0.30554493331059995,
+    "sharpe": 0.6038642102024109,
+    "annualized_volatility": 0.22300301069031553,
+    "turnover": 35.60581611714425,
+    "average_cash_ratio": 0.006080379718865563,
+    "maximum_cash_ratio": 0.013671262839219036,
+    "longest_underwater_trading_days": 351,
+    "yearly_returns": {
+      "2019": 0.2545813657126106,
+      "2020": 0.11364604379854848,
+      "2021": 0.4818609614007956,
+      "2022": -0.21237292169113775,
+      "2023": -0.014591047563454085
+    }
+  },
+  "checks": {
+    "all_rebalances_have_20_targets": true,
+    "future_notice_rows_zero": true,
+    "fundamental_partition_failures_zero": true,
+    "industry_partition_failures_zero": true,
+    "future_industry_intervals_zero": true,
+    "selected_state_quality_at_least_b": false,
+    "trades_present": true
+  },
+  "coverage_sha256": "42301f0e02ff322e18ab3ff76d5cc08a02fb3cc26a0b890daf3e652bb035d3c6",
+  "source_sha256": "db291ca865840f7b2b1546acbd8be32e2d565f0a98f6e88af297413a4fef03f6",
+  "engine_sha256": "ae742accd9304351ed59872dd52959a49fd628c9c9bf767eb6227b5b9f0437f6",
+  "joinquant_strategy_sha256": "9b6e96e26cf62f72fffbe03dbd377e61564324379327b6d9b0204ec550a69d7e",
+  "raw_sha256": {
+    "equity.csv": "38f9fdb9d6147e840fb4ed3fd69f5ab1883e39e946b46438680de3cd6e2f54d6",
+    "orders.csv": "0b0803aed83c702d0567bb19a51bb7f234c416e1f93c2aa2695d7fb83445a3f8",
+    "trades.csv": "70ec3f6650e7fb1930175b92c3c5612428dbb9aa7ed56dba1711b2063f759d4e",
+    "holdings-daily.csv": "bf4f1ebcbace0fdfaf836fb65cea69bf46ef2151a890d9071a328641fa1f9567",
+    "holdings-monthly.csv": "e6a55f2aa22771b7435293de4eaf1f95560fb8fe6036cfe60b82d9a0cc832b69",
+    "candidates-top100.csv": "bc2b287d054999d03e78a1cddc864c84954683b553972f719e643e6237c9526a",
+    "rebalance-coverage.csv": "5d001a34464810317b61f6e80aadcfa549899e80168a496746f661e240603cae",
+    "cash-ledger.csv": "36b17d86d2290e2bb0afe54a908922448b0e257aceee5460c86764b0ed4b5d64",
+    "fees-ledger.csv": "19afc6496dc985b16f03a0144404a1ed701d56c0759d5d12600d25c1b2f8c501",
+    "rejections.csv": "9e725c9cddcbf4355009e9c57ab8df598c0407903c0bd821937f0348dd73f1c2"
+  },
+  "joinquant_golden_status": "pending_single_run"
+}

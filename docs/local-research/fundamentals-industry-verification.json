@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-07-27",
+  "status": "local_preflight_passed_joinquant_golden_blocked",
+  "financials": {
+    "historical_stock_universe": 6115,
+    "successful_symbols": 6064,
+    "empty_symbols": 51,
+    "failed_symbols": 0,
+    "rows": 340162,
+    "quality_grade": "B",
+    "current_expected": 5530,
+    "current_core_covered": 5381,
+    "current_core_coverage_ratio": 0.9730560578661844,
+    "field_partition_audit_failures": 0,
+    "manifest_sha256": "34b9ebe790e7cf08c31c8dc61a66de0c148ec4bd59b27adc256b9c097a829415",
+    "coverage_report_sha256": "597dea90aff87c3fe0867ddaaf75408cb3ce9909b4a23912cd038cba6ddb350f"
+  },
+  "shenwan_industry": {
+    "historical_stock_universe": 6115,
+    "covered_symbols": 5871,
+    "missing_symbols": 248,
+    "current_expected": 5530,
+    "current_covered": 5530,
+    "current_coverage_ratio": 1.0,
+    "sw_l1_rows": 9184,
+    "sw_l2_rows": 11193,
+    "quality_grade": "B",
+    "overlapping_intervals": 0,
+    "duplicate_primary_keys": 0,
+    "source_sha256": "63974937b615feec19c6588fac1dec571f714da0364457fbe419b562b5ddadec",
+    "manifest_sha256": "514ff681576f3ee33f640272217d29d470b5a452034f7c1c0cdd1c65c9fa8b57",
+    "coverage_report_sha256": "427d598316b0a492fd370e557cf413dc8bd23fecf57b8c3fc09b4f454eb26b72"
+  },
+  "local_value_quality_preflight": {
+    "run_id": "2026-07-27__monthly-value-quality__local-preflight-v2",
+    "period": {
+      "start": "2019-01-02",
+      "end": "2023-06-30"
+    },
+    "rebalance_dates": 54,
+    "holdings_per_rebalance": 20,
+    "minimum_eligible_candidates": 995,
+    "future_notice_rows": 0,
+    "future_industry_interval_rows": 0,
+    "annualized_return": 0.11589547694396507,
+    "maximum_drawdown": 0.30554493331059995,
+    "sharpe": 0.6038642102024109,
+    "average_cash_ratio": 0.006080379718865563,
+    "checks_passed": true,
+    "joinquant_golden_status": "blocked_browser_runtime_or_manual_run_required"
+  },
+  "validation": {
+    "pytest": "228 passed",
+    "repository_validation": "passed",
+    "ruff_changed_files": "passed",
+    "git_diff_check": "passed"
+  },
+  "remaining_acceptance": [
+    "运行一次聚宽价值质量策略并导入54次结构化日志与stats",
+    "目标和持仓平均重合率至少80%",
+    "年化收益和最大回撤绝对差分别不超过3个百分点"
+  ]
+}

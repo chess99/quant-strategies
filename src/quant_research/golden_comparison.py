@@ -10,7 +10,11 @@ import pandas as pd
 from .jq_compat import to_local_symbol
 
 
-def parse_joinquant_small_cap_log(text: str) -> dict[str, pd.DataFrame]:
+def parse_joinquant_small_cap_log(
+    text: str,
+    *,
+    selected_count: int = 10,
+) -> dict[str, pd.DataFrame]:
     candidates = []
     orders = []
     holdings = []
@@ -32,7 +36,7 @@ def parse_joinquant_small_cap_log(text: str) -> dict[str, pd.DataFrame]:
                         "reported_candidate_count": int(parts[4]),
                         "symbol": to_local_symbol(code),
                         "rank": rank,
-                        "selected": rank <= 10,
+                        "selected": rank <= selected_count,
                     }
                 )
         elif marker == "QR_ORDER" and len(parts) >= 5:
@@ -128,10 +132,38 @@ def compare_small_cap_results(
     parsed_log: dict[str, pd.DataFrame],
     joinquant_metrics: dict,
 ) -> tuple[dict, pd.DataFrame]:
+    return _compare_portfolio_results(
+        local_result_dir,
+        parsed_log,
+        joinquant_metrics,
+        candidate_filename="candidates-top50.csv",
+    )
+
+
+def compare_value_quality_results(
+    local_result_dir: Path | str,
+    parsed_log: dict[str, pd.DataFrame],
+    joinquant_metrics: dict,
+) -> tuple[dict, pd.DataFrame]:
+    return _compare_portfolio_results(
+        local_result_dir,
+        parsed_log,
+        joinquant_metrics,
+        candidate_filename="candidates-top100.csv",
+    )
+
+
+def _compare_portfolio_results(
+    local_result_dir: Path | str,
+    parsed_log: dict[str, pd.DataFrame],
+    joinquant_metrics: dict,
+    *,
+    candidate_filename: str,
+) -> tuple[dict, pd.DataFrame]:
     local_dir = Path(local_result_dir)
     local_manifest = json.loads((local_dir / "manifest.json").read_text(encoding="utf-8"))
     local_candidates = pd.read_csv(
-        local_dir / "raw" / "candidates-top50.csv", parse_dates=["execution_date"]
+        local_dir / "raw" / candidate_filename, parse_dates=["execution_date"]
     )
     selected = local_candidates[local_candidates["selected"].astype(str).str.lower().eq("true")]
     local_holdings = pd.read_csv(

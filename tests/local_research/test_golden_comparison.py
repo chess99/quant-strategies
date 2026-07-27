@@ -20,6 +20,8 @@ def test_parse_joinquant_structured_log_with_prefixes():
     assert parsed["orders"].iloc[0]["filled_shares"] == 900
     assert parsed["orders"].iloc[1]["status"] == "none"
     assert parsed["holdings"].iloc[0]["total_value"] == 1010000.5
+    one_selected = parse_joinquant_small_cap_log(text, selected_count=1)
+    assert one_selected["candidates"]["selected"].tolist() == [True, False]
 
 
 def test_load_joinquant_stats_accepts_platform_names(tmp_path):

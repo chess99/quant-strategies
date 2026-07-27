@@ -175,3 +175,195 @@ def build_exact_cross_sections(
         "coverage_ratio": len(result) / expected if expected else 0.0,
     }
     return CrossSectionBuildResult(result, audit)
+
+
+def build_fundamental_cross_sections(
+    store: ResearchDataStore,
+    dataset: str,
+    observation_dates: Iterable,
+    fields: Iterable[str],
+    *,
+    symbols: Iterable[str] | None = None,
+    annual_only: bool = False,
+) -> CrossSectionBuildResult:
+    """逐证券选择观察日已公告的最新报告期，晚到的旧报告修订不会覆盖新报告。"""
+
+    dates = _dates(observation_dates)
+    requested_fields = list(dict.fromkeys(fields))
+    manifest, artifacts = _symbol_artifacts(store, dataset, symbols)
+    required = {"symbol", "report_date", "notice_date", *requested_fields}
+    if annual_only:
+        required.add("is_annual")
+    missing_fields = required.difference(manifest.get("columns", []))
+    if missing_fields:
+        raise ValueError(f"{dataset} fields are unavailable: {sorted(missing_fields)}")
+    frames = []
+    failures = []
+    empty_symbols = []
+    for symbol, artifact in artifacts:
+        try:
+            read_columns = ["symbol", "report_date", "notice_date", *requested_fields]
+            if annual_only and "is_annual" not in read_columns:
+                read_columns.append("is_annual")
+            source = pd.read_parquet(
+                store.root / artifact["path"],
+                columns=read_columns,
+                filters=[("notice_date", "<=", dates.max())],
+            )
+            if annual_only:
+                source = source[source["is_annual"].astype(bool)]
+            source["report_date"] = pd.to_datetime(source["report_date"]).dt.normalize()
+            source["notice_date"] = pd.to_datetime(source["notice_date"]).dt.normalize()
+            matched = []
+            records = source.sort_values(["notice_date", "report_date"]).to_dict("records")
+            position = 0
+            latest = None
+            for observation_date in dates:
+                while position < len(records) and records[position]["notice_date"] <= observation_date:
+                    candidate = records[position]
+                    if latest is None or (
+                        candidate["report_date"], candidate["notice_date"]
+                    ) >= (latest["report_date"], latest["notice_date"]):
+                        latest = candidate
+                    position += 1
+                if latest is not None:
+                    row = dict(latest)
+                    row["observation_date"] = observation_date
+                    matched.append(row)
+            if matched:
+                frames.append(pd.DataFrame(matched))
+            else:
+                empty_symbols.append(symbol)
+        except Exception as exc:  # pragma: no cover - real-data failure evidence
+            failures.append({"symbol": symbol, "error": f"{type(exc).__name__}: {exc}"})
+    result = (
+        pd.concat(frames, ignore_index=True)
+        if frames
+        else pd.DataFrame(
+            columns=[
+                "observation_date",
+                "symbol",
+                "report_date",
+                "notice_date",
+                *requested_fields,
+            ]
+        )
+    )
+    result = result[
+        [
+            "observation_date",
+            "symbol",
+            "report_date",
+            "notice_date",
+            *requested_fields,
+        ]
+    ].sort_values(["observation_date", "symbol"])
+    expected = len(artifacts) * len(dates)
+    audit = {
+        "dataset": dataset,
+        "mode": "fundamental_pit",
+        "quality_grade": manifest.get("quality_grade"),
+        "observation_date_count": len(dates),
+        "target_symbols": len(artifacts),
+        "successful_symbols": int(result["symbol"].nunique()) if not result.empty else 0,
+        "empty_symbols": empty_symbols,
+        "failed_symbols": failures,
+        "expected_symbol_dates": expected,
+        "matched_symbol_dates": len(result),
+        "coverage_ratio": len(result) / expected if expected else 0.0,
+        "future_notice_rows": int(
+            result["notice_date"].gt(result["observation_date"]).sum()
+        ),
+        "annual_only": annual_only,
+    }
+    return CrossSectionBuildResult(result.reset_index(drop=True), audit)
+
+
+def build_interval_cross_sections(
+    store: ResearchDataStore,
+    dataset: str,
+    observation_dates: Iterable,
+    fields: Iterable[str],
+    *,
+    symbols: Iterable[str] | None = None,
+) -> CrossSectionBuildResult:
+    """按闭区间展开历史分类、名称或成分事实，不用当前状态回填过去。"""
+
+    dates = _dates(observation_dates)
+    requested_fields = list(dict.fromkeys(fields))
+    manifest, artifacts = _symbol_artifacts(store, dataset, symbols)
+    required = {"symbol", "start_date", "end_date", *requested_fields}
+    missing_fields = required.difference(manifest.get("columns", []))
+    if missing_fields:
+        raise ValueError(f"{dataset} fields are unavailable: {sorted(missing_fields)}")
+    frames = []
+    failures = []
+    empty_symbols = []
+    for symbol, artifact in artifacts:
+        try:
+            source = pd.read_parquet(
+                store.root / artifact["path"],
+                columns=["symbol", "start_date", "end_date", *requested_fields],
+                filters=[
+                    ("start_date", "<=", dates.max()),
+                    ("end_date", ">=", dates.min()),
+                ],
+            )
+            source["start_date"] = pd.to_datetime(source["start_date"]).dt.normalize()
+            source["end_date"] = pd.to_datetime(source["end_date"]).dt.normalize()
+            matched = []
+            records = source.to_dict("records")
+            for observation_date in dates:
+                visible = [
+                    {**row, "observation_date": observation_date}
+                    for row in records
+                    if row["start_date"] <= observation_date <= row["end_date"]
+                ]
+                if visible:
+                    matched.append(pd.DataFrame(visible))
+            if matched:
+                frames.append(pd.concat(matched, ignore_index=True))
+            else:
+                empty_symbols.append(symbol)
+        except Exception as exc:  # pragma: no cover - real-data failure evidence
+            failures.append({"symbol": symbol, "error": f"{type(exc).__name__}: {exc}"})
+    result = (
+        pd.concat(frames, ignore_index=True)
+        if frames
+        else pd.DataFrame(
+            columns=[
+                "observation_date",
+                "symbol",
+                "start_date",
+                "end_date",
+                *requested_fields,
+            ]
+        )
+    )
+    result = result[
+        [
+            "observation_date",
+            "symbol",
+            "start_date",
+            "end_date",
+            *requested_fields,
+        ]
+    ].sort_values(["observation_date", "symbol"])
+    audit = {
+        "dataset": dataset,
+        "mode": "effective_interval",
+        "quality_grade": manifest.get("quality_grade"),
+        "observation_date_count": len(dates),
+        "target_symbols": len(artifacts),
+        "successful_symbols": int(result["symbol"].nunique()) if not result.empty else 0,
+        "empty_symbols": empty_symbols,
+        "failed_symbols": failures,
+        "matched_rows": len(result),
+        "future_interval_rows": int(
+            (
+                result["start_date"].gt(result["observation_date"])
+                | result["end_date"].lt(result["observation_date"])
+            ).sum()
+        ),
+    }
+    return CrossSectionBuildResult(result.reset_index(drop=True), audit)

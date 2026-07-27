@@ -129,6 +129,10 @@ class ResearchDataStore:
         self,
         dataset: str,
         symbols: Iterable[str],
+        *,
+        columns: list[str] | None = None,
+        filters=None,
+        strict: bool = True,
     ) -> pd.DataFrame:
         """只读取指定证券的 Hive 分区，避免把全市场历史一次装入内存。"""
 
@@ -142,12 +146,14 @@ class ResearchDataStore:
             if not path.is_file():
                 missing.append(symbol)
                 continue
-            frames.append(pd.read_parquet(path))
-        if missing:
+            frames.append(pd.read_parquet(path, columns=columns, filters=filters))
+        if missing and strict:
             raise FileNotFoundError(
                 f"{dataset} symbol partitions do not exist: {missing}"
             )
         if not frames:
+            if missing:
+                return pd.DataFrame(columns=columns)
             raise ValueError("at least one symbol is required")
         return pd.concat(frames, ignore_index=True)
 

@@ -1,0 +1,1826 @@
+{
+  "schema_version": 1,
+  "scope": "D:\\code\\quant-strategies\\joinquant_post_crawler\\sources",
+  "files": {
+    "total": 593,
+    "parsed": 576,
+    "syntax_errors": 17
+  },
+  "target_calls": 4135,
+  "classification_counts": {
+    "migration_required": 502,
+    "supported": 3633
+  },
+  "classification_reasons": {
+    "pandas_panel_removed": 12,
+    "query_dsl_to_explicit_symbols_fields": 481,
+    "unsupported_signature": 9
+  },
+  "apis": {
+    "get_price": {
+      "calls": 914,
+      "files": 252,
+      "supported_calls": 901,
+      "migration_required_calls": 13
+    },
+    "attribute_history": {
+      "calls": 488,
+      "files": 197,
+      "supported_calls": 488,
+      "migration_required_calls": 0
+    },
+    "history": {
+      "calls": 360,
+      "files": 160,
+      "supported_calls": 360,
+      "migration_required_calls": 0
+    },
+    "get_all_securities": {
+      "calls": 321,
+      "files": 266,
+      "supported_calls": 321,
+      "migration_required_calls": 0
+    },
+    "get_index_stocks": {
+      "calls": 268,
+      "files": 166,
+      "supported_calls": 268,
+      "migration_required_calls": 0
+    },
+    "get_current_data": {
+      "calls": 1273,
+      "files": 357,
+      "supported_calls": 1271,
+      "migration_required_calls": 2
+    },
+    "get_fundamentals": {
+      "calls": 481,
+      "files": 235,
+      "supported_calls": 0,
+      "migration_required_calls": 481
+    },
+    "get_industry": {
+      "calls": 30,
+      "files": 24,
+      "supported_calls": 24,
+      "migration_required_calls": 6
+    }
+  },
+  "signatures": [
+    {
+      "api": "get_current_data",
+      "positional": 0,
+      "keywords": [],
+      "classification": "supported",
+      "calls": 1271
+    },
+    {
+      "api": "attribute_history",
+      "positional": 4,
+      "keywords": [],
+      "classification": "supported",
+      "calls": 299
+    },
+    {
+      "api": "get_fundamentals",
+      "positional": 1,
+      "keywords": [],
+      "classification": "migration_required",
+      "calls": 269
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "count",
+        "end_date",
+        "fields",
+        "frequency"
+      ],
+      "classification": "supported",
+      "calls": 251
+    },
+    {
+      "api": "history",
+      "positional": 1,
+      "keywords": [
+        "field",
+        "security_list",
+        "unit"
+      ],
+      "classification": "supported",
+      "calls": 234
+    },
+    {
+      "api": "get_fundamentals",
+      "positional": 1,
+      "keywords": [
+        "date"
+      ],
+      "classification": "migration_required",
+      "calls": 143
+    },
+    {
+      "api": "get_index_stocks",
+      "positional": 1,
+      "keywords": [],
+      "classification": "supported",
+      "calls": 142
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "count",
+        "end_date",
+        "fields",
+        "fill_paused",
+        "frequency",
+        "panel"
+      ],
+      "classification": "supported",
+      "calls": 113
+    },
+    {
+      "api": "get_all_securities",
+      "positional": 2,
+      "keywords": [],
+      "classification": "supported",
+      "calls": 105
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "count",
+        "end_date",
+        "fields",
+        "fill_paused",
+        "fq",
+        "frequency",
+        "panel",
+        "skip_paused"
+      ],
+      "classification": "supported",
+      "calls": 73
+    },
+    {
+      "api": "get_index_stocks",
+      "positional": 2,
+      "keywords": [],
+      "classification": "supported",
+      "calls": 67
+    },
+    {
+      "api": "get_all_securities",
+      "positional": 0,
+      "keywords": [],
+      "classification": "supported",
+      "calls": 59
+    },
+    {
+      "api": "get_all_securities",
+      "positional": 0,
+      "keywords": [
+        "date",
+        "types"
+      ],
+      "classification": "supported",
+      "calls": 59
+    },
+    {
+      "api": "get_index_stocks",
+      "positional": 1,
+      "keywords": [
+        "date"
+      ],
+      "classification": "supported",
+      "calls": 59
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "end_date",
+        "fields",
+        "frequency",
+        "start_date"
+      ],
+      "classification": "supported",
+      "calls": 59
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "count",
+        "end_date",
+        "fields",
+        "frequency",
+        "panel"
+      ],
+      "classification": "supported",
+      "calls": 57
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "count",
+        "end_date",
+        "fields"
+      ],
+      "classification": "supported",
+      "calls": 53
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "count",
+        "end_date",
+        "fields",
+        "fill_paused",
+        "frequency",
+        "panel",
+        "skip_paused"
+      ],
+      "classification": "supported",
+      "calls": 53
+    },
+    {
+      "api": "history",
+      "positional": 4,
+      "keywords": [],
+      "classification": "supported",
+      "calls": 48
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "count",
+        "end_date",
+        "fields",
+        "panel"
+      ],
+      "classification": "supported",
+      "calls": 46
+    },
+    {
+      "api": "attribute_history",
+      "positional": 4,
+      "keywords": [
+        "df"
+      ],
+      "classification": "supported",
+      "calls": 45
+    },
+    {
+      "api": "get_all_securities",
+      "positional": 1,
+      "keywords": [],
+      "classification": "supported",
+      "calls": 45
+    },
+    {
+      "api": "get_fundamentals",
+      "positional": 1,
+      "keywords": [
+        "statDate"
+      ],
+      "classification": "migration_required",
+      "calls": 44
+    },
+    {
+      "api": "get_all_securities",
+      "positional": 0,
+      "keywords": [
+        "date"
+      ],
+      "classification": "supported",
+      "calls": 35
+    },
+    {
+      "api": "history",
+      "positional": 1,
+      "keywords": [
+        "df",
+        "field",
+        "fq",
+        "security_list",
+        "skip_paused",
+        "unit"
+      ],
+      "classification": "supported",
+      "calls": 32
+    },
+    {
+      "api": "get_fundamentals",
+      "positional": 2,
+      "keywords": [],
+      "classification": "migration_required",
+      "calls": 25
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "count",
+        "end_date",
+        "fields",
+        "frequency",
+        "skip_paused"
+      ],
+      "classification": "supported",
+      "calls": 25
+    },
+    {
+      "api": "attribute_history",
+      "positional": 3,
+      "keywords": [
+        "fields",
+        "skip_paused"
+      ],
+      "classification": "supported",
+      "calls": 22
+    },
+    {
+      "api": "get_price",
+      "positional": 5,
+      "keywords": [],
+      "classification": "supported",
+      "calls": 18
+    },
+    {
+      "api": "history",
+      "positional": 4,
+      "keywords": [
+        "df"
+      ],
+      "classification": "supported",
+      "calls": 17
+    },
+    {
+      "api": "attribute_history",
+      "positional": 5,
+      "keywords": [],
+      "classification": "supported",
+      "calls": 14
+    },
+    {
+      "api": "get_industry",
+      "positional": 1,
+      "keywords": [
+        "date"
+      ],
+      "classification": "supported",
+      "calls": 13
+    },
+    {
+      "api": "get_price",
+      "positional": 0,
+      "keywords": [
+        "count",
+        "end_date",
+        "fields",
+        "frequency",
+        "panel",
+        "security"
+      ],
+      "classification": "supported",
+      "calls": 13
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "count",
+        "end_date"
+      ],
+      "classification": "supported",
+      "calls": 13
+    },
+    {
+      "api": "attribute_history",
+      "positional": 2,
+      "keywords": [
+        "fields",
+        "skip_paused",
+        "unit"
+      ],
+      "classification": "supported",
+      "calls": 12
+    },
+    {
+      "api": "get_all_securities",
+      "positional": 0,
+      "keywords": [
+        "types"
+      ],
+      "classification": "supported",
+      "calls": 12
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "count",
+        "end_date",
+        "fields",
+        "fill_paused",
+        "panel",
+        "skip_paused"
+      ],
+      "classification": "supported",
+      "calls": 12
+    },
+    {
+      "api": "attribute_history",
+      "positional": 0,
+      "keywords": [
+        "count",
+        "security",
+        "unit"
+      ],
+      "classification": "supported",
+      "calls": 11
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "count",
+        "end_date",
+        "fields",
+        "fq",
+        "frequency",
+        "skip_paused"
+      ],
+      "classification": "supported",
+      "calls": 11
+    },
+    {
+      "api": "attribute_history",
+      "positional": 0,
+      "keywords": [
+        "count",
+        "fields",
+        "security",
+        "unit"
+      ],
+      "classification": "supported",
+      "calls": 10
+    },
+    {
+      "api": "attribute_history",
+      "positional": 4,
+      "keywords": [
+        "df",
+        "fq",
+        "skip_paused"
+      ],
+      "classification": "supported",
+      "calls": 9
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "end_date",
+        "fields",
+        "frequency",
+        "skip_paused",
+        "start_date"
+      ],
+      "classification": "supported",
+      "calls": 9
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "end_date",
+        "fields",
+        "frequency",
+        "panel",
+        "start_date"
+      ],
+      "classification": "supported",
+      "calls": 8
+    },
+    {
+      "api": "attribute_history",
+      "positional": 2,
+      "keywords": [
+        "df",
+        "fields",
+        "fq",
+        "skip_paused",
+        "unit"
+      ],
+      "classification": "supported",
+      "calls": 7
+    },
+    {
+      "api": "attribute_history",
+      "positional": 2,
+      "keywords": [
+        "df",
+        "fields",
+        "unit"
+      ],
+      "classification": "supported",
+      "calls": 7
+    },
+    {
+      "api": "attribute_history",
+      "positional": 4,
+      "keywords": [
+        "skip_paused"
+      ],
+      "classification": "supported",
+      "calls": 7
+    },
+    {
+      "api": "attribute_history",
+      "positional": 1,
+      "keywords": [
+        "count",
+        "fields"
+      ],
+      "classification": "supported",
+      "calls": 6
+    },
+    {
+      "api": "attribute_history",
+      "positional": 3,
+      "keywords": [],
+      "classification": "supported",
+      "calls": 6
+    },
+    {
+      "api": "attribute_history",
+      "positional": 3,
+      "keywords": [
+        "fields"
+      ],
+      "classification": "supported",
+      "calls": 6
+    },
+    {
+      "api": "get_all_securities",
+      "positional": 1,
+      "keywords": [
+        "date"
+      ],
+      "classification": "supported",
+      "calls": 6
+    },
+    {
+      "api": "get_industry",
+      "positional": 2,
+      "keywords": [],
+      "classification": "supported",
+      "calls": 6
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "end_date",
+        "frequency",
+        "start_date"
+      ],
+      "classification": "supported",
+      "calls": 6
+    },
+    {
+      "api": "attribute_history",
+      "positional": 2,
+      "keywords": [],
+      "classification": "supported",
+      "calls": 5
+    },
+    {
+      "api": "attribute_history",
+      "positional": 4,
+      "keywords": [
+        "df",
+        "skip_paused"
+      ],
+      "classification": "supported",
+      "calls": 5
+    },
+    {
+      "api": "get_industry",
+      "positional": 1,
+      "keywords": [],
+      "classification": "supported",
+      "calls": 5
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "count",
+        "end_date",
+        "fields",
+        "fq",
+        "frequency",
+        "panel",
+        "skip_paused"
+      ],
+      "classification": "supported",
+      "calls": 5
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "count",
+        "end_date",
+        "panel"
+      ],
+      "classification": "supported",
+      "calls": 5
+    },
+    {
+      "api": "history",
+      "positional": 0,
+      "keywords": [
+        "count",
+        "df",
+        "field",
+        "fq",
+        "security_list",
+        "skip_paused",
+        "unit"
+      ],
+      "classification": "supported",
+      "calls": 5
+    },
+    {
+      "api": "history",
+      "positional": 0,
+      "keywords": [
+        "count",
+        "field",
+        "security_list",
+        "unit"
+      ],
+      "classification": "supported",
+      "calls": 5
+    },
+    {
+      "api": "history",
+      "positional": 3,
+      "keywords": [
+        "security_list"
+      ],
+      "classification": "supported",
+      "calls": 5
+    },
+    {
+      "api": "attribute_history",
+      "positional": 1,
+      "keywords": [
+        "count",
+        "df",
+        "fields",
+        "fq",
+        "skip_paused",
+        "unit"
+      ],
+      "classification": "supported",
+      "calls": 4
+    },
+    {
+      "api": "get_price",
+      "positional": 0,
+      "keywords": [
+        "count",
+        "end_date",
+        "fields",
+        "frequency",
+        "panel",
+        "security",
+        "skip_paused"
+      ],
+      "classification": "supported",
+      "calls": 4
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "count",
+        "end_date",
+        "fields",
+        "panel"
+      ],
+      "classification": "migration_required",
+      "calls": 4
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "count",
+        "end_date",
+        "fq",
+        "panel"
+      ],
+      "classification": "supported",
+      "calls": 4
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "count",
+        "end_date",
+        "frequency"
+      ],
+      "classification": "supported",
+      "calls": 4
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "end_date",
+        "fields",
+        "fq",
+        "frequency",
+        "skip_paused",
+        "start_date"
+      ],
+      "classification": "supported",
+      "calls": 4
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "end_date",
+        "fields",
+        "panel",
+        "start_date"
+      ],
+      "classification": "supported",
+      "calls": 4
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "end_date",
+        "fq",
+        "panel",
+        "start_date"
+      ],
+      "classification": "supported",
+      "calls": 4
+    },
+    {
+      "api": "history",
+      "positional": 1,
+      "keywords": [
+        "df",
+        "field",
+        "security_list",
+        "unit"
+      ],
+      "classification": "supported",
+      "calls": 4
+    },
+    {
+      "api": "attribute_history",
+      "positional": 1,
+      "keywords": [
+        "count",
+        "df",
+        "fields"
+      ],
+      "classification": "supported",
+      "calls": 3
+    },
+    {
+      "api": "attribute_history",
+      "positional": 2,
+      "keywords": [
+        "fields",
+        "unit"
+      ],
+      "classification": "supported",
+      "calls": 3
+    },
+    {
+      "api": "get_industry",
+      "positional": 0,
+      "keywords": [
+        "date",
+        "security"
+      ],
+      "classification": "migration_required",
+      "calls": 3
+    },
+    {
+      "api": "get_industry",
+      "positional": 0,
+      "keywords": [
+        "security"
+      ],
+      "classification": "migration_required",
+      "calls": 3
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "count",
+        "end_date",
+        "fields",
+        "skip_paused"
+      ],
+      "classification": "supported",
+      "calls": 3
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "end_date",
+        "fields",
+        "fq",
+        "panel",
+        "start_date"
+      ],
+      "classification": "supported",
+      "calls": 3
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "end_date",
+        "fields",
+        "start_date"
+      ],
+      "classification": "supported",
+      "calls": 3
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "end_date",
+        "start_date"
+      ],
+      "classification": "supported",
+      "calls": 3
+    },
+    {
+      "api": "get_price",
+      "positional": 3,
+      "keywords": [
+        "fields",
+        "panel"
+      ],
+      "classification": "supported",
+      "calls": 3
+    },
+    {
+      "api": "get_price",
+      "positional": 3,
+      "keywords": [
+        "fq"
+      ],
+      "classification": "supported",
+      "calls": 3
+    },
+    {
+      "api": "get_price",
+      "positional": 4,
+      "keywords": [
+        "fields"
+      ],
+      "classification": "supported",
+      "calls": 3
+    },
+    {
+      "api": "history",
+      "positional": 2,
+      "keywords": [
+        "df",
+        "field",
+        "fq",
+        "security_list",
+        "skip_paused"
+      ],
+      "classification": "supported",
+      "calls": 3
+    },
+    {
+      "api": "attribute_history",
+      "positional": 3,
+      "keywords": [
+        "df",
+        "fields"
+      ],
+      "classification": "supported",
+      "calls": 2
+    },
+    {
+      "api": "attribute_history",
+      "positional": 4,
+      "keywords": [
+        "fq"
+      ],
+      "classification": "supported",
+      "calls": 2
+    },
+    {
+      "api": "get_current_data",
+      "positional": 1,
+      "keywords": [],
+      "classification": "migration_required",
+      "calls": 2
+    },
+    {
+      "api": "get_price",
+      "positional": 0,
+      "keywords": [
+        "count",
+        "end_date",
+        "fields",
+        "panel",
+        "security"
+      ],
+      "classification": "supported",
+      "calls": 2
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "count",
+        "end_date",
+        "fields",
+        "fq",
+        "frequency",
+        "panel"
+      ],
+      "classification": "migration_required",
+      "calls": 2
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "count",
+        "end_date",
+        "fields",
+        "fq",
+        "frequency",
+        "skip_paused",
+        "start_date"
+      ],
+      "classification": "supported",
+      "calls": 2
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "count",
+        "end_date",
+        "fields",
+        "fq",
+        "panel"
+      ],
+      "classification": "supported",
+      "calls": 2
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "count",
+        "end_date",
+        "fields",
+        "panel",
+        "skip_paused"
+      ],
+      "classification": "supported",
+      "calls": 2
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "end_date",
+        "fields",
+        "fq",
+        "frequency",
+        "panel",
+        "skip_paused",
+        "start_date"
+      ],
+      "classification": "migration_required",
+      "calls": 2
+    },
+    {
+      "api": "get_price",
+      "positional": 3,
+      "keywords": [
+        "fields"
+      ],
+      "classification": "supported",
+      "calls": 2
+    },
+    {
+      "api": "get_price",
+      "positional": 5,
+      "keywords": [
+        "panel"
+      ],
+      "classification": "supported",
+      "calls": 2
+    },
+    {
+      "api": "history",
+      "positional": 0,
+      "keywords": [
+        "count",
+        "df",
+        "field",
+        "security_list",
+        "unit"
+      ],
+      "classification": "supported",
+      "calls": 2
+    },
+    {
+      "api": "history",
+      "positional": 4,
+      "keywords": [
+        "df",
+        "fq",
+        "skip_paused"
+      ],
+      "classification": "supported",
+      "calls": 2
+    },
+    {
+      "api": "attribute_history",
+      "positional": 1,
+      "keywords": [
+        "count"
+      ],
+      "classification": "supported",
+      "calls": 1
+    },
+    {
+      "api": "attribute_history",
+      "positional": 1,
+      "keywords": [
+        "count",
+        "fields",
+        "unit"
+      ],
+      "classification": "supported",
+      "calls": 1
+    },
+    {
+      "api": "attribute_history",
+      "positional": 2,
+      "keywords": [
+        "df",
+        "fields",
+        "skip_paused",
+        "unit"
+      ],
+      "classification": "supported",
+      "calls": 1
+    },
+    {
+      "api": "get_price",
+      "positional": 0,
+      "keywords": [
+        "count",
+        "end_date",
+        "fields",
+        "frequency",
+        "security"
+      ],
+      "classification": "supported",
+      "calls": 1
+    },
+    {
+      "api": "get_price",
+      "positional": 0,
+      "keywords": [
+        "count",
+        "end_date",
+        "fields",
+        "security"
+      ],
+      "classification": "supported",
+      "calls": 1
+    },
+    {
+      "api": "get_price",
+      "positional": 0,
+      "keywords": [
+        "end_date",
+        "fields",
+        "fq",
+        "frequency",
+        "panel",
+        "security",
+        "skip_paused",
+        "start_date"
+      ],
+      "classification": "migration_required",
+      "calls": 1
+    },
+    {
+      "api": "get_price",
+      "positional": 0,
+      "keywords": [
+        "end_date",
+        "fields",
+        "fq",
+        "frequency",
+        "security",
+        "skip_paused",
+        "start_date"
+      ],
+      "classification": "supported",
+      "calls": 1
+    },
+    {
+      "api": "get_price",
+      "positional": 0,
+      "keywords": [
+        "end_date",
+        "fields",
+        "panel",
+        "security",
+        "start_date"
+      ],
+      "classification": "supported",
+      "calls": 1
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "count",
+        "end_date",
+        "fields",
+        "fill_paused",
+        "fq",
+        "frequency",
+        "panel",
+        "skip_paused",
+        "start_date"
+      ],
+      "classification": "migration_required",
+      "calls": 1
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "count",
+        "end_date",
+        "fields",
+        "fq",
+        "frequency",
+        "panel",
+        "round",
+        "skip_paused",
+        "start_date"
+      ],
+      "classification": "migration_required",
+      "calls": 1
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "count",
+        "end_date",
+        "fields",
+        "fq",
+        "frequency",
+        "panel",
+        "skip_paused",
+        "start_date"
+      ],
+      "classification": "migration_required",
+      "calls": 1
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "count",
+        "end_date",
+        "fields",
+        "fq",
+        "frequency",
+        "panel",
+        "skip_paused",
+        "start_date"
+      ],
+      "classification": "supported",
+      "calls": 1
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "count",
+        "end_date",
+        "fields",
+        "fq",
+        "frequency",
+        "start_date"
+      ],
+      "classification": "supported",
+      "calls": 1
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "count",
+        "end_date",
+        "fill_paused",
+        "panel"
+      ],
+      "classification": "supported",
+      "calls": 1
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "count",
+        "end_date",
+        "fq",
+        "panel",
+        "skip_paused"
+      ],
+      "classification": "supported",
+      "calls": 1
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "count",
+        "end_date",
+        "panel",
+        "skip_paused"
+      ],
+      "classification": "supported",
+      "calls": 1
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "end_date",
+        "fields",
+        "fill_paused",
+        "fq",
+        "frequency",
+        "panel",
+        "skip_paused",
+        "start_date"
+      ],
+      "classification": "migration_required",
+      "calls": 1
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "end_date",
+        "fields",
+        "fq",
+        "frequency",
+        "panel",
+        "start_date"
+      ],
+      "classification": "supported",
+      "calls": 1
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "end_date",
+        "fields",
+        "fq",
+        "start_date"
+      ],
+      "classification": "supported",
+      "calls": 1
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "end_date",
+        "fields",
+        "skip_paused",
+        "start_date"
+      ],
+      "classification": "supported",
+      "calls": 1
+    },
+    {
+      "api": "get_price",
+      "positional": 1,
+      "keywords": [
+        "end_date",
+        "frequency",
+        "panel",
+        "start_date"
+      ],
+      "classification": "supported",
+      "calls": 1
+    },
+    {
+      "api": "get_price",
+      "positional": 3,
+      "keywords": [
+        "fields",
+        "frequency"
+      ],
+      "classification": "supported",
+      "calls": 1
+    },
+    {
+      "api": "history",
+      "positional": 0,
+      "keywords": [
+        "count",
+        "field",
+        "security_list"
+      ],
+      "classification": "supported",
+      "calls": 1
+    },
+    {
+      "api": "history",
+      "positional": 4,
+      "keywords": [
+        "df",
+        "skip_paused"
+      ],
+      "classification": "supported",
+      "calls": 1
+    },
+    {
+      "api": "history",
+      "positional": 4,
+      "keywords": [
+        "fq"
+      ],
+      "classification": "supported",
+      "calls": 1
+    }
+  ],
+  "unsupported_api_calls": {
+    "get_ATR": 1,
+    "get_All_trade_tickers": 1,
+    "get_BBI_filter": 1,
+    "get_CCFX_end_date": 8,
+    "get_D": 1,
+    "get_DP": 1,
+    "get_EBIT": 1,
+    "get_EBIT_EV": 1,
+    "get_EMA": 4,
+    "get_ETF": 1,
+    "get_FFScore": 4,
+    "get_IRYY": 1,
+    "get_MA": 1,
+    "get_N_trade_date": 1,
+    "get_PMI": 2,
+    "get_RSRS_signal": 1,
+    "get_SW_index": 1,
+    "get_act_trend_score": 2,
+    "get_action": 2,
+    "get_all_crowd_rate_df": 1,
+    "get_all_df": 1,
+    "get_all_dimension_fund": 3,
+    "get_all_factors": 1,
+    "get_all_stks": 1,
+    "get_all_stocks": 1,
+    "get_all_trade_days": 45,
+    "get_atr": 1,
+    "get_auction_filter": 1,
+    "get_available_auction_stock": 1,
+    "get_available_price_stock": 1,
+    "get_available_volume_stock": 1,
+    "get_avg_array": 3,
+    "get_backtest_data": 2,
+    "get_backtest_metrics": 1,
+    "get_backtesting": 5,
+    "get_barra_factor": 1,
+    "get_bars": 135,
+    "get_before_after_trade_days": 17,
+    "get_beta": 1,
+    "get_bias": 1,
+    "get_bigger_than_val_counter": 5,
+    "get_bigger_than_val_counter_noflow": 2,
+    "get_billboard_list": 4,
+    "get_blacklist": 7,
+    "get_boll": 3,
+    "get_bond_detail": 1,
+    "get_bond_extra_info": 1,
+    "get_bond_info": 6,
+    "get_bond_total_val": 1,
+    "get_bond_yield": 1,
+    "get_bull_bear_signal_minute": 6,
+    "get_buyCode": 1,
+    "get_buyStock_from_industry": 1,
+    "get_buy_price": 1,
+    "get_buy_sell": 1,
+    "get_call_auction": 11,
+    "get_check_stocks_sort": 6,
+    "get_check_stocks_sort_input_dict": 36,
+    "get_circulating_market_cap": 7,
+    "get_close": 4,
+    "get_close_order_time": 1,
+    "get_close_price": 49,
+    "get_comb_factor": 1,
+    "get_combined_stocks": 1,
+    "get_concept": 3,
+    "get_concept_stks": 1,
+    "get_concept_stocks": 41,
+    "get_concepts": 2,
+    "get_content": 2,
+    "get_continue_count_df": 10,
+    "get_continue_count_df1": 1,
+    "get_continue_count_list": 1,
+    "get_crowd_rate_df": 1,
+    "get_cur_money": 6,
+    "get_current_tick": 4,
+    "get_data": 5,
+    "get_dataset_config": 2,
+    "get_date_from_quanter": 5,
+    "get_delta_stocks": 3,
+    "get_df_fromfile": 1,
+    "get_df_jqfactor": 1,
+    "get_diff_position": 1,
+    "get_div": 2,
+    "get_dividend_ratio_filter_list": 18,
+    "get_dominant_future": 51,
+    "get_down_filter": 1,
+    "get_dtw_centers": 1,
+    "get_etf_value": 2,
+    "get_event_cumreturns": 1,
+    "get_ever_hl_stock": 6,
+    "get_ever_hl_stock2": 2,
+    "get_expected_position": 2,
+    "get_extras": 44,
+    "get_factor": 1,
+    "get_factor_data": 9,
+    "get_factor_data_and_forward_return": 2,
+    "get_factor_dp": 2,
+    "get_factor_filter_df": 3,
+    "get_factor_filter_list": 58,
+    "get_factor_filter_list_sort": 1,
+    "get_factor_group_returns": 4,
+    "get_factor_pb_ratio": 1,
+    "get_factor_pcf_ratio": 1,
+    "get_factor_pe_ratio": 2,
+    "get_factor_price": 2,
+    "get_factor_ps_ratio": 1,
+    "get_factor_values": 91,
+    "get_feasible": 1,
+    "get_features": 2,
+    "get_fin_data": 1,
+    "get_finance": 1,
+    "get_fiscal_quarters": 3,
+    "get_flowin": 1,
+    "get_free_market_cap": 2,
+    "get_free_market_cap_and_actual_turnover_ratio": 3,
+    "get_fund_by_rank": 1,
+    "get_fund_code": 1,
+    "get_fund_info": 5,
+    "get_fundamental_data": 2,
+    "get_fundamentals_continuously": 3,
+    "get_future_code": 34,
+    "get_future_contracts": 8,
+    "get_group_indu_ret": 1,
+    "get_group_ret": 7,
+    "get_group_turnover": 2,
+    "get_growth_rate": 7,
+    "get_growth_rate60": 5,
+    "get_growth_stock_list": 2,
+    "get_gsisi_bt": 2,
+    "get_high_growth_stocks": 2,
+    "get_highvolume_filter": 4,
+    "get_history_fund_and_profit": 3,
+    "get_history_fundamentals": 29,
+    "get_history_hold_list": 2,
+    "get_hk_hold_ratio": 1,
+    "get_hl_count_df": 8,
+    "get_hl_stock": 25,
+    "get_hold_flag": 1,
+    "get_hot_category_stocks": 1,
+    "get_hot_industry_stock": 2,
+    "get_hot_industry_stocks": 1,
+    "get_hsl_std": 1,
+    "get_html": 1,
+    "get_hy_pct": 1,
+    "get_idx_cons": 1,
+    "get_inc_net_profit_ttm": 1,
+    "get_increase_filter": 1,
+    "get_ind_classify": 2,
+    "get_ind_concept_cons": 1,
+    "get_ind_overthreshold_num": 1,
+    "get_ind_price": 2,
+    "get_index_pe": 1,
+    "get_index_pe_date": 2,
+    "get_index_pes": 2,
+    "get_index_signal": 4,
+    "get_index_weights": 5,
+    "get_indu_rank_ic": 1,
+    "get_industries": 34,
+    "get_industry_dic": 1,
+    "get_industry_exposure1": 4,
+    "get_industry_id": 1,
+    "get_industry_name": 8,
+    "get_industry_price": 1,
+    "get_industry_stocks": 101,
+    "get_interpld_shibor": 1,
+    "get_ipython": 6,
+    "get_jq_factor": 4,
+    "get_kama_single": 2,
+    "get_lianban_zt": 1,
+    "get_limit_up_stock": 1,
+    "get_limit_up_stock2": 1,
+    "get_local_vol": 1,
+    "get_locked_shares": 2,
+    "get_long_short_return": 3,
+    "get_lots": 5,
+    "get_ma": 25,
+    "get_macd": 6,
+    "get_macd_M": 5,
+    "get_macd_direct": 2,
+    "get_marginsec_stocks": 1,
+    "get_market_cap": 1,
+    "get_markowitz": 1,
+    "get_mdl": 1,
+    "get_min_price": 2,
+    "get_momentum": 2,
+    "get_momentumAverage": 1,
+    "get_momentum_factor": 1,
+    "get_momentum_list": 1,
+    "get_momentum_result": 1,
+    "get_money": 4,
+    "get_money_flow": 13,
+    "get_month_end_day": 1,
+    "get_mv": 1,
+    "get_n_next_ret": 2,
+    "get_name": 35,
+    "get_nearest_quqter": 2,
+    "get_net_north_flow": 1,
+    "get_net_promoter_score": 1,
+    "get_newfactors_df": 1,
+    "get_next_loc": 27,
+    "get_next_returns": 1,
+    "get_next_signal": 1,
+    "get_next_tradeday": 4,
+    "get_no_hl_stock": 2,
+    "get_no_limit_up_stocks": 1,
+    "get_no_limit_up_stocks2": 1,
+    "get_north_factor": 1,
+    "get_north_money": 2,
+    "get_num_weekly_trade_days": 1,
+    "get_ols": 60,
+    "get_open_high_history": 1,
+    "get_open_orders": 7,
+    "get_open_price": 1,
+    "get_option_ticks": 1,
+    "get_orders": 8,
+    "get_past_money_indicator": 3,
+    "get_past_quarters": 2,
+    "get_past_volume_indicator": 2,
+    "get_past_weekly_days": 1,
+    "get_patterns": 2,
+    "get_patterns_num": 1,
+    "get_pct_change": 2,
+    "get_peg": 9,
+    "get_period_date": 5,
+    "get_portfolio": 2,
+    "get_portfolio_info_text": 1,
+    "get_pos_amount": 2,
+    "get_pre_filter": 1,
+    "get_previous_trade_day": 11,
+    "get_price_limit": 1,
+    "get_profit": 1,
+    "get_quanter_form_pubdate": 8,
+    "get_quantreg_res": 2,
+    "get_quarters": 1,
+    "get_rank": 35,
+    "get_rank_ic": 8,
+    "get_rate20": 2,
+    "get_recent_limit_up_stock": 20,
+    "get_reds_filter": 1,
+    "get_relative_position_df": 4,
+    "get_relative_position_stocks": 1,
+    "get_relative_position_stocks2": 1,
+    "get_report_date": 2,
+    "get_res_data": 2,
+    "get_result": 5,
+    "get_result_value": 1,
+    "get_return": 2,
+    "get_rff": 1,
+    "get_rise_filter": 1,
+    "get_risk_parity": 1,
+    "get_risk_signal": 1,
+    "get_rps1": 1,
+    "get_rps_filter": 3,
+    "get_rsrs_score_mean": 1,
+    "get_score": 1,
+    "get_score_filter": 1,
+    "get_security_info": 399,
+    "get_security_universe": 37,
+    "get_sell_list": 1,
+    "get_sell_list2": 1,
+    "get_sell_price": 1,
+    "get_share_ratio": 1,
+    "get_shibor_data": 1,
+    "get_shifted_date": 58,
+    "get_sign": 1,
+    "get_signal": 12,
+    "get_single_factor_list": 9,
+    "get_socre": 2,
+    "get_sort_dataframe": 37,
+    "get_star_stocks_from_industry": 1,
+    "get_std_percentage": 3,
+    "get_stock": 6,
+    "get_stock_ES": 1,
+    "get_stock_asset": 1,
+    "get_stock_ind": 7,
+    "get_stock_industry": 2,
+    "get_stock_list": 98,
+    "get_stock_list_2": 2,
+    "get_stock_list_before_open": 2,
+    "get_stock_name": 10,
+    "get_stock_pool": 8,
+    "get_stock_pool2": 1,
+    "get_stock_price": 8,
+    "get_stock_rank_m_m": 6,
+    "get_stocks": 4,
+    "get_stocks_filtered": 2,
+    "get_stocks_from_industry": 1,
+    "get_stocks_fundamentals": 32,
+    "get_stocks_score": 3,
+    "get_stocks_tobuy": 1,
+    "get_stop_loss_threshold": 1,
+    "get_stop_profit_threshold": 1,
+    "get_stv_feature": 1,
+    "get_swing": 1,
+    "get_test_data": 1,
+    "get_the_day": 1,
+    "get_ticks": 25,
+    "get_timing_signal": 30,
+    "get_top_30": 1,
+    "get_top_secutiry": 1,
+    "get_trade_days": 166,
+    "get_trade_days_monthly": 1,
+    "get_trade_period": 1,
+    "get_trade_target": 2,
+    "get_tradeday_list": 3,
+    "get_trades": 118,
+    "get_train_data": 1,
+    "get_trend_filter": 1,
+    "get_trend_length": 2,
+    "get_ts_etf_price": 1,
+    "get_ts_index_price": 2,
+    "get_ts_price": 1,
+    "get_ts_stock_basic": 1,
+    "get_tsdataset_config": 1,
+    "get_turnover_volatility": 1,
+    "get_unit": 7,
+    "get_universe_factor": 8,
+    "get_up_filter": 1,
+    "get_up_filter_jiang": 5,
+    "get_up_security": 1,
+    "get_valuation": 29,
+    "get_value_stock_list": 2,
+    "get_volatility": 1,
+    "get_weekofyear_date": 1,
+    "get_year_quater": 2,
+    "get_yesterday_limit_up_stocks": 2,
+    "get_zf": 3,
+    "get_zscore": 36,
+    "get_zscore_slope": 6,
+    "get_zz_quote": 1,
+    "get_近月合约": 1
+  },
+  "syntax_errors": [
+    {
+      "path": "2020年度精选策略/18 均值回归策略分享.py",
+      "line": 93,
+      "message": "invalid syntax"
+    },
+    {
+      "path": "2020年度精选策略/33 买入每个行业市值最大的股票.py",
+      "line": 188,
+      "message": "Missing parentheses in call to 'print'. Did you mean print(...)?"
+    },
+    {
+      "path": "2020年度精选策略/38 一个简单的跟踪聪明钱策略.py",
+      "line": 90,
+      "message": "Missing parentheses in call to 'print'. Did you mean print(...)?"
+    },
+    {
+      "path": "2020年度精选策略/54 中长线买入卖出点选择.py",
+      "line": 90,
+      "message": "Missing parentheses in call to 'print'. Did you mean print(...)?"
+    },
+    {
+      "path": "2020年度精选策略/71 【投资学】CAPM单因子回归模型+ROE股票池（含止损）.py",
+      "line": 227,
+      "message": "Missing parentheses in call to 'print'. Did you mean print(...)?"
+    },
+    {
+      "path": "2020年度精选策略/73 跟着港资（北向资金）买A股.py",
+      "line": 32,
+      "message": "Missing parentheses in call to 'print'. Did you mean print(...)?"
+    },
+    {
+      "path": "2020年度精选策略/78 GFTD第二版.py",
+      "line": 123,
+      "message": "Missing parentheses in call to 'print'. Did you mean print(...)?"
+    },
+    {
+      "path": "2020年度精选策略/96 沪港两地上市的银行股翻倍策略报告.py",
+      "line": 42,
+      "message": "Missing parentheses in call to 'print'. Did you mean print(...)?"
+    },
+    {
+      "path": "2020年度精选策略/97 银行翻倍策略.py",
+      "line": 60,
+      "message": "Missing parentheses in call to 'print'. Did you mean print(...)?"
+    },
+    {
+      "path": "2022年度精选策略/85.价值策略重开，再次向Jqz1226致敬.py",
+      "line": 133,
+      "message": "inconsistent use of tabs and spaces in indentation"
+    },
+    {
+      "path": "2022年度精选策略/89.年化收益55.7%， 超高胜率 0.799.py",
+      "line": 183,
+      "message": "Missing parentheses in call to 'print'. Did you mean print(...)?"
+    },
+    {
+      "path": "2022年度精选策略/97.【涨停研究一】具有哪些因子的股票更容易涨停.py",
+      "line": 361,
+      "message": "invalid syntax"
+    },
+    {
+      "path": "2023年度精选策略/41.大盘拥挤率极速版-180天3秒.py",
+      "line": 7,
+      "message": "invalid syntax"
+    },
+    {
+      "path": "2023年度精选策略/71.lightGBM.py",
+      "line": 183,
+      "message": "closing parenthesis '}' does not match opening parenthesis '(' on line 181"
+    },
+    {
+      "path": "2025年度精选策略/29.北上资金（北向资金港资外资）因子分析与策略分享.py",
+      "line": 65,
+      "message": "Missing parentheses in call to 'print'. Did you mean print(...)?"
+    },
+    {
+      "path": "2025年度精选策略/38.python搭建简单交易系统.py",
+      "line": 759,
+      "message": "unexpected indent"
+    },
+    {
+      "path": "2025年度精选策略/49.根据北上资金买股票的最佳持股时间探讨.py",
+      "line": 35,
+      "message": "Missing parentheses in call to 'print'. Did you mean print(...)?"
+    }
+  ],
+  "query_dsl_migration": {
+    "status": "explicit_migration_required",
+    "replacement": "get_fundamentals(symbols, fields=[...], date=observation_date)",
+    "silent_fallback": false
+  }
+}

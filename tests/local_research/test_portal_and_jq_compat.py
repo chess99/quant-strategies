@@ -5,9 +5,12 @@ from quant_research.data.contracts import DatasetManifest, QualityGrade
 from quant_research.data.store import ResearchDataStore
 from quant_research.jq_compat import JoinQuantCompat
 from quant_research.portal import (
+    CapabilityError,
+    CompositeDailyBarSource,
     DataQualityError,
     FrameDailyBarSource,
     LocalDataPortal,
+    PartitionedDailyBarSource,
     PointInTimeError,
 )
 
@@ -23,6 +26,22 @@ def save_dataset(store, name, frame, quality):
             row_count=len(frame),
             columns=list(frame.columns),
             data_files=[data_file],
+        )
+    )
+
+
+def save_symbol_partitions(store, name, frame, quality):
+    files = store.write_partitioned_parquet(name, frame, ["symbol"])
+    store.write_manifest(
+        DatasetManifest(
+            schema_version=2,
+            dataset=name,
+            provider="test-partitioned",
+            quality_grade=QualityGrade(quality),
+            row_count=len(frame),
+            columns=list(frame.columns),
+            data_files=files,
+            partitioning={"style": "hive", "columns": ["symbol"]},
         )
     )
 
@@ -64,7 +83,7 @@ def portal(tmp_path):
             "low_limit": [9.0],
         }
     )
-    save_dataset(store, "daily_market_state", state, "C")
+    save_symbol_partitions(store, "daily_market_state", state, "C")
     valuation = pd.DataFrame(
         {
             "symbol": ["SH600000", "SH600000"],
@@ -73,7 +92,7 @@ def portal(tmp_path):
             "pb": [1.0, 9.0],
         }
     )
-    save_dataset(store, "daily_valuation", valuation, "B")
+    save_symbol_partitions(store, "daily_valuation", valuation, "B")
     bars = pd.DataFrame(
         {
             "symbol": ["SH600000", "SH600000", "SH600000"],
@@ -97,6 +116,8 @@ def test_portal_queries_are_point_in_time_and_never_backfill_future(portal):
 
     assert valuation.loc[0, "trade_date"] == pd.Timestamp("2024-01-02")
     assert valuation.loc[0, "market_cap"] == 100.0
+    assert valuation.attrs["quant_research_provenance"]["provider"] == "test-partitioned"
+    assert portal.last_query_provenance["manifest_sha256"]
     assert portal.index_members("SH000300", "2024-01-02") == ["SH600000"]
 
 
@@ -125,3 +146,127 @@ def test_joinquant_compat_requires_fixed_observation_date(portal):
 
     with pytest.raises(PointInTimeError):
         api.get_price("SH600000")
+
+
+def test_joinquant_codes_count_history_and_partitioned_queries(portal):
+    api = JoinQuantCompat(portal, observation_date="2024-01-03")
+
+    prices = api.get_price(
+        ["600000.XSHG"],
+        end_date="2024-01-03",
+        count=2,
+        fields=["close"],
+        panel=False,
+    )
+    history = api.history(
+        2,
+        "1d",
+        "close",
+        ["600000.XSHG"],
+    )
+
+    assert prices.index.names == ["trade_date", "symbol"]
+    assert prices.index.get_level_values("symbol").unique().tolist() == [
+        "600000.XSHG"
+    ]
+    assert history.columns.tolist() == ["600000.XSHG"]
+    assert history.iloc[:, 0].tolist() == [10.1, 10.2]
+    assert api.get_index_stocks("000300.XSHG", date="2024-01-02") == [
+        "600000.XSHG"
+    ]
+
+
+def test_missing_partition_returns_empty_and_unsupported_panel_is_explicit(portal):
+    assert portal.valuation("SZ000001", "2024-01-03").empty
+    api = JoinQuantCompat(portal, observation_date="2024-01-03")
+    with pytest.raises(Exception, match="Panel"):
+        api.get_price("600000.XSHG", panel=True)
+
+
+def test_composite_daily_source_routes_etf_to_partitioned_store(tmp_path):
+    store = ResearchDataStore(tmp_path)
+    master = pd.DataFrame(
+        {"symbol": ["SH600000", "SH510300"], "asset_type": ["stock", "etf"]}
+    )
+    store.write_parquet("security_master", master)
+    store.write_parquet(
+        "trading_calendar",
+        pd.DataFrame({"trade_date": pd.to_datetime(["2024-01-02"])}),
+    )
+    etf = pd.DataFrame(
+        {
+            "symbol": ["SH510300"],
+            "trade_date": pd.to_datetime(["2024-01-02"]),
+            "close": [4.0],
+            "adjusted_close": [4.1],
+        }
+    )
+    save_symbol_partitions(store, "etf_daily", etf, "B")
+    stock = pd.DataFrame(
+        {
+            "symbol": ["SH600000"],
+            "trade_date": pd.to_datetime(["2024-01-02"]),
+            "close": [10.0],
+        }
+    )
+    source = CompositeDailyBarSource(
+        store,
+        FrameDailyBarSource(stock),
+        {"etf": PartitionedDailyBarSource(store, "etf_daily")},
+    )
+
+    frame = source.load(
+        ["SH600000", "SH510300"],
+        "2024-01-02",
+        "2024-01-02",
+        ["close"],
+        "pre",
+    )
+
+    assert frame.set_index("symbol")["close"].to_dict() == {
+        "SH600000": 10.0,
+        "SH510300": 4.1,
+    }
+
+
+def test_retired_security_paused_rows_and_missing_fields_are_explicit(tmp_path):
+    store = ResearchDataStore(tmp_path)
+    master = pd.DataFrame(
+        {
+            "symbol": ["SH600000", "SZ000001"],
+            "asset_type": ["stock", "stock"],
+            "start_date": pd.to_datetime(["2020-01-01", "2020-01-01"]),
+            "end_date": pd.to_datetime(["2030-01-01", "2023-12-31"]),
+        }
+    )
+    save_dataset(store, "security_master", master, "B")
+    bars = pd.DataFrame(
+        {
+            "symbol": ["SH600000", "SH600000"],
+            "trade_date": pd.to_datetime(["2024-01-02", "2024-01-03"]),
+            "close": [10.0, None],
+            "volume": [1000.0, 0.0],
+        }
+    )
+    portal = LocalDataPortal(store, FrameDailyBarSource(bars))
+
+    assert portal.instruments("2024-01-02")["symbol"].tolist() == ["SH600000"]
+    visible = portal.bars(
+        "SH600000",
+        "2024-01-02",
+        "2024-01-03",
+        fields=["close", "volume"],
+        skip_paused=True,
+    )
+    assert visible["trade_date"].tolist() == [pd.Timestamp("2024-01-02")]
+    with pytest.raises(CapabilityError, match="unavailable"):
+        portal.bars("SH600000", "2024-01-02", "2024-01-03", fields=["vwap"])
+
+
+def test_query_dsl_and_statdate_have_actionable_migration_errors(portal):
+    api = JoinQuantCompat(portal, observation_date="2024-01-03")
+
+    with pytest.raises(CapabilityError, match="query DSL"):
+        api.get_fundamentals(object(), date="2024-01-03")
+    with pytest.raises(CapabilityError, match="statDate"):
+        api.get_fundamentals(["600000.XSHG"], statDate="2023")

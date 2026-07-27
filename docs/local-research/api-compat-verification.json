@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "iteration": 4,
+  "status": "passed",
+  "coverage": {
+    "files_total": 593,
+    "files_parsed": 576,
+    "syntax_errors": 17,
+    "target_calls": 4135,
+    "supported_calls": 3633,
+    "migration_required_calls": 502,
+    "direct_coverage_ratio": 0.8785973397823458
+  },
+  "three_strategy_archive": "studies/joinquant-api-compat-validation/results/2026-07-27__three-strategy-migration__v3",
+  "checks": {
+    "parsed_source_files": true,
+    "target_calls_profiled": true,
+    "direct_signature_coverage": true,
+    "query_dsl_migration_is_explicit": true,
+    "three_strategy_validation": true,
+    "point_in_time_validation": true,
+    "provenance_validation": true,
+    "archive_source_sha256": true,
+    "archive_raw_sha256": true
+  },
+  "sha256": {
+    "coverage_report": "fe9f8b297af6f67d2a20f436f7143093ff26904c9e168255f4addc79c35bdad5",
+    "study_manifest": "a629dbf3dfc6dade247b336c3e49eeec723c3b601dcb3c6cf27b63ffe363680f",
+    "study_source": "6efc277ea85a84537ba4be62e89db58bae9a0198a3c385ff3b3b1fb6d07bc457"
+  },
+  "limitations": [
+    "17个本地源码本身语法残缺，保留错误位置但无法做AST调用审计。",
+    "481次query DSL调用需要改成显式symbols、fields和observation_date。",
+    "分钟、Tick、期货和期权API不属于本轮日频兼容范围。"
+  ]
+}

@@ -17,6 +17,25 @@ TYPE_MAP = {
     "etf": "etf",
     "index": "index",
 }
+JQ_EXCHANGE_TO_PREFIX = {"XSHG": "SH", "XSHE": "SZ", "XBSE": "BJ"}
+PREFIX_TO_JQ_EXCHANGE = {value: key for key, value in JQ_EXCHANGE_TO_PREFIX.items()}
+
+
+def to_local_symbol(symbol: str) -> str:
+    text = str(symbol).upper()
+    if "." in text:
+        code, exchange = text.split(".", maxsplit=1)
+        if exchange not in JQ_EXCHANGE_TO_PREFIX:
+            raise CapabilityError(f"unsupported JoinQuant exchange: {exchange}")
+        return f"{JQ_EXCHANGE_TO_PREFIX[exchange]}{code.zfill(6)}"
+    if text[:2] in PREFIX_TO_JQ_EXCHANGE:
+        return text
+    raise CapabilityError(f"unsupported security code: {symbol}")
+
+
+def to_joinquant_symbol(symbol: str) -> str:
+    local = to_local_symbol(symbol)
+    return f"{local[2:]}.{PREFIX_TO_JQ_EXCHANGE[local[:2]]}"
 
 
 @dataclass(frozen=True)
@@ -27,6 +46,9 @@ class CurrentSecurityData:
     low_limit: float | None
     last_price: float | None
     name: str | None = None
+    status_quality: str | None = None
+    st_quality: str | None = None
+    limit_quality: str | None = None
 
 
 class LazyCurrentData(Mapping):
@@ -39,25 +61,32 @@ class LazyCurrentData(Mapping):
         self._cache: dict[str, CurrentSecurityData] = {}
 
     def __getitem__(self, symbol: str) -> CurrentSecurityData:
-        symbol = symbol.upper()
-        if symbol not in self._cache:
+        requested = str(symbol).upper()
+        local_symbol = to_local_symbol(requested)
+        if requested not in self._cache:
             frame = self.portal.market_snapshot(
                 self.observation_date,
-                [symbol],
+                [local_symbol],
                 minimum_quality=self.minimum_quality,
             )
             if frame.empty:
-                raise KeyError(symbol)
+                raise KeyError(requested)
             row = frame.iloc[0]
             st_value = row["is_st"]
-            self._cache[symbol] = CurrentSecurityData(
+            master = self.portal.store.read_parquet("security_master")
+            names = master.loc[master["symbol"].eq(local_symbol), "display_name"]
+            self._cache[requested] = CurrentSecurityData(
                 paused=bool(row["paused"]),
                 is_st=None if pd.isna(st_value) else bool(st_value),
                 high_limit=None if pd.isna(row["high_limit"]) else float(row["high_limit"]),
                 low_limit=None if pd.isna(row["low_limit"]) else float(row["low_limit"]),
                 last_price=None if pd.isna(row["raw_close"]) else float(row["raw_close"]),
+                name=None if names.empty or pd.isna(names.iloc[0]) else str(names.iloc[0]),
+                status_quality=row.get("status_quality"),
+                st_quality=row.get("st_quality"),
+                limit_quality=row.get("limit_quality"),
             )
-        return self._cache[symbol]
+        return self._cache[requested]
 
     def __iter__(self):
         return iter(self._cache)
@@ -99,8 +128,12 @@ class JoinQuantCompat:
     @staticmethod
     def _symbols(security) -> tuple[list[str], bool]:
         if isinstance(security, str):
-            return [security.upper()], True
-        return [str(symbol).upper() for symbol in security], False
+            return [to_local_symbol(security)], True
+        return [to_local_symbol(symbol) for symbol in security], False
+
+    @property
+    def last_query_provenance(self) -> dict | None:
+        return self.portal.last_query_provenance
 
     def get_price(
         self,
@@ -111,11 +144,25 @@ class JoinQuantCompat:
         fields=None,
         skip_paused=False,
         fq="pre",
+        count=None,
+        panel=False,
+        fill_paused=True,
     ) -> pd.DataFrame:
         if frequency not in {"daily", "1d"}:
             raise CapabilityError("the local platform currently supports daily frequency only")
         end = self._observation_date(end_date)
-        if start_date is None:
+        if panel not in {False, None}:
+            raise CapabilityError("pandas Panel is not supported; pass panel=False")
+        if count is not None:
+            if start_date is not None:
+                raise ValueError("count and start_date cannot be used together")
+            calendar = self.portal.calendar(
+                end - pd.Timedelta(days=max(30, int(count) * 4)), end
+            )
+            if len(calendar) < int(count):
+                raise ValueError(f"only {len(calendar)} sessions, requested {count}")
+            start_date = calendar[-int(count)]
+        elif start_date is None:
             start_date = end
         symbols, single = self._symbols(security)
         adjustment = "raw" if fq in {None, "none"} else fq
@@ -128,6 +175,14 @@ class JoinQuantCompat:
             skip_paused=skip_paused,
             minimum_quality=self.minimum_quality,
         )
+        if fill_paused and not frame.empty:
+            fill_fields = [
+                field
+                for field in (fields or ("open", "high", "low", "close"))
+                if field in frame.columns and field != "volume" and field != "money"
+            ]
+            frame[fill_fields] = frame.groupby("symbol")[fill_fields].ffill()
+        frame["symbol"] = frame["symbol"].map(to_joinquant_symbol)
         if single:
             return frame.drop(columns="symbol").set_index("trade_date")
         return frame.set_index(["trade_date", "symbol"])
@@ -140,6 +195,7 @@ class JoinQuantCompat:
         fields=("close",),
         skip_paused=True,
         fq="pre",
+        df=True,
     ) -> pd.DataFrame:
         if unit not in {"1d", "daily"}:
             raise CapabilityError("the local platform currently supports daily frequency only")
@@ -155,7 +211,36 @@ class JoinQuantCompat:
             skip_paused=skip_paused,
             fq=fq,
         )
-        return frame.tail(count)
+        result = frame.tail(count)
+        return result if df else result.to_dict(orient="list")
+
+    def history(
+        self,
+        count,
+        unit="1d",
+        field="close",
+        security_list=None,
+        df=True,
+        skip_paused=False,
+        fq="pre",
+    ):
+        if security_list is None:
+            raise ValueError("security_list is required")
+        if isinstance(security_list, str):
+            security_list = [security_list]
+        frame = self.get_price(
+            security_list,
+            end_date=self._observation_date(),
+            count=count,
+            frequency=unit,
+            fields=[field],
+            skip_paused=skip_paused,
+            fq=fq,
+            panel=False,
+        ).reset_index()
+        result = frame.pivot(index="trade_date", columns="symbol", values=field)
+        result = result.reindex(columns=[to_joinquant_symbol(x) for x in security_list])
+        return result if df else result.to_dict(orient="list")
 
     def get_all_securities(self, types=("stock",), date=None) -> pd.DataFrame:
         observation_date = self._observation_date(date)
@@ -164,19 +249,23 @@ class JoinQuantCompat:
             if item not in TYPE_MAP:
                 raise CapabilityError(f"unsupported security type: {item}")
             asset_types.append(TYPE_MAP[item])
+            if item == "fund":
+                asset_types.append("etf")
         frame = self.portal.instruments(
             observation_date,
             asset_types=asset_types,
             minimum_quality=self.minimum_quality,
         )
+        frame["symbol"] = frame["symbol"].map(to_joinquant_symbol)
         return frame.set_index("symbol")
 
     def get_index_stocks(self, index_symbol, date=None) -> list[str]:
-        return self.portal.index_members(
-            index_symbol,
+        members = self.portal.index_members(
+            to_local_symbol(index_symbol),
             self._observation_date(date),
             minimum_quality=self.minimum_quality,
         )
+        return [to_joinquant_symbol(symbol) for symbol in members]
 
     def get_current_data(self) -> LazyCurrentData:
         return LazyCurrentData(
@@ -190,9 +279,20 @@ class JoinQuantCompat:
         symbols: str | Iterable[str],
         fields: Iterable[str] | None = None,
         date=None,
+        statDate=None,
     ) -> pd.DataFrame:
+        if statDate is not None:
+            raise CapabilityError(
+                "statDate query is not supported; pass an observation date and use "
+                "LocalDataPortal.fundamentals() for explicit report-period filtering"
+            )
+        if not isinstance(symbols, (str, list, tuple, set)):
+            raise CapabilityError(
+                "JoinQuant query DSL is not supported; migrate the query to "
+                "get_fundamentals(symbols, fields=[...], date=observation_date)"
+            )
         return self.portal.fundamentals(
-            symbols,
+            [to_local_symbol(symbol) for symbol in ([symbols] if isinstance(symbols, str) else symbols)],
             self._observation_date(date),
             fields=fields,
             minimum_quality=self.minimum_quality,
@@ -202,11 +302,11 @@ class JoinQuantCompat:
         if isinstance(symbols, str):
             symbols = [symbols]
         frame = self.portal.industry(
-            symbols,
+            [to_local_symbol(symbol) for symbol in symbols],
             self._observation_date(date),
             minimum_quality=self.minimum_quality,
         )
         return {
-            symbol: group.drop(columns="symbol").to_dict(orient="records")
+            to_joinquant_symbol(symbol): group.drop(columns="symbol").to_dict(orient="records")
             for symbol, group in frame.groupby("symbol")
         }

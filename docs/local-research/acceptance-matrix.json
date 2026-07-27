@@ -74,18 +74,20 @@
     {
       "id": 4,
       "name": "统一接口与聚宽日频兼容层",
-      "status": "in_progress",
+      "status": "completed",
       "current_evidence": [
-        "已有核心八类本地接口",
-        "已有七类聚宽薄兼容接口和惰性current_data"
+        "核心calendar/instruments/bars/snapshot/index_members/valuation/fundamentals/industry均要求显式观察日期或日期区间",
+        "股票指数Qlib与ETF分区通过CompositeDailyBarSource统一路由，分区查询只读取manifest列出的目标证券",
+        "实现聚宽SH/SZ/BJ代码双向转换、get_price(count/panel=False/fill_paused)、attribute_history和history常见日频形式",
+        "get_current_data保持惰性映射并拒绝.get()；停牌、退市、缺字段、缺分区和质量不足均有测试",
+        "DataFrame attrs或last_query_provenance记录来源、质量、manifest路径和SHA-256",
+        "扫描593份源码、成功解析576份；八类目标API共4135次调用，3633次直接兼容，覆盖87.86%",
+        "query DSL、statDate与pandas Panel不静默模拟，502次需迁移形式及替代写法写入机器报告",
+        "同一兼容层真实运行指数择时、四ETF轮动和公告日基本面质量筛选，五项端到端检查全部通过",
+        "v1归档器异常与v2失败验收均保留，v3源码及三份原始输出SHA-256全部通过",
+        "207项全仓测试、仓库验证、Ruff和差异格式检查全部通过"
       ],
-      "remaining": [
-        "history常见日频形式",
-        "返回值数据版本与质量追溯",
-        "源码调用形式覆盖报告",
-        "三份不同类型策略共享适配层迁移验收",
-        "query DSL迁移能力报告"
-      ]
+      "remaining": []
     },
     {
       "id": 5,

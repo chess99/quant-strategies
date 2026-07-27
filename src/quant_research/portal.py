@@ -2,14 +2,14 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field as dataclass_field
 from pathlib import Path
 from typing import Iterable, Protocol
 
 import pandas as pd
 
 from .data.contracts import QualityGrade
-from .data.store import ResearchDataStore
+from .data.store import ResearchDataStore, sha256_file
 
 
 class CapabilityError(RuntimeError):
@@ -135,12 +135,132 @@ class QlibDailyBarSource:
         return frame[["symbol", "trade_date", *fields]].copy()
 
 
+@dataclass
+class PartitionedDailyBarSource:
+    """读取按证券分区的规范化日线，例如 ``etf_daily``。"""
+
+    store: ResearchDataStore
+    dataset: str
+    last_provenance: dict | None = dataclass_field(default=None, init=False)
+
+    @property
+    def quality_grade(self) -> QualityGrade:
+        return QualityGrade(self.store.read_manifest(self.dataset)["quality_grade"])
+
+    def calendar(self, start_date, end_date) -> pd.DatetimeIndex:
+        calendar = self.store.read_parquet("trading_calendar")
+        dates = pd.to_datetime(calendar["trade_date"]).dt.normalize()
+        return pd.DatetimeIndex(
+            dates[dates.between(pd.Timestamp(start_date), pd.Timestamp(end_date))]
+        )
+
+    def load(self, symbols, start_date, end_date, fields, adjustment):
+        if adjustment not in {"raw", "pre"}:
+            raise CapabilityError(f"unsupported adjustment: {adjustment}")
+        manifest = self.store.read_manifest(self.dataset)
+        manifest_path = self.store.manifest_path(self.dataset)
+        self.last_provenance = {
+            "dataset": self.dataset,
+            "provider": manifest.get("provider"),
+            "quality_grade": manifest.get("quality_grade"),
+            "manifest_sha256": sha256_file(manifest_path),
+        }
+        requested = set(symbols)
+        artifacts = [
+            item
+            for item in manifest.get("data_files", [])
+            if (item.get("partition_values") or {}).get("symbol") in requested
+        ]
+        source_fields = {}
+        for field in fields:
+            if field == "money":
+                source_fields[field] = "amount"
+            elif adjustment == "pre" and field in {"open", "high", "low", "close"}:
+                source_fields[field] = f"adjusted_{field}"
+            else:
+                source_fields[field] = field
+        missing = set(source_fields.values()).difference(manifest.get("columns", []))
+        if missing:
+            raise CapabilityError(f"{self.dataset} fields are unavailable: {sorted(missing)}")
+        frames = []
+        columns = ["symbol", "trade_date", *dict.fromkeys(source_fields.values())]
+        for artifact in artifacts:
+            frames.append(
+                pd.read_parquet(
+                    self.store.root / artifact["path"],
+                    columns=columns,
+                    filters=[
+                        ("trade_date", ">=", pd.Timestamp(start_date)),
+                        ("trade_date", "<=", pd.Timestamp(end_date)),
+                    ],
+                )
+            )
+        if not frames:
+            return pd.DataFrame(columns=["symbol", "trade_date", *fields])
+        frame = pd.concat(frames, ignore_index=True)
+        for target, source in source_fields.items():
+            if target != source:
+                frame[target] = frame[source]
+        return frame[["symbol", "trade_date", *fields]].copy()
+
+
+@dataclass
+class CompositeDailyBarSource:
+    """按证券类型把统一 ``bars`` 查询路由到不同事实源。"""
+
+    store: ResearchDataStore
+    default: DailyBarSource
+    by_asset_type: dict[str, DailyBarSource]
+    last_provenance: dict | None = dataclass_field(default=None, init=False)
+
+    @property
+    def quality_grade(self) -> QualityGrade:
+        return QualityGrade.worst(
+            [self.default.quality_grade, *[source.quality_grade for source in self.by_asset_type.values()]]
+        )
+
+    def calendar(self, start_date, end_date) -> pd.DatetimeIndex:
+        return self.default.calendar(start_date, end_date)
+
+    def load(self, symbols, start_date, end_date, fields, adjustment):
+        master = self.store.read_parquet("security_master").set_index("symbol")
+        grouped: dict[int, tuple[DailyBarSource, list[str]]] = {}
+        for symbol in symbols:
+            asset_type = master.loc[symbol, "asset_type"] if symbol in master.index else None
+            source = self.by_asset_type.get(str(asset_type), self.default)
+            key = id(source)
+            grouped.setdefault(key, (source, []))[1].append(symbol)
+        frames = []
+        sources = []
+        for source, group_symbols in grouped.values():
+            frames.append(source.load(group_symbols, start_date, end_date, fields, adjustment))
+            sources.append(
+                getattr(source, "last_provenance", None)
+                or {
+                    "dataset": "qlib_daily_bars",
+                    "provider": type(source).__name__,
+                    "quality_grade": source.quality_grade.value,
+                }
+            )
+        self.last_provenance = {
+            "dataset": "composite_daily_bars",
+            "provider": type(self).__name__,
+            "quality_grade": self.quality_grade.value,
+            "sources": sources,
+        }
+        frames = [frame for frame in frames if not frame.empty]
+        if not frames:
+            return pd.DataFrame(columns=["symbol", "trade_date", *fields])
+        return pd.concat(frames, ignore_index=True)
+
+
 class LocalDataPortal:
     """显式观察日、显式质量门槛的本地统一数据接口。"""
 
     def __init__(self, store: ResearchDataStore, daily_bars: DailyBarSource):
         self.store = store
         self.daily_bars = daily_bars
+        self.last_query_provenance: dict | None = None
 
     @staticmethod
     def _date(value, name="observation_date") -> pd.Timestamp:
@@ -167,12 +287,54 @@ class LocalDataPortal:
             )
         return manifest
 
+    def _record_provenance(self, dataset: str, manifest: dict, result=None) -> dict:
+        path = self.store.manifest_path(dataset)
+        provenance = {
+            "dataset": dataset,
+            "provider": manifest.get("provider"),
+            "quality_grade": manifest.get("quality_grade"),
+            "created_at": manifest.get("created_at"),
+            "date_range": manifest.get("date_range"),
+            "manifest_path": str(path),
+            "manifest_sha256": sha256_file(path),
+        }
+        self.last_query_provenance = provenance
+        if isinstance(result, pd.DataFrame):
+            result.attrs["quant_research_provenance"] = provenance.copy()
+        return provenance
+
+    def _read_dataset(self, dataset: str, manifest: dict, symbols=None, filters=None):
+        partitioning = manifest.get("partitioning") or {}
+        if partitioning.get("columns") == ["symbol"] and symbols is not None:
+            requested = set(symbols)
+            frames = []
+            for artifact in manifest.get("data_files", []):
+                partition_values = artifact.get("partition_values") or {}
+                if partition_values.get("symbol") not in requested:
+                    continue
+                frames.append(
+                    pd.read_parquet(
+                        self.store.root / artifact["path"],
+                        filters=filters,
+                    )
+                )
+            if not frames:
+                return pd.DataFrame(columns=manifest.get("columns", []))
+            return pd.concat(frames, ignore_index=True)
+        return self.store.read_parquet(dataset)
+
     def calendar(self, start_date, end_date) -> pd.DatetimeIndex:
         start = self._date(start_date, "start_date")
         end = self._date(end_date, "end_date")
         if end < start:
             raise ValueError("end_date must not be earlier than start_date")
-        return self.daily_bars.calendar(start, end)
+        result = self.daily_bars.calendar(start, end)
+        self.last_query_provenance = {
+            "dataset": "daily_bars",
+            "provider": type(self.daily_bars).__name__,
+            "quality_grade": self.daily_bars.quality_grade.value,
+        }
+        return result
 
     def instruments(
         self,
@@ -181,14 +343,16 @@ class LocalDataPortal:
         minimum_quality: QualityGrade | str = QualityGrade.B,
     ) -> pd.DataFrame:
         date = self._date(observation_date)
-        self._require_dataset("security_master", minimum_quality)
+        manifest = self._require_dataset("security_master", minimum_quality)
         frame = self.store.read_parquet("security_master")
         mask = pd.to_datetime(frame["start_date"]).le(date) & pd.to_datetime(
             frame["end_date"]
         ).ge(date)
         if asset_types is not None:
             mask &= frame["asset_type"].isin(set(asset_types))
-        return frame.loc[mask].sort_values("symbol").reset_index(drop=True)
+        result = frame.loc[mask].sort_values("symbol").reset_index(drop=True)
+        self._record_provenance("security_master", manifest, result)
+        return result
 
     def bars(
         self,
@@ -217,7 +381,16 @@ class LocalDataPortal:
             frame = frame.dropna(subset=price_fields)
             if "volume" in frame.columns:
                 frame = frame[frame["volume"].fillna(0).gt(0)]
-        return frame.sort_values(["trade_date", "symbol"]).reset_index(drop=True)
+        result = frame.sort_values(["trade_date", "symbol"]).reset_index(drop=True)
+        provenance = getattr(self.daily_bars, "last_provenance", None) or {
+            "dataset": "daily_bars",
+            "provider": type(self.daily_bars).__name__,
+            "quality_grade": self.daily_bars.quality_grade.value,
+            "adjustment": adjustment,
+        }
+        self.last_query_provenance = provenance
+        result.attrs["quant_research_provenance"] = provenance.copy()
+        return result
 
     def index_members(
         self,
@@ -226,14 +399,16 @@ class LocalDataPortal:
         minimum_quality: QualityGrade | str = QualityGrade.B,
     ) -> list[str]:
         date = self._date(observation_date)
-        self._require_dataset("index_membership", minimum_quality)
+        manifest = self._require_dataset("index_membership", minimum_quality)
         frame = self.store.read_parquet("index_membership")
         mask = (
             frame["index_symbol"].eq(index_symbol.upper())
             & pd.to_datetime(frame["start_date"]).le(date)
             & pd.to_datetime(frame["end_date"]).ge(date)
         )
-        return sorted(frame.loc[mask, "symbol"].unique().tolist())
+        result = sorted(frame.loc[mask, "symbol"].unique().tolist())
+        self._record_provenance("index_membership", manifest)
+        return result
 
     def market_snapshot(
         self,
@@ -242,12 +417,25 @@ class LocalDataPortal:
         minimum_quality: QualityGrade | str = QualityGrade.C,
     ) -> pd.DataFrame:
         date = self._date(observation_date)
-        self._require_dataset("daily_market_state", minimum_quality)
-        frame = self.store.read_parquet("daily_market_state")
-        frame = frame[pd.to_datetime(frame["trade_date"]).eq(date)]
-        if symbols is not None:
-            frame = frame[frame["symbol"].isin(self._symbols(symbols))]
-        return frame.sort_values("symbol").reset_index(drop=True)
+        manifest = self._require_dataset("daily_market_state", minimum_quality)
+        selected = (
+            self._symbols(symbols)
+            if symbols is not None
+            else self.instruments(date, asset_types=["stock"])["symbol"].tolist()
+        )
+        frame = self._read_dataset(
+            "daily_market_state",
+            manifest,
+            selected,
+            filters=[("trade_date", "==", date)],
+        )
+        if not frame.empty:
+            frame = frame[pd.to_datetime(frame["trade_date"]).eq(date)]
+        result = frame.sort_values("symbol").reset_index(drop=True)
+        self._record_provenance("daily_market_state", manifest, result)
+        return result
+
+    snapshot = market_snapshot
 
     def valuation(
         self,
@@ -258,11 +446,12 @@ class LocalDataPortal:
         minimum_quality: QualityGrade | str = QualityGrade.B,
     ) -> pd.DataFrame:
         date = self._date(observation_date)
-        self._require_dataset("daily_valuation", minimum_quality)
-        frame = self.store.read_parquet("daily_valuation")
+        manifest = self._require_dataset("daily_valuation", minimum_quality)
+        selected_symbols = self._symbols(symbols)
+        frame = self._read_dataset("daily_valuation", manifest, selected_symbols)
         frame["trade_date"] = pd.to_datetime(frame["trade_date"]).dt.normalize()
         frame = frame[
-            frame["symbol"].isin(self._symbols(symbols)) & frame["trade_date"].le(date)
+            frame["symbol"].isin(selected_symbols) & frame["trade_date"].le(date)
         ]
         frame = frame.sort_values("trade_date").groupby("symbol", as_index=False).tail(1)
         age = (date - frame["trade_date"]).dt.days
@@ -273,7 +462,9 @@ class LocalDataPortal:
             if missing:
                 raise CapabilityError(f"valuation fields are unavailable: {sorted(missing)}")
             frame = frame[["symbol", "trade_date", *selected]]
-        return frame.sort_values("symbol").reset_index(drop=True)
+        result = frame.sort_values("symbol").reset_index(drop=True)
+        self._record_provenance("daily_valuation", manifest, result)
+        return result
 
     def fundamentals(
         self,
@@ -283,11 +474,12 @@ class LocalDataPortal:
         minimum_quality: QualityGrade | str = QualityGrade.B,
     ) -> pd.DataFrame:
         date = self._date(observation_date)
-        self._require_dataset("fundamentals_pit", minimum_quality)
-        frame = self.store.read_parquet("fundamentals_pit")
+        manifest = self._require_dataset("fundamentals_pit", minimum_quality)
+        selected_symbols = self._symbols(symbols)
+        frame = self._read_dataset("fundamentals_pit", manifest, selected_symbols)
         frame["notice_date"] = pd.to_datetime(frame["notice_date"]).dt.normalize()
         frame = frame[
-            frame["symbol"].isin(self._symbols(symbols)) & frame["notice_date"].le(date)
+            frame["symbol"].isin(selected_symbols) & frame["notice_date"].le(date)
         ]
         frame = frame.sort_values(["report_date", "notice_date"]).groupby(
             "symbol", as_index=False
@@ -298,7 +490,9 @@ class LocalDataPortal:
             if missing:
                 raise CapabilityError(f"fundamental fields are unavailable: {sorted(missing)}")
             frame = frame[["symbol", "report_date", "notice_date", *selected]]
-        return frame.sort_values("symbol").reset_index(drop=True)
+        result = frame.sort_values("symbol").reset_index(drop=True)
+        self._record_provenance("fundamentals_pit", manifest, result)
+        return result
 
     def industry(
         self,
@@ -307,11 +501,14 @@ class LocalDataPortal:
         minimum_quality: QualityGrade | str = QualityGrade.B,
     ) -> pd.DataFrame:
         date = self._date(observation_date)
-        self._require_dataset("industry_membership", minimum_quality)
-        frame = self.store.read_parquet("industry_membership")
+        manifest = self._require_dataset("industry_membership", minimum_quality)
+        selected_symbols = self._symbols(symbols)
+        frame = self._read_dataset("industry_membership", manifest, selected_symbols)
         mask = (
-            frame["symbol"].isin(self._symbols(symbols))
+            frame["symbol"].isin(selected_symbols)
             & pd.to_datetime(frame["start_date"]).le(date)
             & pd.to_datetime(frame["end_date"]).ge(date)
         )
-        return frame.loc[mask].sort_values(["symbol", "industry_code"]).reset_index(drop=True)
+        result = frame.loc[mask].sort_values(["symbol", "industry_code"]).reset_index(drop=True)
+        self._record_provenance("industry_membership", manifest, result)
+        return result

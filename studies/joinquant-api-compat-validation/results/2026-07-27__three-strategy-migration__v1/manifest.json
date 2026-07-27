@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "study": "joinquant-api-compat-validation",
+  "observation_date": "2026-07-23",
+  "status": "passed",
+  "checks": {
+    "index_60_sessions": true,
+    "etf_four_ranked": "True",
+    "fundamental_four_visible": true,
+    "notice_dates_point_in_time": true,
+    "all_three_have_provenance": true
+  },
+  "strategies": {
+    "index_timing": {
+      "observations": 60,
+      "last_close": 4728.001953125,
+      "ma20": 4786.1961669921875,
+      "risk_on": false
+    },
+    "etf_rotation_top": {
+      "symbol": "518880.XSHG",
+      "momentum_20d": 0.020262216924910703
+    },
+    "fundamental_quality_top": {
+      "jq_symbol": "600519.XSHG",
+      "roe": "10.57",
+      "notice_date": "2026-04-25 00:00:00"
+    }
+  },
+  "provenance": {
+    "index_timing": {
+      "dataset": "daily_bars",
+      "provider": "CompositeDailyBarSource",
+      "quality_grade": "B",
+      "adjustment": "pre"
+    },
+    "etf_rotation": {
+      "dataset": "daily_bars",
+      "provider": "CompositeDailyBarSource",
+      "quality_grade": "B",
+      "adjustment": "pre"
+    },
+    "fundamental_quality": {
+      "dataset": "daily_market_state",
+      "provider": "qlib-community-cn + dolthub/chenditc-investment-data",
+      "quality_grade": "C",
+      "created_at": "2026-07-27T02:09:19.501767+00:00",
+      "date_range": {
+        "start": "2000-01-04",
+        "end": "2026-07-23"
+      },
+      "manifest_path": "D:\\code\\_open-source\\_data\\quant-research\\manifests\\daily_market_state.json",
+      "manifest_sha256": "b7cdf65997babc0538f2bf51fb4e3fc5f508a7553326de7bfef135a5f248a0a8"
+    }
+  },
+  "source_sha256": "e685aec87b6badada2efe125eee1d97667ebcdff1e988bdad14e78819e5b6010",
+  "raw_sha256": {
+    "etf-ranking.csv": "4490440dc0896f3c1d76c31435e356820927f1a48c3eb963a02a92189279191d",
+    "fundamental-ranking.csv": "537b94678ce3a4c379e7fe6ad1279e295653e7721e8dbc7519f46d85afb56aa5",
+    "index-timing.json": "6b988265995093bdd06c3920545a2924017bb56cdfa22a01b27910c8d801a6a7"
+  },
+  "limitations": [
+    "本验收证明三类策略共享查询层，不是收益黄金对照；收益对照分别属于迭代2、5、6。",
+    "聚宽query DSL不模拟，基本面策略显式传入symbols和fields。"
+  ]
+}

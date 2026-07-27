@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "study": "joinquant-api-compat-validation",
+  "observation_date": "2026-07-23",
+  "status": "passed",
+  "checks": {
+    "index_60_sessions": true,
+    "etf_four_ranked": true,
+    "fundamental_four_visible": true,
+    "notice_dates_point_in_time": true,
+    "all_three_have_provenance": true
+  },
+  "strategies": {
+    "index_timing": {
+      "observations": 60,
+      "last_close": 4728.001953125,
+      "ma20": 4786.1961669921875,
+      "risk_on": false
+    },
+    "etf_rotation_top": {
+      "symbol": "518880.XSHG",
+      "momentum_20d": 0.020262216924910703
+    },
+    "fundamental_quality_top": {
+      "jq_symbol": "600519.XSHG",
+      "roe": "10.57",
+      "notice_date": "2026-04-25 00:00:00"
+    }
+  },
+  "provenance": {
+    "index_timing": {
+      "dataset": "composite_daily_bars",
+      "provider": "CompositeDailyBarSource",
+      "quality_grade": "B",
+      "sources": [
+        {
+          "dataset": "qlib_daily_bars",
+          "provider": "QlibDailyBarSource",
+          "quality_grade": "B"
+        }
+      ]
+    },
+    "etf_rotation": {
+      "dataset": "composite_daily_bars",
+      "provider": "CompositeDailyBarSource",
+      "quality_grade": "B",
+      "sources": [
+        {
+          "dataset": "etf_daily",
+          "provider": "akshare/sina",
+          "quality_grade": "B",
+          "manifest_sha256": "8d3d511d3eb36833328b48c2c8663963b7f6d23cca9b0d0a4aae4226c714a51d"
+        }
+      ]
+    },
+    "fundamental_quality": {
+      "fundamentals": {
+        "dataset": "fundamentals_pit",
+        "provider": "eastmoney/datacenter-financial-cache",
+        "quality_grade": "B",
+        "created_at": "2026-07-26T21:12:01.947906+00:00",
+        "date_range": {
+          "start": "1990-03-21",
+          "end": "2026-07-25"
+        },
+        "manifest_path": "D:\\code\\_open-source\\_data\\quant-research\\manifests\\fundamentals_pit.json",
+        "manifest_sha256": "396eeffe56ea3adbd25eec0bbf5b7b1800e17bbbba9139f8c6ed11ace05e4e8b"
+      },
+      "market_state": {
+        "dataset": "daily_market_state",
+        "provider": "qlib-community-cn + dolthub/chenditc-investment-data",
+        "quality_grade": "C",
+        "created_at": "2026-07-27T02:09:19.501767+00:00",
+        "date_range": {
+          "start": "2000-01-04",
+          "end": "2026-07-23"
+        },
+        "manifest_path": "D:\\code\\_open-source\\_data\\quant-research\\manifests\\daily_market_state.json",
+        "manifest_sha256": "b7cdf65997babc0538f2bf51fb4e3fc5f508a7553326de7bfef135a5f248a0a8"
+      }
+    }
+  },
+  "source_sha256": "6efc277ea85a84537ba4be62e89db58bae9a0198a3c385ff3b3b1fb6d07bc457",
+  "raw_sha256": {
+    "etf-ranking.csv": "4490440dc0896f3c1d76c31435e356820927f1a48c3eb963a02a92189279191d",
+    "fundamental-ranking.csv": "537b94678ce3a4c379e7fe6ad1279e295653e7721e8dbc7519f46d85afb56aa5",
+    "index-timing.json": "6b988265995093bdd06c3920545a2924017bb56cdfa22a01b27910c8d801a6a7"
+  },
+  "limitations": [
+    "本验收证明三类策略共享查询层，不是收益黄金对照；收益对照分别属于迭代2、5、6。",
+    "聚宽query DSL不模拟，基本面策略显式传入symbols和fields。"
+  ]
+}

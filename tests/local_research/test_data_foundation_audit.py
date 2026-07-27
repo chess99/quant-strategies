@@ -204,3 +204,43 @@ def test_candidate_dataset_can_report_unverified_symbols_without_passing_as_know
     assert report["unknown_symbols"] == ["SH599999"]
     assert report["unknown_symbols_permitted"] == ["SH599999"]
     assert report["status"] == "passed"
+
+
+def test_reference_dataset_uses_listing_lifecycle_not_qlib_feature_interval(tmp_path):
+    store = ResearchDataStore(tmp_path / "data")
+    frame = pd.DataFrame(
+        {
+            "symbol": ["SH600000"],
+            "trade_date": pd.to_datetime(["1999-12-31"]),
+            "market_cap": [100.0],
+        }
+    )
+    data_file = store.write_parquet("daily_valuation", frame)
+    store.write_manifest(
+        DatasetManifest(
+            schema_version=1,
+            dataset="daily_valuation",
+            provider="fixture",
+            quality_grade=QualityGrade.B,
+            row_count=1,
+            columns=list(frame.columns),
+            data_files=[data_file],
+            primary_key=["symbol", "trade_date"],
+        )
+    )
+    master = pd.DataFrame(
+        {
+            "symbol": ["SH600000"],
+            "asset_type": ["stock"],
+            "start_date": [pd.Timestamp("2000-01-04")],
+            "end_date": [pd.Timestamp("2024-12-31")],
+            "listing_date": [pd.Timestamp("1999-11-10")],
+            "delisting_date": [pd.NaT],
+            "active_at_source_end": [True],
+        }
+    )
+
+    report = audit_normalized_dataset(store, "daily_valuation", master)
+
+    assert report["rows_outside_security_interval"] == 0
+    assert report["status"] == "passed"

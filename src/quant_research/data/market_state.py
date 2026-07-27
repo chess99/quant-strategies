@@ -26,16 +26,22 @@ MARKET_STATE_COLUMNS = [
     "one_price",
     "buy_blocked",
     "sell_blocked",
+    "no_price_limit",
     "status_quality",
     "st_quality",
     "limit_quality",
+    "status_source",
+    "st_source",
+    "limit_source",
     "source",
 ]
 
 
 def price_limit_rate(board: str, date, is_st=False) -> float:
     date = pd.Timestamp(date).normalize()
-    if is_st is True:
+    if is_st is True and board not in {"star", "beijing"} and not (
+        board == "chinext" and date >= pd.Timestamp("2020-08-24")
+    ):
         return 0.05
     if board == "beijing":
         return 0.30
@@ -46,9 +52,116 @@ def price_limit_rate(board: str, date, is_st=False) -> float:
     return 0.10
 
 
+def ipo_has_no_price_limit(
+    board: str,
+    listing_date,
+    listing_session_number: int,
+) -> bool:
+    """判断注册制板块上市初期的无涨跌幅限制交易日。"""
+
+    listing_date = pd.Timestamp(listing_date).normalize()
+    session = int(listing_session_number)
+    if session < 1:
+        raise ValueError("listing_session_number must be positive")
+    if board == "star":
+        return session <= 5
+    if board == "chinext":
+        return listing_date >= pd.Timestamp("2020-08-24") and session <= 5
+    if board == "main":
+        return listing_date >= pd.Timestamp("2023-04-10") and session <= 5
+    if board == "beijing":
+        return session == 1
+    return False
+
+
 def round_price_limit(value: pd.Series | np.ndarray) -> np.ndarray:
     values = np.asarray(value, dtype=float)
     return np.floor(values * 100.0 + 0.5) / 100.0
+
+
+def apply_market_reference(
+    state: pd.DataFrame,
+    reference: pd.DataFrame,
+) -> pd.DataFrame:
+    """用真实涨跌停、ST 或交易状态覆盖规则代理，未命中的行保持原质量。"""
+
+    if reference is None or reference.empty:
+        return state[MARKET_STATE_COLUMNS].copy()
+    required = {"symbol", "trade_date"}
+    missing = required.difference(reference.columns)
+    if missing:
+        raise ValueError(f"market reference is missing columns: {sorted(missing)}")
+    left = state.copy()
+    right = reference.copy()
+    left["trade_date"] = pd.to_datetime(left["trade_date"]).dt.normalize()
+    right["trade_date"] = pd.to_datetime(right["trade_date"]).dt.normalize()
+    overlap = set(left.columns).intersection(right.columns).difference(required)
+    right = right.rename(columns={column: f"reference_{column}" for column in overlap})
+    merged = left.merge(right, on=["symbol", "trade_date"], how="left", validate="one_to_one")
+
+    for column in ("previous_raw_close", "high_limit", "low_limit"):
+        merged[column] = pd.to_numeric(merged[column], errors="coerce").astype(float)
+    exact_limit = merged.get(
+        "reference_high_limit", pd.Series(np.nan, index=merged.index)
+    ).notna() & merged.get(
+        "reference_low_limit", pd.Series(np.nan, index=merged.index)
+    ).notna()
+    for column in ("previous_raw_close", "high_limit", "low_limit"):
+        reference_column = f"reference_{column}"
+        if reference_column in merged:
+            available = merged[reference_column].notna()
+            merged.loc[available, column] = merged.loc[available, reference_column]
+    for column in ("limit_quality", "limit_source"):
+        reference_column = f"reference_{column}"
+        if reference_column in merged:
+            available = merged[reference_column].notna()
+            merged.loc[available, column] = merged.loc[available, reference_column]
+
+    if "reference_is_st" in merged:
+        st_available = merged["reference_is_st"].notna()
+        merged.loc[st_available, "is_st"] = merged.loc[
+            st_available, "reference_is_st"
+        ].astype(bool)
+        for column in ("st_quality", "st_source"):
+            reference_column = f"reference_{column}"
+            if reference_column in merged:
+                merged.loc[st_available, column] = merged.loc[
+                    st_available, reference_column
+                ]
+    if "tradestatus" in merged:
+        status_available = merged["tradestatus"].notna()
+        merged.loc[status_available, "paused"] = (
+            pd.to_numeric(merged.loc[status_available, "tradestatus"], errors="coerce")
+            .eq(0)
+            .to_numpy()
+        )
+        merged.loc[status_available, "status_quality"] = QualityGrade.B.value
+        merged.loc[status_available, "status_source"] = "dolthub/baostock-tradestatus"
+    if "reference_paused" in merged:
+        status_available = merged["reference_paused"].notna()
+        merged.loc[status_available, "paused"] = merged.loc[
+            status_available, "reference_paused"
+        ].astype(bool)
+        for column in ("status_quality", "status_source"):
+            reference_column = f"reference_{column}"
+            if reference_column in merged:
+                merged.loc[status_available, column] = merged.loc[
+                    status_available, reference_column
+                ]
+
+    merged.loc[exact_limit, "no_price_limit"] = False
+    merged["buy_blocked"] = merged["paused"] | (
+        merged["high_limit"].notna()
+        & (merged["raw_open"] >= merged["high_limit"] - 0.001)
+    )
+    merged["sell_blocked"] = merged["paused"] | (
+        merged["low_limit"].notna()
+        & (merged["raw_open"] <= merged["low_limit"] + 0.001)
+    )
+    merged["is_st"] = pd.array(merged["is_st"], dtype="boolean")
+    result = merged[MARKET_STATE_COLUMNS].copy()
+    validate_market_state(result)
+    return result
 
 
 def build_market_state(
@@ -107,6 +220,22 @@ def build_market_state(
         result["high_limit"] = round_price_limit(previous_close * (1.0 + rate))
         result["low_limit"] = round_price_limit(previous_close * (1.0 - rate))
         result.loc[previous_close.isna(), ["high_limit", "low_limit"]] = np.nan
+        listing_date = security.get("listing_date", security["start_date"])
+        no_price_limit = np.array(
+            [
+                ipo_has_no_price_limit(
+                    str(security["board"]),
+                    listing_date,
+                    session_number,
+                )
+                for session_number in range(1, len(active_dates) + 1)
+            ],
+            dtype=bool,
+        )
+        result["no_price_limit"] = no_price_limit
+        result.loc[
+            result["no_price_limit"], ["high_limit", "low_limit"]
+        ] = np.nan
         result["is_st"] = pd.array([pd.NA] * len(result), dtype="boolean")
         result["one_price"] = (
             result[["raw_open", "raw_high", "raw_low", "raw_close"]]
@@ -123,6 +252,13 @@ def build_market_state(
         result["status_quality"] = QualityGrade.B.value
         result["st_quality"] = QualityGrade.C.value
         result["limit_quality"] = QualityGrade.C.value
+        result["status_source"] = "qlib-community-cn/derived"
+        result["st_source"] = None
+        result["limit_source"] = np.where(
+            result["no_price_limit"],
+            "exchange-ipo-rule",
+            "board-rule-derived",
+        )
         result["source"] = "qlib-community-cn/derived"
         rows.append(result.reset_index(drop=True))
     if not rows:
@@ -141,6 +277,11 @@ def validate_market_state(frame: pd.DataFrame) -> None:
     invalid_limits = frame.dropna(subset=["high_limit", "low_limit"])
     if (invalid_limits["high_limit"] <= invalid_limits["low_limit"]).any():
         raise ValueError("market state contains inverted price limits")
+    if (
+        frame["no_price_limit"]
+        & (frame["high_limit"].notna() | frame["low_limit"].notna())
+    ).any():
+        raise ValueError("no-limit rows must not contain price limits")
 
 
 def save_market_state(

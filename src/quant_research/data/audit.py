@@ -18,6 +18,10 @@ DEFAULT_PRIMARY_KEYS = {
     "security_master": ["symbol"],
     "trading_calendar": ["trade_date"],
     "etf_daily": ["symbol", "trade_date"],
+    "daily_price_limit": ["symbol", "trade_date"],
+    "daily_official_status": ["symbol", "trade_date"],
+    "st_name_events": ["symbol", "effective_from"],
+    "risk_warning_events": ["symbol", "effective_from"],
     "daily_market_state": ["symbol", "trade_date"],
     "daily_valuation": ["symbol", "trade_date"],
     "fundamentals_pit": ["symbol", "report_date", "notice_date", "report_type"],
@@ -49,6 +53,13 @@ QLIB_REQUIRED_FIELDS = (
     "volume",
     "amount",
 )
+LIFECYCLE_REFERENCE_DATASETS = {
+    "daily_official_status",
+    "daily_price_limit",
+    "daily_valuation",
+    "risk_warning_events",
+    "st_name_events",
+}
 
 
 def _json_scalar(value):
@@ -69,19 +80,36 @@ def _read_qlib_feature(path: Path) -> tuple[int, np.ndarray]:
     return start_index, payload[1:]
 
 
-def _master_lookup(master: pd.DataFrame) -> dict[str, tuple[pd.Timestamp, pd.Timestamp]]:
+def _master_lookup(
+    master: pd.DataFrame,
+    *,
+    use_lifecycle: bool = False,
+) -> dict[str, tuple[pd.Timestamp, pd.Timestamp]]:
     lookup = {}
+    lifecycle_available = use_lifecycle and {
+        "listing_date",
+        "delisting_date",
+    }.issubset(master.columns)
     columns = ["symbol", "start_date", "end_date"]
+    if lifecycle_available:
+        columns.extend(["listing_date", "delisting_date"])
     if "active_at_source_end" in master:
         columns.append("active_at_source_end")
     for row in master[columns].itertuples(index=False):
         active = bool(getattr(row, "active_at_source_end", False))
+        start = row.start_date
+        end = row.end_date
+        if lifecycle_available:
+            if pd.notna(row.listing_date):
+                start = row.listing_date
+            if pd.notna(row.delisting_date):
+                end = row.delisting_date
         lookup[str(row.symbol).upper()] = (
-            pd.Timestamp(row.start_date).normalize(),
+            pd.Timestamp(start).normalize(),
             (
                 pd.Timestamp("2262-04-11")
                 if active
-                else pd.Timestamp(row.end_date).normalize()
+                else pd.Timestamp(end).normalize()
             ),
         )
     return lookup
@@ -335,7 +363,11 @@ def audit_normalized_dataset(
 ) -> dict:
     manifest = store.read_manifest(dataset)
     primary_key = manifest.get("primary_key") or DEFAULT_PRIMARY_KEYS.get(dataset, [])
-    master_intervals = _master_lookup(security_master)
+    uses_lifecycle_interval = dataset in LIFECYCLE_REFERENCE_DATASETS
+    master_intervals = _master_lookup(
+        security_master,
+        use_lifecycle=uses_lifecycle_interval,
+    )
     known_symbols = set(master_intervals)
     state = _FileAuditState()
     unknown_symbols = set()
@@ -487,6 +519,10 @@ def audit_normalized_dataset(
         "etf_daily": "etf",
         "etf_master": "etf",
         "etf_profiles": "etf",
+        "daily_price_limit": "stock",
+        "daily_official_status": "stock",
+        "st_name_events": "stock",
+        "risk_warning_events": "stock",
         "daily_market_state": "stock",
         "daily_valuation": "stock",
         "fundamentals_pit": "stock",
@@ -533,6 +569,9 @@ def audit_normalized_dataset(
         "time_inversions": state.time_inversions,
         "notice_before_report_date": state.notice_before_report,
         "rows_outside_security_interval": state.rows_outside_active_interval,
+        "security_interval_basis": (
+            "listing_lifecycle" if uses_lifecycle_interval else "local_data_interval"
+        ),
         "hash_mismatches": hash_mismatches,
         "partitioning": partitioning,
         "partitioning_compliant": not is_large or bool(partitioning),

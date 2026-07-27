@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-07-27T02:37:51.326141+00:00",
+  "status": "passed",
+  "thresholds": {
+    "minimum_current_valuation_coverage": 0.95,
+    "minimum_known_st_ratio": 0.95
+  },
+  "universe": {
+    "historical_stocks": 6115,
+    "current_active_stocks": 5530
+  },
+  "valuation": {
+    "quality_grade": "B",
+    "rows": 9618793,
+    "successful_symbols": 6030,
+    "failed_historical_symbols": 85,
+    "current_covered": 5530,
+    "current_coverage_ratio": 1.0,
+    "date_range": {
+      "start": "1990-12-20",
+      "end": "2026-07-24"
+    },
+    "crosscheck": {
+      "requested_symbols": 20,
+      "successful_symbols": 20,
+      "metrics": {
+        "market_cap": {
+          "median_relative_error": 0.00002314705416399058,
+          "p95_relative_error": 0.00011023324130050119
+        },
+        "pe_ttm": {
+          "median_relative_error": 0.00002767706792664058,
+          "p95_relative_error": 0.001574453141200923
+        },
+        "pb": {
+          "median_relative_error": 0.0006127964569083494,
+          "p95_relative_error": 0.005854754222019516
+        }
+      },
+      "status": "passed"
+    }
+  },
+  "market_state": {
+    "overall_quality_grade": "C",
+    "rows": 17679198,
+    "successful_symbols": 6115,
+    "failed_symbols": 0,
+    "known_st_rows": 17678788,
+    "known_st_ratio": 0.9999768089027568,
+    "unknown_st_rows": 410,
+    "exact_limit_rows": 13470967,
+    "exact_limit_ratio": 0.7619670869685379,
+    "paused_rows": 576145,
+    "date_range": {
+      "start": "2000-01-04",
+      "end": "2026-07-23"
+    }
+  },
+  "reference_sources": {
+    "price_limit_rows": 14033116,
+    "price_limit_symbols": 5402,
+    "official_status_rows": 14340455,
+    "official_status_end": "2023-06-09",
+    "szse_name_event_rows": 10379,
+    "szse_name_event_quality": "A",
+    "risk_warning_event_rows": 7870,
+    "risk_warning_event_quality": "B",
+    "risk_warning_announcement_events": 1758
+  },
+  "checks": {
+    "valuation_current_coverage": true,
+    "valuation_second_source": true,
+    "price_limit_has_full_history": true,
+    "official_status_has_full_history": true,
+    "market_state_all_symbols": true,
+    "known_st_ratio": true,
+    "partitioned_large_datasets": true
+  },
+  "manifest_sha256": {
+    "daily_valuation": "ec992f9a2bed7c89ff0197bee319eddfc54a5cee8c0add8d3df8d1f0bf111098",
+    "valuation_crosscheck": "42adb5924b5d461c436ac23b4d888c3635cf8649a1e4fd61a8576942c05cb6d5",
+    "daily_price_limit": "1d0eae3d1f33616b03174712eaebfb3b700f852fc0084c68deea4b62465ca772",
+    "daily_official_status": "6f916f292139a62bc5d7c2e1b62d2a6e6f586c186543df0c3faae8be54746f5a",
+    "st_name_events": "9891ab5962bf07fc54c9361f72d81e8eac8862c9e6645f8cf41677ace328033a",
+    "risk_warning_events": "386f002006831c8232fd0dec73cd8fd650813ffd710c2367fd87c1750e0b8b8d",
+    "daily_market_state": "b7cdf65997babc0538f2bf51fb4e3fc5f508a7553326de7bfef135a5f248a0a8"
+  },
+  "limitations": [
+    "上交所和北交所 2023-06 后由最后显式状态与发行人公告标题承接，未解析公告 PDF，质量为 B。",
+    "估值可能按数据商后来修订的财务值重算，属于 B 级而非严格 PIT A。",
+    "85 个无估值的历史代码均逐只保留失败原因；当前有效股票覆盖率单独验收。"
+  ]
+}

@@ -51,6 +51,25 @@ KNOWN_TERMINATIONS = {
 }
 
 
+def clip_to_security_lifecycle(
+    frame: pd.DataFrame,
+    security,
+    *,
+    date_column: str,
+) -> pd.DataFrame:
+    """移除供应商在上市前或退市后返回的代码历史。"""
+
+    if frame.empty:
+        return frame.copy()
+    dates = pd.to_datetime(frame[date_column], errors="coerce").dt.normalize()
+    listing_date = pd.Timestamp(security["listing_date"]).normalize()
+    mask = dates.ge(listing_date)
+    delisting_date = security.get("delisting_date")
+    if pd.notna(delisting_date):
+        mask &= dates.le(pd.Timestamp(delisting_date).normalize())
+    return frame.loc[mask].reset_index(drop=True)
+
+
 @dataclass(frozen=True)
 class SecurityLifecycleSnapshot:
     as_of: str

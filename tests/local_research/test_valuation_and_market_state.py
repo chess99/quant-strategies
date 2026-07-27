@@ -3,11 +3,25 @@ import pandas as pd
 import pytest
 
 from quant_research.data.market_state import (
+    apply_market_reference,
     build_market_state,
+    ipo_has_no_price_limit,
     price_limit_rate,
     round_price_limit,
 )
-from quant_research.data.valuation import normalize_eastmoney_valuation
+from quant_research.data.market_reference import (
+    apply_st_name_events,
+    normalize_dolthub_baostock_status,
+    normalize_dolthub_price_limits,
+    normalize_szse_st_name_events,
+)
+from quant_research.data.security_lifecycle import clip_to_security_lifecycle
+from quant_research.data.store import ResearchDataStore
+from quant_research.data.valuation import (
+    normalize_baidu_valuation,
+    normalize_eastmoney_valuation,
+    sync_valuation_partitions,
+)
 
 
 def test_eastmoney_valuation_normalizes_units_and_dates():
@@ -36,14 +50,343 @@ def test_eastmoney_valuation_normalizes_units_and_dates():
     assert frame.loc[0, "quality_grade"] == "B"
 
 
+def test_baidu_market_cap_normalizes_yi_yuan_unit():
+    frame = normalize_baidu_valuation(
+        "SH600000",
+        "market_cap",
+        pd.DataFrame({"date": ["2024-01-02"], "value": [123.45]}),
+    )
+
+    assert frame.loc[0, "market_cap"] == pytest.approx(12_345_000_000.0)
+
+
+def test_partitioned_valuation_sync_is_resumable(tmp_path):
+    raw = pd.DataFrame(
+        {
+            "数据日期": ["2024-01-02"],
+            "当日收盘价": [10.0],
+            "当日涨跌幅": [1.2],
+            "总市值": [1_000_000_000.0],
+            "流通市值": [800_000_000.0],
+            "总股本": [100_000_000.0],
+            "流通股本": [80_000_000.0],
+            "PE(TTM)": [15.0],
+            "PE(静)": [16.0],
+            "市净率": [2.0],
+            "PEG值": [1.1],
+            "市现率": [10.0],
+            "市销率": [3.0],
+        }
+    )
+
+    class Provider:
+        calls = 0
+
+        def fetch(self, symbol):
+            self.calls += 1
+            return raw
+
+    store = ResearchDataStore(tmp_path)
+    store.write_parquet(
+        "security_master",
+        pd.DataFrame(
+            {
+                "symbol": ["SH600000", "SZ000001"],
+                "listing_date": pd.to_datetime(["1999-11-10", "1991-04-03"]),
+                "delisting_date": [pd.NaT, pd.NaT],
+            }
+        ),
+    )
+    provider = Provider()
+    statuses, manifest = sync_valuation_partitions(
+        store,
+        ["SH600000", "SZ000001"],
+        active_symbols={"SH600000", "SZ000001"},
+        provider=provider,
+        workers=1,
+    )
+
+    assert provider.calls == 2
+    assert len(statuses) == 2
+    assert manifest.coverage["current_coverage_ratio"] == 1.0
+    assert len(manifest.data_files) == 2
+    second_statuses, _ = sync_valuation_partitions(
+        store,
+        ["SH600000", "SZ000001"],
+        active_symbols={"SH600000", "SZ000001"},
+        provider=provider,
+        workers=1,
+    )
+    assert provider.calls == 2
+    assert len(second_statuses) == 2
+
+
+def test_vendor_rows_are_clipped_to_listing_and_delisting_dates():
+    frame = pd.DataFrame(
+        {
+            "trade_date": pd.to_datetime(
+                ["2023-12-29", "2024-01-02", "2024-01-03", "2024-01-04"]
+            ),
+            "value": [1, 2, 3, 4],
+        }
+    )
+    security = pd.Series(
+        {
+            "listing_date": pd.Timestamp("2024-01-02"),
+            "delisting_date": pd.Timestamp("2024-01-03"),
+        }
+    )
+
+    result = clip_to_security_lifecycle(
+        frame,
+        security,
+        date_column="trade_date",
+    )
+
+    assert result["value"].tolist() == [2, 3]
+
+
+def test_migrated_code_uses_canonical_valuation_inside_lifecycle(tmp_path):
+    def raw_on(date):
+        return pd.DataFrame(
+            {
+                "数据日期": [date],
+                "当日收盘价": [10.0],
+                "当日涨跌幅": [0.0],
+                "总市值": [1_000_000_000.0],
+                "流通市值": [800_000_000.0],
+                "总股本": [100_000_000.0],
+                "流通股本": [80_000_000.0],
+                "PE(TTM)": [15.0],
+                "PE(静)": [16.0],
+                "市净率": [2.0],
+                "PEG值": [1.1],
+                "市现率": [10.0],
+                "市销率": [3.0],
+            }
+        )
+
+    class Provider:
+        def fetch(self, symbol):
+            return raw_on("2024-01-02" if symbol == "BJ920017" else "2023-12-29")
+
+    store = ResearchDataStore(tmp_path)
+    store.write_parquet(
+        "security_master",
+        pd.DataFrame(
+            {
+                "symbol": ["BJ430017"],
+                "listing_date": [pd.Timestamp("2024-01-01")],
+                "delisting_date": [pd.Timestamp("2024-12-31")],
+                "canonical_symbol": ["BJ920017"],
+            }
+        ),
+    )
+
+    statuses, _ = sync_valuation_partitions(
+        store,
+        ["BJ430017"],
+        active_symbols=set(),
+        provider=Provider(),
+        workers=1,
+    )
+    valuation = store.read_symbol_partitions("daily_valuation", ["BJ430017"])
+
+    assert statuses.loc[0, "status"] == "success"
+    assert valuation["trade_date"].tolist() == [pd.Timestamp("2024-01-02")]
+    assert "bj920017" in statuses.loc[0, "raw_path"]
+
+
 def test_price_limit_rules_change_by_board_date_and_st_status():
     assert price_limit_rate("main", "2024-01-01") == pytest.approx(0.10)
     assert price_limit_rate("chinext", "2020-08-21") == pytest.approx(0.10)
     assert price_limit_rate("chinext", "2020-08-24") == pytest.approx(0.20)
     assert price_limit_rate("star", "2024-01-01") == pytest.approx(0.20)
     assert price_limit_rate("beijing", "2024-01-01") == pytest.approx(0.30)
-    assert price_limit_rate("star", "2024-01-01", is_st=True) == pytest.approx(0.05)
+    assert price_limit_rate("star", "2024-01-01", is_st=True) == pytest.approx(0.20)
+    assert price_limit_rate("chinext", "2024-01-01", is_st=True) == pytest.approx(0.20)
+    assert price_limit_rate("main", "2024-01-01", is_st=True) == pytest.approx(0.05)
     assert round_price_limit([10.005, 9.994]).tolist() == [10.01, 9.99]
+
+
+def test_ipo_no_limit_rules_cover_registration_boards():
+    assert ipo_has_no_price_limit("star", "2020-01-02", 1)
+    assert ipo_has_no_price_limit("star", "2020-01-02", 5)
+    assert not ipo_has_no_price_limit("star", "2020-01-02", 6)
+    assert not ipo_has_no_price_limit("chinext", "2020-08-21", 1)
+    assert ipo_has_no_price_limit("chinext", "2020-08-24", 1)
+    assert ipo_has_no_price_limit("main", "2023-04-10", 5)
+    assert not ipo_has_no_price_limit("main", "2023-04-10", 6)
+    assert ipo_has_no_price_limit("beijing", "2024-01-02", 1)
+    assert not ipo_has_no_price_limit("beijing", "2024-01-02", 2)
+
+
+def test_dolthub_limits_normalize_symbols_and_infer_st():
+    raw = pd.DataFrame(
+        {
+            "tradedate": ["2024-01-02", "2024-01-02"],
+            "symbol": ["SH600000", "sz000001"],
+            "pre_close": ["10", "20"],
+            "up_limit": ["10.5", "22"],
+            "down_limit": ["9.5", "18"],
+        }
+    )
+
+    frame = normalize_dolthub_price_limits(raw)
+
+    assert frame["symbol"].tolist() == ["SH600000", "SZ000001"]
+    assert frame["is_st"].tolist() == [True, False]
+    assert frame["st_quality"].tolist() == ["B", "B"]
+    assert frame["limit_quality"].tolist() == ["B", "B"]
+
+
+def test_registration_board_limits_do_not_falsely_imply_non_st():
+    raw = pd.DataFrame(
+        {
+            "tradedate": ["2024-01-02", "2024-01-02"],
+            "symbol": ["SH688001", "SZ300001"],
+            "pre_close": [10.0, 10.0],
+            "up_limit": [12.0, 12.0],
+            "down_limit": [8.0, 8.0],
+        }
+    )
+
+    frame = normalize_dolthub_price_limits(raw)
+
+    assert frame["is_st"].isna().all()
+    assert frame["st_quality"].tolist() == ["C", "C"]
+
+
+def test_baostock_status_overrides_registration_board_st_unknown():
+    state = pd.DataFrame(
+        {
+            "symbol": ["SH688001"],
+            "trade_date": pd.to_datetime(["2023-01-03"]),
+            "paused": [False],
+            "is_st": pd.array([pd.NA], dtype="boolean"),
+            "raw_open": [10.0],
+            "raw_high": [10.1],
+            "raw_low": [9.9],
+            "raw_close": [10.0],
+            "previous_raw_close": [10.0],
+            "high_limit": [12.0],
+            "low_limit": [8.0],
+            "one_price": [False],
+            "buy_blocked": [False],
+            "sell_blocked": [False],
+            "no_price_limit": [False],
+            "status_quality": ["B"],
+            "st_quality": ["C"],
+            "limit_quality": ["B"],
+            "status_source": ["qlib-community-cn/derived"],
+            "st_source": [None],
+            "limit_source": ["dolthub/final-a-stock-limit"],
+            "source": ["qlib-community-cn/derived"],
+        }
+    )
+    reference = normalize_dolthub_baostock_status(
+        pd.DataFrame(
+            {
+                "tradedate": ["2023-01-03"],
+                "symbol": ["SH688001"],
+                "tradestatus": [1],
+                "is_st": [1],
+            }
+        )
+    )
+
+    result = apply_market_reference(state, reference)
+
+    assert result.loc[0, "is_st"]
+    assert result.loc[0, "st_quality"] == "B"
+    assert result.loc[0, "st_source"] == "dolthub/baostock-is-st"
+
+
+def test_szse_name_change_events_replay_st_by_effective_date():
+    master = pd.DataFrame(
+        {
+            "symbol": ["SZ300001"],
+            "exchange": ["XSHE"],
+            "asset_type": ["stock"],
+            "listing_date": [pd.Timestamp("2020-01-01")],
+            "display_name": ["特锐德"],
+        }
+    )
+    raw = pd.DataFrame(
+        {
+            "变更日期": ["2023-01-03", "2024-01-03"],
+            "证券代码": ["300001", "300001"],
+            "证券简称": ["特锐德", "特锐德"],
+            "变更前简称": ["特锐德", "*ST特锐"],
+            "变更后简称": ["*ST特锐", "特锐德"],
+        }
+    )
+    events = normalize_szse_st_name_events(raw, master)
+    state = pd.DataFrame(
+        {
+            "symbol": ["SZ300001"] * 3,
+            "trade_date": pd.to_datetime(
+                ["2022-12-30", "2023-01-03", "2024-01-03"]
+            ),
+            "is_st": pd.array([pd.NA] * 3, dtype="boolean"),
+            "st_quality": ["C"] * 3,
+            "st_source": [None] * 3,
+        }
+    )
+
+    result = apply_st_name_events(state, events)
+
+    assert result["is_st"].tolist() == [False, True, False]
+    assert result["st_quality"].tolist() == ["A", "A", "A"]
+
+
+def test_reference_limits_override_rule_proxy_and_preserve_unknown_days():
+    state = pd.DataFrame(
+        {
+            "symbol": ["SH600000", "SH600000"],
+            "trade_date": pd.to_datetime(["2024-01-02", "2024-01-03"]),
+            "paused": [False, False],
+            "is_st": pd.array([pd.NA, pd.NA], dtype="boolean"),
+            "raw_open": [10.5, 10.1],
+            "raw_high": [10.5, 10.2],
+            "raw_low": [10.5, 10.0],
+            "raw_close": [10.5, 10.1],
+            "previous_raw_close": [10.0, 10.5],
+            "high_limit": [11.0, 11.55],
+            "low_limit": [9.0, 9.45],
+            "one_price": [True, False],
+            "buy_blocked": [False, False],
+            "sell_blocked": [False, False],
+            "no_price_limit": [False, False],
+            "status_quality": ["B", "B"],
+            "st_quality": ["C", "C"],
+            "limit_quality": ["C", "C"],
+            "status_source": ["qlib-community-cn/derived"] * 2,
+            "st_source": [None, None],
+            "limit_source": ["board-rule-derived"] * 2,
+            "source": ["qlib-community-cn/derived"] * 2,
+        }
+    )
+    reference = normalize_dolthub_price_limits(
+        pd.DataFrame(
+            {
+                "tradedate": ["2024-01-02"],
+                "symbol": ["SH600000"],
+                "pre_close": [10.0],
+                "up_limit": [10.5],
+                "down_limit": [9.5],
+            }
+        )
+    )
+
+    result = apply_market_reference(state, reference)
+
+    assert result.loc[0, "high_limit"] == pytest.approx(10.5)
+    assert result.loc[0, "low_limit"] == pytest.approx(9.5)
+    assert result.loc[0, "is_st"]
+    assert result.loc[0, "buy_blocked"]
+    assert result.loc[0, "limit_quality"] == "B"
+    assert result.loc[1, "st_quality"] == "C"
 
 
 def test_market_state_preserves_unknown_st_and_detects_suspension():
@@ -76,6 +419,7 @@ def test_market_state_preserves_unknown_st_and_detects_suspension():
     assert state.loc[2, "previous_raw_close"] == pytest.approx(10.0)
     assert state.loc[2, "high_limit"] == pytest.approx(11.0)
     assert state.loc[1, "buy_blocked"]
+    assert state["no_price_limit"].tolist() == [False, False, False]
 
 
 def test_market_state_keeps_active_symbol_without_feature_rows():

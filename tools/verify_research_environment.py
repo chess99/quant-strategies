@@ -6,9 +6,10 @@ import argparse
 import importlib
 import json
 import platform
+import re
 import site
 import sys
-from importlib.metadata import version as distribution_version
+from importlib.metadata import distributions, version as distribution_version
 from pathlib import Path
 
 import numpy as np
@@ -16,6 +17,7 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_EXPECTED = ROOT / "requirements" / "research-win-py312.expected.json"
+DEFAULT_LOCK = ROOT / "requirements" / "research-win-py312.lock"
 
 IMPORT_NAMES = {
     "akshare": "akshare",
@@ -42,6 +44,75 @@ def package_version(distribution: str) -> str:
     """Return the installed distribution version without importing native modules."""
 
     return distribution_version(DIST_NAMES.get(distribution, distribution))
+
+
+def canonical_distribution_name(name: str) -> str:
+    """按 Python 包索引规则统一包名，避免连字符/下划线造成假差异。"""
+
+    return re.sub(r"[-_.]+", "-", name).lower()
+
+
+def read_exact_lock(lock_path: Path) -> dict[str, str]:
+    """读取只含 name==version 的可复现锁文件。"""
+
+    pins = {}
+    for raw_line in lock_path.read_text(encoding="utf-8").splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("#"):
+            continue
+        if "==" not in line or " @ " in line or line.startswith("-e "):
+            raise RuntimeError(f"lock contains a non-exact requirement: {line}")
+        name, version = line.split("==", maxsplit=1)
+        canonical = canonical_distribution_name(name)
+        if not canonical or not version or canonical in pins:
+            raise RuntimeError(f"lock contains an invalid or duplicate pin: {line}")
+        pins[canonical] = version
+    if not pins:
+        raise RuntimeError(f"lock contains no exact pins: {lock_path}")
+    return pins
+
+
+def installed_distribution_versions() -> dict[str, str]:
+    result = {}
+    for distribution in distributions():
+        name = distribution.metadata.get("Name")
+        if not name:
+            continue
+        canonical = canonical_distribution_name(name)
+        if canonical in result and result[canonical] != distribution.version:
+            raise RuntimeError(f"multiple installed versions found for {canonical}")
+        result[canonical] = distribution.version
+    return result
+
+
+def verify_lock(lock_path: Path, installed: dict[str, str] | None = None) -> dict:
+    locked = read_exact_lock(lock_path)
+    actual = installed if installed is not None else installed_distribution_versions()
+    actual = {
+        canonical_distribution_name(name): version
+        for name, version in actual.items()
+    }
+    missing = sorted(set(locked).difference(actual))
+    extra = sorted(set(actual).difference(locked))
+    mismatches = {
+        name: {"locked": locked[name], "installed": actual[name]}
+        for name in sorted(set(locked).intersection(actual))
+        if locked[name] != actual[name]
+    }
+    if missing or extra or mismatches:
+        raise RuntimeError(
+            "installed environment does not exactly match lock: "
+            f"missing={missing}, extra={extra}, mismatches={mismatches}"
+        )
+    import hashlib
+
+    return {
+        "path": str(lock_path),
+        "sha256": hashlib.sha256(lock_path.read_bytes()).hexdigest(),
+        "exact_pin_count": len(locked),
+        "installed_distribution_count": len(actual),
+        "matches_installed_environment": True,
+    }
 
 
 def verify_imports() -> dict[str, str | None]:
@@ -127,7 +198,7 @@ def verify_smoke_workloads() -> dict:
     }
 
 
-def verify(expected_path: Path) -> dict:
+def verify(expected_path: Path, lock_path: Path = DEFAULT_LOCK) -> dict:
     expected = json.loads(expected_path.read_text(encoding="utf-8"))
     actual_python = platform.python_version()
     if actual_python != expected["python"]:
@@ -165,6 +236,7 @@ def verify(expected_path: Path) -> dict:
         "architecture": actual_architecture,
         "executable": sys.executable,
         "isolation": verify_isolation(),
+        "lock": verify_lock(lock_path),
         "packages": versions,
         "runtime_import_versions": verify_imports(),
         "smoke_workloads": verify_smoke_workloads(),
@@ -174,13 +246,14 @@ def verify(expected_path: Path) -> dict:
 def parse_args():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--expected", type=Path, default=DEFAULT_EXPECTED)
+    parser.add_argument("--lock", type=Path, default=DEFAULT_LOCK)
     parser.add_argument("--output", type=Path, default=None)
     return parser.parse_args()
 
 
 def main() -> int:
     args = parse_args()
-    report = verify(args.expected.resolve())
+    report = verify(args.expected.resolve(), args.lock.resolve())
     payload = json.dumps(report, ensure_ascii=False, indent=2) + "\n"
     if args.output is not None:
         args.output.parent.mkdir(parents=True, exist_ok=True)

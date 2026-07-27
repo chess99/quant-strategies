@@ -1,6 +1,10 @@
 import json
 from pathlib import Path
 
+import pytest
+
+from tools.verify_research_environment import read_exact_lock, verify_lock
+
 
 ROOT = Path(__file__).resolve().parents[2]
 REQUIREMENTS = ROOT / "requirements"
@@ -41,3 +45,31 @@ def test_lock_contains_only_portable_exact_pins():
     assert " @ " not in text
     assert "-e " not in text
     assert len(_pins(lock_path)) >= 200
+
+
+def test_runtime_lock_verification_rejects_missing_extra_and_drift(tmp_path):
+    lock = tmp_path / "research.lock"
+    lock.write_text("Alpha_Pkg==1.0\nbeta-pkg==2.0\n", encoding="utf-8")
+
+    report = verify_lock(lock, {"alpha-pkg": "1.0", "beta_pkg": "2.0"})
+
+    assert report["exact_pin_count"] == 2
+    assert report["installed_distribution_count"] == 2
+    assert report["matches_installed_environment"] is True
+    with pytest.raises(RuntimeError, match="missing=.*beta-pkg"):
+        verify_lock(lock, {"alpha-pkg": "1.0"})
+    with pytest.raises(RuntimeError, match="extra=.*gamma"):
+        verify_lock(
+            lock,
+            {"alpha-pkg": "1.0", "beta-pkg": "2.0", "gamma": "3.0"},
+        )
+    with pytest.raises(RuntimeError, match="mismatches"):
+        verify_lock(lock, {"alpha-pkg": "1.1", "beta-pkg": "2.0"})
+
+
+def test_lock_parser_rejects_non_exact_requirements(tmp_path):
+    lock = tmp_path / "research.lock"
+    lock.write_text("alpha>=1.0\n", encoding="utf-8")
+
+    with pytest.raises(RuntimeError, match="non-exact"):
+        read_exact_lock(lock)

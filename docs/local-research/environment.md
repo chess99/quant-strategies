@@ -18,7 +18,8 @@ powershell -ExecutionPolicy Bypass -File tools\rebuild_research_env.ps1 `
 环境包含 Qlib、AkShare、TA-Lib、LightGBM、XGBoost、CVXPY、Optuna 和 PyTorch。
 `tools/verify_research_environment.py` 会核对 Python 与包版本、确认 Anaconda base
 包目录没有泄漏，检查所有顶层包能在同一进程加载，并实际运行每个关键计算库的小型
-工作负载。机器可读验证结果默认写入
+工作负载。它还逐项比较锁文件与环境内全部已安装 distribution；缺包、多包或任一
+传递依赖版本漂移都会失败。机器可读验证结果默认写入
 外部数据目录 `D:/code/_open-source/_data/quant-research/environment/verification.json`。
 仓库内的脱敏验收摘要见 `environment-verification.json`。
 

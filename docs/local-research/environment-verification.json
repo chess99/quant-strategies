@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "verified_at": "2026-07-27T07:01:41+08:00",
+  "verified_at": "2026-07-27T14:57:27+08:00",
   "status": "passed",
   "platform": {
     "os": "Windows",
@@ -15,7 +15,9 @@
     "path": "requirements/research-win-py312.lock",
     "sha256": "de08778d015ae4e8831709b2bf5ee7cbf24c0153e808c087c3670e0d180eeb2d",
     "exact_pin_count": 223,
-    "matches_installed_freeze": true
+    "installed_distribution_count": 223,
+    "matches_installed_freeze": true,
+    "enforced_by_runtime_verifier": true
   },
   "key_packages": {
     "akshare": "1.18.54",
@@ -52,8 +54,16 @@
     },
     "post_change_pytest": {
       "status": "passed",
-      "passed": 156
+      "passed": 233
     },
+    "repository_validator": "passed",
+    "ruff": "passed"
+  },
+  "post_audit": {
+    "full_lock_comparison": "passed",
+    "focused_tests_passed": 4,
+    "full_tests_passed": 233,
+    "pip_check": "passed",
     "repository_validator": "passed",
     "ruff": "passed"
   },

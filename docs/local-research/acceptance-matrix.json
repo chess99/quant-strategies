@@ -14,7 +14,7 @@
       "status": "completed",
       "current_evidence": [
         "CPython 3.12.9独立环境include-system-site-packages=false",
-        "223个精确锁定包与最终pip freeze一致，锁SHA-256为de08778d015ae4e8831709b2bf5ee7cbf24c0153e808c087c3670e0d180eeb2d",
+        "223个精确锁定包与最终安装环境由自检器逐包强制一致，锁SHA-256为de08778d015ae4e8831709b2bf5ee7cbf24c0153e808c087c3670e0d180eeb2d",
         "TA-Lib、LightGBM、XGBoost、CVXPY、Optuna和PyTorch真实计算通过",
         "所有顶层依赖同进程组合导入通过，PyTorch 2.6.0+cpu可用",
         "从空环境重建通过；补充环境契约测试后156项测试、pip check、仓库验证和Ruff全部通过"

@@ -32,6 +32,12 @@
 `net_profit_margin`、`net_operate_cash_flow` 映射到对应单季度字段。语义依据见
 [聚宽股票 API 文档](https://www.joinquant.com/help/api/getContent?name=Stock)。
 
+统一接口新增 `LocalDataPortal.value_metrics()`，把观察日估值与公告日可见财务按证券合并，
+正式提供市值、PE/PB/PS、现金、有息负债、FCF、EBIT、EV 和 EV/EBIT。EV 必须同时具备
+市值、现金和有息负债，缺项不补零；EV/EBIT 只对正 EBIT 计算。当前分母是最新可见报告的
+累计 EBIT，并非 TTM，接口溯源会明确标注这一限制。该能力解决了原验收规格中“数据存在、
+但没有统一可调用 EV/EBIT 口径”的最后一个接口缺口。
+
 每次查询必须传观察日；记录只有在 `notice_date <= observation_date` 时可见。数据商仍
 可能把后来修订值回填到旧公告记录，因此质量固定为 B，不宣称严格 vintage A。免费源没有
 完整母公司权益历史，ROE 分母暂以总权益代理；这一限制不会被兼容层隐藏。

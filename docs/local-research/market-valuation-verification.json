@@ -39,6 +39,19 @@
         }
       },
       "status": "passed"
+    },
+    "portal_component_quality_gate": {
+      "status": "passed",
+      "aggregate_dataset_grade": "C",
+      "component_columns": [
+        "status_quality",
+        "st_quality",
+        "limit_quality"
+      ],
+      "accepts_rows_meeting_requested_grade": true,
+      "rejects_lower_or_unknown_components": true,
+      "rejects_missing_component_columns": true,
+      "records_enforced_minimum_in_provenance": true
     }
   },
   "market_state": {

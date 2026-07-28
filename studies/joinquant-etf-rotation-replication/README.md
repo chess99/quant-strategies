@@ -43,6 +43,11 @@ D:\code\_open-source\_venvs\quant-research-py312\Scripts\python.exe `
 年化差 `-0.07` 个百分点，最大回撤差小于 `0.01` 个百分点，ETF 数据和轮动逻辑
 通过首次近似复现验收。固定资产池仍有事后选择风险，本结果不证明策略未来有效。
 
+首次归档当时只记录了原策略路径和 SHA-256，没有保存 `source.py`。为遵守不可变归档规则，
+原目录未被改写；同哈希源码已另存到
+[`2026-07-29__local-sina-qlib-v1-source-addendum`](results/2026-07-29__local-sina-qlib-v1-source-addendum/)，
+该附录不是一次新回测，也不产生新指标。
+
 ## 全量 ETF 数据验收
 
 完整归档见

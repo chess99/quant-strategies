@@ -12,6 +12,7 @@
 - `market_snapshot`：停牌、ST、涨跌停和原始收盘价。
 - `valuation`：观察日之前最近且未过期的日估值。
 - `fundamentals`：按公告日可见的最新财务记录；第六轮接入数据。
+- `value_metrics`：合并点时估值与公告日财务，并显式派生 EV、FCF 和 EV/EBIT。
 - `industry`：历史行业有效区间；第六轮接入数据。
 
 Qlib 日线适配器把成交量从“手”统一为“股”。`raw` 返回不复权价格；`pre` 以请求区间
@@ -26,6 +27,17 @@ DataFrame 返回值在 `attrs["quant_research_provenance"]` 保存数据集、�
 `api.last_query_provenance` 追溯。复合行情同时列出实际命中的 Qlib/ETF 子来源。Qlib
 行情用交易日历与证券清单内容哈希形成 `data_version`，并绑定最近一次全平台审计报告
 SHA-256；不再只返回无法复现的“Qlib/B级”标签。
+
+`daily_market_state` 的总体质量按最差字段为 C，但正式研究可在查询时声明
+`minimum_quality="B"`。此时 `market_snapshot` 不按总体标签一刀切，而是逐一检查目标行的
+`status_quality`、`st_quality` 和 `limit_quality`：三项都达到 B 才返回；C、未知或缺少质量列
+都会抛出包含证券、日期和失败组件的 `DataQualityError`。返回溯源同时保留总体 C 和实际执行
+的行级最低质量，防止把规则推导限价或未知 ST 静默当成正式数据。
+
+`value_metrics` 的企业价值公式为 `market_cap + interest_bearing_debt - cash`。现金或有息
+负债缺失时 EV 保持缺失，不按零补齐；EV/EBIT 仅在 EBIT 为正时计算。当前 EBIT 是观察日
+可见的最新报告累计口径而非 TTM，报告日期和输入数据溯源随结果返回，跨报告期排名前必须
+由研究代码明确处理。
 
 ## 聚宽薄兼容
 

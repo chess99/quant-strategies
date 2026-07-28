@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "archive_type": "source_snapshot_addendum",
+  "study_id": "joinquant-etf-rotation-replication",
+  "run_id": "local-sina-qlib-v1-source-addendum",
+  "archived_at": "2026-07-29",
+  "original_archive": "studies/joinquant-etf-rotation-replication/results/2026-07-27__local-sina-qlib-v1",
+  "reason": "原不可变归档只记录源码路径和哈希，未保存source.py；本附录补存同哈希快照，不改写原结果",
+  "source_sha256": "7f1eecf4411183cecb8992a6574a7d3f340a1e28645a522028040c1a88bfea96",
+  "original_engine_sha256": "ea07b6d050b521f3aa06a1d07f4242cc94412a5bb8283b2aeb223d7a234ea984",
+  "period": {
+    "start": "2014-01-01",
+    "end": "2023-06-09"
+  },
+  "metrics_location": "../2026-07-27__local-sina-qlib-v1/manifest.json",
+  "new_backtest_run": false
+}

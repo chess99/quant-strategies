@@ -58,14 +58,15 @@ class FrameDailyBarSource:
 
     def calendar(self, start_date, end_date) -> pd.DatetimeIndex:
         dates = self.frame["trade_date"].drop_duplicates().sort_values()
-        return pd.DatetimeIndex(dates[(dates >= pd.Timestamp(start_date)) & (dates <= pd.Timestamp(end_date))])
+        return pd.DatetimeIndex(
+            dates[(dates >= pd.Timestamp(start_date)) & (dates <= pd.Timestamp(end_date))]
+        )
 
     def load(self, symbols, start_date, end_date, fields, adjustment):
         if adjustment not in {"raw", "pre"}:
             raise CapabilityError(f"unsupported adjustment: {adjustment}")
-        mask = (
-            self.frame["symbol"].isin(symbols)
-            & self.frame["trade_date"].between(pd.Timestamp(start_date), pd.Timestamp(end_date))
+        mask = self.frame["symbol"].isin(symbols) & self.frame["trade_date"].between(
+            pd.Timestamp(start_date), pd.Timestamp(end_date)
         )
         available = [field for field in fields if field in self.frame.columns]
         missing = set(fields).difference(available)
@@ -89,21 +90,15 @@ class QlibDailyBarSource:
         for relative in (Path("calendars/day.txt"), Path("instruments/all.txt")):
             path = root / relative
             if path.is_file():
-                source_files.append(
-                    {"path": str(path), "sha256": sha256_file(path)}
-                )
-        identities = "\n".join(
-            f"{item['path']}={item['sha256']}" for item in source_files
-        )
+                source_files.append({"path": str(path), "sha256": sha256_file(path)})
+        identities = "\n".join(f"{item['path']}={item['sha256']}" for item in source_files)
         return {
             "dataset": "qlib_daily_bars",
             "provider": "qlib-community-cn",
             "provider_uri": str(root),
             "quality_grade": self.quality_grade.value,
             "data_version": (
-                hashlib.sha256(identities.encode("utf-8")).hexdigest()
-                if identities
-                else None
+                hashlib.sha256(identities.encode("utf-8")).hexdigest() if identities else None
             ),
             "source_files": source_files,
         }
@@ -122,9 +117,7 @@ class QlibDailyBarSource:
         self._initialize()
         from qlib.data import D
 
-        result = pd.DatetimeIndex(
-            D.calendar(start_date, end_date, freq="day")
-        ).normalize()
+        result = pd.DatetimeIndex(D.calendar(start_date, end_date, freq="day")).normalize()
         self.last_provenance = self._build_provenance()
         return result
 
@@ -259,7 +252,10 @@ class CompositeDailyBarSource:
     @property
     def quality_grade(self) -> QualityGrade:
         return QualityGrade.worst(
-            [self.default.quality_grade, *[source.quality_grade for source in self.by_asset_type.values()]]
+            [
+                self.default.quality_grade,
+                *[source.quality_grade for source in self.by_asset_type.values()],
+            ]
         )
 
     def calendar(self, start_date, end_date) -> pd.DatetimeIndex:
@@ -413,9 +409,9 @@ class LocalDataPortal:
         date = self._date(observation_date)
         manifest = self._require_dataset("security_master", minimum_quality)
         frame = self.store.read_parquet("security_master")
-        mask = pd.to_datetime(frame["start_date"]).le(date) & pd.to_datetime(
-            frame["end_date"]
-        ).ge(date)
+        mask = pd.to_datetime(frame["start_date"]).le(date) & pd.to_datetime(frame["end_date"]).ge(
+            date
+        )
         if asset_types is not None:
             mask &= frame["asset_type"].isin(set(asset_types))
         result = frame.loc[mask].sort_values("symbol").reset_index(drop=True)
@@ -486,7 +482,11 @@ class LocalDataPortal:
         minimum_quality: QualityGrade | str = QualityGrade.C,
     ) -> pd.DataFrame:
         date = self._date(observation_date)
-        manifest = self._require_dataset("daily_market_state", minimum_quality)
+        try:
+            manifest = self.store.read_manifest("daily_market_state")
+        except FileNotFoundError as exc:
+            raise CapabilityError("dataset is unavailable: daily_market_state") from exc
+        minimum = QualityGrade(minimum_quality)
         selected = (
             self._symbols(symbols)
             if symbols is not None
@@ -501,7 +501,49 @@ class LocalDataPortal:
         if not frame.empty:
             frame = frame[pd.to_datetime(frame["trade_date"]).eq(date)]
         result = frame.sort_values("symbol").reset_index(drop=True)
-        self._record_provenance("daily_market_state", manifest, result)
+        component_columns = [
+            "status_quality",
+            "st_quality",
+            "limit_quality",
+        ]
+        component_gate_passed = None
+        if minimum != QualityGrade.C:
+            missing = [column for column in component_columns if column not in result.columns]
+            if missing:
+                raise DataQualityError(
+                    "dataset daily_market_state is missing component quality columns "
+                    f"required for {minimum.value}: {missing}"
+                )
+            failures = []
+            for row in result.itertuples(index=False):
+                symbol = str(row.symbol)
+                trade_date = pd.Timestamp(row.trade_date).strftime("%Y-%m-%d")
+                for column in component_columns:
+                    value = getattr(row, column)
+                    try:
+                        actual = QualityGrade(value)
+                    except (TypeError, ValueError):
+                        actual = None
+                    if actual is None or not actual.meets(minimum):
+                        label = "unknown" if pd.isna(value) else str(value)
+                        failures.append(f"{symbol}@{trade_date} {column}={label}")
+            if failures:
+                preview = "; ".join(failures[:20])
+                suffix = "" if len(failures) <= 20 else f"; ... ({len(failures)} total)"
+                raise DataQualityError(
+                    "daily_market_state component quality failures: "
+                    f"{preview}{suffix}; required {minimum.value}"
+                )
+            component_gate_passed = True
+        provenance = self._record_provenance("daily_market_state", manifest, result)
+        provenance.update(
+            {
+                "enforced_minimum_quality": minimum.value,
+                "component_quality_columns": component_columns,
+                "component_quality_gate_passed": component_gate_passed,
+            }
+        )
+        result.attrs["quant_research_provenance"] = provenance.copy()
         return result
 
     snapshot = market_snapshot
@@ -519,9 +561,7 @@ class LocalDataPortal:
         selected_symbols = self._symbols(symbols)
         frame = self._read_dataset("daily_valuation", manifest, selected_symbols)
         frame["trade_date"] = pd.to_datetime(frame["trade_date"]).dt.normalize()
-        frame = frame[
-            frame["symbol"].isin(selected_symbols) & frame["trade_date"].le(date)
-        ]
+        frame = frame[frame["symbol"].isin(selected_symbols) & frame["trade_date"].le(date)]
         frame = frame.sort_values("trade_date").groupby("symbol", as_index=False).tail(1)
         age = (date - frame["trade_date"]).dt.days
         frame = frame[age.le(maximum_age_days)]
@@ -547,12 +587,12 @@ class LocalDataPortal:
         selected_symbols = self._symbols(symbols)
         frame = self._read_dataset("fundamentals_pit", manifest, selected_symbols)
         frame["notice_date"] = pd.to_datetime(frame["notice_date"]).dt.normalize()
-        frame = frame[
-            frame["symbol"].isin(selected_symbols) & frame["notice_date"].le(date)
-        ]
-        frame = frame.sort_values(["report_date", "notice_date"]).groupby(
-            "symbol", as_index=False
-        ).tail(1)
+        frame = frame[frame["symbol"].isin(selected_symbols) & frame["notice_date"].le(date)]
+        frame = (
+            frame.sort_values(["report_date", "notice_date"])
+            .groupby("symbol", as_index=False)
+            .tail(1)
+        )
         if fields is not None:
             selected = list(dict.fromkeys(fields))
             missing = set(selected).difference(frame.columns)
@@ -561,6 +601,93 @@ class LocalDataPortal:
             frame = frame[["symbol", "report_date", "notice_date", *selected]]
         result = frame.sort_values("symbol").reset_index(drop=True)
         self._record_provenance("fundamentals_pit", manifest, result)
+        return result
+
+    def value_metrics(
+        self,
+        symbols: str | Iterable[str],
+        observation_date,
+        maximum_valuation_age_days: int = 10,
+        minimum_quality: QualityGrade | str = QualityGrade.B,
+    ) -> pd.DataFrame:
+        """返回点时估值、FCF、企业价值和 EV/EBIT 派生指标。
+
+        企业价值只在市值、现金和有息负债三项均存在时计算；缺失值不会按零
+        处理。``ev_to_ebit`` 使用观察日可见的最新报告累计 EBIT，非 TTM 口径，
+        报告期随结果一并返回，供研究显式判断可比性。
+        """
+
+        date = self._date(observation_date)
+        selected_symbols = self._symbols(symbols)
+        valuation = self.valuation(
+            selected_symbols,
+            date,
+            fields=["market_cap", "pe_ttm", "pb", "ps"],
+            maximum_age_days=maximum_valuation_age_days,
+            minimum_quality=minimum_quality,
+        )
+        valuation_provenance = copy.deepcopy(valuation.attrs.get("quant_research_provenance", {}))
+        fundamentals = self.fundamentals(
+            selected_symbols,
+            date,
+            fields=["cash", "interest_bearing_debt", "free_cash_flow", "ebit"],
+            minimum_quality=minimum_quality,
+        )
+        fundamentals_provenance = copy.deepcopy(
+            fundamentals.attrs.get("quant_research_provenance", {})
+        )
+        input_quality = QualityGrade.worst(
+            [
+                valuation_provenance["quality_grade"],
+                fundamentals_provenance["quality_grade"],
+            ]
+        )
+        result = valuation.merge(fundamentals, on="symbol", how="left")
+        numeric = [
+            "market_cap",
+            "cash",
+            "interest_bearing_debt",
+            "free_cash_flow",
+            "ebit",
+        ]
+        for column in numeric:
+            result[column] = pd.to_numeric(result[column], errors="coerce")
+        complete_ev = result[["market_cap", "interest_bearing_debt", "cash"]].notna().all(axis=1)
+        result["enterprise_value"] = pd.NA
+        result.loc[complete_ev, "enterprise_value"] = (
+            result.loc[complete_ev, "market_cap"]
+            + result.loc[complete_ev, "interest_bearing_debt"]
+            - result.loc[complete_ev, "cash"]
+        )
+        result["enterprise_value"] = pd.to_numeric(result["enterprise_value"], errors="coerce")
+        valid_ebit = result["enterprise_value"].notna() & result["ebit"].gt(0)
+        result["ev_to_ebit"] = pd.NA
+        result.loc[valid_ebit, "ev_to_ebit"] = (
+            result.loc[valid_ebit, "enterprise_value"] / result.loc[valid_ebit, "ebit"]
+        )
+        result["ev_to_ebit"] = pd.to_numeric(result["ev_to_ebit"], errors="coerce")
+        provenance = {
+            "dataset": "derived_value_metrics",
+            "provider": "LocalDataPortal",
+            "quality_grade": input_quality.value,
+            "enforced_minimum_quality": QualityGrade(minimum_quality).value,
+            "observation_date": date.strftime("%Y-%m-%d"),
+            "inputs": {
+                "daily_valuation": valuation_provenance,
+                "fundamentals_pit": fundamentals_provenance,
+            },
+            "formulae": {
+                "enterprise_value": "market_cap + interest_bearing_debt - cash",
+                "ev_to_ebit": "enterprise_value / latest_visible_reported_ebit",
+                "free_cash_flow": "operating_cash_flow - capital_expenditure",
+            },
+            "limitations": [
+                "ev_to_ebit uses latest visible reported cumulative EBIT, not TTM EBIT"
+            ],
+        }
+        result = result.sort_values("symbol").reset_index(drop=True)
+        self.last_query_provenance = copy.deepcopy(provenance)
+        result.attrs["quant_research_provenance"] = copy.deepcopy(provenance)
         return result
 
     def industry(

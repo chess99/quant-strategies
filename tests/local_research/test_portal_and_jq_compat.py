@@ -78,10 +78,13 @@ def portal(tmp_path):
             "symbol": ["SH600000"],
             "trade_date": pd.to_datetime(["2024-01-03"]),
             "paused": [False],
-            "is_st": pd.array([pd.NA], dtype="boolean"),
+            "is_st": [False],
             "raw_close": [10.2],
             "high_limit": [11.0],
             "low_limit": [9.0],
+            "status_quality": ["B"],
+            "st_quality": ["B"],
+            "limit_quality": ["B"],
         }
     )
     save_symbol_partitions(store, "daily_market_state", state, "C")
@@ -90,10 +93,24 @@ def portal(tmp_path):
             "symbol": ["SH600000", "SH600000"],
             "trade_date": pd.to_datetime(["2024-01-02", "2024-01-04"]),
             "market_cap": [100.0, 999.0],
+            "pe_ttm": [8.0, 9.0],
             "pb": [1.0, 9.0],
+            "ps": [2.0, 3.0],
         }
     )
     save_symbol_partitions(store, "daily_valuation", valuation, "B")
+    fundamentals = pd.DataFrame(
+        {
+            "symbol": ["SH600000", "SH600000"],
+            "report_date": pd.to_datetime(["2023-06-30", "2023-09-30"]),
+            "notice_date": pd.to_datetime(["2023-08-30", "2024-01-04"]),
+            "cash": [10.0, 99.0],
+            "interest_bearing_debt": [30.0, 999.0],
+            "free_cash_flow": [5.0, 99.0],
+            "ebit": [20.0, 99.0],
+        }
+    )
+    save_symbol_partitions(store, "fundamentals_pit", fundamentals, "B")
     bars = pd.DataFrame(
         {
             "symbol": ["SH600000", "SH600000", "SH600000"],
@@ -122,8 +139,84 @@ def test_portal_queries_are_point_in_time_and_never_backfill_future(portal):
     assert portal.index_members("SH000300", "2024-01-02") == ["SH600000"]
 
 
-def test_quality_gate_rejects_c_dataset_when_strategy_requires_b(portal):
-    with pytest.raises(DataQualityError, match="quality C is below required B"):
+def test_value_metrics_derive_point_in_time_ev_fcf_and_ev_to_ebit(portal):
+    result = portal.value_metrics("SH600000", "2024-01-03")
+
+    assert result.loc[0, "market_cap"] == 100.0
+    assert result.loc[0, "enterprise_value"] == 120.0
+    assert result.loc[0, "free_cash_flow"] == 5.0
+    assert result.loc[0, "ev_to_ebit"] == 6.0
+    assert result.loc[0, "pe_ttm"] == 8.0
+    assert result.loc[0, "pb"] == 1.0
+    assert result.loc[0, "ps"] == 2.0
+    provenance = result.attrs["quant_research_provenance"]
+    assert provenance["observation_date"] == "2024-01-03"
+    assert provenance["quality_grade"] == "B"
+    assert provenance["enforced_minimum_quality"] == "B"
+    assert provenance["formulae"]["enterprise_value"] == (
+        "market_cap + interest_bearing_debt - cash"
+    )
+
+
+def test_value_metrics_do_not_fill_missing_components_with_zero(portal):
+    fundamentals = pd.DataFrame(
+        {
+            "symbol": ["SH600000"],
+            "report_date": pd.to_datetime(["2023-06-30"]),
+            "notice_date": pd.to_datetime(["2023-08-30"]),
+            "cash": [10.0],
+            "interest_bearing_debt": [pd.NA],
+            "free_cash_flow": [5.0],
+            "ebit": [0.0],
+        }
+    )
+    save_symbol_partitions(portal.store, "fundamentals_pit", fundamentals, "B")
+
+    result = portal.value_metrics("SH600000", "2024-01-03")
+
+    assert pd.isna(result.loc[0, "enterprise_value"])
+    assert pd.isna(result.loc[0, "ev_to_ebit"])
+
+
+def test_market_snapshot_accepts_b_components_in_aggregate_c_dataset(portal):
+    result = portal.market_snapshot("2024-01-03", minimum_quality="B")
+
+    assert result["symbol"].tolist() == ["SH600000"]
+    provenance = result.attrs["quant_research_provenance"]
+    assert provenance["quality_grade"] == "C"
+    assert provenance["enforced_minimum_quality"] == "B"
+    assert provenance["component_quality_columns"] == [
+        "status_quality",
+        "st_quality",
+        "limit_quality",
+    ]
+    assert provenance["component_quality_gate_passed"] is True
+
+
+def test_market_snapshot_rejects_component_below_required_quality(portal):
+    manifest = portal.store.read_manifest("daily_market_state")
+    state = pd.read_parquet(portal.store.root / manifest["data_files"][0]["path"])
+    state.loc[:, "st_quality"] = "C"
+    save_symbol_partitions(portal.store, "daily_market_state", state, "C")
+
+    with pytest.raises(
+        DataQualityError,
+        match=r"SH600000.*2024-01-03.*st_quality=C.*required B",
+    ):
+        portal.market_snapshot("2024-01-03", minimum_quality="B")
+
+
+def test_market_snapshot_rejects_missing_component_quality_column(portal):
+    manifest = portal.store.read_manifest("daily_market_state")
+    state = pd.read_parquet(portal.store.root / manifest["data_files"][0]["path"]).drop(
+        columns="limit_quality"
+    )
+    save_symbol_partitions(portal.store, "daily_market_state", state, "C")
+
+    with pytest.raises(
+        DataQualityError,
+        match=r"missing component quality columns.*limit_quality",
+    ):
         portal.market_snapshot("2024-01-03", minimum_quality="B")
 
 
@@ -136,7 +229,7 @@ def test_joinquant_compat_supports_history_and_lazy_current_data(portal):
     assert history.index.tolist() == [pd.Timestamp("2024-01-02"), pd.Timestamp("2024-01-03")]
     assert history["close"].tolist() == [10.1, 10.2]
     assert len(current) == 0
-    assert current["SH600000"].is_st is None
+    assert current["SH600000"].is_st is False
     assert len(current) == 1
     with pytest.raises(TypeError, match="lazy"):
         current.get("SH600000")
@@ -191,14 +284,10 @@ def test_joinquant_codes_count_history_and_partitioned_queries(portal):
     )
 
     assert prices.index.names == ["trade_date", "symbol"]
-    assert prices.index.get_level_values("symbol").unique().tolist() == [
-        "600000.XSHG"
-    ]
+    assert prices.index.get_level_values("symbol").unique().tolist() == ["600000.XSHG"]
     assert history.columns.tolist() == ["600000.XSHG"]
     assert history.iloc[:, 0].tolist() == [10.1, 10.2]
-    assert api.get_index_stocks("000300.XSHG", date="2024-01-02") == [
-        "600000.XSHG"
-    ]
+    assert api.get_index_stocks("000300.XSHG", date="2024-01-02") == ["600000.XSHG"]
 
 
 def test_missing_partition_returns_empty_and_unsupported_panel_is_explicit(portal):
@@ -210,9 +299,7 @@ def test_missing_partition_returns_empty_and_unsupported_panel_is_explicit(porta
 
 def test_composite_daily_source_routes_etf_to_partitioned_store(tmp_path):
     store = ResearchDataStore(tmp_path)
-    master = pd.DataFrame(
-        {"symbol": ["SH600000", "SH510300"], "asset_type": ["stock", "etf"]}
-    )
+    master = pd.DataFrame({"symbol": ["SH600000", "SH510300"], "asset_type": ["stock", "etf"]})
     store.write_parquet("security_master", master)
     store.write_parquet(
         "trading_calendar",
@@ -258,9 +345,7 @@ def test_qlib_provenance_has_content_version_and_source_hashes(tmp_path):
     root = tmp_path / "qlib"
     (root / "calendars").mkdir(parents=True)
     (root / "instruments").mkdir(parents=True)
-    (root / "calendars" / "day.txt").write_text(
-        "2024-01-02\n", encoding="utf-8"
-    )
+    (root / "calendars" / "day.txt").write_text("2024-01-02\n", encoding="utf-8")
     (root / "instruments" / "all.txt").write_text(
         "SH600000\t2024-01-02\t2024-01-02\n", encoding="utf-8"
     )

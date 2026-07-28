@@ -43,6 +43,27 @@
     "manifest_sha256": "022c96bd34bf7dc1b9f95f8f7bcb84145e077e50de58ab4a4756adf38b60a96d",
     "coverage_report_sha256": "c9679d94908f85f466425cd589fc4363cf43ba6fc0b330e5d2fa1892c5d9f91b"
   },
+  "derived_value_metrics_interface": {
+    "status": "passed",
+    "observation_date_required": true,
+    "fields": [
+      "market_cap",
+      "pe_ttm",
+      "pb",
+      "ps",
+      "cash",
+      "interest_bearing_debt",
+      "free_cash_flow",
+      "ebit",
+      "enterprise_value",
+      "ev_to_ebit"
+    ],
+    "enterprise_value_formula": "market_cap + interest_bearing_debt - cash",
+    "missing_debt_or_cash_filled_with_zero": false,
+    "ev_to_ebit_denominator": "latest visible reported cumulative EBIT",
+    "ev_to_ebit_is_ttm": false,
+    "provenance_includes_both_input_datasets": true
+  },
   "local_value_quality_preflight": {
     "run_id": "2026-07-29__monthly-value-quality__local-preflight-v9",
     "period": {
@@ -136,7 +157,7 @@
     "diagnosis": "累计转单季度语义修复后，本地自主选股、持仓及收益回撤均通过严格门槛，未调整策略权重"
   },
   "validation": {
-    "pytest": "271 passed",
+    "pytest": "275 passed",
     "repository_validation": "passed",
     "ruff_changed_files": "passed",
     "json_parse": "passed",

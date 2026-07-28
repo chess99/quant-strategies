@@ -1,0 +1,211 @@
+{
+  "schema_version": 1,
+  "audited_at": "2026-07-29",
+  "status": "passed_with_documented_limitations",
+  "scope": "日频A股、ETF、中低频选股与轮动研究；不含分钟、Tick、集合竞价、期货和期权",
+  "environment": {
+    "python": "3.12.9",
+    "venv": "D:/code/_open-source/_venvs/quant-research-py312",
+    "include_system_site_packages": false,
+    "exact_locked_packages": 223,
+    "lock_sha256": "de08778d015ae4e8831709b2bf5ee7cbf24c0153e808c087c3670e0d180eeb2d",
+    "verified_workloads": [
+      "TA-Lib",
+      "LightGBM",
+      "XGBoost",
+      "CVXPY",
+      "Optuna",
+      "PyTorch"
+    ]
+  },
+  "datasets": {
+    "security_master": {
+      "rows": 7864,
+      "stocks": 6115,
+      "etfs": 1743,
+      "indices": 6,
+      "quality_grade": "B",
+      "manifest_sha256": "50cc55dffa7730579dba53347c05e5167a42fb4f0f38662556a86c927bf18483"
+    },
+    "trading_calendar": {
+      "sessions": 6434,
+      "start": "2000-01-04",
+      "end": "2026-07-23",
+      "quality_grade": "A",
+      "manifest_sha256": "05253430d5c1eff8f75e4ff510dfd641fcdbf16c4fbb09b9b3c4c8a925a292c3"
+    },
+    "etf_daily": {
+      "successful_symbols": 1733,
+      "explicit_empty_symbols": 48,
+      "failed_symbols": 0,
+      "rows": 1526502,
+      "start": "2005-02-23",
+      "end": "2026-07-24",
+      "current_coverage": "1608/1618",
+      "quality_grade": "B",
+      "manifest_sha256": "df62ef9d3b84c453f1259f8ff2763bb0204010e6a853179bf9076a757e6413c2"
+    },
+    "daily_valuation": {
+      "successful_historical_symbols": 6030,
+      "historical_universe": 6115,
+      "explicit_failures": 85,
+      "current_coverage": "5530/5530",
+      "rows": 10493253,
+      "start": "2000-01-04",
+      "end": "2026-07-24",
+      "quality_grade": "B",
+      "manifest_sha256": "366cfeba63db02a26abfedab714b317ee1ce50e7939b96abbbc7faedbbd6b6fd"
+    },
+    "daily_market_state": {
+      "successful_symbols": 6115,
+      "failed_symbols": 0,
+      "rows": 17679198,
+      "start": "2000-01-04",
+      "end": "2026-07-23",
+      "known_st_ratio": 0.9999768089027568,
+      "unknown_st_rows": 410,
+      "aggregate_quality_grade": "C",
+      "formal_query_gate": "逐行要求status_quality、st_quality和limit_quality达到策略最低等级",
+      "manifest_sha256": "645a2e4f0432f6281e70061756249f5e7443918f3201a4571f28ede4b162fa8f"
+    },
+    "fundamentals_pit": {
+      "successful_symbols": 6064,
+      "explicit_empty_symbols": 51,
+      "failed_symbols": 0,
+      "rows": 340162,
+      "fields": 55,
+      "current_core_coverage": "5381/5530",
+      "quality_grade": "B",
+      "manifest_sha256": "146b7f59dc0c7e9e1b0ded47e6f5a2c429085cd2439f9d8a7b5df74492286aa6"
+    },
+    "industry_membership": {
+      "historical_coverage": "5867/6115",
+      "current_coverage": "5530/5530",
+      "intervals": 20354,
+      "quality_grade": "B",
+      "manifest_sha256": "022c96bd34bf7dc1b9f95f8f7bcb84145e077e50de58ab4a4756adf38b60a96d"
+    }
+  },
+  "data_integrity": {
+    "manifest_referenced_files": 36395,
+    "total_bytes": 2456244682,
+    "missing_files": 0,
+    "size_mismatches": 0,
+    "sha256_mismatches": 0
+  },
+  "interfaces": {
+    "local": [
+      "calendar",
+      "instruments",
+      "bars",
+      "market_snapshot",
+      "index_members",
+      "valuation",
+      "fundamentals",
+      "value_metrics",
+      "industry"
+    ],
+    "joinquant_compat": [
+      "get_price",
+      "attribute_history",
+      "history",
+      "get_all_securities",
+      "get_index_stocks",
+      "get_current_data",
+      "get_fundamentals",
+      "get_industry"
+    ],
+    "joinquant_api_calls_directly_compatible": 3633,
+    "joinquant_api_calls_scanned": 4135,
+    "joinquant_api_direct_coverage_ratio": 0.8786,
+    "derived_value_metrics": {
+      "enterprise_value": "market_cap + interest_bearing_debt - cash",
+      "free_cash_flow_available": true,
+      "ev_to_ebit_available": true,
+      "ev_to_ebit_is_ttm": false,
+      "missing_cash_or_debt_filled_with_zero": false
+    }
+  },
+  "golden_comparisons": {
+    "etf_rotation": {
+      "target_match": 1.0,
+      "order_event_jaccard": 0.9855,
+      "annualized_return_difference_pp": -0.07,
+      "maximum_drawdown_difference_pp": 0.0015
+    },
+    "small_cap_autonomous_v4": {
+      "backtest_id": "fd4f04ed4711b333961fec6244c16e84",
+      "initial_cash": 10000000,
+      "candidate_overlap": 1.0,
+      "holding_overlap": 0.987,
+      "order_symbol_overlap": 0.9859,
+      "annualized_return_difference_pp": 0.45,
+      "maximum_drawdown_difference_pp": -0.46
+    },
+    "value_quality_autonomous_v4": {
+      "backtest_id": "c29fcd867c0701ef9254567a93475cef",
+      "initial_cash": 10000000,
+      "candidate_overlap": 0.8815,
+      "holding_overlap": 0.8816,
+      "order_symbol_overlap": 0.8697,
+      "annualized_return_difference_pp": 2.31,
+      "maximum_drawdown_difference_pp": -1.29
+    }
+  },
+  "iteration_commits": {
+    "environment": [
+      "8f90e12",
+      "83af506"
+    ],
+    "iteration_1": [
+      "e084f5d"
+    ],
+    "iteration_2": [
+      "6c6fe62",
+      "cd440f9"
+    ],
+    "iteration_3": [
+      "734b797",
+      "1b7e4f7"
+    ],
+    "iteration_4": [
+      "f70b924",
+      "814a15f"
+    ],
+    "iteration_5": [
+      "4999365",
+      "8540ce5"
+    ],
+    "iteration_6": [
+      "3a41a10",
+      "515e5a4",
+      "1227dae"
+    ]
+  },
+  "archive_audit": {
+    "manifests_scanned_before_addendum": 55,
+    "referenced_hashes_checked": 472,
+    "hash_mismatches": 0,
+    "historical_missing_source_snapshots": 1,
+    "remediation": "新增2026-07-29__local-sina-qlib-v1-source-addendum，同哈希保存source.py且不改写旧归档",
+    "remaining_unremediated_issues": 0
+  },
+  "documented_limitations": [
+    "财务公告日正确但供应商可能把后来修订值回填到历史，质量B而非严格vintage A",
+    "免费源缺少完整母公司权益历史时ROE使用总权益代理",
+    "EV/EBIT当前使用最新可见报告累计EBIT而非TTM EBIT",
+    "历史行业为申万官方变更区间但官方文件会后续修订，因此质量B",
+    "总体市场状态按最差字段为C，正式策略必须启用逐行组件A/B门禁",
+    "分钟、Tick、集合竞价、资金流、股东、北向、期货和期权不在本期能力范围"
+  ],
+  "validation": {
+    "focused_tests": "17 passed",
+    "full_pytest": "275 passed",
+    "research_environment": "passed",
+    "repository_validation": "passed",
+    "ruff": "passed",
+    "json_parse": "passed",
+    "addendum_source_hash": "passed",
+    "git_diff_check": "passed"
+  }
+}

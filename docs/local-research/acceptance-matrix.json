@@ -69,6 +69,7 @@
         "深交所官方简称10379个A类事件；东财62960份风险提示公告完整分页，形成1758个B类状态事件",
         "注册制IPO无涨跌幅、主板/科创/创业板/北交所差异和历史规则已实现并测试",
         "最终市场状态覆盖6115/6115只、17679198行、零失败，A/B级ST已知率99.9977%，仅410行保持未知",
+        "统一market_snapshot支持总体C、逐行组件A/B门禁：status_quality、st_quality、limit_quality任一低于要求或缺列都会显式拒绝，并在溯源中同时记录总体等级与执行门槛",
         "估值、限价、显式状态和市场状态大表均逐证券分区；机器验收全部通过",
         "原迭代198项全仓测试通过；补充三源交叉核验后229项全仓测试、仓库验证和Ruff再次通过"
       ],
@@ -80,6 +81,7 @@
       "status": "completed",
       "current_evidence": [
         "核心calendar/instruments/bars/snapshot/index_members/valuation/fundamentals/industry均要求显式观察日期或日期区间",
+        "value_metrics统一合并点时估值和公告日财务，派生EV、FCF与EV/EBIT；现金或有息负债缺失时不补零，累计EBIT非TTM限制进入机器溯源",
         "股票指数Qlib与ETF分区通过CompositeDailyBarSource统一路由，分区查询只读取manifest列出的目标证券",
         "实现聚宽SH/SZ/BJ代码双向转换、get_price(count/panel=False/fill_paused)、attribute_history和history常见日频形式",
         "get_current_data保持惰性映射并拒绝.get()；停牌、退市、缺字段、缺分区和质量不足均有测试",

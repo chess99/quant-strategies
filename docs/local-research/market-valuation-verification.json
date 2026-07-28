@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-27T05:46:10.470532+00:00",
+  "generated_at": "2026-07-28T20:07:42.299767+00:00",
   "status": "passed",
   "thresholds": {
     "minimum_current_valuation_coverage": 0.95,
@@ -12,13 +12,13 @@
   },
   "valuation": {
     "quality_grade": "B",
-    "rows": 9618793,
+    "rows": 10493254,
     "successful_symbols": 6030,
     "failed_historical_symbols": 85,
     "current_covered": 5530,
     "current_coverage_ratio": 1.0,
     "date_range": {
-      "start": "1990-12-20",
+      "start": "2000-01-04",
       "end": "2026-07-24"
     },
     "crosscheck": {
@@ -26,11 +26,11 @@
       "successful_symbols": 20,
       "metrics": {
         "market_cap": {
-          "median_relative_error": 0.00002314705416399058,
+          "median_relative_error": 2.314705416399058e-05,
           "p95_relative_error": 0.00011023324130050119
         },
         "pe_ttm": {
-          "median_relative_error": 0.00002767706792664058,
+          "median_relative_error": 2.767706792664025e-05,
           "p95_relative_error": 0.001574453141200923
         },
         "pb": {
@@ -62,8 +62,8 @@
     "known_st_rows": 17678788,
     "known_st_ratio": 0.9999768089027568,
     "unknown_st_rows": 410,
-    "exact_limit_rows": 13470967,
-    "exact_limit_ratio": 0.7619670869685379,
+    "exact_limit_rows": 17675663,
+    "exact_limit_ratio": 0.9998000474908421,
     "paused_rows": 576145,
     "date_range": {
       "start": "2000-01-04",
@@ -91,8 +91,8 @@
     "price_limit_symbols": 5402,
     "official_status_rows": 14340455,
     "official_status_end": "2023-06-09",
-    "szse_name_event_rows": 10379,
-    "szse_name_event_quality": "A",
+    "szse_name_event_rows": 14713,
+    "szse_name_event_quality": "B",
     "risk_warning_event_rows": 7870,
     "risk_warning_event_quality": "B",
     "risk_warning_announcement_events": 1758
@@ -108,13 +108,13 @@
     "partitioned_large_datasets": true
   },
   "manifest_sha256": {
-    "daily_valuation": "ec992f9a2bed7c89ff0197bee319eddfc54a5cee8c0add8d3df8d1f0bf111098",
+    "daily_valuation": "e7933b347f4501ccf3c937186fb68611042ff2b4072899d2de6d1991301a23d2",
     "valuation_crosscheck": "42adb5924b5d461c436ac23b4d888c3635cf8649a1e4fd61a8576942c05cb6d5",
     "daily_price_limit": "1d0eae3d1f33616b03174712eaebfb3b700f852fc0084c68deea4b62465ca772",
     "daily_official_status": "6f916f292139a62bc5d7c2e1b62d2a6e6f586c186543df0c3faae8be54746f5a",
-    "st_name_events": "9891ab5962bf07fc54c9361f72d81e8eac8862c9e6645f8cf41677ace328033a",
-    "risk_warning_events": "386f002006831c8232fd0dec73cd8fd650813ffd710c2367fd87c1750e0b8b8d",
-    "daily_market_state": "b7cdf65997babc0538f2bf51fb4e3fc5f508a7553326de7bfef135a5f248a0a8",
+    "st_name_events": "fdc832ae70d8f2cdcecc3e8671f3f43b74093ec1b24d45e50de953e3fc656f98",
+    "risk_warning_events": "1bc98641b4d08192e1f2298f54b29a039b463aae918d82d219e5e7cf88709814",
+    "daily_market_state": "645a2e4f0432f6281e70061756249f5e7443918f3201a4571f28ede4b162fa8f",
     "market_state_crosscheck": "a1f6b35cc94eb09757594a389c24b72fec56d86a1c3fb45688e90d4d665c8bc0"
   },
   "limitations": [

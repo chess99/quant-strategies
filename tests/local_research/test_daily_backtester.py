@@ -235,12 +235,8 @@ def test_stock_t_plus_one_and_etf_same_day_round_trip():
 
 def test_t_plus_one_shares_become_available_next_session():
     dates = pd.to_datetime(["2024-01-02", "2024-01-03"])
-    bars = make_bars(
-        [("SH600000", date, 10.0, 10.0, 1_000_000) for date in dates]
-    )
-    state = make_state(
-        [("SH600000", date, False, False, False, False) for date in dates]
-    )
+    bars = make_bars([("SH600000", date, 10.0, 10.0, 1_000_000) for date in dates])
+    state = make_state([("SH600000", date, False, False, False, False) for date in dates])
     engine = DailyBacktester(
         bars,
         state,
@@ -322,12 +318,8 @@ def test_market_state_rejection_reasons_are_explicit():
 def test_equal_weight_rebalance_preserves_target_priority_when_cash_is_tight():
     date = pd.Timestamp("2024-01-02")
     symbols = ["SH600002", "SH600001", "SH600000"]
-    bars = make_bars(
-        [(symbol, date, 10.0, 10.0, 1_000_000) for symbol in symbols]
-    )
-    state = make_state(
-        [(symbol, date, False, False, False, False) for symbol in symbols]
-    )
+    bars = make_bars([(symbol, date, 10.0, 10.0, 1_000_000) for symbol in symbols])
+    state = make_state([(symbol, date, False, False, False, False) for symbol in symbols])
     engine = DailyBacktester(
         bars,
         state,
@@ -397,12 +389,8 @@ def test_scheduler_uses_actual_first_or_last_trading_session():
 
 def test_corporate_actions_and_all_ledgers_are_auditable():
     dates = pd.to_datetime(["2024-01-02", "2024-01-03", "2024-01-04", "2024-01-05"])
-    bars = make_bars(
-        [("SH600000", date, 10.0, 10.0, 1_000_000) for date in dates]
-    )
-    state = make_state(
-        [("SH600000", date, False, False, False, False) for date in dates]
-    )
+    bars = make_bars([("SH600000", date, 10.0, 10.0, 1_000_000) for date in dates])
+    state = make_state([("SH600000", date, False, False, False, False) for date in dates])
     actions = pd.DataFrame(
         [
             (dates[1], "SH600000", "cash_dividend", 0.5, None, None, None),
@@ -451,15 +439,9 @@ def test_delisting_action_cash_settles_position_on_last_trading_day():
             ("SH600000", dates[1], 8.0, 8.0, 1_000_000),
         ]
     )
-    state = make_state(
-        [("SH600000", date, False, False, False, False) for date in dates]
-    )
-    master = pd.DataFrame(
-        {"symbol": ["SH600000"], "end_date": [dates[1]]}
-    )
-    events = pd.DataFrame(
-        {"symbol": ["SH600000"], "effective_from": [dates[0]]}
-    )
+    state = make_state([("SH600000", date, False, False, False, False) for date in dates])
+    master = pd.DataFrame({"symbol": ["SH600000"], "end_date": [dates[1]]})
+    events = pd.DataFrame({"symbol": ["SH600000"], "effective_from": [dates[0]]})
     actions = build_delisting_actions(events, master, bars)
     engine = DailyBacktester(
         bars,
@@ -528,6 +510,38 @@ def test_stamp_tax_history_and_etf_exemption():
     assert costs.stamp_tax_rate("stock", "sell", "2008-09-19") == pytest.approx(0.001)
     assert costs.stamp_tax_rate("stock", "sell", "2023-08-28") == pytest.approx(0.0005)
     assert costs.stamp_tax_rate("etf", "sell", "2007-06-01") == 0.0
+
+
+def test_stock_and_etf_commissions_are_configured_independently():
+    costs = CostModel(
+        buy_commission=0.0003,
+        sell_commission=0.0004,
+        minimum_commission=5.0,
+        etf_buy_commission=0.0001,
+        etf_sell_commission=0.0002,
+        etf_minimum_commission=1.0,
+    )
+
+    stock_buy, _ = costs.fees("stock", "buy", 10_000, "2024-01-02")
+    stock_sell, _ = costs.fees("stock", "sell", 100_000, "2024-01-02")
+    etf_buy, _ = costs.fees("etf", "buy", 10_000, "2024-01-02")
+    etf_sell, etf_tax = costs.fees("etf", "sell", 100_000, "2024-01-02")
+
+    assert stock_buy == pytest.approx(5.0)
+    assert stock_sell == pytest.approx(40.0)
+    assert etf_buy == pytest.approx(1.0)
+    assert etf_sell == pytest.approx(20.0)
+    assert etf_tax == 0.0
+
+
+def test_etf_commission_defaults_preserve_existing_cost_model_behavior():
+    costs = CostModel(buy_commission=0.0006, minimum_commission=10.0)
+
+    stock_commission, _ = costs.fees("stock", "buy", 100_000, "2024-01-02")
+    etf_commission, _ = costs.fees("etf", "buy", 100_000, "2024-01-02")
+
+    assert stock_commission == pytest.approx(60.0)
+    assert etf_commission == pytest.approx(stock_commission)
 
 
 def test_formal_backtest_rejects_c_grade_market_state_rows():

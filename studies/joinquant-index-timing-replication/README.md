@@ -70,3 +70,8 @@ python -m pytest -q studies\joinquant-index-timing-replication\tests
 
 三个对应区间的 Qlib 沪深300基准年化与聚宽只相差 `+0.03`、`-0.03` 和
 `+0.05` 个百分点。按事前冻结的 ±5 个百分点标准，三份策略均可近似复现。
+
+首次归档保存了精确 `engine.py` 及三份原策略哈希，但没有标准 `source.py` 入口。原目录按
+不可变规则未作修改；哈希校验后的执行入口已另存到
+[`2026-07-29__local-qlib-comparison-v1-source-addendum`](results/2026-07-29__local-qlib-comparison-v1-source-addendum/)。
+该附录不是新回测，不产生新指标。

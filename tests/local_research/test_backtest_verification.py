@@ -9,7 +9,7 @@ RESULT_DIR = (
     / "studies"
     / "joinquant-small-cap-golden-comparison"
     / "results"
-    / "2026-07-27__monthly-small-cap__local-preflight-v4"
+    / "2026-07-29__monthly-small-cap__local-preflight-v12"
 )
 
 
@@ -19,3 +19,4 @@ def test_iteration_five_local_preflight_machine_verification_passes():
     assert report["local_preflight_status"] == "passed"
     assert report["iteration_status"] == "in_progress"
     assert all(report["checks"].values())
+    assert report["checks"]["stock_and_etf_costs_are_independently_configurable"] is True

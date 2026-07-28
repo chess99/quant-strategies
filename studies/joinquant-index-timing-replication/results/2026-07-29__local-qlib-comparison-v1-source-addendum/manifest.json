@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "archive_type": "reproducibility_entrypoint_addendum",
+  "study_id": "joinquant-index-timing-replication",
+  "run_id": "local-qlib-comparison-v1-source-addendum",
+  "archived_at": "2026-07-29",
+  "original_archive": "studies/joinquant-index-timing-replication/results/2026-07-27__local-qlib-comparison-v1",
+  "reason": "原不可变归档保存了engine.py及其哈希，但缺少source.py；本附录提供先验哈希校验后的可执行入口，不改写原结果",
+  "source_sha256": "65fb5924dd4028b6a06b2a423d1430d9cee215e605e7aa3a9e289ed49c48c57d",
+  "original_engine_sha256": "58c3c219ad1b0ac9078aa947a563cbcc4e9b01df0d02ed4995d8559e1ac2a4fc",
+  "original_strategy_sources": {
+    "macd-market-timing": "1f7cb3ca001187d3c75b395132ad712617a27e283c10e9dee2e0f0f205f026ce",
+    "rsrs-standard": "6b69b4d1b037db1cd2138cf73d2f8e1433c5333dc422e70f8f7c0fc6ce51ce79",
+    "rsrs-volume-right-skew": "36a0bbb302f7901ca74af5d917b24eaaf1caa6f752bade22c833c089bf7384cf"
+  },
+  "period": {
+    "start": "2005-07-01",
+    "end": "2020-05-13"
+  },
+  "metrics_location": "../2026-07-27__local-qlib-comparison-v1/manifest.json",
+  "new_backtest_run": false
+}

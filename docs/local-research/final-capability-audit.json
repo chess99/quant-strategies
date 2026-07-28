@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "audited_at": "2026-07-29",
-  "status": "passed_with_documented_limitations",
+  "status": "passed",
   "scope": "日频A股、ETF、中低频选股与轮动研究；不含分钟、Tick、集合竞价、期货和期权",
   "environment": {
     "python": "3.12.9",
@@ -50,11 +50,11 @@
       "historical_universe": 6115,
       "explicit_failures": 85,
       "current_coverage": "5530/5530",
-      "rows": 10493253,
+      "rows": 10493254,
       "start": "2000-01-04",
       "end": "2026-07-24",
       "quality_grade": "B",
-      "manifest_sha256": "366cfeba63db02a26abfedab714b317ee1ce50e7939b96abbbc7faedbbd6b6fd"
+      "manifest_sha256": "e7933b347f4501ccf3c937186fb68611042ff2b4072899d2de6d1991301a23d2"
     },
     "daily_market_state": {
       "successful_symbols": 6115,
@@ -87,11 +87,15 @@
     }
   },
   "data_integrity": {
-    "manifest_referenced_files": 36395,
-    "total_bytes": 2456244682,
+    "dataset_manifests": 16,
+    "artifacts_checked": 72361,
+    "raw_source_artifacts": 35959,
+    "total_bytes": 4978406789,
     "missing_files": 0,
     "size_mismatches": 0,
-    "sha256_mismatches": 0
+    "sha256_mismatches": 0,
+    "hash_verification_enabled": true,
+    "market_valuation_verification_sha256": "6292e6cf5e406d63456279b333a4ad77483e21609e03487d475a46f5293e0067"
   },
   "interfaces": {
     "local": [
@@ -183,12 +187,26 @@
     ]
   },
   "archive_audit": {
-    "manifests_scanned_before_addendum": 55,
-    "referenced_hashes_checked": 472,
-    "hash_mismatches": 0,
-    "historical_missing_source_snapshots": 1,
-    "remediation": "新增2026-07-29__local-sina-qlib-v1-source-addendum，同哈希保存source.py且不改写旧归档",
+    "manifests_scanned": 57,
+    "missing_reports": 0,
+    "source_hash_mismatches": 0,
+    "engine_hash_mismatches": 0,
+    "historical_missing_source_snapshots": 2,
+    "remediation": [
+      "ETF复现新增2026-07-29__local-sina-qlib-v1-source-addendum",
+      "指数择时复现新增2026-07-29__local-qlib-comparison-v1-source-addendum"
+    ],
     "remaining_unremediated_issues": 0
+  },
+  "completion_audit": {
+    "report": "D:/code/_open-source/_data/quant-research/manifests/six-iteration-completion-audit.json",
+    "status": "passed",
+    "checks": 35,
+    "large_partitioned_datasets": 6,
+    "resumable_long_builders": 4,
+    "failed_experiments_archived": 3,
+    "full_sha256_verification": true,
+    "report_sha256": "98c22e10c3b02185711d15f3164aa3e1b10f83e4637b1c14cdb1d82f93fa39b8"
   },
   "documented_limitations": [
     "财务公告日正确但供应商可能把后来修订值回填到历史，质量B而非严格vintage A",
@@ -199,8 +217,8 @@
     "分钟、Tick、集合竞价、资金流、股东、北向、期货和期权不在本期能力范围"
   ],
   "validation": {
-    "focused_tests": "17 passed",
-    "full_pytest": "275 passed",
+    "focused_tests": "31 passed",
+    "full_pytest": "281 passed",
     "research_environment": "passed",
     "repository_validation": "passed",
     "ruff": "passed",

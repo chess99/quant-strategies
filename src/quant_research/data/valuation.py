@@ -59,9 +59,7 @@ def normalize_eastmoney_valuation(symbol: str, raw: pd.DataFrame) -> pd.DataFram
     missing = set(EASTMONEY_COLUMN_MAP).difference(raw.columns)
     if missing:
         raise ValueError(f"valuation response is missing columns: {sorted(missing)}")
-    frame = raw.rename(columns=EASTMONEY_COLUMN_MAP)[
-        list(EASTMONEY_COLUMN_MAP.values())
-    ].copy()
+    frame = raw.rename(columns=EASTMONEY_COLUMN_MAP)[list(EASTMONEY_COLUMN_MAP.values())].copy()
     frame["trade_date"] = pd.to_datetime(frame["trade_date"], errors="coerce").dt.normalize()
     for column in set(EASTMONEY_COLUMN_MAP.values()).difference({"trade_date"}):
         frame[column] = pd.to_numeric(frame[column], errors="coerce")
@@ -110,15 +108,11 @@ def densify_baidu_valuation_with_market_state(
     required_valuation = set(VALUATION_COLUMNS)
     missing_valuation = required_valuation.difference(valuation.columns)
     if missing_valuation:
-        raise ValueError(
-            f"Baidu valuation is missing columns: {sorted(missing_valuation)}"
-        )
+        raise ValueError(f"Baidu valuation is missing columns: {sorted(missing_valuation)}")
     required_state = {"symbol", "trade_date", "raw_close"}
     missing_state = required_state.difference(market_state.columns)
     if missing_state:
-        raise ValueError(
-            f"market state is missing columns: {sorted(missing_state)}"
-        )
+        raise ValueError(f"market state is missing columns: {sorted(missing_state)}")
     symbols = valuation["symbol"].dropna().astype(str).unique()
     if len(symbols) != 1:
         raise ValueError("Baidu densification requires exactly one symbol")
@@ -127,24 +121,14 @@ def densify_baidu_valuation_with_market_state(
         raise ValueError("Baidu densification received a non-Baidu valuation row")
 
     anchors = valuation.copy()
-    anchors["trade_date"] = pd.to_datetime(
-        anchors["trade_date"], errors="coerce"
-    ).dt.normalize()
+    anchors["trade_date"] = pd.to_datetime(anchors["trade_date"], errors="coerce").dt.normalize()
     anchors = anchors.dropna(subset=["trade_date", "market_cap"])
-    anchors = anchors.sort_values("trade_date").drop_duplicates(
-        "trade_date", keep="last"
-    )
+    anchors = anchors.sort_values("trade_date").drop_duplicates("trade_date", keep="last")
     state = market_state[market_state["symbol"].astype(str).eq(symbol)].copy()
-    state["trade_date"] = pd.to_datetime(
-        state["trade_date"], errors="coerce"
-    ).dt.normalize()
-    state["effective_raw_close"] = pd.to_numeric(
-        state["raw_close"], errors="coerce"
-    ).ffill()
+    state["trade_date"] = pd.to_datetime(state["trade_date"], errors="coerce").dt.normalize()
+    state["effective_raw_close"] = pd.to_numeric(state["raw_close"], errors="coerce").ffill()
     state = state.dropna(subset=["trade_date", "effective_raw_close"])
-    state = state.sort_values("trade_date").drop_duplicates(
-        "trade_date", keep="last"
-    )
+    state = state.sort_values("trade_date").drop_duplicates("trade_date", keep="last")
     if state.empty:
         raise ValueError(f"market state has no usable raw close: {symbol}")
 
@@ -160,16 +144,13 @@ def densify_baidu_valuation_with_market_state(
         anchors["market_cap"], errors="coerce"
     ) / pd.to_numeric(anchors["anchor_raw_close"], errors="coerce")
     anchors = anchors[
-        anchors["anchor_raw_close"].gt(0)
-        & anchors["implied_total_shares"].gt(0)
+        anchors["anchor_raw_close"].gt(0) & anchors["implied_total_shares"].gt(0)
     ].copy()
     if anchors.empty:
         raise ValueError(f"no Baidu anchor can be matched to a raw close: {symbol}")
 
     daily = state[
-        state["trade_date"].between(
-            anchors["trade_date"].min(), anchors["trade_date"].max()
-        )
+        state["trade_date"].between(anchors["trade_date"].min(), anchors["trade_date"].max())
     ][["trade_date", "effective_raw_close"]].copy()
     anchor_columns = [
         column for column in VALUATION_COLUMNS if column not in {"symbol", "trade_date"}
@@ -249,8 +230,7 @@ class HybridValuationProvider:
                 return self._fetch_baidu(symbol)
             except Exception as baidu_error:  # noqa: BLE001
                 raise RuntimeError(
-                    f"Eastmoney failed ({eastmoney_error}); "
-                    f"Baidu failed ({baidu_error})"
+                    f"Eastmoney failed ({eastmoney_error}); Baidu failed ({baidu_error})"
                 ) from baidu_error
 
     @staticmethod
@@ -275,18 +255,10 @@ class HybridValuationProvider:
             )
             if raw is None or raw.empty:
                 raise ValueError(f"empty Baidu valuation: {symbol} {indicator}")
-            part = raw[["date", "value"]].rename(
-                columns={"date": "数据日期", "value": target}
-            )
-            merged = (
-                part
-                if merged is None
-                else merged.merge(part, on="数据日期", how="outer")
-            )
+            part = raw[["date", "value"]].rename(columns={"date": "数据日期", "value": target})
+            merged = part if merged is None else merged.merge(part, on="数据日期", how="outer")
         assert merged is not None
-        merged["总市值"] = pd.to_numeric(
-            merged["总市值"], errors="coerce"
-        ) * 100_000_000.0
+        merged["总市值"] = pd.to_numeric(merged["总市值"], errors="coerce") * 100_000_000.0
         for column in EASTMONEY_COLUMN_MAP:
             if column not in merged:
                 merged[column] = np.nan
@@ -331,13 +303,10 @@ def _persist_valuation_raw(
             "sha256": sha256_file(path),
         }
     last_date = pd.to_datetime(raw["数据日期"]).max()
-    payload_hash = hashlib.sha256(
-        raw.to_csv(index=False).encode("utf-8-sig")
-    ).hexdigest()[:12]
+    payload_hash = hashlib.sha256(raw.to_csv(index=False).encode("utf-8-sig")).hexdigest()[:12]
     provider_source = (
         str(raw["_provider_source"].dropna().iloc[0])
-        if "_provider_source" in raw
-        and not raw["_provider_source"].dropna().empty
+        if "_provider_source" in raw and not raw["_provider_source"].dropna().empty
         else "akshare/eastmoney-stock-value"
     )
     raw_provider = "baidu" if "baidu" in provider_source.lower() else "eastmoney"
@@ -475,8 +444,7 @@ def sync_valuation_partitions(
     symbols = sorted({str(symbol).upper() for symbol in symbols})
     master = store.read_parquet("security_master").set_index("symbol")
     active_symbols = {
-        str(symbol).upper()
-        for symbol in (symbols if active_symbols is None else active_symbols)
+        str(symbol).upper() for symbol in (symbols if active_symbols is None else active_symbols)
     }
     existing = (
         pd.read_parquet(_valuation_status_path(store))
@@ -523,8 +491,7 @@ def sync_valuation_partitions(
                 security = master.loc[symbol] if symbol in master.index else None
                 canonical_symbol = (
                     str(security.get("canonical_symbol"))
-                    if security is not None
-                    and pd.notna(security.get("canonical_symbol"))
+                    if security is not None and pd.notna(security.get("canonical_symbol"))
                     else symbol
                 )
                 if normalized.empty and canonical_symbol != symbol:
@@ -542,9 +509,7 @@ def sync_valuation_partitions(
                         date_column="trade_date",
                     )
                 if normalized.empty:
-                    raise ValueError(
-                        f"valuation has no rows inside lifecycle: {symbol}"
-                    )
+                    raise ValueError(f"valuation has no rows inside lifecycle: {symbol}")
                 raw_artifact = _persist_valuation_raw(
                     store,
                     raw_symbol,
@@ -566,12 +531,8 @@ def sync_valuation_partitions(
                         "artifact_path": artifact["path"],
                         "artifact_bytes": artifact["bytes"],
                         "artifact_sha256": artifact["sha256"],
-                        "raw_path": (
-                            raw_artifact["path"] if raw_artifact is not None else None
-                        ),
-                        "raw_bytes": (
-                            raw_artifact["bytes"] if raw_artifact is not None else None
-                        ),
+                        "raw_path": (raw_artifact["path"] if raw_artifact is not None else None),
+                        "raw_bytes": (raw_artifact["bytes"] if raw_artifact is not None else None),
                         "raw_sha256": (
                             raw_artifact["sha256"] if raw_artifact is not None else None
                         ),
@@ -605,10 +566,7 @@ def sync_valuation_partitions(
     if successful.empty:
         raise RuntimeError(
             "no valuation symbols succeeded: "
-            + "; ".join(
-                f"{row.symbol}={row.error}"
-                for row in statuses.itertuples(index=False)
-            )
+            + "; ".join(f"{row.symbol}={row.error}" for row in statuses.itertuples(index=False))
         )
     artifacts = [
         {
@@ -673,9 +631,7 @@ def sync_valuation_partitions(
             "partition_files": len(artifacts),
             "current_coverage_target": 0.95,
             "current_coverage_passed": (
-                current_covered / len(active_symbols) >= 0.95
-                if active_symbols
-                else False
+                current_covered / len(active_symbols) >= 0.95 if active_symbols else False
             ),
             "duplicate_status_symbols": int(statuses["symbol"].duplicated().sum()),
         },
@@ -695,8 +651,11 @@ def densify_baidu_valuation_partitions(
         raise FileNotFoundError(f"valuation sync status does not exist: {status_path}")
     statuses = pd.read_parquet(status_path).copy()
     successful = statuses[statuses["status"].eq("success")].copy()
-    baidu_mask = successful["raw_path"].fillna("").astype(str).str.contains(
-        "raw/baidu/valuation/", regex=False
+    baidu_mask = (
+        successful["raw_path"]
+        .fillna("")
+        .astype(str)
+        .str.contains("raw/baidu/valuation/", regex=False)
     )
     targets = successful.loc[baidu_mask, "symbol"].astype(str).tolist()
     if symbols is not None:
@@ -709,9 +668,7 @@ def densify_baidu_valuation_partitions(
     old_manifest = store.read_manifest("daily_valuation")
     old_manifest_hash = sha256_file(old_manifest_path)
     snapshot = (
-        store.snapshot_dir
-        / "daily_valuation"
-        / f"pre-baidu-price-scale__{old_manifest_hash[:16]}"
+        store.snapshot_dir / "daily_valuation" / f"pre-baidu-price-scale__{old_manifest_hash[:16]}"
     )
     snapshot.mkdir(parents=True, exist_ok=True)
     snapshot_manifest = snapshot / "daily_valuation.json"
@@ -723,26 +680,28 @@ def densify_baidu_valuation_partitions(
 
     records = []
     failures = []
+    status_by_symbol = successful.set_index("symbol", drop=False)
     for symbol in targets:
         try:
-            valuation = store.read_symbol_partitions("daily_valuation", [symbol])
-            before_rows = len(valuation)
-            if valuation["source"].astype(str).str.contains(
-                "price-scaled", regex=False
-            ).all():
-                dense = valuation
-                already_dense = True
-            else:
-                market_state = store.read_symbol_partitions(
-                    "daily_market_state",
-                    [symbol],
-                    columns=["symbol", "trade_date", "raw_close"],
-                )
-                dense = densify_baidu_valuation_with_market_state(
-                    valuation,
-                    market_state,
-                )
-                already_dense = False
+            current = store.read_symbol_partitions("daily_valuation", [symbol])
+            before_rows = len(current)
+            status_row = status_by_symbol.loc[symbol]
+            raw_path = Path(str(status_row["raw_path"]))
+            if not raw_path.is_absolute():
+                raw_path = store.root / raw_path
+            if not raw_path.is_file():
+                raise FileNotFoundError(f"Baidu valuation raw file is missing: {raw_path}")
+            raw = pd.read_csv(raw_path)
+            valuation = normalize_eastmoney_valuation(symbol, raw)
+            market_state = store.read_symbol_partitions(
+                "daily_market_state",
+                [symbol],
+                columns=["symbol", "trade_date", "raw_close"],
+            )
+            dense = densify_baidu_valuation_with_market_state(
+                valuation,
+                market_state,
+            )
             artifact = store.write_parquet(
                 "daily_valuation",
                 dense,
@@ -763,7 +722,7 @@ def densify_baidu_valuation_partitions(
                     "symbol": symbol,
                     "before_rows": before_rows,
                     "after_rows": len(dense),
-                    "already_dense": already_dense,
+                    "rebuilt_from_raw": True,
                     "artifact_sha256": artifact["sha256"],
                 }
             )
@@ -785,8 +744,7 @@ def densify_baidu_valuation_partitions(
     master = store.read_parquet("security_master")
     active_symbols = set(
         master.loc[
-            master["asset_type"].eq("stock")
-            & master["active_at_source_end"].astype(bool),
+            master["asset_type"].eq("stock") & master["active_at_source_end"].astype(bool),
             "symbol",
         ].astype(str)
     )
@@ -801,14 +759,17 @@ def densify_baidu_valuation_partitions(
         for row in successful.itertuples(index=False)
     ]
     market_manifest_path = store.manifest_path("daily_market_state")
-    source_files = list(old_manifest.get("source_files", []))
+    source_files = [
+        artifact
+        for artifact in old_manifest.get("source_files", [])
+        if Path(str(artifact.get("path", ""))).as_posix() != "manifests/daily_market_state.json"
+    ]
     market_manifest_artifact = {
         "path": market_manifest_path.relative_to(store.root).as_posix(),
         "bytes": market_manifest_path.stat().st_size,
         "sha256": sha256_file(market_manifest_path),
     }
-    if market_manifest_artifact not in source_files:
-        source_files.append(market_manifest_artifact)
+    source_files.append(market_manifest_artifact)
     coverage = dict(old_manifest.get("coverage", {}))
     coverage.update(
         {
@@ -833,10 +794,7 @@ def densify_baidu_valuation_partitions(
     manifest = DatasetManifest(
         schema_version=max(3, int(old_manifest.get("schema_version", 1))),
         dataset="daily_valuation",
-        provider=(
-            "akshare/eastmoney-stock-value + baidu-stock-valuation "
-            "+ qlib raw-price scaling"
-        ),
+        provider=("akshare/eastmoney-stock-value + baidu-stock-valuation + qlib raw-price scaling"),
         quality_grade=QualityGrade.B,
         row_count=int(pd.to_numeric(successful["row_count"]).sum()),
         columns=VALUATION_COLUMNS,
@@ -895,12 +853,8 @@ def normalize_baidu_valuation(
         raise ValueError(f"unsupported Baidu valuation indicator: {indicator}")
     if raw is None or raw.empty or not {"date", "value"}.issubset(raw.columns):
         raise ValueError(f"Baidu valuation response is invalid: {symbol} {indicator}")
-    frame = raw[["date", "value"]].rename(
-        columns={"date": "trade_date", "value": indicator}
-    )
-    frame["trade_date"] = pd.to_datetime(
-        frame["trade_date"], errors="coerce"
-    ).dt.normalize()
+    frame = raw[["date", "value"]].rename(columns={"date": "trade_date", "value": indicator})
+    frame["trade_date"] = pd.to_datetime(frame["trade_date"], errors="coerce").dt.normalize()
     frame[indicator] = pd.to_numeric(frame[indicator], errors="coerce")
     frame = frame.dropna().drop_duplicates("trade_date", keep="last")
     if indicator == "market_cap":
@@ -962,9 +916,7 @@ def verify_valuation_with_baidu(
                 record[f"{field}_relative_error"] = abs(left - right) / denominator
             samples.append(record)
         except Exception as exc:  # noqa: BLE001 - failures belong in verification
-            failures.append(
-                {"symbol": symbol, "error": f"{type(exc).__name__}: {exc}"}
-            )
+            failures.append({"symbol": symbol, "error": f"{type(exc).__name__}: {exc}"})
     metrics = {}
     for field in BAIDU_INDICATORS:
         values = [

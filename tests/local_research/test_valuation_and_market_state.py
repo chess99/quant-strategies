@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
+from quant_research.data.contracts import DatasetManifest, QualityGrade
 from quant_research.data.market_state import (
     apply_market_reference,
     build_market_state,
@@ -21,11 +22,28 @@ from quant_research.data.market_reference import (
 from quant_research.data.security_lifecycle import clip_to_security_lifecycle
 from quant_research.data.store import ResearchDataStore
 from quant_research.data.valuation import (
+    densify_baidu_valuation_partitions,
     densify_baidu_valuation_with_market_state,
     normalize_baidu_valuation,
     normalize_eastmoney_valuation,
     sync_valuation_partitions,
 )
+
+
+def save_partitioned_manifest(store, name, frame, quality):
+    files = store.write_partitioned_parquet(name, frame, ["symbol"], "data.parquet")
+    store.write_manifest(
+        DatasetManifest(
+            schema_version=2,
+            dataset=name,
+            provider="test",
+            quality_grade=QualityGrade(quality),
+            row_count=len(frame),
+            columns=list(frame.columns),
+            data_files=files,
+            partitioning={"style": "hive", "columns": ["symbol"]},
+        )
+    )
 
 
 def test_delisting_notices_become_point_in_time_events_on_next_session():
@@ -104,11 +122,9 @@ def test_delisting_period_prefers_final_block_after_long_suspension():
         {
             "symbol": ["SH600701"] * len(calendar),
             "trade_date": calendar,
-            "paused": (calendar > pd.Timestamp("2021-02-05"))
-            & (calendar < final_block_start),
+            "paused": (calendar > pd.Timestamp("2021-02-05")) & (calendar < final_block_start),
             "raw_close": np.where(
-                (calendar > pd.Timestamp("2021-02-05"))
-                & (calendar < final_block_start),
+                (calendar > pd.Timestamp("2021-02-05")) & (calendar < final_block_start),
                 np.nan,
                 1.0,
             ),
@@ -196,7 +212,9 @@ def test_baidu_valuation_is_densified_from_past_anchor_and_raw_price():
     )
     assert result["total_shares"].tolist() == pytest.approx([100_000_000.0] * 5)
     # 1 月 3 日只能使用 1 月 2 日锚点，不能提前看到 1 月 8 日供应商记录。
-    assert result.loc[result["trade_date"].eq("2024-01-03"), "pe_ttm"].iloc[0] == pytest.approx(11.0)
+    assert result.loc[result["trade_date"].eq("2024-01-03"), "pe_ttm"].iloc[0] == pytest.approx(
+        11.0
+    )
     assert result["source"].str.contains("price-scaled", regex=False).all()
 
 
@@ -261,12 +279,127 @@ def test_partitioned_valuation_sync_is_resumable(tmp_path):
     assert len(second_statuses) == 2
 
 
+def test_baidu_densification_rebuilds_from_raw_and_rebinds_market_manifest(tmp_path):
+    store = ResearchDataStore(tmp_path)
+    store.write_parquet(
+        "security_master",
+        pd.DataFrame(
+            {
+                "symbol": ["SH600001"],
+                "asset_type": ["stock"],
+                "active_at_source_end": [True],
+            }
+        ),
+    )
+    raw = pd.DataFrame(
+        {
+            "数据日期": ["2024-01-02", "2024-01-04"],
+            "总市值": [100.0, 300.0],
+            "PE(TTM)": [10.0, 12.0],
+            "PE(静)": [11.0, 13.0],
+            "市净率": [2.0, 2.2],
+            "市现率": [3.0, 3.2],
+            "当日收盘价": [pd.NA, pd.NA],
+            "当日涨跌幅": [pd.NA, pd.NA],
+            "流通市值": [pd.NA, pd.NA],
+            "总股本": [pd.NA, pd.NA],
+            "流通股本": [pd.NA, pd.NA],
+            "PEG值": [1.0, 1.2],
+            "市销率": [4.0, 4.2],
+            "_provider_source": [
+                "akshare/baidu-stock-valuation",
+                "akshare/baidu-stock-valuation",
+            ],
+        }
+    )
+    raw_artifact = store.write_raw_csv("baidu", "valuation", "sh600001__2024-01-02__test.csv", raw)
+    sparse = normalize_eastmoney_valuation("SH600001", raw)
+    valuation_artifact = store.write_parquet(
+        "daily_valuation", sparse, "symbol=SH600001/data.parquet"
+    )
+    status = pd.DataFrame(
+        {
+            "symbol": ["SH600001"],
+            "status": ["success"],
+            "error": [None],
+            "row_count": [len(sparse)],
+            "start": [sparse["trade_date"].min()],
+            "end": [sparse["trade_date"].max()],
+            "raw_path": [raw_artifact["path"]],
+            "raw_bytes": [raw_artifact["bytes"]],
+            "raw_sha256": [raw_artifact["sha256"]],
+            "artifact_path": [valuation_artifact["path"]],
+            "artifact_bytes": [valuation_artifact["bytes"]],
+            "artifact_sha256": [valuation_artifact["sha256"]],
+        }
+    )
+    store.write_parquet("valuation_sync_status", status)
+    store.write_manifest(
+        DatasetManifest(
+            schema_version=2,
+            dataset="daily_valuation",
+            provider="test",
+            quality_grade=QualityGrade.B,
+            row_count=len(sparse),
+            columns=list(sparse.columns),
+            data_files=[
+                {
+                    **valuation_artifact,
+                    "partition_values": {"symbol": "SH600001"},
+                }
+            ],
+            source_files=[raw_artifact],
+            partitioning={"style": "hive", "columns": ["symbol"]},
+            coverage={
+                "successful_symbols": 1,
+                "failed_symbols": 0,
+                "current_expected": 1,
+                "current_covered": 1,
+                "current_coverage_ratio": 1.0,
+            },
+        )
+    )
+
+    def write_state(middle_close):
+        state = pd.DataFrame(
+            {
+                "symbol": ["SH600001", "SH600001", "SH600001"],
+                "trade_date": pd.to_datetime(["2024-01-02", "2024-01-03", "2024-01-04"]),
+                "raw_close": [10.0, middle_close, 30.0],
+            }
+        )
+        save_partitioned_manifest(store, "daily_market_state", state, "B")
+
+    write_state(20.0)
+    _, first_manifest, _ = densify_baidu_valuation_partitions(store)
+    first = store.read_symbol_partitions("daily_valuation", ["SH600001"])
+    assert first["market_cap"].tolist() == pytest.approx([100.0, 200.0, 300.0])
+
+    write_state(25.0)
+    _, second_manifest, _ = densify_baidu_valuation_partitions(store)
+    second = store.read_symbol_partitions("daily_valuation", ["SH600001"])
+
+    assert second["market_cap"].tolist() == pytest.approx([100.0, 250.0, 300.0])
+    state_sources = [
+        item
+        for item in second_manifest.source_files
+        if item["path"] == "manifests/daily_market_state.json"
+    ]
+    assert len(state_sources) == 1
+    assert (
+        state_sources[0]["sha256"]
+        != [
+            item
+            for item in first_manifest.source_files
+            if item["path"] == "manifests/daily_market_state.json"
+        ][0]["sha256"]
+    )
+
+
 def test_vendor_rows_are_clipped_to_listing_and_delisting_dates():
     frame = pd.DataFrame(
         {
-            "trade_date": pd.to_datetime(
-                ["2023-12-29", "2024-01-02", "2024-01-03", "2024-01-04"]
-            ),
+            "trade_date": pd.to_datetime(["2023-12-29", "2024-01-02", "2024-01-03", "2024-01-04"]),
             "value": [1, 2, 3, 4],
         }
     )
@@ -561,9 +694,7 @@ def test_szse_name_change_events_replay_st_by_effective_date():
     state = pd.DataFrame(
         {
             "symbol": ["SZ300001"] * 3,
-            "trade_date": pd.to_datetime(
-                ["2022-12-30", "2023-01-03", "2024-01-03"]
-            ),
+            "trade_date": pd.to_datetime(["2022-12-30", "2023-01-03", "2024-01-03"]),
             "is_st": pd.array([pd.NA] * 3, dtype="boolean"),
             "st_quality": ["C"] * 3,
             "st_source": [None] * 3,

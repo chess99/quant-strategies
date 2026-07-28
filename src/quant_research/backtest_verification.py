@@ -8,7 +8,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from .backtest import DailyBacktester, performance_metrics, scheduled_dates
+from .backtest import CostModel, DailyBacktester, performance_metrics, scheduled_dates
 from .data.store import sha256_file
 
 
@@ -49,8 +49,7 @@ def verify_daily_backtester(root: Path, result_dir: Path) -> dict:
     coverage = json.loads(coverage_path.read_text(encoding="utf-8"))
     raw_dir = result_dir / "raw"
     raw_hash_checks = {
-        filename: (raw_dir / filename).is_file()
-        and sha256_file(raw_dir / filename) == expected
+        filename: (raw_dir / filename).is_file() and sha256_file(raw_dir / filename) == expected
         for filename, expected in manifest.get("raw_sha256", {}).items()
     }
     order_api_checks = {
@@ -76,8 +75,7 @@ def verify_daily_backtester(root: Path, result_dir: Path) -> dict:
         == manifest.get("engine_sha256"),
         "joinquant_source_sha256_valid": sha256_file(result_dir / "joinquant_strategy.py")
         == manifest.get("joinquant_strategy_sha256"),
-        "coverage_sha256_valid": sha256_file(coverage_path)
-        == manifest.get("coverage_sha256"),
+        "coverage_sha256_valid": sha256_file(coverage_path) == manifest.get("coverage_sha256"),
         "all_raw_sha256_valid": bool(raw_hash_checks) and all(raw_hash_checks.values()),
         "all_order_apis_present": all(order_api_checks.values()),
         "all_ledgers_present": all(ledger_checks.values()),
@@ -86,6 +84,14 @@ def verify_daily_backtester(root: Path, result_dir: Path) -> dict:
         in inspect.getsource(DailyBacktester),
         "daily_weekly_monthly_scheduler_present": callable(scheduled_dates),
         "performance_metrics_callable": callable(performance_metrics),
+        "stock_and_etf_costs_are_independently_configurable": all(
+            name in inspect.signature(CostModel).parameters
+            for name in (
+                "etf_buy_commission",
+                "etf_sell_commission",
+                "etf_minimum_commission",
+            )
+        ),
         "candidate_archive_has_54_dates": candidates["execution_date"].nunique() == 54,
         "real_trades_present": not trades.empty,
     }

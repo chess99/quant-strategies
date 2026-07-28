@@ -16,9 +16,14 @@ ExecutionField = Literal["open", "close"]
 class CostModel:
     """股票与 ETF 的交易成本以及 A 股印花税历史。"""
 
+    # 股票默认费率；保留原字段名以兼容已有研究脚本。
     buy_commission: float = 0.0003
     sell_commission: float = 0.0003
     minimum_commission: float = 5.0
+    # ETF 可使用独立费率；None 表示沿用对应股票参数。
+    etf_buy_commission: float | None = None
+    etf_sell_commission: float | None = None
+    etf_minimum_commission: float | None = None
     # 2000 年以后 A 股印花税的生效日与税率。2008-09-19 起改单边征收。
     stock_stamp_tax_schedule: tuple[tuple[str, float], ...] = (
         ("2000-01-01", 0.004),
@@ -45,8 +50,22 @@ class CostModel:
         return rate
 
     def fees(self, asset_type: str, side: str, gross: float, trade_date) -> tuple[float, float]:
-        commission_rate = self.buy_commission if side == "buy" else self.sell_commission
-        commission = max(self.minimum_commission, gross * commission_rate) if gross > 0 else 0.0
+        if asset_type == "etf":
+            configured_rate = self.etf_buy_commission if side == "buy" else self.etf_sell_commission
+            commission_rate = (
+                configured_rate
+                if configured_rate is not None
+                else (self.buy_commission if side == "buy" else self.sell_commission)
+            )
+            minimum_commission = (
+                self.etf_minimum_commission
+                if self.etf_minimum_commission is not None
+                else self.minimum_commission
+            )
+        else:
+            commission_rate = self.buy_commission if side == "buy" else self.sell_commission
+            minimum_commission = self.minimum_commission
+        commission = max(minimum_commission, gross * commission_rate) if gross > 0 else 0.0
         tax = gross * self.stamp_tax_rate(asset_type, side, trade_date)
         return commission, tax
 
@@ -390,7 +409,9 @@ class DailyBacktester:
             elif action_type in {"bonus", "split", "consolidation"}:
                 multiplier = float(action.get("share_multiplier", np.nan))
                 if not np.isfinite(multiplier) or multiplier <= 0:
-                    raise ValueError(f"invalid share_multiplier for {symbol} on {trade_date.date()}")
+                    raise ValueError(
+                        f"invalid share_multiplier for {symbol} on {trade_date.date()}"
+                    )
                 before = position.shares
                 available_before = int(position.available_shares or 0)
                 position.shares = int(np.floor(before * multiplier + 1e-9))
@@ -413,7 +434,9 @@ class DailyBacktester:
                         total_cost = position.average_cost * position.shares + cost
                         position.shares += subscribed
                         if not self._is_t_plus_one(symbol):
-                            position.available_shares = int(position.available_shares or 0) + subscribed
+                            position.available_shares = (
+                                int(position.available_shares or 0) + subscribed
+                            )
                         position.average_cost = total_cost / position.shares
                         self._record_cash(trade_date, "rights_issue", symbol, -cost)
                     record.update(
@@ -570,9 +593,15 @@ class DailyBacktester:
         position = self.positions.get(symbol)
         if side == "sell":
             if position is None:
-                self._reject(order_id, date, symbol, side, original_requested, "no_position", execution)
+                self._reject(
+                    order_id, date, symbol, side, original_requested, "no_position", execution
+                )
                 return 0
-            available = int(position.available_shares or 0) if self._is_t_plus_one(symbol) else position.shares
+            available = (
+                int(position.available_shares or 0)
+                if self._is_t_plus_one(symbol)
+                else position.shares
+            )
             fill_shares = min(fill_shares, available)
             if fill_shares < position.shares:
                 fill_shares = fill_shares // self.config.lot_size * self.config.lot_size
@@ -583,7 +612,9 @@ class DailyBacktester:
         elif fill_shares < rounded:
             fill_shares = fill_shares // self.config.lot_size * self.config.lot_size
         if fill_shares <= 0:
-            self._reject(order_id, date, symbol, side, original_requested, "volume_limit", execution)
+            self._reject(
+                order_id, date, symbol, side, original_requested, "volume_limit", execution
+            )
             return 0
         raw_price = float(bar[execution])
         direction = 1.0 if side == "buy" else -1.0
@@ -787,9 +818,11 @@ class DailyBacktester:
         for symbol in set(self.positions).union(targets):
             bar = self._bar(date, symbol)
             if bar is None or execution not in bar or not self._valid_price(bar[execution]):
-                desired_shares[symbol] = 0 if targets.get(symbol, 0.0) == 0.0 else self.positions.get(
-                    symbol, Position(symbol, 0, 0.0, 0.0)
-                ).shares
+                desired_shares[symbol] = (
+                    0
+                    if targets.get(symbol, 0.0) == 0.0
+                    else self.positions.get(symbol, Position(symbol, 0, 0.0, 0.0)).shares
+                )
                 continue
             target_value = equity * targets.get(symbol, 0.0)
             desired_shares[symbol] = (
@@ -899,8 +932,10 @@ def performance_metrics(
     groups = underwater.ne(underwater.shift()).cumsum()
     longest_underwater = int(underwater.groupby(groups).sum().max())
     dates = pd.DatetimeIndex(pd.to_datetime(equity["trade_date"]))
-    yearly = pd.Series(returns.to_numpy(), index=dates).groupby(dates.year).agg(
-        lambda series: (1.0 + series).prod() - 1.0
+    yearly = (
+        pd.Series(returns.to_numpy(), index=dates)
+        .groupby(dates.year)
+        .agg(lambda series: (1.0 + series).prod() - 1.0)
     )
     gross_traded = 0.0
     if trades is not None and not trades.empty and "gross_value" in trades:

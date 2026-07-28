@@ -157,7 +157,7 @@
     "diagnosis": "累计转单季度语义修复后，本地自主选股、持仓及收益回撤均通过严格门槛，未调整策略权重"
   },
   "validation": {
-    "pytest": "275 passed",
+    "pytest": "281 passed",
     "repository_validation": "passed",
     "ruff_changed_files": "passed",
     "json_parse": "passed",

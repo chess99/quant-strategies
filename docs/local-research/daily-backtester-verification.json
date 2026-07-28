@@ -20,10 +20,10 @@
     "open_and_close_execution_supported": true,
     "daily_weekly_monthly_scheduler_present": true,
     "performance_metrics_callable": true,
+    "stock_and_etf_costs_are_independently_configurable": true,
     "candidate_archive_has_54_dates": true,
     "real_trades_present": true,
-    "equal_weight_target_priority_preserved": true,
-    "joinquant_target_replay_thresholds_passed": true
+    "joinquant_autonomous_thresholds_passed": true
   },
   "details": {
     "order_apis": {
@@ -80,7 +80,7 @@
       "sharpe": 0.5533187918700301,
       "annualized_volatility": 0.2885480481481623,
       "turnover": 28.47134129012561,
-      "average_cash_ratio": 0.0000810176972761977,
+      "average_cash_ratio": 8.10176972761977e-05,
       "maximum_cash_ratio": 0.0006124588654716987,
       "longest_underwater_trading_days": 625,
       "yearly_returns": {
@@ -95,16 +95,14 @@
       "bars": "B",
       "valuation": "B",
       "market_state_dataset": "C",
-      "market_state_row_gate": "B"
+      "market_state_row_gate": "B",
+      "historical_names": "A where available; unavailable names are not backfilled",
+      "delisting_events": "B"
     },
-    "result_run_id": "2026-07-29__monthly-small-cap__local-preflight-v12",
-    "result_manifest_sha256": "5a4ae56d7d0b5c299d2c28c1e4418959990bbf7bbab72228b171446203fdc1f8"
+    "result_manifest_sha256": "5a4ae56d7d0b5c299d2c28c1e4418959990bbf7bbab72228b171446203fdc1f8",
+    "result_run_id": "2026-07-29__monthly-small-cap__local-preflight-v12"
   },
   "remaining": [],
-  "limitations": [
-    "The final strict verdict uses autonomous local point-in-time selection, not JoinQuant target replay.",
-    "The historical target replay remains archived only as intermediate evidence isolating execution."
-  ],
   "root": "D:\\code\\quant-strategies",
   "joinquant_golden_v1": {
     "status": "failed",
@@ -145,7 +143,6 @@
   "joinquant_target_replay_v3": {
     "status": "passed",
     "run_id": "2026-07-29__monthly-small-cap__joinquant-golden-replay-v3",
-    "source_local_run_id": "2026-07-29__monthly-small-cap__local-jq-target-replay-v2",
     "backtest_id": "fd4f04ed4711b333961fec6244c16e84",
     "new_platform_run_required": false,
     "candidate_overlap": 0.9592592592592594,
@@ -157,8 +154,10 @@
     "local_maximum_drawdown": 0.4734121949970649,
     "joinquant_maximum_drawdown": 0.48022828321327,
     "drawdown_difference": -0.006816088216205107,
+    "local_manifest_sha256": "b99a8c32e49871543e270c216741e775d73227fa0d0eda45d8d54e3b553f4406",
     "archive_manifest_sha256": "d00bfea300ee19071c9a06570a387ba96fa7b7e67ca1b3f1e630f9f78f8e3695",
-    "comparison_sha256": "566e3e17c654fd6eefc106febc3006a857998bef043f24050b0bbd86711e133d"
+    "comparison_sha256": "566e3e17c654fd6eefc106febc3006a857998bef043f24050b0bbd86711e133d",
+    "source_local_run_id": "2026-07-29__monthly-small-cap__local-jq-target-replay-v2"
   },
   "joinquant_autonomous_v4": {
     "status": "passed",
@@ -178,5 +177,9 @@
     "archive_manifest_sha256": "73159f8c0f8ffa2c57a71a9d67a09a95c05e24218a6ab5206a40b21141ff15a7",
     "comparison_sha256": "c77a9a84c092682e53887ceedca86fd6c395653780e076fe4de9c3c90e193a90",
     "diagnosis": "估值日历和状态有效期语义修复后，自主选股、持仓、撮合与收益回撤全部严格过线"
-  }
+  },
+  "limitations": [
+    "最终严格结论使用本地点时自主选股，不以聚宽目标回放冒充自主复现。",
+    "历史目标回放仅作为隔离撮合差异的中间证据保留。"
+  ]
 }

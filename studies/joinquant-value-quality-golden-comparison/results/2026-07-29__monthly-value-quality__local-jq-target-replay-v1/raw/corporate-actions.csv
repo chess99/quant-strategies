@@ -1,0 +1,2 @@
+trade_date,symbol,action_type,shares_before,shares_after,cash_change,status
+2021-07-22,SZ002359,delisting,0,0,0.0,no_position

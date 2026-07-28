@@ -119,14 +119,26 @@ def apply_market_reference(
 
     if "reference_is_st" in merged:
         st_available = merged["reference_is_st"].notna()
-        merged.loc[st_available, "is_st"] = merged.loc[
-            st_available, "reference_is_st"
+        exact_band_evidence = merged["st_source"].eq(
+            "dolthub/final-a-stock-limit-inferred"
+        ) & merged["is_st"].notna()
+        st_conflict = (
+            st_available
+            & exact_band_evidence
+            & merged["reference_is_st"].ne(merged["is_st"])
+        )
+        # Baostock's historical ``is_st`` has known false negatives on SSE names.
+        # An exact 5%/10% exchange price band is stronger same-day evidence, so a
+        # conflicting status row must not silently replace it.
+        use_reference_st = st_available & ~st_conflict
+        merged.loc[use_reference_st, "is_st"] = merged.loc[
+            use_reference_st, "reference_is_st"
         ].astype(bool)
         for column in ("st_quality", "st_source"):
             reference_column = f"reference_{column}"
             if reference_column in merged:
-                merged.loc[st_available, column] = merged.loc[
-                    st_available, reference_column
+                merged.loc[use_reference_st, column] = merged.loc[
+                    use_reference_st, reference_column
                 ]
     if "tradestatus" in merged:
         status_available = merged["tradestatus"].notna()

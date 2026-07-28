@@ -46,6 +46,7 @@ class CurrentSecurityData:
     low_limit: float | None
     last_price: float | None
     name: str | None = None
+    name_quality: str | None = None
     status_quality: str | None = None
     st_quality: str | None = None
     limit_quality: str | None = None
@@ -59,6 +60,41 @@ class LazyCurrentData(Mapping):
         self.observation_date = pd.Timestamp(observation_date).normalize()
         self.minimum_quality = minimum_quality
         self._cache: dict[str, CurrentSecurityData] = {}
+        self._master: pd.DataFrame | None = None
+        self._name_events: pd.DataFrame | None = None
+
+    def _point_in_time_name(self, local_symbol: str) -> tuple[str | None, str]:
+        if self._name_events is None:
+            try:
+                events = self.portal.store.read_parquet("st_name_events")
+                events = events.copy()
+                events["effective_from"] = pd.to_datetime(
+                    events["effective_from"], errors="coerce"
+                ).dt.normalize()
+                self._name_events = events
+            except FileNotFoundError:
+                self._name_events = pd.DataFrame()
+        events = self._name_events
+        if not events.empty:
+            visible = events[
+                events["symbol"].eq(local_symbol)
+                & events["effective_from"].le(self.observation_date)
+            ].sort_values("effective_from")
+            if not visible.empty:
+                row = visible.iloc[-1]
+                quality = row.get("name_quality", row.get("st_quality", "A"))
+                return str(row["display_name"]), str(quality)
+        if self._master is None:
+            self._master = self.portal.store.read_parquet("security_master")
+        security = self._master[self._master["symbol"].eq(local_symbol)]
+        if not security.empty:
+            row = security.iloc[0]
+            end_date = pd.to_datetime(row.get("end_date"), errors="coerce")
+            if pd.notna(end_date) and self.observation_date >= end_date:
+                name = row.get("display_name")
+                quality = row.get("quality_grade", "B")
+                return (None if pd.isna(name) else str(name), str(quality))
+        return None, "C"
 
     def __getitem__(self, symbol: str) -> CurrentSecurityData:
         requested = str(symbol).upper()
@@ -73,15 +109,15 @@ class LazyCurrentData(Mapping):
                 raise KeyError(requested)
             row = frame.iloc[0]
             st_value = row["is_st"]
-            master = self.portal.store.read_parquet("security_master")
-            names = master.loc[master["symbol"].eq(local_symbol), "display_name"]
+            name, name_quality = self._point_in_time_name(local_symbol)
             self._cache[requested] = CurrentSecurityData(
                 paused=bool(row["paused"]),
                 is_st=None if pd.isna(st_value) else bool(st_value),
                 high_limit=None if pd.isna(row["high_limit"]) else float(row["high_limit"]),
                 low_limit=None if pd.isna(row["low_limit"]) else float(row["low_limit"]),
                 last_price=None if pd.isna(row["raw_close"]) else float(row["raw_close"]),
-                name=None if names.empty or pd.isna(names.iloc[0]) else str(names.iloc[0]),
+                name=name,
+                name_quality=name_quality,
                 status_quality=row.get("status_quality"),
                 st_quality=row.get("st_quality"),
                 limit_quality=row.get("limit_quality"),

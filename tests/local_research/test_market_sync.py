@@ -5,15 +5,40 @@ import pandas as pd
 
 from quant_research.data.market_reference import (
     classify_risk_warning_title,
+    normalize_eastmoney_title_name_events,
     normalize_risk_warning_events,
 )
 from quant_research.data.market_sync import (
     build_risk_warning_baselines,
     build_official_status_partitions,
     build_price_limit_partitions,
+    download_eastmoney_risk_notices,
     read_qlib_symbol_features,
 )
 from quant_research.data.store import ResearchDataStore
+
+
+def test_risk_notice_download_splits_long_ranges_by_quarter():
+    class EmptyProvider:
+        def __init__(self):
+            self.calls = []
+
+        def fetch_page(self, start, end, page_index, page_size=100):
+            self.calls.append((pd.Timestamp(start), pd.Timestamp(end), page_index))
+            return {"total_hits": 0, "list": []}
+
+    provider = EmptyProvider()
+
+    frame, checks = download_eastmoney_risk_notices(
+        "2018-01-01",
+        "2018-12-31",
+        provider=provider,
+    )
+
+    assert frame.empty
+    assert len(provider.calls) == 4
+    assert checks["periods"][0]["start"] == "2018-01-01"
+    assert checks["periods"][-1]["end"] == "2018-12-31"
 
 
 def test_price_limit_csv_is_partitioned_without_splitting_symbols(tmp_path):
@@ -130,6 +155,63 @@ def test_risk_warning_title_classifier_rejects_forecasts_and_applications():
         )
         is True
     )
+
+
+def test_eastmoney_title_prefix_recovers_sse_historical_risk_names():
+    master = pd.DataFrame(
+        {
+            "symbol": ["SH600242", "SH600077", "SZ000001"],
+            "asset_type": ["stock", "stock", "stock"],
+            "start_date": pd.to_datetime(["1999-01-01"] * 3),
+            "end_date": pd.to_datetime(["2024-12-31"] * 3),
+        }
+    )
+    notices = pd.DataFrame(
+        {
+            "stock_code": ["600242", "600077", "000001"],
+            "notice_date": ["2023-03-31", "2023-04-21", "2023-03-31"],
+            "title": [
+                "*ST中昌:关于可能被终止上市的风险提示公告",
+                "宋都股份:关于公司股票可能被实施退市风险警示的公告",
+                "*ST深测:风险提示公告",
+            ],
+            "art_code": ["st-prefix", "body-only", "sz-covered-officially"],
+        }
+    )
+    calendar = pd.DatetimeIndex(["2023-03-31", "2023-04-03", "2023-04-21"])
+
+    events = normalize_eastmoney_title_name_events(notices, master, calendar)
+
+    assert events["symbol"].tolist() == ["SH600242"]
+    assert events.loc[0, "effective_from"] == pd.Timestamp("2023-04-03")
+    assert events.loc[0, "display_name"] == "*ST中昌"
+    assert events.loc[0, "is_st"]
+    assert events.loc[0, "st_quality"] == "B"
+
+
+def test_eastmoney_code_prefix_recovers_embedded_st_name():
+    master = pd.DataFrame(
+        {
+            "symbol": ["SH600122"],
+            "asset_type": ["stock"],
+            "start_date": pd.to_datetime(["1998-01-01"]),
+            "end_date": pd.to_datetime(["2024-12-31"]),
+        }
+    )
+    notices = pd.DataFrame(
+        {
+            "stock_code": ["600122"],
+            "notice_date": ["2021-12-03"],
+            "title": ["600122:ST宏图股票交易风险提示公告"],
+            "art_code": ["code-prefix"],
+        }
+    )
+    calendar = pd.DatetimeIndex(["2021-12-03", "2021-12-06"])
+
+    events = normalize_eastmoney_title_name_events(notices, master, calendar)
+
+    assert events.loc[0, "display_name"] == "ST宏图"
+    assert events.loc[0, "effective_from"] == pd.Timestamp("2021-12-06")
 
 
 def test_risk_warning_events_start_after_baseline_and_use_next_session():

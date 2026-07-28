@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import re
+
 import numpy as np
 import pandas as pd
 
@@ -47,6 +49,16 @@ RISK_WARNING_EVENT_COLUMNS = [
     "is_st",
     "st_quality",
     "st_source",
+    "evidence_title",
+    "evidence_art_code",
+]
+
+DELISTING_EVENT_COLUMNS = [
+    "symbol",
+    "effective_from",
+    "is_delisting",
+    "quality_grade",
+    "source",
     "evidence_title",
     "evidence_art_code",
 ]
@@ -216,6 +228,199 @@ def normalize_dolthub_baostock_status(raw: pd.DataFrame) -> pd.DataFrame:
 
 def _name_is_st(value) -> bool:
     return "ST" in str(value).upper()
+
+
+def _risk_name_from_eastmoney_title(title: str, stock_code: str) -> str | None:
+    parts = re.split(r"[:：]", str(title).strip(), maxsplit=2)
+    if not parts:
+        return None
+    candidate = parts[0].strip()
+    if candidate == str(stock_code).zfill(6):
+        if len(parts) < 2:
+            return None
+        candidate = parts[1].strip()
+        for marker in ("股票", "关于", "风险", "20"):
+            position = candidate.find(marker, 2)
+            if position >= 0:
+                candidate = candidate[:position].strip()
+    upper = candidate.upper()
+    if not (
+        upper.startswith("*ST")
+        or upper.startswith("ST")
+        or candidate.startswith("退市")
+        or candidate.endswith("退")
+    ):
+        return None
+    if len(candidate) > 16 or any(char.isspace() for char in candidate):
+        return None
+    return candidate
+
+
+def normalize_eastmoney_title_name_events(
+    notices: pd.DataFrame,
+    security_master: pd.DataFrame,
+    calendar: pd.DatetimeIndex,
+) -> pd.DataFrame:
+    """从发行人公告标题前缀恢复上交所/北交所历史风险简称。"""
+
+    required = {"stock_code", "notice_date", "title", "art_code"}
+    missing = required.difference(notices.columns)
+    if missing:
+        raise ValueError(f"risk notices are missing columns: {sorted(missing)}")
+    calendar = pd.DatetimeIndex(calendar).normalize().sort_values().unique()
+    master = security_master[security_master["asset_type"].eq("stock")].copy()
+    records = []
+    for notice in notices.to_dict("records"):
+        code = str(notice["stock_code"]).zfill(6)
+        display_name = _risk_name_from_eastmoney_title(notice["title"], code)
+        if display_name is None:
+            continue
+        notice_date = pd.Timestamp(notice["notice_date"]).normalize()
+        position = calendar.searchsorted(notice_date, side="right")
+        if position >= len(calendar):
+            continue
+        candidates = master[master["symbol"].astype(str).str[2:].eq(code)]
+        candidates = candidates[~candidates["symbol"].astype(str).str.startswith("SZ")]
+        if {"start_date", "end_date"}.issubset(candidates.columns):
+            candidates = candidates[
+                pd.to_datetime(candidates["start_date"]).le(notice_date)
+                & pd.to_datetime(candidates["end_date"]).ge(notice_date)
+            ]
+        for symbol in candidates["symbol"].astype(str):
+            records.append(
+                {
+                    "symbol": symbol,
+                    "effective_from": calendar[position],
+                    "display_name": display_name,
+                    "is_st": _name_is_st(display_name),
+                    "st_quality": QualityGrade.B.value,
+                    "st_source": "eastmoney/issuer-title-name-prefix",
+                }
+            )
+    if not records:
+        return pd.DataFrame(columns=ST_NAME_EVENT_COLUMNS)
+    frame = pd.DataFrame(records).sort_values(["symbol", "effective_from"])
+    frame = frame.drop_duplicates(["symbol", "effective_from"], keep="last")
+    frame["is_st"] = pd.array(frame["is_st"], dtype="boolean")
+    return frame[ST_NAME_EVENT_COLUMNS].reset_index(drop=True)
+
+
+def normalize_delisting_events(
+    notices: pd.DataFrame,
+    security_master: pd.DataFrame,
+    calendar: pd.DatetimeIndex,
+) -> pd.DataFrame:
+    """把退市整理期公告转换为下一交易日可见的点时事件。"""
+
+    required = {"stock_code", "notice_date", "short_name", "title", "art_code"}
+    missing = required.difference(notices.columns)
+    if missing:
+        raise ValueError(f"delisting notices are missing columns: {sorted(missing)}")
+    calendar = pd.DatetimeIndex(calendar).normalize().sort_values().unique()
+    master = security_master[security_master["asset_type"].eq("stock")].copy()
+    if "start_date" in master:
+        master["start_date"] = pd.to_datetime(master["start_date"]).dt.normalize()
+    if "end_date" in master:
+        master["end_date"] = pd.to_datetime(master["end_date"]).dt.normalize()
+    records = []
+    for notice in notices.to_dict("records"):
+        short_name = "" if pd.isna(notice["short_name"]) else str(notice["short_name"])
+        title = "" if pd.isna(notice["title"]) else str(notice["title"])
+        if "退" not in short_name and "进入退市整理期" not in title:
+            continue
+        notice_date = pd.Timestamp(notice["notice_date"]).normalize()
+        position = calendar.searchsorted(notice_date, side="right")
+        if position >= len(calendar):
+            continue
+        effective_from = calendar[position]
+        code = str(notice["stock_code"]).zfill(6)
+        candidates = master[master["symbol"].astype(str).str[2:].eq(code)]
+        if {"start_date", "end_date"}.issubset(candidates.columns):
+            candidates = candidates[
+                candidates["start_date"].le(notice_date)
+                & candidates["end_date"].ge(notice_date)
+            ]
+        for symbol in candidates["symbol"].astype(str):
+            records.append(
+                {
+                    "symbol": symbol,
+                    "effective_from": effective_from,
+                    "is_delisting": True,
+                    "quality_grade": QualityGrade.B.value,
+                    "source": "eastmoney/issuer-delisting-announcement",
+                    "evidence_title": title,
+                    "evidence_art_code": str(notice["art_code"]),
+                }
+            )
+    if not records:
+        return pd.DataFrame(columns=DELISTING_EVENT_COLUMNS)
+    frame = pd.DataFrame(records).sort_values(
+        ["symbol", "effective_from", "evidence_art_code"]
+    )
+    frame = frame.drop_duplicates("symbol", keep="first")
+    return frame[DELISTING_EVENT_COLUMNS].reset_index(drop=True)
+
+
+def derive_delisting_events_from_market_history(
+    security_master: pd.DataFrame,
+    market_history: pd.DataFrame,
+) -> pd.DataFrame:
+    """按退市整理期交易日规则，从实际交易区间恢复简称带退的生效日。"""
+
+    required_master = {"symbol", "asset_type", "display_name", "end_date"}
+    missing_master = required_master.difference(security_master.columns)
+    if missing_master:
+        raise ValueError(
+            f"security master fields are missing: {sorted(missing_master)}"
+        )
+    required_history = {"symbol", "trade_date", "paused", "raw_close"}
+    missing_history = required_history.difference(market_history.columns)
+    if missing_history:
+        raise ValueError(
+            f"market history fields are missing: {sorted(missing_history)}"
+        )
+    master = security_master[
+        security_master["asset_type"].eq("stock")
+        & security_master["display_name"].fillna("").str.contains("退")
+    ].copy()
+    master["end_date"] = pd.to_datetime(master["end_date"]).dt.normalize()
+    history = market_history.copy()
+    history["trade_date"] = pd.to_datetime(history["trade_date"]).dt.normalize()
+    history = history[
+        history["paused"].eq(False) & pd.to_numeric(history["raw_close"], errors="coerce").notna()
+    ]
+    records = []
+    for row in master.itertuples(index=False):
+        sessions = (
+            history[
+                history["symbol"].eq(row.symbol)
+                & history["trade_date"].le(row.end_date)
+            ]["trade_date"]
+            .drop_duplicates()
+            .sort_values()
+        )
+        period_sessions = 30 if row.end_date <= pd.Timestamp("2020-12-31") else 15
+        if len(sessions) < period_sessions:
+            continue
+        effective_from = sessions.iloc[-period_sessions]
+        records.append(
+            {
+                "symbol": str(row.symbol),
+                "effective_from": effective_from,
+                "is_delisting": True,
+                "quality_grade": QualityGrade.B.value,
+                "source": "exchange-rule/derived-delisting-trading-period",
+                "evidence_title": f"按退市整理期 {period_sessions} 个交易日规则恢复",
+                "evidence_art_code": None,
+            }
+        )
+    if not records:
+        return pd.DataFrame(columns=DELISTING_EVENT_COLUMNS)
+    return (
+        pd.DataFrame(records)[DELISTING_EVENT_COLUMNS]
+        .sort_values(["symbol", "effective_from"])
+        .reset_index(drop=True)
+    )
 
 
 def normalize_szse_st_name_events(

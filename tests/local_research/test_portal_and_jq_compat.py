@@ -142,6 +142,30 @@ def test_joinquant_compat_supports_history_and_lazy_current_data(portal):
         current.get("SH600000")
 
 
+def test_current_data_uses_point_in_time_name_instead_of_master_current_name(portal):
+    events = pd.DataFrame(
+        {
+            "symbol": ["SH600000", "SH600000"],
+            "effective_from": pd.to_datetime(["2000-01-01", "2025-01-01"]),
+            "display_name": ["浦发银行", "浦发退"],
+            "st_quality": ["A", "A"],
+        }
+    )
+    save_dataset(portal.store, "st_name_events", events, "A")
+    master_path = portal.store.normalized_path("security_master")
+    master = pd.read_parquet(master_path)
+    master.loc[master["symbol"].eq("SH600000"), "display_name"] = "浦发退"
+    master.to_parquet(master_path, index=False)
+
+    current = JoinQuantCompat(
+        portal,
+        observation_date="2024-01-03",
+    ).get_current_data()["SH600000"]
+
+    assert current.name == "浦发银行"
+    assert current.name_quality == "A"
+
+
 def test_joinquant_compat_requires_fixed_observation_date(portal):
     api = JoinQuantCompat(portal)
 

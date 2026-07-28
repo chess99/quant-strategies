@@ -6,6 +6,7 @@ from quant_research.backtest import (
     CostModel,
     DailyBacktester,
     Position,
+    build_delisting_actions,
     performance_metrics,
     scheduled_dates,
 )
@@ -318,6 +319,35 @@ def test_market_state_rejection_reasons_are_explicit():
     ]
 
 
+def test_equal_weight_rebalance_preserves_target_priority_when_cash_is_tight():
+    date = pd.Timestamp("2024-01-02")
+    symbols = ["SH600002", "SH600001", "SH600000"]
+    bars = make_bars(
+        [(symbol, date, 10.0, 10.0, 1_000_000) for symbol in symbols]
+    )
+    state = make_state(
+        [(symbol, date, False, False, False, False) for symbol in symbols]
+    )
+    engine = DailyBacktester(
+        bars,
+        state,
+        config=BacktestConfig(initial_cash=3_005, maximum_volume_ratio=1.0),
+    )
+
+    engine.rebalance_to_weights(
+        date,
+        {
+            "SH600002": 1 / 3,
+            "SH600001": 1 / 3,
+            "SH600000": 1 / 3,
+        },
+    )
+
+    assert engine.trades["symbol"].tolist() == ["SH600002", "SH600001"]
+    assert engine.rejections.iloc[-1]["symbol"] == "SH600000"
+    assert engine.rejections.iloc[-1]["reason"] == "insufficient_cash"
+
+
 @pytest.mark.parametrize(
     ("field", "side", "expected_reason"),
     [
@@ -411,6 +441,40 @@ def test_corporate_actions_and_all_ledgers_are_auditable():
     assert not engine.fees_ledger.empty
     assert not engine.holdings.empty
     assert "cash_ratio" in engine.equity
+
+
+def test_delisting_action_cash_settles_position_on_last_trading_day():
+    dates = pd.to_datetime(["2024-01-02", "2024-01-03"])
+    bars = make_bars(
+        [
+            ("SH600000", dates[0], 10.0, 10.0, 1_000_000),
+            ("SH600000", dates[1], 8.0, 8.0, 1_000_000),
+        ]
+    )
+    state = make_state(
+        [("SH600000", date, False, False, False, False) for date in dates]
+    )
+    master = pd.DataFrame(
+        {"symbol": ["SH600000"], "end_date": [dates[1]]}
+    )
+    events = pd.DataFrame(
+        {"symbol": ["SH600000"], "effective_from": [dates[0]]}
+    )
+    actions = build_delisting_actions(events, master, bars)
+    engine = DailyBacktester(
+        bars,
+        state,
+        config=BacktestConfig(initial_cash=0, maximum_volume_ratio=1.0),
+        corporate_actions=actions,
+    )
+    engine.positions["SH600000"] = Position("SH600000", 100, 10.0, 10.0)
+
+    engine.mark_close(dates[1])
+
+    assert "SH600000" not in engine.positions
+    assert engine.cash == pytest.approx(800.0)
+    assert engine.cash_ledger.iloc[-1]["event"] == "delisting"
+    assert engine.corporate_actions.iloc[-1]["shares_after"] == 0
 
 
 @pytest.mark.parametrize(

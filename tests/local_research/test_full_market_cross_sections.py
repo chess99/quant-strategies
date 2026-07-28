@@ -5,6 +5,7 @@ import pandas as pd
 from quant_research.data.store import ResearchDataStore
 from quant_research.full_market import (
     build_asof_cross_sections,
+    build_event_cross_sections,
     build_exact_cross_sections,
     build_fundamental_cross_sections,
     build_interval_cross_sections,
@@ -145,3 +146,37 @@ def test_interval_cross_sections_never_use_future_industry_change(tmp_path):
 
     assert result.frame["industry_code"].tolist() == ["480000", "490000"]
     assert result.audit["future_interval_rows"] == 0
+
+
+def test_event_cross_sections_replay_historical_names_without_future_leakage(tmp_path):
+    store = ResearchDataStore(tmp_path)
+    frame = pd.DataFrame(
+        {
+            "symbol": ["SZ000001", "SZ000001"],
+            "effective_from": pd.to_datetime(["1991-04-03", "2024-06-01"]),
+            "display_name": ["深发展A", "平安银行"],
+            "name_quality": ["A", "A"],
+        }
+    )
+    data_file = store.write_parquet("name_events", frame)
+    store.manifest_path("name_events").write_text(
+        json.dumps(
+            {
+                "dataset": "name_events",
+                "quality_grade": "A",
+                "columns": list(frame.columns),
+                "data_files": [data_file],
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    result = build_event_cross_sections(
+        store,
+        "name_events",
+        ["2024-05-31", "2024-06-03"],
+        ["display_name", "name_quality"],
+    )
+
+    assert result.frame["display_name"].tolist() == ["深发展A", "平安银行"]
+    assert result.audit["future_event_rows"] == 0

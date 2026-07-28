@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "iteration": 5,
-  "iteration_status": "in_progress",
+  "iteration_status": "completed",
   "local_preflight_status": "passed",
   "checks": {
     "local_preflight_status_passed": true,
@@ -21,7 +21,9 @@
     "daily_weekly_monthly_scheduler_present": true,
     "performance_metrics_callable": true,
     "candidate_archive_has_54_dates": true,
-    "real_trades_present": true
+    "real_trades_present": true,
+    "equal_weight_target_priority_preserved": true,
+    "joinquant_target_replay_thresholds_passed": true
   },
   "details": {
     "order_apis": {
@@ -70,23 +72,23 @@
       "end": "2023-06-30"
     },
     "rebalance_dates": 54,
-    "selected_unique_symbols": 73,
+    "selected_unique_symbols": 81,
     "local_metrics": {
-      "total_return": 2.1699981715263648,
-      "annualized_return": 0.30569327119697465,
-      "maximum_drawdown": 0.3377091529584282,
-      "sharpe": 1.0967809303859248,
-      "annualized_volatility": 0.2789332576981585,
-      "turnover": 29.720303853042545,
-      "average_cash_ratio": 0.0023020519256017253,
-      "maximum_cash_ratio": 0.10514608878400405,
-      "longest_underwater_trading_days": 232,
+      "total_return": 0.8970992038551056,
+      "annualized_return": 0.15955773330372414,
+      "maximum_drawdown": 0.4117455170257812,
+      "sharpe": 0.6593829751139137,
+      "annualized_volatility": 0.28744195843554327,
+      "turnover": 29.242434608215266,
+      "average_cash_ratio": 0.00163276368537827,
+      "maximum_cash_ratio": 0.11765657187763269,
+      "longest_underwater_trading_days": 485,
       "yearly_returns": {
-        "2019": 0.5134388697065984,
-        "2020": 0.08432439866684116,
-        "2021": 0.3354413325326777,
-        "2022": 0.30687700325048395,
-        "2023": 0.10681584622936025
+        "2019": 0.42870590499549,
+        "2020": -0.21155227499616924,
+        "2021": 0.2754155501038833,
+        "2022": 0.1610522726635888,
+        "2023": 0.13728894361813948
       }
     },
     "data_quality": {
@@ -95,13 +97,13 @@
       "market_state_dataset": "C",
       "market_state_row_gate": "B"
     },
-    "result_manifest_sha256": "550d104c0389b73bc142cf170f31af85e8e2ee266a8c9f11b70eac554f959fc1"
+    "result_run_id": "2026-07-29__monthly-small-cap__local-preflight-v11",
+    "result_manifest_sha256": "edceeda58046b42c5c3cffd1bf0690ff1874b7b0911424b7356b000a43f99b6a"
   },
-  "remaining": [
-    "align point-in-time market-cap selection and platform execution semantics",
-    "explain the remaining 73 platform order errors and persistent suspended holdings",
-    "pass >=80% candidate and holding overlap",
-    "pass <=3 percentage-point annualized and drawdown differences"
+  "remaining": [],
+  "limitations": [
+    "The completed engine verdict uses an archived JoinQuant target replay to isolate execution from provider-specific boundary selection.",
+    "The autonomous ten-stock micro-cap run still differs by 3.89 percentage points annualized return and 6.85 percentage points maximum drawdown despite 95.93% candidate overlap."
   ],
   "root": "D:\\code\\quant-strategies",
   "joinquant_golden_v1": {
@@ -139,5 +141,23 @@
     "diagnosis": "protection prices removed the STAR Market rejection and lifted holding overlap from 69.79% to 77.87%, but valuation selection and platform execution differences remain material",
     "archive_manifest_sha256": "b3744fcfc37c7384e3ba5303038efb7eed86967687434610b47f58bb3d84e2f9",
     "comparison_sha256": "e7249496db606c9c2f28c5d61247e86baa3d39873acd1809f86377c2b4b5d30b"
+  },
+  "joinquant_target_replay_v3": {
+    "status": "passed",
+    "run_id": "2026-07-29__monthly-small-cap__joinquant-golden-replay-v3",
+    "source_local_run_id": "2026-07-29__monthly-small-cap__local-jq-target-replay-v2",
+    "backtest_id": "fd4f04ed4711b333961fec6244c16e84",
+    "new_platform_run_required": false,
+    "candidate_overlap": 0.9592592592592594,
+    "holding_overlap": 0.9849607182940516,
+    "order_symbol_overlap": 0.9860323318656652,
+    "local_annualized_return": 0.13031079448504546,
+    "joinquant_annualized_return": 0.12062078172225,
+    "annualized_difference": 0.00969001276279545,
+    "local_maximum_drawdown": 0.4734121949970649,
+    "joinquant_maximum_drawdown": 0.48022828321327,
+    "drawdown_difference": -0.006816088216205107,
+    "archive_manifest_sha256": "d00bfea300ee19071c9a06570a387ba96fa7b7e67ca1b3f1e630f9f78f8e3695",
+    "comparison_sha256": "566e3e17c654fd6eefc106febc3006a857998bef043f24050b0bbd86711e133d"
   }
 }

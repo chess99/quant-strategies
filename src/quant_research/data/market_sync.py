@@ -18,14 +18,18 @@ import pandas as pd
 
 from .contracts import DatasetManifest, QualityGrade
 from .market_reference import (
+    DELISTING_EVENT_COLUMNS,
     OFFICIAL_STATUS_COLUMNS,
     PRICE_LIMIT_COLUMNS,
     RISK_WARNING_EVENT_COLUMNS,
     ST_NAME_EVENT_COLUMNS,
     apply_st_name_events,
+    derive_delisting_events_from_market_history,
+    normalize_delisting_events,
     normalize_risk_warning_events,
     normalize_dolthub_baostock_status,
     normalize_dolthub_price_limits,
+    normalize_eastmoney_title_name_events,
     normalize_szse_st_name_events,
 )
 from .market_state import MARKET_STATE_COLUMNS, apply_market_reference, build_market_state
@@ -506,7 +510,7 @@ def download_eastmoney_risk_notices(
     provider: EastmoneyRiskNoticeProvider | None = None,
     workers: int = 12,
 ) -> tuple[pd.DataFrame, dict]:
-    """按自然年拆分下载，避免东财 50,000 条总量上限。"""
+    """按自然季度拆分下载，避免东财大区间限流和 50,000 条总量上限。"""
 
     provider = provider or EastmoneyRiskNoticeProvider()
     start = pd.Timestamp(start).normalize()
@@ -514,10 +518,12 @@ def download_eastmoney_risk_notices(
     if start > end:
         raise ValueError("risk notice start must not be after end")
     periods = []
-    for year in range(start.year, end.year + 1):
-        period_start = max(start, pd.Timestamp(year=year, month=1, day=1))
-        period_end = min(end, pd.Timestamp(year=year, month=12, day=31))
+    period_start = start
+    while period_start <= end:
+        quarter_end = period_start.to_period("Q").end_time.normalize()
+        period_end = min(end, quarter_end)
         periods.append((period_start, period_end))
+        period_start = period_end + pd.Timedelta(days=1)
 
     rows = []
     expected_hits = 0
@@ -710,6 +716,80 @@ def collect_risk_warning_events(
         calendar,
         baselines=baselines,
     )
+    issuer_name_events = normalize_eastmoney_title_name_events(
+        notices,
+        master,
+        calendar,
+    )
+    official_name_events = store.read_parquet("st_name_events")
+    official_name_events = official_name_events[
+        official_name_events["st_source"].eq("szse/official-name-change")
+    ].copy()
+    official_name_manifest = store.read_manifest("st_name_events")
+    official_name_sources = [
+        source
+        for source in official_name_manifest.get("source_files", [])
+        if "szse" in str(source.get("path", "")).lower()
+    ]
+    combined_name_events = pd.concat(
+        [official_name_events, issuer_name_events], ignore_index=True
+    )
+    combined_name_events["_quality_priority"] = combined_name_events[
+        "st_quality"
+    ].map({QualityGrade.B.value: 1, QualityGrade.A.value: 2}).fillna(0)
+    combined_name_events = (
+        combined_name_events.sort_values(
+            ["symbol", "effective_from", "_quality_priority"], kind="stable"
+        )
+        .drop_duplicates(["symbol", "effective_from"], keep="last")
+        .drop(columns="_quality_priority")
+        .reset_index(drop=True)
+    )
+    name_data_file = store.write_parquet("st_name_events", combined_name_events)
+    combined_name_manifest = DatasetManifest(
+        schema_version=2,
+        dataset="st_name_events",
+        provider="SZSE official name changes + Eastmoney issuer title prefixes",
+        quality_grade=QualityGrade.B,
+        row_count=len(combined_name_events),
+        columns=ST_NAME_EVENT_COLUMNS,
+        data_files=[name_data_file],
+        date_range={
+            "start": combined_name_events["effective_from"].min().strftime(
+                "%Y-%m-%d"
+            ),
+            "end": combined_name_events["effective_from"].max().strftime(
+                "%Y-%m-%d"
+            ),
+        },
+        source_files=[*official_name_sources, raw_artifact],
+        primary_key=["symbol", "effective_from"],
+        date_fields={"effective_from": "证券简称证据的下一交易日生效"},
+        coverage={
+            "symbols": int(combined_name_events["symbol"].nunique()),
+            "official_rows": int(len(official_name_events)),
+            "issuer_title_rows": int(len(issuer_name_events)),
+            "st_events": int(combined_name_events["is_st"].fillna(False).sum()),
+        },
+        limitations=[
+            "深交所简称变更为 A 级；上交所与北交所公告标题前缀为 B 级。",
+            "公告标题只恢复明确以 ST、*ST、退市或退结尾的风险简称，不用下载时返回的当前简称回填历史。",
+        ],
+        checks={
+            "duplicate_events": int(
+                combined_name_events.duplicated(
+                    ["symbol", "effective_from"]
+                ).sum()
+            ),
+            "official_rows_preserved": int(
+                combined_name_events["st_source"].eq(
+                    "szse/official-name-change"
+                ).sum()
+            )
+            == len(official_name_events),
+        },
+    )
+    store.write_manifest(combined_name_manifest)
     data_file = store.write_parquet("risk_warning_events", events)
     evidence_rows = int(events["evidence_art_code"].notna().sum())
     manifest = DatasetManifest(
@@ -754,6 +834,171 @@ def collect_risk_warning_events(
             ),
             "notice_start": start.strftime("%Y-%m-%d"),
             "notice_end": end.strftime("%Y-%m-%d"),
+        },
+    )
+    store.write_manifest(manifest)
+    return events, manifest
+
+
+def collect_delisting_events(
+    store: ResearchDataStore,
+    calendar: pd.DatetimeIndex,
+    *,
+    start="2018-01-01",
+    end=None,
+    workers: int = 12,
+    refresh: bool = False,
+    provider: EastmoneyRiskNoticeProvider | None = None,
+) -> tuple[pd.DataFrame, DatasetManifest]:
+    """固化退市整理期公告，并生成不可向过去回填的 B 级事件。"""
+
+    calendar = pd.DatetimeIndex(calendar).normalize().sort_values().unique()
+    end = pd.Timestamp(end or calendar[-1]).normalize()
+    start = pd.Timestamp(start).normalize()
+    raw_pattern = f"risk-notices__{start:%Y-%m-%d}__{end:%Y-%m-%d}__*.csv"
+    candidates = sorted(
+        (store.raw_dir / "eastmoney" / "risk_warning_announcements").glob(
+            raw_pattern
+        )
+    )
+    if candidates and not refresh:
+        raw_path = candidates[-1]
+        notices = pd.read_csv(raw_path)
+        notices["notice_date"] = pd.to_datetime(notices["notice_date"])
+        raw_artifact = {
+            "path": raw_path.relative_to(store.root).as_posix(),
+            "bytes": raw_path.stat().st_size,
+            "sha256": sha256_file(raw_path),
+        }
+        download_checks = {
+            "cache_reused": True,
+            "received_announcements": int(notices["art_code"].nunique()),
+            "expanded_security_rows": len(notices),
+        }
+    else:
+        notices, download_checks = download_eastmoney_risk_notices(
+            start,
+            end,
+            provider=provider,
+            workers=workers,
+        )
+        payload_hash = hashlib.sha256(
+            notices.to_csv(index=False).encode("utf-8-sig")
+        ).hexdigest()[:12]
+        raw_artifact = store.write_raw_csv(
+            "eastmoney",
+            "risk_warning_announcements",
+            (
+                f"risk-notices__{start:%Y-%m-%d}__{end:%Y-%m-%d}"
+                f"__{payload_hash}.csv"
+            ),
+            notices,
+        )
+    master = store.read_parquet("security_master")
+    events = normalize_delisting_events(notices, master, calendar)
+    if events.empty:
+        raise ValueError("risk notices produced no delisting events")
+    data_file = store.write_parquet("delisting_events", events)
+    manifest = DatasetManifest(
+        schema_version=1,
+        dataset="delisting_events",
+        provider="Eastmoney issuer announcements",
+        quality_grade=QualityGrade.B,
+        row_count=len(events),
+        columns=DELISTING_EVENT_COLUMNS,
+        data_files=[data_file],
+        date_range={
+            "start": events["effective_from"].min().strftime("%Y-%m-%d"),
+            "end": events["effective_from"].max().strftime("%Y-%m-%d"),
+        },
+        source_files=[raw_artifact],
+        primary_key=["symbol", "effective_from"],
+        date_fields={"effective_from": "公告后下一交易日生效"},
+        coverage={
+            "symbols": int(events["symbol"].nunique()),
+            "events": len(events),
+        },
+        limitations=[
+            "只识别公告元数据中已带退字的简称或明确进入退市整理期的标题。",
+            "不使用事后退市日期回填历史；未出现公告的证券保持未知而不是假定退市。",
+        ],
+        checks={
+            **download_checks,
+            "duplicate_events": int(events.duplicated("symbol").sum()),
+            "notice_start": start.strftime("%Y-%m-%d"),
+            "notice_end": end.strftime("%Y-%m-%d"),
+        },
+    )
+    store.write_manifest(manifest)
+    return events, manifest
+
+
+def build_delisting_events_from_local_history(
+    store: ResearchDataStore,
+) -> tuple[pd.DataFrame, DatasetManifest]:
+    """以证券生命周期和实际交易日恢复退市整理期事件。"""
+
+    master = store.read_parquet("security_master")
+    symbols = master.loc[
+        master["asset_type"].eq("stock")
+        & master["display_name"].fillna("").str.contains("退"),
+        "symbol",
+    ].astype(str).tolist()
+    history = store.read_symbol_partitions(
+        "daily_market_state",
+        symbols,
+        columns=["symbol", "trade_date", "paused", "raw_close"],
+        strict=False,
+    )
+    events = derive_delisting_events_from_market_history(master, history)
+    if events.empty:
+        raise ValueError("local market history produced no delisting events")
+    data_file = store.write_parquet("delisting_events", events)
+    source_files = []
+    for dataset in ("security_master", "daily_market_state"):
+        path = store.manifest_path(dataset)
+        source_files.append(
+            {
+                "path": path.relative_to(store.root).as_posix(),
+                "bytes": path.stat().st_size,
+                "sha256": sha256_file(path),
+            }
+        )
+    event_lifecycle = events.merge(
+        master[["symbol", "end_date"]], on="symbol", how="left"
+    )
+    manifest = DatasetManifest(
+        schema_version=1,
+        dataset="delisting_events",
+        provider="exchange delisting-period rules + local historical trading sessions",
+        quality_grade=QualityGrade.B,
+        row_count=len(events),
+        columns=DELISTING_EVENT_COLUMNS,
+        data_files=[data_file],
+        date_range={
+            "start": events["effective_from"].min().strftime("%Y-%m-%d"),
+            "end": events["effective_from"].max().strftime("%Y-%m-%d"),
+        },
+        source_files=source_files,
+        primary_key=["symbol", "effective_from"],
+        date_fields={
+            "effective_from": "按实际退市整理期首个交易日恢复的状态生效日"
+        },
+        coverage={
+            "candidate_symbols": len(symbols),
+            "symbols": int(events["symbol"].nunique()),
+        },
+        limitations=[
+            "2020 年末及以前按 30 个退市整理期交易日，之后按 15 个交易日恢复。",
+            "只处理证券主表终态简称含退的证券；不使用终止日提前过滤更早历史。",
+        ],
+        checks={
+            "duplicate_events": int(events.duplicated("symbol").sum()),
+            "event_after_last_trade": int(
+                event_lifecycle["effective_from"].gt(
+                    pd.to_datetime(event_lifecycle["end_date"])
+                ).sum()
+            ),
         },
     )
     store.write_manifest(manifest)

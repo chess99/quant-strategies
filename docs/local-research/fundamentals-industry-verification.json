@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "as_of": "2026-07-28",
-  "status": "in_progress_joinquant_golden_v2_failed",
+  "as_of": "2026-07-29",
+  "status": "in_progress_provider_semantics_not_accepted",
   "financials": {
     "historical_stock_universe": 6115,
     "successful_symbols": 6064,
@@ -34,7 +34,7 @@
     "coverage_report_sha256": "c9679d94908f85f466425cd589fc4363cf43ba6fc0b330e5d2fa1892c5d9f91b"
   },
   "local_value_quality_preflight": {
-    "run_id": "2026-07-28__monthly-value-quality__local-preflight-v5",
+    "run_id": "2026-07-29__monthly-value-quality__local-preflight-v7",
     "period": {
       "start": "2019-01-02",
       "end": "2023-06-30"
@@ -44,15 +44,14 @@
     "minimum_eligible_candidates": 995,
     "future_notice_rows": 0,
     "future_industry_interval_rows": 0,
-    "annualized_return": 0.1160657992053995,
-    "maximum_drawdown": 0.31025222542812736,
-    "sharpe": 0.6021148108398165,
-    "average_cash_ratio": 0.0001177020520275379,
-    "archive_manifest_sha256": "2346087c47c18229db60f6b29a7c833cae76b80e1a476b1ca21d0bab7f89bc6b",
-    "archive_report_sha256": "6f779e6f7dc1c79febf3dae4997d8d21563d077bf44c18347e52df59fffa7f0b",
+    "annualized_return": 0.11345136481025753,
+    "maximum_drawdown": 0.3158447894295068,
+    "sharpe": 0.5912175123896929,
+    "average_cash_ratio": 0.00007429583621132095,
+    "archive_manifest_sha256": "a776a4d2f92acde73f43160054f7c6100a51ae05ef53ed89a76f4951ac1b8ebc",
     "industry_manifest_sha256": "022c96bd34bf7dc1b9f95f8f7bcb84145e077e50de58ab4a4756adf38b60a96d",
     "checks_passed": true,
-    "joinquant_golden_status": "v2_complete_log_but_thresholds_failed"
+    "joinquant_golden_status": "v2_complete_log_but_provider_thresholds_failed"
   },
   "joinquant_golden_v1": {
     "run_id": "2026-07-28__monthly-value-quality__joinquant-golden-v1",
@@ -87,14 +86,35 @@
     "comparison_sha256": "bb2e70887f77b683c1fbff1dc681b0b56e74ddec9d251513a4005bc5cce1fb45",
     "diagnosis": "完整54个月确认约40%的目标差异来自估值、财务报告期或历史行业口径，而非日志截断"
   },
+  "joinquant_target_replay_v3": {
+    "status": "failed_only_on_autonomous_candidate_overlap",
+    "run_id": "2026-07-29__monthly-value-quality__joinquant-target-replay-v3",
+    "source_local_run_id": "2026-07-29__monthly-value-quality__local-jq-target-replay-v1",
+    "backtest_id": "c29fcd867c0701ef9254567a93475cef",
+    "new_platform_run_required": false,
+    "candidate_overlap": 0.6046296296296296,
+    "holding_overlap": 0.9954585537918872,
+    "order_symbol_overlap": 0.9942183364194234,
+    "local_annualized_return": 0.1524874725669143,
+    "joinquant_annualized_return": 0.17258463422954,
+    "annualized_difference": -0.020097161662625707,
+    "local_maximum_drawdown": 0.2835183441916589,
+    "joinquant_maximum_drawdown": 0.2696862164344,
+    "drawdown_difference": 0.013832127757258894,
+    "local_manifest_sha256": "c25f33610166334a0b53f379daf4370939eb50b02fa4ee1398a31aec3ea75164",
+    "archive_manifest_sha256": "3a47618aca3e15b9f697d174abd9198bbcf1672b4b0704add5850477006810c2",
+    "comparison_sha256": "ebfb8d4005a0796e0dedc8966c9c7bdd3cf78517754ec56dd56d4715ed2be0f3",
+    "diagnosis": "给定相同目标时行情、成本和撮合全部过线；剩余失败只在本地财务、估值和行业自主选股"
+  },
   "validation": {
-    "pytest": "251 passed",
+    "pytest": "266 passed",
     "repository_validation": "passed",
     "ruff_changed_files": "passed",
+    "json_parse": "passed",
     "git_diff_check": "passed"
   },
   "remaining_acceptance": [
-    "用现有54个月黄金目标离线分解财务、估值和行业字段口径",
+    "获取可核验的聚宽字段级样本，或接入第二套严格点时财务供应商以分解财务、估值和行业口径",
     "目标和持仓平均重合率至少80%",
     "年化收益和最大回撤绝对差分别不超过3个百分点"
   ]

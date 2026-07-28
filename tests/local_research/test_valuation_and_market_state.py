@@ -11,6 +11,8 @@ from quant_research.data.market_state import (
 )
 from quant_research.data.market_reference import (
     apply_st_name_events,
+    derive_delisting_events_from_market_history,
+    normalize_delisting_events,
     normalize_dolthub_baostock_status,
     normalize_dolthub_price_limits,
     normalize_szse_st_name_events,
@@ -22,6 +24,67 @@ from quant_research.data.valuation import (
     normalize_eastmoney_valuation,
     sync_valuation_partitions,
 )
+
+
+def test_delisting_notices_become_point_in_time_events_on_next_session():
+    master = pd.DataFrame(
+        {
+            "symbol": ["SH600091", "SZ000585", "SH600000"],
+            "asset_type": ["stock", "stock", "stock"],
+        }
+    )
+    notices = pd.DataFrame(
+        {
+            "stock_code": ["600091", "000585", "600000"],
+            "notice_date": pd.to_datetime(["2022-05-17"] * 3),
+            "short_name": ["退市明科", "*ST东电", "浦发银行"],
+            "title": [
+                "关于公司股票进入退市整理期交易的公告",
+                "关于公司A股股票进入退市整理期交易的公告",
+                "年度股东大会决议公告",
+            ],
+            "art_code": ["A1", "A2", "A3"],
+        }
+    )
+    calendar = pd.to_datetime(["2022-05-17", "2022-05-18", "2022-05-19"])
+
+    events = normalize_delisting_events(notices, master, calendar)
+
+    assert events["symbol"].tolist() == ["SH600091", "SZ000585"]
+    assert events["effective_from"].tolist() == [
+        pd.Timestamp("2022-05-18"),
+        pd.Timestamp("2022-05-18"),
+    ]
+    assert events["is_delisting"].tolist() == [True, True]
+    assert events["quality_grade"].tolist() == ["B", "B"]
+
+
+def test_delisting_period_start_is_derived_from_historical_trading_sessions():
+    master = pd.DataFrame(
+        {
+            "symbol": ["SH600001", "SH600002"],
+            "asset_type": ["stock", "stock"],
+            "display_name": ["退市旧规", "退市新规"],
+            "end_date": pd.to_datetime(["2020-12-31", "2022-12-30"]),
+        }
+    )
+    old_dates = pd.bdate_range("2020-11-02", periods=44)
+    new_dates = pd.bdate_range("2022-12-01", periods=22)
+    history = pd.DataFrame(
+        {
+            "symbol": ["SH600001"] * len(old_dates) + ["SH600002"] * len(new_dates),
+            "trade_date": old_dates.tolist() + new_dates.tolist(),
+            "paused": [False] * (len(old_dates) + len(new_dates)),
+            "raw_close": [1.0] * (len(old_dates) + len(new_dates)),
+        }
+    )
+
+    events = derive_delisting_events_from_market_history(master, history)
+    rows = events.set_index("symbol")
+
+    assert rows.loc["SH600001", "effective_from"] == old_dates[-30]
+    assert rows.loc["SH600002", "effective_from"] == new_dates[-15]
+    assert rows["quality_grade"].eq("B").all()
 
 
 def test_eastmoney_valuation_normalizes_units_and_dates():
@@ -300,6 +363,61 @@ def test_baostock_status_overrides_registration_board_st_unknown():
     assert result.loc[0, "is_st"]
     assert result.loc[0, "st_quality"] == "B"
     assert result.loc[0, "st_source"] == "dolthub/baostock-is-st"
+
+
+def test_baostock_false_does_not_override_exact_five_percent_st_evidence():
+    raw_limits = pd.DataFrame(
+        {
+            "tradedate": ["2023-04-03"],
+            "symbol": ["SH600242"],
+            "pre_close": [4.00],
+            "up_limit": [4.20],
+            "down_limit": [3.80],
+        }
+    )
+    state = pd.DataFrame(
+        {
+            "symbol": ["SH600242"],
+            "trade_date": pd.to_datetime(["2023-04-03"]),
+            "paused": [False],
+            "is_st": pd.array([pd.NA], dtype="boolean"),
+            "raw_open": [4.00],
+            "raw_high": [4.01],
+            "raw_low": [3.99],
+            "raw_close": [4.00],
+            "previous_raw_close": [4.00],
+            "high_limit": [4.40],
+            "low_limit": [3.60],
+            "one_price": [False],
+            "buy_blocked": [False],
+            "sell_blocked": [False],
+            "no_price_limit": [False],
+            "status_quality": ["B"],
+            "st_quality": ["C"],
+            "limit_quality": ["C"],
+            "status_source": ["qlib-community-cn/derived"],
+            "st_source": [None],
+            "limit_source": ["board-rule-derived"],
+            "source": ["qlib-community-cn/derived"],
+        }
+    )
+    state = apply_market_reference(state, normalize_dolthub_price_limits(raw_limits))
+    baostock = normalize_dolthub_baostock_status(
+        pd.DataFrame(
+            {
+                "tradedate": ["2023-04-03"],
+                "symbol": ["SH600242"],
+                "tradestatus": [1],
+                "is_st": [0],
+            }
+        )
+    )
+
+    result = apply_market_reference(state, baostock)
+
+    assert result.loc[0, "is_st"]
+    assert result.loc[0, "st_quality"] == "B"
+    assert result.loc[0, "st_source"] == "dolthub/final-a-stock-limit-inferred"
 
 
 def test_szse_name_change_events_replay_st_by_effective_date():

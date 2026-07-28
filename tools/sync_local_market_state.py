@@ -18,6 +18,7 @@ from quant_research.data.market_sync import (  # noqa: E402
     build_market_state_partitions,
     build_official_status_partitions,
     build_price_limit_partitions,
+    build_delisting_events_from_local_history,
     collect_risk_warning_events,
     collect_szse_st_name_events,
     export_dolt_baostock_status,
@@ -131,6 +132,7 @@ def main() -> int:
             workers=args.notice_workers,
             refresh=args.refresh_notices,
         )
+        _, delisting_manifest = build_delisting_events_from_local_history(store)
         if args.stage in {"reference", "events"}:
             payload = {
                 "stage": args.stage,
@@ -138,6 +140,7 @@ def main() -> int:
                 "risk_warning_announcement_events": risk_manifest.coverage[
                     "announcement_events"
                 ],
+                "delisting_event_rows": delisting_manifest.row_count,
             }
             if args.stage == "reference":
                 payload.update(

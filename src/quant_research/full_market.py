@@ -177,6 +177,92 @@ def build_exact_cross_sections(
     return CrossSectionBuildResult(result, audit)
 
 
+def build_event_cross_sections(
+    store: ResearchDataStore,
+    dataset: str,
+    observation_dates: Iterable,
+    fields: Iterable[str],
+    *,
+    event_date_field: str = "effective_from",
+    symbols: Iterable[str] | None = None,
+) -> CrossSectionBuildResult:
+    """回放离散生效事件，逐证券选择观察日以前的最后一条记录。"""
+
+    dates = _dates(observation_dates)
+    requested_fields = list(dict.fromkeys(fields))
+    manifest = store.read_manifest(dataset)
+    required = {"symbol", event_date_field, *requested_fields}
+    missing_fields = required.difference(manifest.get("columns", []))
+    if missing_fields:
+        raise ValueError(f"{dataset} fields are unavailable: {sorted(missing_fields)}")
+    selected = None if symbols is None else {str(symbol).upper() for symbol in symbols}
+    frames = []
+    for artifact in manifest.get("data_files", []):
+        source = pd.read_parquet(
+            store.root / artifact["path"],
+            columns=["symbol", event_date_field, *requested_fields],
+        )
+        if selected is not None:
+            source = source[source["symbol"].astype(str).str.upper().isin(selected)]
+        if not source.empty:
+            frames.append(source)
+    source = (
+        pd.concat(frames, ignore_index=True)
+        if frames
+        else pd.DataFrame(columns=["symbol", event_date_field, *requested_fields])
+    )
+    source[event_date_field] = pd.to_datetime(
+        source[event_date_field], errors="coerce"
+    ).dt.normalize()
+    source = source.dropna(subset=["symbol", event_date_field])
+    source = source[source[event_date_field].le(dates.max())]
+    targets = pd.DataFrame({"observation_date": dates})
+    matched_frames = []
+    for symbol, group in source.groupby("symbol", sort=True):
+        events = (
+            group.sort_values(event_date_field)
+            .drop_duplicates(event_date_field, keep="last")
+        )
+        matched = pd.merge_asof(
+            targets,
+            events,
+            left_on="observation_date",
+            right_on=event_date_field,
+            direction="backward",
+        ).dropna(subset=[event_date_field])
+        if not matched.empty:
+            matched["symbol"] = symbol
+            matched_frames.append(matched)
+    result = (
+        pd.concat(matched_frames, ignore_index=True)
+        if matched_frames
+        else pd.DataFrame(
+            columns=["observation_date", "symbol", event_date_field, *requested_fields]
+        )
+    )
+    result = result[
+        ["observation_date", "symbol", event_date_field, *requested_fields]
+    ].sort_values(["observation_date", "symbol"])
+    target_symbols = int(source["symbol"].nunique()) if not source.empty else 0
+    expected = target_symbols * len(dates)
+    audit = {
+        "dataset": dataset,
+        "mode": "event_asof",
+        "quality_grade": manifest.get("quality_grade"),
+        "event_date_field": event_date_field,
+        "observation_date_count": len(dates),
+        "target_symbols": target_symbols,
+        "successful_symbols": int(result["symbol"].nunique()) if not result.empty else 0,
+        "expected_symbol_dates": expected,
+        "matched_symbol_dates": len(result),
+        "coverage_ratio": len(result) / expected if expected else 0.0,
+        "future_event_rows": int(
+            result[event_date_field].gt(result["observation_date"]).sum()
+        ),
+    }
+    return CrossSectionBuildResult(result.reset_index(drop=True), audit)
+
+
 def build_fundamental_cross_sections(
     store: ResearchDataStore,
     dataset: str,

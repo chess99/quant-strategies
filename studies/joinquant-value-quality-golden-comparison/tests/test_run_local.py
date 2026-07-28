@@ -20,13 +20,13 @@ def test_value_quality_ranking_rewards_lower_value_ratios_and_higher_quality():
                 "pe_ttm": 5.0 + number,
                 "pb": 0.5 + number / 10,
                 "ps": 1.0 + number / 10,
-                "roe": 30.0 - number,
-                "roa": 20.0 - number,
-                "gross_margin": 60.0 - number,
-                "net_margin": 30.0 - number,
+                "quarter_roe": 30.0 - number,
+                "quarter_roa": 20.0 - number,
+                "quarter_gross_margin": 60.0 - number,
+                "quarter_net_margin": 30.0 - number,
                 "total_assets": 100.0,
                 "total_liabilities": 20.0 + number,
-                "operating_cash_flow": 10.0,
+                "quarter_operating_cash_flow": 10.0,
             }
         )
 

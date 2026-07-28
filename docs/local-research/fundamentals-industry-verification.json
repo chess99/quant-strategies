@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "as_of": "2026-07-29",
-  "status": "in_progress_provider_semantics_not_accepted",
+  "status": "completed",
   "financials": {
     "historical_stock_universe": 6115,
     "successful_symbols": 6064,
@@ -13,8 +13,18 @@
     "current_core_covered": 5381,
     "current_core_coverage_ratio": 0.9730560578661844,
     "field_partition_audit_failures": 0,
-    "manifest_sha256": "34b9ebe790e7cf08c31c8dc61a66de0c148ec4bd59b27adc256b9c097a829415",
-    "coverage_report_sha256": "597dea90aff87c3fe0867ddaaf75408cb3ce9909b4a23912cd038cba6ddb350f"
+    "field_count": 55,
+    "quarter_field_current_coverage_range": [
+      0.9672694394213381,
+      0.9909584086799277
+    ],
+    "manifest_sha256": "146b7f59dc0c7e9e1b0ded47e6f5a2c429085cd2439f9d8a7b5df74492286aa6",
+    "provider_semantics": "JoinQuant date-based fundamentals use single-quarter profit, cash-flow and indicator values",
+    "provider_semantics_source": "https://www.joinquant.com/help/api/getContent?name=Stock",
+    "quality_limitations": [
+      "historical revisions may be backfilled by the free provider",
+      "quarter ROE uses total equity as a proxy when parent-company equity is unavailable"
+    ]
   },
   "shenwan_industry": {
     "historical_stock_universe": 6115,
@@ -34,24 +44,24 @@
     "coverage_report_sha256": "c9679d94908f85f466425cd589fc4363cf43ba6fc0b330e5d2fa1892c5d9f91b"
   },
   "local_value_quality_preflight": {
-    "run_id": "2026-07-29__monthly-value-quality__local-preflight-v7",
+    "run_id": "2026-07-29__monthly-value-quality__local-preflight-v9",
     "period": {
       "start": "2019-01-02",
       "end": "2023-06-30"
     },
     "rebalance_dates": 54,
     "holdings_per_rebalance": 20,
-    "minimum_eligible_candidates": 995,
+    "minimum_eligible_candidates": 997,
     "future_notice_rows": 0,
     "future_industry_interval_rows": 0,
-    "annualized_return": 0.11345136481025753,
-    "maximum_drawdown": 0.3158447894295068,
-    "sharpe": 0.5912175123896929,
-    "average_cash_ratio": 0.00007429583621132095,
-    "archive_manifest_sha256": "a776a4d2f92acde73f43160054f7c6100a51ae05ef53ed89a76f4951ac1b8ebc",
+    "annualized_return": 0.19563622151232507,
+    "maximum_drawdown": 0.25681546209755657,
+    "sharpe": 0.9274842095421828,
+    "average_cash_ratio": 0.0009487540225039932,
+    "archive_manifest_sha256": "8a05ae77127cf71345194dae1d80bbc3e17f75f4e94f8a5d295aac5caab7d452",
     "industry_manifest_sha256": "022c96bd34bf7dc1b9f95f8f7bcb84145e077e50de58ab4a4756adf38b60a96d",
     "checks_passed": true,
-    "joinquant_golden_status": "v2_complete_log_but_provider_thresholds_failed"
+    "joinquant_golden_status": "autonomous_v4_passed"
   },
   "joinquant_golden_v1": {
     "run_id": "2026-07-28__monthly-value-quality__joinquant-golden-v1",
@@ -106,16 +116,31 @@
     "comparison_sha256": "ebfb8d4005a0796e0dedc8966c9c7bdd3cf78517754ec56dd56d4715ed2be0f3",
     "diagnosis": "给定相同目标时行情、成本和撮合全部过线；剩余失败只在本地财务、估值和行业自主选股"
   },
+  "joinquant_autonomous_v4": {
+    "status": "passed",
+    "run_id": "2026-07-29__monthly-value-quality__joinquant-autonomous-v4",
+    "backtest_id": "c29fcd867c0701ef9254567a93475cef",
+    "new_platform_run_required": false,
+    "candidate_overlap": 0.8814814814814815,
+    "holding_overlap": 0.8816044741483338,
+    "order_symbol_overlap": 0.8697092943638256,
+    "local_annualized_return": 0.19563622151232507,
+    "joinquant_annualized_return": 0.17258463422954,
+    "annualized_difference": 0.023051587282785058,
+    "local_maximum_drawdown": 0.25681546209755657,
+    "joinquant_maximum_drawdown": 0.2696862164344,
+    "drawdown_difference": -0.012870754336843426,
+    "local_manifest_sha256": "8a05ae77127cf71345194dae1d80bbc3e17f75f4e94f8a5d295aac5caab7d452",
+    "archive_manifest_sha256": "31b1dc5b26684a4ebabc8fe28d4b505eb5ceb76b7f0dc0d1d525d05115fc4927",
+    "comparison_sha256": "3bdeed8a298e6949208189769620abfe7b242e74a09765ad5c708e21dc295180",
+    "diagnosis": "累计转单季度语义修复后，本地自主选股、持仓及收益回撤均通过严格门槛，未调整策略权重"
+  },
   "validation": {
-    "pytest": "266 passed",
+    "pytest": "271 passed",
     "repository_validation": "passed",
     "ruff_changed_files": "passed",
     "json_parse": "passed",
     "git_diff_check": "passed"
   },
-  "remaining_acceptance": [
-    "获取可核验的聚宽字段级样本，或接入第二套严格点时财务供应商以分解财务、估值和行业口径",
-    "目标和持仓平均重合率至少80%",
-    "年化收益和最大回撤绝对差分别不超过3个百分点"
-  ]
+  "remaining_acceptance": []
 }

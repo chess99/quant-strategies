@@ -11,6 +11,7 @@ import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from datetime import datetime, timezone
+from functools import lru_cache
 from pathlib import Path
 from typing import Any
 
@@ -156,6 +157,21 @@ FINANCIAL_COLUMNS = [
     "roa",
     "gross_margin",
     "net_margin",
+    "quarter_revenue",
+    "quarter_operating_revenue",
+    "quarter_operating_cost",
+    "quarter_operating_profit",
+    "quarter_net_profit",
+    "quarter_parent_net_profit",
+    "quarter_deducted_parent_net_profit",
+    "quarter_operating_cash_flow",
+    "quarter_capital_expenditure",
+    "quarter_free_cash_flow",
+    "quarter_ebit",
+    "quarter_roe",
+    "quarter_roa",
+    "quarter_gross_margin",
+    "quarter_net_margin",
     "source",
     "quality_grade",
 ]
@@ -176,6 +192,18 @@ NUMERIC_COLUMNS = set(FINANCIAL_COLUMNS).difference(
         "quality_grade",
     }
 )
+
+CUMULATIVE_TO_QUARTER = {
+    "revenue": "quarter_revenue",
+    "operating_revenue": "quarter_operating_revenue",
+    "operating_cost": "quarter_operating_cost",
+    "operating_profit": "quarter_operating_profit",
+    "net_profit": "quarter_net_profit",
+    "parent_net_profit": "quarter_parent_net_profit",
+    "deducted_parent_net_profit": "quarter_deducted_parent_net_profit",
+    "operating_cash_flow": "quarter_operating_cash_flow",
+    "capital_expenditure": "quarter_capital_expenditure",
+}
 
 
 def eastmoney_symbol(symbol: str) -> str:
@@ -214,6 +242,105 @@ def _normalize_table(rows: list[dict], spec: StatementSpec) -> pd.DataFrame:
         .drop_duplicates(["report_date", "notice_date"], keep="last")
         .reset_index(drop=True)
     )
+
+
+def _previous_fiscal_quarter(year: int, quarter: int) -> tuple[int, int]:
+    return (year - 1, 4) if quarter == 1 else (year, quarter - 1)
+
+
+def _derive_single_quarter_fields(frame: pd.DataFrame) -> pd.DataFrame:
+    """把公开源的年内累计流量转成聚宽 ``date=`` 查询使用的单季度口径。"""
+
+    result = frame.copy()
+    for target in CUMULATIVE_TO_QUARTER.values():
+        result[target] = np.nan
+    for column in (
+        "quarter_free_cash_flow",
+        "quarter_ebit",
+        "quarter_roe",
+        "quarter_roa",
+        "quarter_gross_margin",
+        "quarter_net_margin",
+    ):
+        result[column] = np.nan
+
+    ordered = result.sort_values(["report_date", "notice_date"])
+    for index, row in ordered.iterrows():
+        fiscal_year = int(row["fiscal_year"])
+        fiscal_quarter = int(row["fiscal_quarter"])
+        previous_year, previous_quarter = _previous_fiscal_quarter(
+            fiscal_year, fiscal_quarter
+        )
+        previous = ordered[
+            ordered["fiscal_year"].eq(previous_year)
+            & ordered["fiscal_quarter"].eq(previous_quarter)
+            & ordered["notice_date"].le(row["notice_date"])
+        ]
+        previous_row = (
+            previous.sort_values(["report_date", "notice_date"]).iloc[-1]
+            if not previous.empty
+            else None
+        )
+        for cumulative, target in CUMULATIVE_TO_QUARTER.items():
+            current_value = row[cumulative]
+            if pd.isna(current_value):
+                continue
+            if fiscal_quarter == 1:
+                result.at[index, target] = current_value
+            elif previous_row is not None and pd.notna(previous_row[cumulative]):
+                result.at[index, target] = current_value - previous_row[cumulative]
+
+        quarter_revenue = result.at[index, "quarter_operating_revenue"]
+        quarter_cost = result.at[index, "quarter_operating_cost"]
+        quarter_profit = result.at[index, "quarter_net_profit"]
+        quarter_parent_profit = result.at[index, "quarter_parent_net_profit"]
+        if pd.notna(quarter_revenue) and quarter_revenue > 0:
+            if pd.notna(quarter_cost):
+                result.at[index, "quarter_gross_margin"] = (
+                    (quarter_revenue - quarter_cost) / quarter_revenue * 100.0
+                )
+            if pd.notna(quarter_profit):
+                result.at[index, "quarter_net_margin"] = (
+                    quarter_profit / quarter_revenue * 100.0
+                )
+        if previous_row is not None:
+            previous_assets = previous_row["total_assets"]
+            if (
+                pd.notna(quarter_profit)
+                and pd.notna(previous_assets)
+                and pd.notna(row["total_assets"])
+                and previous_assets + row["total_assets"] > 0
+            ):
+                result.at[index, "quarter_roa"] = (
+                    quarter_profit * 2.0 / (previous_assets + row["total_assets"]) * 100.0
+                )
+            previous_equity = previous_row["total_equity"]
+            if (
+                pd.notna(quarter_parent_profit)
+                and pd.notna(previous_equity)
+                and pd.notna(row["total_equity"])
+                and previous_equity + row["total_equity"] > 0
+            ):
+                result.at[index, "quarter_roe"] = (
+                    quarter_parent_profit
+                    * 2.0
+                    / (previous_equity + row["total_equity"])
+                    * 100.0
+                )
+        elif fiscal_quarter == 1:
+            result.at[index, "quarter_roa"] = row["roa"]
+            result.at[index, "quarter_roe"] = row["roe"]
+        if fiscal_quarter == 1:
+            if pd.isna(result.at[index, "quarter_gross_margin"]):
+                result.at[index, "quarter_gross_margin"] = row["gross_margin"]
+            if pd.isna(result.at[index, "quarter_net_margin"]):
+                result.at[index, "quarter_net_margin"] = row["net_margin"]
+
+    result["quarter_free_cash_flow"] = (
+        result["quarter_operating_cash_flow"] - result["quarter_capital_expenditure"]
+    )
+    result["quarter_ebit"] = result["quarter_operating_profit"]
+    return result
 
 
 def normalize_financial_statements(
@@ -313,6 +440,7 @@ def normalize_financial_statements(
     frame["fiscal_year"] = frame["report_date"].dt.year.astype("int16")
     frame["is_annual"] = frame["fiscal_quarter"].eq(4)
     frame["revision_sequence"] = frame.groupby("report_date").cumcount().astype("int16") + 1
+    frame = _derive_single_quarter_fields(frame)
     if "update_date" not in frame:
         frame["update_date"] = frame["notice_date"]
     frame["update_date"] = pd.to_datetime(frame["update_date"], errors="coerce").fillna(
@@ -446,10 +574,21 @@ def _raw_path(store: ResearchDataStore, table: str, symbol: str) -> Path:
     return store.raw_dir / "eastmoney" / "financial-statements" / table / f"{symbol}.json.gz"
 
 
+@lru_cache(maxsize=None)
+def _raw_directory_index(directory: str) -> dict[str, Path]:
+    grouped: dict[str, list[Path]] = {}
+    for path in Path(directory).glob("*.json.gz"):
+        symbol = path.name.removesuffix(".json.gz").split("__", 1)[0]
+        grouped.setdefault(symbol, []).append(path)
+    return {
+        symbol: max(paths, key=lambda item: item.stat().st_mtime_ns)
+        for symbol, paths in grouped.items()
+    }
+
+
 def _latest_raw_path(store: ResearchDataStore, table: str, symbol: str) -> Path | None:
     canonical = _raw_path(store, table, symbol)
-    candidates = list(canonical.parent.glob(f"{symbol}*.json.gz"))
-    return max(candidates, key=lambda item: item.stat().st_mtime_ns) if candidates else None
+    return _raw_directory_index(str(canonical.parent.resolve())).get(symbol)
 
 
 def _load_cached_raw(store: ResearchDataStore, symbol: str) -> dict[str, list[dict]] | None:
@@ -649,6 +788,11 @@ def sync_financial_statement_partitions(
     ).astype(str).str.upper()
     universe = universe.drop_duplicates("symbol").sort_values("symbol")
     provider = provider or EastmoneyFinancialStatementProvider()
+    if not refresh:
+        for table in STATEMENT_SPECS:
+            _raw_directory_index(
+                str(_raw_path(store, table, "__index__").parent.resolve())
+            )
     existing = (
         pd.read_parquet(_status_path(store))
         if resume and _status_path(store).is_file()

@@ -323,3 +323,38 @@ def test_query_dsl_and_statdate_have_actionable_migration_errors(portal):
         api.get_fundamentals(object(), date="2024-01-03")
     with pytest.raises(CapabilityError, match="statDate"):
         api.get_fundamentals(["600000.XSHG"], statDate="2023")
+
+
+def test_joinquant_financial_aliases_use_single_quarter_semantics(portal):
+    fundamentals = pd.DataFrame(
+        {
+            "symbol": ["SH600000"],
+            "report_date": pd.to_datetime(["2023-09-30"]),
+            "notice_date": pd.to_datetime(["2023-10-30"]),
+            "roe": [15.0],
+            "quarter_roe": [4.0],
+            "quarter_gross_margin": [32.0],
+            "quarter_net_margin": [8.0],
+            "quarter_operating_cash_flow": [120.0],
+            "total_liabilities": [500.0],
+        }
+    )
+    save_symbol_partitions(portal.store, "fundamentals_pit", fundamentals, "B")
+    api = JoinQuantCompat(portal, observation_date="2024-01-03")
+
+    result = api.get_fundamentals(
+        ["600000.XSHG"],
+        fields=[
+            "roe",
+            "gross_profit_margin",
+            "net_profit_margin",
+            "net_operate_cash_flow",
+            "total_liability",
+        ],
+    )
+
+    assert result.loc[0, "roe"] == 4.0
+    assert result.loc[0, "gross_profit_margin"] == 32.0
+    assert result.loc[0, "net_profit_margin"] == 8.0
+    assert result.loc[0, "net_operate_cash_flow"] == 120.0
+    assert result.loc[0, "total_liability"] == 500.0

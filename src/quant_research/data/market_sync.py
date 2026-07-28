@@ -32,7 +32,12 @@ from .market_reference import (
     normalize_eastmoney_title_name_events,
     normalize_szse_st_name_events,
 )
-from .market_state import MARKET_STATE_COLUMNS, apply_market_reference, build_market_state
+from .market_state import (
+    MARKET_STATE_COLUMNS,
+    apply_market_reference,
+    build_market_state,
+    finalize_rule_based_limits,
+)
 from .security_lifecycle import clip_to_security_lifecycle
 from .store import ResearchDataStore, sha256_file
 
@@ -1152,6 +1157,10 @@ def build_market_state_partitions(
                 state = apply_st_name_events(state, risk_warning_events)
             if not st_name_events.empty and symbol.startswith("SZ"):
                 state = apply_st_name_events(state, st_name_events)
+            state = finalize_rule_based_limits(
+                state,
+                {symbol: str(row.board)},
+            )
             artifact = store.write_parquet(
                 "daily_market_state",
                 state,

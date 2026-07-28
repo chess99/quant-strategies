@@ -386,31 +386,56 @@ def derive_delisting_events_from_market_history(
     master["end_date"] = pd.to_datetime(master["end_date"]).dt.normalize()
     history = market_history.copy()
     history["trade_date"] = pd.to_datetime(history["trade_date"]).dt.normalize()
-    history = history[
-        history["paused"].eq(False) & pd.to_numeric(history["raw_close"], errors="coerce").notna()
-    ]
+    history = history.sort_values(["symbol", "trade_date"])
     records = []
     for row in master.itertuples(index=False):
-        sessions = (
-            history[
-                history["symbol"].eq(row.symbol)
-                & history["trade_date"].le(row.end_date)
-            ]["trade_date"]
-            .drop_duplicates()
-            .sort_values()
-        )
+        symbol_history = history[
+            history["symbol"].eq(row.symbol)
+            & history["trade_date"].le(row.end_date)
+        ].drop_duplicates("trade_date", keep="last")
+        active = symbol_history["paused"].eq(False) & pd.to_numeric(
+            symbol_history["raw_close"], errors="coerce"
+        ).notna()
+        active_positions = np.flatnonzero(active.to_numpy())
+        sessions = symbol_history.loc[active, "trade_date"].reset_index(drop=True)
         period_sessions = 30 if row.end_date <= pd.Timestamp("2020-12-31") else 15
-        if len(sessions) < period_sessions:
-            continue
-        effective_from = sessions.iloc[-period_sessions]
+        effective_from = None
+        source = "exchange-rule/derived-delisting-trading-period"
+        evidence = f"按退市整理期 {period_sessions} 个交易日规则恢复"
+        if len(active_positions) >= 2:
+            inactive_gaps = np.diff(active_positions) - 1
+            long_gap_indexes = np.flatnonzero(inactive_gaps >= 5)
+            if len(long_gap_indexes):
+                final_start = active_positions[long_gap_indexes[-1] + 1]
+                final_block = symbol_history.iloc[final_start:]
+                final_sessions = final_block.loc[
+                    final_block["paused"].eq(False)
+                    & pd.to_numeric(
+                        final_block["raw_close"], errors="coerce"
+                    ).notna(),
+                    "trade_date",
+                ]
+                if 1 <= len(final_sessions) <= 30:
+                    effective_from = final_sessions.iloc[0]
+                    source = (
+                        "exchange-rule/derived-delisting-final-trading-block"
+                    )
+                    evidence = (
+                        "按长期停牌后的末段交易区间恢复退市整理期，"
+                        f"共 {len(final_sessions)} 个实际交易日"
+                    )
+        if effective_from is None:
+            if len(sessions) < period_sessions:
+                continue
+            effective_from = sessions.iloc[-period_sessions]
         records.append(
             {
                 "symbol": str(row.symbol),
                 "effective_from": effective_from,
                 "is_delisting": True,
                 "quality_grade": QualityGrade.B.value,
-                "source": "exchange-rule/derived-delisting-trading-period",
-                "evidence_title": f"按退市整理期 {period_sessions} 个交易日规则恢复",
+                "source": source,
+                "evidence_title": evidence,
                 "evidence_art_code": None,
             }
         )

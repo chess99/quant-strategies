@@ -72,23 +72,23 @@
       "end": "2023-06-30"
     },
     "rebalance_dates": 54,
-    "selected_unique_symbols": 81,
+    "selected_unique_symbols": 79,
     "local_metrics": {
-      "total_return": 0.8970992038551056,
-      "annualized_return": 0.15955773330372414,
-      "maximum_drawdown": 0.4117455170257812,
-      "sharpe": 0.6593829751139137,
-      "annualized_volatility": 0.28744195843554327,
-      "turnover": 29.242434608215266,
-      "average_cash_ratio": 0.00163276368537827,
-      "maximum_cash_ratio": 0.11765657187763269,
-      "longest_underwater_trading_days": 485,
+      "total_return": 0.6650746024250604,
+      "annualized_return": 0.12510704849636456,
+      "maximum_drawdown": 0.47557862580539134,
+      "sharpe": 0.5533187918700301,
+      "annualized_volatility": 0.2885480481481623,
+      "turnover": 28.47134129012561,
+      "average_cash_ratio": 0.0000810176972761977,
+      "maximum_cash_ratio": 0.0006124588654716987,
+      "longest_underwater_trading_days": 625,
       "yearly_returns": {
-        "2019": 0.42870590499549,
-        "2020": -0.21155227499616924,
-        "2021": 0.2754155501038833,
-        "2022": 0.1610522726635888,
-        "2023": 0.13728894361813948
+        "2019": 0.48394394731588464,
+        "2020": -0.2819348786199125,
+        "2021": 0.22167032276987375,
+        "2022": 0.14554553155289196,
+        "2023": 0.11657008463685847
       }
     },
     "data_quality": {
@@ -97,13 +97,13 @@
       "market_state_dataset": "C",
       "market_state_row_gate": "B"
     },
-    "result_run_id": "2026-07-29__monthly-small-cap__local-preflight-v11",
-    "result_manifest_sha256": "edceeda58046b42c5c3cffd1bf0690ff1874b7b0911424b7356b000a43f99b6a"
+    "result_run_id": "2026-07-29__monthly-small-cap__local-preflight-v12",
+    "result_manifest_sha256": "5a4ae56d7d0b5c299d2c28c1e4418959990bbf7bbab72228b171446203fdc1f8"
   },
   "remaining": [],
   "limitations": [
-    "The completed engine verdict uses an archived JoinQuant target replay to isolate execution from provider-specific boundary selection.",
-    "The autonomous ten-stock micro-cap run still differs by 3.89 percentage points annualized return and 6.85 percentage points maximum drawdown despite 95.93% candidate overlap."
+    "The final strict verdict uses autonomous local point-in-time selection, not JoinQuant target replay.",
+    "The historical target replay remains archived only as intermediate evidence isolating execution."
   ],
   "root": "D:\\code\\quant-strategies",
   "joinquant_golden_v1": {
@@ -159,5 +159,24 @@
     "drawdown_difference": -0.006816088216205107,
     "archive_manifest_sha256": "d00bfea300ee19071c9a06570a387ba96fa7b7e67ca1b3f1e630f9f78f8e3695",
     "comparison_sha256": "566e3e17c654fd6eefc106febc3006a857998bef043f24050b0bbd86711e133d"
+  },
+  "joinquant_autonomous_v4": {
+    "status": "passed",
+    "run_id": "2026-07-29__monthly-small-cap__joinquant-autonomous-v4",
+    "backtest_id": "fd4f04ed4711b333961fec6244c16e84",
+    "new_platform_run_required": false,
+    "candidate_overlap": 1.0,
+    "holding_overlap": 0.986952861952862,
+    "order_symbol_overlap": 0.9858559650226317,
+    "local_annualized_return": 0.12510704849636456,
+    "joinquant_annualized_return": 0.12062078172225,
+    "annualized_difference": 0.004486266774114553,
+    "local_maximum_drawdown": 0.47557862580539134,
+    "joinquant_maximum_drawdown": 0.48022828321327,
+    "drawdown_difference": -0.004649657407878649,
+    "local_manifest_sha256": "5a4ae56d7d0b5c299d2c28c1e4418959990bbf7bbab72228b171446203fdc1f8",
+    "archive_manifest_sha256": "73159f8c0f8ffa2c57a71a9d67a09a95c05e24218a6ab5206a40b21141ff15a7",
+    "comparison_sha256": "c77a9a84c092682e53887ceedca86fd6c395653780e076fe4de9c3c90e193a90",
+    "diagnosis": "估值日历和状态有效期语义修复后，自主选股、持仓、撮合与收益回撤全部严格过线"
   }
 }

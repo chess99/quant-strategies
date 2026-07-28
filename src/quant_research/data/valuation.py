@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+import shutil
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
@@ -90,6 +91,119 @@ def validate_valuation(frame: pd.DataFrame) -> None:
     valid_float_caps = frame["circulating_market_cap"].dropna()
     if (valid_float_caps <= 0.0).any():
         raise ValueError("circulating_market_cap must be positive when present")
+
+
+def densify_baidu_valuation_with_market_state(
+    valuation: pd.DataFrame,
+    market_state: pd.DataFrame,
+) -> pd.DataFrame:
+    """用点时估值锚点和原始收盘价恢复百度稀疏估值的逐交易日序列。
+
+    百度退市证券估值通常只有约两周一个锚点，且不返回总股本。直接把最近锚点
+    总市值带到观察日会扭曲极小市值排序。这里仅向后匹配已经可见的供应商锚点，
+    先由锚点总市值/当时原始收盘价估算总股本，再随观察日原始价格缩放；不会
+    使用未来锚点。停牌日沿用最后一个可交易收盘价，与日频估值语义一致。
+    """
+
+    if valuation is None or valuation.empty:
+        raise ValueError("Baidu valuation is empty")
+    required_valuation = set(VALUATION_COLUMNS)
+    missing_valuation = required_valuation.difference(valuation.columns)
+    if missing_valuation:
+        raise ValueError(
+            f"Baidu valuation is missing columns: {sorted(missing_valuation)}"
+        )
+    required_state = {"symbol", "trade_date", "raw_close"}
+    missing_state = required_state.difference(market_state.columns)
+    if missing_state:
+        raise ValueError(
+            f"market state is missing columns: {sorted(missing_state)}"
+        )
+    symbols = valuation["symbol"].dropna().astype(str).unique()
+    if len(symbols) != 1:
+        raise ValueError("Baidu densification requires exactly one symbol")
+    symbol = symbols[0]
+    if not valuation["source"].astype(str).str.contains("baidu", case=False).all():
+        raise ValueError("Baidu densification received a non-Baidu valuation row")
+
+    anchors = valuation.copy()
+    anchors["trade_date"] = pd.to_datetime(
+        anchors["trade_date"], errors="coerce"
+    ).dt.normalize()
+    anchors = anchors.dropna(subset=["trade_date", "market_cap"])
+    anchors = anchors.sort_values("trade_date").drop_duplicates(
+        "trade_date", keep="last"
+    )
+    state = market_state[market_state["symbol"].astype(str).eq(symbol)].copy()
+    state["trade_date"] = pd.to_datetime(
+        state["trade_date"], errors="coerce"
+    ).dt.normalize()
+    state["effective_raw_close"] = pd.to_numeric(
+        state["raw_close"], errors="coerce"
+    ).ffill()
+    state = state.dropna(subset=["trade_date", "effective_raw_close"])
+    state = state.sort_values("trade_date").drop_duplicates(
+        "trade_date", keep="last"
+    )
+    if state.empty:
+        raise ValueError(f"market state has no usable raw close: {symbol}")
+
+    anchor_prices = pd.merge_asof(
+        anchors[["trade_date"]],
+        state[["trade_date", "effective_raw_close"]],
+        on="trade_date",
+        direction="backward",
+        allow_exact_matches=True,
+    )["effective_raw_close"]
+    anchors["anchor_raw_close"] = anchor_prices.to_numpy()
+    anchors["implied_total_shares"] = pd.to_numeric(
+        anchors["market_cap"], errors="coerce"
+    ) / pd.to_numeric(anchors["anchor_raw_close"], errors="coerce")
+    anchors = anchors[
+        anchors["anchor_raw_close"].gt(0)
+        & anchors["implied_total_shares"].gt(0)
+    ].copy()
+    if anchors.empty:
+        raise ValueError(f"no Baidu anchor can be matched to a raw close: {symbol}")
+
+    daily = state[
+        state["trade_date"].between(
+            anchors["trade_date"].min(), anchors["trade_date"].max()
+        )
+    ][["trade_date", "effective_raw_close"]].copy()
+    anchor_columns = [
+        column for column in VALUATION_COLUMNS if column not in {"symbol", "trade_date"}
+    ]
+    anchor_columns.extend(["anchor_raw_close", "implied_total_shares"])
+    daily = pd.merge_asof(
+        daily.sort_values("trade_date"),
+        anchors[["trade_date", *anchor_columns]].sort_values("trade_date"),
+        on="trade_date",
+        direction="backward",
+        allow_exact_matches=True,
+    )
+    daily = daily.dropna(subset=["anchor_raw_close", "implied_total_shares"])
+    ratio = daily["effective_raw_close"] / daily["anchor_raw_close"]
+    daily["symbol"] = symbol
+    daily["close"] = daily["effective_raw_close"]
+    daily["change_percent"] = daily["effective_raw_close"].pct_change() * 100.0
+    daily["market_cap"] = daily["market_cap"] * ratio
+    daily["total_shares"] = daily["implied_total_shares"]
+    for column in (
+        "circulating_market_cap",
+        "pe_ttm",
+        "pe_static",
+        "pb",
+        "peg",
+        "pcf",
+        "ps",
+    ):
+        daily[column] = pd.to_numeric(daily[column], errors="coerce") * ratio
+    daily["source"] = "akshare/baidu-stock-valuation+qlib-price-scaled"
+    daily["quality_grade"] = QualityGrade.B.value
+    result = daily[VALUATION_COLUMNS].reset_index(drop=True)
+    validate_valuation(result)
+    return result
 
 
 @dataclass
@@ -568,6 +682,201 @@ def sync_valuation_partitions(
     )
     store.write_manifest(manifest)
     return statuses, manifest
+
+
+def densify_baidu_valuation_partitions(
+    store: ResearchDataStore,
+    symbols: list[str] | None = None,
+) -> tuple[pd.DataFrame, DatasetManifest, dict]:
+    """离线重建百度回退证券的逐交易日估值分区并更新可恢复清单。"""
+
+    status_path = _valuation_status_path(store)
+    if not status_path.is_file():
+        raise FileNotFoundError(f"valuation sync status does not exist: {status_path}")
+    statuses = pd.read_parquet(status_path).copy()
+    successful = statuses[statuses["status"].eq("success")].copy()
+    baidu_mask = successful["raw_path"].fillna("").astype(str).str.contains(
+        "raw/baidu/valuation/", regex=False
+    )
+    targets = successful.loc[baidu_mask, "symbol"].astype(str).tolist()
+    if symbols is not None:
+        requested = {str(symbol).upper() for symbol in symbols}
+        targets = [symbol for symbol in targets if symbol in requested]
+    if not targets:
+        raise ValueError("no successful Baidu valuation partitions were selected")
+
+    old_manifest_path = store.manifest_path("daily_valuation")
+    old_manifest = store.read_manifest("daily_valuation")
+    old_manifest_hash = sha256_file(old_manifest_path)
+    snapshot = (
+        store.snapshot_dir
+        / "daily_valuation"
+        / f"pre-baidu-price-scale__{old_manifest_hash[:16]}"
+    )
+    snapshot.mkdir(parents=True, exist_ok=True)
+    snapshot_manifest = snapshot / "daily_valuation.json"
+    snapshot_status = snapshot / "valuation_sync_status.parquet"
+    if not snapshot_manifest.exists():
+        shutil.copy2(old_manifest_path, snapshot_manifest)
+    if not snapshot_status.exists():
+        shutil.copy2(status_path, snapshot_status)
+
+    records = []
+    failures = []
+    for symbol in targets:
+        try:
+            valuation = store.read_symbol_partitions("daily_valuation", [symbol])
+            before_rows = len(valuation)
+            if valuation["source"].astype(str).str.contains(
+                "price-scaled", regex=False
+            ).all():
+                dense = valuation
+                already_dense = True
+            else:
+                market_state = store.read_symbol_partitions(
+                    "daily_market_state",
+                    [symbol],
+                    columns=["symbol", "trade_date", "raw_close"],
+                )
+                dense = densify_baidu_valuation_with_market_state(
+                    valuation,
+                    market_state,
+                )
+                already_dense = False
+            artifact = store.write_parquet(
+                "daily_valuation",
+                dense,
+                filename=f"symbol={symbol}/data.parquet",
+            )
+            index = statuses.index[statuses["symbol"].eq(symbol)]
+            if len(index) != 1:
+                raise ValueError(f"valuation status is not unique: {symbol}")
+            row_index = index[0]
+            statuses.loc[row_index, "row_count"] = len(dense)
+            statuses.loc[row_index, "start"] = dense["trade_date"].min()
+            statuses.loc[row_index, "end"] = dense["trade_date"].max()
+            statuses.loc[row_index, "artifact_path"] = artifact["path"]
+            statuses.loc[row_index, "artifact_bytes"] = artifact["bytes"]
+            statuses.loc[row_index, "artifact_sha256"] = artifact["sha256"]
+            records.append(
+                {
+                    "symbol": symbol,
+                    "before_rows": before_rows,
+                    "after_rows": len(dense),
+                    "already_dense": already_dense,
+                    "artifact_sha256": artifact["sha256"],
+                }
+            )
+        except Exception as exc:  # noqa: BLE001 - every symbol needs an audit row
+            failures.append(
+                {
+                    "symbol": symbol,
+                    "error": f"{type(exc).__name__}: {exc}",
+                }
+            )
+    _checkpoint_valuation_status(store, statuses.to_dict("records"))
+    if failures:
+        raise RuntimeError(
+            "Baidu valuation densification failed: "
+            + "; ".join(f"{row['symbol']}={row['error']}" for row in failures)
+        )
+
+    successful = statuses[statuses["status"].eq("success")].copy()
+    master = store.read_parquet("security_master")
+    active_symbols = set(
+        master.loc[
+            master["asset_type"].eq("stock")
+            & master["active_at_source_end"].astype(bool),
+            "symbol",
+        ].astype(str)
+    )
+    successful_symbols = set(successful["symbol"].astype(str))
+    artifacts = [
+        {
+            "path": row.artifact_path,
+            "bytes": int(row.artifact_bytes),
+            "sha256": row.artifact_sha256,
+            "partition_values": {"symbol": row.symbol},
+        }
+        for row in successful.itertuples(index=False)
+    ]
+    market_manifest_path = store.manifest_path("daily_market_state")
+    source_files = list(old_manifest.get("source_files", []))
+    market_manifest_artifact = {
+        "path": market_manifest_path.relative_to(store.root).as_posix(),
+        "bytes": market_manifest_path.stat().st_size,
+        "sha256": sha256_file(market_manifest_path),
+    }
+    if market_manifest_artifact not in source_files:
+        source_files.append(market_manifest_artifact)
+    coverage = dict(old_manifest.get("coverage", {}))
+    coverage.update(
+        {
+            "successful_symbols": int(len(successful)),
+            "failed_symbols": int(statuses["status"].eq("failed").sum()),
+            "current_expected": len(active_symbols),
+            "current_covered": len(active_symbols & successful_symbols),
+            "current_coverage_ratio": len(active_symbols & successful_symbols)
+            / len(active_symbols),
+            "baidu_price_scaled_symbols": len(records),
+        }
+    )
+    checks = dict(old_manifest.get("checks", {}))
+    checks.update(
+        {
+            "baidu_price_scaled_requested": len(targets),
+            "baidu_price_scaled_successful": len(records),
+            "baidu_price_scaled_failures": 0,
+            "baidu_price_scaled_point_in_time": True,
+        }
+    )
+    manifest = DatasetManifest(
+        schema_version=max(3, int(old_manifest.get("schema_version", 1))),
+        dataset="daily_valuation",
+        provider=(
+            "akshare/eastmoney-stock-value + baidu-stock-valuation "
+            "+ qlib raw-price scaling"
+        ),
+        quality_grade=QualityGrade.B,
+        row_count=int(pd.to_numeric(successful["row_count"]).sum()),
+        columns=VALUATION_COLUMNS,
+        data_files=artifacts,
+        date_range={
+            "start": pd.to_datetime(successful["start"]).min().strftime("%Y-%m-%d"),
+            "end": pd.to_datetime(successful["end"]).max().strftime("%Y-%m-%d"),
+        },
+        source_files=source_files,
+        notes=[
+            *old_manifest.get("notes", []),
+            "百度稀疏退市证券估值仅用已可见锚点和Qlib原始收盘价向前缩放。",
+        ],
+        primary_key=["symbol", "trade_date"],
+        date_fields={"trade_date": "交易日/供应商锚点向后可见的价格缩放日"},
+        partitioning={"style": "hive", "columns": ["symbol"]},
+        coverage=coverage,
+        failures=old_manifest.get("failures", []),
+        limitations=[
+            *old_manifest.get("limitations", []),
+            "百度总股本由锚点总市值/当时原始收盘价估算，仍标B而非A。",
+        ],
+        checks=checks,
+    )
+    store.write_manifest(manifest)
+    report = {
+        "schema_version": 1,
+        "status": "passed",
+        "old_manifest_sha256": old_manifest_hash,
+        "new_manifest_sha256": sha256_file(store.manifest_path("daily_valuation")),
+        "snapshot": snapshot.relative_to(store.root).as_posix(),
+        "requested_symbols": len(targets),
+        "successful_symbols": len(records),
+        "failed_symbols": 0,
+        "before_rows": int(sum(row["before_rows"] for row in records)),
+        "after_rows": int(sum(row["after_rows"] for row in records)),
+        "symbols": records,
+    }
+    store.write_json_report("valuation_baidu_densification", report)
+    return statuses, manifest, report
 
 
 BAIDU_INDICATORS = {

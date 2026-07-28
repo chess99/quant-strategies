@@ -87,6 +87,103 @@ def test_normalize_financial_statements_merges_tables_and_derives_fields():
     assert row["quality_grade"] == "B"
 
 
+def test_normalize_financial_statements_derives_joinquant_single_quarter_fields():
+    q1_keys = {
+        "SECUCODE": "600000.SH",
+        "REPORT_DATE": "2023-03-31 00:00:00",
+        "NOTICE_DATE": "2023-04-20 00:00:00",
+        "UPDATE_DATE": "2023-04-20 00:00:00",
+        "REPORT_TYPE": "一季报",
+    }
+    q2_keys = {
+        "SECUCODE": "600000.SH",
+        "REPORT_DATE": "2023-06-30 00:00:00",
+        "NOTICE_DATE": "2023-08-20 00:00:00",
+        "UPDATE_DATE": "2023-08-20 00:00:00",
+        "REPORT_TYPE": "中报",
+    }
+    rows = {
+        "balance": [
+            {
+                **q1_keys,
+                "TOTAL_ASSETS": 1_000.0,
+                "TOTAL_LIABILITIES": 400.0,
+                "TOTAL_EQUITY": 600.0,
+            },
+            {
+                **q2_keys,
+                "TOTAL_ASSETS": 1_200.0,
+                "TOTAL_LIABILITIES": 500.0,
+                "TOTAL_EQUITY": 700.0,
+            },
+        ],
+        "income": [
+            {
+                **q1_keys,
+                "TOTAL_OPERATE_INCOME": 420.0,
+                "OPERATE_INCOME": 400.0,
+                "OPERATE_COST": 240.0,
+                "OPERATE_PROFIT": 100.0,
+                "NETPROFIT": 80.0,
+                "PARENT_NETPROFIT": 75.0,
+                "DEDUCT_PARENT_NETPROFIT": 70.0,
+                "BASIC_EPS": 0.75,
+            },
+            {
+                **q2_keys,
+                "TOTAL_OPERATE_INCOME": 950.0,
+                "OPERATE_INCOME": 900.0,
+                "OPERATE_COST": 570.0,
+                "OPERATE_PROFIT": 215.0,
+                "NETPROFIT": 170.0,
+                "PARENT_NETPROFIT": 160.0,
+                "DEDUCT_PARENT_NETPROFIT": 150.0,
+                "BASIC_EPS": 1.60,
+            },
+        ],
+        "cashflow": [
+            {**q1_keys, "NETCASH_OPERATE": 100.0, "CONSTRUCT_LONG_ASSET": 30.0},
+            {**q2_keys, "NETCASH_OPERATE": 160.0, "CONSTRUCT_LONG_ASSET": 50.0},
+        ],
+        "indicator": [
+            {
+                **q1_keys,
+                "ROEJQ": 12.0,
+                "ZZCJLL": 8.0,
+                "XSMLL": 40.0,
+                "XSJLL": 20.0,
+                "EPSJB": 0.75,
+            },
+            {
+                **q2_keys,
+                "ROEJQ": 24.0,
+                "ZZCJLL": 16.0,
+                "XSMLL": 36.0,
+                "XSJLL": 18.9,
+                "EPSJB": 1.60,
+            },
+        ],
+    }
+
+    result = normalize_financial_statements("SH600000", rows)
+    q1 = result[result["fiscal_quarter"].eq(1)].iloc[0]
+    q2 = result[result["fiscal_quarter"].eq(2)].iloc[0]
+
+    assert q1["quarter_operating_cash_flow"] == 100.0
+    assert q1["quarter_roe"] == 12.0
+    assert q1["quarter_roa"] == 8.0
+    assert q2["quarter_revenue"] == 530.0
+    assert q2["quarter_operating_revenue"] == 500.0
+    assert q2["quarter_operating_cost"] == 330.0
+    assert q2["quarter_net_profit"] == 90.0
+    assert q2["quarter_parent_net_profit"] == 85.0
+    assert q2["quarter_operating_cash_flow"] == 60.0
+    assert q2["quarter_gross_margin"] == 34.0
+    assert q2["quarter_net_margin"] == 18.0
+    assert q2["quarter_roa"] == 90.0 * 2.0 / (1_000.0 + 1_200.0) * 100.0
+    assert q2["quarter_roe"] == 85.0 * 2.0 / (600.0 + 700.0) * 100.0
+
+
 def test_latest_financials_asof_never_exposes_later_notice_or_revision():
     first = normalize_financial_statements("SH600000", _statement_rows())
     revised_rows = _statement_rows()

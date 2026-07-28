@@ -5,6 +5,7 @@ import pytest
 from quant_research.data.market_state import (
     apply_market_reference,
     build_market_state,
+    finalize_rule_based_limits,
     ipo_has_no_price_limit,
     price_limit_rate,
     round_price_limit,
@@ -20,6 +21,7 @@ from quant_research.data.market_reference import (
 from quant_research.data.security_lifecycle import clip_to_security_lifecycle
 from quant_research.data.store import ResearchDataStore
 from quant_research.data.valuation import (
+    densify_baidu_valuation_with_market_state,
     normalize_baidu_valuation,
     normalize_eastmoney_valuation,
     sync_valuation_partitions,
@@ -87,6 +89,38 @@ def test_delisting_period_start_is_derived_from_historical_trading_sessions():
     assert rows["quality_grade"].eq("B").all()
 
 
+def test_delisting_period_prefers_final_block_after_long_suspension():
+    master = pd.DataFrame(
+        {
+            "symbol": ["SH600701"],
+            "asset_type": ["stock"],
+            "display_name": ["退市工新"],
+            "end_date": pd.to_datetime(["2021-04-26"]),
+        }
+    )
+    calendar = pd.bdate_range("2021-02-01", "2021-04-26")
+    final_block_start = pd.Timestamp("2021-03-25")
+    history = pd.DataFrame(
+        {
+            "symbol": ["SH600701"] * len(calendar),
+            "trade_date": calendar,
+            "paused": (calendar > pd.Timestamp("2021-02-05"))
+            & (calendar < final_block_start),
+            "raw_close": np.where(
+                (calendar > pd.Timestamp("2021-02-05"))
+                & (calendar < final_block_start),
+                np.nan,
+                1.0,
+            ),
+        }
+    )
+
+    events = derive_delisting_events_from_market_history(master, history)
+
+    assert events.loc[0, "effective_from"] == final_block_start
+    assert events.loc[0, "source"].endswith("final-trading-block")
+
+
 def test_eastmoney_valuation_normalizes_units_and_dates():
     raw = pd.DataFrame(
         {
@@ -121,6 +155,49 @@ def test_baidu_market_cap_normalizes_yi_yuan_unit():
     )
 
     assert frame.loc[0, "market_cap"] == pytest.approx(12_345_000_000.0)
+
+
+def test_baidu_valuation_is_densified_from_past_anchor_and_raw_price():
+    valuation = pd.DataFrame(
+        {
+            "symbol": ["SH600000", "SH600000"],
+            "trade_date": pd.to_datetime(["2024-01-02", "2024-01-08"]),
+            "close": [np.nan, np.nan],
+            "change_percent": [np.nan, np.nan],
+            "market_cap": [1_000_000_000.0, 1_200_000_000.0],
+            "circulating_market_cap": [np.nan, np.nan],
+            "total_shares": [np.nan, np.nan],
+            "circulating_shares": [np.nan, np.nan],
+            "pe_ttm": [10.0, 12.0],
+            "pe_static": [11.0, 13.0],
+            "pb": [1.0, 1.2],
+            "peg": [2.0, 2.4],
+            "pcf": [8.0, 9.6],
+            "ps": [3.0, 3.6],
+            "source": ["akshare/baidu-stock-valuation"] * 2,
+            "quality_grade": ["B", "B"],
+        }
+    )
+    state = pd.DataFrame(
+        {
+            "symbol": ["SH600000"] * 5,
+            "trade_date": pd.to_datetime(
+                ["2024-01-02", "2024-01-03", "2024-01-04", "2024-01-05", "2024-01-08"]
+            ),
+            "raw_close": [10.0, 11.0, np.nan, 11.5, 12.0],
+        }
+    )
+
+    result = densify_baidu_valuation_with_market_state(valuation, state)
+
+    assert result["trade_date"].tolist() == state["trade_date"].tolist()
+    assert result["market_cap"].tolist() == pytest.approx(
+        [1_000_000_000.0, 1_100_000_000.0, 1_100_000_000.0, 1_150_000_000.0, 1_200_000_000.0]
+    )
+    assert result["total_shares"].tolist() == pytest.approx([100_000_000.0] * 5)
+    # 1 月 3 日只能使用 1 月 2 日锚点，不能提前看到 1 月 8 日供应商记录。
+    assert result.loc[result["trade_date"].eq("2024-01-03"), "pe_ttm"].iloc[0] == pytest.approx(11.0)
+    assert result["source"].str.contains("price-scaled", regex=False).all()
 
 
 def test_partitioned_valuation_sync_is_resumable(tmp_path):
@@ -270,6 +347,47 @@ def test_price_limit_rules_change_by_board_date_and_st_status():
     assert price_limit_rate("chinext", "2024-01-01", is_st=True) == pytest.approx(0.20)
     assert price_limit_rate("main", "2024-01-01", is_st=True) == pytest.approx(0.05)
     assert round_price_limit([10.005, 9.994]).tolist() == [10.01, 9.99]
+
+
+def test_known_st_status_promotes_rule_based_limit_to_b_quality():
+    state = pd.DataFrame(
+        {
+            "symbol": ["SZ300478", "SH600000"],
+            "trade_date": pd.to_datetime(["2021-01-04", "2021-01-04"]),
+            "paused": [False, False],
+            "is_st": pd.array([False, True], dtype="boolean"),
+            "raw_open": [10.0, 9.5],
+            "raw_high": [10.5, 9.5],
+            "raw_low": [9.8, 9.5],
+            "raw_close": [10.2, 9.5],
+            "previous_raw_close": [10.0, 10.0],
+            "high_limit": [12.0, 11.0],
+            "low_limit": [8.0, 9.0],
+            "one_price": [False, True],
+            "buy_blocked": [False, False],
+            "sell_blocked": [False, False],
+            "no_price_limit": [False, False],
+            "status_quality": ["B", "B"],
+            "st_quality": ["B", "A"],
+            "limit_quality": ["C", "C"],
+            "status_source": ["test", "test"],
+            "st_source": ["test", "test"],
+            "limit_source": ["board-rule-derived", "board-rule-derived"],
+            "source": ["test", "test"],
+        }
+    )
+
+    result = finalize_rule_based_limits(
+        state,
+        {"SZ300478": "chinext", "SH600000": "main"},
+    ).set_index("symbol")
+
+    assert result.loc["SZ300478", "high_limit"] == pytest.approx(12.0)
+    assert result.loc["SZ300478", "low_limit"] == pytest.approx(8.0)
+    assert result.loc["SH600000", "high_limit"] == pytest.approx(10.5)
+    assert result.loc["SH600000", "low_limit"] == pytest.approx(9.5)
+    assert result["limit_quality"].eq("B").all()
+    assert result.loc["SH600000", "sell_blocked"]
 
 
 def test_ipo_no_limit_rules_cover_registration_boards():

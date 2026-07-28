@@ -1,0 +1,10 @@
+order_id,trade_date,symbol,side,execution,requested_shares,filled_shares,unfilled_shares,price,gross_value,commission,tax,reason
+110,2019-05-06,SH603858,sell,open,35200,0,35200,,0.0,0.0,0.0,down_limit
+343,2020-02-03,SH601222,sell,open,143000,0,143000,,0.0,0.0,0.0,down_limit
+345,2020-02-03,SZ002444,sell,open,61200,0,61200,,0.0,0.0,0.0,down_limit
+346,2020-02-03,SZ002884,sell,open,2400,0,2400,,0.0,0.0,0.0,down_limit
+347,2020-02-03,SZ300625,sell,open,2400,0,2400,,0.0,0.0,0.0,down_limit
+362,2020-02-03,SZ002664,buy,open,44000,0,44000,,0.0,0.0,0.0,insufficient_cash
+363,2020-02-03,SZ300107,buy,open,110800,0,110800,,0.0,0.0,0.0,insufficient_cash
+783,2021-05-06,SH601000,buy,open,11600,0,11600,,0.0,0.0,0.0,insufficient_cash
+1431,2023-05-04,SH600757,buy,open,109100,0,109100,,0.0,0.0,0.0,up_limit

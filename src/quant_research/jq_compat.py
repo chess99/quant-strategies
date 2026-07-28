@@ -19,6 +19,14 @@ TYPE_MAP = {
 }
 JQ_EXCHANGE_TO_PREFIX = {"XSHG": "SH", "XSHE": "SZ", "XBSE": "BJ"}
 PREFIX_TO_JQ_EXCHANGE = {value: key for key, value in JQ_EXCHANGE_TO_PREFIX.items()}
+JQ_SINGLE_QUARTER_FIELD_MAP = {
+    "roe": "quarter_roe",
+    "roa": "quarter_roa",
+    "gross_profit_margin": "quarter_gross_margin",
+    "net_profit_margin": "quarter_net_margin",
+    "net_operate_cash_flow": "quarter_operating_cash_flow",
+    "total_liability": "total_liabilities",
+}
 
 
 def to_local_symbol(symbol: str) -> str:
@@ -327,12 +335,27 @@ class JoinQuantCompat:
                 "JoinQuant query DSL is not supported; migrate the query to "
                 "get_fundamentals(symbols, fields=[...], date=observation_date)"
             )
-        return self.portal.fundamentals(
+        requested_fields = list(fields) if fields is not None else None
+        portal_fields = (
+            [JQ_SINGLE_QUARTER_FIELD_MAP.get(field, field) for field in requested_fields]
+            if requested_fields is not None
+            else None
+        )
+        result = self.portal.fundamentals(
             [to_local_symbol(symbol) for symbol in ([symbols] if isinstance(symbols, str) else symbols)],
             self._observation_date(date),
-            fields=fields,
+            fields=portal_fields,
             minimum_quality=self.minimum_quality,
         )
+        if requested_fields is not None:
+            result = result.rename(
+                columns={
+                    local: requested
+                    for requested, local in JQ_SINGLE_QUARTER_FIELD_MAP.items()
+                    if requested in requested_fields
+                }
+            )
+        return result
 
     def get_industry(self, symbols: str | Iterable[str], date=None) -> dict:
         if isinstance(symbols, str):

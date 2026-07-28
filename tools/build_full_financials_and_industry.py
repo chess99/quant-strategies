@@ -35,6 +35,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--workers", type=int, default=12)
     parser.add_argument("--retries", type=int, default=4)
     parser.add_argument("--refresh", action="store_true")
+    parser.add_argument(
+        "--rebuild-normalized",
+        action="store_true",
+        help="使用既有不可变原始缓存重建全部财务分区，不重新请求数据源",
+    )
     parser.add_argument("--skip-financials", action="store_true")
     parser.add_argument("--skip-industry", action="store_true")
     return parser.parse_args()
@@ -52,6 +57,7 @@ def main() -> None:
             provider=EastmoneyFinancialStatementProvider(retries=args.retries),
             workers=args.workers,
             refresh=args.refresh,
+            resume=not args.rebuild_normalized,
         )
         summary["financials"] = {
             "status_counts": statuses["status"].value_counts().sort_index().to_dict(),

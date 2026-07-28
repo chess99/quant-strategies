@@ -17,6 +17,7 @@ if str(SRC) not in sys.path:
 
 from quant_research.data.store import ResearchDataStore  # noqa: E402
 from quant_research.data.valuation import (  # noqa: E402
+    densify_baidu_valuation_partitions,
     sync_valuation_partitions,
     verify_valuation_with_baidu,
 )
@@ -32,7 +33,7 @@ def parse_args():
     )
     parser.add_argument(
         "--stage",
-        choices=["daily", "verify", "all"],
+        choices=["daily", "densify", "verify", "all"],
         default="all",
     )
     parser.add_argument("--limit", type=int, default=None)
@@ -64,6 +65,27 @@ def main() -> int:
         active &= set(symbols)
     manifest = None
     statuses = None
+    if args.stage == "densify":
+        statuses, manifest, report = densify_baidu_valuation_partitions(
+            store,
+            symbols=symbols,
+        )
+        print(
+            json.dumps(
+                {
+                    "stage": "densify",
+                    "requested_symbols": report["requested_symbols"],
+                    "successful_symbols": report["successful_symbols"],
+                    "failed_symbols": report["failed_symbols"],
+                    "before_rows": report["before_rows"],
+                    "after_rows": report["after_rows"],
+                    "total_rows": manifest.row_count,
+                },
+                ensure_ascii=False,
+                indent=2,
+            )
+        )
+        return 0
     if args.stage in {"daily", "all"}:
         statuses, manifest = sync_valuation_partitions(
             store,

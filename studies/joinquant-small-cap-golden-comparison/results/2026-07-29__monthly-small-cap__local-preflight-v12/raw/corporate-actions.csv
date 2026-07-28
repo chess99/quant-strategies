@@ -1,0 +1,10 @@
+trade_date,symbol,action_type,shares_before,shares_after,cash_change,status
+2020-08-24,SZ300090,delisting,0,0,0.0,no_position
+2020-11-09,SZ300431,delisting,0,0,0.0,no_position
+2021-05-06,SZ002071,delisting,0,0,0.0,no_position
+2021-08-27,SZ300362,delisting,0,0,0.0,no_position
+2022-05-20,SZ000835,delisting,0,0,0.0,no_position
+2022-06-21,SZ002473,delisting,0,0,0.0,no_position
+2022-06-24,SZ000502,delisting,0,0,0.0,no_position
+2023-05-23,SZ300330,delisting,0,0,0.0,no_position
+2023-06-30,SH688555,delisting,0,0,0.0,no_position

@@ -1,0 +1,55 @@
+{
+  "status": "passed",
+  "expected_rebalance_dates": 54,
+  "joinquant_candidate_dates": 54,
+  "joinquant_holding_dates": 54,
+  "mean_overlap": {
+    "holdings": 0.986952861952862,
+    "ordered_symbols": 0.9858559650226317,
+    "selected_candidates": 1.0
+  },
+  "local_metrics": {
+    "total_return": 0.6650746024250604,
+    "annualized_return": 0.12510704849636456,
+    "maximum_drawdown": 0.47557862580539134,
+    "sharpe": 0.5533187918700301,
+    "annualized_volatility": 0.2885480481481623,
+    "turnover": 28.47134129012561,
+    "average_cash_ratio": 8.10176972761977e-05,
+    "maximum_cash_ratio": 0.0006124588654716987,
+    "longest_underwater_trading_days": 625,
+    "yearly_returns": {
+      "2019": 0.48394394731588464,
+      "2020": -0.2819348786199125,
+      "2021": 0.22167032276987375,
+      "2022": 0.14554553155289196,
+      "2023": 0.11657008463685847
+    }
+  },
+  "joinquant_metrics": {
+    "total_return": 0.6430085008459,
+    "annualized_return": 0.12062078172225,
+    "maximum_drawdown": 0.48022828321327,
+    "sharpe": 0.28066965813986
+  },
+  "differences": {
+    "annualized_return": 0.004486266774114553,
+    "maximum_drawdown": -0.004649657407878649
+  },
+  "checks": {
+    "joinquant_candidate_dates_complete": true,
+    "joinquant_holding_dates_complete": true,
+    "candidate_overlap_at_least_80_percent": true,
+    "holding_overlap_at_least_80_percent": true,
+    "annualized_difference_at_most_3pp": true,
+    "drawdown_difference_at_most_3pp": true,
+    "initial_cash_matches_platform": true,
+    "platform_source_matches_prepared_strategy": true
+  },
+  "provenance": {
+    "backtest_url": "https://www.joinquant.com/algorithm/backtest/detail?backtestId=fd4f04ed4711b333961fec6244c16e84",
+    "joinquant_initial_cash": 10000000.0,
+    "local_initial_cash": 10000000.0,
+    "new_platform_run_required": false
+  }
+}

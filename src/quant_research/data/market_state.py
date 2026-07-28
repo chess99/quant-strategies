@@ -176,6 +176,69 @@ def apply_market_reference(
     return result
 
 
+def finalize_rule_based_limits(
+    state: pd.DataFrame,
+    board_by_symbol: dict[str, str],
+) -> pd.DataFrame:
+    """在 ST 状态已知后，把确定性的交易所日限价规则提升为 B 级事实。
+
+    初始状态构建时 ST 尚未知，规则限价只能标 C。应用交易所限价、Baostock
+    状态和历史简称事件后，剩余行若已有 A/B 级 ST 状态，板块规则、历史生效日
+    与前收价足以唯一确定上下限；这些行不应继续被当作未知状态拒单。
+    """
+
+    result = state.copy()
+    missing_symbols = set(result["symbol"].astype(str)).difference(board_by_symbol)
+    if missing_symbols:
+        raise ValueError(f"board is missing for symbols: {sorted(missing_symbols)}")
+    unresolved = result["limit_quality"].eq(QualityGrade.C.value)
+    known_st = result["st_quality"].isin(
+        [QualityGrade.A.value, QualityGrade.B.value]
+    ) & result["is_st"].notna()
+    previous_close = pd.to_numeric(result["previous_raw_close"], errors="coerce")
+    deterministic = unresolved & known_st & (
+        result["no_price_limit"].eq(True) | previous_close.gt(0)
+    )
+    if not deterministic.any():
+        return result[MARKET_STATE_COLUMNS].copy()
+
+    limited = deterministic & ~result["no_price_limit"].eq(True)
+    rates = pd.Series(np.nan, index=result.index, dtype=float)
+    for index in result.index[limited]:
+        rates.loc[index] = price_limit_rate(
+            board_by_symbol[str(result.at[index, "symbol"])],
+            result.at[index, "trade_date"],
+            bool(result.at[index, "is_st"]),
+        )
+    result.loc[limited, "high_limit"] = round_price_limit(
+        previous_close.loc[limited] * (1.0 + rates.loc[limited])
+    )
+    result.loc[limited, "low_limit"] = round_price_limit(
+        previous_close.loc[limited] * (1.0 - rates.loc[limited])
+    )
+    result.loc[deterministic & result["no_price_limit"].eq(True), [
+        "high_limit",
+        "low_limit",
+    ]] = np.nan
+    result.loc[deterministic, "limit_quality"] = QualityGrade.B.value
+    result.loc[deterministic, "limit_source"] = np.where(
+        result.loc[deterministic, "no_price_limit"].eq(True),
+        "exchange-ipo-rule",
+        "exchange-board-rule+known-st",
+    )
+    result["buy_blocked"] = result["paused"] | (
+        result["high_limit"].notna()
+        & (result["raw_open"] >= result["high_limit"] - 0.001)
+    )
+    result["sell_blocked"] = result["paused"] | (
+        result["low_limit"].notna()
+        & (result["raw_open"] <= result["low_limit"] + 0.001)
+    )
+    output = result[MARKET_STATE_COLUMNS].copy()
+    validate_market_state(output)
+    return output
+
+
 def build_market_state(
     features: pd.DataFrame,
     calendar: pd.DatetimeIndex,

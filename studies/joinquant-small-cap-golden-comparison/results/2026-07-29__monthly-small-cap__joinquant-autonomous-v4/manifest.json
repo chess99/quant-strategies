@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "platform": "joinquant-vs-local",
+  "study": "joinquant-small-cap-golden-comparison",
+  "run_id": "2026-07-29__monthly-small-cap__joinquant-autonomous-v4",
+  "period": {
+    "start": "2019-01-02",
+    "end": "2023-06-30"
+  },
+  "joinquant": {
+    "backtest_url": "https://www.joinquant.com/algorithm/backtest/detail?backtestId=fd4f04ed4711b333961fec6244c16e84",
+    "initial_cash": 10000000.0,
+    "platform_source_sha256": "6d3ab7ecb83f82acf66b57e66544a0799f89e3f96fba7b551a0da20ea77b272d",
+    "prepared_source_sha256": "6d3ab7ecb83f82acf66b57e66544a0799f89e3f96fba7b551a0da20ea77b272d",
+    "new_platform_run_required": false
+  },
+  "local_result": "studies/joinquant-small-cap-golden-comparison/results/2026-07-29__monthly-small-cap__local-preflight-v12",
+  "local_manifest_sha256": "5a4ae56d7d0b5c299d2c28c1e4418959990bbf7bbab72228b171446203fdc1f8",
+  "source_sha256": "6d3ab7ecb83f82acf66b57e66544a0799f89e3f96fba7b551a0da20ea77b272d",
+  "importer_sha256": "3c3de60b5298c5fd72eec482b58dc455c038ce7ed09d75cc5251315906b7c509",
+  "comparison_sha256": "c77a9a84c092682e53887ceedca86fd6c395653780e076fe4de9c3c90e193a90",
+  "raw_sha256": {
+    "joinquant-candidates.csv": "66064b9da2ab97dfab967bc7014650b65cfb67be1bd55b1d06b52c8ed19278a7",
+    "joinquant-holdings.csv": "c8c737ff089a709eb1b933ed824e2d66740aa6d3f2c7588bb87dd76d115d28a4",
+    "joinquant-orders.csv": "81d8c7662981e3224ad279a18893af15b63fa0e67226dcb84ea74710090b8609",
+    "joinquant-stats.json": "3dcf481044f88416a180bbdd8d033971325f2c7256f134135cd11c0acdc8468a",
+    "joinquant.log": "882a7de3f27fb8b956a88db8b0aff51129d6106aaa13558afd552c2da2ec677e",
+    "overlap-by-rebalance.csv": "2c4394261e817762b08d5125255c82fd8e9572378a06fa56508ae1fd9c6d445f"
+  },
+  "checks": {
+    "joinquant_candidate_dates_complete": true,
+    "joinquant_holding_dates_complete": true,
+    "candidate_overlap_at_least_80_percent": true,
+    "holding_overlap_at_least_80_percent": true,
+    "annualized_difference_at_most_3pp": true,
+    "drawdown_difference_at_most_3pp": true,
+    "initial_cash_matches_platform": true,
+    "platform_source_matches_prepared_strategy": true
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "status": "local_preflight_passed",
+  "platform": "local-qlib-eastmoney-swsresearch",
+  "study": "joinquant-value-quality-golden-comparison",
+  "run_id": "2026-07-29__monthly-value-quality__local-preflight-v9",
+  "period": {
+    "start": "2019-01-02",
+    "end": "2023-06-30"
+  },
+  "initial_cash": 10000000.0,
+  "benchmark": "SH000300",
+  "strategy": {
+    "frequency": "monthly_first_session_open",
+    "observation_lag_sessions": 1,
+    "holdings": 20,
+    "maximum_per_sw_l1": 3,
+    "minimum_listing_days": 375
+  },
+  "target_provenance": {
+    "mode": "local-point-in-time-ranking"
+  },
+  "data_provenance": [
+    {
+      "dataset": "security_master",
+      "quality_grade": "B",
+      "provider": "qlib-community-cn + akshare/exchange-lists + supplemental point-in-time masters",
+      "row_count": 7864,
+      "manifest_sha256": "50cc55dffa7730579dba53347c05e5167a42fb4f0f38662556a86c927bf18483"
+    },
+    {
+      "dataset": "daily_valuation",
+      "quality_grade": "B",
+      "provider": "akshare/eastmoney-stock-value + baidu-stock-valuation + qlib raw-price scaling",
+      "row_count": 10493253,
+      "manifest_sha256": "366cfeba63db02a26abfedab714b317ee1ce50e7939b96abbbc7faedbbd6b6fd"
+    },
+    {
+      "dataset": "daily_market_state",
+      "quality_grade": "C",
+      "provider": "qlib-community-cn + dolthub/chenditc-investment-data",
+      "row_count": 17679198,
+      "manifest_sha256": "645a2e4f0432f6281e70061756249f5e7443918f3201a4571f28ede4b162fa8f"
+    },
+    {
+      "dataset": "fundamentals_pit",
+      "quality_grade": "B",
+      "provider": "eastmoney/securities-financial-statements",
+      "row_count": 340162,
+      "manifest_sha256": "146b7f59dc0c7e9e1b0ded47e6f5a2c429085cd2439f9d8a7b5df74492286aa6"
+    },
+    {
+      "dataset": "industry_membership",
+      "quality_grade": "B",
+      "provider": "swsresearch/official-industry-history",
+      "row_count": 20354,
+      "manifest_sha256": "022c96bd34bf7dc1b9f95f8f7bcb84145e077e50de58ab4a4756adf38b60a96d"
+    },
+    {
+      "dataset": "st_name_events",
+      "quality_grade": "B",
+      "provider": "SZSE official name changes + Eastmoney issuer title prefixes",
+      "row_count": 14713,
+      "manifest_sha256": "fdc832ae70d8f2cdcecc3e8671f3f43b74093ec1b24d45e50de953e3fc656f98"
+    },
+    {
+      "dataset": "delisting_events",
+      "quality_grade": "B",
+      "provider": "exchange delisting-period rules + local historical trading sessions",
+      "row_count": 166,
+      "manifest_sha256": "684fe9ed6f74436a07a973be6ae465f49200fa8621cf7feabaf4827053045bdd"
+    }
+  ],
+  "quality": {
+    "bars": "B",
+    "valuation": "B",
+    "fundamentals": "B",
+    "industry": "B",
+    "historical_names": "A where available; unavailable names are not backfilled",
+    "delisting_events": "B",
+    "market_state_row_gate": "B"
+  },
+  "metrics": {
+    "total_return": 1.1659415996068336,
+    "annualized_return": 0.19563622151232507,
+    "maximum_drawdown": 0.25681546209755657,
+    "sharpe": 0.9274842095421828,
+    "annualized_volatility": 0.21856950574946882,
+    "turnover": 41.059549302498574,
+    "average_cash_ratio": 0.0009487540225039932,
+    "maximum_cash_ratio": 0.04943581708287713,
+    "longest_underwater_trading_days": 350,
+    "yearly_returns": {
+      "2019": 0.29638288529207424,
+      "2020": 0.21186072022251912,
+      "2021": 0.5502131683701539,
+      "2022": -0.14447867265193304,
+      "2023": 0.039533483018735716
+    }
+  },
+  "checks": {
+    "all_rebalances_have_20_targets": true,
+    "future_notice_rows_zero": true,
+    "fundamental_partition_failures_zero": true,
+    "industry_partition_failures_zero": true,
+    "future_industry_intervals_zero": true,
+    "future_name_events_zero": true,
+    "future_delisting_events_zero": true,
+    "selected_execution_state_quality_at_least_b": true,
+    "filled_trade_state_quality_at_least_b": true,
+    "trades_present": true,
+    "delisting_actions_audited": true
+  },
+  "coverage_sha256": "6eb5734a1a4904d104223bbac75b8eca48673300e56c6fee6614eba07d132918",
+  "source_sha256": "8d14ae2681f268ec27683283b3f59bb0aa68e12fa6f3fc476bf5b5a112a2537f",
+  "engine_sha256": "58a9849c0d8bf58162a5858eac5534e6a166dc11e1bc6907418103916f4f0fd0",
+  "joinquant_strategy_sha256": "553598e6814591fef34c007d8fb58b91ca7228adbcec2fd9c45f7f5abfe94b61",
+  "raw_sha256": {
+    "equity.csv": "9a6452b23d19ff25361a22cb8aea908d3f8a4515b934a72618f32c4eb7142e0e",
+    "orders.csv": "f2cd4ff9d666f4c4cb5c3ac62c1f21d566e74a0bc9319c0db70be032fec860e6",
+    "trades.csv": "f62d4ea50d1d1bcbef70616a4c178ee3638621a526c87b51526d34a56e1fb5a6",
+    "holdings-daily.csv": "e30c0b26a30dcfde03d0f0485d0db0b783dd59698102e29a2b50e0f0db090741",
+    "holdings-monthly.csv": "1f465daaec140fc5bb1d6fc3c5fb3e058b3c89511d9420e3c978daf5c00c201c",
+    "candidates-top100.csv": "1a7c4b9b02b46507163335fcd1593e77157faec902c760480042f799c76c8cb2",
+    "rebalance-coverage.csv": "d44dfd11357ad15c44e7833921698d4e48c6ca69a5f0408f8f06f8a544a6563c",
+    "cash-ledger.csv": "bd03023bc14bd6be1a52f16e42143fca9b1c0f1f9082eda79ca73f49b7f448bb",
+    "fees-ledger.csv": "2b6d12cb05bfadea1b08a1153eb084b19a7f81e73709a94f0a8b8c23c6672546",
+    "rejections.csv": "6ec26f6948520984a9a4144526bdcfa204d572274072fd2f7fd11c5876a3b9a5",
+    "corporate-actions.csv": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+  },
+  "joinquant_golden_status": "pending_single_run"
+}

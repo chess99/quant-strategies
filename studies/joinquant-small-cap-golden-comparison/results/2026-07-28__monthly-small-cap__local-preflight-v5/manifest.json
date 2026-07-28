@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "status": "local_preflight_passed",
+  "platform": "local-qlib",
+  "study": "joinquant-small-cap-golden-comparison",
+  "run_id": "2026-07-28__monthly-small-cap__local-preflight-v5",
+  "period": {
+    "start": "2019-01-02",
+    "end": "2023-06-30"
+  },
+  "initial_cash": 10000000.0,
+  "strategy": {
+    "frequency": "monthly_first_session_open",
+    "observation_lag_sessions": 1,
+    "stock_count": 10,
+    "minimum_listing_days": 375,
+    "ranking": "daily_valuation.market_cap ascending",
+    "exchange_filter": [
+      "XSHG",
+      "XSHE"
+    ]
+  },
+  "data_provenance": [
+    {
+      "dataset": "security_master",
+      "quality_grade": "B",
+      "provider": "qlib-community-cn + akshare/exchange-lists + supplemental point-in-time masters",
+      "row_count": 7864,
+      "manifest_sha256": "50cc55dffa7730579dba53347c05e5167a42fb4f0f38662556a86c927bf18483"
+    },
+    {
+      "dataset": "daily_valuation",
+      "quality_grade": "B",
+      "provider": "akshare/eastmoney-stock-value + baidu-stock-valuation",
+      "row_count": 9618793,
+      "manifest_sha256": "ec992f9a2bed7c89ff0197bee319eddfc54a5cee8c0add8d3df8d1f0bf111098"
+    },
+    {
+      "dataset": "daily_market_state",
+      "quality_grade": "C",
+      "provider": "qlib-community-cn + dolthub/chenditc-investment-data",
+      "row_count": 17679198,
+      "manifest_sha256": "b7cdf65997babc0538f2bf51fb4e3fc5f508a7553326de7bfef135a5f248a0a8"
+    }
+  ],
+  "quality": {
+    "bars": "B",
+    "valuation": "B",
+    "market_state_dataset": "C",
+    "market_state_row_gate": "B"
+  },
+  "metrics": {
+    "total_return": 2.1699981715263648,
+    "annualized_return": 0.30569327119697465,
+    "maximum_drawdown": 0.3377091529584282,
+    "sharpe": 1.0967809303859248,
+    "annualized_volatility": 0.2789332576981585,
+    "turnover": 29.720303853042545,
+    "average_cash_ratio": 0.0023020519256017253,
+    "maximum_cash_ratio": 0.10514608878400405,
+    "longest_underwater_trading_days": 232,
+    "yearly_returns": {
+      "2019": 0.5134388697065984,
+      "2020": 0.08432439866684116,
+      "2021": 0.3354413325326777,
+      "2022": 0.30687700325048395,
+      "2023": 0.10681584622936025
+    }
+  },
+  "checks": {
+    "full_master_is_6115": true,
+    "all_rebalances_have_ten_targets": true,
+    "no_valuation_future_data": true,
+    "no_partition_read_failures": true,
+    "known_st_for_archived_candidates": true,
+    "all_filled_orders_use_a_or_b_state": true,
+    "nonnegative_cash": true,
+    "orders_and_ledgers_present": true
+  },
+  "coverage_sha256": "bca8c732da42df8e45fd3fa72089cb30d244015c6663677126916c03e6e66b70",
+  "source_sha256": "530df9b81e516958682d48fa7aa7f42470b1c9a82ebddc514ad1a1aba5e3a4d9",
+  "engine_sha256": "6c7e66dd7c42197ecad99d1469dee20c80e0868eb69e54e24704bfecfca5ba91",
+  "joinquant_strategy_sha256": "346c7cb9d207e49ef10889991e77178da9bfd904579a83114e0d01ac2a949170",
+  "raw_sha256": {
+    "equity.csv": "63b091cf4c0616747402167d3b6f1a4c70d4e3453603a9bfb5b86e2e43641263",
+    "orders.csv": "546e0bfed5948835e63b52ea61d323d33bd0f4f42a630349cf344feeee32df8f",
+    "trades.csv": "e53e5ef815432717eb08124852257cbd57cdb5b78349b412098e44c91342f0ad",
+    "holdings-daily.csv": "f5846d91eefa1748577ec61b452ab74b20e4b97bc692a2db744b6dfde7c46f9c",
+    "holdings-monthly.csv": "b7fa3847d6909112ead29a5cfe73384e945056436ecdc663db0ef221090e1c13",
+    "candidates-top50.csv": "f8c52be1b6d19e3847de996cb300a94ac44599f2be99459041247334d2cdb6e1",
+    "rebalance-coverage.csv": "56d54779ef48f56a8b4e17d63009bd2fd4a907c197f113e32d6d569dd39d0699",
+    "cash-ledger.csv": "34988ced81c39799efba8f6490986802fb70e6a0d7c2501e83ccddacb5724eb7",
+    "fees-ledger.csv": "5b510c5857fbafb7b53bf6734625e407b5b5e5191eaed45f84cafaef4e06e9c1",
+    "rejections.csv": "7b158ae8e624384a83e27b17a2219dbadb84d31e0aa3643060f6ff1ce2b02ab0",
+    "corporate-actions.csv": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+  },
+  "joinquant_golden_status": "pending_single_run"
+}

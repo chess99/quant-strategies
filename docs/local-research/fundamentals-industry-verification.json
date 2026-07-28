@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "as_of": "2026-07-27",
-  "status": "local_preflight_passed_joinquant_golden_blocked",
+  "as_of": "2026-07-28",
+  "status": "in_progress_joinquant_golden_v1_failed",
   "financials": {
     "historical_stock_universe": 6115,
     "successful_symbols": 6064,
@@ -34,7 +34,7 @@
     "coverage_report_sha256": "c9679d94908f85f466425cd589fc4363cf43ba6fc0b330e5d2fa1892c5d9f91b"
   },
   "local_value_quality_preflight": {
-    "run_id": "2026-07-27__monthly-value-quality__local-preflight-v4",
+    "run_id": "2026-07-28__monthly-value-quality__local-preflight-v5",
     "period": {
       "start": "2019-01-02",
       "end": "2023-06-30"
@@ -44,24 +44,40 @@
     "minimum_eligible_candidates": 995,
     "future_notice_rows": 0,
     "future_industry_interval_rows": 0,
-    "annualized_return": 0.11589547694396507,
-    "maximum_drawdown": 0.30554493331059995,
-    "sharpe": 0.6038642102024109,
-    "average_cash_ratio": 0.006080379718865563,
-    "archive_manifest_sha256": "322c543cb131f0f92835e3359d0f23c4b4ff7fd82f72d98a7ab86c27ba801e34",
-    "archive_report_sha256": "5814a4a6723dfa66ae6278db6457c177791ede9313991e94890aacee77d09344",
+    "annualized_return": 0.1160657992053995,
+    "maximum_drawdown": 0.31025222542812736,
+    "sharpe": 0.6021148108398165,
+    "average_cash_ratio": 0.0001177020520275379,
+    "archive_manifest_sha256": "2346087c47c18229db60f6b29a7c833cae76b80e1a476b1ca21d0bab7f89bc6b",
+    "archive_report_sha256": "6f779e6f7dc1c79febf3dae4997d8d21563d077bf44c18347e52df59fffa7f0b",
     "industry_manifest_sha256": "022c96bd34bf7dc1b9f95f8f7bcb84145e077e50de58ab4a4756adf38b60a96d",
     "checks_passed": true,
-    "joinquant_golden_status": "blocked_browser_runtime_or_manual_run_required"
+    "joinquant_golden_status": "v1_failed_full_log_truncated_and_thresholds_failed"
+  },
+  "joinquant_golden_v1": {
+    "run_id": "2026-07-28__monthly-value-quality__joinquant-golden-v1",
+    "backtest_id": "924847c2fb96995f318cce5321594568",
+    "initial_cash": 10000000,
+    "annualized_return": 0.17691552001986,
+    "maximum_drawdown": 0.26211721380032,
+    "candidate_dates_in_free_log": 34,
+    "holding_dates_in_free_log": 33,
+    "free_log_rows": 1000,
+    "candidate_overlap_on_common_dates": 0.620588235294118,
+    "holding_overlap_on_common_dates": 0.622294372294372,
+    "archive_manifest_sha256": "d84f1da213917f5f4e83bb13ef14fd94ffc643cc0780255d014d6f250fbc615b",
+    "comparison_sha256": "e6fc0ee47296e28163bc3261e59b32abc223a18c6c1f8ac8cacb04bb7ad6096d",
+    "next_run": "use compact monthly QR_ORDERS logging to avoid the 1000-row free-log limit"
   },
   "validation": {
-    "pytest": "236 passed",
+    "pytest": "251 passed",
     "repository_validation": "passed",
     "ruff_changed_files": "passed",
     "git_diff_check": "passed"
   },
   "remaining_acceptance": [
-    "运行一次聚宽价值质量策略并导入54次结构化日志与stats",
+    "用紧凑订单日志和科创板保护限价源码重跑聚宽v2并取得54次完整日志",
+    "定位共同月份约38%的财务、估值或行业目标差异",
     "目标和持仓平均重合率至少80%",
     "年化收益和最大回撤绝对差分别不超过3个百分点"
   ]

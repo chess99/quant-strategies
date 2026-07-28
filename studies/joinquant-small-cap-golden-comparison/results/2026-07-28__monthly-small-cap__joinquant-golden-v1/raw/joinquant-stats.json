@@ -1,0 +1,46 @@
+{
+  "data": {
+    "trading_days": 1090,
+    "benchmark_volatility": 0.19808570238354,
+    "algorithm_volatility": 0.27125289158673,
+    "treasury_return": 0.17972602739726,
+    "algorithm_return": 0.72491842294,
+    "benchmark_return": 0.41589509320063,
+    "annual_algo_return": 0.13319517257521,
+    "annual_bm_return": 0.083029173144555,
+    "sharpe": 0.34357301052184,
+    "excess_return_sharpe": "0.029",
+    "sortino": 0.47743764707826,
+    "information": 0.22653472835465,
+    "beta": 0.81268527824864,
+    "alpha": 0.058225997025417,
+    "excess_return": 0.21825298443602,
+    "avg_excess_return": "0.03%",
+    "max_drawdown": 0.48022828321327,
+    "max_drawdown_period": [
+      "2020-01-10",
+      "2021-02-08"
+    ],
+    "excess_return_max_drawdown": "60.89%",
+    "excess_return_max_drawdown_period": [
+      "2019-05-22",
+      "2021-02-10"
+    ],
+    "max_leverage": 0,
+    "period_label": "2023-06",
+    "__version": 101,
+    "win_ratio": 0.6234309623431,
+    "profit_loss_ratio": 1.623963815071,
+    "win_count": 149,
+    "lose_count": 90,
+    "day_win_ratio": 0.50275229357798,
+    "avg_trade_return": 0.049761098136445,
+    "avg_position_days": 114.98863636364,
+    "turnover_rate": 0.012031357307856,
+    "report_done_seconds": 27.818441152573,
+    "report_done_cpu_seconds": 25.67
+  },
+  "status": "0",
+  "code": "00000",
+  "msg": ""
+}

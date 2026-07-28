@@ -34,6 +34,9 @@ def build_report(comparison: dict) -> str:
 ## 事实
 
 - 状态：{comparison['status']}；逐项检查：{comparison['checks']}。
+- 聚宽运行：{comparison['provenance']['backtest_url']}；初始资金
+  {comparison['provenance']['joinquant_initial_cash']:,.0f} 元；平台实际源码与准备源码一致：
+  {comparison['checks']['platform_source_matches_prepared_strategy']}。
 - 聚宽目标日志 {comparison['joinquant_candidate_dates']}/
   {comparison['expected_rebalance_dates']} 个调仓日；持仓日志
   {comparison['joinquant_holding_dates']}/{comparison['expected_rebalance_dates']} 个调仓日。
@@ -54,10 +57,30 @@ def build_report(comparison: dict) -> str:
 
 def run(args) -> Path:
     local_dir = Path(args.local_result_dir).resolve()
+    local_manifest = json.loads(
+        (local_dir / "manifest.json").read_text(encoding="utf-8")
+    )
     log_text = Path(args.log_file).read_text(encoding="utf-8", errors="replace")
     parsed = parse_joinquant_small_cap_log(log_text, selected_count=20)
     jq_metrics = load_joinquant_stats(args.stats_json)
     comparison, overlaps = compare_value_quality_results(local_dir, parsed, jq_metrics)
+    platform_source = Path(args.platform_source_file).resolve()
+    prepared_source = Path(args.prepared_source_file).resolve()
+    provenance_checks = {
+        "initial_cash_matches_platform": float(local_manifest["initial_cash"])
+        == float(args.joinquant_initial_cash),
+        "platform_source_matches_prepared_strategy": sha256_file(platform_source)
+        == sha256_file(prepared_source),
+    }
+    comparison["checks"].update(provenance_checks)
+    comparison["status"] = (
+        "passed" if all(comparison["checks"].values()) else "failed"
+    )
+    comparison["provenance"] = {
+        "backtest_url": args.backtest_url,
+        "joinquant_initial_cash": args.joinquant_initial_cash,
+        "local_initial_cash": local_manifest["initial_cash"],
+    }
     result_dir = STUDY_DIR / "results" / args.run_id
     if result_dir.exists():
         raise FileExistsError(f"immutable result directory already exists: {result_dir}")
@@ -75,7 +98,7 @@ def run(args) -> Path:
     )
     source = result_dir / "source.py"
     importer = result_dir / "importer.py"
-    shutil.copy2(STUDY_DIR / "joinquant_strategy.py", source)
+    shutil.copy2(platform_source, source)
     shutil.copy2(Path(__file__), importer)
     manifest = {
         "schema_version": 1,
@@ -84,6 +107,12 @@ def run(args) -> Path:
         "study": "joinquant-value-quality-golden-comparison",
         "run_id": args.run_id,
         "period": {"start": "2019-01-02", "end": "2023-06-30"},
+        "joinquant": {
+            "backtest_url": args.backtest_url,
+            "initial_cash": args.joinquant_initial_cash,
+            "platform_source_sha256": sha256_file(platform_source),
+            "prepared_source_sha256": sha256_file(prepared_source),
+        },
         "local_result": str(local_dir.relative_to(ROOT)).replace("\\", "/"),
         "local_manifest_sha256": sha256_file(local_dir / "manifest.json"),
         "source_sha256": sha256_file(source),
@@ -109,18 +138,26 @@ def parse_args():
     parser = argparse.ArgumentParser(description="导入聚宽价值质量黄金运行")
     parser.add_argument("--log-file", type=Path, required=True)
     parser.add_argument("--stats-json", type=Path, required=True)
+    parser.add_argument("--platform-source-file", type=Path, required=True)
+    parser.add_argument(
+        "--prepared-source-file",
+        type=Path,
+        default=STUDY_DIR / "joinquant_strategy.py",
+    )
+    parser.add_argument("--backtest-url", required=True)
+    parser.add_argument("--joinquant-initial-cash", type=float, required=True)
     parser.add_argument(
         "--local-result-dir",
         type=Path,
         default=(
             STUDY_DIR
             / "results"
-            / "2026-07-27__monthly-value-quality__local-preflight-v4"
+            / "2026-07-28__monthly-value-quality__local-preflight-v5"
         ),
     )
     parser.add_argument(
         "--run-id",
-        default="2026-07-27__monthly-value-quality__joinquant-golden-v1",
+        default="2026-07-28__monthly-value-quality__joinquant-golden-v1",
     )
     return parser.parse_args()
 

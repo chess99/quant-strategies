@@ -34,9 +34,6 @@ def build_report(comparison: dict) -> str:
 ## 事实
 
 - 状态：{comparison['status']}；逐项检查：{comparison['checks']}。
-- 聚宽运行：{comparison['provenance']['backtest_url']}；初始资金
-  {comparison['provenance']['joinquant_initial_cash']:,.0f} 元；平台实际源码与准备源码一致：
-  {comparison['checks']['platform_source_matches_prepared_strategy']}。
 - 聚宽候选日志 {comparison['joinquant_candidate_dates']}/
   {comparison['expected_rebalance_dates']} 个调仓日；持仓日志
   {comparison['joinquant_holding_dates']}/{comparison['expected_rebalance_dates']} 个调仓日。
@@ -65,7 +62,7 @@ def run(args) -> Path:
     jq_metrics = load_joinquant_stats(args.stats_json)
     comparison, overlaps = compare_small_cap_results(local_dir, parsed, jq_metrics)
     platform_source = Path(args.platform_source_file).resolve()
-    prepared_source = Path(args.prepared_source_file).resolve()
+    prepared_source = STUDY_DIR / "joinquant_strategy.py"
     provenance_checks = {
         "initial_cash_matches_platform": float(local_manifest["initial_cash"])
         == float(args.joinquant_initial_cash),
@@ -76,11 +73,6 @@ def run(args) -> Path:
     comparison["status"] = (
         "passed" if all(comparison["checks"].values()) else "failed"
     )
-    comparison["provenance"] = {
-        "backtest_url": args.backtest_url,
-        "joinquant_initial_cash": args.joinquant_initial_cash,
-        "local_initial_cash": local_manifest["initial_cash"],
-    }
     result_dir = STUDY_DIR / "results" / args.run_id
     if result_dir.exists():
         raise FileExistsError(f"immutable result directory already exists: {result_dir}")
@@ -137,11 +129,6 @@ def parse_args():
     parser.add_argument("--log-file", type=Path, required=True)
     parser.add_argument("--stats-json", type=Path, required=True)
     parser.add_argument("--platform-source-file", type=Path, required=True)
-    parser.add_argument(
-        "--prepared-source-file",
-        type=Path,
-        default=STUDY_DIR / "joinquant_strategy.py",
-    )
     parser.add_argument("--backtest-url", required=True)
     parser.add_argument("--joinquant-initial-cash", type=float, required=True)
     parser.add_argument(

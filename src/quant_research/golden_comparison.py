@@ -57,6 +57,32 @@ def parse_joinquant_small_cap_log(
                     }
                 )
             orders.append(record)
+        elif marker == "QR_ORDERS" and len(parts) >= 3:
+            execution_date = pd.Timestamp(parts[1])
+            for encoded in parts[2].split(";"):
+                fields = encoded.split(",")
+                if len(fields) == 3 and fields[2] == "none":
+                    orders.append(
+                        {
+                            "execution_date": execution_date,
+                            "side": fields[0],
+                            "symbol": to_local_symbol(fields[1]),
+                            "status": "none",
+                            "requested_shares": None,
+                            "filled_shares": None,
+                        }
+                    )
+                elif len(fields) >= 5:
+                    orders.append(
+                        {
+                            "execution_date": execution_date,
+                            "side": fields[0],
+                            "symbol": to_local_symbol(fields[1]),
+                            "status": fields[4],
+                            "requested_shares": int(float(fields[2])),
+                            "filled_shares": int(float(fields[3])),
+                        }
+                    )
         elif marker == "QR_HOLDINGS" and len(parts) >= 5:
             codes = [code for code in parts[3].split(",") if code]
             for code in codes:
@@ -79,6 +105,8 @@ def load_joinquant_stats(path: Path | str) -> dict:
     payload = json.loads(Path(path).read_text(encoding="utf-8"))
     if "stats" in payload and isinstance(payload["stats"], dict):
         payload = payload["stats"]
+    elif "data" in payload and isinstance(payload["data"], dict):
+        payload = payload["data"]
     aliases = {
         "total_return": ("total_return", "algorithm_return"),
         "annualized_return": ("annualized_return", "annual_algo_return"),

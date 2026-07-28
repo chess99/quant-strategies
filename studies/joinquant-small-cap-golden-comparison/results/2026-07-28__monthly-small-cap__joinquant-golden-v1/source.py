@@ -62,15 +62,20 @@ def _candidate_codes(context):
     return result, len(universe)
 
 
-def _order_record(side, code, order):
+def _log_order(execution_date, side, code, order):
     if order is None:
-        return "%s,%s,none" % (side, code)
-    return "%s,%s,%s,%s,%s" % (
-        side,
-        code,
-        order.amount,
-        order.filled,
-        order.status,
+        log.info("QR_ORDER|%s|%s|%s|none" % (execution_date, side, code))
+        return
+    log.info(
+        "QR_ORDER|%s|%s|%s|%s|%s|%s"
+        % (
+            execution_date,
+            side,
+            code,
+            order.amount,
+            order.filled,
+            order.status,
+        )
     )
 
 
@@ -83,36 +88,18 @@ def rebalance(context):
         "QR_CANDIDATES|%s|%s|%s|%s|%s"
         % (execution_date, observation_date, universe_count, len(candidates), ",".join(candidates))
     )
-    current = get_current_data()
-    order_records = []
     for code in sorted(list(context.portfolio.positions.keys())):
         if code not in targets:
-            order_records.append(
-                _order_record(
-                    "sell",
-                    code,
-                    order_target(
-                        code,
-                        0,
-                        MarketOrderStyle(current[code].low_limit),
-                    ),
-                )
-            )
+            _log_order(execution_date, "sell", code, order_target(code, 0))
     if targets:
         target_value = context.portfolio.total_value / len(targets)
         for code in targets:
-            order_records.append(
-                _order_record(
-                    "target",
-                    code,
-                    order_target_value(
-                        code,
-                        target_value,
-                        MarketOrderStyle(current[code].high_limit),
-                    ),
-                ),
+            _log_order(
+                execution_date,
+                "target",
+                code,
+                order_target_value(code, target_value),
             )
-    log.info("QR_ORDERS|%s|%s" % (execution_date, ";".join(order_records)))
     g.capture_month = context.current_dt.strftime("%Y-%m")
 
 

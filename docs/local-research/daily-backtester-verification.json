@@ -98,8 +98,8 @@
     "result_manifest_sha256": "550d104c0389b73bc142cf170f31af85e8e2ee266a8c9f11b70eac554f959fc1"
   },
   "remaining": [
-    "rerun the corrected JoinQuant strategy with STAR Market protection prices and compact monthly order logs",
-    "import the new immutable v2 run with all 54 candidate/holding logs and aggregate stats",
+    "align point-in-time market-cap selection and platform execution semantics",
+    "explain the remaining 73 platform order errors and persistent suspended holdings",
     "pass >=80% candidate and holding overlap",
     "pass <=3 percentage-point annualized and drawdown differences"
   ],
@@ -118,8 +118,26 @@
     "maximum_drawdown": 0.48022828321327,
     "annualized_difference": 0.17249809862176466,
     "drawdown_difference": -0.1425191302548418,
-    "diagnosis": "JoinQuant rejected STAR Market market orders without a protection price; corrected source requires a new immutable v2 run",
+    "diagnosis": "JoinQuant rejected STAR Market market orders without a protection price",
     "archive_manifest_sha256": "2c37333a9a84b536169dba96a2688c0d026498d8a93400dc701cef0deb2bf151",
     "comparison_sha256": "0f4b344141af953b48a0b745ddec5e4dd7698459f0e979041c3b3b490835ac41"
+  },
+  "joinquant_golden_v2": {
+    "status": "failed",
+    "run_id": "2026-07-28__monthly-small-cap__joinquant-golden-v2",
+    "backtest_id": "fd4f04ed4711b333961fec6244c16e84",
+    "initial_cash": 10000000.0,
+    "candidate_dates": 54,
+    "holding_dates": 54,
+    "candidate_overlap": 0.8203703703703703,
+    "holding_overlap": 0.7786756453423119,
+    "order_symbol_overlap": 0.7902739009356656,
+    "annualized_return": 0.12062078172225,
+    "maximum_drawdown": 0.48022828321327,
+    "annualized_difference": 0.18507248947472466,
+    "drawdown_difference": -0.1425191302548418,
+    "diagnosis": "protection prices removed the STAR Market rejection and lifted holding overlap from 69.79% to 77.87%, but valuation selection and platform execution differences remain material",
+    "archive_manifest_sha256": "b3744fcfc37c7384e3ba5303038efb7eed86967687434610b47f58bb3d84e2f9",
+    "comparison_sha256": "e7249496db606c9c2f28c5d61247e86baa3d39873acd1809f86377c2b4b5d30b"
   }
 }

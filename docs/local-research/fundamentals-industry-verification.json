@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "as_of": "2026-07-28",
-  "status": "in_progress_joinquant_golden_v1_failed",
+  "status": "in_progress_joinquant_golden_v2_failed",
   "financials": {
     "historical_stock_universe": 6115,
     "successful_symbols": 6064,
@@ -52,7 +52,7 @@
     "archive_report_sha256": "6f779e6f7dc1c79febf3dae4997d8d21563d077bf44c18347e52df59fffa7f0b",
     "industry_manifest_sha256": "022c96bd34bf7dc1b9f95f8f7bcb84145e077e50de58ab4a4756adf38b60a96d",
     "checks_passed": true,
-    "joinquant_golden_status": "v1_failed_full_log_truncated_and_thresholds_failed"
+    "joinquant_golden_status": "v2_complete_log_but_thresholds_failed"
   },
   "joinquant_golden_v1": {
     "run_id": "2026-07-28__monthly-value-quality__joinquant-golden-v1",
@@ -69,6 +69,24 @@
     "comparison_sha256": "e6fc0ee47296e28163bc3261e59b32abc223a18c6c1f8ac8cacb04bb7ad6096d",
     "next_run": "use compact monthly QR_ORDERS logging to avoid the 1000-row free-log limit"
   },
+  "joinquant_golden_v2": {
+    "run_id": "2026-07-28__monthly-value-quality__joinquant-golden-v2",
+    "backtest_id": "c29fcd867c0701ef9254567a93475cef",
+    "initial_cash": 10000000,
+    "annualized_return": 0.17258463422954,
+    "maximum_drawdown": 0.2696862164344,
+    "candidate_dates": 54,
+    "holding_dates": 54,
+    "candidate_overlap": 0.6046296296296296,
+    "holding_overlap": 0.6038800705467372,
+    "order_symbol_overlap": 0.592078015302049,
+    "annualized_difference": -0.05651883502414051,
+    "drawdown_difference": 0.040566008993727365,
+    "platform_order_error_lines": 28,
+    "archive_manifest_sha256": "6324533f23122f4dccf91c02fe68a2f4a1c679090b37650aa49bc48fab948bcd",
+    "comparison_sha256": "bb2e70887f77b683c1fbff1dc681b0b56e74ddec9d251513a4005bc5cce1fb45",
+    "diagnosis": "完整54个月确认约40%的目标差异来自估值、财务报告期或历史行业口径，而非日志截断"
+  },
   "validation": {
     "pytest": "251 passed",
     "repository_validation": "passed",
@@ -76,8 +94,7 @@
     "git_diff_check": "passed"
   },
   "remaining_acceptance": [
-    "用紧凑订单日志和科创板保护限价源码重跑聚宽v2并取得54次完整日志",
-    "定位共同月份约38%的财务、估值或行业目标差异",
+    "用现有54个月黄金目标离线分解财务、估值和行业字段口径",
     "目标和持仓平均重合率至少80%",
     "年化收益和最大回撤绝对差分别不超过3个百分点"
   ]

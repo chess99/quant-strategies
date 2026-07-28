@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "status": "failed",
+  "platform": "joinquant-vs-local",
+  "study": "joinquant-value-quality-golden-comparison",
+  "run_id": "2026-07-28__monthly-value-quality__joinquant-golden-v2",
+  "period": {
+    "start": "2019-01-02",
+    "end": "2023-06-30"
+  },
+  "joinquant": {
+    "backtest_url": "https://www.joinquant.com/algorithm/backtest/detail?backtestId=c29fcd867c0701ef9254567a93475cef",
+    "initial_cash": 10000000.0,
+    "platform_source_sha256": "553598e6814591fef34c007d8fb58b91ca7228adbcec2fd9c45f7f5abfe94b61",
+    "prepared_source_sha256": "553598e6814591fef34c007d8fb58b91ca7228adbcec2fd9c45f7f5abfe94b61"
+  },
+  "local_result": "studies/joinquant-value-quality-golden-comparison/results/2026-07-28__monthly-value-quality__local-preflight-v5",
+  "local_manifest_sha256": "2346087c47c18229db60f6b29a7c833cae76b80e1a476b1ca21d0bab7f89bc6b",
+  "source_sha256": "553598e6814591fef34c007d8fb58b91ca7228adbcec2fd9c45f7f5abfe94b61",
+  "importer_sha256": "1bcf8e077ae60bbbcedc6a88b83858d721fb56ab857c2d123ccd726a16c7126b",
+  "comparison_sha256": "bb2e70887f77b683c1fbff1dc681b0b56e74ddec9d251513a4005bc5cce1fb45",
+  "raw_sha256": {
+    "joinquant-candidates.csv": "22344ae2933cdb53486f82617d175968648df5a1829d35ef568f5f265bbbc387",
+    "joinquant-holdings.csv": "2914705087f347c67fa2e866fe29b62ea125b251288c3c32510ab307b54661ea",
+    "joinquant-orders.csv": "781e38adda4f2905738bd8863fefbaa75f90bf283a0b88b389784ea99762c270",
+    "joinquant-stats.json": "a4dd5c4d28d17b52c3447fcc59cd56e51d2b80cd200f0be754fce61102b4330f",
+    "joinquant.log": "704157c0d1d74ff9096310e0e16cbf6ce5b399b6aecc92b00a7b8cf2a8fa1997",
+    "overlap-by-rebalance.csv": "c5c424deb70f61ab5ab610d37a3092263165b5e73a010c266dd4b3dff4a2ef12"
+  },
+  "checks": {
+    "joinquant_candidate_dates_complete": true,
+    "joinquant_holding_dates_complete": true,
+    "candidate_overlap_at_least_80_percent": false,
+    "holding_overlap_at_least_80_percent": false,
+    "annualized_difference_at_most_3pp": false,
+    "drawdown_difference_at_most_3pp": false,
+    "initial_cash_matches_platform": true,
+    "platform_source_matches_prepared_strategy": true
+  }
+}

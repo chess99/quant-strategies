@@ -29,6 +29,12 @@ class PointInTimeError(ValueError):
 BAR_FIELDS = ("open", "high", "low", "close", "volume", "money")
 
 
+def qlib_money_to_rmb(values):
+    """Qlib 社区中国包的成交额沿用 Tushare 千元口径，本地统一为人民币元。"""
+
+    return pd.to_numeric(values, errors="coerce") * 1000.0
+
+
 class DailyBarSource(Protocol):
     quality_grade: QualityGrade
 
@@ -157,6 +163,7 @@ class QlibDailyBarSource:
             frame["volume"] = pd.to_numeric(frame["volume"], errors="coerce") * 100.0
         if "money" in fields:
             frame.rename(columns={"amount": "money"}, inplace=True)
+            frame["money"] = qlib_money_to_rmb(frame["money"])
         self.last_provenance = self._build_provenance()
         return frame[["symbol", "trade_date", *fields]].copy()
 

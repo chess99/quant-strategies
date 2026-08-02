@@ -1,0 +1,16 @@
+schema_version = 1
+id = "profitable-small-cap-a-share"
+title = "盈利质量小市值 A 股策略"
+platform = "joinquant"
+market = "CN-A"
+status = "research"
+baseline = "baseline.py"
+
+[execution]
+language = "python3"
+frequency = "daily"
+rebalance = "monthly"
+
+[research]
+primary_benchmark = "000985.XSHG"
+source_post = "https://www.joinquant.com/post/45510"

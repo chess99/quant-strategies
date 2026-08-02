@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "study": "profitable-small-cap-rebuild",
+  "platform": "local-qlib",
+  "run_id": "curated-summary-local-qlib-2014-2026-v1",
+  "period": {
+    "start": "2014-01-02",
+    "end": "2026-07-23",
+    "post_publication_start": "2023-12-01"
+  },
+  "published_claim": {
+    "annualized_return": 0.79934314704839,
+    "maximum_drawdown": 0.20359303644084
+  },
+  "published_core_local": {
+    "annualized_return_2019_2023": 0.4637381843796946,
+    "maximum_drawdown_2019_2023": 0.2614793015107295,
+    "interpretation": "核心效应复现，不是逐笔或日内规则复现"
+  },
+  "selected_candidate": {
+    "name": "risk-scaled-20",
+    "annualized_return_2019_2023": 0.22168285011067157,
+    "maximum_drawdown_2019_2023": 0.21765283831786364,
+    "post_publication_annualized_return": 0.07667125553368548,
+    "post_publication_maximum_drawdown": 0.3330711827152454
+  },
+  "failed_iterations": [
+    {
+      "iteration": "v1",
+      "reason": "empty trade ledger did not have a trade_date column in segment metrics",
+      "resolution": "added empty-ledger regression test and guard"
+    },
+    {
+      "iteration": "v2",
+      "reason": "Qlib amount in thousand RMB was compared with an RMB liquidity threshold",
+      "resolution": "normalize Qlib money by multiplying by 1000 and version the snapshot key"
+    }
+  ],
+  "source_sha256": "a04f74fc07deac6fd4845cd1a4752da5507a36320e5db0d1569cdeee4fb7592f",
+  "engine_sha256": "47a84eebd00bafd6c25aba4695ecb3d291199aa42585b42d53d1262a2c7d1007",
+  "platform_published_core_sha256": "678f5536b33ae63cc76dc8a5402e1d0ed4e198cbcf4034169df49bb0959e4f1a",
+  "raw_sha256": {
+    "research-matrix.csv": "9d337c796f12daf0d75074264b7c04009c8173551055da846e661aff382dc786",
+    "risk-neighborhood.csv": "e96f3aa8620d7686bb8ebc060eeb8ec262d8428bca1e7a047843ea6f7ed8ec8f",
+    "candidate-stress.csv": "18e01a8f363ec6847e54adee9607e3e1febbc8e0e3de86ff4f707dd2f049e9c7",
+    "published-core-equity.csv": "d990f1283e5217b51e51a702a086c85b533c9a467e486baccdad9af559ded4f6",
+    "published-core-trades.csv": "039f0d6047359df7bf7818369255ec6759949dad1e4734b87bc0b5a2fddd3add",
+    "published-core-selections.csv": "bb1cc94d8df52484fc7be1b84e52a801a821151ef38b36367f1f15b02ad73d21"
+  },
+  "final_archive": "strategies/joinquant/profitable-small-cap-a-share/backtests/2026-08-02__baseline__local-qlib-2014-2026-v1"
+}

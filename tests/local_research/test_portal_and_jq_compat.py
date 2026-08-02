@@ -13,6 +13,7 @@ from quant_research.portal import (
     PartitionedDailyBarSource,
     PointInTimeError,
     QlibDailyBarSource,
+    qlib_money_to_rmb,
 )
 
 
@@ -355,6 +356,11 @@ def test_qlib_provenance_has_content_version_and_source_hashes(tmp_path):
     assert provenance["data_version"]
     assert len(provenance["source_files"]) == 2
     assert all(item["sha256"] for item in provenance["source_files"])
+
+
+def test_qlib_money_is_normalized_from_thousand_yuan_to_rmb():
+    result = qlib_money_to_rmb(pd.Series([1.0, 12_345.6]))
+    assert result.tolist() == pytest.approx([1_000.0, 12_345_600.0])
 
 
 def test_portal_bars_bind_platform_audit_manifest(portal):

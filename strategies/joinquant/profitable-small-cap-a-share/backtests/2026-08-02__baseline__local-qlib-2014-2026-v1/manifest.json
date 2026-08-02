@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "status": "research_candidate_not_live_approved",
+  "platform": "joinquant",
+  "engine": "local-qlib-daily-v1",
+  "strategy_id": "profitable-small-cap-a-share",
+  "strategy_family": "profitable-small-cap-a-share",
+  "variant": "baseline",
+  "run_id": "local-qlib-2014-2026-v1",
+  "source_file": "source.py",
+  "archived_at": "2026-08-02T16:45:00+08:00",
+  "source_post": "https://www.joinquant.com/post/45510",
+  "period": {
+    "start": "2014-01-02",
+    "end": "2026-07-23",
+    "published_claim_period": {
+      "start": "2019-01-01",
+      "end": "2023-11-30"
+    },
+    "post_publication": {
+      "start": "2023-12-01",
+      "end": "2026-07-23"
+    }
+  },
+  "benchmark": "000985.XSHG",
+  "initial_cash": 1000000.0,
+  "strategy": {
+    "rebalance": "monthly_last_session_close",
+    "observation_lag_sessions": 1,
+    "stock_count": 20,
+    "minimum_listing_days": 375,
+    "minimum_quarter_roe_percent": 1.0,
+    "minimum_quarter_roa_percent": 0.5,
+    "minimum_20d_average_money_rmb": 10000000.0,
+    "maximum_sw_l1_industry_count": 4,
+    "risk_on_exposure": 0.95,
+    "risk_off_exposure": 0.5,
+    "risk_rule": "000985.XSHG previous-close >= 120-session moving average"
+  },
+  "costs": {
+    "buy_commission": 0.0003,
+    "sell_commission": 0.0003,
+    "minimum_commission_rmb": 5.0,
+    "sell_stamp_tax": "historical schedule; 0.1% before 2023-08-28, 0.05% afterwards",
+    "slippage_rate_one_way": 0.004,
+    "maximum_daily_volume_ratio": 0.05,
+    "lot_size": 100
+  },
+  "metrics": {
+    "full_2014_2026": {
+      "total_return": 3.0297586210519505,
+      "annualized_return": 0.12093524241245612,
+      "maximum_drawdown": 0.6795303534153114,
+      "maximum_drawdown_period": ["2015-06-12", "2018-10-16"],
+      "sharpe": 0.6170989396447849,
+      "annualized_volatility": 0.22746009576092158,
+      "turnover": 79.0125383487812,
+      "average_cash_ratio": 0.30161470022732095,
+      "longest_underwater_trading_days": 2308,
+      "worst_rolling_3y_annualized_return": -0.2892941986113541
+    },
+    "published_2019_2023": {
+      "total_return": 1.5999551349165508,
+      "annualized_return": 0.22168285011067157,
+      "maximum_drawdown": 0.21765283831786364,
+      "maximum_drawdown_period": ["2020-09-09", "2021-02-08"],
+      "sharpe": 1.2256782792932646,
+      "annualized_volatility": 0.17613360742095008,
+      "longest_underwater_trading_days": 173,
+      "worst_rolling_3y_annualized_return": 0.13288133544698133
+    },
+    "post_publication": {
+      "total_return": 0.20782621433083048,
+      "annualized_return": 0.07667125553368548,
+      "maximum_drawdown": 0.3330711827152454,
+      "maximum_drawdown_period": ["2026-02-25", "2026-07-22"],
+      "sharpe": 0.4236888597850064,
+      "annualized_volatility": 0.24712502427400956,
+      "average_cash_ratio": 0.2988791968694126,
+      "longest_underwater_trading_days": 200
+    },
+    "trade_count": 3815,
+    "rejection_count": 232
+  },
+  "yearly_returns": {
+    "2014": 0.2823419002414782,
+    "2015": 0.8953675025469179,
+    "2016": -0.17771950032230655,
+    "2017": -0.2225822627709082,
+    "2018": -0.17408181431588132,
+    "2019": 0.39291611964988316,
+    "2020": 0.08543620448581746,
+    "2021": 0.31090389750489744,
+    "2022": 0.0715001211944486,
+    "2023": 0.22153350241273229,
+    "2024": 0.04472483900862079,
+    "2025": 0.4400999333892621,
+    "2026": -0.1954037117182581
+  },
+  "stress_tests": {
+    "double_friction": {
+      "post_publication_annualized_return": 0.048371,
+      "post_publication_maximum_drawdown": 0.341444
+    },
+    "initial_cash_5m": {
+      "post_publication_annualized_return": 0.076958,
+      "post_publication_maximum_drawdown": 0.333723
+    },
+    "positions_15": {
+      "post_publication_annualized_return": 0.069146,
+      "post_publication_maximum_drawdown": 0.328768
+    },
+    "positions_30": {
+      "post_publication_annualized_return": 0.085527,
+      "post_publication_maximum_drawdown": 0.324045
+    }
+  },
+  "data_provenance": {
+    "security_master": "50cc55dffa7730579dba53347c05e5167a42fb4f0f38662556a86c927bf18483",
+    "daily_valuation": "e7933b347f4501ccf3c937186fb68611042ff2b4072899d2de6d1991301a23d2",
+    "daily_market_state": "645a2e4f0432f6281e70061756249f5e7443918f3201a4571f28ede4b162fa8f",
+    "fundamentals_pit": "146b7f59dc0c7e9e1b0ded47e6f5a2c429085cd2439f9d8a7b5df74492286aa6",
+    "industry_membership": "022c96bd34bf7dc1b9f95f8f7bcb84145e077e50de58ab4a4756adf38b60a96d"
+  },
+  "source_sha256": "8f9abb516fa82fabebc8cabfadc359a7e6673a74198f4bcbfb7f46180a1a550c",
+  "research_sha256": "a04f74fc07deac6fd4845cd1a4752da5507a36320e5db0d1569cdeee4fb7592f",
+  "engine_sha256": "47a84eebd00bafd6c25aba4695ecb3d291199aa42585b42d53d1262a2c7d1007",
+  "raw_sha256": {
+    "equity.csv": "b136926924fe14fb02ef2d25202c276e1cd39e61e8f9b7c95116b1073980a58b",
+    "trades.csv": "9cab2fb05f1f246100904056c4a3e588676048ee616a735a6834edcb6194d9c7",
+    "orders.csv": "642ea26c25031516351ed68786cd3b4dd7f9e51115bb69cbd35c3fe82dee6ed6",
+    "rejections.csv": "687d5700d921d18a01ab07dcb16f30283f3a01f400764a1086771d19ea6096fe",
+    "holdings.csv": "cd7e2f3dd3e8c8801e25d8d31316b8e89c97b974798b96c9d581cf61d56133d1",
+    "selections.csv": "d527a3dcd9482e19e3a0f94294afcd671d18d3eef4c03e1580078522b9168fb3",
+    "yearly.csv": "82ac61c747ad777b056c1da690d7ec934ed558efc73e0fdfc8a1d2b16dbe5c72"
+  },
+  "limitations": [
+    "2023-07 以后免费涨跌停状态为 C 级规则推导，发布后结果只能作为探索证据",
+    "连续复权价格替代了完整公司行为事件流",
+    "日线无法表达原帖 14:00 涨停开板退出，原帖只复现核心月度规则",
+    "尚未用最终 source.py 在聚宽做黄金对照"
+  ]
+}

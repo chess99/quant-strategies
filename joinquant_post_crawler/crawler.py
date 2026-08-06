@@ -517,7 +517,16 @@ def find_reply_backtests(
     referer: str,
     *,
     max_pages: int,
+    include_other_replies: bool = False,
 ) -> tuple[list[dict[str, Any]], int, list[str]]:
+    """遍历帖子回复，找出附带回测的回复。
+
+    Parameters
+    ----------
+    include_other_replies :
+        为 True 时也返回非作者回复中的回测（location="other_reply"）。
+        为 False 时只返回作者本人的回测，其他用户回测仅计数。
+    """
     author_backtests: dict[str, dict[str, Any]] = {}
     other_backtest_ids: set[str] = set()
     request_urls: list[str] = []
@@ -548,6 +557,17 @@ def find_reply_backtests(
                         "location": "author_reply",
                     },
                 )
+            elif include_other_replies:
+                author_backtests.setdefault(
+                    backtest_id,
+                    {
+                        "backtest_id": backtest_id,
+                        "backtest_name": node.get("backtestName") or "",
+                        "reply_id": node.get("replyId") or "",
+                        "add_time": node.get("addTime") or "",
+                        "location": "other_reply",
+                    },
+                )
             else:
                 other_backtest_ids.add(backtest_id)
         if page * 20 >= total_count or not data.get("replyArr"):
@@ -556,7 +576,8 @@ def find_reply_backtests(
     selected = sorted(
         author_backtests.values(), key=lambda item: (item.get("add_time", ""), item["backtest_id"])
     )
-    return selected, len(other_backtest_ids), request_urls
+    other_count = 0 if include_other_replies else len(other_backtest_ids)
+    return selected, other_count, request_urls
 
 
 def fetch_curve(
@@ -705,6 +726,7 @@ def fetch_remote(
     *,
     include_series: bool,
     max_reply_pages: int,
+    include_other_replies: bool = False,
 ) -> dict[str, Any]:
     collected_at = utc_now()
     try:
@@ -728,6 +750,7 @@ def fetch_remote(
                 community_id,
                 canonical_url,
                 max_pages=max_reply_pages,
+                include_other_replies=include_other_replies,
             )
             request_urls.extend(reply_urls)
 
@@ -1123,6 +1146,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--retries", type=int, default=3)
     parser.add_argument("--max-reply-pages", type=int, default=20)
     parser.add_argument("--include-series", action="store_true", help="保存完整逐点收益曲线")
+    parser.add_argument("--include-other-replies", action="store_true", help="同时抓取非作者回复中的回测数据")
     parser.add_argument("--refresh", action="store_true", help="忽略已有成功 JSON，重新抓取")
     parser.add_argument("--limit", type=int, help="只处理前 N 个文件，便于试跑")
     return parser.parse_args(argv)
@@ -1193,6 +1217,7 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
                     source_url,
                     include_series=args.include_series,
                     max_reply_pages=args.max_reply_pages,
+                    include_other_replies=args.include_other_replies,
                 ): source_url
                 for source_url in to_fetch
             }

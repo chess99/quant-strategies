@@ -820,7 +820,7 @@ def fetch_remote(
 
 
 def item_output_path(output_root: Path, item: SourceItem) -> Path:
-    return output_root / "items" / item.relative_path.with_suffix(".json")
+    return output_root / item.relative_path.with_suffix(".json")
 
 
 def make_record(source_root: Path, item: SourceItem, remote: dict[str, Any] | None) -> dict[str, Any]:

@@ -41,5 +41,5 @@ target-version = "py310"
 
 [tool.ruff.lint.per-file-ignores]
 # 不可变归档必须保留平台实际运行源码；聚宽全局 API 在本地静态分析中没有定义。
-"strategies/**/backtests/**/source.py" = ["F821", "F841"]
-"studies/**/results/**/source.py" = ["F821", "F841"]
+"strategies/**/backtests/**/source.py" = ["F405", "F821", "F841"]
+"studies/**/results/**/source.py" = ["F405", "F821", "F841"]

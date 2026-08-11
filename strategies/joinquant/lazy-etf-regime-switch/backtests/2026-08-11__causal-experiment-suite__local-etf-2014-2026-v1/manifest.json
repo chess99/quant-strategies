@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "strategy_id": "lazy-etf-regime-switch",
+  "variant": "causal-experiment-suite",
+  "platform": "joinquant",
+  "archived_at": "2026-08-11",
+  "run_id": "local-etf-2014-2026-v1",
+  "source_file": "source.py",
+  "source_sha256": "7c3fce94d72a53e32280608259076309ccf0b7ed4d22848ca83d8f932dbb56cc",
+  "engine_file": "engine.py",
+  "engine_sha256": "2286144914fe1f59e78082385a46f412e3a69c737a886ba12aaf05d6c5c06982",
+  "period": {
+    "start": "2014-01-02",
+    "end": "2026-07-24"
+  },
+  "execution": {
+    "signal": "last trading day weekly close",
+    "fill": "next trading day adjusted open",
+    "initial_cash": 1000000,
+    "target_weight": 0.99,
+    "lot_size": 100
+  },
+  "costs": {
+    "commission_rate": 0.0003,
+    "minimum_commission": 5.0,
+    "slippage_rate": 0.0002,
+    "stamp_tax": 0.0
+  },
+  "metrics": {
+    "trading_days": 3051,
+    "total_return": 21.57412395777062,
+    "annualized_return": 0.2909676153367322,
+    "maximum_drawdown": 0.27695273481462346,
+    "sharpe": 1.1960080514362958,
+    "sortino": 1.9690358904471041,
+    "calmar": 1.050603871203834,
+    "annualized_volatility": 0.23712129517752167,
+    "turnover": 154.27285473229577,
+    "transaction_fees": 287412.212809422,
+    "order_count": 153,
+    "average_cash_ratio": 0.059658545399076814,
+    "longest_underwater_trading_days": 424,
+    "worst_rolling_three_year_return": 0.12719997324598964,
+    "yearly_returns": {
+      "2014": 0.16081847888880807,
+      "2015": 0.7443834307698616,
+      "2016": 0.09536453452851545,
+      "2017": 0.2075011166759928,
+      "2018": -0.09410666850247418,
+      "2019": 0.3597907892950687,
+      "2020": 0.7882599670035069,
+      "2021": 0.25097844968296923,
+      "2022": -0.11775803602986534,
+      "2023": 0.5091718849420364,
+      "2024": 0.3942890492907949,
+      "2025": 0.48641624217718293,
+      "2026": 0.10843213247875516
+    }
+  },
+  "experiment_counts": {
+    "models_and_benchmarks": 10,
+    "subperiod_rows": 24,
+    "parameter_combinations": 3069,
+    "asset_replacements": 3,
+    "cost_cases": 3
+  },
+  "data_manifests": {
+    "etf_daily": {
+      "path": "D:\\code\\_open-source\\_data\\quant-research\\manifests\\etf_daily.json",
+      "sha256": "df62ef9d3b84c453f1259f8ff2763bb0204010e6a853179bf9076a757e6413c2"
+    }
+  },
+  "artifacts": {
+    "asset-replacements.csv": {
+      "file": "raw/asset-replacements.csv",
+      "sha256": "8fd40c9d31b1b3dbe6212d951db6db265de6ddb6637e5412a5bea4dde9ca294f",
+      "bytes": 2200
+    },
+    "cost-sensitivity.csv": {
+      "file": "raw/cost-sensitivity.csv",
+      "sha256": "1516ab5611112eec18af6d7808227767edf091d81f0d593f92e9aa6a2d4ae37f",
+      "bytes": 2153
+    },
+    "gem-index.csv": {
+      "file": "raw/gem-index.csv",
+      "sha256": "2afe068a2cbca6f392af46f7177cc8eadeb9abc57e8965d3731a9f8f7216b7ee",
+      "bytes": 184799
+    },
+    "model-decisions.csv": {
+      "file": "raw/model-decisions.csv",
+      "sha256": "8ccf4428bb3ceabf6d72c4096a4c93155a9afe1ed25613200481c8f4c51e11bb",
+      "bytes": 351280
+    },
+    "model-equity.csv": {
+      "file": "raw/model-equity.csv",
+      "sha256": "3e594729ac2fecf86293be091388180c9878f1096d0caebaae7b17196aca771f",
+      "bytes": 2796186
+    },
+    "model-metrics.csv": {
+      "file": "raw/model-metrics.csv",
+      "sha256": "dae0ce3038a8a84207b8aaa3e5ab79021f6d762dd2731396525075ecdda06f3b",
+      "bytes": 6523
+    },
+    "model-positions.csv": {
+      "file": "raw/model-positions.csv",
+      "sha256": "becdd750369f67150832cb998a0d7435672b9ecc0bf5f552cd95275b3b1a1a47",
+      "bytes": 1454189
+    },
+    "model-trades.csv": {
+      "file": "raw/model-trades.csv",
+      "sha256": "9968899c764d41375723eeb32266b5a96cd55a3b34164ca83b801bb8cf9da079",
+      "bytes": 98411
+    },
+    "parameter-grid.csv": {
+      "file": "raw/parameter-grid.csv",
+      "sha256": "a282cee3c549099ed84f3479ae81cfb73341f9baa4d93845fa5233b605066bda",
+      "bytes": 720608
+    },
+    "period-metrics.csv": {
+      "file": "raw/period-metrics.csv",
+      "sha256": "5fee9f6799a29a0443f115b7d58a2bf653e3881ffff307ef8e55cb7c0c775269",
+      "bytes": 8925
+    }
+  },
+  "source": {
+    "post": "https://www.joinquant.com/post/77576",
+    "archive_commit": "02ec2a7"
+  }
+}

@@ -1,0 +1,18 @@
+schema_version = 1
+id = "lazy-etf-regime-switch"
+title = "懒人 ETF 跨资产状态切换"
+platform = "joinquant"
+market = "CN-ETF"
+status = "research"
+baseline = "baseline.py"
+
+[execution]
+language = "python3"
+frequency = "weekly"
+signal_time = "previous_week_close"
+execution_time = "next_trading_day_open"
+
+[research]
+primary_benchmark = "513100.XSHG"
+source_post = "https://www.joinquant.com/post/77576"
+source_commit = "02ec2a7"

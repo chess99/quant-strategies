@@ -48,7 +48,7 @@
   "turnover": 3.144293398977134,
   "rejected_orders": 0,
   "source_post": "https://www.joinquant.com/post/30350",
-  "source_strategy_path": "joinquant_post_crawler/sources/2023年度精选策略/66.基于动量和反转效应的沪深300成分股策略.py",
+  "source_strategy_path": "joinquant_archive/sources/2023年度精选策略/66.基于动量和反转效应的沪深300成分股策略.py",
   "source_strategy_sha256": "d2ade43a303d46fdc33aed0a8a32cf3d74c751b557d771d3fb355e57b45baf29",
   "source_sha256": "58b0136f2a2810184ee1e6ad2a2530ac64127055e5b545764e90fab5f3c8e8fb",
   "engine_sha256": "06b5a1f59248f65be39d4c6be9e0e0ddfe5a90116f8084b9e9c02824043963dc",

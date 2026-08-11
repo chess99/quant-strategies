@@ -26,7 +26,7 @@ from quant_research.portal import LocalDataPortal, QlibDailyBarSource  # noqa: E
 POST_URL = "https://www.joinquant.com/post/30350"
 SOURCE_PATH = (
     ROOT
-    / "joinquant_post_crawler"
+    / "joinquant_archive"
     / "sources"
     / "2023年度精选策略"
     / "66.基于动量和反转效应的沪深300成分股策略.py"

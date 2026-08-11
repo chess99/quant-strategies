@@ -3,7 +3,7 @@
   "study_id": "joinquant-etf-rotation-replication",
   "run_id": "local-full-etf-universe-v2",
   "archived_at": "2026-07-27",
-  "source_path": "joinquant_post_crawler/sources/2024年度精选策略/3.【回顾3】ETF策略之核心资产轮动.py",
+  "source_path": "joinquant_archive/sources/2024年度精选策略/3.【回顾3】ETF策略之核心资产轮动.py",
   "source_file": "source.py",
   "source_sha256": "c61e0b76c6b990637221a92266a03599fea253bde684a6ce1a1fb2260d4ce106",
   "engine_file": "engine.py",

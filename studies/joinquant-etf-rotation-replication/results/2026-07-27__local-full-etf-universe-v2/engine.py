@@ -26,7 +26,7 @@ from quant_research.data.store import ResearchDataStore, sha256_file  # noqa: E4
 
 SOURCE_PATH = (
     ROOT
-    / "joinquant_post_crawler"
+    / "joinquant_archive"
     / "sources"
     / "2024年度精选策略"
     / "3.【回顾3】ETF策略之核心资产轮动.py"

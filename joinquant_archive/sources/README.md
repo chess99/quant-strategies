@@ -13,6 +13,6 @@
 重新生成：
 
 ```powershell
-python joinquant_post_crawler/crawler.py `
+python joinquant_archive/crawler.py `
   --source-root 'D:\BaiduNetdiskDownload\2020-2026聚宽600条源码'
 ```

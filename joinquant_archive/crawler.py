@@ -1123,7 +1123,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         "--source-archive",
         type=Path,
         default=DEFAULT_SOURCE_ARCHIVE_ROOT,
-        help="UTF-8 .py 来源快照目录，默认 joinquant_post_crawler/sources",
+        help="UTF-8 .py 来源快照目录，默认 joinquant_archive/sources",
     )
     parser.add_argument(
         "--skip-source-archive",

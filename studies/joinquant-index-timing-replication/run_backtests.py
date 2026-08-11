@@ -60,7 +60,7 @@ STRATEGIES = (
         start_date="2005-07-01",
         end_date="2018-02-01",
         initial_cash=10_000_000.0,
-        source_path="joinquant_post_crawler/sources/2020年度精选策略/76 MACD——大盘择时.py",
+        source_path="joinquant_archive/sources/2020年度精选策略/76 MACD——大盘择时.py",
         post_url="https://www.joinquant.com/post/11102",
         execution_field="open",
         costs=TradingCosts(),
@@ -79,7 +79,7 @@ STRATEGIES = (
         start_date="2008-07-01",
         end_date="2018-02-01",
         initial_cash=100_000_000.0,
-        source_path="joinquant_post_crawler/sources/2020年度精选策略/93 RSRS——大盘择时.py",
+        source_path="joinquant_archive/sources/2020年度精选策略/93 RSRS——大盘择时.py",
         post_url="https://www.joinquant.com/post/11115",
         execution_field="open",
         costs=TradingCosts(
@@ -104,7 +104,7 @@ STRATEGIES = (
         end_date="2020-05-13",
         initial_cash=10_000_000.0,
         source_path=(
-            "joinquant_post_crawler/sources/2025年度精选策略/"
+            "joinquant_archive/sources/2025年度精选策略/"
             "67.RSRS择时改进-【成交量加权-钝化-右偏】.py"
         ),
         post_url="https://www.joinquant.com/post/27399",

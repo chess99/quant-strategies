@@ -18,7 +18,7 @@ from quant_research.jq_api_audit import audit_joinquant_api_usage  # noqa: E402
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--source-root", type=Path, default=ROOT / "joinquant_post_crawler" / "sources")
+    parser.add_argument("--source-root", type=Path, default=ROOT / "joinquant_archive" / "sources")
     parser.add_argument("--output", type=Path, default=ROOT / "docs" / "local-research" / "jq-api-coverage.json")
     args = parser.parse_args()
     report = audit_joinquant_api_usage(args.source_root)

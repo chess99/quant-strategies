@@ -62,6 +62,21 @@
 
 `manifest.json` 的 `source_sha256` 必须与 `source.py` 一致。验证器会检查这一点。
 
+## 研究执行后端
+
+与具体投资逻辑无关、但需要在外部平台运行的可复用执行代码放在 `runners/`：
+
+```text
+runners/{platform-runtime}/
+  README.md
+  {runtime_module}.py
+  examples/
+```
+
+runner 负责日历、撮合、账本和结果导出，不成为策略事实源。平台运行模块必须可直接上传且
+自包含；示例不能冒充正式策略或业绩证据。正式运行仍归档到对应策略族的 `backtests/`，并
+同时保存实际策略为 `source.py`、实际 runner 为 `engine.py` 和二者 SHA-256。
+
 ## 为什么不把回测结果集中放在根目录
 
 结果与策略族放在一起，能让代码、研究假设、变体和证据形成一个可独立阅读的单元。跨策略比较可以后续增加顶层 `studies/`，但不能代替策略目录内的原始归档。

@@ -22,6 +22,8 @@ quant-strategies/
       tests/
       backtests/
   studies/
+  runners/
+    joinquant-research/
   src/quant_research/
   templates/
     strategy-family/
@@ -47,6 +49,10 @@ quant-strategies/
 - 外部数据默认保存在 `D:/code/_open-source/_data/quant-research/`，不提交仓库。
 - 建设范围与质量要求见
   [`docs/local-research/roadmap.md`](docs/local-research/roadmap.md)。
+
+平台研究执行后端：
+
+- `runners/joinquant-research/`：上传到聚宽 Research 的自包含日频回放、撮合与结果导出后端。
 
 ## 常用命令
 

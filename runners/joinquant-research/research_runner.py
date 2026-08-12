@@ -596,11 +596,12 @@ class ResearchRunner:
     def _buy_state_reason(self, code, day, bar):
         if bool(bar.get("paused", False)):
             return "paused"
-        st_value = self._read_st(code, day)
-        if self.config.reject_st and st_value is True:
-            return "st"
-        if self.config.reject_unknown_state and st_value is None:
-            return "unknown_st"
+        if self._is_stock(code):
+            st_value = self._read_st(code, day)
+            if self.config.reject_st and st_value is True:
+                return "st"
+            if self.config.reject_unknown_state and st_value is None:
+                return "unknown_st"
         raw_price = _finite_number(bar[self.config.execution_price], "execution price")
         high_limit = bar.get("high_limit")
         if high_limit is None or not math.isfinite(float(high_limit)):
@@ -609,6 +610,33 @@ class ResearchRunner:
         elif raw_price >= float(high_limit) - 1e-12:
             return "high_limit"
         return None
+
+    @staticmethod
+    def _is_stock(code):
+        prefix = str(code).split(".", 1)[0]
+        if len(prefix) != 6 or not prefix.isdigit():
+            return True
+        return prefix.startswith(
+            (
+                "000",
+                "001",
+                "002",
+                "003",
+                "200",
+                "300",
+                "301",
+                "4",
+                "600",
+                "601",
+                "603",
+                "605",
+                "688",
+                "689",
+                "8",
+                "900",
+                "92",
+            )
+        )
 
     def _read_bar(self, code, day):
         key = (code, day)

@@ -13,6 +13,13 @@ import pytest
 
 ROOT = Path(__file__).resolve().parents[2]
 RUNNER_PATH = ROOT / "runners" / "joinquant-research" / "research_runner.py"
+ACCEPTANCE_PATH = (
+    ROOT
+    / "runners"
+    / "joinquant-research"
+    / "examples"
+    / "platform_acceptance_20260812.py"
+)
 
 
 class FakeJoinQuantData:
@@ -124,6 +131,17 @@ def test_platform_file_is_old_runtime_compatible_and_self_contained():
             assert node.func.id not in {"sum", "all", "any"}
 
 
+def test_platform_acceptance_example_is_deterministic():
+    text = ACCEPTANCE_PATH.read_text(encoding="utf-8")
+
+    assert "get_price" not in text
+    assert 'FIRST_ASSET = "510300.XSHG"' in text
+    assert 'SECOND_ASSET = "510500.XSHG"' in text
+    assert "unexpected trade sequence" in text
+    assert "acceptance test must finish with no positions" in text
+    assert "JOINQUANT_RESEARCH_RUNNER_ACCEPTANCE_OK" in text
+
+
 def test_platform_python3_builtin_data_api_is_supported(market):
     runner = load_runner(market, platform_builtins=True)
 
@@ -222,6 +240,49 @@ def test_lot_rounding_costs_and_limit_rejections(market):
     ).run()
     assert blocked_result.orders[0]["status"] == "rejected"
     assert blocked_result.orders[0]["reason"] == "high_limit"
+
+
+def test_etf_buy_skips_stock_only_st_query(market):
+    bars = {
+        ("510300.XSHG", date(2024, 1, 2)): {
+            "open": 3.0,
+            "close": 3.0,
+            "high_limit": 3.3,
+            "low_limit": 2.7,
+            "paused": False,
+            "volume": 1_000_000,
+        }
+    }
+
+    class EtfMarket(FakeJoinQuantData):
+        def get_extras(self, name, code, start_date=None, end_date=None, df=None):
+            raise ValueError("is_st only accepts stocks")
+
+    etf_market = EtfMarket(market.trade_days[:2], bars)
+    runner = load_runner(etf_market)
+    result = runner.ResearchRunner(
+        runner.RunnerConfig(
+            start_date="2024-01-02",
+            end_date="2024-01-02",
+            initial_cash=100_000,
+        ),
+        lambda context: {"510300.XSHG": 1.0},
+    ).run()
+
+    assert result.orders[0]["status"] in {"filled", "partial"}
+    assert result.orders[0]["code"] == "510300.XSHG"
+    assert result.warnings == []
+
+
+def test_stock_classification_covers_mainland_exchanges(market):
+    runner = load_runner(market)
+
+    assert runner.ResearchRunner._is_stock("000001.XSHE")
+    assert runner.ResearchRunner._is_stock("600000.XSHG")
+    assert runner.ResearchRunner._is_stock("430047.XBSE")
+    assert runner.ResearchRunner._is_stock("920002.XBSE")
+    assert not runner.ResearchRunner._is_stock("510300.XSHG")
+    assert not runner.ResearchRunner._is_stock("159915.XSHE")
 
 
 def test_failed_sell_does_not_release_cash_for_replacement_buy(market):

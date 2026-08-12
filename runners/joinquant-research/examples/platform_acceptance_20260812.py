@@ -25,7 +25,7 @@ def run():
         frequency="monthly",
         schedule_when="first",
         execution_price="open",
-        run_id="platform-acceptance-20260812-v4",
+        run_id="platform-acceptance-20260812-v5",
     )
     result = ResearchRunner(config, target_weights).run()
     trades = [

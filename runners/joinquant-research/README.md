@@ -129,7 +129,7 @@ manifest 记录运行参数、费用、指标、策略源码 SHA-256、引擎 SH
   无警告运行，以及 `manifest.json` / 报告 / CSV / ZIP 导出。
 - 指标：累计收益 3.323964%，年化收益 15.136086%，最大回撤 5.648852%，Sharpe 1.088490，
   换手 1.990011，最长水下期 36 天，期末资产 1,033,239.64。
-- 生成文件：`exports/platform-acceptance-20260812-v4.zip`。
+- 生成文件：`exports/platform-acceptance-20260812-v5.zip`。
 
 ## 上线前剩余验收
 

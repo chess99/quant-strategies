@@ -1,4 +1,5 @@
 import ast
+import builtins
 import importlib.util
 import json
 import sys
@@ -56,12 +57,20 @@ class FakeJoinQuantData:
         )
 
 
-def load_runner(fake):
+def load_runner(fake, platform_builtins=False):
     module = types.ModuleType("jqdata")
     module.get_all_trade_days = fake.get_all_trade_days
     module.get_extras = fake.get_extras
-    module.get_price = fake.get_price
+    if not platform_builtins:
+        module.get_price = fake.get_price
     old = sys.modules.get("jqdata")
+    missing = object()
+    old_builtins = {}
+    if platform_builtins:
+        for name in ("get_price", "get_extras"):
+            old_builtins[name] = getattr(builtins, name, missing)
+        builtins.get_price = fake.get_price
+        builtins.get_extras = fake.get_extras
     sys.modules["jqdata"] = module
     try:
         name = "joinquant_research_runner_{}".format(id(fake))
@@ -74,6 +83,12 @@ def load_runner(fake):
             sys.modules.pop("jqdata", None)
         else:
             sys.modules["jqdata"] = old
+        if platform_builtins:
+            for name, value in old_builtins.items():
+                if value is missing:
+                    delattr(builtins, name)
+                else:
+                    setattr(builtins, name, value)
 
 
 @pytest.fixture
@@ -107,6 +122,14 @@ def test_platform_file_is_old_runtime_compatible_and_self_contained():
     for node in ast.walk(tree):
         if isinstance(node, ast.Call) and isinstance(node.func, ast.Name):
             assert node.func.id not in {"sum", "all", "any"}
+
+
+def test_platform_python3_builtin_data_api_is_supported(market):
+    runner = load_runner(market, platform_builtins=True)
+
+    assert runner.get_price.__self__ is market
+    assert runner.get_extras.__self__ is market
+    assert runner.get_all_trade_days.__self__ is market
 
 
 def test_calendar_schedule_uses_actual_first_and_last_trade_days(market):

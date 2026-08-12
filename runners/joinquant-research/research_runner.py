@@ -21,7 +21,22 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
-from jqdata import get_all_trade_days, get_extras, get_price
+import jqdata
+
+
+def _platform_api(name):
+    """Resolve APIs split between jqdata and builtins in Research Python 3."""
+    function = getattr(jqdata, name, None)
+    if function is None:
+        function = getattr(builtins, name, None)
+    if not callable(function):
+        raise ImportError("JoinQuant Research API is unavailable: {}".format(name))
+    return function
+
+
+get_all_trade_days = _platform_api("get_all_trade_days")
+get_extras = _platform_api("get_extras")
+get_price = _platform_api("get_price")
 
 
 ENGINE_VERSION = "1.0.0"

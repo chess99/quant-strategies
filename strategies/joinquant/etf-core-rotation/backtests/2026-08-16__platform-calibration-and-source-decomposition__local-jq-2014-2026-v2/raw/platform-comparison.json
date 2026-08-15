@@ -1,0 +1,16 @@
+{
+  "matched_dates": 17,
+  "mean_universe_jaccard": 0.9317629466300829,
+  "median_universe_jaccard": 0.9411764705882353,
+  "mean_top3_jaccard": 0.7470588235294118,
+  "mean_top10_jaccard": 0.8605512134923899,
+  "selected_exact_match_ratio": 0.47058823529411764,
+  "mean_selected_jaccard": 0.6823529411764706,
+  "mean_target_weight_l1": 0.3045153745419976,
+  "median_common_rank_spearman": 0.99938884644767,
+  "median_abs_r63_diff": 0.0,
+  "median_abs_r126_diff": 0.0,
+  "median_abs_r252_diff": 0.0,
+  "median_abs_vol60_diff": 4.996003610813204e-16,
+  "median_adv20_relative_diff": 3.6201948975071155e-10
+}

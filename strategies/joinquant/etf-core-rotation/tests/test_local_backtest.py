@@ -28,6 +28,17 @@ def test_weekly_execution_is_strictly_causal():
         assert dates[dates.get_loc(observation) + 1] == execution
 
 
+def test_weekly_execution_supports_predeclared_signal_delay():
+    engine = load_engine()
+    dates = pd.bdate_range("2024-01-01", "2024-01-31")
+    pairs = engine.weekly_execution_pairs(dates, lag_sessions=3)
+    assert pairs
+    for observation, execution in pairs:
+        assert dates[dates.get_loc(observation) + 3] == execution
+    with np.testing.assert_raises(ValueError):
+        engine.weekly_execution_pairs(dates, lag_sessions=0)
+
+
 def test_parameter_matrix_has_declared_full_factorial_count_and_baseline():
     engine = load_engine()
     baseline = engine.StrategyConfig()
@@ -95,3 +106,19 @@ def test_strict_trade_participation_rounds_down_to_etf_lots():
     assert shares == 500
     assert shares * 10.0 / 1_000_000.0 <= 0.005
     assert engine.participation_limited_shares(1_000, 10.0, None, 0.005) == 0
+
+
+def test_allocation_modes_separate_risk_and_defensive_sleeves(monkeypatch):
+    engine = load_engine()
+    monkeypatch.setattr(engine, "choose_defensive_asset", lambda *_: "bond")
+    risk = {"equity": 0.4, "gold": 0.2}
+    as_of = pd.Timestamp("2024-01-05")
+    full = engine.compose_target_weights(risk, as_of, object(), "full")
+    assert set(full) == {"equity", "gold", "bond"}
+    assert np.isclose(full["bond"], 0.4)
+    assert engine.compose_target_weights(risk, as_of, object(), "risk_cash") == risk
+    normalized = engine.compose_target_weights(risk, as_of, object(), "risk_normalized")
+    assert np.isclose(sum(normalized.values()), 1.0)
+    assert engine.compose_target_weights(risk, as_of, object(), "defensive_only") == {
+        "bond": 1.0
+    }

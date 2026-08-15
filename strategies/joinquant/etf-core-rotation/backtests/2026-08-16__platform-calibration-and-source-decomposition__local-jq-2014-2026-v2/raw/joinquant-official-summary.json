@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "platform": "joinquant",
+  "runtime": "official-strategy-backtest",
+  "schedule": "weekly Monday 10:30 Asia/Shanghai",
+  "source_file": "../source.py",
+  "backtest_id": "af52481f53268d1b7e49ed20dd8ae097",
+  "detail_url": "https://www.joinquant.com/algorithm/backtest/detail?backtestId=af52481f53268d1b7e49ed20dd8ae097",
+  "period": {
+    "start": "2014-01-02",
+    "end": "2026-07-24"
+  },
+  "initial_capital": 1000000.0,
+  "benchmark": "000300.XSHG",
+  "metrics_as_displayed_by_platform": {
+    "total_return": 1.1527,
+    "annualized_return": 0.0648,
+    "maximum_drawdown": 0.3056,
+    "maximum_drawdown_period": {
+      "start": "2021-09-09",
+      "end": "2022-11-28"
+    },
+    "sharpe": 0.167,
+    "sortino": 0.215,
+    "annualized_volatility": 0.148,
+    "alpha": 0.017,
+    "beta": 0.441
+  },
+  "cost_contract_from_source": {
+    "fund_price_related_slippage_spread": 0.002,
+    "approximate_slippage_single_side": 0.001,
+    "commission_single_side": 0.0003,
+    "minimum_commission_rmb": 5.0,
+    "fund_tax": 0.0
+  },
+  "known_limitations": [
+    "Metrics are transcribed from the JoinQuant official result page and rounded to the precision displayed there.",
+    "JoinQuant official Sharpe and Sortino use platform conventions and are not directly comparable with local or Research zero-risk-free calculations.",
+    "One earlier failed upload/compile result showing zero performance is excluded from the valid experiment count."
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "strategy_id": "etf-core-rotation",
+  "variant": "platform-calibration-and-source-decomposition",
+  "period": {
+    "start": "2014-01-02",
+    "end": "2026-07-24"
+  },
+  "frozen_baseline": {
+    "lookbacks": [63, 126, 252],
+    "top_k": 3,
+    "rank_buffer": 2,
+    "max_pair_corr": 0.9,
+    "target_portfolio_vol": 0.18,
+    "min_adv20": 20000000,
+    "initial_cash": 1000000,
+    "commission_single_side": 0.0003,
+    "slippage_single_side": 0.001
+  },
+  "phase2_matrix": {
+    "module_flags": [
+      "absolute_momentum",
+      "inverse_vol",
+      "vol_target",
+      "rank_buffer",
+      "correlation_guard",
+      "capacity"
+    ],
+    "module_combinations": 64,
+    "periods": ["full", "2014-2017", "2018-2021", "2022-2026"],
+    "module_period_trials": 256,
+    "allocation_period_trials": 16,
+    "execution_delay_period_trials": 16,
+    "benchmark_trials": 3,
+    "local_probe_dates": 17,
+    "joinquant_probe_dates": 17,
+    "joinquant_full_replays": 1
+  },
+  "joinquant_research_replay": {
+    "frequency": "weekly",
+    "schedule_when": "first",
+    "execution_price": "open",
+    "price_adjustment": "pre",
+    "lot_size": 100,
+    "reject_unknown_trade_state": true
+  }
+}

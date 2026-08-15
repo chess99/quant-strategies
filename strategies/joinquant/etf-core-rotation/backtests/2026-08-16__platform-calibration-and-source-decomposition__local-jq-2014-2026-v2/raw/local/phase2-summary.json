@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "experiment_protocol": {
+    "module_factorial_trials": 256,
+    "independent_module_combinations": 64,
+    "periods": [
+      "full",
+      "era_2014_2017",
+      "era_2018_2021",
+      "era_2022_2026"
+    ],
+    "allocation_runs": 16,
+    "execution_delay_runs": 16,
+    "benchmark_runs": 3,
+    "probe_dates": 17
+  },
+  "base_config": {
+    "name": "baseline",
+    "lookbacks": [
+      63,
+      126,
+      252
+    ],
+    "min_positive_horizons": 2,
+    "top_k": 3,
+    "rank_buffer": 2,
+    "corr_lookback": 60,
+    "max_pair_corr": 0.9,
+    "vol_lookback": 60,
+    "target_portfolio_vol": 0.18,
+    "max_single_risk_weight": 0.4,
+    "vol_floor": 0.08,
+    "min_history_bars": 253,
+    "min_listing_calendar_days": 300,
+    "liquidity_lookback": 20,
+    "min_adv20": 20000000.0,
+    "min_liquidity_observations": 15,
+    "max_adv_participation": 0.005,
+    "min_trade_value": 2000.0,
+    "min_weight_change": 0.03,
+    "initial_cash": 1000000.0,
+    "commission_rate": 0.0003,
+    "minimum_commission": 5.0,
+    "slippage_rate": 0.001,
+    "use_absolute_momentum": true,
+    "use_top_k": true,
+    "use_inverse_vol": true,
+    "use_vol_target": true,
+    "use_rank_buffer": true,
+    "use_correlation_guard": true,
+    "use_capacity": true,
+    "enforce_trade_adv_participation": false,
+    "excluded_risk_symbols": [],
+    "allocation_mode": "full",
+    "execution_lag_sessions": 1
+  },
+  "best_full_period_factorial_sharpe": 0.5280547879363477
+}

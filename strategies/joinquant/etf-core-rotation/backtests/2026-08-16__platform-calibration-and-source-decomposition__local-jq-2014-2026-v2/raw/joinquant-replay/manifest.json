@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "platform": "joinquant-research",
+  "strategy_family": "etf-core-rotation",
+  "variant": "baseline-research-open-proxy",
+  "run_id": "etf-core-jq-research-open-2014-2026-v1",
+  "engine_version": "1.0.0",
+  "engine_sha256": "decbcba30378adf22e61097bfdda69f045b67e3c5219e8abda5a271312418cbd",
+  "source_sha256": "d894c9b4a172b2cfa017b27f50134b82bf01c1c1cedfda0dcb5787011b850767",
+  "config": {
+    "start_date": "2014-01-02",
+    "end_date": "2026-07-24",
+    "initial_cash": 1000000.0,
+    "frequency": "weekly",
+    "schedule_when": "first",
+    "execution_price": "open",
+    "price_adjustment": "pre",
+    "lot_size": 100,
+    "buy_commission": 0.0003,
+    "sell_commission": 0.0003,
+    "minimum_commission": 5.0,
+    "stamp_tax": 0.0,
+    "buy_slippage": 0.001,
+    "sell_slippage": 0.001,
+    "reject_st": true,
+    "reject_unknown_state": true,
+    "run_id": "etf-core-jq-research-open-2014-2026-v1"
+  },
+  "metrics": {
+    "cumulative_return": 1.4998854334655114,
+    "annualized_return": 0.07791459405788803,
+    "max_drawdown": 0.3241885654515998,
+    "max_drawdown_start": "2021-09-09",
+    "max_drawdown_end": "2022-11-28",
+    "sharpe": 0.5760444357449674,
+    "turnover": 231.74260760369813,
+    "longest_underwater_days": 1665,
+    "ending_value": 2499885.4334655115,
+    "trading_days": 3053,
+    "yearly_returns": {
+      "2014": 0.3833975617957017,
+      "2015": -0.016489490304529064,
+      "2016": -0.039806061626781686,
+      "2017": 0.15203556715018984,
+      "2018": -0.07988364141376258,
+      "2019": 0.20438100888221378,
+      "2020": 0.3623079327496954,
+      "2021": 0.01828153526588916,
+      "2022": -0.18811845378276792,
+      "2023": 0.009183293612717636,
+      "2024": 0.06098586177205334,
+      "2025": 0.23315737207699394,
+      "2026": 0.007925933780443595
+    }
+  },
+  "warnings": [],
+  "artifacts": {
+    "source.py": {
+      "sha256": "d894c9b4a172b2cfa017b27f50134b82bf01c1c1cedfda0dcb5787011b850767",
+      "bytes": 3837
+    },
+    "engine.py": {
+      "sha256": "decbcba30378adf22e61097bfdda69f045b67e3c5219e8abda5a271312418cbd",
+      "bytes": 32260
+    },
+    "report.md": {
+      "sha256": "b99177c05347b4ebc04235db7c40fdd42807a64163393d0a503fced401017a82",
+      "bytes": 1094
+    },
+    "raw/equity.csv": {
+      "sha256": "2f43449bc9ee02062f781d99667f99d521bf9a2dd03d7b076e5bb53405f707b3",
+      "bytes": 251363,
+      "rows": 3053
+    },
+    "raw/orders.csv": {
+      "sha256": "6e3281d023d94d9dc4e9063e4bdfbc991ba3ef7cea39bf70db43efcc921339c0",
+      "bytes": 229797,
+      "rows": 2618
+    },
+    "raw/trades.csv": {
+      "sha256": "d364e2441c1340d3bb1671866ff65fbaf0e3d0d2ceab0353ba9b8f1d6b8db976",
+      "bytes": 229271,
+      "rows": 2610
+    },
+    "raw/positions.csv": {
+      "sha256": "283e71e0a452964d97d28b735aad781420088d3bdc799d4b20df1a4e7603b892",
+      "bytes": 715392,
+      "rows": 10959
+    }
+  }
+}

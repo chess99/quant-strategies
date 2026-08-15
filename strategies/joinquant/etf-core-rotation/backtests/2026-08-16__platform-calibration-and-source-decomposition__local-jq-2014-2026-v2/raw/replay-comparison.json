@@ -1,0 +1,20 @@
+{
+  "local_decisions": 643,
+  "joinquant_decisions": 644,
+  "matched_observation_dates": 643,
+  "extra_joinquant_start_boundary_decisions": 1,
+  "execution_date_exact_match_ratio": 1.0,
+  "selected_exact_match_ratio": 0.6423017107309487,
+  "mean_selected_jaccard": 0.7943234836702955,
+  "mean_target_weight_l1": 0.21522661968424153,
+  "mean_abs_universe_count_difference": 2.87402799377916,
+  "mean_abs_risk_weight_difference": 0.0027621685427404647,
+  "matched_equity_days_from_first_common_execution": 3051,
+  "daily_return_correlation": 0.9636881445729458,
+  "daily_return_mean_absolute_difference": 0.001146649727003551,
+  "annualized_active_return_tracking_error": 0.04098245678562786,
+  "local_annualized_return_common_window": 0.06134031871939549,
+  "joinquant_annualized_return_common_window": 0.07869803879735371,
+  "ending_normalized_value_local": 2.067411298479189,
+  "ending_normalized_value_joinquant": 2.519872966730358
+}

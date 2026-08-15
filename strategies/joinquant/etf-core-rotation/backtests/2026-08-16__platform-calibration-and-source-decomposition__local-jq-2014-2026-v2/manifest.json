@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "strategy_id": "etf-core-rotation",
+  "platform": "joinquant",
+  "research_engine": "local-daily-causal-replay-and-joinquant-research-runner",
+  "strategy_family": "etf-core-rotation",
+  "variant": "platform-calibration-and-source-decomposition",
+  "archived_at": "2026-08-16",
+  "run_id": "local-jq-2014-2026-v2",
+  "source_file": "source.py",
+  "period": {
+    "start": "2014-01-02",
+    "end": "2026-07-24"
+  },
+  "start_date": "2014-01-02",
+  "end_date": "2026-07-24",
+  "metrics": {
+    "trading_days": 3053,
+    "total_return": 1.026896788213083,
+    "annualized_return": 0.060050179258935854,
+    "maximum_drawdown": 0.3707520054393617,
+    "sharpe": 0.4561935854700913,
+    "annualized_turnover": 18.97430660794628
+  },
+  "joinquant_research_metrics": {
+    "trading_days": 3053,
+    "total_return": 1.4998854334655114,
+    "annualized_return": 0.07791459405788803,
+    "maximum_drawdown": 0.3241885654515998,
+    "sharpe": 0.5760444357449674,
+    "turnover": 231.74260760369813
+  },
+  "joinquant_official_10_30_backtest": {
+    "status": "passed",
+    "backtest_id": "af52481f53268d1b7e49ed20dd8ae097",
+    "detail_url": "https://www.joinquant.com/algorithm/backtest/detail?backtestId=af52481f53268d1b7e49ed20dd8ae097",
+    "initial_capital": 1000000.0,
+    "total_return": 1.1527,
+    "annualized_return": 0.0648,
+    "maximum_drawdown": 0.3056,
+    "maximum_drawdown_period": {
+      "start": "2021-09-09",
+      "end": "2022-11-28"
+    },
+    "platform_sharpe": 0.167,
+    "platform_sortino": 0.215,
+    "annualized_volatility": 0.148,
+    "alpha": 0.017,
+    "beta": 0.441,
+    "metric_scope_note": "JoinQuant official metrics use platform conventions and are not directly comparable with the zero-risk-free local/Research Sharpe."
+  },
+  "experiment_counts": {
+    "phase1_direct_backtests": 1322,
+    "phase2_module_period_trials": 256,
+    "phase2_allocation_period_trials": 16,
+    "phase2_execution_delay_period_trials": 16,
+    "phase2_benchmarks": 3,
+    "local_probe_dates": 17,
+    "joinquant_probe_dates": 17,
+    "joinquant_full_replays": 1,
+    "joinquant_official_10_30_backtests": 1,
+    "completed_experiment_executions_excluding_official_10_30": 1648,
+    "completed_experiment_executions_total": 1649,
+    "excluded_failed_upload_or_compile_runs": 1,
+    "pbo_cscv_splits": 70,
+    "walk_forward_test_years": 8
+  },
+  "source_sha256": "703cf6b637af148ee07c12b3f964302c9698c39b900ea2d792fa97a5ddfa2cc4",
+  "engine_sha256": "59a47ae4a2bf7f226e1b2f6158361cd9a07aa82c790ef83e61b3392249457694",
+  "joinquant_probe_bundle_sha256": "51a06c9cc8a05829e23c887de1bf9fea0a9abee0ae7a0b18af6a578de17780c7",
+  "joinquant_replay_bundle_sha256": "c8dcbca6ac3ee227d489c83485d7bccccca86dbbaee408ea1a7651b9e8ba068a0",
+  "joinquant_official_summary_sha256": "1d03d2248cc8d327be18b1e7dc37a42a93fbc63d4149cb90bf766daf4031a3f8",
+  "limitations": [
+    "Local tracking_target is a current static profile rather than strict historical PIT classification.",
+    "Local and JoinQuant Research execution use daily open proxies; the official Monday 10:30 result is available only under JoinQuant platform metric conventions.",
+    "The JoinQuant Research runner has one extra start-boundary decision on 2014-01-02; matched-path comparison starts on 2014-01-06.",
+    "All robustness tests still use the same 2014-2026 historical record."
+  ]
+}

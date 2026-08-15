@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "platform": "joinquant-research",
+  "strategy_id": "etf-core-rotation",
+  "variant": "pit-golden-probe",
+  "run_id": "etf-core-pit-golden-20260816-v1",
+  "probe_dates": 17,
+  "member_rows": 1125,
+  "baseline_sha256": "703cf6b637af148ee07c12b3f964302c9698c39b900ea2d792fa97a5ddfa2cc4",
+  "probe_sha256": "588185b677e13c9c4db851550d003ebdcc4fe58737072b889f342612aff5374c",
+  "limitations": [
+    "Isolated probe dates use an empty starting portfolio, so rank buffer retention is not tested.",
+    "This probe validates JoinQuant Research data and target construction, not official 10:30 fills."
+  ]
+}

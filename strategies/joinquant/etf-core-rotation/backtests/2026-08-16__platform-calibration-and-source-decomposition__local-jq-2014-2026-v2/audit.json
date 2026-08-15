@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "baseline_status": "frozen",
+  "baseline_source_sha256": "703cf6b637af148ee07c12b3f964302c9698c39b900ea2d792fa97a5ddfa2cc4",
+  "original_download_sha256": "6cb4b7b10cfb13dafffc4ad3c0b704c6ea96bb4f1891482ef553425f20de92d2",
+  "joinquant_permissions": {
+    "research_python3": true,
+    "finance_fund_invest_target": true,
+    "historical_etf_master": true,
+    "historical_etf_prices": true
+  },
+  "joinquant_point_in_time_probe": {
+    "probe_dates": 17,
+    "member_rows": 1125,
+    "bundle_sha256": "51a06c9cc8a05829e23c887de1bf9fea0a9abee0ae7a0b18af6a578de17780c7",
+    "mean_universe_jaccard": 0.9317629466300829,
+    "median_common_rank_spearman": 0.99938884644767,
+    "median_abs_return_feature_difference": 0.0,
+    "median_abs_vol60_difference": 4.996003610813204e-16,
+    "median_adv20_relative_difference": 3.6201948975071155e-10
+  },
+  "joinquant_full_research_replay": {
+    "status": "passed",
+    "decision_count": 644,
+    "bundle_sha256": "c8dcbca6ac3ee227d489c83485d7bccccca86dbbaee408ea1a7651b9e8ba068a0",
+    "annualized_return": 0.07791459405788803,
+    "maximum_drawdown": 0.3241885654515998,
+    "sharpe": 0.5760444357449674,
+    "warnings": []
+  },
+  "joinquant_official_10_30_backtest": {
+    "status": "passed",
+    "backtest_id": "af52481f53268d1b7e49ed20dd8ae097",
+    "detail_url": "https://www.joinquant.com/algorithm/backtest/detail?backtestId=af52481f53268d1b7e49ed20dd8ae097",
+    "period": {
+      "start": "2014-01-02",
+      "end": "2026-07-24"
+    },
+    "initial_capital": 1000000.0,
+    "total_return": 1.1527,
+    "annualized_return": 0.0648,
+    "maximum_drawdown": 0.3056,
+    "maximum_drawdown_period": {
+      "start": "2021-09-09",
+      "end": "2022-11-28"
+    },
+    "platform_sharpe": 0.167,
+    "platform_sortino": 0.215,
+    "annualized_volatility": 0.148,
+    "alpha": 0.017,
+    "beta": 0.441,
+    "metric_scope_note": "Official Sharpe/Sortino use JoinQuant platform conventions; do not compare them numerically with local or Research zero-risk-free ratios.",
+    "summary_sha256": "1d03d2248cc8d327be18b1e7dc37a42a93fbc63d4149cb90bf766daf4031a3f8"
+  },
+  "local_joinquant_full_path_comparison": {
+    "matched_observation_dates": 643,
+    "execution_date_exact_match_ratio": 1.0,
+    "selected_exact_match_ratio": 0.6423017107309487,
+    "mean_selected_jaccard": 0.7943234836702955,
+    "mean_target_weight_l1": 0.21522661968424153,
+    "daily_return_correlation": 0.9636881445729458,
+    "annualized_active_return_tracking_error": 0.04098245678562786
+  },
+  "bias_checks": {
+    "future_data": "Signals use observation_date or earlier; all 643 matched weekly executions follow their observation date.",
+    "survivorship": "Local lifecycle filters include historically delisted ETFs; JoinQuant rebuilds the ETF master at each historical date.",
+    "tracking_index_point_in_time": "JoinQuant uses FUND_INVEST_TARGET pub_date/start_date/end_date filters. Local tracking_target is a current static profile and is not strict PIT.",
+    "price_adjustment": "Both paths use pre-adjusted/continuous prices for signals; lagged raw money turnover is used for ADV.",
+    "execution": "Local and JoinQuant Research paths use next-session open proxies. The official strategy was separately run with Monday 10:30 platform scheduling.",
+    "capacity": "Strict stress tests cap every risk trade at 0.5% of lagged ADV20; the frozen baseline only caps target risk holdings and can exceed this on forced reductions."
+  },
+  "completed_experiment_executions_excluding_official_10_30": 1648,
+  "completed_experiment_executions_total": 1649,
+  "excluded_failed_upload_or_compile_runs": 1,
+  "pbo_cscv_splits": 70,
+  "walk_forward_oos_years": 8
+}

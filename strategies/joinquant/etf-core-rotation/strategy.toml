@@ -1,0 +1,18 @@
+schema_version = 1
+id = "etf-core-rotation"
+title = "ETF 多周期核心轮动"
+platform = "joinquant"
+market = "CN-ETF"
+status = "research"
+baseline = "baseline.py"
+
+[execution]
+language = "python3"
+frequency = "weekly"
+signal_time = "previous_trading_day_close"
+execution_time = "next_trading_day_open_proxy_for_local_research"
+
+[research]
+primary_benchmark = "000300.XSHG"
+baseline_version = "v1"
+original_download_sha256 = "6cb4b7b10cfb13dafffc4ad3c0b704c6ea96bb4f1891482ef553425f20de92d2"

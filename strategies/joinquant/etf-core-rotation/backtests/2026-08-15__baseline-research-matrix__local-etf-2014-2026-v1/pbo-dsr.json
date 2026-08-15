@@ -1,0 +1,41 @@
+{
+  "pbo": {
+    "method": "CSCV approximation with 8 contiguous blocks and all 70 half-splits",
+    "trial_count": 1296,
+    "trading_days": 3053,
+    "partition_count": 8,
+    "split_count": 70,
+    "pbo": 0.5285714285714286,
+    "median_selected_oos_percentile": 0.47337962962962965
+  },
+  "deflated_sharpe": {
+    "frozen_baseline": {
+      "trial_count": 1296,
+      "observations": 3053,
+      "observed_annualized_sharpe": 0.4561935854700904,
+      "expected_maximum_annualized_sharpe_under_null": 0.3220972575840478,
+      "skewness": -0.3415027910735922,
+      "pearson_kurtosis": 8.266929587585357,
+      "deflated_sharpe_probability": 0.6786944343249979,
+      "method_note": "Bailey-Lopez de Prado DSR approximation; correlated grid trials make the independent-trial expected maximum conservative only as a diagnostic."
+    },
+    "full_sample_best": {
+      "trial": "grid_0045",
+      "top_k": 2,
+      "lookbacks": "42/84/168",
+      "max_pair_corr": 0.9,
+      "target_portfolio_vol": 0.15,
+      "min_adv20": 50000000.0,
+      "rank_buffer": 3,
+      "initial_cash": 1000000.0,
+      "trial_count": 1296,
+      "observations": 3053,
+      "observed_annualized_sharpe": 0.7657362612922091,
+      "expected_maximum_annualized_sharpe_under_null": 0.3220972575840478,
+      "skewness": 0.18063498568656605,
+      "pearson_kurtosis": 8.459566468317496,
+      "deflated_sharpe_probability": 0.9391041462994619,
+      "method_note": "Bailey-Lopez de Prado DSR approximation; correlated grid trials make the independent-trial expected maximum conservative only as a diagnostic."
+    }
+  }
+}

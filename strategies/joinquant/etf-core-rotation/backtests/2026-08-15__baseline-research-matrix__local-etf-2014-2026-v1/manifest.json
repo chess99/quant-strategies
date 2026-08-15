@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "strategy_id": "etf-core-rotation",
+  "platform": "joinquant",
+  "research_engine": "local-daily-causal-replay",
+  "strategy_family": "etf-core-rotation",
+  "variant": "baseline-research-matrix",
+  "archived_at": "2026-08-15",
+  "run_id": "local-etf-2014-2026-v1",
+  "source_file": "source.py",
+  "period": {
+    "start": "2014-01-02",
+    "end": "2026-07-24"
+  },
+  "start_date": "2014-01-02",
+  "end_date": "2026-07-24",
+  "benchmark": "000300.XSHG / local proxy SH510300",
+  "costs": {
+    "baseline_slippage_single_side": 0.001,
+    "commission_single_side": 0.0003,
+    "minimum_commission_rmb": 5.0,
+    "fund_tax": 0.0
+  },
+  "metrics": {
+    "trading_days": 3053,
+    "total_return": 1.0268967882130773,
+    "annualized_return": 0.06005017925893563,
+    "maximum_drawdown": 0.37075200543936315,
+    "sharpe": 0.4561935854700904,
+    "sortino": 0.7232013791413463,
+    "calmar": 0.1619685891861127,
+    "annualized_volatility": 0.15383609873372178,
+    "turnover": 229.875230452619,
+    "annualized_turnover": 18.97430660794628,
+    "transaction_cost": 467635.0860571472,
+    "average_cash_ratio": 0.008999162311728847,
+    "average_risk_weight": 0.5779224981427187,
+    "longest_underwater_trading_days": 1177,
+    "worst_rolling_three_year_return": -0.33124626576991467,
+    "positive_day_ratio": 0.5237471339665902
+  },
+  "source_sha256": "703cf6b637af148ee07c12b3f964302c9698c39b900ea2d792fa97a5ddfa2cc4",
+  "engine_sha256": "440fe4533137192c07af0bf6c4eaa9cdec73c85680659621865fcb5b96f16e27",
+  "original_download_sha256": "6cb4b7b10cfb13dafffc4ad3c0b704c6ea96bb4f1891482ef553425f20de92d2",
+  "data_manifest_sha256": {
+    "etf_daily": "df62ef9d3b84c453f1259f8ff2763bb0204010e6a853179bf9076a757e6413c2",
+    "etf_master": "53e2862faf4a1efc35b6e78744e1c7b087f550be8357f1bcc45a08fe12e51008",
+    "etf_profiles": "79ab4e222b5828fd24c2fe72932418792f5d4c314cff92473014652cece2e3c2",
+    "etf_coverage": "05c82eb88e07950114f33193f9143f1e1f5a95143cc17791654f7d6210d37d28"
+  },
+  "experiment_counts": {
+    "ablation_runs": 8,
+    "parameter_trials": 1296,
+    "cost_runs": 4,
+    "capacity_as_coded_runs": 5,
+    "capacity_strict_runs": 5,
+    "capacity_runs": 10,
+    "contribution_exclusion_runs": 4,
+    "direct_backtest_rows_total": 1322,
+    "pbo_cscv_splits": 70,
+    "walk_forward_test_years": 8
+  },
+  "limitations": [
+    "Local execution is next-trading-day open, a daily proxy for JoinQuant 10:30.",
+    "Current static tracking_target is not a strict historical PIT classification.",
+    "B-grade adjusted ETF data approximates share lots around corporate actions.",
+    "All robustness tests still use the same 2014-2026 historical record."
+  ]
+}

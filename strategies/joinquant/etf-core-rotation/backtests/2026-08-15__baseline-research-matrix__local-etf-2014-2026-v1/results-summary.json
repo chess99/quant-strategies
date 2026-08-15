@@ -1,0 +1,57 @@
+{
+  "baseline": {
+    "trading_days": 3053,
+    "total_return": 1.0268967882130773,
+    "annualized_return": 0.06005017925893563,
+    "maximum_drawdown": 0.37075200543936315,
+    "sharpe": 0.4561935854700904,
+    "sortino": 0.7232013791413463,
+    "calmar": 0.1619685891861127,
+    "annualized_volatility": 0.15383609873372178,
+    "turnover": 229.875230452619,
+    "annualized_turnover": 18.97430660794628,
+    "transaction_cost": 467635.0860571472,
+    "average_cash_ratio": 0.008999162311728847,
+    "average_risk_weight": 0.5779224981427187,
+    "longest_underwater_trading_days": 1177,
+    "worst_rolling_three_year_return": -0.33124626576991467,
+    "positive_day_ratio": 0.5237471339665902
+  },
+  "parameter_grid": {
+    "trial_count": 1296,
+    "positive_annualized_ratio": 1.0,
+    "median_annualized_return": 0.06683502943316577,
+    "median_sharpe": 0.4975750358649687,
+    "q25_sharpe": 0.4297770247296585,
+    "q75_sharpe": 0.5574964827003909,
+    "minimum_sharpe": 0.18267718741895494,
+    "maximum_sharpe": 0.7657362612922091,
+    "best_full_sample_trial": "grid_0045"
+  },
+  "concentration": {
+    "risk_asset_count_held": 120,
+    "top1_positive_contribution_share": 0.11194790473655057,
+    "top3_positive_contribution_share": 0.21999333009285338,
+    "top5_positive_contribution_share": 0.30673126279108087,
+    "positive_contribution_hhi": 0.03726065861636755,
+    "top_risk_symbols": [
+      "SZ159949",
+      "SH510230",
+      "SZ159869",
+      "SH518880",
+      "SH510180"
+    ]
+  },
+  "experiment_counts": {
+    "ablation_runs": 8,
+    "parameter_trials": 1296,
+    "cost_runs": 4,
+    "capacity_as_coded_runs": 5,
+    "capacity_strict_runs": 5,
+    "capacity_runs": 10,
+    "contribution_exclusion_runs": 4,
+    "direct_backtest_rows_total": 1322,
+    "pbo_cscv_splits": 70,
+    "walk_forward_test_years": 8
+  }
+}

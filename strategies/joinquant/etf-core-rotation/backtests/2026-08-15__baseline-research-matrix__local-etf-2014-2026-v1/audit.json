@@ -1,0 +1,52 @@
+{
+  "data_root": "D:\\code\\_open-source\\_data\\quant-research",
+  "daily_rows_loaded": 1211390,
+  "risk_symbol_count": 1337,
+  "risk_delisted_symbol_count": 77,
+  "tracking_group_count": 407,
+  "duplicate_tracking_group_count": 200,
+  "daily_start": "2005-02-23",
+  "daily_end": "2026-07-24",
+  "price_adjustment": "adjusted_open/adjusted_close from B-grade continuous data",
+  "amount_adjustment": "raw RMB amount; not price-adjusted",
+  "classification_point_in_time": false,
+  "classification_limitation": "Eastmoney tracking_target is a current static profile without historical effective intervals; lifecycle and prices are point-in-time, but category and same-index deduplication are not strict PIT.",
+  "survivorship_control": "Every observation filters listing_date and delisting_date; delisted B-grade ETFs remain eligible during their historical trading interval.",
+  "signal_execution_rule": "last close of prior trading week -> first trading-day open of next week",
+  "manifest_hashes": {
+    "etf_daily": "df62ef9d3b84c453f1259f8ff2763bb0204010e6a853179bf9076a757e6413c2",
+    "etf_master": "53e2862faf4a1efc35b6e78744e1c7b087f550be8357f1bcc45a08fe12e51008",
+    "etf_profiles": "79ab4e222b5828fd24c2fe72932418792f5d4c314cff92473014652cece2e3c2",
+    "etf_coverage": "05c82eb88e07950114f33193f9143f1e1f5a95143cc17791654f7d6210d37d28"
+  },
+  "original_download_sha256": "6cb4b7b10cfb13dafffc4ad3c0b704c6ea96bb4f1891482ef553425f20de92d2",
+  "baseline_source_sha256": "703cf6b637af148ee07c12b3f964302c9698c39b900ea2d792fa97a5ddfa2cc4",
+  "baseline_validation": {
+    "status": "passed",
+    "errors": [],
+    "causal_decision_count": 643,
+    "lifecycle_violations": 0,
+    "maximum_absolute_unattributed_pnl": 9.731593308970332e-10,
+    "maximum_trade_adv_participation": 0.04220529579015783,
+    "trade_count_above_0_5pct_adv": 61,
+    "note": "The baseline caps target risk holdings at 0.5% of lagged ADV20. Forced reductions can exceed 0.5% trade/ADV and are reported rather than hidden."
+  },
+  "future_data_checks": {
+    "all_observations_strictly_before_execution": true,
+    "feature_precomputation_semantics": "grouped shifts and rolling windows end on the observation date; execution occurs on the following trading-week first open"
+  },
+  "corporate_actions": "Signals and marks use B-grade continuous adjusted prices. Raw ADV uses RMB amount. The local share ledger uses adjusted prices and therefore approximates lot/minimum commission effects around distributions rather than replaying every creation-unit event.",
+  "tracking_index_point_in_time": "JoinQuant baseline queries FUND_INVEST_TARGET with pub_date/start/end filters. The local matrix lacks that historical table, so current tracking_target is used only for category and duplicate-index grouping and is explicitly non-PIT.",
+  "experiment_counts": {
+    "ablation_runs": 8,
+    "parameter_trials": 1296,
+    "cost_runs": 4,
+    "capacity_as_coded_runs": 5,
+    "capacity_strict_runs": 5,
+    "capacity_runs": 10,
+    "contribution_exclusion_runs": 4,
+    "direct_backtest_rows_total": 1322,
+    "pbo_cscv_splits": 70,
+    "walk_forward_test_years": 8
+  }
+}

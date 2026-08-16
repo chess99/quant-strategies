@@ -1,0 +1,19 @@
+schema_version = 1
+id = "wufu-etf-rotation"
+title = "五福 7.5 ETF 轮动拆解"
+platform = "joinquant"
+market = "CN-ETF"
+status = "research"
+baseline = "baseline.py"
+
+[execution]
+language = "python3"
+frequency = "daily"
+signal_time = "previous_trade_day_close"
+execution_time = "next_trading_day_open"
+
+[research]
+primary_benchmark = "510300.XSHG"
+source_post = "https://www.joinquant.com/post/76820"
+source_sha256 = "91735fb99bd9afb80c0a4a50e2c6ec3753676fa85b119b6f19a659e50c55178f"
+

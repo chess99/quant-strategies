@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "preregistered_at": "2026-08-16",
+  "strategy_id": "etf-core-rotation",
+  "variant": "conditional-momentum-overlay-v2",
+  "status": "frozen-before-results",
+  "parent_baseline_sha256": "703cf6b637af148ee07c12b3f964302c9698c39b900ea2d792fa97a5ddfa2cc4",
+  "hypothesis": "ETF relative momentum adds net value to a strategic stock-bond-gold core only when leaders beat an investable defensive hurdle and cross-sectional trend dispersion is sufficiently wide.",
+  "period": {
+    "start": "2014-01-02",
+    "end": "2026-07-24"
+  },
+  "frozen_candidate": {
+    "frequency": "weekly",
+    "signal_time": "last close of previous trading week",
+    "execution_time_local": "next trading session open",
+    "strategic_core": {
+      "SH510300": 0.4,
+      "SH511010": 0.4,
+      "SH518880": 0.2
+    },
+    "active_sleeve": 0.3,
+    "active_single_symbol_cap": 0.15,
+    "lookbacks": [63, 126, 252],
+    "top_k": 3,
+    "rank_buffer": 2,
+    "correlation_lookback": 60,
+    "maximum_pair_correlation": 0.9,
+    "minimum_excess_horizons": 2,
+    "defensive_hurdle": "per horizon max(0, SH511010 return, SH511880 return)",
+    "dispersion_measure": "cross-sectional IQR of 126-session returns after lifecycle, history, deduplication and liquidity filters",
+    "minimum_dispersion_iqr": 0.1,
+    "minimum_adv20_rmb": 20000000,
+    "maximum_adv20_participation": 0.005,
+    "minimum_weight_change": 0.03,
+    "minimum_trade_value_rmb": 2000,
+    "commission_single_side": 0.0003,
+    "slippage_single_side": 0.001,
+    "minimum_commission_rmb": 5,
+    "unused_active_budget": "returned pro rata to the 40/40/20 strategic core",
+    "leverage": false,
+    "shorting": false
+  },
+  "experiment_matrix": {
+    "references": [
+      "static 40/40/20 core",
+      "frozen v1",
+      "always-on overlay",
+      "excess-gate-only overlay",
+      "dispersion-gate-only overlay",
+      "full conditional v2",
+      "standalone conditional satellite"
+    ],
+    "module_factorial": {
+      "flags": [
+        "excess_hurdle",
+        "dispersion_gate",
+        "rank_buffer",
+        "correlation_guard"
+      ],
+      "combinations": 16,
+      "periods": ["full", "2014-2017", "2018-2021", "2022-2026"]
+    },
+    "parameter_grid": {
+      "lookbacks": [[42, 84, 168], [63, 126, 252], [84, 168, 252]],
+      "top_k": [2, 3, 4],
+      "active_sleeve": [0.2, 0.3, 0.4],
+      "minimum_excess_horizons": [1, 2, 3],
+      "minimum_dispersion_iqr": [0.05, 0.1, 0.15],
+      "rank_buffer": [1, 2, 3],
+      "maximum_pair_correlation": [0.85, 0.9, 0.95],
+      "trial_count": 2187
+    },
+    "orthogonal_stress": {
+      "single_side_all_in_cost_bp": [5, 10, 20, 30],
+      "initial_capital_rmb": [200000, 1000000, 5000000, 10000000, 50000000],
+      "minimum_adv20_rmb": [10000000, 20000000, 50000000],
+      "execution_lag_sessions": [1, 2, 3, 5],
+      "contribution_exclusion_top_n": [1, 3, 5]
+    },
+    "out_of_sample": {
+      "method": "expanding-window annual selection by in-sample Sharpe",
+      "first_test_year": 2019,
+      "pbo": "8 contiguous blocks, all 70 CSCV half-splits",
+      "deflated_sharpe": true,
+      "moving_block_bootstrap": {
+        "block_sessions": [21, 63],
+        "resamples": 2000,
+        "seed": 20260816
+      }
+    }
+  },
+  "success_criteria": {
+    "cost_adjusted_increment": "At 20bp single-side all-in cost, frozen v2 annualized return exceeds the identically costed static core.",
+    "rolling_three_year": "At least 60% of month-end rolling three-year windows beat the static core and the worst three-year active excess is greater than -10%.",
+    "risk_improvement": "At least two of: Sharpe exceeds core by 0.05, maximum drawdown is no worse than core, worst rolling three-year return is no worse than core.",
+    "standalone_satellite": "Standalone conditional satellite has positive Sharpe at baseline and 20bp costs.",
+    "multiple_testing": "Approximate PBO is at most 40% and frozen-candidate DSR probability is at least 80%.",
+    "concentration": "Top positive-contribution ETF share is at most 25% and excluding the top contributor preserves positive annualized excess over core.",
+    "capacity": "At RMB 10 million under strict 0.5% ADV trade participation, average active exposure remains at least 20% and annualized excess over core is positive.",
+    "platform": "JoinQuant PIT Research replay and official scheduling do not reverse the sign of the frozen candidate's excess over its strategic core."
+  },
+  "decision_rule": "No parameter selected from full-sample results may replace the frozen candidate. A failed criterion is reported as failure rather than repaired by an exception rule."
+}

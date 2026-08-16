@@ -1,0 +1,30 @@
+{
+  "top1": {
+    "held_symbol_count": 213,
+    "top1_positive_contribution_share": 0.11814257050291209,
+    "top3_positive_contribution_share": 0.2732481636687614,
+    "top5_positive_contribution_share": 0.3737486560979495,
+    "positive_contribution_hhi": 0.04061072086125434,
+    "top_symbols": [
+      "SH513310",
+      "SH513350",
+      "SZ159509",
+      "SZ159516",
+      "SH588200"
+    ]
+  },
+  "top3": {
+    "held_symbol_count": 302,
+    "top1_positive_contribution_share": 0.07980172493843501,
+    "top3_positive_contribution_share": 0.17141625605320454,
+    "top5_positive_contribution_share": 0.24380732788478943,
+    "positive_contribution_hhi": 0.023844179744801998,
+    "top_symbols": [
+      "SH513310",
+      "SH518880",
+      "SZ159509",
+      "SH513350",
+      "SZ159529"
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "trial_count": 216,
+  "observations": 2808,
+  "observed_annualized_sharpe": 0.9242704425372665,
+  "expected_maximum_annualized_sharpe_under_null": 0.43760454721377434,
+  "skewness": 0.1577822814080595,
+  "pearson_kurtosis": 8.26885282911664,
+  "deflated_sharpe_probability": 0.9481005949373303,
+  "method_note": "Bailey-Lopez de Prado DSR approximation; correlated grid trials mean the independent-trial expected maximum is a conservative diagnostic, not a p-value."
+}

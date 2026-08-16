@@ -13,4 +13,5 @@
 **/backtests/**/source.py whitespace=-blank-at-eol,-blank-at-eof
 
 # 研究归档内的哈希按原始字节计算；禁止 Git 在提交时改写换行符。
-**/results/** -text whitespace=-blank-at-eol,-blank-at-eof
+**/results/** -text !eol whitespace=-blank-at-eol,-blank-at-eof
+**/backtests/** -text !eol whitespace=-blank-at-eol,-blank-at-eof

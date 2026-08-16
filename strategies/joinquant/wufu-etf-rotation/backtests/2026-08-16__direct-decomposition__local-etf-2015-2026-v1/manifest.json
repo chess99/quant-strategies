@@ -1,0 +1,337 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-16",
+  "source_file": "source.py",
+  "platform": "joinquant",
+  "execution_environment": "local-etf-daily + JoinQuant-minute-work-package",
+  "strategy_id": "wufu-etf-rotation",
+  "variant": "direct-decomposition",
+  "run_id": "2026-08-16__direct-decomposition__local-etf-2015-2026-v1",
+  "period": {
+    "start": "2015-01-01",
+    "end": "2026-07-24"
+  },
+  "benchmark": "SH510300",
+  "cost": "single-side total 2bp baseline; 2/5/10/20/30bp stress",
+  "metrics": {
+    "A6_top1": {
+      "trading_days": 2808,
+      "total_return": 12.424384575791631,
+      "annualized_return": 0.2624706516635864,
+      "annualized_volatility": 0.3012890744384344,
+      "sharpe": 0.9242704425372663,
+      "maximum_drawdown": 0.33481685157866736,
+      "turnover": 2345.835085560978,
+      "annualized_turnover": 210.52366152470316,
+      "transaction_cost": 250251.21656851473,
+      "average_cash_ratio": 0.004395965884547519,
+      "average_exposure": 0.9956040341154526,
+      "longest_underwater_trading_days": 769,
+      "worst_rolling_three_year_return": -0.2588363212971462
+    },
+    "A6_top3": {
+      "trading_days": 2808,
+      "total_return": 7.388476934507116,
+      "annualized_return": 0.21030447344011605,
+      "annualized_volatility": 0.22358283611568966,
+      "sharpe": 0.9658095268871972,
+      "maximum_drawdown": 0.2576850931735285,
+      "turnover": 1841.2852468059762,
+      "annualized_turnover": 165.2435477902799,
+      "transaction_cost": 168128.71550027473,
+      "average_cash_ratio": 0.03951574284746635,
+      "average_exposure": 0.9604842571525336,
+      "longest_underwater_trading_days": 993,
+      "worst_rolling_three_year_return": -0.12127275900115897
+    },
+    "public_reference": {
+      "trading_days": 2810,
+      "benchmark_volatility": 0.22483219095667,
+      "algorithm_volatility": 0.30049518680024,
+      "treasury_return": 0.46268493150685,
+      "algorithm_return": 939.0687870275,
+      "benchmark_return": 0.58288336933045,
+      "annual_algo_return": 0.83872161569427,
+      "annual_bm_return": 0.041704560556386,
+      "sharpe": 2.6580180008848,
+      "excess_return_sharpe": "2.217",
+      "sortino": 4.3949419779802,
+      "information": 2.4524553269327,
+      "beta": 0.34847088571122,
+      "alpha": 0.79812762596744,
+      "excess_return": 592.89643308031,
+      "avg_excess_return": "0.25%",
+      "max_drawdown": 0.27698448298894,
+      "max_drawdown_period": [
+        "2017-03-06",
+        "2018-09-18"
+      ],
+      "excess_return_max_drawdown": "36.14%",
+      "excess_return_max_drawdown_period": [
+        "2016-02-29",
+        "2019-10-17"
+      ],
+      "max_leverage": 0,
+      "period_label": "2026-07",
+      "__version": 101,
+      "win_ratio": 0.53705318221447,
+      "profit_loss_ratio": 2.4740727035285,
+      "win_count": 616,
+      "lose_count": 531,
+      "day_win_ratio": 0.53238434163701,
+      "avg_trade_return": 0.0067680099857021,
+      "avg_position_days": 12.63963963964,
+      "turnover_rate": 0.4800431613943,
+      "report_done_seconds": 2843.4931004047,
+      "report_done_cpu_seconds": 2174.91
+    }
+  },
+  "source_sha256": "8cd762623a42a71de08e4c78d5afa142d2c75302313d05d8e2fae892b84d16be",
+  "engine_sha256": "3a6d4f70e98bc8fb63f81406eb3373daa4c6649e240b11c20bd6e6d20b0685ea",
+  "reference_source_sha256": "91735fb99bd9afb80c0a4a50e2c6ec3753676fa85b119b6f19a659e50c55178f",
+  "public_backtest_sha256": "cc9cd8fcdc5795235f4a46fb8d69d5264fb19b9fb33418fe11d912a89ad44bb5",
+  "public_backtest_id": "e1888becb9558ea9877b31c399d1aab9",
+  "experiment_counts": {
+    "sequential_ablation": 14,
+    "universe_stress": 8,
+    "leave_one_out": 12,
+    "factorial": 128,
+    "post_protocol_regime_components": 32,
+    "parameter_grid": 216,
+    "mainline_sensitivity": 20,
+    "cost_stress": 10,
+    "capacity_stress": 30,
+    "contributor_exclusion": 6,
+    "direct_backtests_total": 476,
+    "pbo_splits": 70,
+    "walk_forward_years": 8,
+    "a7_switch_events": 891
+  },
+  "a7": {
+    "status": "prepared_not_executed",
+    "note": "The logged-in Chrome Research tab could not be claimed by the browser controller, while the in-app browser reached JoinQuant's login page. No minute result was invented; the exact event file and resumable platform script are archived for execution.",
+    "direct_intraday_claim_allowed": false
+  },
+  "artifacts": {
+    "assets/contribution-concentration.png": {
+      "sha256": "37a92345ab75645d50b11a95020bcb923f1aabbc80fff4b52b8701f7aeb73b03",
+      "bytes": 70811
+    },
+    "assets/cost-capacity.png": {
+      "sha256": "a688518cb2d9c6647aa49cc9384e1f62fa9996569074e6055842d92552e43422",
+      "bytes": 133434
+    },
+    "assets/module-ablation.png": {
+      "sha256": "02fe45ac8c1dddabc9f9d134652810a341e16f7947718759663af094dc95bd14",
+      "bytes": 92786
+    },
+    "assets/parameter-stability.png": {
+      "sha256": "52b2cce7673307f00f50926c3b6993f881c2f8e970085d10348a3e5ba63efeb4",
+      "bytes": 171160
+    },
+    "assets/public-local-path-gap.png": {
+      "sha256": "1c1f79bafe99b21f9620e91ed48cf272a8145224fb1215b655c27b547eb9e219",
+      "bytes": 166038
+    },
+    "assets/yearly-returns.png": {
+      "sha256": "0c8c627d00050a7e42a48d9d9e3f94f31158e9fea6d67ef3fe6460cbeff06374",
+      "bytes": 35036
+    },
+    "audit.json": {
+      "sha256": "50e911f6ca3eef87b5a827faf4924ee2911fe64df2652da517f980256fd7e298",
+      "bytes": 2854
+    },
+    "config.json": {
+      "sha256": "e8a2d7e934066c6edd6e01e69b2de753786b6d02702bfd2a344ec101cd31b4cc",
+      "bytes": 6059
+    },
+    "engine.py": {
+      "sha256": "3a6d4f70e98bc8fb63f81406eb3373daa4c6649e240b11c20bd6e6d20b0685ea",
+      "bytes": 112815
+    },
+    "platform/a7-status.json": {
+      "sha256": "366b4714cc48ef0c387b20a1ab9957726b3853b0dee4786adfcc1a2f82e64b3f",
+      "bytes": 349
+    },
+    "platform/a7-switch-events.csv": {
+      "sha256": "ddec7a8eb68dc9f71ad1d5a5ab7e7a7c71d78d40ef01e7fe3a9b124fed9f0978",
+      "bytes": 39236
+    },
+    "platform/a7_minute_calibration.py": {
+      "sha256": "decdefa83d272b95081faf4e49dee1cafbb43fb4fab99b6d42bc35be0b3b87b2",
+      "bytes": 7646
+    },
+    "protocol.json": {
+      "sha256": "a5b65a6ba592296a8b4316f49bdc2c13ca04493ba8b88245c383931d03318d53",
+      "bytes": 3311
+    },
+    "raw/A6-top1-contributions.csv": {
+      "sha256": "e3003609d3bd1b81bba98a1e8329b9b16df11d7d10e39e3822155d9cad628928",
+      "bytes": 231485
+    },
+    "raw/A6-top1-decisions.csv": {
+      "sha256": "e8ef7c23098aa3642bbde7bb8e57e44989bb5499d6f39cce8b278760bfe1f1a5",
+      "bytes": 156226
+    },
+    "raw/A6-top1-equity.csv": {
+      "sha256": "ef3fec6f201022bc897ad10ddf9e7fc632abcb7f1f863283d92b3b44505d6d22",
+      "bytes": 415264
+    },
+    "raw/A6-top1-positions.csv": {
+      "sha256": "6e55b1fb60e76c39b37a7ed4a80a258e4620129d0d24cfafcdbcc796c9463463",
+      "bytes": 136608
+    },
+    "raw/A6-top1-trades.csv": {
+      "sha256": "dad9c4785f5c92b2bde2cfdd878f95ee1a85937dd2cea6197ae7d05cc5c23088",
+      "bytes": 216302
+    },
+    "raw/A6-top3-contributions.csv": {
+      "sha256": "202efc3036e1f46d5c0ba114ba067e6471832e605a097cf7c06f0fba58a12904",
+      "bytes": 505109
+    },
+    "raw/A6-top3-decisions.csv": {
+      "sha256": "5063ee8791eb5f4a8f22b697b1853a787aca6002830a1e58d2fece227facc08b",
+      "bytes": 187996
+    },
+    "raw/A6-top3-equity.csv": {
+      "sha256": "19b75d88821eb67ff28f7f539a17619624e8e3d25ec0c44bb61366582ca59d84",
+      "bytes": 453524
+    },
+    "raw/A6-top3-positions.csv": {
+      "sha256": "1efb6c51a2e4706f763bda5ede55af42ffc74deee28c658c15762d2db169845c",
+      "bytes": 289331
+    },
+    "raw/A6-top3-trades.csv": {
+      "sha256": "0d47d460201f1262e36d7e8f75ab4c3293d74f362b40d2a3b204e57b6bd2d492",
+      "bytes": 449357
+    },
+    "raw/a7-switch-events.csv": {
+      "sha256": "ddec7a8eb68dc9f71ad1d5a5ab7e7a7c71d78d40ef01e7fe3a9b124fed9f0978",
+      "bytes": 39236
+    },
+    "raw/asset-contributions.csv": {
+      "sha256": "addc122eecc75a5bd4b95a900da423e1b70e0674ba6e2dcc99e2c3aa626d4ecb",
+      "bytes": 65827
+    },
+    "raw/capacity-stress.csv": {
+      "sha256": "f900a239309cdd94c4d8a7b5921e8b5652d48177e6d3b18faaf7e7d96054f3d3",
+      "bytes": 9258
+    },
+    "raw/concentration.json": {
+      "sha256": "cfc2ecfc0bc820eaa6858302f36a3d2f6aa01a54bfc24937153f0f7b15d59916",
+      "bytes": 832
+    },
+    "raw/cost-stress.csv": {
+      "sha256": "6c2b13e6c47be7d645d15774d969e564cf6ae9bc4a707940d91dd10142437ec2",
+      "bytes": 3182
+    },
+    "raw/dsr.json": {
+      "sha256": "79187946519312e93a92b6ba49693f8f4aee05ff4fcff38e3cdf55ad769d8fce",
+      "bytes": 483
+    },
+    "raw/exclusion-stress.csv": {
+      "sha256": "9f35e421f51a9f27e6c25d5521863286f3bf7caff83a79d193920805b2fb383d",
+      "bytes": 2432
+    },
+    "raw/experiment-counts.json": {
+      "sha256": "7bcadd25d327e922379f9bdb522de4ca79614f3b18f1065dba22f381a18eb45f",
+      "bytes": 394
+    },
+    "raw/factorial-effects.csv": {
+      "sha256": "3d0c586c1edcf9917343a89b63a4a55a522c1c3fdc1729ebe1b072c503cb7004",
+      "bytes": 1165
+    },
+    "raw/factorial.csv": {
+      "sha256": "3678af54a688d5c6b9ed12f3bc0fd5223dd6c3b4f1137432fd59eaa6d43042c3",
+      "bytes": 41330
+    },
+    "raw/index-close.csv": {
+      "sha256": "d7f8494553509fc13b9268f48ebf89fd362403b2306e5ffda93cdd5642a93bef",
+      "bytes": 140710
+    },
+    "raw/leave-one-out.csv": {
+      "sha256": "2e83ab54523871670f02764ab43b9e9cc9325002794c4d4cc4880dd494382cb1",
+      "bytes": 3904
+    },
+    "raw/mainline-sensitivity.csv": {
+      "sha256": "df390e1edb0bf9f792643df1f5ea74ea1f9b7acad5e201b81973dbe384aa6bd0",
+      "bytes": 6211
+    },
+    "raw/module-ablation-periods.csv": {
+      "sha256": "b2b8a2bfba35449aad98415baf27e79b4cd9977d742ac7c5c3319043af1f5453",
+      "bytes": 3914
+    },
+    "raw/module-ablation.csv": {
+      "sha256": "17f8cd0fb733edc2e8dc2e0f4b2e136bb4c8aa2a197b10827f4eb6c43b903ef3",
+      "bytes": 4253
+    },
+    "raw/parameter-grid.csv": {
+      "sha256": "587a4a2804fdf2ebff88111b241e9cbc2c372640454fd5469d0bcc37747e60f2",
+      "bytes": 60167
+    },
+    "raw/pbo-splits.csv": {
+      "sha256": "93cc1c5ca04458a0234c488a04584aa8fcce3df815943ecb7d668c6ec00d35d2",
+      "bytes": 7869
+    },
+    "raw/pbo.json": {
+      "sha256": "1ba22ebd767371cc1b407a35a988da1c8fbe3b4d860e1c1a12c0a3fe1871760c",
+      "bytes": 239
+    },
+    "raw/periods.csv": {
+      "sha256": "1217bb3a2c42dec7e314cdb1f004a241716e7d68684204208c432c446e778e8f",
+      "bytes": 1647
+    },
+    "raw/public-comparison.json": {
+      "sha256": "3ef5902d816615412c1fe9d73a1b8c4f9f49f7fcf471dbd1a24e527cecde451a",
+      "bytes": 2735
+    },
+    "raw/public-equity.csv": {
+      "sha256": "6f0ac4d15c998e8d06f73fde946ccae899c382e20d3f5bb8f5ae8578149c5f20",
+      "bytes": 149631
+    },
+    "raw/regime-component-effects.csv": {
+      "sha256": "818ee60d9bd67fdb8d794b600b594ad957871b38cdde69feac8ddc5be516693e",
+      "bytes": 703
+    },
+    "raw/regime-components.csv": {
+      "sha256": "a7a2c2d7150fce11702381ce4ff568a4bb364f54fc22f55d36153e251cc30182",
+      "bytes": 10538
+    },
+    "raw/regimes.csv": {
+      "sha256": "98ba18226876013ef3ae0938950dbeb753d1f9771fa7a60f6537b30def48f332",
+      "bytes": 1588
+    },
+    "raw/rolling-three-year.csv": {
+      "sha256": "7498187a0074f56a69580d95ce9af053c442bd611c42c9928741d9c422504f85",
+      "bytes": 46454
+    },
+    "raw/universe-stress.csv": {
+      "sha256": "2733c18918d592423bbfb084c390e569b7e3bd7f4ba35185cd691d2eda37f71f",
+      "bytes": 2700
+    },
+    "raw/walk-forward-equity.csv": {
+      "sha256": "6c2a7bd2b46ada56e4d866424bfed184daf9da9c593b412cbb46c254792ca2e7",
+      "bytes": 113425
+    },
+    "raw/walk-forward-summary.json": {
+      "sha256": "a27b44eff73c143d96e4a8c0eb7fa03108f27389e7c5dd4b959ccacbe3c9d4c4",
+      "bytes": 572
+    },
+    "raw/walk-forward.csv": {
+      "sha256": "feba4c8520a51f1a3315725d8159d56a1347bad0e9884d6137333ace1fe4cc9c",
+      "bytes": 651
+    },
+    "raw/yearly.csv": {
+      "sha256": "5540bcc384b8379454f369763190e051bd877b59c00d2d3e43de9657db943424",
+      "bytes": 5288
+    },
+    "report.md": {
+      "sha256": "738215f793a164220681d1a047e1a1c371037102e02d64c3a95fa0685e784272",
+      "bytes": 14663
+    },
+    "source.py": {
+      "sha256": "8cd762623a42a71de08e4c78d5afa142d2c75302313d05d8e2fae892b84d16be",
+      "bytes": 8936
+    }
+  }
+}

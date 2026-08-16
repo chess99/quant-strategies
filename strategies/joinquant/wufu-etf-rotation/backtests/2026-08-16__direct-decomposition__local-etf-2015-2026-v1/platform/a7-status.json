@@ -1,0 +1,5 @@
+{
+  "status": "prepared_not_executed",
+  "note": "The logged-in Chrome Research tab could not be claimed by the browser controller, while the in-app browser reached JoinQuant's login page. No minute result was invented; the exact event file and resumable platform script are archived for execution.",
+  "direct_intraday_claim_allowed": false
+}

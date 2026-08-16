@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "protocol_id": "2026-08-16-wufu-direct-decomposition-v1",
+  "frozen_before_results": true,
+  "reference": {
+    "source": "joinquant_archive/sources/ETF轮动策略/五福7.5.py",
+    "source_sha256": "91735fb99bd9afb80c0a4a50e2c6ec3753676fa85b119b6f19a659e50c55178f",
+    "public_backtest": "joinquant_archive/data/ETF轮动策略/五福7.5_backtest.json",
+    "public_backtest_sha256": "cc9cd8fcdc5795235f4a46fb8d69d5264fb19b9fb33418fe11d912a89ad44bb5",
+    "public_backtest_id": "e1888becb9558ea9877b31c399d1aab9"
+  },
+  "period": {"start": "2015-01-01", "end": "2026-07-24", "warmup_days": 80},
+  "causal_proxy": {
+    "signal": "observation close and earlier",
+    "execution": "next trading day open",
+    "intraday_claim_allowed": false
+  },
+  "stages": [
+    {"id": "A0", "modules": ["positive_weighted_log_slope"]},
+    {"id": "A1", "modules": ["positive_weighted_log_slope", "r2_score_quality"]},
+    {"id": "A2", "modules": ["positive_weighted_log_slope", "r2_score_quality", "ordinary_filters"]},
+    {"id": "A3", "modules": ["positive_weighted_log_slope", "r2_score_quality", "ordinary_filters", "incumbent_buffer"]},
+    {"id": "A4", "modules": ["positive_weighted_log_slope", "r2_score_quality", "ordinary_filters", "incumbent_buffer", "a_share_regime"]},
+    {"id": "A5", "modules": ["positive_weighted_log_slope", "r2_score_quality", "ordinary_filters", "incumbent_buffer", "a_share_regime", "b_mainline"]},
+    {"id": "A6", "modules": ["positive_weighted_log_slope", "r2_score_quality", "ordinary_filters", "incumbent_buffer", "a_share_regime", "b_mainline", "mainline_retention"]},
+    {"id": "A7", "modules": ["A6", "intraday_confirmation"], "platform_minute_only": true}
+  ],
+  "frozen_parameters": {
+    "lookback": 25,
+    "weak_lookback_short": 23,
+    "r2_threshold": 0.4,
+    "score_min": 0.0,
+    "score_max": 5.0,
+    "buffer_ratio": 0.9,
+    "ma_days": 10,
+    "volume_days": 5,
+    "volume_ratio_max": 1.8,
+    "loss_floor": 0.97,
+    "mainline_score_min": 5.0,
+    "mainline_score_max": 20.0,
+    "mainline_days": 5,
+    "mainline_r2_current": 0.85,
+    "mainline_r2_average": 0.9,
+    "mainline_volume_average": 1.8,
+    "mainline_score_up_days": 4,
+    "mainline_positive_laplace_days": 5,
+    "mainline_score_growth": 2.0
+  },
+  "matrix": {
+    "top_k": [1, 3],
+    "universes": ["fixed_only", "original_like", "pit_all_etf", "listed_by_2023_end"],
+    "lookbacks": [20, 23, 25, 30],
+    "r2_thresholds": [0.3, 0.4, 0.5],
+    "score_maxima": [3.0, 5.0, 8.0],
+    "buffer_ratios": [0.85, 0.9, 0.95],
+    "single_side_total_cost_bp": [2, 5, 10, 20, 30],
+    "capital": [200000, 1000000, 5000000, 10000000, 50000000],
+    "adv_participation": [0.005, 0.01, 0.05],
+    "contributor_exclusions": [1, 3, 5]
+  },
+  "success_criteria": {
+    "module_delta_sharpe": 0.05,
+    "module_positive_subperiods": 2,
+    "buffer_turnover_reduction": 0.2,
+    "buffer_max_sharpe_loss": 0.05,
+    "A6_min_sharpe": 0.5,
+    "A6_max_drawdown": 0.4,
+    "A6_worst_rolling_three_year_min": 0.0,
+    "cost_20bp_min_cagr": 0.0,
+    "capacity_10m_min_average_exposure": 0.7,
+    "exclusion_min_cagr_retention": 0.7,
+    "grid_positive_ratio": 0.7,
+    "grid_median_sharpe": 0.5,
+    "walk_forward_worst_year": -0.2,
+    "pbo_max": 0.25,
+    "dsr_probability_min": 0.95
+  }
+}
+

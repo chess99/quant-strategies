@@ -1,0 +1,16 @@
+{
+  "sequential_ablation": 14,
+  "universe_stress": 8,
+  "leave_one_out": 12,
+  "factorial": 128,
+  "post_protocol_regime_components": 32,
+  "parameter_grid": 216,
+  "mainline_sensitivity": 20,
+  "cost_stress": 10,
+  "capacity_stress": 30,
+  "contributor_exclusion": 6,
+  "direct_backtests_total": 476,
+  "pbo_splits": 70,
+  "walk_forward_years": 8,
+  "a7_switch_events": 891
+}

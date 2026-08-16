@@ -1,0 +1,32 @@
+{
+  "frozen_v2": {
+    "trial_count": 2187,
+    "observations": 3053,
+    "observed_annualized_sharpe": 0.48605592147237997,
+    "expected_maximum_annualized_sharpe_under_null": 0.24895284042645585,
+    "skewness": -0.5015065870710707,
+    "pearson_kurtosis": 9.8739556636352,
+    "deflated_sharpe_probability": 0.7933335003330279,
+    "method_note": "Bailey-Lopez de Prado DSR approximation; correlated grid trials make the independent-trial expected maximum conservative only as a diagnostic."
+  },
+  "full_sample_best": {
+    "trial": "grid_1762",
+    "lookbacks": "84/168/252",
+    "top_k": 3,
+    "active_sleeve": 0.2,
+    "minimum_excess_horizons": 3,
+    "minimum_dispersion_iqr": 0.05,
+    "rank_buffer": 3,
+    "maximum_pair_correlation": 0.85,
+    "minimum_adv20": 20000000.0,
+    "initial_cash": 1000000.0,
+    "trial_count": 2187,
+    "observations": 3053,
+    "observed_annualized_sharpe": 0.717633083471855,
+    "expected_maximum_annualized_sharpe_under_null": 0.24895284042645585,
+    "skewness": -0.5951595633229303,
+    "pearson_kurtosis": 9.412985277142557,
+    "deflated_sharpe_probability": 0.945883730921913,
+    "method_note": "Bailey-Lopez de Prado DSR approximation; correlated grid trials make the independent-trial expected maximum conservative only as a diagnostic."
+  }
+}

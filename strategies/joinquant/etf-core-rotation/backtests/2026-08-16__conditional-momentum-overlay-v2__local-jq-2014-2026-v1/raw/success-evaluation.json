@@ -1,0 +1,64 @@
+{
+  "criteria": {
+    "cost_adjusted_increment": {
+      "passed": false,
+      "value": -0.021277045498286462
+    },
+    "rolling_three_year": {
+      "passed": false,
+      "value": {
+        "win_ratio": 0.20175438596491227,
+        "worst_active_excess": -0.22200156930257642
+      }
+    },
+    "risk_improvement": {
+      "passed": false,
+      "value": {
+        "passed_components": 0,
+        "components": [
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    "standalone_satellite": {
+      "passed": true,
+      "value": [
+        0.09583395268589785,
+        0.03936719371594921
+      ]
+    },
+    "multiple_testing": {
+      "passed": false,
+      "value": [
+        0.2714285714285714,
+        0.7933335003330279
+      ]
+    },
+    "concentration": {
+      "passed": false,
+      "value": [
+        0.10639323434887307,
+        -0.017931070113406333
+      ]
+    },
+    "capacity": {
+      "passed": false,
+      "value": [
+        0.1060861725183298,
+        -0.014606842362147487
+      ]
+    },
+    "platform": {
+      "passed": true,
+      "value": [
+        -0.007873985195820277,
+        -0.0071
+      ]
+    }
+  },
+  "passed_count": 2,
+  "criterion_count": 8,
+  "overall_pass": false
+}

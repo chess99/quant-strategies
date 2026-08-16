@@ -1,0 +1,9 @@
+{
+  "method": "CSCV approximation with 8 contiguous blocks and all 70 half-splits",
+  "trial_count": 2187,
+  "trading_days": 3053,
+  "partition_count": 8,
+  "split_count": 70,
+  "pbo": 0.2714285714285714,
+  "median_selected_oos_percentile": 0.6755829903978052
+}

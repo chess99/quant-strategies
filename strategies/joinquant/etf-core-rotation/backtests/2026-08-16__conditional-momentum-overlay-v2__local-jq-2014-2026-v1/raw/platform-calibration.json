@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "captured_at": "2026-08-16",
+  "period": {
+    "start": "2014-01-02",
+    "end": "2026-07-24"
+  },
+  "initial_capital_rmb": 1000000,
+  "local": {
+    "v2_annualized_return": 0.05826348416578475,
+    "core_annualized_return": 0.07649968380131367,
+    "annualized_excess": -0.01823619963552892
+  },
+  "joinquant_research": {
+    "status": "completed",
+    "execution_proxy": "first trading-day open after prior-week close signal",
+    "classification": "finance.FUND_INVEST_TARGET queried point-in-time by publication and effective dates",
+    "artifact": "exports/etf-core-v2-jq-research-open-2014-2026-v1.zip",
+    "comparison_copy": "joinquant-research-comparison.json",
+    "v2_annualized_return": 0.06497488961532194,
+    "core_annualized_return": 0.07284887481114222,
+    "annualized_excess": -0.007873985195820277,
+    "v2_max_drawdown": 0.3041478766749065,
+    "core_max_drawdown": 0.19515950119805048,
+    "v2_sharpe": 0.5337800018641019,
+    "core_sharpe": 0.7884002165750349,
+    "decision_count": 644,
+    "warnings": []
+  },
+  "joinquant_official": {
+    "status": "completed",
+    "schedule": "weekly first trading day at 10:30",
+    "cost_settings": "same paired ETF commission and slippage settings",
+    "metric_precision": "annualized returns and drawdowns transcribed from the rendered JoinQuant summary at two-decimal-percent precision",
+    "v2": {
+      "backtest_id": "29729f6a170c46181784301d3e687fe8",
+      "total_return": 1.1956,
+      "annualized_return": 0.0665,
+      "max_drawdown": 0.3076,
+      "sharpe_platform_definition": 0.198,
+      "runtime": "00:03:21"
+    },
+    "core": {
+      "backtest_id": "1ab66e966feb745a671ebb9ceaccb3f3",
+      "total_return": 1.3793,
+      "annualized_return": 0.0736,
+      "max_drawdown": 0.1939,
+      "sharpe_platform_definition": 0.359,
+      "runtime": "00:00:45"
+    },
+    "annualized_excess": -0.0071
+  },
+  "platform_success_criterion": {
+    "definition": "JoinQuant PIT Research replay and official scheduling do not reverse the sign of the frozen candidate's excess over its strategic core.",
+    "local_sign": "negative",
+    "research_sign": "negative",
+    "official_sign": "negative",
+    "passed": true
+  }
+}

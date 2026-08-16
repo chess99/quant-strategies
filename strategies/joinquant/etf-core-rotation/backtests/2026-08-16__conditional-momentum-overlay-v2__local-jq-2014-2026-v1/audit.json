@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "protocol_status": "frozen-before-results",
+  "protocol_sha256": "5c015e2dfee72d29642c05ebd041f6cb2be98d76ce5e97745e4c832ccf4b954a",
+  "data": {
+    "data_root": "D:\\code\\_open-source\\_data\\quant-research",
+    "daily_rows_loaded": 1211390,
+    "risk_symbol_count": 1337,
+    "risk_delisted_symbol_count": 77,
+    "tracking_group_count": 407,
+    "duplicate_tracking_group_count": 200,
+    "daily_start": "2005-02-23",
+    "daily_end": "2026-07-24",
+    "price_adjustment": "adjusted_open/adjusted_close from B-grade continuous data",
+    "amount_adjustment": "raw RMB amount; not price-adjusted",
+    "classification_point_in_time": false,
+    "classification_limitation": "Eastmoney tracking_target is a current static profile without historical effective intervals; lifecycle and prices are point-in-time, but category and same-index deduplication are not strict PIT.",
+    "survivorship_control": "Every observation filters listing_date and delisting_date; delisted B-grade ETFs remain eligible during their historical trading interval.",
+    "signal_execution_rule": "last close of prior trading week -> first trading-day open of next week"
+  },
+  "manifest_hashes": {
+    "etf_daily": "df62ef9d3b84c453f1259f8ff2763bb0204010e6a853179bf9076a757e6413c2",
+    "etf_master": "53e2862faf4a1efc35b6e78744e1c7b087f550be8357f1bcc45a08fe12e51008",
+    "etf_profiles": "79ab4e222b5828fd24c2fe72932418792f5d4c314cff92473014652cece2e3c2",
+    "etf_coverage": "05c82eb88e07950114f33193f9143f1e1f5a95143cc17791654f7d6210d37d28"
+  },
+  "frozen_result_validation": {
+    "status": "passed",
+    "errors": [],
+    "causal_decision_count": 643,
+    "lifecycle_violations": 0,
+    "maximum_absolute_unattributed_pnl": 6.766640581190586e-10
+  },
+  "future_data": "All signals end on observation_date; every detailed decision observation date is strictly earlier than execution date.",
+  "survivorship": "Every observation filters listing_date and delisting_date; delisted B-grade ETFs remain eligible during their historical trading interval.",
+  "tracking_index_point_in_time": "Eastmoney tracking_target is a current static profile without historical effective intervals; lifecycle and prices are point-in-time, but category and same-index deduplication are not strict PIT.",
+  "price_adjustment": "adjusted_open/adjusted_close from B-grade continuous data",
+  "capacity": "Target active holdings and strict trade stresses use lagged ADV20. Strict runs apply the 0.5% participation cap to active and strategic-core ETF trades.",
+  "virtual_sleeve_attribution": "When active and core own the same ETF, active P&L is split by target-weight fractions. Total-account P&L remains exactly reconciled.",
+  "experiment_counts": {
+    "reference_runs": 7,
+    "module_period_runs": 64,
+    "parameter_trials": 2187,
+    "cost_runs": 12,
+    "capacity_runs": 15,
+    "liquidity_period_runs": 12,
+    "execution_lag_runs": 4,
+    "contribution_exclusion_runs": 4,
+    "platform_research_runs": 2,
+    "platform_official_runs": 2,
+    "direct_backtest_rows_total": 2309,
+    "pbo_cscv_splits": 70,
+    "walk_forward_test_years": 8,
+    "bootstrap_resamples": 4000
+  },
+  "platform_status": "completed: JoinQuant PIT Research and official 10:30 paired v2/core runs both preserve the negative local excess sign",
+  "platform_evidence": {
+    "file": "raw/platform-calibration.json",
+    "joinquant_research_artifact": "exports/etf-core-v2-jq-research-open-2014-2026-v1.zip",
+    "joinquant_research_annualized_excess": -0.007873985195820277,
+    "joinquant_official_v2_backtest_id": "29729f6a170c46181784301d3e687fe8",
+    "joinquant_official_core_backtest_id": "1ab66e966feb745a671ebb9ceaccb3f3",
+    "joinquant_official_annualized_excess": -0.0071,
+    "platform_criterion_passed": true
+  }
+}

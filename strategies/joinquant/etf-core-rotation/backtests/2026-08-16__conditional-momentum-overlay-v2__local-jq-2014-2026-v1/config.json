@@ -1,0 +1,48 @@
+{
+  "name": "frozen_v2",
+  "core_weights": [
+    [
+      "SH510300",
+      0.4
+    ],
+    [
+      "SH511010",
+      0.4
+    ],
+    [
+      "SH518880",
+      0.2
+    ]
+  ],
+  "portfolio_mode": "overlay",
+  "active_sleeve": 0.3,
+  "active_single_symbol_cap": 0.15,
+  "lookbacks": [
+    63,
+    126,
+    252
+  ],
+  "top_k": 3,
+  "rank_buffer": 2,
+  "correlation_lookback": 60,
+  "maximum_pair_correlation": 0.9,
+  "minimum_excess_horizons": 2,
+  "minimum_dispersion_iqr": 0.1,
+  "minimum_adv20": 20000000.0,
+  "maximum_adv_participation": 0.005,
+  "minimum_trade_value": 2000.0,
+  "minimum_weight_change": 0.03,
+  "initial_cash": 1000000.0,
+  "commission_rate": 0.0003,
+  "minimum_commission": 5.0,
+  "slippage_rate": 0.001,
+  "use_excess_hurdle": true,
+  "use_dispersion_gate": true,
+  "use_rank_buffer": true,
+  "use_correlation_guard": true,
+  "use_capacity": true,
+  "enforce_trade_adv_participation": false,
+  "capacity_scope_all_etfs": false,
+  "execution_lag_sessions": 1,
+  "excluded_active_symbols": []
+}

@@ -108,6 +108,14 @@ def test_strict_trade_participation_rounds_down_to_etf_lots():
     assert engine.participation_limited_shares(1_000, 10.0, None, 0.005) == 0
 
 
+def test_capacity_scope_all_etfs_is_opt_in_for_v2_core_assets():
+    engine = load_engine()
+    baseline = engine.StrategyConfig()
+    assert not baseline.capacity_scope_all_etfs
+    v2_execution = engine.StrategyConfig(capacity_scope_all_etfs=True)
+    assert v2_execution.capacity_scope_all_etfs
+
+
 def test_allocation_modes_separate_risk_and_defensive_sleeves(monkeypatch):
     engine = load_engine()
     monkeypatch.setattr(engine, "choose_defensive_asset", lambda *_: "bond")

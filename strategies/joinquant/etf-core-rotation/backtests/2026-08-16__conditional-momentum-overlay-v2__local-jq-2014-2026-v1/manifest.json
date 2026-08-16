@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "strategy_id": "etf-core-rotation",
+  "platform": "joinquant",
+  "variant": "conditional-momentum-overlay-v2",
+  "archived_at": "2026-08-16",
+  "run_id": "local-jq-2014-2026-v1",
+  "source_file": "source.py",
+  "period": {
+    "start": "2014-01-02",
+    "end": "2026-07-24"
+  },
+  "research_engine": "local-daily-causal-replay plus completed JoinQuant PIT Research and official 10:30 paired calibration",
+  "metrics": {
+    "trading_days": 3053,
+    "total_return": 0.985893574209699,
+    "annualized_return": 0.05826348416578475,
+    "maximum_drawdown": 0.3035740491082122,
+    "sharpe": 0.4860559214723802,
+    "sortino": 0.7524946820216688,
+    "calmar": 0.1919251146036403,
+    "annualized_volatility": 0.13544049391578591,
+    "turnover": 74.83282337117397,
+    "annualized_turnover": 6.176833111541383,
+    "transaction_cost": 142008.05094094272,
+    "average_cash_ratio": 0.0063956480401354985,
+    "average_risk_weight": 0.17392598471149517,
+    "longest_underwater_trading_days": 1231,
+    "worst_rolling_three_year_return": -0.2171539040141517,
+    "positive_day_ratio": 0.5240746806419915,
+    "average_active_exposure": 0.17392598471149517,
+    "maximum_active_exposure": 0.36510905576681746,
+    "gate_open_ratio": 0.6111975116640747,
+    "decision_count": 643
+  },
+  "strategic_core_metrics": {
+    "trading_days": 3053,
+    "total_return": 1.4425924995631458,
+    "annualized_return": 0.07649968380131367,
+    "maximum_drawdown": 0.19059525341086037,
+    "sharpe": 0.8268241855178294,
+    "sortino": 1.317134572339126,
+    "calmar": 0.4013724499025463,
+    "annualized_volatility": 0.09458406765009723,
+    "turnover": 2.6074198983027284,
+    "annualized_turnover": 0.21522103320415575,
+    "transaction_cost": 5579.2292303727645,
+    "average_cash_ratio": 0.008505169427036571,
+    "average_risk_weight": 0.0,
+    "longest_underwater_trading_days": 878,
+    "worst_rolling_three_year_return": -0.06955418462937213,
+    "positive_day_ratio": 0.5299705207992139,
+    "average_active_exposure": 0.0,
+    "maximum_active_exposure": 0.0,
+    "gate_open_ratio": 0.0,
+    "decision_count": 643
+  },
+  "standalone_satellite_metrics": {
+    "trading_days": 3053,
+    "total_return": -0.12746519630238728,
+    "annualized_return": -0.011191696851328148,
+    "maximum_drawdown": 0.6627351405232711,
+    "sharpe": 0.09583395268589785,
+    "sortino": 0.14358150594461633,
+    "calmar": -0.01688713358777324,
+    "annualized_volatility": 0.2731740450042305,
+    "turnover": 267.0835730930446,
+    "annualized_turnover": 22.045548778069847,
+    "transaction_cost": 327764.7690292873,
+    "average_cash_ratio": 0.0056977334605935745,
+    "average_risk_weight": 0.6077311779047117,
+    "longest_underwater_trading_days": 2707,
+    "worst_rolling_three_year_return": -0.5015087131549782,
+    "positive_day_ratio": 0.6324926301998035,
+    "average_active_exposure": 0.6077311779047117,
+    "maximum_active_exposure": 0.9999982130929286,
+    "gate_open_ratio": 0.6111975116640747,
+    "decision_count": 643
+  },
+  "experiment_counts": {
+    "reference_runs": 7,
+    "module_period_runs": 64,
+    "parameter_trials": 2187,
+    "cost_runs": 12,
+    "capacity_runs": 15,
+    "liquidity_period_runs": 12,
+    "execution_lag_runs": 4,
+    "contribution_exclusion_runs": 4,
+    "platform_research_runs": 2,
+    "platform_official_runs": 2,
+    "direct_backtest_rows_total": 2309,
+    "pbo_cscv_splits": 70,
+    "walk_forward_test_years": 8,
+    "bootstrap_resamples": 4000
+  },
+  "success_evaluation": {
+    "criteria": {
+      "cost_adjusted_increment": {
+        "passed": false,
+        "value": -0.021277045498286462
+      },
+      "rolling_three_year": {
+        "passed": false,
+        "value": {
+          "win_ratio": 0.20175438596491227,
+          "worst_active_excess": -0.22200156930257642
+        }
+      },
+      "risk_improvement": {
+        "passed": false,
+        "value": {
+          "passed_components": 0,
+          "components": [
+            false,
+            false,
+            false
+          ]
+        }
+      },
+      "standalone_satellite": {
+        "passed": true,
+        "value": [
+          0.09583395268589785,
+          0.03936719371594921
+        ]
+      },
+      "multiple_testing": {
+        "passed": false,
+        "value": [
+          0.2714285714285714,
+          0.7933335003330279
+        ]
+      },
+      "concentration": {
+        "passed": false,
+        "value": [
+          0.10639323434887307,
+          -0.017931070113406333
+        ]
+      },
+      "capacity": {
+        "passed": false,
+        "value": [
+          0.1060861725183298,
+          -0.014606842362147487
+        ]
+      },
+      "platform": {
+        "passed": true,
+        "value": [
+          -0.007873985195820277,
+          -0.0071
+        ]
+      }
+    },
+    "passed_count": 2,
+    "criterion_count": 8,
+    "overall_pass": false
+  },
+  "platform_calibration": {
+    "evidence_file": "raw/platform-calibration.json",
+    "joinquant_research_artifact": "exports/etf-core-v2-jq-research-open-2014-2026-v1.zip",
+    "joinquant_research_annualized_excess": -0.007873985195820277,
+    "joinquant_official_annualized_excess": -0.0071,
+    "joinquant_official_v2_backtest_id": "29729f6a170c46181784301d3e687fe8",
+    "joinquant_official_core_backtest_id": "1ab66e966feb745a671ebb9ceaccb3f3",
+    "sign_consistent_with_local": true
+  },
+  "source_sha256": "a606feffac66585afc35323c4b9255de5615d192ee949cf3c650dbc3887fd839",
+  "engine_sha256": "3d209bea47a788a0450e43097b28433fdf315b1b09690653786eeb461a826243",
+  "protocol_sha256": "5c015e2dfee72d29642c05ebd041f6cb2be98d76ce5e97745e4c832ccf4b954a",
+  "limitations": [
+    "Local tracking_target is current-static rather than strict historical PIT.",
+    "Local execution is next-session open; the official paired 10:30 runs are retained as a separate platform calibration rather than merged into local returns.",
+    "All robustness tests use the same 2014-2026 historical record."
+  ]
+}

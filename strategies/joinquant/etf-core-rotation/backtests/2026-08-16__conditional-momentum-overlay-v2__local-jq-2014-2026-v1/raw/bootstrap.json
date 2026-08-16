@@ -1,0 +1,22 @@
+{
+  "21": {
+    "block_sessions": 21,
+    "resamples": 2000,
+    "seed": 20260837,
+    "observed_annualized_mean_excess": -0.012372740622843293,
+    "probability_positive": 0.31,
+    "q025": -0.0458065892696723,
+    "median": -0.00955072264801786,
+    "q975": 0.029405519585400653
+  },
+  "63": {
+    "block_sessions": 63,
+    "resamples": 2000,
+    "seed": 20260879,
+    "observed_annualized_mean_excess": -0.012372740622843293,
+    "probability_positive": 0.232,
+    "q025": -0.04845742258018007,
+    "median": -0.013418616185297206,
+    "q975": 0.021176970952365946
+  }
+}

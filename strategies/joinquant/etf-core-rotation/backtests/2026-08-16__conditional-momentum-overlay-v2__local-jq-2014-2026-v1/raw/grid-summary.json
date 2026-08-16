@@ -1,0 +1,10 @@
+{
+  "trial_count": 2187,
+  "median_annualized_return": 0.06563114748950238,
+  "median_sharpe": 0.5610530401794952,
+  "q25_sharpe": 0.49905502043445527,
+  "q75_sharpe": 0.6092953171720318,
+  "positive_annualized_ratio": 1.0,
+  "best_trial": "grid_1762",
+  "frozen_grid_index": 1093
+}

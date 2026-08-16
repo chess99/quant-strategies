@@ -4,7 +4,8 @@
 
 ## conditional-momentum-overlay-v2
 
-- 状态：预注册，尚未提升为 baseline。
+- 状态：完整实验已结束，仅通过 2/8 项预注册标准；拒绝提升为 baseline，保留为冻结研究变体。
 - 核心变化：从“整个组合由轮动决定”改为“40/40/20 股债黄金战略底仓 + 最多 30% 条件式动量增强”。
 - 冻结入口：`../protocols/2026-08-16-v2-conditional-overlay.json`。
-- 平台文件只有在本地完整矩阵完成后才创建；即使历史结果较好，也必须先保留为 `variants/` 下的研究变体。
+- 平台文件在本地完整矩阵结束后创建；聚宽 Research 与官方 10:30 配对结果都确认 v2 相对同平台底仓为负。
+- 研究归档：`../backtests/2026-08-16__conditional-momentum-overlay-v2__local-jq-2014-2026-v1/report.md`。

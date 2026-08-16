@@ -1,0 +1,23 @@
+{
+  "cost20_v2_cagr": 0.05449443029784251,
+  "cost20_core_cagr": 0.07577147579612897,
+  "rolling_win_ratio": 0.20175438596491227,
+  "worst_rolling_active_excess": -0.22200156930257642,
+  "v2_sharpe": 0.4860559214723802,
+  "core_sharpe": 0.8268241855178294,
+  "v2_maximum_drawdown": 0.3035740491082122,
+  "core_maximum_drawdown": 0.19059525341086037,
+  "v2_worst_rolling_return": -0.20111755748820082,
+  "core_worst_rolling_return": -0.06224204433075231,
+  "satellite_sharpe": 0.09583395268589785,
+  "satellite_20bp_sharpe": 0.03936719371594921,
+  "pbo": 0.2714285714285714,
+  "frozen_dsr_probability": 0.7933335003330279,
+  "top1_positive_contribution_share": 0.10639323434887307,
+  "exclude_top1_active_excess": -0.017931070113406333,
+  "capacity_10m_average_active_exposure": 0.1060861725183298,
+  "capacity_10m_active_excess": -0.014606842362147487,
+  "local_active_excess": -0.01823619963552892,
+  "joinquant_pit_active_excess": -0.007873985195820277,
+  "joinquant_official_active_excess": -0.0071
+}

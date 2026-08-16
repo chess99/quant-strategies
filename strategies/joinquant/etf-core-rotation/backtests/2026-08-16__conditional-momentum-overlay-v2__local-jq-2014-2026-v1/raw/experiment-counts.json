@@ -1,0 +1,16 @@
+{
+  "reference_runs": 7,
+  "module_period_runs": 64,
+  "parameter_trials": 2187,
+  "cost_runs": 12,
+  "capacity_runs": 15,
+  "liquidity_period_runs": 12,
+  "execution_lag_runs": 4,
+  "contribution_exclusion_runs": 4,
+  "platform_research_runs": 2,
+  "platform_official_runs": 2,
+  "direct_backtest_rows_total": 2309,
+  "pbo_cscv_splits": 70,
+  "walk_forward_test_years": 8,
+  "bootstrap_resamples": 4000
+}

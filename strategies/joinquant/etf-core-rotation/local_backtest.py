@@ -78,6 +78,7 @@ class StrategyConfig:
     excluded_risk_symbols: tuple[str, ...] = ()
     allocation_mode: str = "full"
     execution_lag_sessions: int = 1
+    capacity_scope_all_etfs: bool = False
 
 
 @dataclass
@@ -641,7 +642,7 @@ def _execute_targets(
     def limit_shares_for_symbol(symbol: str, shares: int, mark_price: float) -> int:
         if not config.enforce_trade_adv_participation:
             return shares
-        if symbol not in data.tracking_key.index:
+        if not config.capacity_scope_all_etfs and symbol not in data.tracking_key.index:
             return shares
         adv = _matrix_value(data.adv20, observation_date, symbol)
         if adv is None:

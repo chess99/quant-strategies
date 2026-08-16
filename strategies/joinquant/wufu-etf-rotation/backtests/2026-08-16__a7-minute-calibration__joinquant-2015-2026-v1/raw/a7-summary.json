@@ -1,0 +1,41 @@
+{
+  "status": "completed_on_joinquant",
+  "method": "paired entry-only minute calibration; target and 13:10 exit frozen",
+  "requested_events": 891,
+  "valid_events": 891,
+  "valid_ratio": 1.0,
+  "confirmation_counts": {
+    "13:10": 262,
+    "13:40": 142,
+    "14:10": 120,
+    "14:40": 94,
+    "14:55": 273
+  },
+  "confirmation_ratios": {
+    "13:10": 0.2940516273849607,
+    "13:40": 0.15937149270482603,
+    "14:10": 0.13468013468013468,
+    "14:40": 0.10549943883277217,
+    "14:55": 0.3063973063973064
+  },
+  "forced_1455_ratio": 0.3063973063973064,
+  "mean_entry_edge_bp": 5.058175414477158,
+  "segment_medians_entry_edge_bp": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "positive_entry_edge_ratio": 0.2716049382716049,
+  "paired_trade_return_delta": 0.00044193058356293256,
+  "relative_wealth_from_entry_only": 0.5286204020507015,
+  "relative_annualized_from_entry_only": 0.038818588712748126,
+  "base_trading_days": 2808,
+  "event_level_distribution_available_locally": false,
+  "remote_results_zip_sha256": "0eb6445674aa05e6e23562bc332da93adb1d8129e7c7e5da92bb1e66a0abacaf",
+  "limitations": [
+    "This is not a full official-backtest Sharpe comparison.",
+    "Local A6 switch dates are held fixed, so it isolates execution but does not reproduce 13:10 selection.",
+    "Suspension, limit queue, partial fills and portfolio cash path are outside this paired price test.",
+    "Event-level result files remain in the hashed remote ZIP; the local archive can independently verify aggregate arithmetic but not event-level distributional statistics."
+  ]
+}

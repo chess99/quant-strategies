@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-16",
+  "platform": "joinquant",
+  "strategy_id": "wufu-etf-rotation",
+  "variant": "a7-minute-calibration",
+  "run_id": "2026-08-16__a7-minute-calibration__joinquant-2015-2026-v1",
+  "source_file": "source.py",
+  "source_sha256": "aae95bf236248d7ca441aee581a154c092e2642edfef9f8b77735cd456bd9430",
+  "period": {
+    "start": "2015-01-01",
+    "end": "2026-07-24"
+  },
+  "metrics": {
+    "A7": {
+      "status": "completed_on_joinquant",
+      "method": "paired entry-only minute calibration; target and 13:10 exit frozen",
+      "requested_events": 891,
+      "valid_events": 891,
+      "valid_ratio": 1.0,
+      "confirmation_counts": {
+        "13:10": 262,
+        "13:40": 142,
+        "14:10": 120,
+        "14:40": 94,
+        "14:55": 273
+      },
+      "confirmation_ratios": {
+        "13:10": 0.2940516273849607,
+        "13:40": 0.15937149270482603,
+        "14:10": 0.13468013468013468,
+        "14:40": 0.10549943883277217,
+        "14:55": 0.3063973063973064
+      },
+      "forced_1455_ratio": 0.3063973063973064,
+      "mean_entry_edge_bp": 5.058175414477158,
+      "segment_medians_entry_edge_bp": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "positive_entry_edge_ratio": 0.2716049382716049,
+      "paired_trade_return_delta": 0.00044193058356293256,
+      "relative_wealth_from_entry_only": 0.5286204020507015,
+      "relative_annualized_from_entry_only": 0.038818588712748126,
+      "base_trading_days": 2808,
+      "event_level_distribution_available_locally": false,
+      "remote_results_zip_sha256": "0eb6445674aa05e6e23562bc332da93adb1d8129e7c7e5da92bb1e66a0abacaf",
+      "limitations": [
+        "This is not a full official-backtest Sharpe comparison.",
+        "Local A6 switch dates are held fixed, so it isolates execution but does not reproduce 13:10 selection.",
+        "Suspension, limit queue, partial fills and portfolio cash path are outside this paired price test.",
+        "Event-level result files remain in the hashed remote ZIP; the local archive can independently verify aggregate arithmetic but not event-level distributional statistics."
+      ]
+    }
+  },
+  "base_archive": "2026-08-16__direct-decomposition__local-etf-2015-2026-v1",
+  "base_manifest_sha256": "59b18c790d080ff204e9a4d24557fff7e607edc5e2544831b96b585fe6a2178d",
+  "joinquant_notebook_url": "https://www.joinquant.com/research?target=research&url=/user/22106330505/notebooks/Untitled1.ipynb?kernel_name=python3",
+  "remote_results_zip_sha256": "0eb6445674aa05e6e23562bc332da93adb1d8129e7c7e5da92bb1e66a0abacaf",
+  "event_level_results_local": false,
+  "artifacts": {
+    "assets/a7-minute-calibration.png": {
+      "sha256": "b10091fb7196439e0ba5899db26f61291959c6658811ecf82a27a6baff4e5fc2",
+      "bytes": 63118
+    },
+    "config.json": {
+      "sha256": "fb6721d96443750370e47178286138b4945e9c69a31c29357be0e7f3a1c25238",
+      "bytes": 366
+    },
+    "raw/a7-platform-run.json": {
+      "sha256": "e85a59bef9bef5b50499fecd573a36932a9837091e3166bba559436f0c2a2e22",
+      "bytes": 4144
+    },
+    "raw/a7-segment-summaries.csv": {
+      "sha256": "88596163a12783f4a139c3106117a0ad9697ddb1b1a2f51bcf5bcbecb1ffcd47",
+      "bytes": 743
+    },
+    "raw/a7-summary.json": {
+      "sha256": "5908d48a26511d8d999089fdf17e645abab7c4a41cd4dd0b9300705ee5d3feb2",
+      "bytes": 1596
+    },
+    "raw/a7-switch-events.csv": {
+      "sha256": "ddec7a8eb68dc9f71ad1d5a5ab7e7a7c71d78d40ef01e7fe3a9b124fed9f0978",
+      "bytes": 39236
+    },
+    "report.md": {
+      "sha256": "53894d1313984988c4205a12fd533566d3908b761a97d393128a5ab39ea15d7f",
+      "bytes": 2990
+    },
+    "source.py": {
+      "sha256": "aae95bf236248d7ca441aee581a154c092e2642edfef9f8b77735cd456bd9430",
+      "bytes": 7865
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "check_times": [
+    "13:10",
+    "13:40",
+    "14:10",
+    "14:40"
+  ],
+  "force_time": "14:55",
+  "trend_slope_pct_threshold": 0.001,
+  "trend_r_squared_threshold": 0.3,
+  "trend_window_minutes": 30,
+  "target_and_exit": "frozen local A6 Top1 target; exit at 13:10",
+  "base_archive": "2026-08-16__direct-decomposition__local-etf-2015-2026-v1"
+}

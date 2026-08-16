@@ -6,6 +6,7 @@ import sys
 from pathlib import Path
 
 import numpy as np
+import pytest
 
 
 FAMILY = Path(__file__).resolve().parents[1]
@@ -17,6 +18,15 @@ PROTOCOL = FAMILY / "protocols" / "2026-08-16-wufu-direct-decomposition-v1.json"
 def load_research():
     path = FAMILY / "research.py"
     spec = importlib.util.spec_from_file_location("wufu_research", path)
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = module
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_a7_import():
+    path = FAMILY / "a7_import.py"
+    spec = importlib.util.spec_from_file_location("wufu_a7_import", path)
     module = importlib.util.module_from_spec(spec)
     sys.modules[spec.name] = module
     spec.loader.exec_module(module)
@@ -98,3 +108,44 @@ def test_a7_platform_calibration_is_parseable_and_keeps_targets_fixed():
     assert 'baseline_time": "13:10"' in source
     assert "target and 13:10 exit frozen" in source
     assert "from __future__ import annotations" not in source
+    assert ".tail(30).to_numpy(" not in source
+
+
+def test_a7_frozen_platform_summaries_aggregate_exactly():
+    a7_import = load_a7_import()
+    payload = a7_import.load_platform_run()
+    summary = a7_import.aggregate_segments(payload, base_trading_days=2808)
+    assert summary["requested_events"] == 891
+    assert summary["valid_events"] == 891
+    assert sum(summary["confirmation_counts"].values()) == 891
+    assert summary["confirmation_counts"] == {
+        "13:10": 262,
+        "13:40": 142,
+        "14:10": 120,
+        "14:40": 94,
+        "14:55": 273,
+    }
+    assert summary["forced_1455_ratio"] == pytest.approx(0.3063973063973064)
+    assert summary["mean_entry_edge_bp"] == pytest.approx(5.058175414477158)
+    assert summary["positive_entry_edge_ratio"] == pytest.approx(
+        0.2716049382716049
+    )
+    assert summary["paired_trade_return_delta"] == pytest.approx(
+        0.00044193058356293256
+    )
+    assert summary["relative_wealth_from_entry_only"] == pytest.approx(
+        0.5286204020507015
+    )
+    assert summary["relative_annualized_from_entry_only"] == pytest.approx(
+        0.038818588712748126
+    )
+
+
+def test_a7_platform_hash_validation_rejects_tampering(tmp_path):
+    a7_import = load_a7_import()
+    payload = json.loads(a7_import.DEFAULT_RUN_FILE.read_text(encoding="utf-8"))
+    payload["input"]["repository_compatible_script_sha256"] = "0" * 64
+    tampered = tmp_path / "tampered-a7-platform-run.json"
+    tampered.write_text(json.dumps(payload), encoding="utf-8")
+    with pytest.raises(ValueError, match="script hash mismatch"):
+        a7_import.load_platform_run(tampered)

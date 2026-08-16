@@ -15,3 +15,6 @@
 # 研究归档内的哈希按原始字节计算；禁止 Git 在提交时改写换行符。
 **/results/** -text !eol whitespace=-blank-at-eol,-blank-at-eof
 **/backtests/** -text !eol whitespace=-blank-at-eol,-blank-at-eof
+
+# A7 的平台事件 CSV 是聚宽运行的精确输入，必须保留上传时原始字节及冻结哈希。
+**/platform/a7-switch-events.csv -text !eol whitespace=-blank-at-eol,-blank-at-eof

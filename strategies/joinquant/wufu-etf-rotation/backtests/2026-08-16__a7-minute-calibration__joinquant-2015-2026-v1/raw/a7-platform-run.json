@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "platform": "joinquant",
+  "run_date": "2026-08-16",
+  "research_notebook": {
+    "title": "Untitled1.ipynb",
+    "url": "https://www.joinquant.com/research?target=research&url=/user/22106330505/notebooks/Untitled1.ipynb?kernel_name=python3",
+    "kernel": "Python 3",
+    "runtime_note": "JoinQuant pandas lacks Series.to_numpy; the executed copy replaced the single .tail(30).to_numpy() call with .tail(30).values."
+  },
+  "input": {
+    "event_rows": 891,
+    "event_file": "a7-switch-events.csv",
+    "event_file_sha256": "ddec7a8eb68dc9f71ad1d5a5ab7e7a7c71d78d40ef01e7fe3a9b124fed9f0978",
+    "uploaded_script_sha256": "decdefa83d272b95081faf4e49dee1cafbb43fb4fab99b6d42bc35be0b3b87b2",
+    "executed_script_sha256": "ff23aad5924076665124680bb633c055ba18a9e8058ddf850531b027f330e62d",
+    "repository_compatible_script_sha256": "aae95bf236248d7ca441aee581a154c092e2642edfef9f8b77735cd456bd9430"
+  },
+  "remote_artifact": {
+    "file": "a7-results.zip",
+    "sha256": "0eb6445674aa05e6e23562bc332da93adb1d8129e7c7e5da92bb1e66a0abacaf",
+    "contains": [
+      "a7-minute-results-part-1.csv",
+      "a7-summary-part-1.json",
+      "a7-minute-results-part-2.csv",
+      "a7-summary-part-2.json",
+      "a7-minute-results-part-3.csv",
+      "a7-summary-part-3.json"
+    ],
+    "local_copy_available": false,
+    "note": "The authenticated platform run and ZIP hash were observed successfully; repeated browser download-channel timeouts prevented copying the event-level ZIP into the local repository. Segment summaries below are exact notebook outputs, not estimates."
+  },
+  "segments": [
+    {
+      "suffix": "part-1",
+      "start_row": 0,
+      "end_row": 300,
+      "requested_events": 300,
+      "valid_events": 300,
+      "valid_ratio": 1.0,
+      "confirmation_counts": {
+        "13:10": 85,
+        "13:40": 47,
+        "14:10": 36,
+        "14:40": 41,
+        "14:55": 91
+      },
+      "forced_1455_ratio": 0.30333333333333334,
+      "mean_entry_edge_bp": -0.5930740169747286,
+      "median_entry_edge_bp": 0.0,
+      "positive_entry_edge_ratio": 0.2733333333333333,
+      "paired_trade_return_delta": -9.937225193281025e-05,
+      "relative_wealth_from_entry_only": -0.021805186009373978
+    },
+    {
+      "suffix": "part-2",
+      "start_row": 300,
+      "end_row": 600,
+      "requested_events": 300,
+      "valid_events": 300,
+      "valid_ratio": 1.0,
+      "confirmation_counts": {
+        "13:10": 90,
+        "13:40": 47,
+        "14:10": 42,
+        "14:40": 32,
+        "14:55": 89
+      },
+      "forced_1455_ratio": 0.2966666666666667,
+      "mean_entry_edge_bp": 8.037772337690456,
+      "median_entry_edge_bp": 0.0,
+      "positive_entry_edge_ratio": 0.26666666666666666,
+      "paired_trade_return_delta": 0.0007629915000597681,
+      "relative_wealth_from_entry_only": 0.26530344243728865
+    },
+    {
+      "suffix": "part-3",
+      "start_row": 600,
+      "end_row": null,
+      "requested_events": 291,
+      "valid_events": 291,
+      "valid_ratio": 1.0,
+      "confirmation_counts": {
+        "13:10": 87,
+        "13:40": 48,
+        "14:10": 42,
+        "14:40": 21,
+        "14:55": 93
+      },
+      "forced_1455_ratio": 0.31958762886597936,
+      "mean_entry_edge_bp": 7.812456350805599,
+      "median_entry_edge_bp": 0.0,
+      "positive_entry_edge_ratio": 0.27491408934707906,
+      "paired_trade_return_delta": 0.0006689841083040741,
+      "relative_wealth_from_entry_only": 0.23503596886200429
+    }
+  ],
+  "method": "paired entry-only minute calibration; target and 13:10 exit frozen",
+  "limitations": [
+    "This is not a full official-backtest Sharpe comparison.",
+    "Local A6 switch dates are held fixed, so it isolates execution but does not reproduce 13:10 selection.",
+    "Suspension, limit queue, partial fills and portfolio cash path are outside this paired price test.",
+    "Event-level result files remain in the hashed remote ZIP; the local archive can independently verify aggregate arithmetic but not event-level distributional statistics."
+  ]
+}

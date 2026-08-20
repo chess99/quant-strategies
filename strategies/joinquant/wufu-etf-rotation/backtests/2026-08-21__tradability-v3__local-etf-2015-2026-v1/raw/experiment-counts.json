@@ -1,0 +1,15 @@
+{
+  "ordered_ablation": 4,
+  "structural_grid": 96,
+  "schedule_phase": 5,
+  "lookback_stress": 3,
+  "universe_stress": 4,
+  "cost_stress": 6,
+  "capacity_stress": 15,
+  "contributor_exclusion": 3,
+  "direct_backtests_total": 136,
+  "pbo_splits": 70,
+  "walk_forward_years": 8,
+  "success_gates": 16,
+  "passed_success_gates": 9
+}

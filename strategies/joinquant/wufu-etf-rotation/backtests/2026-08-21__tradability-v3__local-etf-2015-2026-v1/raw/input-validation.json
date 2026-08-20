@@ -1,0 +1,14 @@
+{
+  "protocol_id": "2026-08-21-wufu-tradability-v3",
+  "protocol_sha256": "ef8848f98e00b285c400be38ebcb6d6eaa2594257213e9ac0b11acb0e789f582",
+  "frozen_before_v3_results": true,
+  "input_hashes": {
+    "etf_daily": "df62ef9d3b84c453f1259f8ff2763bb0204010e6a853179bf9076a757e6413c2",
+    "etf_master": "53e2862faf4a1efc35b6e78744e1c7b087f550be8357f1bcc45a08fe12e51008",
+    "etf_profiles": "79ab4e222b5828fd24c2fe72932418792f5d4c314cff92473014652cece2e3c2",
+    "etf_coverage": "05c82eb88e07950114f33193f9143f1e1f5a95143cc17791654f7d6210d37d28",
+    "four_index_csv": "f349a5a2609f72d41069c101130674ad0e9214083fd183e2311848a217f73812"
+  },
+  "parent_manifest_sha256": "59b18c790d080ff204e9a4d24557fff7e607edc5e2544831b96b585fe6a2178d",
+  "validated": true
+}

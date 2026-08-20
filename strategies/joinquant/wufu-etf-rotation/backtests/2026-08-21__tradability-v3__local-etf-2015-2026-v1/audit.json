@@ -1,0 +1,56 @@
+{
+  "data_root": "D:\\code\\_open-source\\_data\\quant-research",
+  "period": {
+    "start": "2015-01-01",
+    "end": "2026-07-24"
+  },
+  "calendar_rows_with_warmup": 2911,
+  "b_grade_etf_symbols": 1733,
+  "historically_terminated_etfs": 125,
+  "input_validation": {
+    "protocol_id": "2026-08-21-wufu-tradability-v3",
+    "protocol_sha256": "ef8848f98e00b285c400be38ebcb6d6eaa2594257213e9ac0b11acb0e789f582",
+    "frozen_before_v3_results": true,
+    "input_hashes": {
+      "etf_daily": "df62ef9d3b84c453f1259f8ff2763bb0204010e6a853179bf9076a757e6413c2",
+      "etf_master": "53e2862faf4a1efc35b6e78744e1c7b087f550be8357f1bcc45a08fe12e51008",
+      "etf_profiles": "79ab4e222b5828fd24c2fe72932418792f5d4c314cff92473014652cece2e3c2",
+      "etf_coverage": "05c82eb88e07950114f33193f9143f1e1f5a95143cc17791654f7d6210d37d28",
+      "four_index_csv": "f349a5a2609f72d41069c101130674ad0e9214083fd183e2311848a217f73812"
+    },
+    "parent_manifest_sha256": "59b18c790d080ff204e9a4d24557fff7e607edc5e2544831b96b585fe6a2178d",
+    "validated": true
+  },
+  "index_audit": {
+    "provider": "caller-supplied-frozen-csv",
+    "rows": 2911,
+    "csv_sha256": "f349a5a2609f72d41069c101130674ad0e9214083fd183e2311848a217f73812"
+  },
+  "universe_audit": {
+    "liquidity_formula": "all lifecycle-valid ETFs' three-day mean total amount / 15000",
+    "fixed_reference_count": 112,
+    "fixed_reference_missing": [
+      "SH501018",
+      "SZ161226"
+    ],
+    "global_reference_count": 15,
+    "dynamic_proxy": "lifecycle-valid sector/cross-border/commodity ETFs, deduplicated by current static tracking_target and ranked by causal ADV3; original name-cleaning cannot be exact because local master names contain irreversible source encoding loss",
+    "median_counts": {
+      "fixed_only": 41.0,
+      "original_like": 82.0,
+      "pit_all_etf": 180.0,
+      "listed_by_2023_end": 180.0
+    }
+  },
+  "causality": "observation close and earlier -> next trading day adjusted open",
+  "schedule": "full-sample trading-day anchor at 2015-01-01; no trades or partial-fill continuation on non-rebalance dates",
+  "weak_regime": "direct daily 3-of-4 below causal MA10; no A4 hysteresis",
+  "survivorship": "daily listing/delisting lifecycle filter; historical delisted ETFs retained",
+  "adjustment": "continuous adjusted open/close; raw RMB amount",
+  "known_non_pit_fields": [
+    "etf_category",
+    "tracking_target",
+    "display_name"
+  ],
+  "platform_source_note": "source.py is the JoinQuant fixed-pool transfer work package; engine.py is the exact local original_like proxy used for archived metrics"
+}

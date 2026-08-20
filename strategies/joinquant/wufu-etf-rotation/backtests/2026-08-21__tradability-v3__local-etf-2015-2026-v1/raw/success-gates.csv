@@ -1,0 +1,17 @@
+criterion,observed,operator,threshold,passed
+primary_annualized_turnover_reduction_vs_A6_top3,0.5732802313444049,>=,0.5,True
+primary_max_sharpe_loss_vs_A6_top3_at_2bp,0.25072604153568945,<=,0.1,False
+primary_10bp_min_cagr,0.15069876895252166,>=,0.0,True
+primary_10bp_min_sharpe,0.7150834853515078,>=,0.5,True
+primary_20bp_min_cagr,0.07456739798085854,>=,0.0,True
+primary_max_drawdown,0.3436213551719747,<=,0.3,False
+primary_worst_rolling_three_year_min,-0.14541358041886276,>=,0.0,False
+capacity_10m_0_5pct_adv_min_average_exposure,0.43653550419937504,>=,0.7,False
+exclusion_min_cagr_retention,0.3289752090620791,>=,0.7,False
+structural_grid_10bp_positive_ratio,0.84375,>=,0.7,True
+structural_grid_10bp_median_sharpe,0.47151795933284923,>=,0.4,True
+schedule_phase_positive_ratio,1.0,>=,0.8,True
+walk_forward_min_cagr,0.11867834069413385,>=,0.0,True
+walk_forward_worst_year,-0.24960386753082275,>=,-0.2,False
+pbo_max,0.17142857142857143,<=,0.25,True
+dsr_probability_min,0.3489088952328726,>=,0.95,False

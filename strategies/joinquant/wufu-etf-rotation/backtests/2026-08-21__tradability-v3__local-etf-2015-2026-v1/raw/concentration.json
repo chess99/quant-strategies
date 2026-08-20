@@ -1,0 +1,14 @@
+{
+  "held_symbol_count": 226,
+  "top1_positive_contribution_share": 0.07401603480945756,
+  "top3_positive_contribution_share": 0.17296184075807783,
+  "top5_positive_contribution_share": 0.25788194886233445,
+  "positive_contribution_hhi": 0.025904029977673874,
+  "top_symbols": [
+    "SH513100",
+    "SH513500",
+    "SZ159851",
+    "SH518880",
+    "SZ159516"
+  ]
+}

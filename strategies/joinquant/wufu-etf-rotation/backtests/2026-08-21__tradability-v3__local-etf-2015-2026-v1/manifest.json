@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-21",
+  "source_file": "source.py",
+  "platform": "joinquant",
+  "execution_environment": "local-etf-daily",
+  "strategy_id": "wufu-etf-rotation",
+  "variant": "tradability-v3",
+  "run_id": "2026-08-21__tradability-v3__local-etf-2015-2026-v1",
+  "period": {
+    "start": "2015-01-01",
+    "end": "2026-07-24"
+  },
+  "benchmark": "SH510300",
+  "cost": "single-side total 10bp primary; 2/5/10/15/20/30bp stress",
+  "metrics": {
+    "T3_primary": {
+      "trading_days": 2808,
+      "total_return": 3.7784488345768663,
+      "annualized_return": 0.15069876895252166,
+      "annualized_volatility": 0.23499829814747336,
+      "sharpe": 0.7150834853515078,
+      "maximum_drawdown": 0.3436213551719747,
+      "turnover": 785.7128145460065,
+      "annualized_turnover": 70.51268848489802,
+      "transaction_cost": 290127.29506114917,
+      "average_cash_ratio": 0.01675366219453713,
+      "average_exposure": 0.9832463378054629,
+      "longest_underwater_trading_days": 875,
+      "worst_rolling_three_year_return": -0.14541358041886276
+    },
+    "A6_top3_reference": {
+      "trading_days": 2808,
+      "total_return": 7.388476934507116,
+      "annualized_return": 0.21030447344011605,
+      "annualized_volatility": 0.22358283611568966,
+      "sharpe": 0.9658095268871972,
+      "maximum_drawdown": 0.2576850931735285,
+      "turnover": 1841.2852468059762,
+      "annualized_turnover": 165.2435477902799,
+      "transaction_cost": 168128.71550027473,
+      "average_cash_ratio": 0.03951574284746635,
+      "average_exposure": 0.9604842571525336,
+      "longest_underwater_trading_days": 993,
+      "worst_rolling_three_year_return": -0.12127275900115897
+    },
+    "success_gates": {
+      "passed": 9,
+      "total": 16,
+      "complete_protocol_pass": false
+    }
+  },
+  "source_sha256": "61692fcf084e46addf7a0863256b3e08b6708ca26765f4d985c48378913c9242",
+  "engine_sha256": "54f290749cfa67920705cc9e94685693f74b1c2fbc755f08133123713e1a6afd",
+  "protocol_sha256": "ef8848f98e00b285c400be38ebcb6d6eaa2594257213e9ac0b11acb0e789f582",
+  "parent_manifest_sha256": "59b18c790d080ff204e9a4d24557fff7e607edc5e2544831b96b585fe6a2178d",
+  "experiment_counts": {
+    "ordered_ablation": 4,
+    "structural_grid": 96,
+    "schedule_phase": 5,
+    "lookback_stress": 3,
+    "universe_stress": 4,
+    "cost_stress": 6,
+    "capacity_stress": 15,
+    "contributor_exclusion": 3,
+    "direct_backtests_total": 136,
+    "pbo_splits": 70,
+    "walk_forward_years": 8,
+    "success_gates": 16,
+    "passed_success_gates": 9
+  },
+  "artifacts": {
+    "assets/tradability-v3-summary.png": {
+      "sha256": "762822cdad48b253aec62d6a01eecd25b5f53ff38e622882acffd57079d4bd33",
+      "bytes": 129045
+    },
+    "audit.json": {
+      "sha256": "ed9ac0a5d001e8043eabb41e8e6c2a8d6fd4abd6620a238cfbac2fec91273be5",
+      "bytes": 2649
+    },
+    "config.json": {
+      "sha256": "e6783c27679787d97b7aa17a4a215adec0e3900459135a8e3011dff93d9b2caf",
+      "bytes": 8090
+    },
+    "engine.py": {
+      "sha256": "54f290749cfa67920705cc9e94685693f74b1c2fbc755f08133123713e1a6afd",
+      "bytes": 148383
+    },
+    "protocol.json": {
+      "sha256": "ef8848f98e00b285c400be38ebcb6d6eaa2594257213e9ac0b11acb0e789f582",
+      "bytes": 5675
+    },
+    "raw/asset-contributions.csv": {
+      "sha256": "9efa01eb84f7fe1d5f21c065c67f32872261777d6cbfe1364a439a6c5bc7aafb",
+      "bytes": 28465
+    },
+    "raw/capacity-stress.csv": {
+      "sha256": "b2ec9178741195635e5e623e6e890b13748e007a524daa814e83418a77e175d6",
+      "bytes": 5999
+    },
+    "raw/concentration.json": {
+      "sha256": "eed81c5bb8a347b53158bbc58939688a9200b3d7a36ac15505182fa25b66c5bc",
+      "bytes": 378
+    },
+    "raw/contributor-exclusion.csv": {
+      "sha256": "ded5bae17c2ab44ee9b9bb7c001fc8257f0104dbf7dabd02a6869b42cb0a91e5",
+      "bytes": 1852
+    },
+    "raw/cost-stress.csv": {
+      "sha256": "e00187a5216c34ad5224f0403ea348afad253100d0986faa30bcbd058f14b998",
+      "bytes": 2666
+    },
+    "raw/dsr.json": {
+      "sha256": "e732dea0817ad28d72cc3f03900b889a4ab7fdaef62f0424bf2a27c09e2f21c2",
+      "bytes": 484
+    },
+    "raw/experiment-counts.json": {
+      "sha256": "489d82fe4a741f623377820354344d8cc3c0747f4e44f8d4fb86ecbc0aee01c1",
+      "bytes": 346
+    },
+    "raw/index-close.csv": {
+      "sha256": "d7f8494553509fc13b9268f48ebf89fd362403b2306e5ffda93cdd5642a93bef",
+      "bytes": 140710
+    },
+    "raw/input-validation.json": {
+      "sha256": "eedf8a99d46e109c22f68d728ed3dcfbb49fdd0a288320fa9aa1b2d0b233d923",
+      "bytes": 771
+    },
+    "raw/lookback-stress.csv": {
+      "sha256": "5da30deb60549b34bd439c2d1343977f9e8266362a200cfd9f0cf4a3ca6230bc",
+      "bytes": 1636
+    },
+    "raw/ordered-ablation.csv": {
+      "sha256": "1ad083abfc38e11e5da62772e91e04d5dc6bceea6e9f55af6871d564eedf8710",
+      "bytes": 1974
+    },
+    "raw/pbo-splits.csv": {
+      "sha256": "2b3d494c1695a96871188be19d8c4801a6a004b7924f7eafc74217e5fc1e2b96",
+      "bytes": 8878
+    },
+    "raw/pbo.json": {
+      "sha256": "6ad8cb0f8bdcc928f06001127f225ae74b1961a6fbe8af94335e0174446254dc",
+      "bytes": 238
+    },
+    "raw/periods.csv": {
+      "sha256": "200178208897f6beb36f24506c94521fb09c76a575fec8c48f3ffa4c6fd0e997",
+      "bytes": 936
+    },
+    "raw/primary-contributions.csv": {
+      "sha256": "17ec2939c3e35abe44a392607c8be4c0d683f33d64f8e03918faa0ec49a1201a",
+      "bytes": 460233
+    },
+    "raw/primary-decisions.csv": {
+      "sha256": "07e5190811fe75dff3dd7ad4ed230658e8b2207c4908cdb79f8cbbc9572dc5d6",
+      "bytes": 196580
+    },
+    "raw/primary-equity.csv": {
+      "sha256": "6ed898764beafcfee25c635ad5d131afb3f2692195a0393d59c7b02dbd2a3a15",
+      "bytes": 439535
+    },
+    "raw/primary-positions.csv": {
+      "sha256": "c52fcecb420e44308bde0da633d2327215c0ef74b304e7d54635422c0e980c63",
+      "bytes": 308883
+    },
+    "raw/primary-trades.csv": {
+      "sha256": "a9d7288d671ff2bd1370418e1f87a8328651afaee14cdc2f9e9f377e9141d5ff",
+      "bytes": 204590
+    },
+    "raw/regimes.csv": {
+      "sha256": "4a9c112ca99fb1be7434050ca50e97d678a2997f2714029d9030906b653452d3",
+      "bytes": 905
+    },
+    "raw/rolling-three-year.csv": {
+      "sha256": "dd4ea2778c76403c28c492913071539eabd4e4e4aff91d006d5df4abbafcc5e4",
+      "bytes": 23179
+    },
+    "raw/schedule-phase.csv": {
+      "sha256": "7a2c3b36c9cbad1597701cfbb82cdd91e404e31af7fe2695c4bf7de93cdc6e13",
+      "bytes": 2307
+    },
+    "raw/structural-grid.csv": {
+      "sha256": "00c5354ced3a4f895ff74d891a4fe90f8cb49804506159ae5d337829f22959b6",
+      "bytes": 35597
+    },
+    "raw/success-gates.csv": {
+      "sha256": "9d407502a56b6e1f0babdffa91277d26d3ce281aaed79bb67d8a96f21680586c",
+      "bytes": 1019
+    },
+    "raw/universe-stress.csv": {
+      "sha256": "1b45b1a3761aa6e2c2c6fa3638bd09d1ccadab97014a39763278c1f2c1d39194",
+      "bytes": 2031
+    },
+    "raw/walk-forward-equity.csv": {
+      "sha256": "087275b8307d5ee23456acb1c9302e09f97045be5e2c92d582c53732d1dc3ffc",
+      "bytes": 113736
+    },
+    "raw/walk-forward-summary.json": {
+      "sha256": "49f963fdc9898911e77fb31f61a54c6c26ecd61f582bbdcb0d8bea00f2c95696",
+      "bytes": 572
+    },
+    "raw/walk-forward.csv": {
+      "sha256": "6d216443ff185cec1e80190e128771b33b532f213a575da66d3c395002918042",
+      "bytes": 786
+    },
+    "raw/yearly.csv": {
+      "sha256": "2e0268aad26abe77e5ad980ef5dc1b994f7b925f56771e94b717a5b01c0678e6",
+      "bytes": 2738
+    },
+    "report.md": {
+      "sha256": "bad6d6a12da4fe3c0812de85a1daea0ede685c7c3c5a5abf6090e857303907a8",
+      "bytes": 5761
+    },
+    "source.py": {
+      "sha256": "61692fcf084e46addf7a0863256b3e08b6708ca26765f4d985c48378913c9242",
+      "bytes": 8873
+    }
+  }
+}

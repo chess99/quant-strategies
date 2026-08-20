@@ -1,0 +1,18 @@
+{
+  "trading_days": 1833,
+  "total_return": 1.2608542342851052,
+  "annualized_return": 0.11867834069413385,
+  "annualized_volatility": 0.27969893807758794,
+  "sharpe": 0.5403988816981816,
+  "maximum_drawdown": 0.4783763779134367,
+  "turnover": 0.0,
+  "annualized_turnover": 0.0,
+  "transaction_cost": 0.0,
+  "average_cash_ratio": null,
+  "average_exposure": null,
+  "longest_underwater_trading_days": 954,
+  "worst_rolling_three_year_return": -0.4379785029614859,
+  "test_years": 8,
+  "worst_year": -0.24960386753082275,
+  "positive_year_ratio": 0.875
+}

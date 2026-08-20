@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "protocol_id": "2026-08-21-wufu-tradability-v3",
+  "frozen_before_v3_results": true,
+  "research_status_at_freeze": "protocol_only_no_v3_backtest_executed",
+  "hypothesis_origin": {
+    "type": "post-A0-A7 simplification and tradability follow-up",
+    "parent_archive": "backtests/2026-08-16__direct-decomposition__local-etf-2015-2026-v1",
+    "parent_manifest_sha256": "59b18c790d080ff204e9a4d24557fff7e607edc5e2544831b96b585fe6a2178d",
+    "known_before_freeze": [
+      "A4's post-protocol decomposition attributed most of its edge to switching into the frozen global/commodity pool during weak A-share regimes",
+      "R-squared ranking, dynamic weak-regime lookback, filter relaxation, buffer disabling, B-mainline and continuation lacked stable incremental evidence",
+      "Top3 improved drawdown and capacity relative to Top1 but retained excessive turnover"
+    ],
+    "independence_limit": "The same 2015-2026 history was already inspected. This protocol prevents additional outcome-driven tuning but does not create a fresh independent sample."
+  },
+  "frozen_inputs": {
+    "period": {
+      "start": "2015-01-01",
+      "end": "2026-07-24",
+      "warmup_start": "2014-08-01"
+    },
+    "causal_proxy": "observation close and earlier -> next trading day adjusted open",
+    "research_engine_sha256_at_freeze": "3a6d4f70e98bc8fb63f81406eb3373daa4c6649e240b11c20bd6e6d20b0685ea",
+    "data_manifest_hashes": {
+      "etf_daily": "df62ef9d3b84c453f1259f8ff2763bb0204010e6a853179bf9076a757e6413c2",
+      "etf_master": "53e2862faf4a1efc35b6e78744e1c7b087f550be8357f1bcc45a08fe12e51008",
+      "etf_profiles": "79ab4e222b5828fd24c2fe72932418792f5d4c314cff92473014652cece2e3c2",
+      "etf_coverage": "05c82eb88e07950114f33193f9143f1e1f5a95143cc17791654f7d6210d37d28",
+      "four_index_csv": "f349a5a2609f72d41069c101130674ad0e9214083fd183e2311848a217f73812"
+    },
+    "known_non_pit_fields": [
+      "etf_category",
+      "tracking_target",
+      "display_name"
+    ]
+  },
+  "primary_candidate": {
+    "id": "T3_primary",
+    "top_k": 3,
+    "universe": "original_like",
+    "lookback": 25,
+    "ranking": "weighted annualized log-slope without R-squared threshold or R-squared multiplication",
+    "ordinary_health_filters": true,
+    "ordinary_score_cap": 5.0,
+    "incumbent_rank_buffer_extra": 2,
+    "rebalance_interval_trading_days": 5,
+    "rebalance_phase": 0,
+    "weak_regime_vote": "at least 3 of 4 A-share indices below causal MA10",
+    "weak_regime_action": "replace the normal candidate universe with the frozen global/commodity pool only",
+    "regime_filter_relaxation": false,
+    "regime_dynamic_lookback": false,
+    "regime_buffer_disable": false,
+    "b_mainline": false,
+    "mainline_continuation": false,
+    "intraday_confirmation": false,
+    "baseline_single_side_total_cost_bp": 10.0,
+    "initial_cash": 200000.0,
+    "execution": "on scheduled rebalance dates only; observe prior close and trade at current adjusted open; non-rebalance dates retain the portfolio"
+  },
+  "ordered_ablation": [
+    {
+      "id": "T0",
+      "description": "Top3, ordinary health filters, daily selection, no weak-pool switch, no ordinal rank buffer"
+    },
+    {
+      "id": "T1",
+      "description": "T0 plus weak-regime global/commodity pool switch only"
+    },
+    {
+      "id": "T2",
+      "description": "T1 plus incumbent eligibility through rank Top5"
+    },
+    {
+      "id": "T3_primary",
+      "description": "T2 plus five-trading-day scheduled rebalance"
+    }
+  ],
+  "matrix": {
+    "structural_grid": {
+      "top_k": [1, 3],
+      "use_r2_ranking": [false, true],
+      "weak_pool_switch": [false, true],
+      "rebalance_interval_trading_days": [1, 5, 10, 20],
+      "incumbent_rank_buffer_extra": [0, 2, 4],
+      "direct_trials": 96
+    },
+    "primary_schedule_phase": [0, 1, 2, 3, 4],
+    "primary_lookback": [20, 25, 30],
+    "primary_universe": [
+      "fixed_only",
+      "original_like",
+      "pit_all_etf",
+      "listed_by_2023_end"
+    ],
+    "single_side_total_cost_bp": [2, 5, 10, 15, 20, 30],
+    "capital": [200000, 1000000, 5000000, 10000000, 50000000],
+    "adv_participation": [0.005, 0.01, 0.05],
+    "contributor_exclusions": [1, 3, 5],
+    "time_tests": [
+      "calendar_year",
+      "2015-2018",
+      "2019-2022",
+      "2023-2026",
+      "causal_bull_bear_sideways",
+      "rolling_three_year",
+      "expanding_window_from_2019"
+    ]
+  },
+  "success_criteria": {
+    "primary_annualized_turnover_reduction_vs_A6_top3": 0.5,
+    "primary_max_sharpe_loss_vs_A6_top3_at_2bp": 0.1,
+    "primary_10bp_min_cagr": 0.0,
+    "primary_10bp_min_sharpe": 0.5,
+    "primary_20bp_min_cagr": 0.0,
+    "primary_max_drawdown": 0.3,
+    "primary_worst_rolling_three_year_min": 0.0,
+    "capacity_10m_0_5pct_adv_min_average_exposure": 0.7,
+    "exclusion_min_cagr_retention": 0.7,
+    "structural_grid_10bp_positive_ratio": 0.7,
+    "structural_grid_10bp_median_sharpe": 0.4,
+    "schedule_phase_positive_ratio": 0.8,
+    "walk_forward_min_cagr": 0.0,
+    "walk_forward_worst_year": -0.2,
+    "pbo_max": 0.25,
+    "dsr_probability_min": 0.95
+  },
+  "reporting_rules": [
+    "The primary candidate is fixed before results and will not be replaced by the best grid member.",
+    "All direct simulations, including failures, count toward the reported trial total.",
+    "The structural grid may diagnose parameter plateaus and PBO but may not redefine the primary candidate.",
+    "Expanding-window selection is pseudo-out-of-sample because the researcher has already seen the full historical period.",
+    "No A7 intraday rule or new historical-market exception may be added in this iteration."
+  ]
+}

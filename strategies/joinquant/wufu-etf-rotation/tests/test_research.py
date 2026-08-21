@@ -241,8 +241,8 @@ def test_platform_baseline_is_parseable_and_causal():
     assert "from __future__ import annotations" not in source
 
 
-def test_v3_platform_work_package_is_parseable_causal_and_scheduled():
-    source = (FAMILY / "platform" / "tradability_v3_primary.py").read_text(
+def test_v3_fixed_pool_variant_is_parseable_causal_and_scheduled():
+    source = (FAMILY / "variants" / "tradability_v3_fixed_pool.py").read_text(
         encoding="utf-8"
     )
     tree = ast.parse(source)

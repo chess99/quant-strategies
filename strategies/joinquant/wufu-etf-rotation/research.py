@@ -3432,7 +3432,7 @@ def write_tradability_v3_archive(
             "experiment_counts": bundle["experiment_counts"],
         },
     )
-    shutil.copy2(FAMILY / "platform" / "tradability_v3_primary.py", output / "source.py")
+    shutil.copy2(FAMILY / "variants" / "tradability_v3_fixed_pool.py", output / "source.py")
     shutil.copy2(FAMILY / "research.py", output / "engine.py")
     shutil.copy2(V3_PROTOCOL_PATH, output / "protocol.json")
     _write_json(

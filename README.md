@@ -42,6 +42,8 @@ quant-strategies/
 
 - `studies/joinquant-index-timing-replication/`：用本地 Qlib 日线数据独立复现聚宽
   MACD、基础 RSRS 和成交量加权 RSRS 指数择时结果。
+- `studies/live-strategy-readiness/`：从 Archive 与现有正式策略中补齐因果性、发布后样本外、
+  成本、容量、平台对齐和模拟盘证据，筛选适合个人资金实盘并保留未来扩容潜力的策略或策略组合。
 
 本地研究基础设施：
 

@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "archived_at": "2026-08-21",
+  "platform": "joinquant",
+  "execution_environment": "official-minute-backtest",
+  "strategy_id": "wufu-etf-rotation",
+  "variant": "tradability-v3-fixed-pool",
+  "run_id": "2026-08-21__tradability-v3-fixed-pool__joinquant-8b7cc94b20ed9c8c1fab2bdfb6968448",
+  "backtest_id": "8b7cc94b20ed9c8c1fab2bdfb6968448",
+  "source_url": "https://www.joinquant.com/algorithm/backtest/detail?backtestId=8b7cc94b20ed9c8c1fab2bdfb6968448",
+  "source_file": "source.py",
+  "source_sha256": "5bae1f0fb60fd6fbf644c6b9b513b435546caab5ce24a1256b9588944b57bb57",
+  "source_matches_repository_variant": "variants/tradability_v3_fixed_pool.py",
+  "period": {
+    "start": "2015-01-01",
+    "end": "2026-07-24",
+    "first_equity_point": "2015-01-05",
+    "trading_days": 2808
+  },
+  "initial_cash_cny": 200000,
+  "frequency": "minute",
+  "benchmark": "510300.XSHG",
+  "cost": {
+    "asset_type": "fund",
+    "price_related_slippage_single_side": 0.0005,
+    "open_commission": 0.0005,
+    "close_commission": 0.0005,
+    "minimum_commission_cny": 0,
+    "total_friction_single_side": 0.001
+  },
+  "metrics": {
+    "total_return": 9.0882,
+    "annualized_return": 0.2285,
+    "benchmark_return": 0.608,
+    "excess_return": 5.2738,
+    "alpha": 0.187,
+    "beta": 0.437,
+    "sharpe": 0.843,
+    "sortino": 1.215,
+    "information_ratio": 0.781,
+    "annualized_volatility": 0.224,
+    "maximum_drawdown": 0.2718,
+    "maximum_drawdown_peak_date": "2024-11-11",
+    "maximum_drawdown_trough_date": "2025-05-23",
+    "maximum_drawdown_recovery_date": "2025-08-28",
+    "longest_underwater_trading_days": 435,
+    "longest_underwater_calendar_days": 649,
+    "worst_rolling_three_year_cagr": -0.01329659998670596,
+    "annualized_gross_turnover_derived": 64.58166692738922,
+    "annualized_one_way_turnover_derived": 32.29083346369461,
+    "active_trade_days": 546
+  },
+  "protocol_interpretation": {
+    "role": "post-protocol fixed-pool platform calibration",
+    "changes_frozen_v3_result": false,
+    "frozen_v3_gates_passed": 9,
+    "frozen_v3_gates_total": 16,
+    "personal_capital_overlay_gates_passed": 9,
+    "personal_capital_overlay_gates_total": 15,
+    "capacity_10m_is_personal_elimination_gate": false
+  },
+  "parent_archive": "2026-08-21__tradability-v3__local-etf-2015-2026-v1",
+  "limitations": [
+    "The frozen fixed pool is filtered by point-in-time listing status but the pool composition itself was selected with current research knowledge.",
+    "The platform fixed pool is not equivalent to the local original_like lifecycle proxy universe.",
+    "Minimum commission is zero, so small rebalance orders can be cheaper than a personal brokerage account.",
+    "Full transaction and position exports were not saved; derived turnover and time-series metrics come from the 2808-point platform chart series.",
+    "The full sample was already visible to the researcher and is not independent out-of-sample evidence."
+  ],
+  "artifacts": {
+    "raw/drawdown-episodes.csv": {
+      "sha256": "5e587c90c87188b3924ff6c500a3b243dcbe8f5ff43570739c05810ef08fe38e",
+      "bytes": 363
+    },
+    "raw/platform-summary.json": {
+      "sha256": "395e2af76f0f73146729a942c4eefbf2aebf4c2e7f46f08303febd4c030efc5a",
+      "bytes": 3556
+    },
+    "raw/yearly.csv": {
+      "sha256": "41a4ab8bab6ccf1c701824d977c87437149a863131603eb9555ccdd255957d22",
+      "bytes": 1176
+    },
+    "report.md": {
+      "sha256": "1eb71109fd31988b49c45b98017f70faaea48eb5ea4e11ed222808defaf21ee1",
+      "bytes": 5467
+    },
+    "source.py": {
+      "sha256": "5bae1f0fb60fd6fbf644c6b9b513b435546caab5ce24a1256b9588944b57bb57",
+      "bytes": 9064
+    }
+  }
+}

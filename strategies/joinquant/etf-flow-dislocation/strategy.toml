@@ -1,0 +1,15 @@
+schema_version = 1
+id = "etf-flow-dislocation"
+title = "ETF Flow Dislocation"
+platform = "joinquant"
+market = "CN-A"
+status = "research"
+baseline = "baseline.py"
+
+[execution]
+language = "python3"
+frequency = "weekly"
+
+[research]
+primary_benchmark = "000300.XSHG"
+owner = ""

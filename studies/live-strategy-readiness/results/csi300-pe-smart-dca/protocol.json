@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "study_id": "live-strategy-readiness",
+  "candidate_id": "csi300-pe-smart-dca",
+  "created_at": "2026-08-25",
+  "source": {
+    "post_url": "https://www.joinquant.com/post/24679",
+    "post_add_time": "2019-12-27 17:17:33",
+    "post_mod_time": "2019-12-27 17:17:33",
+    "archive_source": "joinquant_archive/sources/2025年度精选策略/53.基于大盘PE标准差偏离度的聪明基金定投策略.py",
+    "source_sha256": "c36134b5d6bfc6da0ec2d80846ecfc1b77d258c071a3e9e909cdb0beaeecbf2b",
+    "source_vintage_grade_before_calibration": "B-pending",
+    "strict_natural_oos": false
+  },
+  "frozen_parameters": {
+    "security": "SH510300",
+    "benchmark": "SH510300",
+    "initial_cash": 100000,
+    "monthly_external_cash_flow": 5000,
+    "monthly_cash_flow_trading_day": 6,
+    "rebalance_weekday": "penultimate trading day of each week",
+    "execution_time": "open",
+    "observation_lag": "previous trading day",
+    "normal_weeks": 50,
+    "valuation_observations": 2500,
+    "valuation_transform": "log10(pe_average)",
+    "center": "median",
+    "upper_standard_deviation_multiplier": 0.05,
+    "lower_standard_deviation_multiplier": -0.25,
+    "buy_speed_multiplier": 5,
+    "minimum_buy_weeks": 1
+  },
+  "data_contract": {
+    "etf_prices": "local B-grade etf_daily raw and adjusted OHLCV for SH510300",
+    "valuation_proxy": "Legulegu Shanghai-market average PE via AkShare stock_market_pe_lg; current snapshot must be cached and hashed",
+    "valuation_proxy_status": "cross-provider proxy pending public-window calibration against JoinQuant finance.STK_EXCHANGE_TRADE_INFO exchange_code 322002",
+    "data_end": "2026-07-24",
+    "no_silent_backfill": true
+  },
+  "calibration": {
+    "period": {
+      "start": "2012-06-01",
+      "end": "2019-12-26"
+    },
+    "public_metrics": {
+      "annualized_return": 0.1325133659203,
+      "maximum_drawdown": 0.2100312627198,
+      "sharpe": 0.62969797858226,
+      "trading_days": 1845,
+      "public_win_count_proxy": 73
+    },
+    "tolerances": {
+      "annualized_return_absolute": 0.05,
+      "maximum_drawdown_absolute": 0.05,
+      "sharpe_absolute": 0.2,
+      "action_count_relative": 0.25
+    },
+    "pass_rule": "all four tolerances must pass; otherwise downgrade to C and do not calculate post-publication performance",
+    "parameter_selection_allowed": false
+  },
+  "post_publication_evaluation": {
+    "state_warmup_start": "2012-06-01",
+    "score_start": "2020-01-02",
+    "score_end": "2026-07-24",
+    "evidence_grade_if_calibration_passes": "B-downgraded",
+    "parameter_selection_allowed": false,
+    "cash_flow_return_method": "daily time-weighted return after removing external flows",
+    "scenarios": [
+      "frozen-source-cost-proxy",
+      "causal-realistic-cost",
+      "causal-double-cost",
+      "fixed-50-week-dca",
+      "invest-all-cash-weekly"
+    ]
+  },
+  "execution": {
+    "lot_size": 100,
+    "sell_before_buy": true,
+    "carry_failed_orders": true,
+    "partial_fill": true,
+    "baseline_adv_participation": 0.01,
+    "realistic_cost": {
+      "commission_rate": 0.0003,
+      "minimum_commission": 5,
+      "stamp_tax": 0,
+      "slippage_rate": 0.0002
+    },
+    "double_cost": {
+      "commission_rate": 0.0006,
+      "minimum_commission": 10,
+      "stamp_tax": 0,
+      "slippage_rate": 0.0004
+    },
+    "source_cost_proxy": {
+      "commission_rate": 0.0003,
+      "minimum_commission": 5,
+      "sell_tax_rate": 0.001,
+      "fixed_slippage_yuan": 0.02
+    }
+  },
+  "first_read_advancement_gates": {
+    "annualized_return_at_least": 0.05,
+    "sharpe_at_least": 0.6,
+    "maximum_drawdown_at_most": 0.25,
+    "relative_value_rule": "versus fixed-50-week DCA, Sharpe improves by at least 0.10 or drawdown improves by at least 5 percentage points without CAGR lagging by more than 2 percentage points",
+    "double_cost_sharpe_at_least": 0.5,
+    "minimum_valuation_driven_actions": 20,
+    "all_required": true
+  },
+  "hard_stops": [
+    "public-window calibration fails",
+    "post-publication realistic CAGR is non-positive",
+    "post-publication realistic maximum drawdown exceeds 35%",
+    "complex valuation rule has no material value over both simple cash-flow baselines",
+    "valuation proxy cannot be reproduced or productionized"
+  ],
+  "deep_research_only_after_first_read": {
+    "parameter_neighborhood": "valuation window 2250/2500/2750; normal weeks 40/50/60; threshold multipliers varied one dimension at a time around the frozen point",
+    "delays": [0, 1, 2, 3, 5],
+    "capital_rmb": [200000, 1000000, 2000000, 10000000],
+    "adv_participation": [0.005, 0.01, 0.05],
+    "attribution": ["valuation regime", "calendar year", "cash versus ETF exposure", "top trade contribution"],
+    "multiple_testing": ["moving-block bootstrap", "PBO or equivalent fold-based selection diagnostic", "Deflated Sharpe"]
+  },
+  "anti_leakage": {
+    "do_not_change_after_results": [
+      "asset",
+      "valuation series choice",
+      "valuation transform",
+      "window",
+      "thresholds",
+      "cash-flow schedule",
+      "trade schedule",
+      "advancement gates"
+    ],
+    "correctness_fixes_must_be_reported": true,
+    "failed_first_read_must_be_archived": true
+  }
+}

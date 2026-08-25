@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "study_id": "live-strategy-readiness",
+  "candidate_id": "stock-bond-volatility-balance",
+  "status": "preregistered-before-oos-replay",
+  "research_level": "R0",
+  "source_vintage": {
+    "grade": "B",
+    "strict_natural_oos": false,
+    "reason": "当前源码在公开窗口的年化、回撤和 Sharpe 均通过事前版本校准，且帖子自发布后未修改；仍缺少发布前独立源码哈希。"
+  },
+  "source": {
+    "path": "joinquant_archive/sources/2025年度精选策略/7.股债波动平衡.py",
+    "sha256": "163e8e3025b9e97bfbf1ea820c59722333c9d9839b256f48ea6f59815e82087c"
+  },
+  "version_calibration": {
+    "commit": "8ed3236",
+    "decision_path": "studies/live-strategy-readiness/results/stock-bond-volatility-balance/version-calibration-decision.json",
+    "decision_sha256": "b84ec0a6dbcb3b6aa6b941cef7e90820d9d21ed4e0a10e5feeee3fe26f6a2e8a",
+    "passed": true,
+    "post_publication_data_used": false
+  },
+  "frozen_parameters": {
+    "fund_pool": [
+      "161005.XSHE",
+      "163412.XSHE",
+      "511010.XSHG",
+      "513100.XSHG",
+      "513500.XSHG",
+      "518880.XSHG",
+      "159928.XSHE",
+      "512010.XSHG"
+    ],
+    "prior_weights": [15.0, 20.0, 2.0, 15.0, 7.5, 4.0, 25.0, 20.0],
+    "volatility_window_days": 40,
+    "volatility_clip_sigma": 3.0,
+    "weight_rule": "prior_weight / annualized_volatility^2, then normalize available assets",
+    "rebalance": "initial session then Friday open",
+    "drift_l1_threshold": 0.05,
+    "cash_trigger_rmb": 200.0
+  },
+  "post_publication_replay": {
+    "authorized": true,
+    "window": {
+      "start": "2020-08-17",
+      "end": "2026-07-24"
+    },
+    "initial_capital_rmb": 200000,
+    "initial_state": "cash",
+    "data_quality": "B",
+    "parameter_selection_used_oos": false
+  },
+  "scenarios": [
+    "frozen-source-cost-proxy",
+    "causal-baseline-cost",
+    "causal-double-cost",
+    "static-prior-weekly",
+    "equal-weight-weekly"
+  ],
+  "pre_result_success_criteria": {
+    "baseline_cost_oos_annual_return": ">= 0.05",
+    "baseline_cost_oos_sharpe": ">= 0.70",
+    "baseline_cost_oos_max_drawdown": "<= 0.20",
+    "dynamic_value_add": "相对 static-prior-weekly，Sharpe 至少高 0.10，或最大回撤至少低 2 个百分点且 CAGR 牺牲不超过 2 个百分点",
+    "equal_weight_comparison": "必须报告，不设单独一票否决",
+    "double_cost": "总收益保持为正且 Sharpe 不低于 0.60",
+    "minimum_rebalances": ">= 20",
+    "hard_stop": "若 CAGR <= 0、Sharpe < 0.40、最大回撤 > 0.30，被静态先验在 CAGR、回撤和 Sharpe 三项同时支配，或优势依赖不可成交路径，则停止当前版本"
+  },
+  "experiment_policy": {
+    "tune_on_post_publication_window": false,
+    "first_replay_parameters_frozen": true,
+    "alpha_change_requires_new_candidate": true,
+    "report_failed_experiments": true
+  },
+  "decision": "运行 B 级未经调参发布后回放；只有通过首轮门槛才进入完整稳健性和容量研究。"
+}

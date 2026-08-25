@@ -1,4 +1,5 @@
 import importlib.util
+import json
 import sys
 from pathlib import Path
 
@@ -67,3 +68,31 @@ def test_oos_gate_requires_all_preregistered_checks():
 
     assert decision["passed"] is True
     assert decision["pass_count"] == decision["gate_count"] == 6
+
+
+def test_committed_oos_fails_without_parameter_selection_and_binds_hashes():
+    candidate_dir = MODULE.CANDIDATE_DIR
+    manifest = json.loads(
+        (candidate_dir / "oos-run-manifest.json").read_text(encoding="utf-8")
+    )
+    scorecard = json.loads(
+        (candidate_dir / "live-readiness-scorecard.json").read_text(encoding="utf-8")
+    )
+
+    assert manifest["source_sha256"] == MODULE.sha256_file(MODULE.base.SOURCE_PATH)
+    assert manifest["base_engine_sha256"] == MODULE.sha256_file(MODULE.BASE_PATH)
+    assert manifest["oos_engine_sha256"] == MODULE.sha256_file(MODULE_PATH)
+    assert manifest["protocol_sha256"] == MODULE.sha256_file(MODULE.base.PROTOCOL_PATH)
+    assert manifest["parameter_selection_used_oos"] is False
+    assert manifest["decision"]["passed"] is False
+    assert manifest["decision"]["pass_count"] == 2
+    assert scorecard["status"] == "R1"
+    assert scorecard["parameter_selection_used_oos"] is False
+
+    oos = pd.read_csv(candidate_dir / "oos.csv").set_index("scenario")
+    strategy = oos.loc["rsrs-baseline-cost"]
+    buy_hold = oos.loc["csi300-etf-buy-hold"]
+    half_cash = oos.loc["static-50pct-etf-cash"]
+    assert strategy["sharpe"] < buy_hold["sharpe"]
+    assert strategy["sharpe"] < half_cash["sharpe"]
+    assert strategy["maximum_drawdown"] > half_cash["maximum_drawdown"]

@@ -443,3 +443,10 @@ ETF+EPO 的首轮未经调参回放已经完成。2024-03-25 至 2026-07-24 的�
 会在某次调仓产生全非正 EPO 权重而中止；邻域通过率为 51.9%，PBO 为 50%。0—5 日延迟及
 20—200 万元容量通过，但不能抵消优化器稳定性失败。候选因此维持 R1，停止围绕当前历史调参，
 不晋级 R2。`robustness.csv`、`capacity.csv`、`attribution.csv`、scorecard 和结论均已生成。
+
+白马攻防的首次因果重建及 63 次深挖也已完成；三个既有正式策略族已映射为统一标准交付物。
+本轮最终机器结果见 `unified-results.csv`，平台差距见 `platform-golden-audit.csv`，执行顺序完成性
+见 `completion-audit.csv`，最终判定见 `final-assessment.md`。
+
+最终为 R0 1 个、R1 5 个、R2/R3 0 个。由于没有达到 R2/R3 的候选，
+`portfolio-analysis.csv` 明确记录“不运行组合选择”，当前不提出冻结模拟盘或小资金实盘组合。

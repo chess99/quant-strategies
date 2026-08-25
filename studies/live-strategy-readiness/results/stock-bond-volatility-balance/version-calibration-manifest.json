@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "study_id": "live-strategy-readiness",
+  "candidate_id": "stock-bond-volatility-balance",
+  "run_id": "public-window-version-calibration-v1",
+  "created_at": "2026-08-25",
+  "period": {
+    "start": "2014-06-01",
+    "end": "2020-07-31"
+  },
+  "source_path": "joinquant_archive/sources/2025年度精选策略/7.股债波动平衡.py",
+  "source_sha256": "163e8e3025b9e97bfbf1ea820c59722333c9d9839b256f48ea6f59815e82087c",
+  "engine_path": "studies/live-strategy-readiness/run_stock_bond_volatility_calibration.py",
+  "engine_sha256": "c94e682e1b2291fd800c904ed2b8d73a1d6d3ed912288cddd26bfc1b26179baf",
+  "data_manifests": {
+    "etf_daily": {
+      "path": "D:\\code\\_open-source\\_data\\quant-research\\manifests\\etf_daily.json",
+      "sha256": "df62ef9d3b84c453f1259f8ff2763bb0204010e6a853179bf9076a757e6413c2"
+    },
+    "etf_master": {
+      "path": "D:\\code\\_open-source\\_data\\quant-research\\manifests\\etf_master.json",
+      "sha256": "53e2862faf4a1efc35b6e78744e1c7b087f550be8357f1bcc45a08fe12e51008"
+    }
+  },
+  "lof_data": [
+    {
+      "symbol": "SZ161005",
+      "raw_provider": "Sina via akshare.fund_etf_hist_sina",
+      "adjusted_provider": "Tencent via akshare.stock_zh_a_hist_tx(hfq)",
+      "raw_path": "D:\\code\\_open-source\\_data\\quant-research\\raw\\sina\\fund_etf\\SZ161005.csv",
+      "raw_sha256": "70604cd1feb11efe7a02b05608cb190f79bee6f2e7939d0631765e0c0eef3aee",
+      "adjusted_path": "D:\\code\\_open-source\\_data\\quant-research\\raw\\tencent\\fund_hfq_daily\\SZ161005.csv",
+      "adjusted_sha256": "4c856fc976799ebf84af8abb41214df688431b00690e49e184219bb457cb8881",
+      "first_date": "2006-02-16",
+      "last_date": "2026-08-24",
+      "row_count": 4975
+    },
+    {
+      "symbol": "SZ163412",
+      "raw_provider": "Sina via akshare.fund_etf_hist_sina",
+      "adjusted_provider": "Tencent via akshare.stock_zh_a_hist_tx(hfq)",
+      "raw_path": "D:\\code\\_open-source\\_data\\quant-research\\raw\\sina\\fund_etf\\SZ163412.csv",
+      "raw_sha256": "a0c5a19cceab55b048009964f833c04a925a74c74ff86092071945a9bd2d7188",
+      "adjusted_path": "D:\\code\\_open-source\\_data\\quant-research\\raw\\tencent\\fund_hfq_daily\\SZ163412.csv",
+      "adjusted_sha256": "c7097adc570b548d4e785fb4b2057025836b911ca6666d7aee0ea1c6fb2b5d8a",
+      "first_date": "2012-05-31",
+      "last_date": "2026-08-24",
+      "row_count": 3453
+    }
+  ],
+  "frozen_parameters": {
+    "fund_pool": [
+      "161005.XSHE",
+      "163412.XSHE",
+      "511010.XSHG",
+      "513100.XSHG",
+      "513500.XSHG",
+      "518880.XSHG",
+      "159928.XSHE",
+      "512010.XSHG"
+    ],
+    "prior_weights": [
+      15.0,
+      20.0,
+      2.0,
+      15.0,
+      7.5,
+      4.0,
+      25.0,
+      20.0
+    ],
+    "volatility_window_days": 40,
+    "drift_l1_threshold": 0.05,
+    "cash_trigger_rmb": 200.0
+  },
+  "post_publication_data_used": false,
+  "parameter_fitting_used": false,
+  "success_criteria": {
+    "annual_return_absolute_difference_max": 0.03,
+    "max_drawdown_absolute_difference_max": 0.03,
+    "sharpe_absolute_difference_max": 0.3
+  },
+  "calibration_passed": true,
+  "artifacts": {
+    "calibration": "version-calibration.csv",
+    "comparison": "original-vs-causal.csv",
+    "raw_pattern": "raw/version-calibration__{equity,trades,orders,holdings,targets}.csv"
+  },
+  "limitations": [
+    "six ETF histories and two LOF histories use different B-grade providers",
+    "512010.XSHG is unavailable before its 2015-08-04 listing",
+    "public aggregate metrics do not expose target weights or order-level comparison",
+    "source did not declare costs; local calibration uses 3bp commission and RMB 5 minimum"
+  ],
+  "public_backtest": {
+    "scenario": "published-public-backtest",
+    "evidence_scope": "public in-sample aggregate",
+    "period_start": "2014-06-01",
+    "period_end": "2020-07-31",
+    "initial_cash": 100000.0,
+    "total_return": 1.1875873187,
+    "annualized_return": 0.1388660779521,
+    "maximum_drawdown": 0.084382235325559,
+    "sharpe": 1.4417718336376,
+    "sortino": 1.8255568944958,
+    "comparable_to_local": true
+  },
+  "local_result": {
+    "total_return": 0.94101321528269,
+    "annualized_return": 0.11646538959677066,
+    "maximum_drawdown": 0.09192329490734308,
+    "sharpe": 1.7340499723264515,
+    "annualized_volatility": 0.06475668495405601,
+    "turnover": 37.658782519176064,
+    "average_cash_ratio": 0.050122492054697924,
+    "maximum_cash_ratio": 1.0,
+    "longest_underwater_trading_days": 369,
+    "yearly_returns": {
+      "2014": 0.11829782852360693,
+      "2015": 0.1702712450533459,
+      "2016": 0.000990178565871691,
+      "2017": 0.09421681992194508,
+      "2018": -0.008720973066376092,
+      "2019": 0.14898606507239331,
+      "2020": 0.188887045185119
+    },
+    "scenario": "current-source-local-calibration",
+    "evidence_scope": "public in-sample version calibration",
+    "period_start": "2014-06-01",
+    "period_end": "2020-07-31",
+    "initial_cash": 100000.0,
+    "sortino": 2.0940806876132068,
+    "trade_count": 1911,
+    "order_count": 1911,
+    "rejected_order_count": 0,
+    "total_fees": 9699.272239935854,
+    "annual_return_absolute_difference": 0.022400688355329323,
+    "max_drawdown_absolute_difference": 0.007541059581784082,
+    "sharpe_absolute_difference": 0.29227813868885155,
+    "parameter_fitting_used": false,
+    "post_publication_data_used": false
+  }
+}

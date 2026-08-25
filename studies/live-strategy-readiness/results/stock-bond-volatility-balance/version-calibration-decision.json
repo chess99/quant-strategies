@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "candidate_id": "stock-bond-volatility-balance",
+  "calibration_status": "passed",
+  "source_vintage_before": "C-pending-calibration",
+  "source_vintage_after": "B",
+  "strict_natural_oos": false,
+  "public_metrics": {
+    "annualized_return": 0.1388660779521,
+    "maximum_drawdown": 0.084382235325559,
+    "sharpe": 1.4417718336376
+  },
+  "local_metrics": {
+    "annualized_return": 0.11646538959677066,
+    "maximum_drawdown": 0.09192329490734308,
+    "sharpe": 1.7340499723264515
+  },
+  "absolute_differences": {
+    "annualized_return": 0.022400688355329323,
+    "maximum_drawdown": 0.007541059581784082,
+    "sharpe": 0.29227813868885155
+  },
+  "thresholds": {
+    "annualized_return": 0.03,
+    "maximum_drawdown": 0.03,
+    "sharpe": 0.3
+  },
+  "parameter_fitting_used": false,
+  "post_publication_data_used": false,
+  "decision": "allow a separately preregistered B-grade post-publication replay"
+}

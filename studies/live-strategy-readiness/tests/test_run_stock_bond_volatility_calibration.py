@@ -1,4 +1,5 @@
 import importlib.util
+import json
 import sys
 from pathlib import Path
 
@@ -77,3 +78,28 @@ def test_preregistered_source_hash_is_unchanged():
     assert MODULE.sha256_file(MODULE.SOURCE_PATH) == (
         "163e8e3025b9e97bfbf1ea820c59722333c9d9839b256f48ea6f59815e82087c"
     )
+
+
+def test_committed_calibration_artifacts_pass_without_post_publication_data():
+    candidate_dir = STUDY_DIR / "results" / MODULE.CANDIDATE_ID
+    manifest = json.loads(
+        (candidate_dir / "version-calibration-manifest.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    decision = json.loads(
+        (candidate_dir / "version-calibration-decision.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    calibration = pd.read_csv(candidate_dir / "version-calibration.csv").iloc[0]
+
+    assert manifest["source_sha256"] == MODULE.sha256_file(MODULE.SOURCE_PATH)
+    assert manifest["engine_sha256"] == MODULE.sha256_file(MODULE_PATH)
+    assert manifest["calibration_passed"] is True
+    assert manifest["post_publication_data_used"] is False
+    assert manifest["parameter_fitting_used"] is False
+    assert decision["source_vintage_after"] == "B"
+    assert calibration["annual_return_absolute_difference"] <= 0.03
+    assert calibration["max_drawdown_absolute_difference"] <= 0.03
+    assert calibration["sharpe_absolute_difference"] <= 0.30

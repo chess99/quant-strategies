@@ -1,0 +1,6 @@
+analysis_type,status,reason
+market-beta,not-run,public-window calibration failed before OOS
+ETF-category,not-run,public-window calibration failed before OOS
+volume-state-ablation,not-run,public-window calibration failed before OOS
+top1-top3,not-run,public-window calibration failed before OOS
+

@@ -1,4 +1,5 @@
 import importlib.util
+import json
 import sys
 from pathlib import Path
 
@@ -92,6 +93,14 @@ def test_calibration_decision_requires_return_and_sharpe():
     assert decision["pass_count"] == 4
 
 
+def test_signal_switch_count_ignores_repeated_unavailable_target_attempts():
+    targets = ["DEFENSIVE", "DEFENSIVE", "A", "A", "DEFENSIVE"]
+
+    switches = MODULE.count_signal_switches(targets)
+
+    assert switches == 2
+
+
 @pytest.mark.parametrize("field,value", [("annualized_return", 0.10), ("sharpe", 0.40)])
 def test_calibration_decision_stays_locked_when_mandatory_gate_fails(field, value):
     public = {"annualized_return": 0.20, "maximum_drawdown": 0.30, "sharpe": 0.80}
@@ -106,3 +115,35 @@ def test_calibration_decision_stays_locked_when_mandatory_gate_fails(field, valu
     decision = MODULE.evaluate_calibration(local, public, public_switch_events=100)
 
     assert decision["unlocked"] is False
+
+
+def test_committed_calibration_is_locked_and_binds_hashes():
+    candidate_dir = STUDY_DIR / "results" / MODULE.CANDIDATE_ID
+    manifest = json.loads(
+        (candidate_dir / "version-calibration-manifest.json").read_text(encoding="utf-8")
+    )
+    decision = json.loads(
+        (candidate_dir / "version-calibration-decision.json").read_text(encoding="utf-8")
+    )
+    scorecard = json.loads(
+        (candidate_dir / "live-readiness-scorecard.json").read_text(encoding="utf-8")
+    )
+
+    assert manifest["source_sha256"] == MODULE.sha256_file(MODULE.SOURCE_PATH)
+    assert manifest["engine_sha256"] == MODULE.sha256_file(MODULE_PATH)
+    assert manifest["protocol_sha256"] == MODULE.sha256_file(MODULE.PROTOCOL_PATH)
+    assert manifest["post_publication_performance_calculated"] is False
+    assert decision["unlocked"] is False
+    assert decision["pass_count"] == 2
+    assert decision["gates_passed"] == {
+        "annualized_return": False,
+        "maximum_drawdown": False,
+        "sharpe": True,
+        "switch_event_count": True,
+    }
+    assert scorecard["status"] == "R0"
+    assert scorecard["post_publication_performance_calculated"] is False
+
+    oos = pd.read_csv(candidate_dir / "oos.csv")
+    assert oos.loc[0, "status"] == "not-run"
+    assert bool(oos.loc[0, "post_publication_performance_calculated"]) is False

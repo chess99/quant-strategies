@@ -263,6 +263,13 @@ def build_targets(
     return targets, pd.DataFrame(rows)
 
 
+def count_signal_switches(targets: list[str]) -> int:
+    return sum(
+        current != previous
+        for previous, current in zip(targets, targets[1:])
+    )
+
+
 def run_backtest(
     bars: pd.DataFrame,
     targets: dict[pd.Timestamp, str],
@@ -300,7 +307,7 @@ def run_backtest(
             etf_minimum_commission=minimum_commission,
         ),
     )
-    actual_switches = 0
+    rebalance_attempts = 0
     for trade_date in calendar:
         target = targets.get(pd.Timestamp(trade_date))
         held = set(engine.positions)
@@ -311,12 +318,15 @@ def run_backtest(
                 {target: 1.0} if target else {},
                 execution="open",
             )
-            actual_switches += 1
+            rebalance_attempts += 1
         engine.mark_close(trade_date)
+    target_values = [targets[date] for date in calendar if date in targets]
+    signal_switches = count_signal_switches(target_values)
     metrics = performance_metrics(engine.equity, engine.trades, trading_days=250)
     metrics.update(
         {
-            "switch_event_count": actual_switches,
+            "switch_event_count": signal_switches,
+            "rebalance_attempt_count": rebalance_attempts,
             "trade_count": len(engine.trades),
             "order_count": len(engine.orders),
             "rejected_order_count": len(engine.rejections),

@@ -1,0 +1,29 @@
+{
+  "unlocked": false,
+  "pass_count": 2,
+  "gates_passed": {
+    "annualized_return": false,
+    "maximum_drawdown": false,
+    "sharpe": true,
+    "switch_event_count": true
+  },
+  "gaps": {
+    "annualized_return": 0.09204232454947042,
+    "maximum_drawdown": 0.08709004613961052,
+    "sharpe": 0.14807908399533987,
+    "switch_event_relative": 0.1393643031784841
+  },
+  "local": {
+    "annualized_return": 0.12504216969654958,
+    "maximum_drawdown": 0.43217893152054054,
+    "sharpe": 0.6420021497768201,
+    "switch_event_count": 932
+  },
+  "public": {
+    "annualized_return": 0.21708449424602,
+    "maximum_drawdown": 0.34508888538093,
+    "sharpe": 0.79008123377216,
+    "switch_event_count": 818
+  },
+  "post_publication_performance_calculated": false
+}

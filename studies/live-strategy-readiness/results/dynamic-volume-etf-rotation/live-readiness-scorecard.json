@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "study_id": "live-strategy-readiness",
+  "candidate_id": "dynamic-volume-etf-rotation",
+  "status": "R0",
+  "source_vintage_grade": "B",
+  "source_sha256": "bd620dd71ce4fbb4471f1103bca8da2912bef2ed1892332a589db483d419e8dc",
+  "strict_natural_oos": false,
+  "calibration": {
+    "passed": false,
+    "period_start": "2006-01-04",
+    "period_end": "2019-12-13",
+    "local_annualized_return": 0.12504216969654958,
+    "public_annualized_return": 0.21708449424602,
+    "local_maximum_drawdown": 0.43217893152054054,
+    "public_maximum_drawdown": 0.34508888538093,
+    "local_sharpe": 0.6420021497768201,
+    "public_sharpe": 0.79008123377216,
+    "local_switch_event_count": 932,
+    "public_switch_event_proxy": 818,
+    "passed_check_count": 2,
+    "required_check_count": 4
+  },
+  "gates": {
+    "point_in_time_etf_lifecycle": true,
+    "causal_daily_signal": true,
+    "intraday_source_path_reproduced": false,
+    "public_window_calibrated": false,
+    "post_publication_first_read": false,
+    "capacity": false
+  },
+  "post_publication_performance_calculated": false,
+  "parameter_selection_used": false,
+  "decision": "remain R0 and stop; do not open or tune on the post-publication window",
+  "stop_reason": "the preregistered previous-close/next-open reconstruction missed mandatory public CAGR and Sharpe calibration requirements"
+}
+

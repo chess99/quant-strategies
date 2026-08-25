@@ -160,6 +160,10 @@ def verify_parent_oos_equivalence(
         retry_sessions=0,
     )
     parent_equity = pd.read_csv(PARENT_DIR / "raw" / "causal-baseline-cost__equity.csv")
+    parent_equity["trade_date"] = pd.to_datetime(parent_equity["trade_date"]).dt.normalize()
+    frames["equity"]["trade_date"] = pd.to_datetime(
+        frames["equity"]["trade_date"]
+    ).dt.normalize()
     merged = parent_equity[["trade_date", "total_value"]].merge(
         frames["equity"][["trade_date", "total_value"]],
         on="trade_date",

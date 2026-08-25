@@ -1,0 +1,2 @@
+scenario,status,period_start,period_end,reason,post_publication_performance_calculated
+post-publication-first-read,not-run,2020-01-02,2026-07-24,public-window valuation-proxy calibration failed,false

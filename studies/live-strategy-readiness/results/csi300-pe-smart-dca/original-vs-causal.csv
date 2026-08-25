@@ -1,0 +1,3 @@
+﻿scenario,annualized_return,maximum_drawdown,sharpe,action_count,period_start,period_end,trading_days,total_return,annualized_volatility,longest_underwater_trading_days,average_exposure,ending_total_value,net_contributions,filled_action_count,total_fees,unfilled_value
+published-joinquant,0.1325133659203,0.2100312627198,0.62969797858226,73,,,,,,,,,,,,
+local-source-cost-calibration,0.03643569168297045,0.11026583812770085,0.5371259418561233,224,2012-06-01,2019-12-26,1845.0,0.3022747479921286,0.07136762855475508,304.0,0.29948676029987265,694402.5855647192,455000.0,224.0,1555.9329106614966,0.0

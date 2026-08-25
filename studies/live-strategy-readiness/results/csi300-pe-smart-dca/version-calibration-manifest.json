@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "study_id": "live-strategy-readiness",
+  "candidate_id": "csi300-pe-smart-dca",
+  "run_id": "public-window-version-calibration-v1",
+  "created_at": "2026-08-25",
+  "period": {
+    "start": "2012-06-01",
+    "end": "2019-12-26"
+  },
+  "source_path": "joinquant_archive/sources/2025年度精选策略/53.基于大盘PE标准差偏离度的聪明基金定投策略.py",
+  "source_sha256": "c36134b5d6bfc6da0ec2d80846ecfc1b77d258c071a3e9e909cdb0beaeecbf2b",
+  "engine_path": "studies/live-strategy-readiness/run_csi300_pe_smart_dca.py",
+  "engine_sha256": "8fabacf5d7e05b9bf6b95bbe2b26b865826b6442f0713d7e4a35b632f733f1b6",
+  "data": {
+    "etf_daily_manifest": "D:\\code\\_open-source\\_data\\quant-research\\manifests\\etf_daily.json",
+    "etf_daily_manifest_sha256": "df62ef9d3b84c453f1259f8ff2763bb0204010e6a853179bf9076a757e6413c2",
+    "valuation": {
+      "provider": "Legulegu via AkShare stock_index_pe_lg(symbol='沪深300'), addLyrPe",
+      "path": "D:\\code\\_open-source\\_data\\quant-research\\raw\\legulegu\\index_pe\\csi300_static_total__through_2019-12-26.csv",
+      "sha256": "2ab4b9756864a5518e52410aba9aa9c39c92665a662bdb331c14465f9d5670ed",
+      "first_date": "2005-04-08",
+      "last_date": "2019-12-26",
+      "row_count": 3582
+    }
+  },
+  "post_publication_data_used": false,
+  "parameter_fitting_used": false,
+  "public_metrics": {
+    "annualized_return": 0.1325133659203,
+    "maximum_drawdown": 0.2100312627198,
+    "sharpe": 0.62969797858226,
+    "action_count": 73
+  },
+  "local_metrics": {
+    "period_start": "2012-06-01",
+    "period_end": "2019-12-26",
+    "trading_days": 1845,
+    "total_return": 0.3022747479921286,
+    "annualized_return": 0.03643569168297045,
+    "maximum_drawdown": 0.11026583812770085,
+    "sharpe": 0.5371259418561233,
+    "annualized_volatility": 0.07136762855475508,
+    "longest_underwater_trading_days": 304,
+    "average_exposure": 0.29948676029987265,
+    "ending_total_value": 694402.5855647192,
+    "net_contributions": 455000.0,
+    "action_count": 224,
+    "filled_action_count": 224,
+    "total_fees": 1555.9329106614966,
+    "unfilled_value": 0.0
+  },
+  "decision": {
+    "calibration_passed": false,
+    "source_vintage_after": "C",
+    "checks": {
+      "annualized_return": false,
+      "maximum_drawdown": false,
+      "sharpe": true,
+      "action_count": false
+    },
+    "differences": {
+      "annualized_return": 0.09607767423732955,
+      "maximum_drawdown": 0.09976542459209914,
+      "sharpe": 0.09257203672613668,
+      "action_count_relative": 2.0684931506849313
+    },
+    "post_publication_performance_calculated": false,
+    "parameter_selection_used": false
+  }
+}

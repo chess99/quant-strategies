@@ -32,8 +32,8 @@
   },
   "data_contract": {
     "etf_prices": "local B-grade etf_daily raw and adjusted OHLCV for SH510300",
-    "valuation_proxy": "Legulegu Shanghai-market average PE via AkShare stock_market_pe_lg; current snapshot must be cached and hashed",
-    "valuation_proxy_status": "cross-provider proxy pending public-window calibration against JoinQuant finance.STK_EXCHANGE_TRADE_INFO exchange_code 322002",
+    "valuation_proxy": "Legulegu CSI300 aggregate static PE (addLyrPe) via AkShare stock_index_pe_lg; the calibration-only snapshot must be truncated at 2019-12-26, cached and hashed before any post-publication run",
+    "valuation_proxy_status": "cross-provider and cross-universe proxy pending public-window calibration against JoinQuant finance.STK_EXCHANGE_TRADE_INFO exchange_code 322002; Legulegu Shanghai-market PE is monthly and cannot satisfy the frozen 2500-daily-observation rule",
     "data_end": "2026-07-24",
     "no_silent_backfill": true
   },

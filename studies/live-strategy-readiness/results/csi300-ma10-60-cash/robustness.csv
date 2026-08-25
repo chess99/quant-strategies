@@ -1,0 +1,6 @@
+experiment,variant,status,annualized_return,maximum_drawdown,sharpe,notes
+cost-and-causal-replay,frozen-source-cost,failed,0.007649568091505854,0.40709496531320855,0.12564205702146686,source cost includes incorrect ETF sell tax
+cost-and-causal-replay,causal-baseline-cost,failed,0.007535172802180634,0.4070720760177303,0.12486748408633104,failed CAGR Sharpe and drawdown gates
+cost-and-causal-replay,causal-double-cost,failed,0.0028071651116177154,0.4192676823469136,0.09264178309764284,total return positive but Sharpe and drawdown failed
+simple-baseline,csi300-buy-hold,dominates-return,0.07671650810815245,0.41025675362806047,0.48349884306780516,similar drawdown with much higher CAGR and Sharpe
+simple-baseline,static-50pct-cash,dominates-switch,0.04340093973756942,0.2687659055952363,0.43828616379857877,higher CAGR lower drawdown and higher Sharpe

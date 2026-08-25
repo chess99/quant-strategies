@@ -91,7 +91,7 @@ SCENARIOS = (
         minimum_commission=5.0,
         slippage_rate=0.0005,
         maximum_volume_ratio=0.01,
-        execution_policy="transition-only",
+        execution_policy="source-daily-order",
         asset_type="etf",
         fixed_sell_tax=None,
         cost_label="realistic ETF baseline",
@@ -103,7 +103,7 @@ SCENARIOS = (
         minimum_commission=5.0,
         slippage_rate=0.0010,
         maximum_volume_ratio=0.01,
-        execution_policy="transition-only",
+        execution_policy="source-daily-order",
         asset_type="etf",
         fixed_sell_tax=None,
         cost_label="double ETF friction",
@@ -244,6 +244,18 @@ def _shares(engine: DailyBacktester) -> int:
     return 0 if position is None else int(position.shares)
 
 
+def _can_buy_one_lot(engine: DailyBacktester, trade_date) -> bool:
+    bar = engine._bar(trade_date, RISK_SYMBOL)
+    if bar is None or not engine._valid_price(bar.get("open")):
+        return False
+    price = float(bar["open"]) * (1.0 + engine.config.slippage_rate)
+    gross = engine.config.lot_size * price
+    commission, tax = engine.costs.fees(
+        engine._asset_type(RISK_SYMBOL), "buy", gross, trade_date
+    )
+    return engine.cash + 1e-9 >= gross + commission + tax
+
+
 def _apply_ma_signal(
     engine: DailyBacktester,
     trade_date,
@@ -253,7 +265,9 @@ def _apply_ma_signal(
 ) -> str:
     shares_before = _shares(engine)
     if signal == 1:
-        if execution_policy == "source-daily-order":
+        if execution_policy == "source-daily-order" and _can_buy_one_lot(
+            engine, trade_date
+        ):
             engine.order_value(trade_date, RISK_SYMBOL, engine.cash, execution="open")
         elif shares_before == 0:
             engine.rebalance_to_weights(
@@ -331,11 +345,11 @@ def run_scenario(
                 signal,
                 execution_policy=scenario.execution_policy,
             )
-        elif scenario.method == "risk-buy-hold" and trade_date == calendar[0]:
-            engine.rebalance_to_weights(
-                trade_date, {RISK_SYMBOL: 1.0}, execution="open"
-            )
-            action = "initial-risk"
+        elif scenario.method == "risk-buy-hold":
+            shares_before = _shares(engine)
+            if _can_buy_one_lot(engine, trade_date):
+                engine.order_value(trade_date, RISK_SYMBOL, engine.cash, execution="open")
+            action = "initial-risk" if shares_before == 0 and _shares(engine) > 0 else "hold"
         elif scenario.method == "static-half" and trade_date == calendar[0]:
             engine.rebalance_to_weights(
                 trade_date, {RISK_SYMBOL: 0.5}, execution="open"

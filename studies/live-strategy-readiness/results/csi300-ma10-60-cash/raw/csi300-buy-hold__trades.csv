@@ -1,0 +1,3 @@
+order_id,trade_date,symbol,side,execution,requested_shares,filled_shares,unfilled_shares,price,gross_value,commission,tax,reason
+1,2018-11-15,SH510310,buy,open,143884,93200,50684,1.3906949999999998,129612.77399999998,38.883832199999986,0.0,partial_volume_or_cash
+2,2018-11-16,SH510310,buy,open,49821,49700,121,1.4127059999999998,70211.48819999999,21.063446459999994,0.0,partial_volume_or_cash

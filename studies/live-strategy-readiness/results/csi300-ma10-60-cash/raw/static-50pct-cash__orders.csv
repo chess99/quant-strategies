@@ -1,0 +1,2 @@
+order_id,trade_date,symbol,side,execution,requested_shares,filled_shares,unfilled_shares,price,gross_value,commission,tax,reason
+1,2018-11-15,SH510310,buy,open,71900,71900,0,1.3906949999999998,99990.97049999998,29.99729114999999,0.0,filled

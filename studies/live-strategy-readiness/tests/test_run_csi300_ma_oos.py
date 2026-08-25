@@ -1,4 +1,5 @@
 import importlib.util
+import json
 import sys
 from pathlib import Path
 
@@ -46,3 +47,31 @@ def test_preregistered_source_hash_is_unchanged():
     assert MODULE.sha256_file(MODULE.SOURCE_PATH) == (
         "8d67a7ead17d757ee2b2edd59ace74c29fcfcda0536dc859d1ffb95e905886c3"
     )
+
+
+def test_committed_oos_artifacts_preserve_the_failed_stop_decision():
+    candidate_dir = STUDY_DIR / "results" / MODULE.CANDIDATE_ID
+    manifest = json.loads(
+        (candidate_dir / "oos-run-manifest.json").read_text(encoding="utf-8")
+    )
+    scorecard = json.loads(
+        (candidate_dir / "live-readiness-scorecard.json").read_text(encoding="utf-8")
+    )
+    oos = pd.read_csv(candidate_dir / "oos.csv").set_index("scenario")
+
+    assert manifest["source_sha256"] == MODULE.sha256_file(MODULE.SOURCE_PATH)
+    assert manifest["engine_sha256"] == MODULE.sha256_file(MODULE_PATH)
+    assert manifest["parameter_selection_used_oos"] is False
+    assert manifest["scenarios"][1]["execution_policy"] == "source-daily-order"
+    assert scorecard["status"] == "R1"
+    assert scorecard["hard_stop_triggered"] is True
+
+    baseline = oos.loc["causal-baseline-cost"]
+    buy_hold = oos.loc["csi300-buy-hold"]
+    static = oos.loc["static-50pct-cash"]
+    assert baseline["sharpe"] < 0.25
+    assert baseline["maximum_drawdown"] > 0.35
+    assert buy_hold["annualized_return"] > baseline["annualized_return"]
+    assert static["annualized_return"] > baseline["annualized_return"]
+    assert static["maximum_drawdown"] < baseline["maximum_drawdown"]
+    assert static["sharpe"] > baseline["sharpe"]

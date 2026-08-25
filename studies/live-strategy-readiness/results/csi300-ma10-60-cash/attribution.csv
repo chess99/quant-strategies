@@ -1,0 +1,6 @@
+analysis_type,name,annualized_return,maximum_drawdown,sharpe,delta_cagr_vs_switch,delta_drawdown_vs_switch,delta_sharpe_vs_switch
+strategy,causal-baseline-cost,0.007535172802180634,0.4070720760177303,0.12486748408633104,0.0,0.0,0.0
+simple-baseline,csi300-buy-hold,0.07671650810815245,0.41025675362806047,0.48349884306780516,0.06918133530597182,0.003184677610330144,0.3586313589814741
+simple-baseline,static-50pct-cash,0.04340093973756942,0.2687659055952363,0.43828616379857877,0.03586576693538879,-0.138306170422494,0.3134186797122477
+event-count,risk-off-transition,22.0,,,,,,
+event-count,risk-on-transition,22.0,,,,,,

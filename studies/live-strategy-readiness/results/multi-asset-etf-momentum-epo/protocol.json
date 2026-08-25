@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "study_id": "live-strategy-readiness",
+  "candidate_id": "multi-asset-etf-momentum-epo",
+  "candidate_name": "多品种 ETF 动量轮动 + EPO 优化",
+  "status": "source-audit-complete",
+  "research_level": "R0",
+  "publication": {
+    "url": "https://www.joinquant.com/post/47208",
+    "date": "2024-03-23",
+    "modified_at": "2024-03-23 15:39:26",
+    "archive_collected_at": "2026-07-27T02:11:54+08:00"
+  },
+  "public_backtest": {
+    "id": "907bb27f0ae3239d142dbe955138a882",
+    "numeric_id": "33186485",
+    "start": "2019-01-01",
+    "end": "2024-03-21",
+    "initial_capital_rmb": 100000,
+    "annual_return": 0.30320783,
+    "max_drawdown": 0.27016398,
+    "sharpe": 1.2812408172336
+  },
+  "source_vintage": {
+    "grade": "B",
+    "strict_natural_oos": false,
+    "current_snapshot_only": true,
+    "reason": "帖子从发布至采集时未修改，正文公开的 ETF 池、lambda=10、w=0.2 与当前源码一致；但源码哈希没有早于 OOS 的独立时间戳，因此不能升为 A。"
+  },
+  "frozen_source": {
+    "path": "joinquant_archive/sources/聚宽2026年精选/17多品种ETF动量轮动+EPO优化.py",
+    "sha256": "438cb254e50a3056eb125b67b17b051fea7ef78bd7f6a1f079349730feb331ba",
+    "meaning": "current archive snapshot consistent with the never-modified publication"
+  },
+  "investment_hypothesis": "先按 34 日对数价格趋势乘 R² 选出前三只正动量 ETF，再用 EPO 锚定优化降低高相关窄基 ETF 的仓位噪声。",
+  "frozen_parameters": {
+    "stock_num": 3,
+    "momentum_days": 34,
+    "epo_lambda": 10,
+    "epo_w": 0.2,
+    "rebalance": "first trading day monthly at 09:30",
+    "price_history_days": 1200,
+    "etf_pool": [
+      "518880.XSHG", "159985.XSHE", "513100.XSHG", "510300.XSHG",
+      "159915.XSHE", "159992.XSHE", "515700.XSHG", "510150.XSHG",
+      "515790.XSHG", "515880.XSHG", "512720.XSHG", "512660.XSHG",
+      "159740.XSHE"
+    ]
+  },
+  "post_publication_replay": {
+    "ready": true,
+    "window": {"start": "2024-03-25", "end": "2026-07-24"},
+    "first_scheduled_rebalance": "2024-04-01",
+    "data_quality": "B",
+    "rule": "第一轮使用冻结参数；不得用该窗口选择资产、参数或例外规则。"
+  },
+  "causal_reconstruction": {
+    "ready": true,
+    "required_correctness_repairs": [
+      "显式导入 math 并使用 builtins.sum，保持数值逻辑不变",
+      "只使用前一交易日及更早收盘数据，下一交易日开盘成交",
+      "保留原版零滑点结果，同时增加真实摩擦和双倍摩擦，不能用零滑点晋级",
+      "按 ETF 上市日期、停牌、整手、最低佣金、ADV 参与率和未成交处理执行"
+    ]
+  },
+  "pre_result_success_criteria": {
+    "baseline_cost_oos_total_return": "> 0",
+    "baseline_cost_oos_sharpe": ">= 0.5",
+    "baseline_cost_oos_max_drawdown": "<= 0.35",
+    "epo_value_add": "相对前三只等权，Sharpe 更高或最大回撤至少低 3 个百分点，且年化收益少于 3 个百分点的牺牲",
+    "hard_stop": "若 OOS Sharpe <= 0 或优势依赖不可成交路径，停止当前版本"
+  },
+  "experiment_policy": {
+    "tune_on_post_publication_window": false,
+    "first_replay_parameters_frozen": true,
+    "alpha_change_requires_new_candidate": true,
+    "report_failed_experiments": true
+  },
+  "decision": "进入未经调参的发布后回放；结果只能作为 B 级降级证据，不能称为严格天然 OOS。"
+}

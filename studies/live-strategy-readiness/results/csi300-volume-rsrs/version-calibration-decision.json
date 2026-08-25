@@ -1,0 +1,29 @@
+{
+  "unlocked": true,
+  "pass_count": 4,
+  "gates_passed": {
+    "annualized_return": true,
+    "maximum_drawdown": true,
+    "sharpe": true,
+    "completed_positions": true
+  },
+  "gaps": {
+    "annualized_return": 0.009944539344362208,
+    "maximum_drawdown": 0.007436598712238979,
+    "sharpe": 0.1285397893850606,
+    "completed_position_relative": 0.0
+  },
+  "local": {
+    "annualized_return": 0.2226511283403978,
+    "maximum_drawdown": 0.13486109706961102,
+    "sharpe": 1.2897193689951607,
+    "completed_positions": 13
+  },
+  "public": {
+    "annualized_return": 0.23259566768476,
+    "maximum_drawdown": 0.14229769578185,
+    "sharpe": 1.1611795796101,
+    "completed_positions": 13
+  },
+  "post_publication_performance_calculated": false
+}

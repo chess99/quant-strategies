@@ -1,4 +1,5 @@
 import importlib.util
+import json
 import sys
 from pathlib import Path
 
@@ -82,3 +83,29 @@ def test_calibration_requires_return_and_sharpe():
 
     assert decision["unlocked"] is True
     assert decision["pass_count"] == 4
+
+
+def test_committed_calibration_unlocks_oos_and_binds_hashes():
+    candidate_dir = STUDY_DIR / "results" / MODULE.CANDIDATE_ID
+    decision = json.loads(
+        (candidate_dir / "version-calibration-decision.json").read_text(encoding="utf-8")
+    )
+    manifest = json.loads(
+        (candidate_dir / "version-calibration-manifest.json").read_text(encoding="utf-8")
+    )
+
+    assert decision["unlocked"] is True
+    assert decision["pass_count"] == 4
+    assert all(decision["gates_passed"].values())
+    assert decision["post_publication_performance_calculated"] is False
+    assert manifest["source_sha256"] == MODULE.sha256_file(MODULE.SOURCE_PATH)
+    assert manifest["engine_sha256"] == MODULE.sha256_file(MODULE_PATH)
+    assert manifest["protocol_sha256"] == MODULE.sha256_file(MODULE.PROTOCOL_PATH)
+    assert manifest["post_publication_performance_calculated"] is False
+
+    calibration = pd.read_csv(candidate_dir / "version-calibration.csv")
+    row = calibration.iloc[0]
+    assert row["annualized_return"] == pytest.approx(0.2226511283403978)
+    assert row["maximum_drawdown"] == pytest.approx(0.13486109706961102)
+    assert row["sharpe"] == pytest.approx(1.2897193689951607)
+    assert row["completed_positions"] == 13

@@ -1,0 +1,5 @@
+analysis_type,status,reason
+market-beta,not-run,public-window calibration failed before OOS
+size-and-industry,not-run,public-window calibration failed before OOS
+EBIT-and-EV-components,not-run,public-window calibration failed before OOS
+top1-top3,not-run,public-window calibration failed before OOS

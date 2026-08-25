@@ -94,3 +94,21 @@ def test_preregistered_protocol_and_source_hash_are_unchanged():
     assert protocol["source"]["source_sha256"] == MODULE.sha256_file(MODULE.SOURCE_PATH)
     assert protocol["calibration"]["parameter_selection_allowed"] is False
     assert protocol["post_publication_evaluation"]["parameter_selection_allowed"] is False
+
+
+def test_committed_calibration_failure_did_not_inspect_post_publication_results():
+    candidate = STUDY_DIR / "results" / MODULE.CANDIDATE_ID
+    decision = json.loads(
+        (candidate / "version-calibration-decision.json").read_text(encoding="utf-8")
+    )
+    scorecard = json.loads(
+        (candidate / "live-readiness-scorecard.json").read_text(encoding="utf-8")
+    )
+    oos = pd.read_csv(candidate / "oos.csv").iloc[0]
+
+    assert decision["calibration_passed"] is False
+    assert decision["post_publication_performance_calculated"] is False
+    assert scorecard["status"] == "R0"
+    assert scorecard["parameter_selection_used"] is False
+    assert oos["status"] == "not-run"
+    assert not bool(oos["post_publication_performance_calculated"])

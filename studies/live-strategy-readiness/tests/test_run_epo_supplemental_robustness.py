@@ -47,6 +47,9 @@ def test_committed_regime_and_placebo_artifacts_cover_preregistered_scope():
     score = json.loads(
         (candidate / "supplemental-robustness-scorecard.json").read_text(encoding="utf-8")
     )
+    protocol = json.loads(
+        (candidate / "supplemental-robustness-protocol.json").read_text(encoding="utf-8")
+    )
 
     assert {"bull", "bear", "sideways"}.issubset(set(regime["segment"]))
     assert {"liquidity-contraction", "extreme-market-day"}.issubset(set(regime["segment"]))
@@ -54,6 +57,16 @@ def test_committed_regime_and_placebo_artifacts_cover_preregistered_scope():
     assert (placebo["status"] == "ok").all()
     assert score["status_after_supplement"] == ("R2" if all(score["gates"].values()) else "R1")
     assert score["historical_parameters_changed"] is False
+    assert score["regime_attribution"]["liquidity_contraction_observations"] == 4
+    assert (
+        protocol["regime_attribution"]["gates"]["minimum_liquidity_contraction_observations"] == 5
+    )
+    assert score["gates"]["liquidity_regime_observation_gate"] is False
+    assert all(
+        passed
+        for gate, passed in score["gates"].items()
+        if gate != "liquidity_regime_observation_gate"
+    )
 
 
 def test_supplemental_manifest_binds_engine_protocol_and_inputs():

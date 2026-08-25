@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "candidate_id": "profitable-small-cap-a-share",
+  "status": "R1",
+  "source_vintage_grade": "C",
+  "strict_natural_oos": false,
+  "source_sha256": "8f9abb516fa82fabebc8cabfadc359a7e6673a74198f4bcbfb7f46180a1a550c",
+  "gates": {
+    "causal_implementation": true,
+    "holding_count_neighborhood": true,
+    "double_friction": true,
+    "post_publication_positive": true,
+    "post_publication_beats_benchmark": false,
+    "full_history_drawdown": false,
+    "required_capacity_grid": false,
+    "multiple_testing": false,
+    "platform_alignment": false
+  },
+  "decision": "remain R1; positive reserved period does not establish an independent edge"
+}

@@ -1,0 +1,2 @@
+﻿scenario,period_start,period_end,annualized_return,maximum_drawdown,sharpe,strict_natural_oos,reason
+reserved-post-publication-evaluation,2023-12-01,2026-07-23,0.07667125553368548,0.3330711827152454,0.4236888597850064,False,deployable implementation was created after the interval began

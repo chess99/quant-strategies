@@ -1,0 +1,7 @@
+﻿experiment,variant,annualized_return,maximum_drawdown,sharpe,note
+full-history,baseline,0.12093524241245612,0.6795303534153114,0.6170989396447849,longest underwater 2308 sessions
+post-publication,baseline,0.07667125553368548,0.3330711827152454,0.4236888597850064,reserved evaluation but implementation was not frozen before interval
+cost-stress,double-friction,0.048371,0.341444,,
+holding-count-neighborhood,15,0.069146,0.328768,,
+holding-count-neighborhood,20,0.07667125553368548,0.3330711827152454,0.4236888597850064,
+holding-count-neighborhood,30,0.085527,0.324045,,

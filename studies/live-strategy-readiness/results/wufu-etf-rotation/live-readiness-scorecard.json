@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "candidate_id": "wufu-etf-rotation",
+  "status": "R1",
+  "source_vintage_grade": "C",
+  "strict_natural_oos": false,
+  "source_sha256": "61692fcf084e46addf7a0863256b3e08b6708ca26765f4d985c48378913c9242",
+  "experiment_count": 136,
+  "protocol_gates_passed": 9,
+  "protocol_gates_total": 16,
+  "pbo": 0.17142857142857143,
+  "deflated_sharpe_probability": 0.3489088952328726,
+  "gates": {
+    "causal_lifecycle_universe": true,
+    "historical_tracking_target_pit": false,
+    "complete_protocol": false,
+    "cost_stress": false,
+    "primary_capacity": false,
+    "contributor_exclusion": false,
+    "walk_forward": false,
+    "pbo": true,
+    "deflated_sharpe": false,
+    "credible_oos": false,
+    "platform_full_portfolio": false
+  },
+  "decision": "stop historical tuning and remain R1 pending independent evidence"
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "study_id": "live-strategy-readiness",
+  "candidate_id": "wufu-etf-rotation",
+  "created_at": "2026-08-25",
+  "status": "existing-evidence-mapping-no-new-backtest",
+  "evidence_rule": "Use preregistered T3 as the final historical test; never select a structural-grid or schedule-phase winner.",
+  "no_new_parameter_selection": true,
+  "source_manifests": [
+    {
+      "path": "strategies/joinquant/wufu-etf-rotation/backtests/2026-08-16__direct-decomposition__local-etf-2015-2026-v1/manifest.json",
+      "sha256": "59b18c790d080ff204e9a4d24557fff7e607edc5e2544831b96b585fe6a2178d"
+    },
+    {
+      "path": "strategies/joinquant/wufu-etf-rotation/backtests/2026-08-21__tradability-v3__local-etf-2015-2026-v1/manifest.json",
+      "sha256": "837c6efa05d50a46c13b8f4639724afdc9edd0db5f97ba737dc0dd4f9669b319"
+    }
+  ],
+  "immutability": "The strategy-family archives are referenced by path and hash and are not copied, rewritten, or treated as new out-of-sample evidence."
+}

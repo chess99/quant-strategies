@@ -150,7 +150,7 @@ def _simulate_tracked(*args, **kwargs):
 def verify_parent_oos_equivalence(
     bars: pd.DataFrame,
     market_state: pd.DataFrame,
-) -> tuple[dict[str, Any], dict[str, pd.DataFrame]]:
+) -> tuple[dict[str, Any], dict[str, Any], dict[str, pd.DataFrame]]:
     metrics, frames = _simulate_tracked(
         bars,
         market_state,
@@ -200,7 +200,7 @@ def verify_parent_oos_equivalence(
         "simulation_fallback_count": metrics["fallback_count"],
         "target_check_fallback_count": target_check_fallbacks,
     }
-    return result, frames
+    return result, metrics, frames
 
 
 def _result_row(experiment: str, variant: str, metrics: dict[str, Any], **extra) -> dict:
@@ -245,7 +245,9 @@ def run_research(data_root: Path | None = None) -> dict[str, Any]:
     robustness_rows = []
     experiment_count = 0
 
-    equivalence, oos_frames = verify_parent_oos_equivalence(bars, market_state)
+    equivalence, oos_metrics, oos_frames = verify_parent_oos_equivalence(
+        bars, market_state
+    )
     robustness_rows.append(
         {
             "experiment": "parent-oos-equivalence",
@@ -549,7 +551,7 @@ def run_research(data_root: Path | None = None) -> dict[str, Any]:
                 "scenario": "parent-causal-baseline-cost",
                 "period_start": str(base.OOS_START.date()),
                 "period_end": str(base.OOS_END.date()),
-                "annualized_return": baseline_metrics.get("annualized_return"),
+                "annualized_return": oos_metrics.get("annualized_return"),
                 "equity_max_absolute_difference": equivalence["equity_max_absolute_difference"],
                 "targets_match_exactly": equivalence["targets_match_exactly"],
                 "fallback_count": equivalence["simulation_fallback_count"],

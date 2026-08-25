@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "study_id": "live-strategy-readiness",
+  "candidate_id": "ebit-ev-value",
+  "created_at": "2026-08-25",
+  "source": {
+    "post_url": "https://www.joinquant.com/post/24809",
+    "post_add_time": "2020-01-03 11:21:42",
+    "post_mod_time": "2020-01-03 11:21:42",
+    "archive_source": "joinquant_archive/sources/2025年度精选策略/77.超强单因子策略（EBIT,EV）.py",
+    "source_sha256": "6f053a2d1637a05427bcbbdd8e572e4657888841d8b9bb848b9089688afa2911",
+    "source_vintage_grade_before_calibration": "B-pending",
+    "strict_natural_oos": false
+  },
+  "frozen_parameters": {
+    "holding_count": 50,
+    "rebalance": "first trading day of each month at open",
+    "observation_lag": "previous trading day",
+    "weighting": "equal weight",
+    "timing": "always invested when at least one valid candidate exists",
+    "ranking": "EBIT / enterprise_value descending",
+    "enterprise_value": "market_cap + interest_bearing_debt - cash",
+    "invalid_rule": "exclude missing inputs, non-positive EBIT, or non-positive enterprise value",
+    "universe_proxy": "all A shares listed and not delisted at the observation date"
+  },
+  "data_contract": {
+    "security_lifecycle": "local B-grade security_master",
+    "prices": "Qlib/Eastmoney adjusted daily bars with B-grade daily_valuation",
+    "financials": "local B-grade fundamentals_pit, selected strictly by notice_date and revision_sequence",
+    "market_state": "daily_market_state rows whose status/ST/limit components each meet B grade",
+    "limitations": [
+      "all-A universe is a preregistered proxy for Shanghai Composite plus Shenzhen Component historical members",
+      "local EBIT is operating-profit proxy and may differ from JoinQuant factor library",
+      "Eastmoney may backfill later financial revisions into old announcement records"
+    ],
+    "data_end": "2026-07-24"
+  },
+  "calibration": {
+    "period": {
+      "start": "2009-01-05",
+      "end": "2019-12-31"
+    },
+    "initial_cash": 10000000,
+    "public_metrics": {
+      "annualized_return": 0.22545580458148,
+      "maximum_drawdown": 0.39627228319793,
+      "sharpe": 0.70774727493142,
+      "trading_days": 2675
+    },
+    "tolerances": {
+      "annualized_return_absolute": 0.05,
+      "maximum_drawdown_absolute": 0.07,
+      "sharpe_absolute": 0.2,
+      "minimum_median_holdings": 40,
+      "minimum_valid_month_ratio": 0.9
+    },
+    "pass_rule": "all metric and coverage tolerances must pass; otherwise downgrade to C and do not calculate post-publication performance",
+    "parameter_selection_allowed": false
+  },
+  "post_publication_evaluation": {
+    "state_warmup_start": "2009-01-05",
+    "score_start": "2020-01-06",
+    "score_end": "2026-07-24",
+    "initial_cash": 1000000,
+    "evidence_grade_if_calibration_passes": "B-downgraded",
+    "parameter_selection_allowed": false,
+    "scenarios": [
+      "causal-realistic-cost",
+      "causal-double-cost",
+      "ebit-over-market-cap-ablation",
+      "csi300-equal-weight-monthly",
+      "csi300-buy-and-hold"
+    ]
+  },
+  "execution": {
+    "lot_size": 100,
+    "sell_before_buy": true,
+    "t_plus_one": true,
+    "carry_failed_orders": true,
+    "baseline_adv_participation": 0.01,
+    "realistic_cost": {
+      "commission_rate": 0.0003,
+      "minimum_commission": 5,
+      "stock_stamp_tax_schedule": "repository historical schedule",
+      "slippage_rate": 0.0005
+    },
+    "double_cost": {
+      "commission_rate": 0.0006,
+      "minimum_commission": 10,
+      "stock_stamp_tax_multiplier": 2,
+      "slippage_rate": 0.001
+    }
+  },
+  "first_read_advancement_gates": {
+    "annualized_return_at_least": 0.08,
+    "sharpe_at_least": 0.65,
+    "maximum_drawdown_at_most": 0.45,
+    "relative_value_rule": "versus CSI300 buy-and-hold, improve Sharpe by at least 0.10 or CAGR by at least 3 percentage points without drawdown worsening by more than 5 percentage points",
+    "double_cost_sharpe_at_least": 0.55,
+    "minimum_rebalance_events": 60,
+    "minimum_average_exposure": 0.9,
+    "all_required": true
+  },
+  "hard_stops": [
+    "public-window calibration fails",
+    "post-publication realistic CAGR is non-positive",
+    "post-publication realistic maximum drawdown exceeds 55%",
+    "EBIT/EV has no material value over EBIT/market-cap ablation and CSI300",
+    "less than 80% average exposure because the portfolio cannot execute",
+    "production financial fields cannot be updated reliably before each rebalance"
+  ],
+  "deep_research_only_after_first_read": {
+    "holding_count_neighborhood": [30, 40, 50, 60, 70],
+    "rebalance_frequency": ["monthly", "quarterly"],
+    "delays": [0, 1, 2, 3, 5],
+    "costs": ["baseline", "double", "conservative"],
+    "capital_rmb": [200000, 1000000, 2000000, 10000000],
+    "adv_participation": [0.005, 0.01, 0.05],
+    "attribution": ["market beta", "size", "industry", "calendar year", "top1/top3 holdings", "EBIT and EV components"],
+    "multiple_testing": ["moving-block bootstrap", "PBO", "Deflated Sharpe"]
+  },
+  "anti_leakage": {
+    "do_not_change_after_results": [
+      "universe proxy",
+      "financial field mapping",
+      "holding count",
+      "rebalance schedule",
+      "ranking direction",
+      "first-read gates"
+    ],
+    "correctness_fixes_must_be_reported": true,
+    "failed_calibration_or_first_read_must_be_archived": true
+  }
+}

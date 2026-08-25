@@ -1,0 +1,17 @@
+{
+  "unlocked": true,
+  "pass_count": 4,
+  "gates_passed": {
+    "annualized_return": true,
+    "maximum_drawdown": true,
+    "sharpe": true,
+    "completed_positions": true
+  },
+  "gaps": {
+    "annualized_return": 0.03658973487646677,
+    "maximum_drawdown": 0.00017269614185116966,
+    "sharpe": 0.03633082876138238,
+    "completed_position_relative": 0.0
+  },
+  "post_publication_performance_calculated": false
+}

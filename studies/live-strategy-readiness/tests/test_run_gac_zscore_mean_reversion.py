@@ -1,4 +1,5 @@
 import importlib.util
+import json
 import sys
 from pathlib import Path
 
@@ -43,3 +44,22 @@ def test_protocol_keeps_oos_untuned_and_single_stock_explicit():
     assert protocol["post_publication_window_if_unlocked"][
         "parameter_selection_used_window"
     ] is False
+
+
+def test_committed_calibration_unlocks_oos_and_binds_hashes():
+    candidate_dir = MODULE.CANDIDATE_DIR
+    decision = json.loads(
+        (candidate_dir / "version-calibration-decision.json").read_text(encoding="utf-8")
+    )
+    manifest = json.loads(
+        (candidate_dir / "version-calibration-manifest.json").read_text(encoding="utf-8")
+    )
+
+    assert decision["unlocked"] is True
+    assert decision["pass_count"] == 4
+    assert all(decision["gates_passed"].values())
+    assert decision["post_publication_performance_calculated"] is False
+    assert manifest["source_sha256"] == MODULE.sha256_file(MODULE.SOURCE_PATH)
+    assert manifest["engine_sha256"] == MODULE.sha256_file(MODULE_PATH)
+    assert manifest["protocol_sha256"] == MODULE.sha256_file(MODULE.PROTOCOL_PATH)
+    assert manifest["parameter_selection_used_window"] is False

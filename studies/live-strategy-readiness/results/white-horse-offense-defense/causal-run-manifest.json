@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "candidate_id": "white-horse-offense-defense",
+  "run_id": "first-causal-reconstruction-v1",
+  "created_at": "2026-08-25",
+  "source_sha256": "6c6905417ffd57c263e885dfe8be4be9c64e0ac403217909ab15f9c102c7f8ad",
+  "engine_sha256": "ae6eceb5439422fc1a853cb4a759674cefad32a31198722999429db22029c0d6",
+  "data_manifests": {
+    "index_membership": {
+      "path": "D:\\code\\_open-source\\_data\\quant-research\\manifests\\index_membership.json",
+      "sha256": "0285c7cc996fc4d1eed98e8387d6686acb861654a1f1ac1549b28b2ec24fe8df"
+    },
+    "fundamentals_pit": {
+      "path": "D:\\code\\_open-source\\_data\\quant-research\\manifests\\fundamentals_pit.json",
+      "sha256": "146b7f59dc0c7e9e1b0ded47e6f5a2c429085cd2439f9d8a7b5df74492286aa6"
+    },
+    "daily_valuation": {
+      "path": "D:\\code\\_open-source\\_data\\quant-research\\manifests\\daily_valuation.json",
+      "sha256": "e7933b347f4501ccf3c937186fb68611042ff2b4072899d2de6d1991301a23d2"
+    },
+    "daily_market_state": {
+      "path": "D:\\code\\_open-source\\_data\\quant-research\\manifests\\daily_market_state.json",
+      "sha256": "645a2e4f0432f6281e70061756249f5e7443918f3201a4571f28ede4b162fa8f"
+    }
+  },
+  "first_causal_gate_passed": true
+}

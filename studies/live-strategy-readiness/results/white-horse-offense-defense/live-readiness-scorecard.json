@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "candidate_id": "white-horse-offense-defense",
+  "status": "R1",
+  "source_vintage_grade": "C",
+  "strict_natural_oos": false,
+  "first_causal_run_preserved": true,
+  "first_causal_gate_passed": true,
+  "gates": {
+    "point_in_time_membership": true,
+    "point_in_time_financials": true,
+    "executable_order_model": true,
+    "causal_performance": true,
+    "credible_oos": false
+  },
+  "decision": "continue fixed-parameter robustness at R1"
+}

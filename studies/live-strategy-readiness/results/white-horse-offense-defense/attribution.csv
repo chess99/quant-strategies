@@ -1,0 +1,2 @@
+﻿analysis_type,name,value,note
+benchmark-comparison,causal-vs-published-annualized-return,-0.24036135895596,"difference includes PIT, execution and data-source effects"

@@ -1,0 +1,3 @@
+﻿experiment,status,total_return,annualized_return,maximum_drawdown,sharpe,reason
+first-causal-gate,passed,2.489782819689638,0.11845991237342002,0.17174986608766174,0.8665622369700152,
+parameter-neighborhood,pending,,,,,next iteration

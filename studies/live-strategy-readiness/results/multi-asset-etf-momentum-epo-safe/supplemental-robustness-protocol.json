@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "candidate_id": "multi-asset-etf-momentum-epo-safe",
+  "created_at": "2026-08-25",
+  "status": "preregistered-before-supplemental-results",
+  "purpose": "Close mandatory walk-forward, regime and placebo evidence gaps found by the final completion audit.",
+  "evidence_use": {
+    "may_change_historical_parameters": false,
+    "may_select_a_new_variant": false,
+    "may_reassess_R2": true,
+    "previously_viewed_periods_remain_in_sample": true
+  },
+  "walk_forward": {
+    "parameter_grid": "the same frozen 27-neighbor grid already archived",
+    "train_start": "2021-09-01",
+    "test_years": [2023, 2024, 2025, 2026],
+    "selection_rule": "highest annualized Sharpe on all observations through the prior calendar year; ties by variant name",
+    "report_frozen_baseline_in_parallel": "m34-n3-w0.2",
+    "gates": {
+      "fold_completion_rate_min": 1.0,
+      "selected_test_positive_return_rate_min": 0.5,
+      "selected_test_positive_sharpe_rate_min": 0.5
+    }
+  },
+  "regime_attribution": {
+    "market_proxy": "SH510300 adjusted close and amount",
+    "causal_primary_labels": {
+      "bull": "prior-session trailing-250 return >= 10%",
+      "bear": "prior-session trailing-250 return <= -10%",
+      "sideways": "otherwise after 250-session warm-up"
+    },
+    "overlays": {
+      "liquidity_contraction": "prior-session 20-day mean amount / trailing-250 median amount <= 0.60",
+      "extreme_market_day": "same-day absolute SH510300 return >= 3%; descriptive attribution only"
+    },
+    "gates": {
+      "primary_regime_count_min": 3,
+      "minimum_observations_per_primary_regime": 20,
+      "minimum_liquidity_contraction_observations": 5,
+      "minimum_extreme_market_day_observations": 5
+    }
+  },
+  "placebo": {
+    "trial_count": 24,
+    "seed": 20260825,
+    "schedule": "for each calendar month independently choose one of the first six trading sessions; observe the immediately prior session and trade at the chosen session open",
+    "parameters": "frozen baseline m34-n3-w0.2",
+    "gates": {
+      "completion_rate_min": 1.0,
+      "positive_return_rate_min": 0.8,
+      "sharpe_ge_0_5_rate_min": 0.75,
+      "fallback_rebalance_share_max": 0.2
+    }
+  },
+  "decision_rule": "All gates must pass to retain R2. Failure downgrades this engineering candidate to R1; results are retained and no historical repair is allowed."
+}

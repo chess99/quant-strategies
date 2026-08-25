@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "candidate_id": "white-horse-offense-defense",
+  "run_id": "deep-research-v1",
+  "created_at": "2026-08-25",
+  "engine_path": "studies/live-strategy-readiness/run_white_horse_deep_research.py",
+  "engine_sha256": "b2b193b3cbc6f7a2fd1753759d3c37ad38f9a5e0538ce5d417e4b74a191aaaea",
+  "source_sha256": "6c6905417ffd57c263e885dfe8be4be9c64e0ac403217909ab15f9c102c7f8ad",
+  "protocol_sha256": "cc11a953ce2aa03cfabc5015b7a3e0b893fc63c943c94b3a2d6e38698be16a53",
+  "experiment_count": 63,
+  "artifacts": [
+    "robustness.csv",
+    "capacity.csv",
+    "attribution.csv",
+    "live-readiness-scorecard.json",
+    "conclusion.md"
+  ]
+}

@@ -71,3 +71,35 @@ def test_frozen_source_and_scenario_count_are_unchanged():
         "163e8e3025b9e97bfbf1ea820c59722333c9d9839b256f48ea6f59815e82087c"
     )
     assert len(MODULE.SCENARIOS) == 5
+
+
+def test_committed_oos_artifacts_keep_the_candidate_below_r2():
+    manifest = json.loads(
+        (MODULE.CANDIDATE_DIR / "oos-run-manifest.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    scorecard = json.loads(
+        (MODULE.CANDIDATE_DIR / "live-readiness-scorecard.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    oos = pd.read_csv(MODULE.CANDIDATE_DIR / "oos.csv").set_index("scenario")
+
+    assert manifest["source_sha256"] == MODULE.sha256_file(MODULE.SOURCE_PATH)
+    assert manifest["engine_sha256"] == MODULE.sha256_file(MODULE_PATH)
+    assert manifest["version_decision"]["sha256"] == MODULE.sha256_file(
+        MODULE.VERSION_DECISION_PATH
+    )
+    assert manifest["parameter_selection_used_oos"] is False
+    assert scorecard["status"] == "R1"
+    assert scorecard["advance_gate_pass_count"] == 3
+    assert scorecard["hard_stop_triggered"] is False
+
+    baseline = oos.loc["causal-baseline-cost"]
+    double = oos.loc["causal-double-cost"]
+    static = oos.loc["static-prior-weekly"]
+    assert baseline["annualized_return"] < 0.05
+    assert baseline["sharpe"] < 0.70
+    assert double["sharpe"] < 0.60
+    assert baseline["maximum_drawdown"] < static["maximum_drawdown"]

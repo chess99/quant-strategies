@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "study_id": "live-strategy-readiness",
+  "candidate_id": "stock-bond-volatility-balance",
+  "status": "R1",
+  "source_vintage_grade": "B",
+  "source_sha256": "163e8e3025b9e97bfbf1ea820c59722333c9d9839b256f48ea6f59815e82087c",
+  "strict_natural_oos": false,
+  "oos_evidence_grade": "B-downgraded",
+  "period": {
+    "start": "2020-08-17",
+    "end": "2026-07-24"
+  },
+  "baseline_cost": {
+    "annualized_return": 0.019567982724099098,
+    "maximum_drawdown": 0.10280972005505862,
+    "sharpe": 0.4524397195781778,
+    "longest_underwater_trading_days": 908,
+    "rebalance_count": 287,
+    "average_exposure": 0.9576082985885601
+  },
+  "double_cost": {
+    "annualized_return": 0.016512055002033454,
+    "maximum_drawdown": 0.10771957143463651,
+    "sharpe": 0.38610176388154366
+  },
+  "simple_baselines": {
+    "static_prior_weekly": {
+      "annualized_return": 0.005011854938164584,
+      "maximum_drawdown": 0.29727041241496666,
+      "sharpe": 0.10458135426429885
+    },
+    "equal_weight_weekly": {
+      "annualized_return": 0.04000754952955754,
+      "maximum_drawdown": 0.17055499622386383,
+      "sharpe": 0.4259981367870404
+    }
+  },
+  "pre_result_gates": {
+    "annualized_return_at_least_5pct": false,
+    "sharpe_at_least_0_70": false,
+    "maximum_drawdown_at_most_0_20": true,
+    "dynamic_value_add_over_static_prior": true,
+    "double_cost_positive_and_sharpe_at_least_0_60": false,
+    "minimum_twenty_rebalances": true
+  },
+  "hard_stop_triggered": false,
+  "advance_gate_count": 6,
+  "advance_gate_pass_count": 3,
+  "experiment_count": 5,
+  "capacity_status": "not-run-beyond-first-read",
+  "platform_status": "not-run-beyond-first-read",
+  "parameter_selection_used_oos": false,
+  "decision": "keep at R1; do not tune or enter the full robustness/capacity suite",
+  "stop_reason": "absolute OOS CAGR and Sharpe plus double-cost Sharpe failed preregistered advancement gates",
+  "next_action": "retain as a low-volatility research control; any return-seeking change requires a new preregistered candidate"
+}

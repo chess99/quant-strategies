@@ -1,0 +1,6 @@
+experiment,variant,status,annualized_return,maximum_drawdown,sharpe,notes
+oos-first-read,frozen-source-cost-proxy,below-advance-gates,0.022178784523634976,0.0968832862163509,0.5075136926708073,source did not declare costs; proxy only
+oos-first-read,causal-baseline-cost,below-advance-gates,0.019567982724099098,0.10280972005505862,0.4524397195781778,drawdown passed but CAGR and Sharpe failed
+cost-stress,causal-double-cost,failed,0.016512055002033454,0.10771957143463651,0.38610176388154366,total return positive but Sharpe failed
+simple-baseline,static-prior-weekly,dynamic-dominates-risk-adjusted,0.005011854938164584,0.29727041241496666,0.10458135426429885,dynamic inverse volatility materially reduced drawdown
+simple-baseline,equal-weight-weekly,higher-return-similar-sharpe,0.04000754952955754,0.17055499622386383,0.4259981367870404,equal weight doubled CAGR with only 0.03 lower Sharpe

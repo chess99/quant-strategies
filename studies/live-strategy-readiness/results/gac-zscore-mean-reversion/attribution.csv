@@ -1,0 +1,6 @@
+analysis_type,status,strategy_value,baseline_value,reason
+buy-hold-sharpe,computed,-0.16797750264168773,-0.023206740659007435,strategy underperformed on risk-adjusted return
+half-cash-sharpe,computed,-0.16797750264168773,-0.06253099926051103,strategy underperformed on risk-adjusted return
+half-cash-drawdown,computed,0.5836684746270729,0.5050105500637526,strategy had worse drawdown
+company-event-attribution,not-run,,,OOS failure already triggers stop and single-name event study cannot rescue natural OOS
+

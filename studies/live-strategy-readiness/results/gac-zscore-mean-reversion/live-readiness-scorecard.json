@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "study_id": "live-strategy-readiness",
+  "candidate_id": "gac-zscore-mean-reversion",
+  "status": "R1",
+  "source_vintage_grade": "B",
+  "source_sha256": "f80bee128cb5d78e0125eb333f787d0736453b5a87f3bae3a90995df2bb618b2",
+  "strict_natural_oos": false,
+  "public_calibration": {
+    "passed": true,
+    "passed_check_count": 4,
+    "required_check_count": 4
+  },
+  "post_publication_oos": {
+    "passed": false,
+    "period_start": "2018-07-09",
+    "period_end": "2026-07-23",
+    "annualized_return": -0.043961618740571806,
+    "maximum_drawdown": 0.5836684746270729,
+    "sharpe": -0.16797750264168773,
+    "passed_check_count": 1,
+    "required_check_count": 6
+  },
+  "gates": {
+    "causal_signal": true,
+    "public_window_calibrated": true,
+    "post_publication_first_read": true,
+    "simple_baseline_increment": false,
+    "single_stock_concentration_acceptable": false,
+    "robustness": false,
+    "capacity": false
+  },
+  "parameter_selection_used_oos": false,
+  "decision": "remain R1 and stop; do not tune stock, windows or thresholds on the failed OOS window",
+  "stop_reason": "post-publication return and Sharpe were negative, drawdown exceeded 58%, and both buy-hold and half-cash had better Sharpe"
+}
+

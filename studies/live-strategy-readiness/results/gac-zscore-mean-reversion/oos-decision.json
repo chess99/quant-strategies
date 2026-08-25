@@ -1,0 +1,14 @@
+{
+  "passed": false,
+  "pass_count": 1,
+  "gate_count": 6,
+  "gates_passed": {
+    "sharpe_min": false,
+    "drawdown_max": false,
+    "double_cost_positive": false,
+    "beats_buy_hold_sharpe": false,
+    "improves_half_cash": false,
+    "completed_positions": true
+  },
+  "parameter_selection_used_oos": false
+}

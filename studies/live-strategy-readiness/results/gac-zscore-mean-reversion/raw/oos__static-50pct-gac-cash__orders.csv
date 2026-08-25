@@ -1,0 +1,2 @@
+order_id,trade_date,symbol,side,execution,requested_shares,filled_shares,unfilled_shares,price,gross_value,commission,tax,reason
+1,2018-07-09,SH601238,buy,open,54600,54600,0,9.158162532806395,500035.67429122917,150.01070228736873,0.0,filled

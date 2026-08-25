@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "candidate_id": "gac-zscore-mean-reversion",
+  "phase": "oos",
+  "created_at": "2026-08-25",
+  "source_sha256": "f80bee128cb5d78e0125eb333f787d0736453b5a87f3bae3a90995df2bb618b2",
+  "engine_sha256": "4ca8a75ab78ae4ddc4860eb22320cae5e843d9692fbcc7138c9dd0fbb7394cf3",
+  "protocol_sha256": "c5be75591e0c2aa6bd5faa9ea52d324b5f13b7a96bb734a3a753067967e5c5c2",
+  "data_provenance": {
+    "dataset": "qlib_daily_bars",
+    "provider": "qlib-community-cn",
+    "provider_uri": "D:\\code\\_open-source\\_data\\qlib\\cn_data",
+    "quality_grade": "B",
+    "data_version": "d8307581890ad79483a3b444f6034913b489bb4fd2f8182edf2b224dffaa5559",
+    "source_files": [
+      {
+        "path": "D:\\code\\_open-source\\_data\\qlib\\cn_data\\calendars\\day.txt",
+        "sha256": "6bfe26c7ec40e1c1f433794d80632a281d78213edda2889009e69085753bc99d"
+      },
+      {
+        "path": "D:\\code\\_open-source\\_data\\qlib\\cn_data\\instruments\\all.txt",
+        "sha256": "9c3f6c7e13bde3380c06d83a24ee38bc26c31f1339f4b1aa9e3252d0e385622f"
+      }
+    ]
+  },
+  "parameter_selection_used_window": false,
+  "decision": {
+    "passed": false,
+    "pass_count": 1,
+    "gate_count": 6,
+    "gates_passed": {
+      "sharpe_min": false,
+      "drawdown_max": false,
+      "double_cost_positive": false,
+      "beats_buy_hold_sharpe": false,
+      "improves_half_cash": false,
+      "completed_positions": true
+    },
+    "parameter_selection_used_oos": false
+  },
+  "results": [
+    {
+      "total_return": -0.29590792067877814,
+      "annualized_return": -0.043961618740571806,
+      "maximum_drawdown": 0.5836684746270729,
+      "sharpe": -0.16797750264168773,
+      "annualized_volatility": 0.17589399689077875,
+      "turnover": 31.410439498636105,
+      "average_cash_ratio": 0.678283026547576,
+      "maximum_cash_ratio": 1.0,
+      "longest_underwater_trading_days": 1138,
+      "yearly_returns": {
+        "2018": 0.001390555414211292,
+        "2019": 0.018308326653350138,
+        "2020": 0.19434544255214803,
+        "2021": 0.11016447962740328,
+        "2022": -0.2686728059880581,
+        "2023": -0.11051225228317074,
+        "2024": -0.07806689184280335,
+        "2025": 0.10460800142020998,
+        "2026": -0.21391393232872025
+      },
+      "scenario": "zscore-baseline-cost",
+      "method": "signal",
+      "period_start": "2018-07-09",
+      "period_end": "2026-07-23",
+      "completed_positions": 16,
+      "trade_count": 32,
+      "order_count": 32,
+      "rejected_order_count": 0,
+      "parameter_selection_used_window": false
+    },
+    {
+      "total_return": -0.32441861940495353,
+      "annualized_return": -0.04901208863472439,
+      "maximum_drawdown": 0.5943009706464606,
+      "sharpe": -0.19778293358662408,
+      "annualized_volatility": 0.176032504501061,
+      "turnover": 31.364690286328734,
+      "average_cash_ratio": 0.6782982660381304,
+      "maximum_cash_ratio": 1.0,
+      "longest_underwater_trading_days": 1138,
+      "yearly_returns": {
+        "2018": 9.205737175532747e-05,
+        "2019": 0.013052222542614622,
+        "2020": 0.18976956746887153,
+        "2021": 0.1058601878449561,
+        "2022": -0.27339376872684373,
+        "2023": -0.1162201703764546,
+        "2024": -0.0816211385392005,
+        "2025": 0.0988303634369303,
+        "2026": -0.21792744350484428
+      },
+      "scenario": "zscore-double-cost",
+      "method": "signal",
+      "period_start": "2018-07-09",
+      "period_end": "2026-07-23",
+      "completed_positions": 16,
+      "trade_count": 32,
+      "order_count": 32,
+      "rejected_order_count": 0,
+      "parameter_selection_used_window": false
+    },
+    {
+      "total_return": -0.4244982810697939,
+      "annualized_return": -0.06835058681573991,
+      "maximum_drawdown": 0.7454127542726445,
+      "sharpe": -0.023206740659007435,
+      "annualized_volatility": 0.35534416799319946,
+      "turnover": 0.905548096955707,
+      "average_cash_ratio": 0.0005180849438865105,
+      "maximum_cash_ratio": 0.0010204027478713806,
+      "longest_underwater_trading_days": 1178,
+      "yearly_returns": {
+        "2018": -0.0041515700540921685,
+        "2019": 0.1704163986439189,
+        "2020": 0.15855729955757547,
+        "2021": 0.1614561943143884,
+        "2022": -0.2630057125186852,
+        "2023": -0.1891424436941912,
+        "2024": 0.08441256904532168,
+        "2025": -0.12419024496856901,
+        "2026": -0.3534834882842173
+      },
+      "scenario": "gac-buy-hold",
+      "method": "buy-hold",
+      "period_start": "2018-07-09",
+      "period_end": "2026-07-23",
+      "completed_positions": 0,
+      "trade_count": 1,
+      "order_count": 1,
+      "rejected_order_count": 0,
+      "parameter_selection_used_window": false
+    },
+    {
+      "total_return": -0.2124436860349288,
+      "annualized_return": -0.030138796252512923,
+      "maximum_drawdown": 0.5050105500637526,
+      "sharpe": -0.06253099926051103,
+      "annualized_volatility": 0.19303093493002974,
+      "turnover": 0.47543980072782394,
+      "average_cash_ratio": 0.48159333794506826,
+      "maximum_cash_ratio": 0.6519024632743577,
+      "longest_underwater_trading_days": 1178,
+      "yearly_returns": {
+        "2018": -0.0020776876714347914,
+        "2019": 0.08510905832031268,
+        "2020": 0.0854117562104415,
+        "2021": 0.09283443944808778,
+        "2022": -0.16071930698498493,
+        "2023": -0.10149595967299929,
+        "2024": 0.04087816669948818,
+        "2025": -0.06265654161088519,
+        "2026": -0.16663226344765802
+      },
+      "scenario": "static-50pct-gac-cash",
+      "method": "half-cash",
+      "period_start": "2018-07-09",
+      "period_end": "2026-07-23",
+      "completed_positions": 0,
+      "trade_count": 1,
+      "order_count": 1,
+      "rejected_order_count": 0,
+      "parameter_selection_used_window": false
+    }
+  ]
+}

@@ -63,3 +63,29 @@ def test_committed_calibration_unlocks_oos_and_binds_hashes():
     assert manifest["engine_sha256"] == MODULE.sha256_file(MODULE_PATH)
     assert manifest["protocol_sha256"] == MODULE.sha256_file(MODULE.PROTOCOL_PATH)
     assert manifest["parameter_selection_used_window"] is False
+
+
+def test_committed_oos_fails_and_keeps_parameters_untuned():
+    candidate_dir = MODULE.CANDIDATE_DIR
+    decision = json.loads((candidate_dir / "oos-decision.json").read_text(encoding="utf-8"))
+    manifest = json.loads(
+        (candidate_dir / "oos-run-manifest.json").read_text(encoding="utf-8")
+    )
+    scorecard = json.loads(
+        (candidate_dir / "live-readiness-scorecard.json").read_text(encoding="utf-8")
+    )
+
+    assert decision["passed"] is False
+    assert decision["pass_count"] == 1
+    assert manifest["source_sha256"] == MODULE.sha256_file(MODULE.SOURCE_PATH)
+    assert manifest["engine_sha256"] == MODULE.sha256_file(MODULE_PATH)
+    assert manifest["parameter_selection_used_window"] is False
+    assert scorecard["status"] == "R1"
+    assert scorecard["parameter_selection_used_oos"] is False
+
+    oos = pd.read_csv(candidate_dir / "oos.csv").set_index("scenario")
+    strategy = oos.loc["zscore-baseline-cost"]
+    half = oos.loc["static-50pct-gac-cash"]
+    assert strategy["total_return"] < 0.0
+    assert strategy["sharpe"] < half["sharpe"]
+    assert strategy["maximum_drawdown"] > half["maximum_drawdown"]

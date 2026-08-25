@@ -140,3 +140,23 @@ def test_committed_white_horse_outputs_preserve_failed_or_passed_first_causal_ru
     assert scorecard["first_causal_run_preserved"] is True
     assert "published-public-backtest" in set(comparison["scenario"])
     assert "local-causal-baseline-cost" in set(comparison["scenario"])
+
+
+def test_white_horse_deep_protocol_freezes_trials_before_results():
+    protocol = json.loads(
+        (
+            STUDY_DIR
+            / "results"
+            / "white-horse-offense-defense"
+            / "deep-protocol.json"
+        ).read_text(encoding="utf-8")
+    )
+
+    assert protocol["status"] == "preregistered-before-deep-results"
+    assert protocol["parameter_neighborhood"]["trial_count"] == 27
+    assert protocol["parameter_neighborhood"]["dimensions"]["holding_count"] == [
+        4,
+        5,
+        6,
+    ]
+    assert protocol["promotion_gates"]["maximum_level"].startswith("R2")

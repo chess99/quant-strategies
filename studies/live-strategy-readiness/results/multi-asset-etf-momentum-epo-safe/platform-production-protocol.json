@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "candidate_id": "multi-asset-etf-momentum-epo-safe",
+  "created_at": "2026-08-25",
+  "status": "preregistered-before-platform-and-production-audit",
+  "formal_strategy_family": "multi-asset-etf-momentum-epo",
+  "evidence_boundary": {
+    "local_source_preflight_is_platform_evidence": false,
+    "real_joinquant_export_required_for_R3": true,
+    "production_feed_observations_required_for_R3": true,
+    "frozen_forward_paper_evidence_required_for_R4": true
+  },
+  "local_source_preflight_gates": {
+    "frozen_oos_target_count": 28,
+    "exact_target_match_rate_min": 1.0,
+    "target_weight_l1_mean_max": 1e-12,
+    "fallback_count_on_frozen_oos_max": 0,
+    "joinquant_ast_and_execution_safety_tests_must_pass": true,
+    "source_must_be_self_contained": true
+  },
+  "real_joinquant_golden_gates": {
+    "minimum_matched_observation_dates": 12,
+    "selected_set_exact_match_rate_min": 0.9,
+    "target_weight_l1_mean_max": 0.05,
+    "scheduled_order_date_match_rate_min": 0.95,
+    "rejection_reason_coverage_required": true,
+    "annualized_return_absolute_difference_max": 0.03,
+    "maximum_drawdown_absolute_difference_max": 0.03
+  },
+  "production_data_contract": {
+    "all_assets": [
+      "listing_and_delisting_state",
+      "latest_quote_with_timestamp",
+      "paused_state",
+      "upper_and_lower_price_limits",
+      "daily_volume_and_amount",
+      "data_quality_status"
+    ],
+    "qdii_assets": [
+      "513100.XSHG",
+      "159740.XSHE"
+    ],
+    "qdii_required_fields": [
+      "exchange_price_with_timestamp",
+      "iopv_or_nav_with_timestamp",
+      "premium_discount",
+      "subscription_redemption_status_and_limit",
+      "underlying_market_calendar_and_session_state",
+      "relevant_fx_rate_with_timestamp"
+    ],
+    "freshness": {
+      "exchange_quote_max_seconds": 60,
+      "iopv_max_seconds": 60,
+      "subscription_status_available_before_open": true,
+      "market_calendar_refresh": "daily-before-open",
+      "fx_refresh": "daily-before-open"
+    },
+    "failure_policy": "fail closed: do not open or add to an affected asset; never reuse stale data silently"
+  },
+  "promotion_rules": {
+    "formal_R2_family_allowed_after_local_preflight": true,
+    "R3_requires_all_real_joinquant_gates": true,
+    "R3_requires_complete_production_contract": true,
+    "R3_requires_frozen_source_hash": true,
+    "R4_requires_forward_evidence_not_used_for_tuning": true
+  }
+}

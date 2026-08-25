@@ -36,7 +36,8 @@ def sha256(path):
 
 
 def test_p0_source_audits_freeze_current_archive_snapshots_without_overclaiming_oos():
-    assert {path.name for path in RESULTS_DIR.iterdir() if path.is_dir()} == set(EXPECTED)
+    result_directories = {path.name for path in RESULTS_DIR.iterdir() if path.is_dir()}
+    assert set(EXPECTED).issubset(result_directories)
 
     for candidate_id, expected in EXPECTED.items():
         candidate_dir = RESULTS_DIR / candidate_id

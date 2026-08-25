@@ -74,6 +74,174 @@ def source_hash(candidate: str) -> str | None:
     return None
 
 
+GENERIC_CANDIDATE_NOTES = {
+    "csi300-drawdown-bond-switch": {
+        "risk": "CSI300 equity beta with drawdown-triggered bond switch",
+        "gap": "weak B-grade post-publication return; no candidate platform export",
+        "action": "stop historical tuning; retain as a low-turnover control",
+    },
+    "csi300-ma10-60-cash": {
+        "risk": "CSI300 trend beta with large cash allocation",
+        "gap": "B-grade post-publication Sharpe is near zero; no platform export",
+        "action": "stop this disclosed parameter version",
+    },
+    "csi300-pe-smart-dca": {
+        "risk": "CSI300 valuation timing and contribution timing",
+        "gap": "public-window valuation proxy failed calibration",
+        "action": "do not open the reserved window or replace the valuation series",
+    },
+    "csi300-volume-rsrs": {
+        "risk": "CSI300 market beta with volume-conditioned RSRS timing",
+        "gap": "B-grade post-publication Sharpe 0.24 and 38.48% drawdown",
+        "action": "stop; do not tune the disclosed optimum on failed OOS",
+    },
+    "dynamic-volume-etf-rotation": {
+        "risk": "daily ETF trend and volume-switch timing",
+        "gap": "causal daily reconstruction failed public-window calibration",
+        "action": "stop before opening the post-publication window",
+    },
+    "ebit-ev-value": {
+        "risk": "A-share value and financial statement availability",
+        "gap": "historical source universe and public CAGR were not reproduced",
+        "action": "stop before opening the post-publication window",
+    },
+    "gac-zscore-mean-reversion": {
+        "risk": "single-stock concentration and mean-reversion timing",
+        "gap": "post-publication return and Sharpe are negative; drawdown 58.37%",
+        "action": "stop; do not change stock or thresholds on observed OOS",
+    },
+    "stock-bond-volatility-balance": {
+        "risk": "CSI300 and bond inverse-volatility allocation",
+        "gap": "low post-publication return and no candidate platform export",
+        "action": "retain as a defensive control; do not optimize on OOS",
+    },
+}
+
+
+def preferred_oos_row(candidate: str) -> pd.Series | None:
+    path = RESULTS / candidate / "oos.csv"
+    if not path.is_file():
+        return None
+    frame = pd.read_csv(path)
+    if "annualized_return" not in frame:
+        return None
+    numeric = pd.to_numeric(frame["annualized_return"], errors="coerce")
+    frame = frame[numeric.notna()].copy()
+    if frame.empty:
+        return None
+    if "scenario" in frame:
+        priorities = (
+            "causal-baseline-cost",
+            "rsrs-baseline-cost",
+            "zscore-baseline-cost",
+            "parent-causal-baseline-cost",
+        )
+        for scenario in priorities:
+            selected = frame[frame["scenario"].eq(scenario)]
+            if not selected.empty:
+                return selected.iloc[0]
+    return frame.iloc[0]
+
+
+def preferred_double_cost_row(candidate: str) -> pd.Series | None:
+    path = RESULTS / candidate / "oos.csv"
+    if path.is_file():
+        frame = pd.read_csv(path)
+        if "scenario" in frame:
+            selected = frame[
+                frame["scenario"].astype(str).str.contains("double", case=False)
+            ]
+            if not selected.empty:
+                return selected.iloc[0]
+    robustness_path = RESULTS / candidate / "robustness.csv"
+    if robustness_path.is_file():
+        frame = pd.read_csv(robustness_path)
+        if {"experiment", "variant"}.issubset(frame.columns):
+            selected = frame[
+                frame["experiment"].eq("cost-stress")
+                & frame["variant"].astype(str).str.contains("double", case=False)
+            ]
+            if not selected.empty:
+                return selected.iloc[0]
+    return None
+
+
+def scalar_diagnostic(value: Any, key: str) -> float | None:
+    if isinstance(value, dict):
+        value = value.get(key)
+    if value is None:
+        return None
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return None
+
+
+def longest_underwater_from_equity(path: Path) -> int:
+    frame = pd.read_csv(path)
+    values = pd.to_numeric(frame["total_value"], errors="raise")
+    underwater = values.div(values.cummax()).sub(1.0).lt(0.0)
+    groups = underwater.ne(underwater.shift()).cumsum()
+    return int(underwater.groupby(groups).sum().max())
+
+
+def generic_candidate_row(candidate: str) -> dict[str, Any]:
+    score = read_json(RESULTS / candidate / "live-readiness-scorecard.json")
+    notes = GENERIC_CANDIDATE_NOTES[candidate]
+    oos = preferred_oos_row(candidate)
+    double = preferred_double_cost_row(candidate)
+    post = score.get("post_publication_oos", {})
+    return {
+        "candidate_id": candidate,
+        "status": score["status"],
+        "source_vintage_grade": score.get("source_vintage_grade"),
+        "source_sha256": score.get("source_sha256"),
+        "original_source_sha256": score.get("source_sha256"),
+        "causal_source_sha256": score.get("source_sha256"),
+        "strict_natural_oos": bool(score.get("strict_natural_oos", False)),
+        "oos_evidence_grade": (
+            f"{score.get('source_vintage_grade', 'unknown')}-downgraded"
+            if oos is not None
+            else "not-opened-calibration-failed"
+        ),
+        "oos_start": post.get("period_start")
+        or (oos.get("period_start") if oos is not None else None),
+        "oos_end": post.get("period_end")
+        or (oos.get("period_end") if oos is not None else None),
+        "oos_cagr": post.get("annualized_return")
+        if "annualized_return" in post
+        else number(oos, "annualized_return"),
+        "oos_max_drawdown": post.get("maximum_drawdown")
+        if "maximum_drawdown" in post
+        else number(oos, "maximum_drawdown"),
+        "oos_sharpe": post.get("sharpe")
+        if "sharpe" in post
+        else number(oos, "sharpe"),
+        "oos_longest_underwater_days": number(
+            oos, "longest_underwater_trading_days"
+        ),
+        "double_cost_cagr": number(double, "annualized_return"),
+        "double_cost_max_drawdown": number(double, "maximum_drawdown"),
+        "double_cost_sharpe": number(double, "sharpe"),
+        "primary_capacity_min_exposure": minimum_capacity_exposure(
+            candidate, (200_000, 1_000_000, 2_000_000)
+        ),
+        "capacity_10m_0_5pct_exposure": capacity_exposure(candidate, 10_000_000),
+        "pbo": scalar_diagnostic(score.get("pbo"), "pbo"),
+        "deflated_sharpe_probability": scalar_diagnostic(
+            score.get("deflated_sharpe"), "deflated_sharpe_probability"
+        ),
+        "trial_count": score.get("experiment_count"),
+        "core_risk_exposure": notes["risk"],
+        "correlation_status": "not-eligible-for-portfolio",
+        "key_data_gap": notes["gap"],
+        "next_action": notes["action"],
+        "stop_reason": score.get("stop_reason") or score.get("decision"),
+        "platform_status": "not-run-stopped-before-R2",
+        "production_data_status": "not-required-below-R2",
+    }
+
+
 def build_unified_results() -> pd.DataFrame:
     rows: list[dict[str, Any]] = []
     low = read_json(RESULTS / "low-risk-medium-return/protocol.json")
@@ -347,6 +515,93 @@ def build_unified_results() -> pd.DataFrame:
         }
     )
 
+    for candidate in GENERIC_CANDIDATE_NOTES:
+        rows.append(generic_candidate_row(candidate))
+
+    safe_id = "multi-asset-etf-momentum-epo-safe"
+    safe_score = read_json(RESULTS / safe_id / "live-readiness-scorecard.json")
+    safe_rob = read_csv(safe_id, "robustness.csv")
+    safe_attr = read_csv(safe_id, "attribution.csv")
+    safe_audit = read_json(RESULTS / safe_id / "platform-production-audit.json")
+    safe_full = match(safe_rob, experiment="safe-full-causal", variant="baseline")
+    safe_double = match(safe_rob, experiment="cost-stress", variant="double")
+    safe_post = match(
+        read_csv("multi-asset-etf-momentum-epo", "oos.csv"),
+        scenario="causal-baseline-cost",
+    )
+    safe_contrib = safe_attr[safe_attr["analysis_type"].eq("asset-contribution")]
+    safe_beta = safe_attr[safe_attr["analysis_type"].eq("factor-beta")]
+    safe_top = safe_contrib.iloc[0]
+    rows.append(
+        {
+            "candidate_id": safe_id,
+            "status": safe_score["status"],
+            "source_vintage_grade": safe_score["source_vintage_grade"],
+            "source_sha256": read_json(RESULTS / safe_id / "safe-run-manifest.json")[
+                "source_sha256"
+            ],
+            "original_source_sha256": read_json(
+                RESULTS / safe_id / "safe-run-manifest.json"
+            )["source_sha256"],
+            "causal_source_sha256": read_json(
+                RESULTS / safe_id / "safe-run-manifest.json"
+            )["engine_sha256"],
+            "formal_source_sha256": safe_audit["formal_source_sha256"],
+            "strict_natural_oos": False,
+            "oos_evidence_grade": "B-downgraded-path-preserved",
+            "oos_start": safe_post["period_start"],
+            "oos_end": safe_post["period_end"],
+            "full_cagr": number(safe_full, "annualized_return"),
+            "full_max_drawdown": number(safe_full, "maximum_drawdown"),
+            "full_sharpe": number(safe_full, "sharpe"),
+            "full_longest_underwater_days": longest_underwater_from_equity(
+                RESULTS / safe_id / "raw/safe__baseline-equity.csv"
+            ),
+            "oos_cagr": number(safe_post, "annualized_return"),
+            "oos_max_drawdown": number(safe_post, "maximum_drawdown"),
+            "oos_sharpe": number(safe_post, "sharpe"),
+            "oos_longest_underwater_days": number(
+                safe_post, "longest_underwater_trading_days"
+            ),
+            "double_cost_cagr": number(safe_double, "annualized_return"),
+            "double_cost_max_drawdown": number(
+                safe_double, "maximum_drawdown"
+            ),
+            "double_cost_sharpe": number(safe_double, "sharpe"),
+            "primary_capacity_min_exposure": minimum_capacity_exposure(
+                safe_id, (200_000, 1_000_000, 2_000_000)
+            ),
+            "capacity_10m_0_5pct_exposure": capacity_exposure(
+                safe_id, 10_000_000
+            ),
+            "capacity_200k_exposure": capacity_exposure(safe_id, 200_000),
+            "capacity_1m_exposure": capacity_exposure(safe_id, 1_000_000),
+            "capacity_2m_exposure": capacity_exposure(safe_id, 2_000_000),
+            "capacity_10m_exposure": capacity_exposure(safe_id, 10_000_000),
+            "pbo": safe_score["pbo"]["pbo"],
+            "deflated_sharpe_probability": safe_score["deflated_sharpe"][
+                "deflated_sharpe_probability"
+            ],
+            "trial_count": safe_score["experiment_count"],
+            "top1_contribution_share": safe_top["absolute_share"],
+            "top3_contribution_share": float(
+                safe_contrib.head(3)["absolute_share"].sum()
+            ),
+            "core_risk_exposure": "dynamic ETF concentration; "
+            + "; ".join(
+                f"{row['name']}={float(row['value']):.3f}"
+                for _, row in safe_beta.iterrows()
+                if row["name"] != "intercept-annualized"
+            ),
+            "correlation_status": "computed-against-simple-core-only",
+            "key_data_gap": "real JoinQuant export; six QDII production fields; forward paper evidence",
+            "next_action": "obtain non-alpha platform/data evidence; do not tune history",
+            "stop_reason": None,
+            "platform_status": "local-source-preflight-passed",
+            "production_data_status": safe_audit["production_data"]["status"],
+        }
+    )
+
     result = pd.DataFrame(rows)
     for column in (
         "published_cagr",
@@ -383,6 +638,9 @@ def build_unified_results() -> pd.DataFrame:
         "causal_source_sha256",
         "frozen_source_sha256",
         "oos_evidence_grade",
+        "formal_source_sha256",
+        "platform_status",
+        "production_data_status",
     ):
         if column not in result:
             result[column] = None
@@ -396,8 +654,7 @@ def platform_audit() -> pd.DataFrame:
         / "2026-08-16__platform-calibration-and-source-decomposition__local-jq-2014-2026-v2"
         / "raw/platform-comparison.json"
     )
-    return pd.DataFrame(
-        [
+    rows = [
             {
                 "candidate_id": "etf-core-rotation-calibration-control",
                 "candidate_status": "control",
@@ -446,21 +703,138 @@ def platform_audit() -> pd.DataFrame:
                 "gap": "A7 lacks complete portfolio equity/order comparison",
             },
         ]
+    safe_audit = read_json(
+        RESULTS / "multi-asset-etf-momentum-epo-safe/platform-production-audit.json"
     )
+    safe_preflight = safe_audit["local_source_preflight"]
+    rows.append(
+        {
+            "candidate_id": "multi-asset-etf-momentum-epo-safe",
+            "candidate_status": "R2",
+            "platform_status": "local-source-preflight-passed",
+            "matched_observation_dates": safe_preflight[
+                "matched_observation_dates"
+            ],
+            "selected_exact_match_ratio": safe_preflight[
+                "exact_target_match_rate"
+            ],
+            "mean_target_weight_l1": safe_preflight["mean_target_weight_l1"],
+            "local_exact_target_match_ratio": safe_preflight[
+                "exact_target_match_rate"
+            ],
+            "real_joinquant_export_present": False,
+            "eligible_for_R3": False,
+            "evidence": "28-date local formal-source parity against frozen R2 targets",
+            "gap": "real JoinQuant order/trade/equity export and QDII feeds absent",
+        }
+    )
+    existing = {row["candidate_id"] for row in rows}
+    unified = build_unified_results()
+    for row in unified.itertuples(index=False):
+        if row.candidate_id in existing:
+            continue
+        rows.append(
+            {
+                "candidate_id": row.candidate_id,
+                "candidate_status": row.status,
+                "platform_status": "not-run-stopped-before-R2",
+                "real_joinquant_export_present": False,
+                "eligible_for_R3": False,
+                "gap": row.key_data_gap,
+            }
+        )
+    return pd.DataFrame(rows)
 
 
 def completion_audit() -> pd.DataFrame:
     return pd.DataFrame(
         [
             {"stage": 0, "status": "complete", "evidence": "593 sources, 445 lineages, 50-family shortlist"},
-            {"stage": 1, "status": "complete-with-version-downgrades", "evidence": "three P0 audits; B/C replays and one C data block"},
-            {"stage": 2, "status": "complete", "evidence": "three formal families mapped to standard artifacts"},
-            {"stage": 3, "status": "complete-for-runnable-candidates", "evidence": "causal/source and concentration decomposition retained"},
-            {"stage": 4, "status": "complete-for-deep-candidates", "evidence": "EPO and white suites; formal archives mapped without reranking"},
-            {"stage": 5, "status": "complete-with-documented-gaps", "evidence": "three curves, one partial grid, and one missing ADV model"},
-            {"stage": 6, "status": "audited-no-candidate-eligible", "evidence": "ETF core control reconciled; all candidates below R2"},
-            {"stage": 7, "status": "not-entered-by-rule", "evidence": "no R3 candidate; no frozen paper portfolio"},
-            {"stage": 8, "status": "complete-no-eligible-set", "evidence": "zero R2/R3 inputs; no forced portfolio"},
+            {"stage": 1, "status": "complete-with-version-downgrades", "evidence": "P0 plus later B/C first-read replays; no C evidence called strict OOS"},
+            {"stage": 2, "status": "complete", "evidence": "formal families mapped and the sole R2 candidate promoted to a research family"},
+            {"stage": 3, "status": "complete-for-runnable-candidates", "evidence": "causal/source, factor and concentration decomposition retained"},
+            {"stage": 4, "status": "complete-for-deep-candidates", "evidence": "safe EPO completed 66 preregistered runs; failures retained"},
+            {"stage": 5, "status": "complete-for-R2", "evidence": "20m/100m/200m/10m capacity curve and delay/cost stress complete"},
+            {"stage": 6, "status": "complete-with-external-blocker", "evidence": "28/28 local source targets exact; real JoinQuant export and QDII feeds absent"},
+            {"stage": 7, "status": "not-entered-by-rule", "evidence": "no R3 candidate; frozen paper trading must not start"},
+            {"stage": 8, "status": "complete-single-R2-no-portfolio", "evidence": "one R2 analyzed against simple core; no independent 2-4 candidate set"},
+        ]
+    )
+
+
+def return_metrics(returns: pd.Series) -> dict[str, float]:
+    clean = pd.to_numeric(returns, errors="coerce").fillna(0.0)
+    curve = (1.0 + clean).cumprod()
+    volatility = clean.std(ddof=1)
+    return {
+        "cagr": float(curve.iloc[-1] ** (250.0 / len(clean)) - 1.0),
+        "maximum_drawdown": float(-(curve / curve.cummax() - 1.0).min()),
+        "sharpe": float(clean.mean() / volatility * np.sqrt(250.0))
+        if volatility > 0.0
+        else np.nan,
+    }
+
+
+def build_portfolio_analysis(unified: pd.DataFrame) -> pd.DataFrame:
+    eligible = unified[unified["status"].isin(["R2", "R3"])]
+    safe_path = RESULTS / "multi-asset-etf-momentum-epo-safe/raw/safe__oos-equity.csv"
+    core_path = (
+        RESULTS
+        / "multi-asset-etf-momentum-epo/raw/equal-pool-baseline-cost__equity.csv"
+    )
+    safe = pd.read_csv(safe_path)[["trade_date", "daily_return"]].rename(
+        columns={"daily_return": "candidate"}
+    )
+    core = pd.read_csv(core_path)[["trade_date", "daily_return"]].rename(
+        columns={"daily_return": "simple_core"}
+    )
+    aligned = safe.merge(core, on="trade_date", validate="one_to_one")
+    candidate = pd.to_numeric(aligned["candidate"], errors="raise")
+    simple_core = pd.to_numeric(aligned["simple_core"], errors="raise")
+    blend = 0.5 * candidate + 0.5 * simple_core
+    candidate_metrics = return_metrics(candidate)
+    core_metrics = return_metrics(simple_core)
+    blend_metrics = return_metrics(blend)
+    candidate_curve = (1.0 + candidate).cumprod()
+    core_curve = (1.0 + simple_core).cumprod()
+    shared_underwater = (
+        candidate_curve.lt(candidate_curve.cummax())
+        & core_curve.lt(core_curve.cummax())
+    ).mean()
+    return pd.DataFrame(
+        [
+            {
+                "status": "analyzed-single-r2-no-multi-strategy-portfolio",
+                "eligible_candidate_count": len(eligible),
+                "eligible_candidates": "|".join(eligible["candidate_id"]),
+                "required_status": "R2 or R3",
+                "analysis_period_start": aligned["trade_date"].iloc[0],
+                "analysis_period_end": aligned["trade_date"].iloc[-1],
+                "aligned_trading_days": len(aligned),
+                "simple_core": "13-ETF equal weight with baseline costs",
+                "simple_core_return_correlation": float(
+                    candidate.corr(simple_core)
+                ),
+                "shared_underwater_day_ratio": float(shared_underwater),
+                "candidate_historical_cagr": candidate_metrics["cagr"],
+                "candidate_historical_max_drawdown": candidate_metrics[
+                    "maximum_drawdown"
+                ],
+                "candidate_historical_sharpe": candidate_metrics["sharpe"],
+                "simple_core_cagr": core_metrics["cagr"],
+                "simple_core_max_drawdown": core_metrics["maximum_drawdown"],
+                "simple_core_sharpe": core_metrics["sharpe"],
+                "candidate_plus_core_cagr": blend_metrics["cagr"],
+                "candidate_plus_core_max_drawdown": blend_metrics[
+                    "maximum_drawdown"
+                ],
+                "candidate_plus_core_sharpe": blend_metrics["sharpe"],
+                "marginal_sharpe_vs_core": blend_metrics["sharpe"]
+                - core_metrics["sharpe"],
+                "proposed_frozen_portfolio": False,
+                "decision": "retain one R2 for platform/data evidence; do not manufacture a 2-4 strategy portfolio",
+                "reason": "only one eligible lineage and it still lacks R3 platform and production evidence",
+            }
         ]
     )
 
@@ -470,18 +844,7 @@ def main() -> int:
     platform = platform_audit()
     completion = completion_audit()
     eligible = unified[unified["status"].isin(["R2", "R3"])]
-    portfolio = pd.DataFrame(
-        [
-            {
-                "status": "not-run-no-eligible-candidates",
-                "eligible_candidate_count": len(eligible),
-                "required_status": "R2 or R3",
-                "decision": "do not propose a 2-4 strategy frozen paper portfolio",
-                "correlation_matrix": "not-computed",
-                "reason": "all six shortlisted/deep candidates are R0 or R1",
-            }
-        ]
-    )
+    portfolio = build_portfolio_analysis(unified)
     unified.to_csv(STUDY_DIR / "unified-results.csv", index=False, encoding="utf-8-sig")
     platform.to_csv(
         STUDY_DIR / "platform-golden-audit.csv", index=False, encoding="utf-8-sig"
@@ -492,42 +855,76 @@ def main() -> int:
     completion.to_csv(
         STUDY_DIR / "completion-audit.csv", index=False, encoding="utf-8-sig"
     )
-    final = """# 可实盘策略研究：本轮最终判定
+    safe = unified[
+        unified["candidate_id"].eq("multi-asset-etf-momentum-epo-safe")
+    ].iloc[0]
+    portfolio_row = portfolio.iloc[0]
+    status_counts = unified["status"].value_counts().to_dict()
+    final = f"""# 可实盘策略研究：本轮最终判定
 
 ## 结论
 
-本轮按预注册执行顺序完成了筛选、P0 审计与回放、两个候选深挖、三个正式策略族证据映射、平台
-差距审计和组合资格检查。最终 **R0 1 个、R1 5 个、R2/R3 0 个**。因此当前没有证据支持提出
-2—4 个冻结模拟盘组合，也没有策略可以进入小资金实盘。
+本轮按预注册执行顺序完成了 593 份来源筛选、P0 与后续候选首次回放、因果重建、稳健性、成本、
+容量、平台源码预检、生产数据合同和组合资格检查。统一纳入 15 个候选：**R0 {status_counts.get('R0', 0)}
+个、R1 {status_counts.get('R1', 0)} 个、R2 {status_counts.get('R2', 0)} 个、R3—R5 0 个**。
 
-## 值得保留的研究线索
+唯一 R2 是 `multi-asset-etf-momentum-epo-safe`。它是“值得继续补平台与生产证据的历史候选”，
+不是冻结模拟盘或小资金实盘候选。当前仍不提出 2—4 个冻结组合，也不启动实盘。
 
-- 懒人 ETF M4 历史最强，但缺容量、QDII 生产数据、PBO/DSR、平台对照和独立 OOS。
-- 白马攻防的参数、成本和延迟结果较稳健，但版本为 C，且预注册容量绝对暴露门槛失败；不能事后
-  改成相对口径追溯晋级。
-- ETF 动量 + EPO 的降级发布后回放亮眼，但只有 51.9% 参数邻域达到 Sharpe 0.5，保持 R1。
-- 盈利质量小市值保留期为正但跑输沪深300，全历史回撤 67.95%、水下 2,308 个交易日。
-- 五福 T3 只通过 9/16 项事前门槛，已按停止规则结束历史调参。
-- 低风险组合缺少 `399317.XSHE` 历史成分，保持 R0，不擅自更换股票池。
+## 唯一 R2：为什么保留
 
-## 平台与组合
+- 收益来源：34 日跨资产趋势先选前三名，再由 EPO 动态分配；因子暴露同时包含黄金、商品、海外
+  科技和 A 股成长，但权重会阶段性高度集中。
+- 证据边界：B 级发布后窗口年化 {safe['oos_cagr']:.2%}、最大回撤
+  {safe['oos_max_drawdown']:.2%}、Sharpe {safe['oos_sharpe']:.2f}；缺少发布前源码哈希，因此不称
+  严格天然 OOS。安全回退没有使用该窗口选参，并保持 28/28 个原目标不变。
+- 稳健性：27/27 参数邻域完成、全部正收益且 Sharpe 不低于 0.5；回退占比 1.02%，PBO
+  {safe['pbo']:.2%}，Deflated Sharpe 概率 {safe['deflated_sharpe_probability']:.2%}。
+- 执行与容量：0—5 日延迟最低 Sharpe 0.84；20—200 万元最低平均风险暴露
+  {safe['primary_capacity_min_exposure']:.2%}。1000 万元、0.5% ADV 下平均暴露
+  {safe['capacity_10m_0_5pct_exposure']:.2%}，显示容量衰减但不是小资金硬伤。
 
-`etf-core-rotation` 校准控制证明本地与聚宽价格特征可高度一致，但静态跟踪标的会造成候选与权重
-差异；该控制不能替代候选自己的订单对账。由于没有 R2/R3，组合相关性、共同回撤和边际 Sharpe
-按规则不计算，避免用一组尚未过关的 R1 策略制造“分散化”假象。
+## 平台和生产边界
+
+- 正式聚宽源码已建立；同一份本地行情输入下，28/28 个冻结目标完全一致，平均/最大目标权重 L1
+  差异为 0。这是源码预检，不是真实聚宽黄金对照。
+- 候选自己的聚宽目标、订单、拒单、成交、费用和净值导出仍不存在，不能用 ETF core 控制组替代。
+- 13/13 只 ETF 有历史 OHLCV 和成交额，但 `513100.XSHG`、`159740.XSHE` 缺 IOPV/NAV、
+  折溢价、申赎状态与额度、境外市场会话和汇率生产数据，必须失败关闭。
+- 没有 R3，因此阶段 7 按规则不启动；冻结模拟盘证据为零。
+
+## 组合分析
+
+合格集合只有一个独立谱系。R2 与 13 只 ETF 简单等权核心的日收益相关性为
+{portfolio_row['simple_core_return_correlation']:.3f}，共同水下日占比
+{portfolio_row['shared_underwater_day_ratio']:.1%}。50/50 诊断组合的 Sharpe 为
+{portfolio_row['candidate_plus_core_sharpe']:.2f}，相比简单核心边际变化
+{portfolio_row['marginal_sharpe_vs_core']:+.2f}；这只能说明与简单核心的边际关系，不能把一个候选和
+一个基准包装成“2—4 个策略组合”。
+
+## 资金规划压力
+
+- 历史年化只实现 50%：全期参考年化从 {safe['full_cagr']:.2%} 折为
+  {safe['full_cagr'] * 0.5:.2%}；这不是收益预测。
+- 最大回撤放大 1.5 倍：发布后参考回撤从 {safe['oos_max_drawdown']:.2%} 放大到
+  {safe['oos_max_drawdown'] * 1.5:.2%}。
+- 双倍摩擦：全期年化 {safe['double_cost_cagr']:.2%}、最大回撤
+  {safe['double_cost_max_drawdown']:.2%}、Sharpe {safe['double_cost_sharpe']:.2f}。
+- 全期最长水下 {int(safe['full_longest_underwater_days'])} 个交易日；发布后最长水下
+  {int(safe['oos_longest_underwater_days'])} 个交易日。
 
 ## 后续触发条件
 
-只有出现以下新证据时才重启相应候选：取得缺失的 PIT 数据；按新协议补齐非 Alpha 容量/生产数据；
-完成候选自身平台黄金对照；或积累未参与调参的冻结模拟盘/真实前瞻数据。不得继续围绕现有历史收益
-搜索参数。
+下一步只允许补非 Alpha 证据：取得候选自身真实聚宽导出；接入并观测 QDII 与实时报价数据合同；
+全部 R3 门槛通过后冻结源码和哈希，再开始前瞻模拟盘。任何资产池、信号或权重规则变化都必须成为
+新候选重新预注册，不能继续围绕已观察历史收益搜索参数。
 """
     (STUDY_DIR / "final-assessment.md").write_text(final, encoding="utf-8")
     print(
         json.dumps(
             {
                 "candidate_count": len(unified),
-                "status_counts": unified["status"].value_counts().to_dict(),
+                "status_counts": status_counts,
                 "eligible_portfolio_candidates": len(eligible),
                 "decision": portfolio.iloc[0]["decision"],
             },

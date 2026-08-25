@@ -1,10 +1,10 @@
 ﻿stage,status,evidence
 0,complete,"593 sources, 445 lineages, 50-family shortlist"
-1,complete-with-version-downgrades,three P0 audits; B/C replays and one C data block
-2,complete,three formal families mapped to standard artifacts
-3,complete-for-runnable-candidates,causal/source and concentration decomposition retained
-4,complete-for-deep-candidates,EPO and white suites; formal archives mapped without reranking
-5,complete-with-documented-gaps,"three curves, one partial grid, and one missing ADV model"
-6,audited-no-candidate-eligible,ETF core control reconciled; all candidates below R2
-7,not-entered-by-rule,no R3 candidate; no frozen paper portfolio
-8,complete-no-eligible-set,zero R2/R3 inputs; no forced portfolio
+1,complete-with-version-downgrades,P0 plus later B/C first-read replays; no C evidence called strict OOS
+2,complete,formal families mapped and the sole R2 candidate promoted to a research family
+3,complete-for-runnable-candidates,"causal/source, factor and concentration decomposition retained"
+4,complete-for-deep-candidates,safe EPO completed 66 preregistered runs; failures retained
+5,complete-for-R2,20m/100m/200m/10m capacity curve and delay/cost stress complete
+6,complete-with-external-blocker,28/28 local source targets exact; real JoinQuant export and QDII feeds absent
+7,not-entered-by-rule,no R3 candidate; frozen paper trading must not start
+8,complete-single-R2-no-portfolio,one R2 analyzed against simple core; no independent 2-4 candidate set

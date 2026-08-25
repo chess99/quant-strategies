@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "candidate_id": "multi-asset-etf-momentum-epo-safe",
+  "run_id": "walk-forward-regime-placebo-v1",
+  "created_at": "2026-08-25",
+  "engine_sha256": "2017f754be0c32dfb5a4f6efd1d252e86c4761cdccca6feaba5be83c9eb6717a",
+  "protocol_sha256": "33983bc06a7e0db2edc171f8e078886cbe843c9e6e5a48a64d9446e721174bf2",
+  "parameter_returns_sha256": "36cb99674bf4fa920c3ec2109c86be26a8bb75d217adcd68fe4b5f05990ac88f",
+  "baseline_equity_sha256": "558ec97f7d6f4040bd71f48723c0c16379f2d14b3d76e4d1b521a5cf5aaa2f3d",
+  "formal_source_sha256": "656b5e92c180a455feee4440b12ae2b90ae027a754785bd4d90564c5d3b3f995",
+  "data_manifests": {
+    "etf_daily": {
+      "path": "D:\\code\\_open-source\\_data\\quant-research\\manifests\\etf_daily.json",
+      "sha256": "df62ef9d3b84c453f1259f8ff2763bb0204010e6a853179bf9076a757e6413c2"
+    },
+    "etf_master": {
+      "path": "D:\\code\\_open-source\\_data\\quant-research\\manifests\\etf_master.json",
+      "sha256": "53e2862faf4a1efc35b6e78744e1c7b087f550be8357f1bcc45a08fe12e51008"
+    }
+  },
+  "artifacts": {
+    "walk_forward": "supplemental-walk-forward.csv",
+    "regime_attribution": "supplemental-regime-attribution.csv",
+    "placebo": "supplemental-placebo.csv",
+    "scorecard": "supplemental-robustness-scorecard.json"
+  }
+}

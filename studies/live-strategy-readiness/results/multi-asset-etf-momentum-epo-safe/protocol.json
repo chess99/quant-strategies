@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "candidate_id": "multi-asset-etf-momentum-epo-safe",
+  "created_at": "2026-08-25",
+  "status": "preregistered-before-safe-fallback-results",
+  "parent_candidate_id": "multi-asset-etf-momentum-epo",
+  "change_class": "risk_execution_engineering",
+  "source": {
+    "path": "joinquant_archive/sources/聚宽2026年精选/17多品种ETF动量轮动+EPO优化.py",
+    "sha256": "438cb254e50a3056eb125b67b17b051fea7ef78bd7f6a1f079349730feb331ba",
+    "oos_integrity_grade": "B"
+  },
+  "frozen_parameters": {
+    "etf_pool_inherited": true,
+    "momentum_days": 34,
+    "stock_num": 3,
+    "epo_w": 0.2,
+    "rebalance": "first trading day monthly",
+    "fallback": "equal weight among already-selected momentum assets only when original EPO has no positive weight"
+  },
+  "evidence_reuse_rule": {
+    "old_oos_period_start": "2024-03-25",
+    "old_oos_period_end": "2026-07-24",
+    "maximum_equity_absolute_difference": 1e-10,
+    "targets_must_match_exactly": true,
+    "fallback_count_must_equal": 0,
+    "parameter_selection_used_old_oos": false
+  },
+  "R2_gates": {
+    "parameter_trial_count": 27,
+    "parameter_completion_rate_min": 1.0,
+    "parameter_positive_return_rate_min": 0.8,
+    "parameter_sharpe_ge_0_5_rate_min": 0.8,
+    "fallback_rebalance_share_max": 0.2,
+    "minimum_delay_sharpe": 0.5,
+    "primary_capital_minimum_exposure": 0.9
+  },
+  "R3_blockers": [
+    "candidate-specific JoinQuant target/order golden comparison",
+    "QDII premium-discount, subscription limit and cross-market calendar production feed",
+    "frozen forward paper-trading evidence"
+  ],
+  "stop_rules": [
+    "safe baseline changes any previously frozen OOS target or equity value",
+    "fallback is used on the frozen baseline OOS path",
+    "more than 20% of neighborhood rebalances require fallback",
+    "less than 80% of the full preregistered neighborhood remains positive or reaches Sharpe 0.5"
+  ]
+}
+

@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "candidate_id": "csi300-volume-rsrs",
+  "created_at": "2026-08-25",
+  "status": "preregistered-before-local-results",
+  "source": {
+    "path": "joinquant_archive/sources/2025年度精选策略/67.RSRS择时改进-【成交量加权-钝化-右偏】.py",
+    "sha256": "36a0bbb302f7901ca74af5d917b24eaaf1caa6f752bade22c833c089bf7384cf",
+    "post_url": "https://www.joinquant.com/post/27399",
+    "post_time": "2020-05-14 19:34:51",
+    "post_mod_time": "2020-05-14 19:34:51",
+    "oos_integrity_grade": "B",
+    "author_overfit_warning": true
+  },
+  "hypothesis": "The volume-weighted high-low regression slope may identify persistent broad-equity trends while a symmetric hysteresis band reduces whipsaw losses.",
+  "frozen_parameters": {
+    "signal_symbol": "SH000300",
+    "execution_symbol": "SH510300",
+    "regression_days": 18,
+    "standardization_days": 200,
+    "buy_threshold": 0.85,
+    "sell_threshold": -0.85,
+    "score": "zscore * beta * weighted_r_squared"
+  },
+  "public_calibration": {
+    "period_start": "2014-01-02",
+    "period_end": "2020-05-13",
+    "must_run_before_oos": true,
+    "public_annualized_return": 0.23259566768476,
+    "public_maximum_drawdown": 0.14229769578185,
+    "public_sharpe": 1.1611795796101,
+    "public_completed_positions": 13,
+    "gates": {
+      "annualized_return_absolute_gap_max": 0.05,
+      "maximum_drawdown_absolute_gap_max": 0.05,
+      "sharpe_absolute_gap_max": 0.2,
+      "completed_position_relative_gap_max": 0.35,
+      "minimum_pass_count": 3,
+      "annualized_return_must_pass": true,
+      "sharpe_must_pass": true
+    },
+    "stop_rule": "Do not calculate post-publication performance if calibration fails."
+  },
+  "post_publication_window_if_unlocked": {
+    "period_start": "2020-05-14",
+    "period_end": "2026-07-23",
+    "parameter_selection_used_window": false,
+    "mandatory_baselines": ["SH510300 buy-and-hold", "50% SH510300 / 50% cash"]
+  },
+  "promotion_gates_after_oos": {
+    "baseline_cost_sharpe_min": 0.5,
+    "baseline_cost_maximum_drawdown_max": 0.35,
+    "double_cost_total_return_min": 0.0,
+    "sharpe_must_exceed_buy_hold": true,
+    "must_improve_at_least_one_of_sharpe_or_drawdown_over_half_cash": true,
+    "minimum_completed_positions": 4
+  },
+  "known_limitations": [
+    "The published source traded an index proxy rather than an executable security.",
+    "Local daily bars cannot reproduce the original 14:00 fill exactly.",
+    "The author explicitly selected a historical optimum and warned of overfitting."
+  ]
+}
+

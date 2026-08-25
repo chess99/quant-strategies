@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "study_id": "live-strategy-readiness",
+  "candidate_id": "stock-bond-volatility-balance",
+  "candidate_name": "股债波动平衡",
+  "status": "preregistered-before-public-window-calibration",
+  "research_level": "R0",
+  "publication": {
+    "url": "https://www.joinquant.com/post/28893",
+    "date": "2020-08-16",
+    "published_at": "2020-08-16 13:19:34",
+    "modified_at": "2020-08-16 13:19:34",
+    "archive_collected_at": "2026-07-27T02:11:27+08:00"
+  },
+  "public_backtest": {
+    "id": "7b013c3b098e625ad2842c904ccea30d",
+    "numeric_id": "17962162",
+    "name": "基金定投组合_20波2",
+    "start": "2014-06-01",
+    "end": "2020-07-31",
+    "initial_capital_rmb": 100000,
+    "annual_return": 0.1388660779521,
+    "max_drawdown": 0.084382235325559,
+    "sharpe": 1.4417718336376
+  },
+  "source_vintage": {
+    "grade": "C-pending-calibration",
+    "strict_natural_oos": false,
+    "current_snapshot_only": true,
+    "reason": "帖子未修改且当前源码符合正文投资描述，但正文没有公开资产池、先验权重和窗口；必须先复现公开回测才能升级。"
+  },
+  "frozen_source": {
+    "path": "joinquant_archive/sources/2025年度精选策略/7.股债波动平衡.py",
+    "sha256": "163e8e3025b9e97bfbf1ea820c59722333c9d9839b256f48ea6f59815e82087c",
+    "meaning": "current archive snapshot whose vintage is pending public-window calibration"
+  },
+  "investment_hypothesis": "对低相关股票、海外、黄金和国债基金施加先验偏好后，用短期逆方差动态配置，可在保留多资产风险溢价的同时显著降低组合回撤。",
+  "frozen_parameters": {
+    "fund_pool": [
+      "161005.XSHE",
+      "163412.XSHE",
+      "511010.XSHG",
+      "513100.XSHG",
+      "513500.XSHG",
+      "518880.XSHG",
+      "159928.XSHE",
+      "512010.XSHG"
+    ],
+    "prior_weights": [15.0, 20.0, 2.0, 15.0, 7.5, 4.0, 25.0, 20.0],
+    "volatility_window_days": 40,
+    "volatility_clip_sigma": 3.0,
+    "weight_rule": "prior_weight / annualized_volatility^2, then normalize available assets",
+    "rebalance": "initial session then Friday open",
+    "drift_l1_threshold": 0.05,
+    "cash_trigger_rmb": 200.0
+  },
+  "version_calibration": {
+    "window": {
+      "start": "2014-06-01",
+      "end": "2020-07-31"
+    },
+    "allowed_data": "public backtest window only",
+    "success_criteria": {
+      "annual_return_absolute_difference": "<= 0.03",
+      "max_drawdown_absolute_difference": "<= 0.03",
+      "sharpe_absolute_difference": "<= 0.30",
+      "causal_lifecycle": "assets unavailable before listing must have zero target weight",
+      "no_parameter_fitting": true
+    },
+    "failure_rule": "任一核心指标超出容差则不能把当前源码视为发帖时版本，不运行发布后窗口。"
+  },
+  "data_contract": {
+    "six_etfs": "local B-grade etf_daily raw and adjusted OHLCV",
+    "two_lofs_raw": "Sina fund_etf_hist_sina exchange OHLCV",
+    "two_lofs_adjusted": "Tencent stock_zh_a_hist_tx hfq OHLC",
+    "minimum_quality": "B",
+    "production_gaps": [
+      "QDII premium/discount and subscription limits",
+      "active LOF NAV/market premium divergence",
+      "platform order-level golden comparison"
+    ]
+  },
+  "post_publication_replay": {
+    "authorized": false,
+    "provisional_window": {
+      "start": "2020-08-17",
+      "end": "2026-07-24"
+    },
+    "rule": "只有版本校准通过并另行提交事前协议后才可运行。"
+  },
+  "experiment_policy": {
+    "tune_on_public_window": false,
+    "inspect_post_publication_before_calibration_decision": false,
+    "alpha_change_requires_new_candidate": true,
+    "report_failed_calibration": true
+  },
+  "decision": "仅进入公开样本版本校准；尚未授权发布后回放。"
+}

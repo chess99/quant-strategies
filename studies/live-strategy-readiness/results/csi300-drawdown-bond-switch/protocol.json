@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "study_id": "live-strategy-readiness",
+  "candidate_id": "csi300-drawdown-bond-switch",
+  "candidate_name": "沪深 300 回撤择时 / 国债切换",
+  "status": "preregistered-before-oos-replay",
+  "research_level": "R0",
+  "publication": {
+    "url": "https://www.joinquant.com/post/32112",
+    "date": "2021-03-05",
+    "published_at": "2021-03-05 10:21:10",
+    "modified_at": "2021-03-05 10:22:19",
+    "archive_collected_at": "2026-07-27T02:08:51+08:00"
+  },
+  "public_backtest": {
+    "id": "23964a12a6314842a6e876b305b067cf",
+    "numeric_id": "19938535",
+    "start": "2013-01-01",
+    "end": "2021-03-04",
+    "initial_capital_rmb": 10000,
+    "annual_return": 0.24847167458486,
+    "max_drawdown": 0.13153570811623,
+    "sharpe": 1.4699515406993
+  },
+  "source_vintage": {
+    "grade": "B",
+    "strict_natural_oos": false,
+    "current_snapshot_only": true,
+    "reason": "帖子只在发布后 69 秒内修改且此后未变，正文的两资产切换与当前源码一致；但缺少早于 OOS 的独立源码哈希。"
+  },
+  "frozen_source": {
+    "path": "joinquant_archive/sources/2023年度精选策略/17.20行代码8年胜率100%躲过了牛年第一场大跌.py",
+    "sha256": "4f80ec6b4e207dd9cb53baabb5debfd16671229f8b3b92867781e29d79dccd51",
+    "meaning": "current archive snapshot consistent with the nearly unmodified publication"
+  },
+  "investment_hypothesis": "上证指数 32 日价格路径能识别急跌与修复阶段；风险关闭时切换到短久期国债 ETF，可在保留沪深 300 上行参与的同时显著压低回撤。",
+  "frozen_parameters": {
+    "signal_symbol": "000001.XSHG",
+    "risk_asset": "510300.XSHG",
+    "defensive_asset": "511010.XSHG",
+    "signal_lookback_days": 32,
+    "execution": "daily at open using previous-session closes",
+    "sell_rule": "argmax(window) > 22 and argmin(window) == 0 and close[-1] < mean(close[-30:]) and close[-2] < mean(close[-32:-1])",
+    "buy_rule": "close[2] == max(close[2:]) and mean(close[-20:]) > mean(close[-30:]) and mean(close[-10:]) > mean(close[-20:])"
+  },
+  "post_publication_replay": {
+    "ready": true,
+    "window": {
+      "start": "2021-03-08",
+      "end": "2026-07-24"
+    },
+    "initial_capital_rmb": 200000,
+    "initial_state": "cash",
+    "data_quality": "B",
+    "rule": "第一轮冻结原始信号；不得使用该窗口选择回看期、条件、资产或例外规则。"
+  },
+  "causal_reconstruction": {
+    "ready": true,
+    "required_correctness_repairs": [
+      "显式使用前一交易日及更早的 32 个上证指数收盘价，下一交易日开盘成交",
+      "按 ETF 上市日期、停牌、整手、最低佣金、ADV 参与率和未成交处理执行",
+      "卖出后再买入，卖出失败时不得假定现金已经释放",
+      "保留平台默认成本代理，同时增加现实摩擦和双倍摩擦"
+    ]
+  },
+  "pre_result_success_criteria": {
+    "baseline_cost_oos_annual_return": ">= 0.05",
+    "baseline_cost_oos_sharpe": ">= 0.60",
+    "baseline_cost_oos_max_drawdown": "<= 0.20",
+    "drawdown_protection": "最大回撤不高于沪深 300 买入持有的 70%",
+    "simple_baseline": "不能被 50/50 股债静态组合在 CAGR、最大回撤和 Sharpe 三项同时支配",
+    "double_cost": "总收益保持为正且 Sharpe 不低于 0.50",
+    "minimum_events": "至少出现 2 次完整风险关闭或恢复事件，否则证据量不足",
+    "hard_stop": "若 CAGR <= 0、Sharpe < 0.30、最大回撤 > 0.30，或优势依赖不可成交路径，停止当前版本"
+  },
+  "experiment_policy": {
+    "tune_on_post_publication_window": false,
+    "first_replay_parameters_frozen": true,
+    "alpha_change_requires_new_candidate": true,
+    "report_failed_experiments": true
+  },
+  "decision": "进入未经调参的 B 级发布后回放；结果不能称为严格天然 OOS。"
+}

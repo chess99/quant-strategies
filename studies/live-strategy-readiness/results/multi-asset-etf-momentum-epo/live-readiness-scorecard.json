@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "candidate_id": "multi-asset-etf-momentum-epo",
+  "status": "R1",
+  "source_vintage_grade": "B",
+  "strict_natural_oos": false,
+  "experiment_count": 65,
+  "parameter_neighborhood_trials": 27,
+  "parameter_positive_return_rate": 0.5185185185185185,
+  "parameter_sharpe_ge_0_5_rate": 0.5185185185185185,
+  "minimum_delay_sharpe": 0.840123335678151,
+  "primary_capital_minimum_exposure": 0.9862304518487536,
+  "pbo": {
+    "pbo": 0.5,
+    "split_count": 70,
+    "strategy_count": 14,
+    "median_logit": 0.14384103622589042
+  },
+  "deflated_sharpe": {
+    "observed_annualized_sharpe": 1.3355744959167075,
+    "expected_max_daily_sharpe": 0.059008995103791324,
+    "deflated_sharpe_probability": 0.8089051244038458,
+    "skew": 0.1570871580545799,
+    "kurtosis": 10.78578765374147,
+    "trial_count": 27
+  },
+  "gates": {
+    "oos_pre_registered_gate": true,
+    "parameter_neighborhood_gate": false,
+    "execution_delay_gate": true,
+    "primary_capacity_gate": true,
+    "platform_alignment_gate": false,
+    "production_qdii_data_gate": false,
+    "forward_paper_gate": false
+  },
+  "blocking_gaps_for_R3": [
+    "JoinQuant/platform golden comparison of target weights and orders",
+    "QDII premium/discount, subscription limits and cross-market calendar production feed",
+    "frozen forward paper-trading evidence"
+  ],
+  "decision": "remain R1 pending robustness gaps"
+}

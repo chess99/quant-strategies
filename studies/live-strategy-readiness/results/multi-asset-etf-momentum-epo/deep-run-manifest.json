@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "candidate_id": "multi-asset-etf-momentum-epo",
+  "run_id": "deep-research-v1",
+  "created_at": "2026-08-25",
+  "engine_path": "studies/live-strategy-readiness/run_epo_deep_research.py",
+  "engine_sha256": "10fcee0a7a13f98b9f2f121e47a34cdbec917f2d9addbbcd2fdabe233c2679e7",
+  "source_sha256": "438cb254e50a3056eb125b67b17b051fea7ef78bd7f6a1f079349730feb331ba",
+  "experiment_count": 65,
+  "artifacts": [
+    "robustness.csv",
+    "capacity.csv",
+    "attribution.csv",
+    "live-readiness-scorecard.json",
+    "conclusion.md"
+  ]
+}

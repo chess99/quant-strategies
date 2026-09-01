@@ -1,0 +1,9 @@
+model,return_and_sharpe,drawdown_reduction_10pp,all_periods_positive,stress_positive,holm_p_below_0_10,parameter_neighborhood,candidate
+macd-cross-12-26-9,True,True,True,True,False,True,False
+macd-zero-9-24,True,True,False,True,False,True,False
+sma-200,True,True,False,True,False,True,False
+tsmom-252-monthly,True,True,False,True,False,True,False
+donchian-120-40,False,True,False,False,False,True,False
+bollinger-20-2,False,True,False,False,False,True,False
+elder-risk-sized,False,True,False,True,False,True,False
+elder-full-exposure,True,True,False,True,False,True,False

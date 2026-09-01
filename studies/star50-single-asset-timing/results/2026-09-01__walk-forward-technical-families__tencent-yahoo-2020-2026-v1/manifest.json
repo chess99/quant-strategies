@@ -1,0 +1,211 @@
+{
+  "schema_version": 2,
+  "study_id": "star50-single-asset-timing",
+  "archived_at": "2026-09-01",
+  "run_id": "tencent-yahoo-2020-2026-v1",
+  "symbol": "SH588000",
+  "data": {
+    "source": "Tencent qfq cross-checked with Yahoo adjusted daily data",
+    "input_file": "raw/input-sh588000.csv",
+    "input_sha256": "568a65a29192b2e3f3a6a643cd7cecb588263cf4f794066e3379df8a290899db",
+    "start": "2020-11-16",
+    "end": "2026-09-01",
+    "sessions": 1407,
+    "maximum_ohlc_relative_error": 0.006920378674688139,
+    "median_volume_relative_error": 1.1962483624149922e-08,
+    "cross_checked_common_sessions": 1404,
+    "verification_missing_sessions": 3,
+    "amount_quality": "close_times_volume_proxy_not_used_by_signals"
+  },
+  "protocol": {
+    "warmup_sessions": 252,
+    "initial_train_sessions": 504,
+    "test_sessions": 63,
+    "evaluation_start": "2021-11-29",
+    "walk_forward_start": "2023-12-25",
+    "walk_forward_end": "2026-09-01",
+    "family_count": 20,
+    "config_count": 122
+  },
+  "execution": {
+    "signal": "observation close and earlier",
+    "fill": "next trading day open",
+    "initial_cash": 1000000.0,
+    "maximum_target_weight": 0.99,
+    "lot_size": 100,
+    "maximum_volume_ratio": 0.1
+  },
+  "costs": {
+    "etf_commission": 0.0003,
+    "minimum_commission": 5.0,
+    "base_slippage": 0.0002,
+    "stress_slippages": [
+      0.001,
+      0.002
+    ],
+    "stamp_tax": 0.0
+  },
+  "statistics": {
+    "pbo": {
+      "method": "CSCV approximation: 8 contiguous blocks",
+      "trial_count": 122,
+      "trading_days": 1155,
+      "split_count": 70,
+      "pbo": 0.45714285714285713,
+      "median_selected_oos_percentile": 0.531112258953168
+    },
+    "global_dsr": {
+      "selected_config": "aroon__period-25-threshold-80",
+      "trial_count": 122,
+      "observations": 1155,
+      "observed_annualized_sharpe": 0.9875013140911979,
+      "expected_maximum_annualized_sharpe_under_null": 1.3592422580761425,
+      "skewness": 3.964657097764671,
+      "pearson_kurtosis": 61.32158028208009,
+      "deflated_sharpe_probability": 0.18863071809956028
+    },
+    "white_reality_check": {
+      "block_20": {
+        "block_length": 20,
+        "repetitions": 2000,
+        "best_family": "macd-cross",
+        "observed_best_annualized_mean_excess": 0.052985787933525326,
+        "p_value": 0.782608695652174
+      },
+      "block_60": {
+        "block_length": 60,
+        "repetitions": 2000,
+        "best_family": "macd-cross",
+        "observed_best_annualized_mean_excess": 0.052985787933525326,
+        "p_value": 0.7756121939030485
+      }
+    },
+    "bootstrap_repetitions": 2000,
+    "bootstrap_blocks": [
+      20,
+      60
+    ],
+    "multiple_testing": "Holm"
+  },
+  "candidate_families": [],
+  "source_file": "source.py",
+  "source_sha256": "bf36c2f234b4c639b8f27c13c5ec794d0b343ecf8e01dde005842593aeec938e",
+  "artifacts": {
+    "raw/all-config-metrics.csv": {
+      "sha256": "e6cbf24f44cedb55a2ac4f916e837f5621c8af7feb89af9049653c6a2df5a399",
+      "bytes": 67395
+    },
+    "raw/bootstrap-comparison.csv": {
+      "sha256": "6f0f14b59f8b9af31bb42b319b4e9f9532805b3ce1b6c77ec97c82c8b2359ce7",
+      "bytes": 4237
+    },
+    "raw/candidate-gates.csv": {
+      "sha256": "d9ebe621885577558e411cd5fcac479d37ca53541b243e303d2b3fdb5935e89d",
+      "bytes": 1263
+    },
+    "raw/canonical-equity.csv": {
+      "sha256": "d4b2e02631f99359e61d1648b8d258190fbc5d41b78466f79403b56c5a768c0b",
+      "bytes": 2953517
+    },
+    "raw/canonical-metrics.csv": {
+      "sha256": "e3a6d8db5336956f37c575f70a41d3f1188d2ae93d961bff9353c6aff40085cc",
+      "bytes": 10298
+    },
+    "raw/canonical-trades.csv": {
+      "sha256": "d9d6cc7663463341cfb3f01fa4f96605f7a461605daaebc63dedd9aa8eceaefd",
+      "bytes": 133322
+    },
+    "raw/config-registry.csv": {
+      "sha256": "fe6dd205fcfd6d4798190369e02a5492c13b4279898e1cd518243576c1940e03",
+      "bytes": 11652
+    },
+    "raw/current-signals.csv": {
+      "sha256": "cd0060eccf0c1c5281c0cae81c01a32533a043ef5b84fb71efe06ce4410fb781",
+      "bytes": 2031
+    },
+    "raw/extreme-day-metrics.csv": {
+      "sha256": "1f295b93811827037b77025b7c4efdd2659437948742b81dc4451107280e9d30",
+      "bytes": 12035
+    },
+    "raw/family-dsr.csv": {
+      "sha256": "d6718b7f4eed7378156c17f0d08b1c52c8e325b245a77d3fd6fd141cf550a024",
+      "bytes": 3183
+    },
+    "raw/family-pbo-splits.csv": {
+      "sha256": "595e9e9b22e6c1e0f7b3206224cada8c4b0c25a2611d9e2fe6c02fb113258d89",
+      "bytes": 199794
+    },
+    "raw/family-pbo-summary.csv": {
+      "sha256": "102644a2b848fddb000b8df21ed910c940d6cf07bc2f9bf82570ca49a3767c40",
+      "bytes": 1882
+    },
+    "raw/global-dsr.json": {
+      "sha256": "0ebc3f0fb60bea4e2ec5cbae2d47227fe94caa85ef5c2dd64f447c45ae639921",
+      "bytes": 364
+    },
+    "raw/global-pbo-splits.csv": {
+      "sha256": "5a3de4d9f5923ba580dc027def7035f52fda1d64428f968290c04d71d4edb48c",
+      "bytes": 9720
+    },
+    "raw/global-pbo-summary.json": {
+      "sha256": "69165323402332b6d7bb65e55c8df08bf0442cb3ccb9dc116d302e1ceb4ff1fc",
+      "bytes": 218
+    },
+    "raw/input-sh588000.csv": {
+      "sha256": "568a65a29192b2e3f3a6a643cd7cecb588263cf4f794066e3379df8a290899db",
+      "bytes": 100332
+    },
+    "raw/parameter-surface-summary.csv": {
+      "sha256": "06bc3dac1082d93296591f248ffe9b5fd12f79ec97900360b181b59bc7d677f5",
+      "bytes": 2470
+    },
+    "raw/regime-metrics.csv": {
+      "sha256": "c3267390156937c60e1ec93b56f8c0c0c56d42ab22ac2e9b9e26b49f367cbad2",
+      "bytes": 18162
+    },
+    "raw/robustness.csv": {
+      "sha256": "9e23a575a69a31087fb2b91b36eff742c05e51127c724eb68b11eebaee766c05",
+      "bytes": 36805
+    },
+    "raw/rolling-walk-forward-selections.csv": {
+      "sha256": "f7ebed18ec2a40ca30f9e2ac26b4887e4af4c859b24ac47570dacc63ae016f93",
+      "bytes": 29056
+    },
+    "raw/walk-forward-decisions.csv": {
+      "sha256": "bc9c212e5870802f6f8aa21765db7d7ca67d90fe552d0ac4b19e0c15784509fc",
+      "bytes": 40732
+    },
+    "raw/walk-forward-equity.csv": {
+      "sha256": "8eff9e56d4a1979d05316235070493c57e6d5d540b4b1d72bdf6de9166ffbf29",
+      "bytes": 1135933
+    },
+    "raw/walk-forward-family-metrics.csv": {
+      "sha256": "f5b3250756d9758061f1231f03daadab1c1fe68eaa81481bc6e90a682383d218",
+      "bytes": 13995
+    },
+    "raw/walk-forward-fold-metrics.csv": {
+      "sha256": "d0065c9ecdbec12ed0327f842c380712cbf3daa2d434933eea74fe31437f0744",
+      "bytes": 41599
+    },
+    "raw/walk-forward-selections.csv": {
+      "sha256": "a024a9b494cbc34cfceb1ea95e314c0bae9198f55b7d64303ac113fe68c04eab",
+      "bytes": 29185
+    },
+    "raw/walk-forward-trades.csv": {
+      "sha256": "65b19bb1a141db8975b44afea19504941a6b90685bba02634d4b7b9369c80189",
+      "bytes": 68544
+    },
+    "raw/white-reality-check.json": {
+      "sha256": "bb1062ad985ca8b33197d3a4e991da1325e919b043741d25dd13fb85a42a975d",
+      "bytes": 424
+    },
+    "report.md": {
+      "sha256": "387c787e295809e49150c7eaec3a39c6f629381c7827ae329add0ad6e8c9d86b",
+      "bytes": 12466
+    },
+    "source.py": {
+      "sha256": "bf36c2f234b4c639b8f27c13c5ec794d0b343ecf8e01dde005842593aeec938e",
+      "bytes": 82872
+    }
+  }
+}

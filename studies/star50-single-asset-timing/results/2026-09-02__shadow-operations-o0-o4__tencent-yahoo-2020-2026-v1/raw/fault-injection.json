@@ -1,0 +1,89 @@
+{
+  "all_passed": true,
+  "cases": [
+    {
+      "case": "wrong-symbol",
+      "passed": true,
+      "result": "halted",
+      "reason": "行情标的不是 SH588000"
+    },
+    {
+      "case": "same-day-quote",
+      "passed": true,
+      "result": "halted",
+      "reason": "交易行情必须晚于信号观察日"
+    },
+    {
+      "case": "nonfinite-price",
+      "passed": true,
+      "result": "halted",
+      "reason": "price 不是有限值"
+    },
+    {
+      "case": "zero-volume",
+      "passed": true,
+      "result": "halted",
+      "reason": "价格或成交量必须为正"
+    },
+    {
+      "case": "unknown-tradability",
+      "passed": true,
+      "result": "halted",
+      "reason": "交易状态未知，停止生成订单"
+    },
+    {
+      "case": "pending-order-conflict",
+      "passed": true,
+      "result": "halted",
+      "reason": "账户存在未决订单，禁止重复规划"
+    },
+    {
+      "case": "target-above-limit",
+      "passed": true,
+      "result": "halted",
+      "reason": "目标仓位超出 0%-99%"
+    },
+    {
+      "case": "stale-snapshot",
+      "passed": true,
+      "result": "halted",
+      "reason": "影子信号已过期：7 天"
+    },
+    {
+      "case": "cross-source-divergence",
+      "passed": true,
+      "result": "halted",
+      "reason": "双源 OHLC 差异超过 1%"
+    },
+    {
+      "case": "account-mismatch",
+      "passed": true,
+      "result": "halted",
+      "reason": "账户对账失败：现金差 -1000.00，份额差 0"
+    },
+    {
+      "case": "duplicate-fill",
+      "passed": true,
+      "result": "halted",
+      "reason": "重复成交被拒绝"
+    },
+    {
+      "case": "oversell",
+      "passed": true,
+      "result": "halted",
+      "reason": "成交导致超额卖出"
+    },
+    {
+      "case": "hash-chain-tamper",
+      "passed": true,
+      "result": "rejected",
+      "reason": "event payload changed"
+    },
+    {
+      "case": "external-source-failure",
+      "passed": true,
+      "result": "halted",
+      "reason": "source unavailable"
+    }
+  ]
+}

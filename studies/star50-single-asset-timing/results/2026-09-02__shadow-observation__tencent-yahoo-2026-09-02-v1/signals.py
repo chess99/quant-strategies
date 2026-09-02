@@ -82,18 +82,6 @@ def compute_shadow_snapshot(frame: pd.DataFrame) -> dict:
             "source": frame.attrs.get("source", "archived_input"),
             "maximum_ohlc_relative_error": frame.attrs.get("maximum_ohlc_relative_error"),
             "median_volume_relative_error": frame.attrs.get("median_volume_relative_error"),
-            "cross_checked_common_sessions": frame.attrs.get(
-                "cross_checked_common_sessions"
-            ),
-            "verification_missing_sessions": frame.attrs.get(
-                "verification_missing_sessions"
-            ),
-            "latest_common_date": frame.attrs.get("latest_common_date"),
-            "latest_primary_date": frame.attrs.get("latest_primary_date"),
-            "latest_verification_date": frame.attrs.get("latest_verification_date"),
-            "latest_session_cross_checked": frame.attrs.get(
-                "latest_session_cross_checked"
-            ),
         },
         "models": models,
     }
@@ -116,11 +104,6 @@ def main() -> int:
             else engine.fetch_market_data(args.end_date)
         )
         snapshot = compute_shadow_snapshot(frame)
-        if (
-            args.input_csv is None
-            and snapshot["data"].get("latest_session_cross_checked") is not True
-        ):
-            raise ValueError("最新交易日尚未通过第二行情源核验，停止实时影子信号")
     except (KeyError, OSError, TimeoutError, ValueError) as exc:
         snapshot = {
             "schema_version": 1,

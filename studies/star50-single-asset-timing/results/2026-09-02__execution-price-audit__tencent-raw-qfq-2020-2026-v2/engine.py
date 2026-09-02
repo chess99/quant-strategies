@@ -778,7 +778,7 @@ def _fetch_tencent_qfq(end: pd.Timestamp) -> pd.DataFrame:
         rows.extend(batch)
         batch_start = batch_end + pd.Timedelta(days=1)
     # 腾讯长区间查询偶尔会静默漏掉最后一个已完成交易日，而较短尾窗能够返回。
-    # 固定查询最近 30 条以发现最新日期，再精确补取该日，避免把接口缓存误当成休市。
+    # 固定追加一年重叠尾窗并按日期保留最后一条，避免把接口分页行为误当成休市。
     recent_payload = _fetch_json(
         "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
         {

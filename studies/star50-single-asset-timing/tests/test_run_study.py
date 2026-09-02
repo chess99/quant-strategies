@@ -139,6 +139,30 @@ def test_cross_source_normalization_keeps_primary_only_session():
     assert normalized.index.max() == dates[-1]
     assert normalized.attrs["cross_checked_common_sessions"] == 259
     assert normalized.attrs["verification_missing_sessions"] == 1
+    assert not normalized.attrs["latest_session_cross_checked"]
+    assert normalized.attrs["latest_common_date"] == dates[-2].strftime("%Y-%m-%d")
+
+
+def test_tencent_fetch_uses_recent_overlap_to_avoid_stale_long_range(monkeypatch):
+    module = load_module()
+    calls = []
+
+    def fake_fetch(_, params):
+        fields = params["param"].split(",")
+        start, end = fields[2], fields[3]
+        calls.append((start, end))
+        date = "2026-09-02" if start == "" and end == "" else start
+        open_price = "1.714" if start == end == "2026-09-02" else "1.0"
+        row = [date, open_price, "1.0", "1.01", "0.99", "1000"]
+        return {"data": {"sh588000": {"qfqday": [row]}}}
+
+    monkeypatch.setattr(module, "_fetch_json", fake_fetch)
+
+    result = module._fetch_tencent_qfq(pd.Timestamp("2026-09-02"))
+
+    assert ("", "") in calls
+    assert result["date"].max() == "2026-09-02"
+    assert result.loc[result["date"].eq("2026-09-02"), "open"].iloc[0] == "1.714"
 
 
 def test_walk_forward_selection_uses_only_prior_sessions():

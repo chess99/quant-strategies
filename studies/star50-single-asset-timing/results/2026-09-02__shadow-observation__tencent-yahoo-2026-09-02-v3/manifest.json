@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "study_id": "star50-single-asset-frozen-shadow-observation",
+  "archived_at": "2026-09-02",
+  "observation_date": "2026-09-02",
+  "symbol": "SH588000",
+  "evidence_class": "frozen future shadow observation",
+  "revision": 3,
+  "supersedes": "results/2026-09-02__shadow-observation__tencent-yahoo-2026-09-02-v2",
+  "correction_note": "v2使用无日期尾窗的两位小数临时OHLC；v3改为按最新交易日精确查询的三位小数OHLC，并保留相同的双源最新日期证明。",
+  "freeze_date": "2026-09-01",
+  "new_sessions_since_freeze": 1,
+  "data": {
+    "input_file": "raw/input-sh588000.csv",
+    "input_sha256": "47835e2efaf3936fb24e96583203feff921a51a1610dcd74fc286d5598af1e66",
+    "sessions": 1408,
+    "maximum_ohlc_relative_error": 0.006920378674688139,
+    "median_volume_relative_error": 1.1980128767228653e-08
+  },
+  "models": [
+    {
+      "config": "risk-friction__threshold-0p05",
+      "target_weight": 0.2482052765086407,
+      "action": "hold"
+    },
+    {
+      "config": "production-ensemble__threshold-0p1",
+      "target_weight": 0.11890493840797611,
+      "action": "hold"
+    }
+  ],
+  "source_file": "source.py",
+  "source_sha256": "87fb9106424a79b93d0db64fa50ba308f25f3fb5492aa3e94d1fba78561ecfa3",
+  "artifacts": {
+    "engine.py": {
+      "sha256": "cb00c8725c8bc746365dff626f82c4ba65b5efe5a406b265f1ef36a43dab8069",
+      "bytes": 85190
+    },
+    "extension.py": {
+      "sha256": "766d553b49d0fdbb8f64063229f03894206979af8577f8426017da69b59307bd",
+      "bytes": 42859
+    },
+    "raw/input-sh588000.csv": {
+      "sha256": "47835e2efaf3936fb24e96583203feff921a51a1610dcd74fc286d5598af1e66",
+      "bytes": 100403
+    },
+    "raw/snapshot.json": {
+      "sha256": "4915384583be351a97d831edf754fd264f1e63b090841d90deb9d3a1fe62b8a4",
+      "bytes": 1501
+    },
+    "report.md": {
+      "sha256": "4e7910152518a6e67085053c463dd6c4d7bac787fc9fef4f575f42e2b1ab17a2",
+      "bytes": 1348
+    },
+    "signals.py": {
+      "sha256": "b04de279d2bec7d697d43312df3acfbe05f60176404841ed23b5ed1a89d721f7",
+      "bytes": 5376
+    },
+    "source.py": {
+      "sha256": "87fb9106424a79b93d0db64fa50ba308f25f3fb5492aa3e94d1fba78561ecfa3",
+      "bytes": 9374
+    }
+  }
+}

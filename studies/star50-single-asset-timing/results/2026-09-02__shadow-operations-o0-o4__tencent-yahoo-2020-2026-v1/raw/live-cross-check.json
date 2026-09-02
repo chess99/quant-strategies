@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "symbol": "SH588000",
+  "status": "shadow_only",
+  "evidence_class": "post_selection_historical_development",
+  "observation_date": "2026-09-01",
+  "data": {
+    "sessions": 1407,
+    "source": "Tencent qfq cross-checked with Yahoo adjusted daily data",
+    "maximum_ohlc_relative_error": 0.006920378674688139,
+    "median_volume_relative_error": 1.1996019366056832e-08
+  },
+  "models": [
+    {
+      "config": "risk-friction__threshold-0p05",
+      "objective": "risk",
+      "params": {
+        "kind": "risk-core",
+        "trend_period": 200,
+        "vol_period": 60,
+        "target_vol": 0.15,
+        "rebalance_threshold": 0.05
+      },
+      "target_weight": 0.2482052765086407,
+      "previous_target_weight": 0.2482052765086407,
+      "action": "hold",
+      "last_target_change": "2026-07-21"
+    },
+    {
+      "config": "production-ensemble__threshold-0p1",
+      "objective": "balanced",
+      "params": {
+        "kind": "fixed-ensemble",
+        "rebalance_threshold": 0.1
+      },
+      "target_weight": 0.11890493840797611,
+      "previous_target_weight": 0.11890493840797611,
+      "action": "hold",
+      "last_target_change": "2026-08-03"
+    }
+  ]
+}

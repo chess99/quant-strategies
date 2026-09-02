@@ -778,7 +778,7 @@ def _fetch_tencent_qfq(end: pd.Timestamp) -> pd.DataFrame:
         rows.extend(batch)
         batch_start = batch_end + pd.Timedelta(days=1)
     # 腾讯长区间查询偶尔会静默漏掉最后一个已完成交易日，而较短尾窗能够返回。
-    # 固定查询最近 30 条以发现最新日期，再精确补取该日，避免把接口缓存误当成休市。
+    # 固定追加一年重叠尾窗并按日期保留最后一条，避免把接口分页行为误当成休市。
     recent_payload = _fetch_json(
         "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
         {
@@ -788,30 +788,7 @@ def _fetch_tencent_qfq(end: pd.Timestamp) -> pd.DataFrame:
         },
     )
     recent_instrument = recent_payload.get("data", {}).get("sh588000", {})
-    recent_batch = recent_instrument.get("qfqday") or recent_instrument.get("day") or []
-    recent_dates = [
-        pd.Timestamp(row[0]).normalize()
-        for row in recent_batch
-        if pd.Timestamp(row[0]).normalize() <= end
-    ]
-    if recent_dates:
-        latest_date = max(recent_dates)
-        # 无日期尾窗的最新一行可能只保留两位小数；再按确切日期获取三位精度。
-        exact_payload = _fetch_json(
-            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
-            {
-                "param": (
-                    f"sh588000,day,{latest_date:%Y-%m-%d},"
-                    f"{latest_date:%Y-%m-%d},640,qfq"
-                ),
-                "_": str(pd.Timestamp.now(tz="UTC").value),
-            },
-        )
-        exact_instrument = exact_payload.get("data", {}).get("sh588000", {})
-        exact_batch = exact_instrument.get("qfqday") or exact_instrument.get("day") or []
-        if not exact_batch:
-            raise ValueError("腾讯行情源无法返回最新日精确 OHLC")
-        rows.extend(exact_batch)
+    rows.extend(recent_instrument.get("qfqday") or recent_instrument.get("day") or [])
     if not rows:
         raise ValueError("腾讯行情源未返回 588000 日线")
     frame = pd.DataFrame(rows, columns=["date", "open", "close", "high", "low", "volume"])

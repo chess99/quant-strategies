@@ -736,15 +736,6 @@ def normalize_cross_checked_data(
     output.attrs["median_volume_relative_error"] = float(volume_error)
     output.attrs["cross_checked_common_sessions"] = int(len(merged))
     output.attrs["verification_missing_sessions"] = int(len(east) - len(merged))
-    latest_common_date = pd.Timestamp(merged["date"].max()).normalize()
-    latest_primary_date = pd.Timestamp(primary_sorted["date"].max()).normalize()
-    latest_verification_date = pd.Timestamp(west["date"].max()).normalize()
-    output.attrs["latest_common_date"] = latest_common_date.strftime("%Y-%m-%d")
-    output.attrs["latest_primary_date"] = latest_primary_date.strftime("%Y-%m-%d")
-    output.attrs["latest_verification_date"] = latest_verification_date.strftime("%Y-%m-%d")
-    output.attrs["latest_session_cross_checked"] = bool(
-        latest_primary_date == latest_common_date
-    )
     output.attrs["source"] = "Tencent qfq cross-checked with Yahoo adjusted daily data"
     output.attrs["amount_quality"] = "close_times_volume_proxy_not_used_by_signals"
     return output
@@ -777,41 +768,6 @@ def _fetch_tencent_qfq(end: pd.Timestamp) -> pd.DataFrame:
         batch = instrument.get("qfqday") or instrument.get("day") or []
         rows.extend(batch)
         batch_start = batch_end + pd.Timedelta(days=1)
-    # 腾讯长区间查询偶尔会静默漏掉最后一个已完成交易日，而较短尾窗能够返回。
-    # 固定查询最近 30 条以发现最新日期，再精确补取该日，避免把接口缓存误当成休市。
-    recent_payload = _fetch_json(
-        "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
-        {
-            "param": "sh588000,day,,,30,qfq",
-            # 该接口的边缘缓存可能在收盘后仍返回前一交易日；仅尾窗绕过旧缓存。
-            "_": str(pd.Timestamp.now(tz="UTC").value),
-        },
-    )
-    recent_instrument = recent_payload.get("data", {}).get("sh588000", {})
-    recent_batch = recent_instrument.get("qfqday") or recent_instrument.get("day") or []
-    recent_dates = [
-        pd.Timestamp(row[0]).normalize()
-        for row in recent_batch
-        if pd.Timestamp(row[0]).normalize() <= end
-    ]
-    if recent_dates:
-        latest_date = max(recent_dates)
-        # 无日期尾窗的最新一行可能只保留两位小数；再按确切日期获取三位精度。
-        exact_payload = _fetch_json(
-            "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get",
-            {
-                "param": (
-                    f"sh588000,day,{latest_date:%Y-%m-%d},"
-                    f"{latest_date:%Y-%m-%d},640,qfq"
-                ),
-                "_": str(pd.Timestamp.now(tz="UTC").value),
-            },
-        )
-        exact_instrument = exact_payload.get("data", {}).get("sh588000", {})
-        exact_batch = exact_instrument.get("qfqday") or exact_instrument.get("day") or []
-        if not exact_batch:
-            raise ValueError("腾讯行情源无法返回最新日精确 OHLC")
-        rows.extend(exact_batch)
     if not rows:
         raise ValueError("腾讯行情源未返回 588000 日线")
     frame = pd.DataFrame(rows, columns=["date", "open", "close", "high", "low", "volume"])

@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 import importlib.util
+import json
 import sys
 from pathlib import Path
+from types import SimpleNamespace
 
 import pytest
 
@@ -54,3 +56,45 @@ def test_shadow_snapshot_rejects_wrong_symbol():
 
     with pytest.raises(ValueError, match="SH588000"):
         module.compute_shadow_snapshot(frame)
+
+
+def test_network_failure_returns_structured_halt_without_orders(monkeypatch, capsys):
+    module = load_module()
+
+    def fail(_):
+        raise OSError("verification source unavailable")
+
+    monkeypatch.setattr(module.engine, "fetch_market_data", fail)
+    monkeypatch.setattr(
+        module,
+        "parse_args",
+        lambda: SimpleNamespace(input_csv=None, end_date="2026-09-02", output=None),
+    )
+
+    assert module.main() == 2
+    result = json.loads(capsys.readouterr().out)
+    assert result["status"] == "halted"
+    assert result["stage"] == "market_data_or_signal"
+    assert result["models"] == []
+    assert "verification source unavailable" in result["reason"]
+
+
+def test_live_latest_session_without_second_source_halts(monkeypatch, capsys):
+    module = load_module()
+    frame = module.engine.load_input_csv(INPUT_PATH)
+    frame.attrs["latest_session_cross_checked"] = False
+    frame.attrs["latest_common_date"] = "2026-08-31"
+    frame.attrs["verification_missing_sessions"] = 1
+
+    monkeypatch.setattr(module.engine, "fetch_market_data", lambda _: frame)
+    monkeypatch.setattr(
+        module,
+        "parse_args",
+        lambda: SimpleNamespace(input_csv=None, end_date="2026-09-01", output=None),
+    )
+
+    assert module.main() == 2
+    result = json.loads(capsys.readouterr().out)
+    assert result["status"] == "halted"
+    assert "最新交易日尚未通过第二行情源" in result["reason"]
+    assert result["models"] == []

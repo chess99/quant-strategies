@@ -1,0 +1,3 @@
+model,objective,required_benchmark_return_fraction,h252_severe,h252_drawdown,h252_sharpe,h252_positive,h252_return_adequacy,h252_return_timing,h504_severe,h504_drawdown,h504_sharpe,h504_positive,h504_return_adequacy,h504_return_timing,risk_robust,return_timing_robust
+risk-friction__threshold-0p05,risk,0.5,True,True,True,False,True,False,True,True,True,True,True,True,False,False
+production-ensemble__threshold-0p1,balanced,0.7,True,True,True,False,True,False,True,True,True,True,True,True,False,False

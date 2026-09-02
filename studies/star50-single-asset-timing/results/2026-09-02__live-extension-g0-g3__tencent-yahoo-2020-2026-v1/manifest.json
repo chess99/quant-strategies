@@ -1,0 +1,165 @@
+{
+  "schema_version": 2,
+  "study_id": "star50-single-asset-timing-live-extension",
+  "archived_at": "2026-09-02",
+  "run_id": "tencent-yahoo-2020-2026-v1",
+  "symbol": "SH588000",
+  "evidence_class": "post-selection historical development; not untouched OOS",
+  "data": {
+    "input_file": "raw/input-sh588000.csv",
+    "input_sha256": "4853333cba2c0f7254f8f30148b30460c31b7014257cbc90010c0251473f2464",
+    "start": "2020-11-16",
+    "end": "2026-09-01",
+    "sessions": 1407,
+    "source_phase1_archive": "studies/star50-single-asset-timing/results/2026-09-01__walk-forward-technical-families__tencent-yahoo-2020-2026-v1"
+  },
+  "protocol": {
+    "generations": [
+      "G0",
+      "G1",
+      "G2",
+      "G3"
+    ],
+    "config_count": 38,
+    "oos_start": "2023-12-25",
+    "oos_end": "2026-09-01",
+    "future_confirmation_quarters": 8,
+    "historical_stop_rule": "no new rules after G3 results"
+  },
+  "benchmark_metrics": {
+    "total_return": 0.953679176704332,
+    "annualized_return": 0.29595032193585413,
+    "maximum_drawdown": 0.300947255129816,
+    "sharpe": 0.8451395036761942,
+    "annualized_volatility": 0.39805629356713645,
+    "turnover": 0.286211600268025,
+    "average_cash_ratio": 0.0078510338628301,
+    "maximum_cash_ratio": 0.012557969222173317,
+    "longest_underwater_trading_days": 180,
+    "yearly_returns": {
+      "2023": 0.011795276704331892,
+      "2024": 0.1634326664763852,
+      "2025": 0.35308464991109023,
+      "2026": 0.22657576374144806
+    },
+    "calmar": 0.983395983486188,
+    "average_exposure": 0.9921489661371699,
+    "invested_session_ratio": 1.0,
+    "filled_trade_count": 1,
+    "rejected_order_count": 0,
+    "maximum_volume_participation": 0.0004956323755425096,
+    "total_turnover": 0.7393799673590646
+  },
+  "white_reality_check": {
+    "block_20": {
+      "block_length": 20,
+      "repetitions": 2000,
+      "best_family": "risk-core__trend-200-vol-60-target-0p2",
+      "observed_best_annualized_mean_excess": -0.0907573896542647,
+      "p_value": 0.7891054472763618
+    },
+    "block_60": {
+      "block_length": 60,
+      "repetitions": 2000,
+      "best_family": "risk-core__trend-200-vol-60-target-0p2",
+      "observed_best_annualized_mean_excess": -0.0907573896542647,
+      "p_value": 0.8370814592703648
+    }
+  },
+  "engineering_candidate_count": 10,
+  "pareto_candidate_count": 7,
+  "shadow_specs": [
+    "risk-friction__threshold-0p05",
+    "production-ensemble__threshold-0p1"
+  ],
+  "source_file": "source.py",
+  "source_sha256": "766d553b49d0fdbb8f64063229f03894206979af8577f8426017da69b59307bd",
+  "engine_file": "engine.py",
+  "engine_sha256": "bf36c2f234b4c639b8f27c13c5ec794d0b343ecf8e01dde005842593aeec938e",
+  "artifacts": {
+    "engine.py": {
+      "sha256": "bf36c2f234b4c639b8f27c13c5ec794d0b343ecf8e01dde005842593aeec938e",
+      "bytes": 82872
+    },
+    "raw/all-config-decisions.csv": {
+      "sha256": "b803d4f2e731034c101b203a02b9612b137a5ad32d3ae4beca22a5b1e6d71751",
+      "bytes": 1385598
+    },
+    "raw/all-config-equity.csv": {
+      "sha256": "e2a666b4ea2b978860afe12278783a6947c61b2d9a6dbafb890fd2bd0e8be5cf",
+      "bytes": 3008813
+    },
+    "raw/all-config-metrics.csv": {
+      "sha256": "01dd6b17c09078ee8bde35f27858fdfbbb2e5bb8334e8fac51467a5f4b3fdd64",
+      "bytes": 25832
+    },
+    "raw/all-config-trades.csv": {
+      "sha256": "95e942a916dd803d9313a02398fa747e7271607a8e8115c94ee44254d2d6a7ab",
+      "bytes": 1576820
+    },
+    "raw/config-registry.csv": {
+      "sha256": "9efd55115dc8eea5ad16dc9084c67d3b2d27db4f6126e7a4ec0622db9ec1bf94",
+      "bytes": 5738
+    },
+    "raw/current-signals.csv": {
+      "sha256": "f88e44c16616657a8f32a733e33b56db8e62502cb1884377ecf231c723317955",
+      "bytes": 3371
+    },
+    "raw/deflated-sharpe.csv": {
+      "sha256": "88224d64bcfd135fafc7a3791d9f71b659311f58832f7e45a493cc28fc119a8a",
+      "bytes": 5520
+    },
+    "raw/engineering-finalists.csv": {
+      "sha256": "ee51646503d807f1ee78c17b6bb43339e0d2e126970e284f07684fb0e3338089",
+      "bytes": 5697
+    },
+    "raw/execution-robustness.csv": {
+      "sha256": "1ee7f6778b52197338ef47aa7df6938aa1223f8bc4d7b048b938321c1c080672",
+      "bytes": 72720
+    },
+    "raw/frozen-shadow-specs.csv": {
+      "sha256": "3f0d776f85593082eca09ec10805f8d4e0c5fe95da8bda607013b8533040f7e5",
+      "bytes": 2096
+    },
+    "raw/generation-summary.csv": {
+      "sha256": "8aca95c615a57f75857882f993ce6696010fe41d2bd264d1446f11d3a68760b7",
+      "bytes": 561
+    },
+    "raw/input-sh588000.csv": {
+      "sha256": "4853333cba2c0f7254f8f30148b30460c31b7014257cbc90010c0251473f2464",
+      "bytes": 99494
+    },
+    "raw/objective-gates.csv": {
+      "sha256": "12d934c911d5dedb0eb14c005c2e45d98b925f38a2bec9d7adc0dc20c5902494",
+      "bytes": 3555
+    },
+    "raw/paired-block-bootstrap.csv": {
+      "sha256": "0e4fec8a56728766f7d2ef6acffabd53a55e6eb4c0a3d843d6d20ed4627a924c",
+      "bytes": 8033
+    },
+    "raw/pareto-front.csv": {
+      "sha256": "3316bd4590084315d022a9b2cadab25feb1014b2f976e6ef4aba9a830dc2edb3",
+      "bytes": 11194
+    },
+    "raw/quarter-metrics.csv": {
+      "sha256": "a1a3dd5c490548947560f54af3d298f76fdd12c72b4a46835d54291d81c8128f",
+      "bytes": 77423
+    },
+    "raw/regime-metrics.csv": {
+      "sha256": "dcba2d05b1a11d85a6ed73b246beb2d68af69d691ae027eb2c437168ea60a289",
+      "bytes": 35059
+    },
+    "raw/white-reality-check.json": {
+      "sha256": "0431e573195d7a7bd02c7dd8e7188d2ba71da6f7e821a0d882e1665c466b7184",
+      "bytes": 479
+    },
+    "report.md": {
+      "sha256": "296f3fbd65615a5697a43d7782167139919fa24631f3f9301100c4cff7917117",
+      "bytes": 7914
+    },
+    "source.py": {
+      "sha256": "766d553b49d0fdbb8f64063229f03894206979af8577f8426017da69b59307bd",
+      "bytes": 42859
+    }
+  }
+}

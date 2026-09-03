@@ -1,0 +1,2 @@
+﻿scenario,source_vintage_grade,strict_natural_oos,period_start,period_end,total_return,annualized_return,maximum_drawdown,sharpe
+current-snapshot-post-publication-replay,C,False,2024-10-08,2026-07-23,0.4436991228887046,0.2337688636334676,0.17322010343965966,0.907973652304444

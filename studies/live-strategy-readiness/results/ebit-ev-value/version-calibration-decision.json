@@ -1,0 +1,18 @@
+{
+  "calibration_passed": false,
+  "source_vintage_after": "C",
+  "checks": {
+    "annualized_return": false,
+    "maximum_drawdown": true,
+    "sharpe": true,
+    "median_holdings": true,
+    "valid_month_ratio": false
+  },
+  "differences": {
+    "annualized_return": 0.10163985571826556,
+    "maximum_drawdown": 0.05223102747723424,
+    "sharpe": 0.04663046147522654
+  },
+  "post_publication_performance_calculated": false,
+  "parameter_selection_used": false
+}

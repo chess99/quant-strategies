@@ -1,0 +1,19 @@
+﻿analysis_type,name,value,absolute_share,period_start,period_end,method
+asset-contribution,SH515880,0.6907474792539713,0.40387242264948153,2021-09-01,2026-07-24,prior-close exposure times close return; excludes intraday/fee residual
+asset-contribution,SH518880,0.3409252297233065,0.19933521671247015,2021-09-01,2026-07-24,prior-close exposure times close return; excludes intraday/fee residual
+asset-contribution,SH513100,0.3080364130894073,0.1801054888438236,2021-09-01,2026-07-24,prior-close exposure times close return; excludes intraday/fee residual
+asset-contribution,SZ159985,0.2014224973427695,0.11776950972849372,2021-09-01,2026-07-24,prior-close exposure times close return; excludes intraday/fee residual
+asset-contribution,SH512720,-0.048407772199443075,0.028303489799729003,2021-09-01,2026-07-24,prior-close exposure times close return; excludes intraday/fee residual
+asset-contribution,SH515790,0.03929649183607498,0.022976224794337433,2021-09-01,2026-07-24,prior-close exposure times close return; excludes intraday/fee residual
+asset-contribution,SH510300,-0.030354754126878304,0.01774808950644637,2021-09-01,2026-07-24,prior-close exposure times close return; excludes intraday/fee residual
+asset-contribution,SZ159992,-0.020546036099770834,0.012013040401421695,2021-09-01,2026-07-24,prior-close exposure times close return; excludes intraday/fee residual
+asset-contribution,SH512660,0.01375421584907439,0.008041938108278131,2021-09-01,2026-07-24,prior-close exposure times close return; excludes intraday/fee residual
+asset-contribution,SZ159915,-0.01089471744413049,0.0063700209706081985,2021-09-01,2026-07-24,prior-close exposure times close return; excludes intraday/fee residual
+asset-contribution,SH515700,-0.0054705705681304395,0.003198582195351658,2021-09-01,2026-07-24,prior-close exposure times close return; excludes intraday/fee residual
+asset-contribution,SH510150,0.0004549021949769409,0.00026597628955856616,2021-09-01,2026-07-24,prior-close exposure times close return; excludes intraday/fee residual
+factor-beta,intercept-annualized,0.13019757389555572,,2021-09-01,2026-07-24,OLS daily returns; model_r_squared=0.354348
+factor-beta,domestic-large,-0.12918853749602188,,2021-09-01,2026-07-24,OLS daily returns; model_r_squared=0.354348
+factor-beta,domestic-growth,0.2770427578619073,,2021-09-01,2026-07-24,OLS daily returns; model_r_squared=0.354348
+factor-beta,nasdaq,0.19956257797755678,,2021-09-01,2026-07-24,OLS daily returns; model_r_squared=0.354348
+factor-beta,gold,0.4356972576976826,,2021-09-01,2026-07-24,OLS daily returns; model_r_squared=0.354348
+factor-beta,commodity,0.29217327665861936,,2021-09-01,2026-07-24,OLS daily returns; model_r_squared=0.354348

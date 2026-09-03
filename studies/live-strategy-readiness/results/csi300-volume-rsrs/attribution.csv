@@ -1,0 +1,6 @@
+analysis_type,status,strategy_value,baseline_value,reason
+buy-hold-sharpe,computed,0.23702440544572428,0.3700774356088107,strategy did not improve risk-adjusted return
+half-cash-sharpe,computed,0.23702440544572428,0.32886436925641577,strategy did not improve risk-adjusted return
+half-cash-drawdown,computed,0.3848446206001014,0.25290897386689426,strategy had materially worse drawdown
+factor-beta,not-run,,,OOS failed before deep attribution stage
+

@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "candidate_id": "multi-asset-etf-momentum-epo-safe",
+  "run_id": "formal-source-and-production-preflight-v1",
+  "created_at": "2026-08-25",
+  "formal_source_sha256": "656b5e92c180a455feee4440b12ae2b90ae027a754785bd4d90564c5d3b3f995",
+  "audit_engine_sha256": "bab0d1affce1b5fe31091da14e6805d9cb785319f8b0361155f6c3df382f11e4",
+  "protocol_sha256": "f3dab51df4171cfdc40f5ae895e2b70fb2d0dc8ea4455991f69b1a5e921cafa3",
+  "parent_target_snapshot_sha256": "95d906f7d2711e14776d5b7c7ae867d898392247e5bb0ff8ac45f5c94d85c7d4",
+  "data_manifests": {
+    "etf_daily": {
+      "path": "D:\\code\\_open-source\\_data\\quant-research\\manifests\\etf_daily.json",
+      "sha256": "df62ef9d3b84c453f1259f8ff2763bb0204010e6a853179bf9076a757e6413c2"
+    },
+    "etf_master": {
+      "path": "D:\\code\\_open-source\\_data\\quant-research\\manifests\\etf_master.json",
+      "sha256": "53e2862faf4a1efc35b6e78744e1c7b087f550be8357f1bcc45a08fe12e51008"
+    }
+  },
+  "artifacts": {
+    "platform_source_preflight": "platform-source-preflight.csv",
+    "production_asset_audit": "production-asset-audit.csv",
+    "production_field_audit": "production-field-audit.csv",
+    "audit": "platform-production-audit.json"
+  }
+}

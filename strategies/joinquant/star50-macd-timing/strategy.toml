@@ -1,0 +1,17 @@
+schema_version = 1
+id = "star50-macd-timing"
+title = "科创50 ETF MACD 择时"
+platform = "joinquant"
+market = "CN-ETF"
+status = "research"
+baseline = "baseline.py"
+
+[execution]
+language = "python3"
+frequency = "daily"
+signal_time = "previous_trading_day_close"
+execution_time = "next_trading_day_open"
+
+[research]
+primary_benchmark = "588000.XSHG"
+owner = ""

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "candidate_id": "lazy-etf-regime-switch",
+  "status": "R1",
+  "source_vintage_grade": "B",
+  "strict_natural_oos": false,
+  "source_sha256": "7c3fce94d72a53e32280608259076309ccf0b7ed4d22848ca83d8f932dbb56cc",
+  "experiment_count": 3085,
+  "gates": {
+    "causal_implementation": true,
+    "parameter_neighborhood": true,
+    "cost_stress": true,
+    "capacity": false,
+    "multiple_testing": false,
+    "credible_oos": false,
+    "platform_alignment": false,
+    "production_qdii_data": false
+  },
+  "decision": "remain R1 until capacity, PBO/DSR, platform, and production ETF data gaps close"
+}

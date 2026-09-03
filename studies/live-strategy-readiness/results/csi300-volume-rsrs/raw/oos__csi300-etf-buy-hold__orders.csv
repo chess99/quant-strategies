@@ -1,0 +1,2 @@
+order_id,trade_date,symbol,side,execution,requested_shares,filled_shares,unfilled_shares,price,gross_value,commission,tax,reason
+1,2020-05-15,SH510300,buy,open,225100,224900,200,4.444267976700935,999515.8679600403,299.8547603880121,0.0,partial_volume_or_cash

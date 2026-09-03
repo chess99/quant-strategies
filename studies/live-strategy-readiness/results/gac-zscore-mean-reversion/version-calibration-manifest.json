@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "candidate_id": "gac-zscore-mean-reversion",
+  "phase": "version-calibration",
+  "created_at": "2026-08-25",
+  "source_sha256": "f80bee128cb5d78e0125eb333f787d0736453b5a87f3bae3a90995df2bb618b2",
+  "engine_sha256": "4ca8a75ab78ae4ddc4860eb22320cae5e843d9692fbcc7138c9dd0fbb7394cf3",
+  "protocol_sha256": "c5be75591e0c2aa6bd5faa9ea52d324b5f13b7a96bb734a3a753067967e5c5c2",
+  "data_provenance": {
+    "dataset": "qlib_daily_bars",
+    "provider": "qlib-community-cn",
+    "provider_uri": "D:\\code\\_open-source\\_data\\qlib\\cn_data",
+    "quality_grade": "B",
+    "data_version": "d8307581890ad79483a3b444f6034913b489bb4fd2f8182edf2b224dffaa5559",
+    "source_files": [
+      {
+        "path": "D:\\code\\_open-source\\_data\\qlib\\cn_data\\calendars\\day.txt",
+        "sha256": "6bfe26c7ec40e1c1f433794d80632a281d78213edda2889009e69085753bc99d"
+      },
+      {
+        "path": "D:\\code\\_open-source\\_data\\qlib\\cn_data\\instruments\\all.txt",
+        "sha256": "9c3f6c7e13bde3380c06d83a24ee38bc26c31f1339f4b1aa9e3252d0e385622f"
+      }
+    ]
+  },
+  "parameter_selection_used_window": false,
+  "decision": {
+    "unlocked": true,
+    "pass_count": 4,
+    "gates_passed": {
+      "annualized_return": true,
+      "maximum_drawdown": true,
+      "sharpe": true,
+      "completed_positions": true
+    },
+    "gaps": {
+      "annualized_return": 0.03658973487646677,
+      "maximum_drawdown": 0.00017269614185116966,
+      "sharpe": 0.03633082876138238,
+      "completed_position_relative": 0.0
+    },
+    "post_publication_performance_calculated": false
+  },
+  "results": [
+    {
+      "total_return": 5.738286021677876,
+      "annualized_return": 0.42789266994110675,
+      "maximum_drawdown": 0.17063776172964118,
+      "sharpe": 1.7926586587098823,
+      "annualized_volatility": 0.2109499263634708,
+      "turnover": 33.12968643128827,
+      "average_cash_ratio": 0.6592295399741238,
+      "maximum_cash_ratio": 1.0,
+      "longest_underwater_trading_days": 113,
+      "yearly_returns": {
+        "2013": 0.3025823343097691,
+        "2014": 0.012210951927718261,
+        "2015": 1.9359996878855847,
+        "2016": 0.17094961782174356,
+        "2017": 0.24306976157845006,
+        "2018": 0.1958687283139653
+      },
+      "scenario": "source-cost-calibration",
+      "method": "signal",
+      "period_start": "2013-01-04",
+      "period_end": "2018-07-06",
+      "completed_positions": 15,
+      "trade_count": 30,
+      "order_count": 30,
+      "rejected_order_count": 0,
+      "parameter_selection_used_window": false
+    }
+  ]
+}

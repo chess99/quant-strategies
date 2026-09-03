@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "study_id": "star50-single-asset-frozen-shadow-observation",
+  "archived_at": "2026-09-02",
+  "observation_date": "2026-09-02",
+  "symbol": "SH588000",
+  "evidence_class": "frozen future shadow observation",
+  "freeze_date": "2026-09-01",
+  "new_sessions_since_freeze": 1,
+  "data": {
+    "input_file": "raw/input-sh588000.csv",
+    "input_sha256": "91f491e5614762696c2d458b0306df24c41d05fe22fd44c6fb0228089f126377",
+    "sessions": 1408,
+    "maximum_ohlc_relative_error": 0.006920378674688139,
+    "median_volume_relative_error": 1.1980128767228653e-08
+  },
+  "models": [
+    {
+      "config": "risk-friction__threshold-0p05",
+      "target_weight": 0.2482052765086407,
+      "action": "hold"
+    },
+    {
+      "config": "production-ensemble__threshold-0p1",
+      "target_weight": 0.11890493840797611,
+      "action": "hold"
+    }
+  ],
+  "source_file": "source.py",
+  "source_sha256": "ca3f84e66e9900b991ac5914ed21b5dd2c66cbd56f311d206d6629847169a605",
+  "artifacts": {
+    "engine.py": {
+      "sha256": "06ebae1fa7b34383032d9ae1035e452bcdfe0741551e4b8ca019dfce28e52434",
+      "bytes": 83597
+    },
+    "extension.py": {
+      "sha256": "766d553b49d0fdbb8f64063229f03894206979af8577f8426017da69b59307bd",
+      "bytes": 42859
+    },
+    "raw/input-sh588000.csv": {
+      "sha256": "91f491e5614762696c2d458b0306df24c41d05fe22fd44c6fb0228089f126377",
+      "bytes": 100398
+    },
+    "raw/snapshot.json": {
+      "sha256": "f8de47fd696c1d6156e95cea4b60b30646c9e334f23d4e47224c90a4bc59f851",
+      "bytes": 1243
+    },
+    "report.md": {
+      "sha256": "47b4bdce04e2e0cb23a16503dea964e1a8e63b1bc31e73fb837b211360eac09c",
+      "bytes": 940
+    },
+    "signals.py": {
+      "sha256": "c8d2afa2956e38a3ee8c1f0a7bc8836b23f3f96bcd04623e932bdd8a708eb52e",
+      "bytes": 4522
+    },
+    "source.py": {
+      "sha256": "ca3f84e66e9900b991ac5914ed21b5dd2c66cbd56f311d206d6629847169a605",
+      "bytes": 7523
+    }
+  }
+}

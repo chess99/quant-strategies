@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "study_id": "live-strategy-readiness",
+  "candidate_id": "white-horse-offense-defense",
+  "candidate_name": "白马股攻防转换策略",
+  "status": "source-audit-complete",
+  "research_level": "R0",
+  "publication": {
+    "url": "https://www.joinquant.com/post/50043",
+    "date": "2024-10-05",
+    "modified_at": "2025-07-06 12:04:08",
+    "archive_collected_at": "2026-07-27T02:11:55+08:00"
+  },
+  "public_backtest": {
+    "id": "ab06c74e616a456709c8a24555052009",
+    "start": "2013-04-11",
+    "end": "2024-10-03",
+    "annual_return": 0.35882127,
+    "max_drawdown": 0.23422479,
+    "sharpe": 1.3764410020899
+  },
+  "source_vintage": {
+    "grade": "C",
+    "strict_natural_oos": false,
+    "current_snapshot_only": true,
+    "reason": "帖子在发布后于 2025-07-06 修改，当前源码到 2026-07-27 才归档；无法证明当前实现和参数在 2024-10-05 已冻结。"
+  },
+  "frozen_source": {
+    "path": "joinquant_archive/sources/聚宽2026年精选/18国庆节献礼：实例说明白马股攻防转换策略.py",
+    "sha256": "6c6905417ffd57c263e885dfe8be4be9c64e0ac403217909ab15f9c102c7f8ad",
+    "meaning": "2026-07-27 current archive snapshot, not a proven 2024 publication snapshot"
+  },
+  "investment_hypothesis": "用沪深 300 的 220 日位置和近 60 日涨幅划分冷暖热状态，在不同状态切换价值质量与成长门槛。",
+  "frozen_parameters": {
+    "universe": "000300.XSHG",
+    "holding_count": 5,
+    "temperature_lookback_days": 220,
+    "cold_height": 0.2,
+    "hot_height": 0.9,
+    "warm_60d_gain": 0.2,
+    "rebalance": "first trading day monthly, selection before open, trade 09:45"
+  },
+  "post_publication_replay": {
+    "ready": false,
+    "available_window": {"start": "2024-10-08", "end": "2026-07-23"},
+    "reason": "版本为 C，且当前源码含多项硬性因果/执行错误；直接运行不能作为有效发布后证据。"
+  },
+  "causal_reconstruction": {
+    "ready": true,
+    "data_quality": "B",
+    "required_correctness_repairs": [
+      "沪深 300 成分显式使用前一交易日，删除无日期调用覆盖 PIT 结果的语句",
+      "财务查询显式使用前一交易日和公告日可见版本",
+      "不得在 05:00 读取当天 day_open；交易状态在下单时按可得字段判断",
+      "卖出限制检查使用跌停和当前价，不能用持仓成本与涨停价比较",
+      "补全 builtins mean/min/max、真实成本、整手、T+1、部分成交和卖出失败"
+    ]
+  },
+  "pre_result_success_criteria": {
+    "causal_full_sample_sharpe": ">= 0.5",
+    "causal_full_sample_max_drawdown": "<= 0.40",
+    "simple_baseline": "相对沪深 300 等权或简单 PB/ROA 排名有可解释增量",
+    "hard_stop": "因果修复后优势基本消失，或收益依赖开盘前不可得字段时停止当前版本"
+  },
+  "experiment_policy": {
+    "tune_on_post_publication_window": false,
+    "correctness_repairs_only_before_first_causal_run": true,
+    "alpha_change_requires_new_candidate": true,
+    "report_failed_experiments": true
+  },
+  "decision": "维持 R0；先按预注册清单做因果重建，所得发布后结果只能是当前快照的降级回放，不是天然 OOS。"
+}

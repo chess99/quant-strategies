@@ -1,0 +1,10 @@
+{
+  "selected_config": "aroon__period-25-threshold-80",
+  "trial_count": 122,
+  "observations": 1155,
+  "observed_annualized_sharpe": 0.9875013140911979,
+  "expected_maximum_annualized_sharpe_under_null": 1.3592422580761425,
+  "skewness": 3.964657097764671,
+  "pearson_kurtosis": 61.32158028208009,
+  "deflated_sharpe_probability": 0.18863071809956028
+}

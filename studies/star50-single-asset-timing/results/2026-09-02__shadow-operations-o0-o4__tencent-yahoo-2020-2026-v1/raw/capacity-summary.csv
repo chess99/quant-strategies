@@ -1,0 +1,3 @@
+model,historical_engineering_capacity,first_failed_capital,all_preregistered_capitals_passed
+risk-friction__threshold-0p05,10000000.0,50000000.0,False
+production-ensemble__threshold-0p1,50000000.0,100000000.0,False

@@ -1,0 +1,21 @@
+family,method,trial_count,trading_days,split_count,pbo,median_selected_oos_percentile
+sma-price,CSCV approximation: 8 contiguous blocks,5,1155,70,0.7142857142857143,0.4375
+ema-price,CSCV approximation: 8 contiguous blocks,5,1155,70,0.5142857142857142,0.5
+dual-ma,CSCV approximation: 8 contiguous blocks,6,1155,70,0.8857142857142857,0.25
+macd-cross,CSCV approximation: 8 contiguous blocks,5,1155,70,0.2714285714285714,0.9
+trix,CSCV approximation: 8 contiguous blocks,6,1155,70,0.32857142857142857,0.75
+adx-dmi,CSCV approximation: 8 contiguous blocks,9,1155,70,0.6571428571428571,0.5
+aroon,CSCV approximation: 8 contiguous blocks,9,1155,70,0.4142857142857143,0.6111111111111112
+supertrend,CSCV approximation: 8 contiguous blocks,6,1155,70,0.38571428571428573,0.5833333333333334
+tsmom-monthly,CSCV approximation: 8 contiguous blocks,4,1155,70,0.24285714285714285,0.875
+donchian,CSCV approximation: 8 contiguous blocks,5,1155,70,0.1,0.9
+bollinger-breakout,CSCV approximation: 8 contiguous blocks,6,1155,70,0.5142857142857142,0.4166666666666667
+keltner-breakout,CSCV approximation: 8 contiguous blocks,6,1155,70,0.08571428571428572,0.9166666666666666
+rsi-reversion,CSCV approximation: 8 contiguous blocks,6,1155,70,0.5714285714285714,0.4166666666666667
+stochastic-reversion,CSCV approximation: 8 contiguous blocks,6,1155,70,0.4,0.5833333333333334
+cci-reversion,CSCV approximation: 8 contiguous blocks,6,1155,70,0.2714285714285714,0.75
+bollinger-reversion,CSCV approximation: 8 contiguous blocks,9,1155,70,0.6571428571428571,0.5
+mfi-reversion,CSCV approximation: 8 contiguous blocks,6,1155,70,0.32857142857142857,0.5833333333333334
+obv-trend,CSCV approximation: 8 contiguous blocks,6,1155,70,0.6285714285714286,0.25
+vol-target-trend,CSCV approximation: 8 contiguous blocks,8,1155,70,0.4,0.6875
+indicator-vote,CSCV approximation: 8 contiguous blocks,3,1155,70,0.8,0.5

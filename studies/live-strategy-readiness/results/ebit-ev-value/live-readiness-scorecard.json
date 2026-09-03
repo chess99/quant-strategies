@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "study_id": "live-strategy-readiness",
+  "candidate_id": "ebit-ev-value",
+  "status": "R0",
+  "source_vintage_grade": "C",
+  "source_sha256": "6f053a2d1637a05427bcbbdd8e572e4657888841d8b9bb848b9089688afa2911",
+  "strict_natural_oos": false,
+  "calibration": {
+    "passed": false,
+    "period_start": "2009-01-05",
+    "period_end": "2019-12-31",
+    "local_annualized_return": 0.12381594886321445,
+    "public_annualized_return": 0.22545580458148,
+    "local_maximum_drawdown": 0.44850331067516425,
+    "public_maximum_drawdown": 0.39627228319793,
+    "local_sharpe": 0.7543777364066465,
+    "public_sharpe": 0.70774727493142,
+    "median_holdings": 41,
+    "valid_month_ratio": 0.8787878787878788,
+    "passed_check_count": 3,
+    "required_check_count": 5
+  },
+  "gates": {
+    "causal_logic_reconstructed": true,
+    "point_in_time_financials": true,
+    "historical_source_universe_reproduced": false,
+    "public_window_calibrated": false,
+    "post_publication_first_read": false,
+    "capacity": false
+  },
+  "post_publication_performance_calculated": false,
+  "parameter_selection_used": false,
+  "decision": "downgrade to R0 and stop; do not choose a new universe or factor mapping on the post-publication window",
+  "stop_reason": "the preregistered all-A and public-field proxy missed public CAGR and valid-month coverage tolerances"
+}

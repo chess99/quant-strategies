@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "candidate_id": "dynamic-volume-etf-rotation",
+  "created_at": "2026-08-25",
+  "status": "preregistered-before-local-results",
+  "source": {
+    "path": "joinquant_archive/sources/2025年度精选策略/82.无需先验知识，动态选择的etf轮动策略，更具鲁棒性.py",
+    "sha256": "bd620dd71ce4fbb4471f1103bca8da2912bef2ed1892332a589db483d419e8dc",
+    "post_url": "https://www.joinquant.com/post/24429",
+    "post_time": "2019-12-14 23:39:45",
+    "post_mod_time": "2019-12-14 23:39:45",
+    "oos_integrity_grade": "B"
+  },
+  "hypothesis": "A point-in-time top-volume ETF universe combined with short-term cross-sectional momentum and a persistent low-volume risk-off state may capture liquid ETF trends without a hand-selected asset pool.",
+  "lineage": "original intraday source -> previous-close/next-open causal daily reconstruction",
+  "change_class": "correctness_repair",
+  "frozen_parameters": {
+    "volume_rank_days": 30,
+    "dynamic_pool_size": 7,
+    "momentum_days": 13,
+    "volume_state_days": 7,
+    "low_volume_streak": 6,
+    "minimum_momentum_percent": 0.1,
+    "defensive_symbol": "SH511880",
+    "risk_off_leaders": ["SH510880", "SH510500"]
+  },
+  "causal_execution": {
+    "observation": "previous completed trading day close and volume",
+    "execution": "next trading day open",
+    "universe": "ETF lifecycle and B-or-better bar availability at observation date",
+    "position_rule": "trade only when the selected target changes"
+  },
+  "public_calibration": {
+    "period_start": "2006-01-04",
+    "period_end": "2019-12-13",
+    "must_run_before_oos": true,
+    "public_annualized_return": 0.21708449424602,
+    "public_maximum_drawdown": 0.34508888538093,
+    "public_sharpe": 0.79008123377216,
+    "gates": {
+      "annualized_return_absolute_gap_max": 0.07,
+      "maximum_drawdown_absolute_gap_max": 0.07,
+      "sharpe_absolute_gap_max": 0.2,
+      "switch_event_relative_gap_max": 0.35,
+      "minimum_pass_count": 3,
+      "annualized_return_must_pass": true,
+      "sharpe_must_pass": true
+    },
+    "stop_rule": "Do not calculate post-publication performance if calibration fails."
+  },
+  "post_publication_window_if_unlocked": {
+    "period_start": "2019-12-16",
+    "period_end": "2026-07-24",
+    "parameter_selection_used_window": false
+  },
+  "costs": {
+    "source_proxy": {"commission": 0.0003, "minimum_commission": 5.0, "slippage": 0.0},
+    "baseline": {"commission": 0.0003, "minimum_commission": 5.0, "slippage": 0.0005, "adv_limit": 0.01},
+    "double": {"commission": 0.0006, "minimum_commission": 5.0, "slippage": 0.001, "adv_limit": 0.01}
+  },
+  "known_limitations": [
+    "No intraday 11:30 signal or 14:40 fill path is available locally.",
+    "Daily bars do not contain ETF premium, discount or subscription restrictions.",
+    "The source vintage lacks an immutable pre-publication hash and is grade B rather than A."
+  ]
+}
+

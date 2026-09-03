@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "study_id": "star50-single-asset-shadow-operations",
+  "archived_at": "2026-09-02",
+  "run_id": "tencent-yahoo-2020-2026-v1",
+  "symbol": "SH588000",
+  "evidence_class": "post-selection engineering validation; no new alpha evidence",
+  "data": {
+    "input_file": "raw/input-sh588000.csv",
+    "input_sha256": "568a65a29192b2e3f3a6a643cd7cecb588263cf4f794066e3379df8a290899db",
+    "start": "2020-11-16",
+    "end": "2026-09-01",
+    "sessions": 1407
+  },
+  "protocol": {
+    "operations_generations": [
+      "O0",
+      "O1",
+      "O2",
+      "O3",
+      "O4"
+    ],
+    "scenario_count": 132,
+    "capital_grid": [
+      10000.0,
+      50000.0,
+      100000.0,
+      500000.0,
+      1000000.0,
+      5000000.0,
+      10000000.0,
+      50000000.0,
+      100000000.0,
+      500000000.0,
+      1000000000.0
+    ],
+    "volume_ratios": [
+      0.001,
+      0.005,
+      0.01
+    ],
+    "slippages": [
+      0.0002,
+      0.002
+    ],
+    "oos_start": "2023-12-25",
+    "signal_rules_frozen": true
+  },
+  "results": {
+    "causality_checks": 2296,
+    "causality_failures": 0,
+    "fault_cases": 14,
+    "fault_failures": 0,
+    "capacity_summary": [
+      {
+        "model": "risk-friction__threshold-0p05",
+        "historical_engineering_capacity": 10000000.0,
+        "first_failed_capital": 50000000.0,
+        "all_preregistered_capitals_passed": false
+      },
+      {
+        "model": "production-ensemble__threshold-0p1",
+        "historical_engineering_capacity": 50000000.0,
+        "first_failed_capital": 100000000.0,
+        "all_preregistered_capitals_passed": false
+      }
+    ],
+    "live_check_status": "shadow_only"
+  },
+  "source_file": "source.py",
+  "source_sha256": "9b5bb8794e7da19638f51b67c825bc08fef1cddbf1d3a2645c816a514dcf6e25",
+  "operations_file": "operations.py",
+  "operations_sha256": "a28e355cd4220a7567f1b983e632775fdca62a9d391bf4a149b0ee964cdf8085",
+  "artifacts": {
+    "engine.py": {
+      "sha256": "bf36c2f234b4c639b8f27c13c5ec794d0b343ecf8e01dde005842593aeec938e",
+      "bytes": 82872
+    },
+    "extension.py": {
+      "sha256": "766d553b49d0fdbb8f64063229f03894206979af8577f8426017da69b59307bd",
+      "bytes": 42859
+    },
+    "operations.py": {
+      "sha256": "a28e355cd4220a7567f1b983e632775fdca62a9d391bf4a149b0ee964cdf8085",
+      "bytes": 19100
+    },
+    "raw/baseline-equity.csv": {
+      "sha256": "57140c36a7d5bbeec31ba3d1e199e7713933b8b0d4d973bfbc81a4b1fececb5d",
+      "bytes": 266974
+    },
+    "raw/baseline-events.csv": {
+      "sha256": "7fa047c8631e42b891d4ca48d7dd6c88b5f4e06e77d7461ea38013ea6ffee53b",
+      "bytes": 29160
+    },
+    "raw/baseline-orders.csv": {
+      "sha256": "3c208149c247dbe102e77294fbdd7c897a2382fd462f1480caf2187a9f0e0f98",
+      "bytes": 307884
+    },
+    "raw/capacity-summary.csv": {
+      "sha256": "9631a92ebcfda99a5af094695bc00234a4dfb84d900120187edaed34868948bc",
+      "bytes": 218
+    },
+    "raw/causality-audit.csv": {
+      "sha256": "9f22189dca2954ac4f7340dbade4d16e700f0b9ae5b73771e1d2c5dcb31a4023",
+      "bytes": 172028
+    },
+    "raw/fault-injection.json": {
+      "sha256": "b7b205cb44261edaef0aa5d4906875c66607bc6bf69047cf397cd121fe15df90",
+      "bytes": 2150
+    },
+    "raw/input-sh588000.csv": {
+      "sha256": "568a65a29192b2e3f3a6a643cd7cecb588263cf4f794066e3379df8a290899db",
+      "bytes": 100332
+    },
+    "raw/live-cross-check.json": {
+      "sha256": "e681e6f7a522aeb1b77555a779962a8a539a29f6c18a874c43099a6b7af43677",
+      "bytes": 1243
+    },
+    "raw/scenario-metrics.csv": {
+      "sha256": "266fa4ee40569f08437aa6f293bcff5f1c94887d9057a4d31217de202a0dbd15",
+      "bytes": 57157
+    },
+    "report.md": {
+      "sha256": "64e2d69388745c82d47dd8f8eb3be9cd0f5f5de3e9a0a6a3f0e267bf40f50fac",
+      "bytes": 2901
+    },
+    "signals.py": {
+      "sha256": "c8d2afa2956e38a3ee8c1f0a7bc8836b23f3f96bcd04623e932bdd8a708eb52e",
+      "bytes": 4522
+    },
+    "source.py": {
+      "sha256": "9b5bb8794e7da19638f51b67c825bc08fef1cddbf1d3a2645c816a514dcf6e25",
+      "bytes": 29682
+    }
+  }
+}

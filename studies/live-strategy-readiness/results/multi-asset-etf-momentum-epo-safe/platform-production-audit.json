@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "candidate_id": "multi-asset-etf-momentum-epo-safe",
+  "created_at": "2026-08-25",
+  "formal_strategy_family": "multi-asset-etf-momentum-epo",
+  "formal_source_sha256": "656b5e92c180a455feee4440b12ae2b90ae027a754785bd4d90564c5d3b3f995",
+  "local_source_preflight": {
+    "status": "passed",
+    "matched_observation_dates": 28,
+    "exact_target_match_rate": 1.0,
+    "mean_target_weight_l1": 0.0,
+    "maximum_target_weight_l1": 0.0,
+    "fallback_count": 0,
+    "gates": {
+      "target_count_gate": true,
+      "exact_target_gate": true,
+      "target_weight_l1_gate": true,
+      "fallback_gate": true,
+      "self_contained_source_gate": true
+    },
+    "evidence_scope": "local formal-source parity; not real JoinQuant evidence"
+  },
+  "real_joinquant_golden": {
+    "status": "not-run-no-export",
+    "gates": {
+      "minimum_matched_observation_dates": 12,
+      "selected_set_exact_match_rate_min": 0.9,
+      "target_weight_l1_mean_max": 0.05,
+      "scheduled_order_date_match_rate_min": 0.95,
+      "rejection_reason_coverage_required": true,
+      "annualized_return_absolute_difference_max": 0.03,
+      "maximum_drawdown_absolute_difference_max": 0.03
+    },
+    "passed": false,
+    "reason": "no candidate-specific platform export is present in the repository"
+  },
+  "production_data": {
+    "historical_asset_count": 13,
+    "historical_ohlcv_amount_complete_count": 13,
+    "qdii_asset_count": 2,
+    "qdii_complete_asset_count": 0,
+    "required_qdii_fields": [
+      "exchange_price_with_timestamp",
+      "iopv_or_nav_with_timestamp",
+      "premium_discount",
+      "subscription_redemption_status_and_limit",
+      "underlying_market_calendar_and_session_state",
+      "relevant_fx_rate_with_timestamp"
+    ],
+    "status": "blocked-missing-live-and-qdii-feeds",
+    "static_tracking_target_is_PIT": false,
+    "failure_policy": "fail closed: do not open or add to an affected asset; never reuse stale data silently"
+  },
+  "candidate_status_after_audit": "R2",
+  "eligible_for_R3": false,
+  "blocking_gaps_for_R3": [
+    "real JoinQuant target/order/trade/equity export is absent",
+    "QDII premium-discount, subscription and cross-market feeds are absent",
+    "frozen forward paper-trading evidence has not started"
+  ]
+}

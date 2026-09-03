@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "study_id": "live-strategy-readiness",
+  "candidate_id": "low-risk-medium-return",
+  "candidate_name": "低风险中等收益策略",
+  "status": "source-audit-complete",
+  "research_level": "R0",
+  "publication": {
+    "url": "https://www.joinquant.com/post/48789",
+    "date": "2024-06-16",
+    "modified_at": "2026-03-07 08:51:33",
+    "archive_collected_at": "2026-07-27T02:11:48+08:00"
+  },
+  "public_backtest": {
+    "id": "1a4807e769c4e89a74b556442cbdfaba",
+    "start": "2006-01-01",
+    "end": "2024-06-01",
+    "initial_capital_rmb": 1234567,
+    "annual_return": 0.17346954565618,
+    "max_drawdown": 0.16563132816142,
+    "sharpe": 1.2747555717293
+  },
+  "source_vintage": {
+    "grade": "C",
+    "strict_natural_oos": false,
+    "current_snapshot_only": true,
+    "reason": "帖子在公开回测结束和发布后于 2026-03-07 再次修改；源码到 2026-07-27 才进入不可变归档，无法证明当前参数和实现早于发布后窗口。"
+  },
+  "frozen_source": {
+    "path": "joinquant_archive/sources/聚宽2026年精选/11低风险中等收益策略.py",
+    "sha256": "b50eab823453d45011fe491409debce74dbb585fada5536975e2e3b61c4ebf5a",
+    "meaning": "2026-07-27 current archive snapshot, not a proven 2024 publication snapshot"
+  },
+  "investment_hypothesis": "以 30% 小盘三正股票叠加约 70% 城投债、黄金和标普 500 ETF，获得跨资产分散和较低回撤。",
+  "frozen_parameters": {
+    "stock_index": "399317.XSHE",
+    "stock_count": 30,
+    "stock_position_fraction_each": 0.01,
+    "small_cap_quantile": 0.1,
+    "funds": ["511220.XSHG", "518880.XSHG", "513500.XSHG"],
+    "rebalance": "daily before-open selection, 09:35 orders"
+  },
+  "post_publication_replay": {
+    "ready": false,
+    "available_window": {"start": "2024-06-17", "end": "2026-07-24"},
+    "reason": "版本为 C，且本地没有 399317.XSHE 的历史成分；替换为全 A 股或其他指数会改变股票池，属于 Alpha 修改。"
+  },
+  "causal_reconstruction": {
+    "ready": false,
+    "blocking_data": ["399317.XSHE point-in-time membership"],
+    "required_correctness_repairs": [
+      "所有证券池和财务查询改用前一交易日观察日期",
+      "明确 ETF 上市前和停牌时的现金处理",
+      "将每日 order_value 累积行为与宣称的 70% 固定资产配置分开报告",
+      "增加真实佣金、最低佣金、滑点、整手、涨跌停和卖出失败"
+    ]
+  },
+  "experiment_policy": {
+    "tune_on_post_publication_window": false,
+    "allowed_before_version_recovery": ["source audit", "data-gap audit"],
+    "alpha_change_requires_new_candidate": true
+  },
+  "decision": "保留为 R0；在取得 PIT 399317 成分或预注册新股票池候选前停止回测和调参。"
+}

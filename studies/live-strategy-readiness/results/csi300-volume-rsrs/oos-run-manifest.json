@@ -1,0 +1,229 @@
+{
+  "schema_version": 1,
+  "candidate_id": "csi300-volume-rsrs",
+  "run_id": "untuned-post-publication-oos-v1",
+  "created_at": "2026-08-25",
+  "period": {
+    "start": "2020-05-15",
+    "end": "2026-07-23"
+  },
+  "source_sha256": "36a0bbb302f7901ca74af5d917b24eaaf1caa6f752bade22c833c089bf7384cf",
+  "base_engine_sha256": "882e00473a9616db7095ffcad3dac1bfd197027f2b152585891a16317807ef82",
+  "oos_engine_sha256": "56084a92b2c180b8fcedc61a5144f13ee12781f61747c8fe5e535933567dae58",
+  "protocol_sha256": "d3bbed4785c85ed34a9d0d9ba2cfa7df394a1c766b1eb77a189b7b3c6f202f43",
+  "signal_data_provenance": {
+    "dataset": "qlib_daily_bars",
+    "provider": "qlib-community-cn",
+    "provider_uri": "D:\\code\\_open-source\\_data\\qlib\\cn_data",
+    "quality_grade": "B",
+    "data_version": "d8307581890ad79483a3b444f6034913b489bb4fd2f8182edf2b224dffaa5559",
+    "source_files": [
+      {
+        "path": "D:\\code\\_open-source\\_data\\qlib\\cn_data\\calendars\\day.txt",
+        "sha256": "6bfe26c7ec40e1c1f433794d80632a281d78213edda2889009e69085753bc99d"
+      },
+      {
+        "path": "D:\\code\\_open-source\\_data\\qlib\\cn_data\\instruments\\all.txt",
+        "sha256": "9c3f6c7e13bde3380c06d83a24ee38bc26c31f1339f4b1aa9e3252d0e385622f"
+      }
+    ]
+  },
+  "etf_data_manifests": {
+    "etf_daily": {
+      "path": "D:\\code\\_open-source\\_data\\quant-research\\manifests\\etf_daily.json",
+      "sha256": "df62ef9d3b84c453f1259f8ff2763bb0204010e6a853179bf9076a757e6413c2"
+    },
+    "etf_master": {
+      "path": "D:\\code\\_open-source\\_data\\quant-research\\manifests\\etf_master.json",
+      "sha256": "53e2862faf4a1efc35b6e78744e1c7b087f550be8357f1bcc45a08fe12e51008"
+    }
+  },
+  "scenarios": [
+    {
+      "name": "rsrs-baseline-cost",
+      "method": "rsrs",
+      "commission": 0.0003,
+      "minimum_commission": 5.0,
+      "slippage": 0.0005,
+      "maximum_volume_ratio": 0.01
+    },
+    {
+      "name": "rsrs-double-cost",
+      "method": "rsrs",
+      "commission": 0.0006,
+      "minimum_commission": 5.0,
+      "slippage": 0.001,
+      "maximum_volume_ratio": 0.01
+    },
+    {
+      "name": "csi300-etf-buy-hold",
+      "method": "buy-hold",
+      "commission": 0.0003,
+      "minimum_commission": 5.0,
+      "slippage": 0.0005,
+      "maximum_volume_ratio": 0.01
+    },
+    {
+      "name": "static-50pct-etf-cash",
+      "method": "half-cash",
+      "commission": 0.0003,
+      "minimum_commission": 5.0,
+      "slippage": 0.0005,
+      "maximum_volume_ratio": 0.01
+    }
+  ],
+  "parameter_selection_used_oos": false,
+  "decision": {
+    "passed": false,
+    "gates_passed": {
+      "sharpe_min": false,
+      "drawdown_max": false,
+      "double_cost_positive": true,
+      "beats_buy_hold_sharpe": false,
+      "improves_half_cash": false,
+      "completed_positions": true
+    },
+    "pass_count": 2,
+    "gate_count": 6,
+    "parameter_selection_used_oos": false
+  },
+  "results": [
+    {
+      "total_return": 0.16139732814130414,
+      "annualized_return": 0.025216804447648178,
+      "maximum_drawdown": 0.3848446206001014,
+      "sharpe": 0.23702440544572428,
+      "annualized_volatility": 0.15677613966852333,
+      "turnover": 19.35954403877172,
+      "average_cash_ratio": 0.3710195492964176,
+      "maximum_cash_ratio": 1.0,
+      "longest_underwater_trading_days": 1317,
+      "yearly_returns": {
+        "2020": 0.2563287759915567,
+        "2021": -0.051062130437528386,
+        "2022": -0.18644723010421227,
+        "2023": -0.022831016254642567,
+        "2024": 0.1304095034678885,
+        "2025": 0.0815427968827398,
+        "2026": 0.0023163756317545747
+      },
+      "scenario": "rsrs-baseline-cost",
+      "method": "rsrs",
+      "period_start": "2020-05-15",
+      "period_end": "2026-07-23",
+      "completed_positions": 9,
+      "trade_count": 19,
+      "order_count": 19,
+      "rejected_order_count": 0,
+      "commission": 0.0003,
+      "minimum_commission": 5.0,
+      "slippage": 0.0005,
+      "maximum_volume_ratio": 0.01,
+      "parameter_selection_used_oos": false
+    },
+    {
+      "total_return": 0.14393645158037893,
+      "annualized_return": 0.022635085736400606,
+      "maximum_drawdown": 0.39071870745959636,
+      "sharpe": 0.22094519197534976,
+      "annualized_volatility": 0.15676418393149227,
+      "turnover": 19.389816563833094,
+      "average_cash_ratio": 0.370984864565473,
+      "maximum_cash_ratio": 1.0,
+      "longest_underwater_trading_days": 1317,
+      "yearly_returns": {
+        "2020": 0.2533023520771316,
+        "2021": -0.05559854758199989,
+        "2022": -0.18775686182294649,
+        "2023": -0.025149374382504752,
+        "2024": 0.12952443555348814,
+        "2025": 0.07897643797948684,
+        "2026": 0.00151551265571781
+      },
+      "scenario": "rsrs-double-cost",
+      "method": "rsrs",
+      "period_start": "2020-05-15",
+      "period_end": "2026-07-23",
+      "completed_positions": 9,
+      "trade_count": 19,
+      "order_count": 19,
+      "rejected_order_count": 0,
+      "commission": 0.0006,
+      "minimum_commission": 5.0,
+      "slippage": 0.001,
+      "maximum_volume_ratio": 0.01,
+      "parameter_selection_used_oos": false
+    },
+    {
+      "total_return": 0.36289632972809693,
+      "annualized_return": 0.052884250795120824,
+      "maximum_drawdown": 0.4217727162840791,
+      "sharpe": 0.3700774356088107,
+      "annualized_volatility": 0.18584162738622811,
+      "turnover": 0.8713528348386046,
+      "average_cash_ratio": 0.00016334370333447764,
+      "maximum_cash_ratio": 0.00021297645501980707,
+      "longest_underwater_trading_days": 1317,
+      "yearly_returns": {
+        "2020": 0.344837916321745,
+        "2021": -0.04039456253383511,
+        "2022": -0.2012913999234176,
+        "2023": -0.0977347702513025,
+        "2024": 0.17370659371558816,
+        "2025": 0.20835300838533688,
+        "2026": 0.03329474926164133
+      },
+      "scenario": "csi300-etf-buy-hold",
+      "method": "buy-hold",
+      "period_start": "2020-05-15",
+      "period_end": "2026-07-23",
+      "completed_positions": 0,
+      "trade_count": 1,
+      "order_count": 1,
+      "rejected_order_count": 0,
+      "commission": 0.0003,
+      "minimum_commission": 5.0,
+      "slippage": 0.0005,
+      "maximum_volume_ratio": 0.01,
+      "parameter_selection_used_oos": false
+    },
+    {
+      "total_return": 0.18152884435042638,
+      "annualized_return": 0.02815354537792647,
+      "maximum_drawdown": 0.25290897386689426,
+      "sharpe": 0.32886436925641577,
+      "annualized_volatility": 0.09945614090121892,
+      "turnover": 0.46571504280754866,
+      "average_cash_ratio": 0.4678147027526207,
+      "maximum_cash_ratio": 0.535999645006901,
+      "longest_underwater_trading_days": 1317,
+      "yearly_returns": {
+        "2020": 0.17249562288215192,
+        "2021": -0.02317633134207886,
+        "2022": -0.11345497078704214,
+        "2023": -0.04962893618898334,
+        "2024": 0.0837419733117939,
+        "2025": 0.1087828198690799,
+        "2026": 0.01894452083116671
+      },
+      "scenario": "static-50pct-etf-cash",
+      "method": "half-cash",
+      "period_start": "2020-05-15",
+      "period_end": "2026-07-23",
+      "completed_positions": 0,
+      "trade_count": 1,
+      "order_count": 1,
+      "rejected_order_count": 0,
+      "commission": 0.0003,
+      "minimum_commission": 5.0,
+      "slippage": 0.0005,
+      "maximum_volume_ratio": 0.01,
+      "parameter_selection_used_oos": false
+    }
+  ],
+  "limitations": [
+    "The published source traded an index proxy rather than an executable security.",
+    "Local daily bars cannot reproduce the original 14:00 fill exactly.",
+    "The author explicitly selected a historical optimum and warned of overfitting."
+  ]
+}

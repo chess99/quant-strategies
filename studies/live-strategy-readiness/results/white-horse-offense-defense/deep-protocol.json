@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "study_id": "live-strategy-readiness",
+  "candidate_id": "white-horse-offense-defense",
+  "created_at": "2026-08-25",
+  "status": "preregistered-before-deep-results",
+  "baseline_window": {
+    "start": "2013-04-11",
+    "end": "2026-07-23",
+    "meaning": "current causal snapshot; descriptive history, not strict natural OOS"
+  },
+  "frozen_baseline": {
+    "holding_count": 5,
+    "buffer_count": 6,
+    "commission_rate": 0.0003,
+    "slippage_rate": 0.001,
+    "maximum_volume_ratio": 0.01,
+    "source_vintage_grade": "C"
+  },
+  "parameter_neighborhood": {
+    "trial_count": 27,
+    "dimensions": {
+      "holding_count": [4, 5, 6],
+      "valuation_threshold_scale": [0.9, 1.0, 1.1],
+      "quality_threshold_scale": [0.9, 1.0, 1.1]
+    },
+    "interpretation": "diagnostic only; no trial may replace the frozen baseline or be selected for promotion"
+  },
+  "execution_delay_sessions": [0, 1, 2, 3, 5],
+  "cost_scenarios": [
+    {"name": "original", "commission_rate": 0.00012, "slippage_rate": 0.0},
+    {"name": "baseline", "commission_rate": 0.0003, "slippage_rate": 0.001},
+    {"name": "double", "commission_rate": 0.0006, "slippage_rate": 0.002}
+  ],
+  "simple_baselines": [
+    "CSI 300 buy and hold",
+    "always-warm frozen stock selector",
+    "equal-weight current buffered candidates"
+  ],
+  "capacity": {
+    "capital_rmb": [200000, 1000000, 2000000, 10000000],
+    "adv_participation": [0.005, 0.01, 0.05],
+    "retry_sessions": 5
+  },
+  "diagnostics": {
+    "moving_block_bootstrap": {"block_size": 20, "samples": 1000, "seed": 20260825},
+    "pbo": {"blocks": 8, "trials": 27},
+    "deflated_sharpe_trials": 27,
+    "top_contributor_ablation": [1, 3],
+    "placebo_random_execution_delay": {"trials": 10, "minimum": 0, "maximum": 5, "seed": 20260825},
+    "rolling_sessions": [250, 750, 1250],
+    "expanding_endpoints": ["2018-12-31", "2020-12-31", "2022-12-31", "2024-12-31", "2026-07-23"]
+  },
+  "promotion_gates": {
+    "parameter_positive_return_rate": ">= 0.6666667",
+    "parameter_sharpe_ge_0_5_rate": ">= 0.6666667",
+    "minimum_execution_delay_sharpe": ">= 0.5",
+    "primary_capital_minimum_exposure": ">= 0.90",
+    "simple_baseline": "frozen baseline annualized return and Sharpe both exceed CSI 300 buy-and-hold",
+    "maximum_level": "R2 because source vintage is C and there is no credible OOS or platform golden comparison"
+  },
+  "stop_and_selection_rules": [
+    "Do not tune on the current-snapshot post-publication replay.",
+    "Do not replace the frozen baseline with the best neighborhood result.",
+    "A failed gate remains in the evidence set and keeps the candidate at R1.",
+    "Top contributor removal is a post-hoc concentration diagnostic, not a promotion variant."
+  ]
+}

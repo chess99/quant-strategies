@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "candidate_id": "multi-asset-etf-momentum-epo-safe",
+  "status_before_supplement": "R2",
+  "status_after_supplement": "R1",
+  "walk_forward": {
+    "fold_count": 4,
+    "fold_completion_rate": 1.0,
+    "selected_test_positive_return_rate": 1.0,
+    "selected_test_positive_sharpe_rate": 1.0,
+    "frozen_baseline_positive_return_rate": 1.0,
+    "frozen_baseline_sharpe_ge_0_5_rate": 1.0
+  },
+  "regime_attribution": {
+    "primary_regime_count": 3,
+    "minimum_primary_regime_observations": 391,
+    "liquidity_contraction_observations": 4,
+    "extreme_market_day_observations": 22,
+    "warmup_observations": 0
+  },
+  "placebo": {
+    "trial_count": 24,
+    "completion_rate": 1.0,
+    "positive_return_rate": 1.0,
+    "sharpe_ge_0_5_rate": 1.0,
+    "maximum_fallback_share": 0.034482758620689655,
+    "median_annualized_return": 0.19025677881649528,
+    "median_sharpe": 0.8142990994514455,
+    "minimum_sharpe": 0.516542239321847
+  },
+  "gates": {
+    "walk_forward_completion_gate": true,
+    "walk_forward_return_gate": true,
+    "walk_forward_sharpe_gate": true,
+    "primary_regime_coverage_gate": true,
+    "primary_regime_observation_gate": true,
+    "liquidity_regime_observation_gate": false,
+    "extreme_regime_observation_gate": true,
+    "placebo_completion_gate": true,
+    "placebo_return_gate": true,
+    "placebo_sharpe_gate": true,
+    "placebo_fallback_gate": true
+  },
+  "historical_parameters_changed": false,
+  "decision": "downgrade to R1; retain failed supplement and do not repair history"
+}

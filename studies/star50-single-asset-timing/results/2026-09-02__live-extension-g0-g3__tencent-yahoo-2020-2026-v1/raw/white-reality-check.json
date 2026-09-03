@@ -1,0 +1,16 @@
+{
+  "block_20": {
+    "block_length": 20,
+    "repetitions": 2000,
+    "best_family": "risk-core__trend-200-vol-60-target-0p2",
+    "observed_best_annualized_mean_excess": -0.0907573896542647,
+    "p_value": 0.7891054472763618
+  },
+  "block_60": {
+    "block_length": 60,
+    "repetitions": 2000,
+    "best_family": "risk-core__trend-200-vol-60-target-0p2",
+    "observed_best_annualized_mean_excess": -0.0907573896542647,
+    "p_value": 0.8370814592703648
+  }
+}

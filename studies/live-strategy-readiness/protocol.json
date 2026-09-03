@@ -1,0 +1,193 @@
+{
+  "schema_version": 1,
+  "study_id": "live-strategy-readiness",
+  "created_at": "2026-08-21",
+  "status": "preregistered-before-screening",
+  "objective": "Find strategies or a small complementary strategy set that can be executed reliably with RMB 0.2m-2m, have a plausible durable return source, and can be promoted from research to frozen paper trading and eventually small-capital live trading. RMB 10m is retained as a scalability diagnostic rather than a universal exclusion gate.",
+  "archive_snapshot": {
+    "source_items": 593,
+    "public_backtests": 503,
+    "source": "joinquant_archive/data/run-summary.json"
+  },
+  "capital_scenarios_rmb": {
+    "primary_decision": [200000, 1000000, 2000000],
+    "scalability_diagnostic": [10000000]
+  },
+  "research_levels": {
+    "R0": "source_lead",
+    "R1": "causally_reproducible",
+    "R2": "historical_candidate",
+    "R3": "frozen_paper_candidate",
+    "R4": "small_capital_live_candidate",
+    "R5": "scalable_candidate"
+  },
+  "non_negotiable_validity_gates": [
+    "No unrepaired future-data use in the promoted implementation.",
+    "All core market, membership, lifecycle, status and financial inputs are point-in-time for the observation date.",
+    "Execution semantics match the asset class: A-share lot size, T+1, suspension, price limits, partial fills, failed sells, available cash, commissions and taxes are handled where applicable.",
+    "Baseline costs are non-zero and realistic for the strategy; a more conservative cost scenario is also reported.",
+    "A strategy whose edge depends on intraday queueing, auction or limit-up fills cannot advance to R3 using daily bars alone.",
+    "The production-time data required by an R3/R4 strategy must have an identified source, timestamp contract and failure policy.",
+    "Failed experiments and rejected variants are retained rather than removed from the evidence set."
+  ],
+  "diagnostics_not_universal_R4_exclusions": [
+    "RMB 10m capacity failure",
+    "PBO above a single fixed threshold",
+    "Deflated Sharpe below a single fixed threshold",
+    "Top-1 or Top-3 contribution concentration",
+    "Worst rolling three-year return below zero"
+  ],
+  "oos_integrity": {
+    "A": "Exact source/parameter vintage can be shown to predate the OOS interval.",
+    "B": "Publication date is known but later source edits cannot be fully excluded; use with downgraded confidence.",
+    "C": "Only a current source snapshot exists; the post-publication interval is not treated as strict natural OOS."
+  },
+  "experiment_change_classes": {
+    "correctness_repair": {
+      "purpose": "Remove lookahead, data-contract, accounting, lifecycle or execution errors without optimizing returns.",
+      "rule": "May inspect full history to locate implementation defects, but must report before/after performance and may not choose the fix by return maximization."
+    },
+    "risk_execution_engineering": {
+      "purpose": "Improve diversification, liquidity, turnover, sizing or risk control.",
+      "rule": "Hypothesis, development window and success criteria are frozen before results."
+    },
+    "alpha_change": {
+      "purpose": "Change factors, state logic, universe construction or signal composition.",
+      "rule": "Creates a new candidate version. Previously viewed OOS becomes in-sample and cannot be reused as independent validation."
+    }
+  },
+  "screening": {
+    "rank_by": [
+      "natural_oos_evidence_value",
+      "source_vintage_confidence",
+      "history_length",
+      "causal_repairability",
+      "production_data_feasibility",
+      "execution_feasibility_at_primary_capital",
+      "strategy_simplicity",
+      "return_source_uniqueness",
+      "risk_adjusted_performance"
+    ],
+    "do_not_rank_primarily_by": [
+      "CAGR",
+      "Sharpe",
+      "community_title_claims",
+      "clone_count"
+    ],
+    "deduplicate_before_shortlisting": true,
+    "lineage_features": [
+      "source_hash_and_similarity",
+      "shared_post_or_parent_post",
+      "shared_core_functions",
+      "shared_universe_and_parameters",
+      "author_and_declared_clone_lineage"
+    ]
+  },
+  "mandatory_candidate_tests": [
+    "published_or_original_vs_causal_reconstruction",
+    "simple_baseline_comparison",
+    "module_ablation",
+    "year_and_regime_breakdown",
+    "rolling_1y_3y_5y",
+    "parameter_neighborhood",
+    "execution_delay_1_2_3_5_sessions_when_applicable",
+    "baseline_and_double_cost",
+    "capacity_at_0.2m_1m_2m_10m",
+    "ADV_participation_stress_when_applicable",
+    "contribution_concentration",
+    "factor_and_beta_attribution",
+    "expanding_or_walk_forward",
+    "multiple_testing_diagnostic",
+    "time_dependent_bootstrap",
+    "platform_golden_comparison_before_R3_when_feasible"
+  ],
+  "adv_participation_scenarios": [0.005, 0.01, 0.05],
+  "planning_stress": {
+    "historical_return_multiplier": 0.5,
+    "historical_max_drawdown_multiplier": 1.5,
+    "baseline_cost_multiplier": 2.0,
+    "purpose": "Capital-planning sanity stress only; not a statistical forecast or universal pass/fail test."
+  },
+  "promotion_guidance": {
+    "R1": [
+      "All non-negotiable validity gates relevant to the strategy are satisfied or explicitly scoped out."
+    ],
+    "R2": [
+      "Causal implementation retains a plausible economically explainable edge or portfolio diversification value after realistic costs.",
+      "Performance is not supported only by a single parameter point, year, security or impossible fill path.",
+      "Simple baselines and factor exposures have been reported."
+    ],
+    "R3": [
+      "Source and parameters are frozen with hashes.",
+      "RMB 0.2m-2m execution is structurally feasible under modeled costs and liquidity.",
+      "Local and JoinQuant/platform behavior is directionally reconciled where feasible.",
+      "Known implementation and production-data risks are documented with monitoring rules."
+    ],
+    "R4": [
+      "There is evidence not used to tune the frozen version: natural post-publication OOS of credible vintage or forward paper-trading evidence with sufficient independent signal events.",
+      "Observed execution divergence does not invalidate the expected edge.",
+      "Capital-planning stress is acceptable for the intended personal allocation."
+    ],
+    "R5": [
+      "R4 evidence remains valid and RMB 10m capacity diagnostics show a usable exposure/cost profile or a documented scalable execution plan.",
+      "Concentration and multiple-testing diagnostics are strong enough for the larger capital at risk."
+    ]
+  },
+  "seed_queue": {
+    "natural_oos_first": [
+      "joinquant_archive: low-risk medium-return strategy, public backtest end 2024-06-01, post 2024-06-16",
+      "joinquant_archive: multi-asset ETF momentum + EPO, public backtest end 2024-03-21, post 2024-03-23",
+      "joinquant_archive: white-horse offense/defense, public backtest end 2024-10-03, post 2024-10-05"
+    ],
+    "existing_formal_candidates": [
+      "strategies/joinquant/lazy-etf-regime-switch",
+      "strategies/joinquant/profitable-small-cap-a-share",
+      "strategies/joinquant/wufu-etf-rotation"
+    ],
+    "calibration_and_negative_controls": [
+      "strategies/joinquant/etf-core-rotation",
+      "strategies/joinquant/bill-miller-a-share",
+      "strategies/joinquant/social-security-shareholders",
+      "strategies/joinquant/ktv-macd-resonance",
+      "strategies/joinquant/oneil-canslim-a-share"
+    ]
+  },
+  "portfolio_level_final_selection": {
+    "target_number_of_frozen_candidates": "2-4 if evidence supports it",
+    "evaluate": [
+      "return correlation",
+      "joint drawdowns and underwater periods",
+      "factor and beta overlap",
+      "liquidity stress overlap",
+      "marginal Sharpe and drawdown improvement versus a simple core portfolio"
+    ],
+    "rule": "Do not select the final set only by standalone CAGR."
+  },
+  "stop_rules": [
+    "Causal repair removes most of the edge and no independent economic thesis remains.",
+    "Credible natural OOS materially reverses the original thesis with adequate observations.",
+    "Returns depend predominantly on fills that cannot be executed in reality.",
+    "Only a narrow parameter spike works and small perturbations collapse performance.",
+    "A complex version fails to add meaningful value versus a simple baseline.",
+    "Repeated exception rules are added to repair one failed historical interval.",
+    "Required production data cannot be obtained reliably before the trading decision."
+  ],
+  "required_screening_outputs": [
+    "screening/archive-universe.csv",
+    "screening/strategy-lineage.csv",
+    "screening/natural-oos.csv",
+    "screening/candidate-shortlist.csv"
+  ],
+  "required_candidate_outputs": [
+    "source-audit.md",
+    "protocol.json",
+    "original-vs-causal.csv",
+    "robustness.csv",
+    "oos.csv",
+    "capacity.csv",
+    "attribution.csv",
+    "live-readiness-scorecard.json",
+    "conclusion.md"
+  ],
+  "decision_rule": "Hard validity and execution defects can block promotion. Statistical diagnostics and RMB 10m scalability inform confidence and sizing, but do not automatically reject a strategy that is reliable and valuable at the primary RMB 0.2m-2m scale."
+}

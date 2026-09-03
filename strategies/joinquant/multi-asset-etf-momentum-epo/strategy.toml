@@ -1,0 +1,19 @@
+schema_version = 1
+id = "multi-asset-etf-momentum-epo"
+title = "多资产 ETF 动量 + EPO 安全回退"
+platform = "joinquant"
+market = "CN-ETF"
+status = "research-r2"
+baseline = "baseline.py"
+
+[execution]
+language = "python3"
+frequency = "monthly"
+signal_time = "previous_trade_day_close"
+execution_time = "first_trade_day_open"
+
+[research]
+primary_benchmark = "000300.XSHG"
+source_post = "https://www.joinquant.com/post/47208"
+source_sha256 = "438cb254e50a3056eb125b67b17b051fea7ef78bd7f6a1f079349730feb331ba"
+study = "studies/live-strategy-readiness/results/multi-asset-etf-momentum-epo-safe"

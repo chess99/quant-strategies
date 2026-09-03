@@ -1,0 +1,6 @@
+capital_rmb,status,reason
+200000,not-run,OOS failed before R2 capacity stage
+1000000,diagnostic-only,OOS engine completed with zero silent fills
+2000000,not-run,OOS failed before R2 capacity stage
+10000000,not-run,OOS failed before R2 capacity stage
+

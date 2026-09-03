@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "study_id": "live-strategy-readiness",
+  "candidate_id": "csi300-drawdown-bond-switch",
+  "status": "R1",
+  "source_vintage_grade": "B",
+  "source_sha256": "4f80ec6b4e207dd9cb53baabb5debfd16671229f8b3b92867781e29d79dccd51",
+  "strict_natural_oos": false,
+  "oos_evidence_grade": "B-downgraded",
+  "period": {
+    "start": "2021-03-08",
+    "end": "2026-07-24"
+  },
+  "baseline_cost": {
+    "annualized_return": 0.0062529242679096875,
+    "maximum_drawdown": 0.3221655946679687,
+    "sharpe": 0.11618990160564134,
+    "longest_underwater_trading_days": 1195,
+    "risk_off_transition_count": 2,
+    "risk_on_transition_count": 3
+  },
+  "double_cost": {
+    "annualized_return": 0.004453094411242198,
+    "maximum_drawdown": 0.32240445920079097,
+    "sharpe": 0.1040935133203115
+  },
+  "simple_baseline": {
+    "name": "static-50-50",
+    "annualized_return": 0.018936762095037585,
+    "maximum_drawdown": 0.1672015539089179,
+    "sharpe": 0.2558919527786438,
+    "dominates_candidate_on_all_preregistered_dimensions": true
+  },
+  "pre_result_gates": {
+    "annualized_return_at_least_5pct": false,
+    "sharpe_at_least_0_60": false,
+    "maximum_drawdown_at_most_0_20": false,
+    "drawdown_at_most_70pct_of_buy_hold": false,
+    "not_dominated_by_static_50_50": false,
+    "double_cost_positive_and_sharpe_at_least_0_50": false,
+    "minimum_two_risk_off_and_recovery_events": true
+  },
+  "hard_stop_triggered": true,
+  "stop_reasons": [
+    "OOS Sharpe 0.12 is below the 0.30 hard-stop threshold",
+    "OOS maximum drawdown 32.22% is above the 30% hard-stop threshold",
+    "static 50/50 stock-bond dominates CAGR, drawdown and Sharpe"
+  ],
+  "experiment_count": 5,
+  "capacity_status": "not-run-by-stop-rule",
+  "platform_status": "not-run-by-stop-rule",
+  "parameter_selection_used_oos": false,
+  "decision": "keep at R1 and stop tuning the frozen 32-day version",
+  "next_action": "retain as a failed natural-OOS control; any new signal logic must be preregistered as a new candidate"
+}

@@ -1,0 +1,16 @@
+{
+  "block_20": {
+    "block_length": 20,
+    "repetitions": 2000,
+    "best_family": "macd-cross",
+    "observed_best_annualized_mean_excess": 0.052985787933525326,
+    "p_value": 0.782608695652174
+  },
+  "block_60": {
+    "block_length": 60,
+    "repetitions": 2000,
+    "best_family": "macd-cross",
+    "observed_best_annualized_mean_excess": 0.052985787933525326,
+    "p_value": 0.7756121939030485
+  }
+}

@@ -1,0 +1,4 @@
+analysis_type,status,reason
+valuation-regime,not-run,public-window calibration failed before OOS
+cash-versus-etf-exposure,not-run,public-window calibration failed before OOS
+calendar-year,not-run,public-window calibration failed before OOS

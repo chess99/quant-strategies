@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "study_id": "live-strategy-readiness",
+  "candidate_id": "csi300-ma10-60-cash",
+  "status": "R1",
+  "source_vintage_grade": "B",
+  "source_sha256": "8d67a7ead17d757ee2b2edd59ace74c29fcfcda0536dc859d1ffb95e905886c3",
+  "strict_natural_oos": false,
+  "oos_evidence_grade": "B-downgraded",
+  "period": {
+    "start": "2018-11-15",
+    "end": "2026-07-24"
+  },
+  "baseline_cost": {
+    "annualized_return": 0.007535172802180634,
+    "maximum_drawdown": 0.4070720760177303,
+    "sharpe": 0.12486748408633104,
+    "longest_underwater_trading_days": 1318,
+    "risk_off_transition_count": 22,
+    "risk_on_transition_count": 22
+  },
+  "double_cost": {
+    "annualized_return": 0.0028071651116177154,
+    "maximum_drawdown": 0.4192676823469136,
+    "sharpe": 0.09264178309764284
+  },
+  "simple_baseline": {
+    "name": "static-50pct-cash",
+    "annualized_return": 0.04340093973756942,
+    "maximum_drawdown": 0.2687659055952363,
+    "sharpe": 0.43828616379857877,
+    "dominates_candidate_on_all_preregistered_dimensions": true
+  },
+  "pre_result_gates": {
+    "annualized_return_at_least_5pct": false,
+    "sharpe_at_least_0_50": false,
+    "maximum_drawdown_at_most_0_25": false,
+    "drawdown_at_most_70pct_of_buy_hold": false,
+    "not_dominated_by_static_50pct_cash": false,
+    "double_cost_positive_and_sharpe_at_least_0_45": false,
+    "minimum_four_exits_and_reentries": true
+  },
+  "hard_stop_triggered": true,
+  "stop_reasons": [
+    "OOS Sharpe 0.12 is below the 0.25 hard-stop threshold",
+    "OOS maximum drawdown 40.71% is above the 35% hard-stop threshold",
+    "static 50% ETF / 50% cash dominates CAGR, drawdown and Sharpe"
+  ],
+  "experiment_count": 5,
+  "capacity_status": "not-run-by-stop-rule",
+  "platform_status": "not-run-by-stop-rule",
+  "parameter_selection_used_oos": false,
+  "decision": "keep at R1 and stop tuning the frozen 10/60 version",
+  "next_action": "retain as a failed natural-OOS control; any new trend rule must be preregistered as a new candidate"
+}

@@ -1,0 +1,5 @@
+experiment,status,reason,parameter_selection_used
+parameter-neighborhood,not-run,published B-grade OOS failed before deep research,false
+execution-delay,not-run,published B-grade OOS failed before deep research,false
+multiple-testing,not-run,author already disclosed historical optimum and OOS failed,false
+

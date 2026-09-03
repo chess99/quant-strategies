@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "study_id": "live-strategy-readiness",
+  "candidate_id": "csi300-volume-rsrs",
+  "status": "R1",
+  "source_vintage_grade": "B",
+  "source_sha256": "36a0bbb302f7901ca74af5d917b24eaaf1caa6f752bade22c833c089bf7384cf",
+  "strict_natural_oos": false,
+  "public_calibration": {
+    "passed": true,
+    "local_annualized_return": 0.2226511283403978,
+    "local_maximum_drawdown": 0.13486109706961102,
+    "local_sharpe": 1.2897193689951607,
+    "completed_positions": 13,
+    "passed_check_count": 4,
+    "required_check_count": 4
+  },
+  "post_publication_oos": {
+    "passed": false,
+    "period_start": "2020-05-15",
+    "period_end": "2026-07-23",
+    "annualized_return": 0.025216804447648178,
+    "maximum_drawdown": 0.3848446206001014,
+    "sharpe": 0.23702440544572428,
+    "completed_positions": 9,
+    "passed_check_count": 2,
+    "required_check_count": 6
+  },
+  "gates": {
+    "causal_signal": true,
+    "public_window_calibrated": true,
+    "post_publication_first_read": true,
+    "realistic_costs": true,
+    "simple_baseline_increment": false,
+    "robustness": false,
+    "capacity": false
+  },
+  "post_publication_performance_calculated": true,
+  "parameter_selection_used_oos": false,
+  "decision": "remain R1 and stop; do not tune the disclosed historical optimum on the failed OOS window",
+  "stop_reason": "B-grade post-publication Sharpe and drawdown failed and the strategy underperformed both buy-and-hold and half-cash risk-adjusted baselines"
+}
+

@@ -1,0 +1,150 @@
+{
+  "schema_version": 2,
+  "study_id": "star50-single-asset-timing-start-date-robustness",
+  "archived_at": "2026-09-03",
+  "run_id": "tencent-yahoo-2020-2026-v2",
+  "symbol": "SH588000",
+  "evidence_class": "post-selection start-date sensitivity; not untouched OOS",
+  "data": {
+    "input_file": "raw/input-sh588000.csv",
+    "input_sha256": "4853333cba2c0f7254f8f30148b30460c31b7014257cbc90010c0251473f2464",
+    "start": "2020-11-16",
+    "end": "2026-09-01",
+    "sessions": 1407,
+    "source_phase1_archive": "studies/star50-single-asset-timing/results/2026-09-01__walk-forward-technical-families__tencent-yahoo-2020-2026-v1",
+    "source_phase2_archive": "studies/star50-single-asset-timing/results/2026-09-02__live-extension-g0-g3__tencent-yahoo-2020-2026-v1"
+  },
+  "protocol": {
+    "warmup_sessions": 252,
+    "horizons": [
+      63,
+      126,
+      252,
+      504
+    ],
+    "primary_horizons": [
+      252,
+      504
+    ],
+    "start_grid": "every eligible trading day; monthly first starts reported as sensitivity",
+    "fresh_account_per_start": true,
+    "initial_cash": 1000000.0,
+    "maximum_target_weight": 0.99,
+    "execution": "next-session open",
+    "etf_commission": 0.0003,
+    "minimum_commission": 5.0,
+    "slippage": 0.0002,
+    "stamp_tax": 0.0,
+    "severe_terminal_loss": -0.2,
+    "severe_maximum_drawdown": 0.25,
+    "overlap_warning": "start windows overlap and are not independent observations"
+  },
+  "frozen_models": [
+    "risk-friction__threshold-0p05",
+    "production-ensemble__threshold-0p1"
+  ],
+  "window_count": 3679,
+  "simulation_count": 11037,
+  "gate_results": [
+    {
+      "model": "risk-friction__threshold-0p05",
+      "objective": "risk",
+      "required_benchmark_return_fraction": 0.5,
+      "h252_severe": true,
+      "h252_drawdown": true,
+      "h252_sharpe": true,
+      "h252_positive": false,
+      "h252_return_adequacy": true,
+      "h252_return_timing": false,
+      "h504_severe": true,
+      "h504_drawdown": true,
+      "h504_sharpe": true,
+      "h504_positive": true,
+      "h504_return_adequacy": true,
+      "h504_return_timing": true,
+      "risk_robust": false,
+      "return_timing_robust": false
+    },
+    {
+      "model": "production-ensemble__threshold-0p1",
+      "objective": "balanced",
+      "required_benchmark_return_fraction": 0.7,
+      "h252_severe": true,
+      "h252_drawdown": true,
+      "h252_sharpe": true,
+      "h252_positive": false,
+      "h252_return_adequacy": true,
+      "h252_return_timing": false,
+      "h504_severe": true,
+      "h504_drawdown": true,
+      "h504_sharpe": true,
+      "h504_positive": true,
+      "h504_return_adequacy": true,
+      "h504_return_timing": true,
+      "risk_robust": false,
+      "return_timing_robust": false
+    }
+  ],
+  "source_file": "source.py",
+  "source_sha256": "ddb860fe9db77e1191517ca67ca69caf0444d97e3a532c64f9e8a902959ecdbe",
+  "model_file": "model.py",
+  "model_sha256": "766d553b49d0fdbb8f64063229f03894206979af8577f8426017da69b59307bd",
+  "engine_file": "engine.py",
+  "engine_sha256": "999c3e31ef300f65f0ac1ae98a8a2bd4f2e99598ee5df71156ce6523e2f23457",
+  "protocol_file": "protocol.md",
+  "protocol_sha256": "eb8ca0409801086380997270ce1c3faa16b9e9578258cb11f9e270b2c38c70ec",
+  "artifacts": {
+    "engine.py": {
+      "sha256": "999c3e31ef300f65f0ac1ae98a8a2bd4f2e99598ee5df71156ce6523e2f23457",
+      "bytes": 85194
+    },
+    "model.py": {
+      "sha256": "766d553b49d0fdbb8f64063229f03894206979af8577f8426017da69b59307bd",
+      "bytes": 42859
+    },
+    "protocol.md": {
+      "sha256": "eb8ca0409801086380997270ce1c3faa16b9e9578258cb11f9e270b2c38c70ec",
+      "bytes": 4101
+    },
+    "raw/input-sh588000.csv": {
+      "sha256": "4853333cba2c0f7254f8f30148b30460c31b7014257cbc90010c0251473f2464",
+      "bytes": 99494
+    },
+    "raw/original-start-anchor.csv": {
+      "sha256": "0af8d4ba39349fb67d143c17b66ce130e667ad9a353494fd63b7a15ac849603c",
+      "bytes": 851
+    },
+    "raw/start-date-gates.csv": {
+      "sha256": "4b1dfaf73151903045d48b5134568e1649c8b56f3dc2ef8de1c60ac298bbd460",
+      "bytes": 506
+    },
+    "raw/start-date-metrics.csv": {
+      "sha256": "08214b664e55540b009dc106876745eeddfd81fe950af0d85d4ec2bc1a7a31c9",
+      "bytes": 4357985
+    },
+    "raw/start-date-summary.csv": {
+      "sha256": "f95d840535a026027eed420a62763def00747a4eed2e19b2b119750db77bea4f",
+      "bytes": 9172
+    },
+    "raw/start-regime-summary.csv": {
+      "sha256": "86683e6048ee1cc1737d4a65a9e89ecc9b8ade7e9219cb9668cec5ed4f6c81fd",
+      "bytes": 6151
+    },
+    "raw/start-windows.csv": {
+      "sha256": "c91a4810565c3f92c3da4ab8e8a0c983d528db48cc2d97f79fb76ad02b653aa6",
+      "bytes": 189821
+    },
+    "raw/worst-starts.csv": {
+      "sha256": "ae39f91d1552cdb5d13bd3fc6fd896155bbfd1e137e33b395fbfaf283e1f3193",
+      "bytes": 26464
+    },
+    "report.md": {
+      "sha256": "67f20464d89474247cb50a939db7bdde7897a318af1714f802207e3e91b85115",
+      "bytes": 4336
+    },
+    "source.py": {
+      "sha256": "ddb860fe9db77e1191517ca67ca69caf0444d97e3a532c64f9e8a902959ecdbe",
+      "bytes": 35974
+    }
+  }
+}

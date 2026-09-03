@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "candidate_id": "white-horse-offense-defense",
+  "status": "R1",
+  "source_vintage_grade": "C",
+  "strict_natural_oos": false,
+  "first_causal_run_preserved": true,
+  "first_causal_gate_passed": true,
+  "experiment_count": 63,
+  "parameter_neighborhood_trials": 27,
+  "parameter_positive_return_rate": 1.0,
+  "parameter_sharpe_ge_0_5_rate": 0.9629629629629629,
+  "minimum_delay_sharpe": 0.6504351901570494,
+  "primary_capital_minimum_exposure": 0.3733185788361115,
+  "frozen_baseline_average_exposure": 0.38038843526488997,
+  "primary_capital_minimum_exposure_retention": 0.981414113118725,
+  "capacity_gate_interpretation": "The preregistered >=90% absolute-exposure gate is retained as failed. It conflates the strategy's intentional cash state with execution loss; the post-result relative-retention diagnostic does not change promotion.",
+  "placebo_random_delay_minimum_sharpe": 0.6879380360414522,
+  "pbo": {
+    "pbo": 0.21428571428571427,
+    "split_count": 70,
+    "strategy_count": 27,
+    "median_logit": 0.5306282510621705
+  },
+  "deflated_sharpe": {
+    "observed_annualized_sharpe": 0.843157121804667,
+    "expected_max_daily_sharpe": 0.035728197667017035,
+    "deflated_sharpe_probability": 0.8419575750905388,
+    "skew": 0.2841006699596663,
+    "kurtosis": 14.278238343010392,
+    "trial_count": 27
+  },
+  "gates": {
+    "first_causal_gate": true,
+    "point_in_time_membership": true,
+    "point_in_time_financials": true,
+    "executable_order_model": true,
+    "parameter_positive_return_gate": true,
+    "parameter_sharpe_gate": true,
+    "execution_delay_gate": true,
+    "primary_capacity_gate": false,
+    "simple_baseline_gate": true,
+    "credible_oos_gate": false,
+    "platform_alignment_gate": false
+  },
+  "blocking_gaps_for_R3": [
+    "source vintage is C and does not supply credible natural OOS",
+    "JoinQuant/platform golden comparison is not complete",
+    "production financial-data timestamp and failure contracts are not frozen",
+    "frozen forward paper-trading evidence is absent"
+  ],
+  "blocking_gap_for_R2": "preregistered absolute capacity gate failed; any replacement with a relative-exposure gate requires a new protocol and may not retroactively promote this run",
+  "decision": "remain R1; do not select a neighborhood winner"
+}

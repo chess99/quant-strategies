@@ -1,0 +1,17 @@
+﻿candidate_id,candidate_status,platform_status,matched_observation_dates,mean_universe_jaccard,selected_exact_match_ratio,mean_target_weight_l1,evidence,gap,status_before_supplement,local_exact_target_match_ratio,real_joinquant_export_present,eligible_for_R3
+etf-core-rotation-calibration-control,control,directionally-reconciled,17.0,0.9317629466300829,0.47058823529411764,0.3045153745419976,Research replay plus official 2014-2026 JoinQuant backtest,static local tracking_target versus platform PIT FUND_INVEST_TARGET,,,,
+low-risk-medium-return,R0,blocked-before-comparison,,,,,,missing local 399317.XSHE PIT membership,,,,
+multi-asset-etf-momentum-epo,R1,not-run,,,,,,parameter neighborhood failed; order-level and QDII comparison absent,,,,
+white-horse-offense-defense,R1,not-run,,,,,,C-grade source and failed preregistered capacity gate,,,,
+lazy-etf-regime-switch,R1,not-run,,,,,,no order/weight golden comparison and no QDII production feed,,,,
+profitable-small-cap-a-share,R1,not-run,,,,,,archive explicitly requires full JoinQuant path reconciliation,,,,
+wufu-etf-rotation,R1,partial-minute-events-only,,,,,,A7 lacks complete portfolio equity/order comparison,,,,
+multi-asset-etf-momentum-epo-safe,R1,local-source-preflight-passed-not-R2-eligible,28.0,,1.0,0.0,28-date local formal-source parity completed before the supplemental R1 downgrade,supplemental liquidity gate failed; real JoinQuant order/trade/equity export and QDII feeds absent,R2,1.0,False,False
+csi300-drawdown-bond-switch,R1,not-run-stopped-before-R2,,,,,,weak B-grade post-publication return; no candidate platform export,,,False,False
+csi300-ma10-60-cash,R1,not-run-stopped-before-R2,,,,,,B-grade post-publication Sharpe is near zero; no platform export,,,False,False
+csi300-pe-smart-dca,R0,not-run-stopped-before-R2,,,,,,public-window valuation proxy failed calibration,,,False,False
+csi300-volume-rsrs,R1,not-run-stopped-before-R2,,,,,,B-grade post-publication Sharpe 0.24 and 38.48% drawdown,,,False,False
+dynamic-volume-etf-rotation,R0,not-run-stopped-before-R2,,,,,,causal daily reconstruction failed public-window calibration,,,False,False
+ebit-ev-value,R0,not-run-stopped-before-R2,,,,,,historical source universe and public CAGR were not reproduced,,,False,False
+gac-zscore-mean-reversion,R1,not-run-stopped-before-R2,,,,,,post-publication return and Sharpe are negative; drawdown 58.37%,,,False,False
+stock-bond-volatility-balance,R1,not-run-stopped-before-R2,,,,,,low post-publication return and no candidate platform export,,,False,False

@@ -1,0 +1,4 @@
+﻿scenario,annualized_return,maximum_drawdown,sharpe,note
+published-community-backtest,0.79934314704839,0.20359303644084,2.8964837281467,platform claim; intraday limit-up exit not reproducible with daily bars
+local-published-core,0.4637,0.2615,,daily-bar reconstruction of the core small-cap rules
+local-causal-deployable,0.22168285011067157,0.21765283831786364,1.2256782792932646,"PIT financials, liquidity, industry limit, and risk overlay"

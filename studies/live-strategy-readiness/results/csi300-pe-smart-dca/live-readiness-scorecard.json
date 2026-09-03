@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "study_id": "live-strategy-readiness",
+  "candidate_id": "csi300-pe-smart-dca",
+  "status": "R0",
+  "source_vintage_grade": "C",
+  "source_sha256": "c36134b5d6bfc6da0ec2d80846ecfc1b77d258c071a3e9e909cdb0beaeecbf2b",
+  "strict_natural_oos": false,
+  "calibration": {
+    "passed": false,
+    "period_start": "2012-06-01",
+    "period_end": "2019-12-26",
+    "local_annualized_return": 0.03643569168297045,
+    "public_annualized_return": 0.1325133659203,
+    "local_maximum_drawdown": 0.11026583812770085,
+    "public_maximum_drawdown": 0.2100312627198,
+    "local_sharpe": 0.5371259418561233,
+    "public_sharpe": 0.62969797858226,
+    "local_action_count": 224,
+    "public_action_count_proxy": 73,
+    "passed_check_count": 1,
+    "required_check_count": 4
+  },
+  "gates": {
+    "causal_logic_reconstructed": true,
+    "valuation_data_contract_reproduced": false,
+    "public_window_calibrated": false,
+    "post_publication_first_read": false,
+    "capacity": false,
+    "production_data": false
+  },
+  "post_publication_performance_calculated": false,
+  "parameter_selection_used": false,
+  "decision": "downgrade to R0 and stop; do not substitute the CSI300 PE proxy or inspect the post-publication window",
+  "stop_reason": "the only reproducible daily valuation proxy failed the preregistered public-window calibration"
+}

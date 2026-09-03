@@ -1,0 +1,6 @@
+experiment,variant,status,annualized_return,maximum_drawdown,sharpe,notes
+cost-and-causal-replay,frozen-source-cost-proxy,failed,0.007054334771276816,0.3220165230894656,0.12156129566732266,source did not declare costs; proxy only
+cost-and-causal-replay,causal-baseline-cost,failed,0.0062529242679096875,0.3221655946679687,0.11618990160564134,failed preregistered CAGR Sharpe and drawdown gates
+cost-and-causal-replay,causal-double-cost,failed,0.004453094411242198,0.32240445920079097,0.1040935133203115,total return stayed positive but Sharpe failed
+simple-baseline,csi300-buy-hold,reference,-0.004014011847101484,0.37194512805971003,0.06748546656554084,active switch reduced drawdown but did not create an acceptable edge
+simple-baseline,static-50-50,dominates-switch,0.018936762095037585,0.1672015539089179,0.2558919527786438,higher CAGR lower drawdown and higher Sharpe

@@ -1,0 +1,5 @@
+experiment,status,reason,parameter_selection_used
+parameter-neighborhood,not-run,B-grade OOS materially negative,false
+execution-delay,not-run,B-grade OOS materially negative,false
+multiple-testing,not-run,single-stock subjective parameters and OOS failure,false
+

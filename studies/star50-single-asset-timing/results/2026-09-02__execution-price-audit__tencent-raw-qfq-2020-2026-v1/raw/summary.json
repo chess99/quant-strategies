@@ -1,0 +1,11 @@
+{
+  "qfq_sessions": 1408,
+  "raw_sessions": 1408,
+  "common_sessions": 1408,
+  "exact_match_sessions": 1407,
+  "maximum_ohlc_relative_error": 0.0023337222870478433,
+  "qfq_only_sessions": 0,
+  "raw_only_sessions": 0,
+  "start": "2020-11-16",
+  "end": "2026-09-02"
+}

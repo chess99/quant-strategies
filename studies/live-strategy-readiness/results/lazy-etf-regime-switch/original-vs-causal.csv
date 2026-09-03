@@ -1,0 +1,3 @@
+﻿scenario,period_start,period_end,annualized_return,maximum_drawdown,sharpe,causal,note
+published-community-backtest,2023-01-01,2026-08-07,0.46918562407614,0.25332653865632,1.4698486598225,False,same-day final close used before 14:50 execution
+local-causal-m4,2014-01-02,2026-07-24,0.2909676153367322,0.2769527348146234,1.1960080514362958,True,"weekly close signal, next-session open execution"

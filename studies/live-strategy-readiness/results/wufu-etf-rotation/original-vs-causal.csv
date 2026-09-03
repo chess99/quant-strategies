@@ -1,0 +1,4 @@
+﻿scenario,annualized_return,maximum_drawdown,sharpe,note
+published-platform-reference,0.83872161569427,0.27698448298894,2.6580180008848,community public result; local dynamic universe is only a lifecycle proxy
+local-a6-top3,0.21030447344011605,0.2576850931735285,0.9658095268871972,2bp high-turnover reference
+local-tradability-v3,0.15069876895252166,0.3436213551719747,0.7150834853515078,10bp weekly Top3 candidate; failed 7 of 16 gates

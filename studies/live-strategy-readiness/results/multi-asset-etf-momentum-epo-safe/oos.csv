@@ -1,0 +1,2 @@
+﻿scenario,period_start,period_end,annualized_return,equity_max_absolute_difference,targets_match_exactly,fallback_count,parameter_selection_used_oos
+parent-causal-baseline-cost,2024-03-25,2026-07-24,0.4654323745675233,5.820766091346741e-11,True,0,False

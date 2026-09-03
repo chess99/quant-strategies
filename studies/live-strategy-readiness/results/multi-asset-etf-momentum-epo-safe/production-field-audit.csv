@@ -1,0 +1,13 @@
+﻿scope,field,status,coverage,required,failure_policy
+all-assets,listing_and_delisting_state,available-local-historical-C-not-live,13,13,block unknown lifecycle
+all-assets,daily_volume_and_amount,available-local-batch-B-not-live,13,13,block capacity estimate when missing
+all-assets,latest_quote_with_timestamp,joinquant-interface-declared-not-observed,0,13,no new order on stale quote
+all-assets,paused_state,joinquant-interface-declared-not-observed,0,13,cancel rebalance on blocked sell
+all-assets,upper_and_lower_price_limits,joinquant-interface-declared-not-observed,0,13,reject limit-locked side
+all-assets,data_quality_status,available-local-manifest-not-live-alerting,13,13,fail closed below required grade
+qdii,exchange_price_with_timestamp,missing-no-production-feed,0,2,fail closed: do not open or add to an affected asset; never reuse stale data silently
+qdii,iopv_or_nav_with_timestamp,missing-no-production-feed,0,2,fail closed: do not open or add to an affected asset; never reuse stale data silently
+qdii,premium_discount,missing-no-production-feed,0,2,fail closed: do not open or add to an affected asset; never reuse stale data silently
+qdii,subscription_redemption_status_and_limit,missing-no-production-feed,0,2,fail closed: do not open or add to an affected asset; never reuse stale data silently
+qdii,underlying_market_calendar_and_session_state,missing-no-production-feed,0,2,fail closed: do not open or add to an affected asset; never reuse stale data silently
+qdii,relevant_fx_rate_with_timestamp,missing-no-production-feed,0,2,fail closed: do not open or add to an affected asset; never reuse stale data silently

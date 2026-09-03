@@ -1,0 +1,4 @@
+﻿analysis_type,name,value,note
+return-source,small-cap-style,,dominant economic exposure identified by module reconstruction
+risk-factor,full-history-drawdown,0.6795303534153114,2015-06-12 to 2018-10-16
+data-gap,top-contributor-concentration,,not computed in immutable archive

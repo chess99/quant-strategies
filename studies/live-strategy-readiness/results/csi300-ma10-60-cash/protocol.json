@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "study_id": "live-strategy-readiness",
+  "candidate_id": "csi300-ma10-60-cash",
+  "candidate_name": "沪深 300 ETF 10/60 均线",
+  "status": "preregistered-before-oos-replay",
+  "research_level": "R0",
+  "publication": {
+    "url": "https://www.joinquant.com/post/15265",
+    "date": "2018-11-14",
+    "published_at": "2018-11-14 17:59:25",
+    "modified_at": "2018-11-14 17:59:25",
+    "archive_collected_at": "2026-07-27T02:07:21+08:00"
+  },
+  "public_backtest": {
+    "id": "5f9ed21b6a264777aad9fb283834429f",
+    "numeric_id": "10697891",
+    "start": "2014-06-01",
+    "end": "2018-11-13",
+    "initial_capital_rmb": 200000,
+    "annual_return": 0.19860036027847,
+    "max_drawdown": 0.21495593824082,
+    "sharpe": 0.89307295642685
+  },
+  "source_vintage": {
+    "grade": "B",
+    "strict_natural_oos": false,
+    "current_snapshot_only": true,
+    "reason": "帖子自发布后未修改，正文公开的 10/60、沪深 300 ETF 与全仓/空仓规则和当前源码一致；但缺少早于 OOS 的独立源码哈希。"
+  },
+  "frozen_source": {
+    "path": "joinquant_archive/sources/2020年度精选策略/83 沪深300ETF-1060双均线.py",
+    "sha256": "8d67a7ead17d757ee2b2edd59ace74c29fcfcda0536dc859d1ffb95e905886c3",
+    "meaning": "current archive snapshot consistent with the never-modified publication"
+  },
+  "investment_hypothesis": "沪深 300 ETF 的 10/60 日中期趋势能在主要下行阶段降低股票暴露，并在趋势恢复后重新参与，从而以更低回撤取得可接受的风险调整收益。",
+  "frozen_parameters": {
+    "risk_asset": "510310.XSHG",
+    "short_window_days": 10,
+    "long_window_days": 60,
+    "risk_on_weight": 1.0,
+    "risk_off_weight": 0.0,
+    "execution": "daily at open using previous-session closes"
+  },
+  "post_publication_replay": {
+    "ready": true,
+    "window": {
+      "start": "2018-11-15",
+      "end": "2026-07-24"
+    },
+    "initial_capital_rmb": 200000,
+    "initial_state": "cash",
+    "data_quality": "B",
+    "rule": "第一轮冻结 10/60；不得使用该窗口选择均线长度、资产、仓位或例外规则。"
+  },
+  "causal_reconstruction": {
+    "ready": true,
+    "required_correctness_repairs": [
+      "只使用前一交易日及更早收盘价，下一交易日开盘成交",
+      "按 ETF 费率去除错误的股票卖出印花税",
+      "处理 ETF 生命周期、停牌、整手、最低佣金、ADV 参与率和未成交",
+      "卖出失败时不得假定现金已经释放",
+      "保留原费用结果，同时增加现实摩擦和双倍摩擦"
+    ]
+  },
+  "pre_result_success_criteria": {
+    "baseline_cost_oos_annual_return": ">= 0.05",
+    "baseline_cost_oos_sharpe": ">= 0.50",
+    "baseline_cost_oos_max_drawdown": "<= 0.25",
+    "drawdown_protection": "最大回撤不高于 ETF 买入持有的 70%",
+    "simple_baseline": "不能被初始 50% ETF / 50% 现金在 CAGR、最大回撤和 Sharpe 三项同时支配",
+    "double_cost": "总收益保持为正且 Sharpe 不低于 0.45",
+    "minimum_events": "至少 4 次退出和 4 次重新进入，否则证据量不足",
+    "hard_stop": "若 CAGR <= 0、Sharpe < 0.25、最大回撤 > 0.35，或优势依赖不可成交路径，停止当前版本"
+  },
+  "experiment_policy": {
+    "tune_on_post_publication_window": false,
+    "first_replay_parameters_frozen": true,
+    "alpha_change_requires_new_candidate": true,
+    "report_failed_experiments": true
+  },
+  "decision": "进入未经调参的 B 级发布后回放；结果不能称为严格天然 OOS。"
+}

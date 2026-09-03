@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "study_id": "star50-execution-price-audit",
+  "archived_at": "2026-09-02",
+  "symbol": "SH588000",
+  "evidence_class": "execution data engineering audit; no alpha evidence",
+  "summary": {
+    "qfq_sessions": 1408,
+    "raw_sessions": 1408,
+    "common_sessions": 1408,
+    "exact_match_sessions": 1407,
+    "maximum_ohlc_relative_error": 0.0023337222870478433,
+    "qfq_only_sessions": 0,
+    "raw_only_sessions": 0,
+    "start": "2020-11-16",
+    "end": "2026-09-02"
+  },
+  "source_file": "source.py",
+  "source_sha256": "27c11fdf4a66ca3272f46dd105eca050cc96d2d8d4f250025af3adc28ee940f9",
+  "artifacts": {
+    "engine.py": {
+      "sha256": "4e50991edf726fe2e244931c7a1e02660fa9c9043ceab1a24c154b5e2b954ceb",
+      "bytes": 84196
+    },
+    "raw/price-comparison.csv": {
+      "sha256": "56f57aa99d23b580a867fc220ca310fd1f35d4bcf6ee2de1e4f11d042f586905",
+      "bytes": 148632
+    },
+    "raw/summary.json": {
+      "sha256": "a62fa25afe8b40d32ba9f1d130564c63119ec3653a8765265affa6fdcfd99b4e",
+      "bytes": 277
+    },
+    "raw/tencent-qfq.csv": {
+      "sha256": "f3495f4767654460c9afd66833a773c5dcffb4118fc3f4e38baebcac6023541e",
+      "bytes": 65037
+    },
+    "raw/tencent-raw.csv": {
+      "sha256": "040773928b6a10da7d47ce431d3ffc4a27d9394a5e538191151b6755c2835ce9",
+      "bytes": 65042
+    },
+    "report.md": {
+      "sha256": "ec3e1eac2a34e4c5f34f6e62a06831e1dee1d26244e4361111a0f2845eb7670d",
+      "bytes": 644
+    },
+    "source.py": {
+      "sha256": "27c11fdf4a66ca3272f46dd105eca050cc96d2d8d4f250025af3adc28ee940f9",
+      "bytes": 8116
+    }
+  }
+}

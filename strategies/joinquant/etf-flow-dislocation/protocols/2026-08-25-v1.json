@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "protocol_id": "2026-08-25-etf-flow-dislocation-v1",
+  "frozen_before_results": true,
+  "research_status_at_freeze": "implementation_and_protocol_only_no_backtest_or_event_result",
+  "hypothesis": "Extreme ETF share contraction combined with price dislocation and short-horizon stabilization predicts positive subsequent mean reversion because mechanically constrained order flow and liquidity pressure can exhaust before fundamental value changes.",
+  "primary_signal": {
+    "flow_lookback_observations": 20,
+    "max_flow_20": -0.05,
+    "price_return_lookback_days": 20,
+    "max_return_20": -0.08,
+    "drawdown_lookback_days": 60,
+    "max_drawdown_60": -0.12,
+    "stabilization_return_days": 3,
+    "min_reversal_3": 0.0,
+    "require_above_ma5": true,
+    "schedule": "weekly first trading day observation; platform executes Monday 10:30 using previous_date",
+    "max_positions": 3,
+    "active_budget": 0.75,
+    "max_single_weight": 0.3
+  },
+  "universe": {
+    "asset_type": "ETF",
+    "market": "domestic China equity index exposure",
+    "pit_lifecycle": true,
+    "pit_tracking_target": true,
+    "min_listing_calendar_days": 240,
+    "min_adv20_rmb": 30000000,
+    "deduplicate_same_tracking_index_by": "highest causal ADV20"
+  },
+  "event_study": {
+    "forward_horizons_trading_days": [5, 10, 20, 40],
+    "primary_horizon_trading_days": 20,
+    "minimum_events_for_grid_cell": 30,
+    "required_diagnostics": [
+      "market-phase splits",
+      "broad-vs-sector split",
+      "remove top 5 percent contributing events",
+      "matched controls for ordinary reversal/drawdown/volatility",
+      "clustered or block bootstrap",
+      "parameter plateau map"
+    ],
+    "episode_cooldown_calendar_days": 28,
+    "episode_rule": "For each ETF, keep only the first weekly signal within a 28-calendar-day shock episode."
+  },
+  "coarse_grid": {
+    "flow_threshold": [-0.03, -0.05, -0.08, -0.12],
+    "return_threshold": [-0.04, -0.08, -0.12],
+    "drawdown_threshold": [-0.1, -0.15, -0.2],
+    "reversal_threshold": [-0.02, 0.0, 0.02],
+    "require_above_ma5": [false, true],
+    "direct_trials": 216,
+    "note": "The grid is diagnostic only. Do not select the full-sample winner as a new baseline."
+  },
+  "promotion_gate": [
+    "positive 20-day incremental event return versus unconditional weekly ETF observations",
+    "same sign in at least three predeclared market phases",
+    "positive after removing top 5 percent contributing events",
+    "positive after matching on ordinary price reversal/drawdown/volatility",
+    "neighboring parameter configurations show a plateau rather than an isolated optimum",
+    "then pass portfolio cost/capacity/expanding-window out-of-sample tests"
+  ],
+  "separate_future_family": "fund-crowding-unwind",
+  "known_limits": [
+    "China ETF redemptions can use in-kind delivery and cash substitution, so FUND_SHARE_DAILY contraction is a flow-pressure proxy, not direct proof that the fund sold underlying stocks.",
+    "ETF share redemption is only one form of institutional constraint and does not directly measure active mutual fund forced selling.",
+    "Redemption can be information-driven; the baseline has no fundamental-intact filter.",
+    "JoinQuant FUND_SHARE_DAILY availability and historical corrections must be audited before treating results as strict point-in-time evidence.",
+    "The local daily-open proxy will not exactly reproduce Monday 10:30 official backtest execution."
+  ],
+  "data_acceptance": {
+    "historical_lifecycle_audit": "The exported ETF master must contain lifecycle dates and at least one historically terminated ETF over the research era; otherwise stop and fix the master extraction before research.",
+    "share_coverage_audit": "Report first/last FUND_SHARE_DAILY date and non-null share observations per ETF; do not silently forward-fill across long gaps.",
+    "tracking_pit_audit": "Use max(pub_date, start_date) as the earliest effective tracking-target date and respect end_date."
+  }
+}

@@ -35,7 +35,7 @@ def initialize(context):
     g.fast_period = 12
     g.slow_period = 26
     g.signal_period = 9
-    g.history_count = 252
+    g.history_start = "2020-11-16"
     g.target_weight = 0.99
 
     # 开盘时只能使用上一交易日及更早的完整日线。
@@ -93,16 +93,17 @@ def latest_macd_signal(close_values, fast=12, slow=26, signal=9):
     return bool(latest_difference > latest_signal), latest_difference, latest_signal
 
 
-def load_close_history(security, observation_date, count):
-    """只读取观察日及以前的收盘价，不读取当日未完成数据。"""
+def load_close_history(security, history_start, observation_date):
+    """读取上市以来、截至观察日的完整收盘价。"""
 
     frame = get_price(
         security,
+        start_date=history_start,
         end_date=observation_date,
         frequency="daily",
         fields=["close"],
-        count=count,
         skip_paused=False,
+        fq="pre",
         panel=False,
     )
     if frame is None or frame.empty or "close" not in frame.columns:
@@ -146,7 +147,7 @@ def rebalance(context):
     """以上一交易日收盘信号，在下一交易日开盘切换仓位。"""
 
     observation_date = context.previous_date
-    close = load_close_history(g.security, observation_date, g.history_count)
+    close = load_close_history(g.security, g.history_start, observation_date)
     bullish, difference, signal_line = latest_macd_signal(
         close,
         g.fast_period,

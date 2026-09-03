@@ -1,6 +1,6 @@
 schema_version = 1
-id = "star50-macd-timing"
-title = "科创50 ETF MACD 择时"
+id = "star50-single-asset-timing"
+title = "科创50 ETF 单标的技术择时"
 platform = "joinquant"
 market = "CN-ETF"
 status = "research"

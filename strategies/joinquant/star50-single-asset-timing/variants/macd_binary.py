@@ -37,6 +37,7 @@ def initialize(context):
     g.signal_period = 9
     g.history_start = "2020-11-16"
     g.target_weight = 0.99
+    g.insufficient_history_warned = False
 
     # 开盘时只能使用上一交易日及更早的完整日线。
     run_daily(rebalance, time="open")
@@ -155,8 +156,11 @@ def rebalance(context):
         g.signal_period,
     )
     if bullish is None:
-        log.warning("MACD 历史数据不足，保留当前仓位")
+        if not g.insufficient_history_warned:
+            log.warning("MACD历史数据不足，至少需要34个交易日；热身期不交易")
+            g.insufficient_history_warned = True
         return
+    g.insufficient_history_warned = False
 
     record(
         macd_diff=float(difference),

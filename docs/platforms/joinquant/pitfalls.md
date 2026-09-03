@@ -25,6 +25,8 @@ from **future** import annotations
 平台版本可能落后于本地环境。交付文件中避免：
 
 - `zip(..., strict=True)`
+- `Series.to_numpy()` 或 `DataFrame.to_numpy()`，使用旧版同样支持的 `.values`
+- `np.nan_to_num(..., nan=...)`，先复制数组并用 `np.isfinite` 显式处理非有限值
 - 只有新版本 pandas 才支持的 `groupby(..., dropna=...)`
 - 仅用于类型标注便利、但运行时并不必要的新语法
 

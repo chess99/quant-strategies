@@ -37,6 +37,7 @@ def initialize(context):
     g.history_start = "2020-11-16"
     g.rebalance_threshold = 0.10
     g.pending_target_weight = None
+    g.insufficient_history_warned = False
 
     run_daily(rebalance, time="open")
 
@@ -88,7 +89,7 @@ def risk_core_targets(
         lower=0.0,
         upper=maximum_weight,
     )
-    return raw.where(close > moving_average, 0.0).fillna(0.0).to_numpy()
+    return raw.where(close > moving_average, 0.0).fillna(0.0).values
 
 
 def exponential_moving_average(values, period):
@@ -98,7 +99,7 @@ def exponential_moving_average(values, period):
         pd.Series(np.asarray(values, dtype=float))
         .ewm(span=period, adjust=False, min_periods=period)
         .mean()
-        .to_numpy()
+        .values
     )
 
 
@@ -134,7 +135,7 @@ def average_true_range(frame, period=20):
             min_periods=period,
         )
         .mean()
-        .to_numpy()
+        .values
     )
 
 
@@ -156,7 +157,7 @@ def keltner_gate(frame, period=20, multiplier=2.0):
     """返回固定Keltner突破状态。"""
 
     prices = frame[["high", "low", "close"]].astype(float).reset_index(drop=True)
-    close = prices["close"].to_numpy()
+    close = prices["close"].values
     middle = exponential_moving_average(close, period)
     upper = middle + multiplier * average_true_range(prices, period)
     return stateful_gate(close > upper, close < middle)
@@ -166,7 +167,7 @@ def fixed_ensemble_raw_targets(frame):
     """固定等权合成风险核心、MACD覆盖和Keltner覆盖。"""
 
     prices = frame[["high", "low", "close"]].astype(float).reset_index(drop=True)
-    close = prices["close"].to_numpy()
+    close = prices["close"].values
     core = risk_core_targets(close)
     macd_overlay = core * (0.25 + 0.75 * macd_gate(close))
     keltner_overlay = core * (0.25 + 0.75 * keltner_gate(prices))
@@ -262,8 +263,11 @@ def rebalance(context):
     frame = load_price_history(g.security, g.history_start, observation_date)
     target_weight, previous_target_weight = latest_target_weights(frame)
     if target_weight is None:
-        log.warning("平衡型目标历史数据不足，保留当前仓位")
+        if not g.insufficient_history_warned:
+            log.warning("平衡型目标历史数据不足，至少需要200个交易日；热身期不交易")
+            g.insufficient_history_warned = True
         return
+    g.insufficient_history_warned = False
 
     record(target_weight=float(target_weight))
 

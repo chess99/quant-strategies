@@ -42,6 +42,7 @@ def test_variant_is_self_contained_platform_file(path):
     assert "end_date=observation_date" in source
     assert "g.security, g.history_start, observation_date" in source
     assert "current_data.get" not in source
+    assert ".to_numpy(" not in source
 
     forbidden = {
         node.func.id
@@ -77,6 +78,54 @@ def test_macd_signal_requires_complete_history_and_tracks_direction():
     assert strategy.latest_macd_signal(np.arange(33.0), 12, 26, 9)[0] is None
     assert strategy.latest_macd_signal(np.arange(100.0), 12, 26, 9)[0] is True
     assert strategy.latest_macd_signal(np.arange(100.0, 0.0, -1.0), 12, 26, 9)[0] is False
+
+
+@pytest.mark.parametrize(
+    ("path", "name", "loader_name", "empty_history", "extra_globals", "warning"),
+    [
+        (
+            MACD,
+            "star50_macd_warmup",
+            "load_close_history",
+            np.array([], dtype=float),
+            {"fast_period": 12, "slow_period": 26, "signal_period": 9},
+            "MACD历史数据不足，至少需要34个交易日；热身期不交易",
+        ),
+        (
+            BALANCED,
+            "star50_balanced_warmup",
+            "load_price_history",
+            pd.DataFrame(columns=["high", "low", "close"]),
+            {"pending_target_weight": None},
+            "平衡型目标历史数据不足，至少需要200个交易日；热身期不交易",
+        ),
+    ],
+)
+def test_variant_insufficient_history_warning_is_emitted_once(
+    path,
+    name,
+    loader_name,
+    empty_history,
+    extra_globals,
+    warning,
+):
+    strategy = load_module(path, name)
+    strategy.g = SimpleNamespace(
+        security="588000.XSHG",
+        history_start="2020-11-16",
+        target_weight=0.99,
+        insufficient_history_warned=False,
+        **extra_globals,
+    )
+    setattr(strategy, loader_name, lambda *_: empty_history)
+    warnings = []
+    strategy.log = SimpleNamespace(warning=lambda message: warnings.append(message))
+    context = SimpleNamespace(previous_date="2020-11-16")
+
+    strategy.rebalance(context)
+    strategy.rebalance(context)
+
+    assert warnings == [warning]
 
 
 def configure_macd_execution_stubs(strategy, bullish, positions):

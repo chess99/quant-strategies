@@ -41,6 +41,7 @@ def initialize(context):
     g.rebalance_threshold = 0.05
     g.maximum_weight = 0.99
     g.pending_target_weight = None
+    g.insufficient_history_warned = False
 
     run_daily(rebalance, time="open")
 
@@ -95,7 +96,7 @@ def risk_core_targets(
     )
     target = raw.where(close > moving_average, 0.0).fillna(0.0)
     return apply_rebalance_threshold(
-        target.to_numpy(),
+        target.values,
         rebalance_threshold,
         maximum_weight,
     )
@@ -181,8 +182,11 @@ def rebalance(context):
     close = load_close_history(g.security, g.history_start, observation_date)
     target_weight, previous_target_weight = latest_target_weights(close)
     if target_weight is None:
-        log.warning("风险目标历史数据不足，保留当前仓位")
+        if not g.insufficient_history_warned:
+            log.warning("风险目标历史数据不足，至少需要200个交易日；热身期不交易")
+            g.insufficient_history_warned = True
         return
+    g.insufficient_history_warned = False
 
     record(target_weight=float(target_weight))
 

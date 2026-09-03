@@ -42,6 +42,7 @@ def test_platform_file_is_valid_and_causal():
     assert "context.previous_date" in source
     assert "end_date=observation_date" in source
     assert "current_data.get" not in source
+    assert ".to_numpy(" not in source
 
     forbidden = {
         node.func.id
@@ -81,6 +82,24 @@ def test_risk_core_reproduces_frozen_target():
 def test_target_requires_complete_history():
     strategy = load_strategy()
     assert strategy.latest_target_weights(np.arange(199.0))[0] is None
+
+
+def test_insufficient_history_warning_is_emitted_once():
+    strategy = load_strategy()
+    strategy.g = SimpleNamespace(
+        security="588000.XSHG",
+        history_start="2020-11-16",
+        insufficient_history_warned=False,
+    )
+    strategy.load_close_history = lambda *_: np.array([], dtype=float)
+    warnings = []
+    strategy.log = SimpleNamespace(warning=lambda message: warnings.append(message))
+    context = SimpleNamespace(previous_date="2020-11-16")
+
+    strategy.rebalance(context)
+    strategy.rebalance(context)
+
+    assert warnings == ["风险目标历史数据不足，至少需要200个交易日；热身期不交易"]
 
 
 def test_target_change_and_failed_boundary_orders_are_retried():

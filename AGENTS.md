@@ -82,3 +82,7 @@ strategies/{platform}/{strategy-family}/
 - 每个完整迭代结束后主动提交。
 - 只暂存本次自己创建或修改的文件；提交前检查 `git diff --staged`。
 - 不提交临时下载、浏览器缓存、密钥、Cookie 或个人环境文件。
+
+## 社区文章
+
+写社区文章（`posts/`）前，先读 `docs/writing/community-post-style.md`。文章是判断，不是文档；诚实比漂亮重要。

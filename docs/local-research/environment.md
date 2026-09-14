@@ -15,6 +15,19 @@ powershell -ExecutionPolicy Bypass -File tools\rebuild_research_env.ps1 `
 脚本拒绝覆盖已有目录，避免误删环境。若要重建，传入一个新的空路径，验证通过后再由
 用户自行移除旧环境。
 
+Linux x86-64 执行机使用同一 CPython 3.12.9 和顶层研究依赖，但因平台 wheel 不同，
+单独维护 `requirements/research-linux-py312.lock` 与
+`requirements/research-linux-py312.expected.json`。从空目录重建：
+
+```bash
+bash tools/rebuild_research_env.sh /srv/quantlab/env-new \
+  /srv/quantlab/cache \
+  /srv/quantlab/runs/environment-verification.json
+```
+
+Linux 使用 `xgboost-cpu` 提供 `xgboost` 模块，并固定 PyTorch 2.6.0 CPU wheel；这会避免
+在无 GPU 的研究机上引入 CUDA/NCCL。CPU wheel 下载后必须通过脚本内固定的 SHA-256。
+
 环境包含 Qlib、AkShare、TA-Lib、LightGBM、XGBoost、CVXPY、Optuna 和 PyTorch。
 `tools/verify_research_environment.py` 会核对 Python 与包版本、确认 Anaconda base
 包目录没有泄漏，检查所有顶层包能在同一进程加载，并实际运行每个关键计算库的小型
@@ -31,6 +44,6 @@ powershell -ExecutionPolicy Bypass -File tools\rebuild_research_env.ps1 `
 更新依赖时必须同时：
 
 1. 修改 `.in` 和 `expected.json`。
-2. 在 CPython 3.12.9 的隔离环境中重新生成 lock。
+2. 在对应平台的 CPython 3.12.9 隔离环境中重新生成 lock。
 3. 从新的空环境运行重建脚本。
 4. 提交 lock、验证代码和验证摘要；不得只修改 `pyproject.toml`。

@@ -38,6 +38,10 @@ IMPORT_NAMES = {
 DIST_NAMES = {
     "qlib": "pyqlib",
 }
+if sys.platform.startswith("linux"):
+    # The CPU-only Linux distribution exposes the same ``xgboost`` import
+    # without pulling the CUDA/NCCL runtime onto small research hosts.
+    DIST_NAMES["xgboost"] = "xgboost-cpu"
 
 
 def package_version(distribution: str) -> str:

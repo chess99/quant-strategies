@@ -2,7 +2,10 @@ import hashlib
 import json
 from pathlib import Path
 
-from quant_research.completion_audit import audit_archive_contracts
+from quant_research.completion_audit import (
+    _resolve_artifact,
+    audit_archive_contracts,
+)
 
 
 def write_archive(
@@ -76,3 +79,19 @@ def test_archive_audit_rejects_missing_or_hash_drift(tmp_path):
     assert report["missing_report"] == ["studies/example/results/missing"]
     assert report["missing_source_without_addendum"] == ["studies/example/results/missing"]
     assert report["source_hash_mismatches"] == ["studies/example/results/drifted"]
+
+
+def test_resolve_artifact_maps_windows_data_roots(tmp_path):
+    data_root = tmp_path / "quant-research"
+    qlib_root = tmp_path / "qlib" / "cn_data"
+
+    assert _resolve_artifact(
+        data_root,
+        r"D:\code\_open-source\_data\quant-research\manifests\etf_daily.json",
+        qlib_root,
+    ) == data_root / "manifests" / "etf_daily.json"
+    assert _resolve_artifact(
+        data_root,
+        r"D:\code\_open-source\_data\qlib\cn_data\calendars\day.txt",
+        qlib_root,
+    ) == qlib_root / "calendars" / "day.txt"

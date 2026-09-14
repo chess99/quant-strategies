@@ -23,6 +23,12 @@ def parse_args() -> argparse.Namespace:
         type=Path,
         default=Path("D:/code/_open-source/_data/quant-research"),
     )
+    parser.add_argument(
+        "--qlib-root",
+        type=Path,
+        default=None,
+        help="Qlib cn_data 目录；默认使用 data-root 的同级 qlib/cn_data",
+    )
     parser.add_argument("--verify-hashes", action="store_true")
     parser.add_argument("--output", type=Path, default=None)
     return parser.parse_args()
@@ -33,6 +39,7 @@ def main() -> int:
     report = build_completion_audit(
         ROOT,
         args.data_root,
+        qlib_root=args.qlib_root,
         verify_hashes=args.verify_hashes,
     )
     rendered = json.dumps(report, ensure_ascii=False, indent=2)

@@ -7,7 +7,7 @@ import inspect
 import json
 import subprocess
 from dataclasses import dataclass, field
-from pathlib import Path
+from pathlib import Path, PureWindowsPath
 from typing import Iterable
 
 from .backtest import CostModel, DailyBacktester
@@ -150,7 +150,15 @@ class AuditResult:
             self.failures.append(name)
 
 
-def _resolve_artifact(root: Path, value: str) -> Path:
+def _resolve_artifact(root: Path, value: str, qlib_root: Path) -> Path:
+    windows = PureWindowsPath(value)
+    lowered = [part.lower() for part in windows.parts]
+    if windows.drive and "quant-research" in lowered:
+        index = lowered.index("quant-research")
+        return root.joinpath(*windows.parts[index + 1 :])
+    if windows.drive and "cn_data" in lowered:
+        index = lowered.index("cn_data")
+        return qlib_root.joinpath(*windows.parts[index + 1 :])
     path = Path(value)
     return path if path.is_absolute() else root / path
 
@@ -219,6 +227,7 @@ def audit_archive_contracts(repo_root: Path) -> dict:
 
 def audit_manifest_artifacts(
     data_root: Path,
+    qlib_root: Path,
     manifest_names: Iterable[str],
     *,
     verify_hashes: bool,
@@ -233,7 +242,7 @@ def audit_manifest_artifacts(
         manifest = read_json(data_root / "manifests" / f"{name}.json")
         for kind in ("data_files", "source_files"):
             for artifact in manifest.get(kind, []):
-                path = _resolve_artifact(data_root, artifact["path"])
+                path = _resolve_artifact(data_root, artifact["path"], qlib_root)
                 label = f"{name}:{kind}:{artifact['path']}"
                 if not path.is_file():
                     missing.append(label)
@@ -253,7 +262,7 @@ def audit_manifest_artifacts(
     inventory_path = data_root / "manifests" / "financial-statements-raw-inventory.json"
     inventory = read_json(inventory_path)
     for artifact in inventory.get("artifacts", []):
-        path = _resolve_artifact(data_root, artifact["path"])
+        path = _resolve_artifact(data_root, artifact["path"], qlib_root)
         label = f"financial-raw:{artifact['path']}"
         if not path.is_file():
             missing.append(label)
@@ -341,10 +350,16 @@ def build_completion_audit(
     repo_root: Path | str,
     data_root: Path | str,
     *,
+    qlib_root: Path | str | None = None,
     verify_hashes: bool = False,
 ) -> dict:
     repo_root = Path(repo_root).resolve()
     data_root = Path(data_root).resolve()
+    qlib_root = (
+        Path(qlib_root).resolve()
+        if qlib_root is not None
+        else (data_root.parent / "qlib" / "cn_data").resolve()
+    )
     manifest_names = [
         "security_master",
         "trading_calendar",
@@ -584,7 +599,10 @@ def build_completion_audit(
         if payload.get("dataset") and ("data_files" in payload or "source_files" in payload):
             artifact_manifest_names.append(manifest_path.stem)
     artifact_integrity = audit_manifest_artifacts(
-        data_root, artifact_manifest_names, verify_hashes=verify_hashes
+        data_root,
+        qlib_root,
+        artifact_manifest_names,
+        verify_hashes=verify_hashes,
     )
     artifact_integrity["dataset_manifests_checked"] = len(artifact_manifest_names)
     result.check(
@@ -680,6 +698,7 @@ def build_completion_audit(
         "status": "passed" if not result.failures else "failed",
         "repo_root": str(repo_root),
         "data_root": str(data_root),
+        "qlib_root": str(qlib_root),
         "checks": result.checks,
         "evidence": result.evidence,
         "failures": result.failures,

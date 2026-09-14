@@ -8,7 +8,14 @@ from pathlib import Path
 
 
 def _sha256(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    content = path.read_bytes()
+    if path.suffix.lower() in {".csv", ".json"}:
+        # The frozen v4 evidence was written on Windows and its manifest
+        # records CRLF bytes. Reconstruct that representation so a clean LF
+        # checkout verifies the same immutable evidence on Linux.
+        content = content.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+        content = content.replace(b"\n", b"\r\n")
+    return hashlib.sha256(content).hexdigest()
 
 
 def build_api_compat_verification(repo_root: Path | str) -> dict:

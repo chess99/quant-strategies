@@ -36,7 +36,10 @@ def load_a7_import():
 
 def test_protocol_freezes_reference_hash_before_results():
     protocol = json.loads(PROTOCOL.read_text(encoding="utf-8"))
-    digest = hashlib.sha256(REFERENCE.read_bytes()).hexdigest()
+    # This frozen protocol was produced on Windows. Compare the legacy CRLF
+    # byte representation so a fresh LF checkout verifies identically.
+    content = REFERENCE.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    digest = hashlib.sha256(content.replace(b"\n", b"\r\n")).hexdigest()
     assert protocol["frozen_before_results"] is True
     assert digest == protocol["reference"]["source_sha256"]
     assert [stage["id"] for stage in protocol["stages"]] == [

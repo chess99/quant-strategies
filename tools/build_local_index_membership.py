@@ -15,6 +15,7 @@ if str(SRC) not in sys.path:
 
 from quant_research.data.index_membership import build_index_membership  # noqa: E402
 from quant_research.data.store import ResearchDataStore  # noqa: E402
+from quant_research.paths import data_path  # noqa: E402
 
 
 def parse_args():
@@ -23,7 +24,7 @@ def parse_args():
     parser.add_argument(
         "--qlib-instruments-dir",
         type=Path,
-        default=Path("D:/code/_open-source/_data/qlib/cn_data/instruments"),
+        default=data_path("qlib/cn_data/instruments"),
     )
     return parser.parse_args()
 

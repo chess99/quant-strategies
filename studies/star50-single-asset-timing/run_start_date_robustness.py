@@ -682,7 +682,8 @@ def build_report(bundle: dict, frame: pd.DataFrame) -> str:
             getattr(row, f"h504_{name}")
             for name in ("severe", "drawdown", "sharpe", "positive", "return_adequacy")
         )
-        yes_no = lambda value: "通过" if value else "失败"
+        def yes_no(value):
+            return "通过" if value else "失败"
         lines.append(
             f"| {MODEL_LABELS[row.model]} | {row.objective} | {yes_no(h252_risk)} | "
             f"{yes_no(h504_risk)} | {yes_no(row.risk_robust)} | "

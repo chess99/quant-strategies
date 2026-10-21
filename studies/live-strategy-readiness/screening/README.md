@@ -34,8 +34,10 @@ JoinQuant Archive 快照，并以 2026-08-25 作为发布后窗口的观察截�
 
 在仓库根目录使用研究环境运行：
 
-```powershell
-D:\code\_open-source\_venvs\quant-research-py312\Scripts\python.exe `
+运行前激活[研究环境](../../../docs/local-research/environment.md)。
+
+```bash
+python \
   studies/live-strategy-readiness/screen_archive.py
 ```
 

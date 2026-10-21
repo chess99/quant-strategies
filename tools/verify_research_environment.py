@@ -9,6 +9,7 @@ import platform
 import re
 import site
 import sys
+import tempfile
 from importlib.metadata import distributions, version as distribution_version
 from pathlib import Path
 
@@ -16,8 +17,15 @@ import numpy as np
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_EXPECTED = ROOT / "requirements" / "research-win-py312.expected.json"
-DEFAULT_LOCK = ROOT / "requirements" / "research-win-py312.lock"
+PROFILE = {
+    "win32": "research-win-py312",
+    "linux": "research-linux-py312",
+    "darwin": "research-macos-arm64-py312",
+}.get(sys.platform)
+if PROFILE is None:
+    raise RuntimeError(f"Unsupported research platform: {sys.platform}")
+DEFAULT_EXPECTED = ROOT / "requirements" / f"{PROFILE}.expected.json"
+DEFAULT_LOCK = ROOT / "requirements" / f"{PROFILE}.lock"
 
 IMPORT_NAMES = {
     "akshare": "akshare",
@@ -92,10 +100,7 @@ def installed_distribution_versions() -> dict[str, str]:
 def verify_lock(lock_path: Path, installed: dict[str, str] | None = None) -> dict:
     locked = read_exact_lock(lock_path)
     actual = installed if installed is not None else installed_distribution_versions()
-    actual = {
-        canonical_distribution_name(name): version
-        for name, version in actual.items()
-    }
+    actual = {canonical_distribution_name(name): version for name, version in actual.items()}
     missing = sorted(set(locked).difference(actual))
     extra = sorted(set(actual).difference(locked))
     mismatches = {
@@ -127,6 +132,18 @@ def verify_imports() -> dict[str, str | None]:
         module = importlib.import_module(import_name)
         value = getattr(module, "__version__", None)
         runtime_versions[distribution] = None if value is None else str(value)
+    if sys.platform == "darwin":
+        from threadpoolctl import threadpool_info
+
+        openmp = {
+            Path(item["filepath"]).resolve()
+            for item in threadpool_info()
+            if item["internal_api"] == "openmp"
+        }
+        if len(openmp) != 1:
+            raise RuntimeError(
+                f"Expected one shared OpenMP runtime; got {sorted(map(str, openmp))}. Rebuild the research environment."
+            )
     return runtime_versions
 
 
@@ -137,12 +154,16 @@ def verify_isolation() -> dict:
         raise RuntimeError("research interpreter is not running inside a virtual environment")
     if site.ENABLE_USER_SITE:
         raise RuntimeError("user site-packages must be disabled in the research environment")
-    base_site = (base_prefix / "Lib" / "site-packages").resolve()
-    leaked = [
-        entry
-        for entry in sys.path
-        if Path(entry or ".").resolve() == base_site
-    ]
+    base_sites = {
+        (base_prefix / "Lib" / "site-packages").resolve(),
+        (
+            base_prefix
+            / "lib"
+            / f"python{sys.version_info.major}.{sys.version_info.minor}"
+            / "site-packages"
+        ).resolve(),
+    }
+    leaked = [entry for entry in sys.path if Path(entry or ".").resolve() in base_sites]
     if leaked:
         raise RuntimeError(f"base site-packages leaked into the environment: {leaked}")
     return {
@@ -157,9 +178,34 @@ def verify_smoke_workloads() -> dict:
     import cvxpy as cp
     import lightgbm as lgb
     import optuna
+    import qlib
+    from qlib.data import D
     import talib
     import torch
     import xgboost as xgb
+
+    with tempfile.TemporaryDirectory(prefix="quant-qlib-smoke-") as temporary:
+        provider = Path(temporary)
+        (provider / "calendars").mkdir()
+        (provider / "instruments").mkdir()
+        (provider / "features/sh600000").mkdir(parents=True)
+        (provider / "calendars/day.txt").write_text(
+            "2024-01-02\n2024-01-03\n2024-01-04\n2024-01-05\n"
+        )
+        (provider / "instruments/all.txt").write_text("SH600000\t2024-01-02\t2024-01-05\n")
+        np.array([0, 1, 2, 3, 4], dtype="<f4").tofile(provider / "features/sh600000/close.day.bin")
+        qlib.init(
+            provider_uri=str(provider),
+            region="cn",
+            kernels=1,
+            joblib_backend="threading",
+            expression_cache=None,
+            dataset_cache=None,
+        )
+        frame = D.features(["SH600000"], ["$close"], "2024-01-02", "2024-01-05")
+        qlib_values = frame["$close"].tolist()
+        if qlib_values != [1.0, 2.0, 3.0, 4.0]:
+            raise RuntimeError(f"Qlib binary provider smoke test failed: {qlib_values}")
 
     values = np.array([1.0, 2.0, 3.0, 4.0], dtype=float)
     sma = talib.SMA(values, timeperiod=2)
@@ -173,12 +219,14 @@ def verify_smoke_workloads() -> dict:
         max_depth=2,
         verbosity=-1,
         random_state=7,
+        n_jobs=2,
     ).fit(features, labels)
     xgboost_model = xgb.XGBClassifier(
         n_estimators=2,
         max_depth=2,
         verbosity=0,
         random_state=7,
+        n_jobs=2,
     ).fit(features, labels)
 
     variable = cp.Variable()
@@ -192,6 +240,7 @@ def verify_smoke_workloads() -> dict:
     tensor_value = float((torch.tensor([1.0, 2.0]) ** 2).sum().item())
 
     return {
+        "qlib_binary_values": qlib_values,
         "talib_last_sma": float(sma[-1]),
         "lightgbm_predictions": lightgbm_model.predict(features).astype(int).tolist(),
         "xgboost_predictions": xgboost_model.predict(features).astype(int).tolist(),
@@ -213,15 +262,17 @@ def verify(expected_path: Path, lock_path: Path = DEFAULT_LOCK) -> dict:
         raise RuntimeError(
             f"platform mismatch: expected {expected['platform']}, got {sys.platform}"
         )
+    if expected.get("machine") and platform.machine().lower() != expected["machine"].lower():
+        raise RuntimeError(
+            f"machine mismatch: expected {expected['machine']}, got {platform.machine()}"
+        )
     actual_architecture = platform.architecture()[0]
     if actual_architecture != expected["architecture"]:
         raise RuntimeError(
-            f"architecture mismatch: expected {expected['architecture']}, "
-            f"got {actual_architecture}"
+            f"architecture mismatch: expected {expected['architecture']}, got {actual_architecture}"
         )
     versions = {
-        distribution: package_version(distribution)
-        for distribution in expected["packages"]
+        distribution: package_version(distribution) for distribution in expected["packages"]
     }
     mismatches = {
         distribution: {
@@ -233,16 +284,22 @@ def verify(expected_path: Path, lock_path: Path = DEFAULT_LOCK) -> dict:
     }
     if mismatches:
         raise RuntimeError(f"package version mismatch: {mismatches}")
+    isolation = verify_isolation()
+    locked = verify_lock(lock_path)
+    runtime_versions = verify_imports()
+    native_path = Path(sys.prefix) / "research-native-runtime.json"
     return {
         "status": "passed",
+        "native_runtime": json.loads(native_path.read_text()) if native_path.is_file() else {},
+        "machine": platform.machine(),
         "python": actual_python,
         "platform": sys.platform,
         "architecture": actual_architecture,
         "executable": sys.executable,
-        "isolation": verify_isolation(),
-        "lock": verify_lock(lock_path),
+        "isolation": isolation,
+        "lock": locked,
         "packages": versions,
-        "runtime_import_versions": verify_imports(),
+        "runtime_import_versions": runtime_versions,
         "smoke_workloads": verify_smoke_workloads(),
     }
 

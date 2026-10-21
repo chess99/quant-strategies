@@ -26,6 +26,7 @@ from quant_research.backtest import (  # noqa: E402
 )
 from quant_research.data.market_state import build_market_state  # noqa: E402
 from quant_research.data.store import ResearchDataStore  # noqa: E402
+from quant_research.paths import data_path  # noqa: E402
 
 
 MODELS = (
@@ -395,7 +396,7 @@ def parse_args():
     base = Path(__file__).resolve().parent / "results"
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
-        "--qlib-dir", type=Path, default=Path("D:/code/_open-source/_data/qlib/cn_data")
+        "--qlib-dir", type=Path, default=data_path("qlib/cn_data")
     )
     parser.add_argument("--data-root", type=Path, default=None)
     parser.add_argument("--benchmark", default="SH000905")

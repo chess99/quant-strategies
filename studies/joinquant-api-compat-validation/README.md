@@ -6,9 +6,11 @@
 
 运行：
 
-```powershell
-D:\code\_open-source\_venvs\quant-research-py312\Scripts\python.exe `
-  studies\joinquant-api-compat-validation\run_validation.py
+运行前激活[研究环境](../../docs/local-research/environment.md)。
+
+```bash
+python \
+  studies/joinquant-api-compat-validation/run_validation.py
 ```
 
 最终归档是 `results/2026-07-27__three-strategy-migration__v4/`。v1 保留归档器异常，

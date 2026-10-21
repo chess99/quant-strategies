@@ -113,12 +113,13 @@ MACD = EMA(12) - EMA(26)，DEA 为 DIFF 的 9 日 EMA
 
 从仓库根目录运行：
 
-```powershell
-$env:QLIB_CN_DATA_DIR = "D:\code\_open-source\_data\qlib\cn_data"
-python tools/run_ktv_macd_local_backtest.py `
-  --start 2019-01-01 `
-  --end 2025-12-31 `
-  --entry-mode baseline `
+运行前激活[研究环境](../../../docs/local-research/environment.md)。
+
+```bash
+python tools/run_ktv_macd_local_backtest.py \
+  --start 2019-01-01 \
+  --end 2025-12-31 \
+  --entry-mode baseline \
   --run-id local-qlib-2019-2025-v2
 ```
 

@@ -32,9 +32,10 @@ if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
 from quant_research.data.store import ResearchDataStore, sha256_file  # noqa: E402
+from quant_research.paths import data_path  # noqa: E402
 
 
-DEFAULT_DATA_ROOT = Path("D:/code/_open-source/_data/quant-research")
+DEFAULT_DATA_ROOT = data_path("quant-research")
 REFERENCE_SOURCE = (
     ROOT / "joinquant_archive" / "sources" / "ETF轮动策略" / "五福7.5.py"
 )

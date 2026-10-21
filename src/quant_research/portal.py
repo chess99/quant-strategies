@@ -12,6 +12,7 @@ import pandas as pd
 
 from .data.contracts import QualityGrade
 from .data.store import ResearchDataStore, sha256_file
+from .paths import data_path
 
 
 class CapabilityError(RuntimeError):
@@ -85,7 +86,7 @@ class FrameDailyBarSource:
 class QlibDailyBarSource:
     """Qlib 社区中国日线适配器。"""
 
-    provider_uri: Path | str = Path("D:/code/_open-source/_data/qlib/cn_data")
+    provider_uri: Path | str = dataclass_field(default_factory=lambda: data_path("qlib/cn_data"))
     quality_grade: QualityGrade = QualityGrade.B
     _initialized: bool = False
     last_provenance: dict | None = dataclass_field(default=None, init=False)

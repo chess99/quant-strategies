@@ -22,6 +22,7 @@ if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
 from quant_research.data.store import ResearchDataStore, sha256_file  # noqa: E402
+from quant_research.paths import data_path  # noqa: E402
 
 
 SOURCE_PATH = (
@@ -185,9 +186,7 @@ def load_benchmark(data_root: Path, dates: pd.DatetimeIndex) -> pd.Series:
     import qlib
     from qlib.data import D
 
-    qlib_dir = data_root.parent / "qlib" / "cn_data"
-    if not qlib_dir.is_dir():
-        qlib_dir = Path("D:/code/_open-source/_data/qlib/cn_data")
+    qlib_dir = data_path("qlib/cn_data")
     qlib.init(
         provider_uri=str(qlib_dir),
         region="cn",
@@ -548,7 +547,7 @@ def parse_args():
     parser.add_argument(
         "--data-root",
         type=Path,
-        default=Path("D:/code/_open-source/_data/quant-research"),
+        default=data_path("quant-research"),
     )
     parser.add_argument("--run-id", default="local-sina-qlib-v1")
     parser.add_argument("--archived-at", default="2026-07-27")

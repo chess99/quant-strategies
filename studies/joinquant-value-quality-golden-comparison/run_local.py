@@ -32,6 +32,7 @@ from quant_research.full_market import (  # noqa: E402
     build_interval_cross_sections,
 )
 from quant_research.portal import LocalDataPortal, QlibDailyBarSource  # noqa: E402
+from quant_research.paths import data_path  # noqa: E402
 
 
 STUDY = "joinquant-value-quality-golden-comparison"
@@ -725,7 +726,7 @@ def parse_args():
     parser.add_argument(
         "--qlib-dir",
         type=Path,
-        default=Path("D:/code/_open-source/_data/qlib/cn_data"),
+        default=data_path("qlib/cn_data"),
     )
     parser.add_argument("--start-date", default=START_DATE)
     parser.add_argument("--end-date", default=END_DATE)

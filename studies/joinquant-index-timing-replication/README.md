@@ -37,10 +37,11 @@
 
 ## 运行
 
-```powershell
-D:\code\_open-source\_venvs\qlib\Scripts\python.exe `
-  studies\joinquant-index-timing-replication\run_backtests.py `
-  --qlib-dir D:\code\_open-source\_data\qlib\cn_data
+运行前激活[研究环境](../../docs/local-research/environment.md)。
+
+```bash
+python \
+  studies/joinquant-index-timing-replication/run_backtests.py
 ```
 
 程序拒绝覆盖既有结果目录。测试命令：

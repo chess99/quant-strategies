@@ -19,10 +19,11 @@
 
 运行：
 
-```powershell
-D:\code\_open-source\_venvs\quant-research-py312\Scripts\python.exe `
-  studies\joinquant-etf-rotation-replication\run_backtest.py `
-  --data-root D:\code\_open-source\_data\quant-research `
+运行前激活[研究环境](../../docs/local-research/environment.md)。
+
+```bash
+python \
+  studies/joinquant-etf-rotation-replication/run_backtest.py \
   --run-id local-full-etf-universe-v4
 ```
 

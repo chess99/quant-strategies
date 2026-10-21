@@ -17,12 +17,10 @@ from quant_research.data.financial_statements import (  # noqa: E402
 )
 from quant_research.data.industry import import_shenwan_history  # noqa: E402
 from quant_research.data.store import ResearchDataStore  # noqa: E402
+from quant_research.paths import data_path  # noqa: E402
 
 
-DEFAULT_INDUSTRY_HISTORY = Path(
-    "D:/code/_open-source/_data/quant-research/raw/"
-    "swsresearch/industry-history/StockClassifyUse_stock.xls"
-)
+DEFAULT_INDUSTRY_HISTORY = data_path("quant-research/raw/swsresearch/industry-history/StockClassifyUse_stock.xls")
 
 
 def parse_args() -> argparse.Namespace:

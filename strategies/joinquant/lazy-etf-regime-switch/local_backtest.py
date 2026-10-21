@@ -20,6 +20,7 @@ if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
 from quant_research.data.store import ResearchDataStore, sha256_file  # noqa: E402
+from quant_research.paths import data_path  # noqa: E402
 
 
 BASE_ASSETS = {
@@ -1349,7 +1350,7 @@ def parse_args():
     parser.add_argument(
         "--data-root",
         type=Path,
-        default=Path("D:/code/_open-source/_data/quant-research"),
+        default=data_path("quant-research"),
     )
     parser.add_argument("--gem-index-csv", type=Path)
     parser.add_argument("--start", default="2014-01-02")

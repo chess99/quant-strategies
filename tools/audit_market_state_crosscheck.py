@@ -17,6 +17,7 @@ from quant_research.data.market_verification import (  # noqa: E402
     build_market_state_crosscheck,
 )
 from quant_research.data.store import ResearchDataStore  # noqa: E402
+from quant_research.paths import data_path  # noqa: E402
 
 
 def parse_args() -> argparse.Namespace:
@@ -25,7 +26,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--qlib-root",
         type=Path,
-        default=Path("D:/code/_open-source/_data/qlib/cn_data"),
+        default=data_path("qlib/cn_data"),
     )
     parser.add_argument("--sample-per-board", type=int, default=64)
     parser.add_argument("--minimum-paused-agreement", type=float, default=0.98)

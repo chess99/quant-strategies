@@ -10,10 +10,11 @@
 
 运行：
 
-```powershell
-$env:PYTHONPATH='src'
-D:\code\_open-source\_venvs\qlib\Scripts\python.exe `
-  studies\joinquant-csi300-reversal-replication\run_backtest.py
+运行前激活[研究环境](../../docs/local-research/environment.md)。
+
+```bash
+python \
+  studies/joinquant-csi300-reversal-replication/run_backtest.py
 ```
 
 归档目录不可覆盖；重复实验必须使用新的 `--run-id`。

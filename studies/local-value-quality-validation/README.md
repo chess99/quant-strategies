@@ -6,10 +6,11 @@
 策略月初从历史中证800成分中选择 20 只低估值、高 ROE、增长未明显恶化的股票。
 当前行业快照只有 C 级且从 2026-07-26 起有效，因此验收明确不使用行业数据。
 
-```powershell
-$env:PYTHONPATH='src'
-D:\code\_open-source\_venvs\qlib\Scripts\python.exe `
-  studies\local-value-quality-validation\run_backtest.py
+运行前激活[研究环境](../../docs/local-research/environment.md)。
+
+```bash
+python \
+  studies/local-value-quality-validation/run_backtest.py
 ```
 
 结果目录不可覆盖；修订实验使用新的 `--run-id`。

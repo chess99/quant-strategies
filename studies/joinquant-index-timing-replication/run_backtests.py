@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import sys
 import argparse
 import hashlib
 import json
@@ -16,7 +17,12 @@ import pandas as pd
 
 STUDY_DIR = Path(__file__).resolve().parent
 ROOT = STUDY_DIR.parents[1]
-DEFAULT_QLIB_DIR = Path("D:/code/_open-source/_data/qlib/cn_data")
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "src"))
+from quant_research.paths import data_path  # noqa: E402
+
+
+DEFAULT_QLIB_DIR = data_path("qlib/cn_data")
 DEFAULT_RUN_ID = "local-qlib-comparison-v1"
 TRADING_DAYS_PER_YEAR = 250.0
 

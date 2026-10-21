@@ -74,17 +74,17 @@ Git 只保存代码、契约和小型验收报告。
 
 ```powershell
 # 估值全量同步及第二源核验
-D:\code\_open-source\_venvs\quant-research-py312\Scripts\python.exe `
+.venv\Scripts\python.exe `
   tools\sync_local_valuation.py --stage all
 
 # 固定来源导出、引用表和完整状态
-D:\code\_open-source\_venvs\quant-research-py312\Scripts\python.exe `
+.venv\Scripts\python.exe `
   tools\sync_local_market_state.py --stage all
 
 # 机器验收
-D:\code\_open-source\_venvs\quant-research-py312\Scripts\python.exe `
+.venv\Scripts\python.exe `
   tools\audit_market_state_crosscheck.py
-D:\code\_open-source\_venvs\quant-research-py312\Scripts\python.exe `
+.venv\Scripts\python.exe `
   tools\verify_local_market_valuation.py
 ```
 

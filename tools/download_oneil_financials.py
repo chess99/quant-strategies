@@ -1,5 +1,6 @@
 """下载欧奈尔本地回测所需的东方财富历史财务缓存。"""
 
+import sys
 import argparse
 import gzip
 import importlib.util
@@ -21,9 +22,14 @@ ENGINE_PATH = (
     / "oneil-canslim-a-share"
     / "local_backtest.py"
 )
-DEFAULT_QLIB_DIR = Path("D:/code/_open-source/_data/qlib/cn_data")
-DEFAULT_OUTPUT_DIR = Path("D:/code/_open-source/_data/oneil")
-DEFAULT_RESEARCH_DATA_ROOT = Path("D:/code/_open-source/_data/quant-research")
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+from quant_research.paths import data_path  # noqa: E402
+
+
+DEFAULT_QLIB_DIR = data_path("qlib/cn_data")
+DEFAULT_OUTPUT_DIR = data_path("oneil")
+DEFAULT_RESEARCH_DATA_ROOT = data_path("quant-research")
 FINANCIAL_URL = "https://datacenter.eastmoney.com/securities/api/data/get"
 INDUSTRY_URL = "https://datacenter-web.eastmoney.com/api/data/v1/get"
 ALL_A_BOARDS = {"main", "chinext", "star", "beijing"}

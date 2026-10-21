@@ -58,21 +58,23 @@ Sharpe 0.688；同期中证 500 累计 63.16%、最大回撤 65.20%。双倍成�
 
 ## 本地运行
 
-```powershell
-D:\code\_open-source\_venvs\qlib\Scripts\python.exe `
-  tools\run_oneil_factor_local_backtests.py `
-  --start-date 2019-01-01 `
-  --end-date 2025-12-31 `
-  --models all `
+运行前激活[研究环境](../../../docs/local-research/environment.md)。
+
+```bash
+python \
+  tools/run_oneil_factor_local_backtests.py \
+  --start-date 2019-01-01 \
+  --end-date 2025-12-31 \
+  --models all \
   --no-archive
 ```
 
 代表股门控诊断：
 
-```powershell
-D:\code\_open-source\_venvs\qlib\Scripts\python.exe `
-  tools\analyze_oneil_factor_gates.py `
-  --start-date 2024-01-01 `
+```bash
+python \
+  tools/analyze_oneil_factor_gates.py \
+  --start-date 2024-01-01 \
   --end-date 2025-12-31
 ```
 

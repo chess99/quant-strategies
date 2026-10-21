@@ -21,6 +21,7 @@ if str(STUDY_DIR) not in sys.path:
 
 import run_epo_deep_research as diagnostics  # noqa: E402
 import run_white_horse_causal as base  # noqa: E402
+from quant_research.paths import data_path  # noqa: E402
 
 
 CANDIDATE_DIR = STUDY_DIR / "results" / base.CANDIDATE_ID
@@ -505,7 +506,7 @@ def _json_safe(value):
 
 def run_deep_research(
     data_root: Path | None = None,
-    qlib_dir: Path = Path("D:/code/_open-source/_data/qlib/cn_data"),
+    qlib_dir: Path = data_path("qlib/cn_data"),
 ) -> dict[str, Any]:
     (
         store,
@@ -946,7 +947,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--qlib-dir",
         type=Path,
-        default=Path("D:/code/_open-source/_data/qlib/cn_data"),
+        default=data_path("qlib/cn_data"),
     )
     return parser.parse_args()
 

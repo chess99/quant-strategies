@@ -20,6 +20,7 @@ if str(SRC) not in sys.path:
 from quant_research.backtest import BacktestConfig, DailyBacktester, performance_metrics  # noqa: E402
 from quant_research.data.store import ResearchDataStore  # noqa: E402
 from quant_research.portal import LocalDataPortal, QlibDailyBarSource  # noqa: E402
+from quant_research.paths import data_path  # noqa: E402
 
 
 def sha256_file(path: Path) -> str:
@@ -338,7 +339,7 @@ def parse_args():
     parser.add_argument(
         "--qlib-dir",
         type=Path,
-        default=Path("D:/code/_open-source/_data/qlib/cn_data"),
+        default=data_path("qlib/cn_data"),
     )
     parser.add_argument("--start-date", default="2019-01-01")
     parser.add_argument("--end-date", default="2025-12-31")

@@ -1,5 +1,6 @@
 """批量运行欧奈尔/CANSLIM 月频因子模型的本地回测。"""
 
+import sys
 import argparse
 import importlib.util
 import json
@@ -15,8 +16,13 @@ ENGINE_PATH = (
     / "oneil-canslim-factor-a-share"
     / "local_backtest.py"
 )
-DEFAULT_QLIB_DIR = Path("D:/code/_open-source/_data/qlib/cn_data")
-DEFAULT_FINANCIAL_DIR = Path("D:/code/_open-source/_data/oneil")
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+from quant_research.paths import data_path  # noqa: E402
+
+
+DEFAULT_QLIB_DIR = data_path("qlib/cn_data")
+DEFAULT_FINANCIAL_DIR = data_path("oneil")
 
 
 def load_engine():

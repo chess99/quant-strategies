@@ -9,6 +9,7 @@ from tools.verify_research_environment import read_exact_lock, verify_lock
 ROOT = Path(__file__).resolve().parents[2]
 REQUIREMENTS = ROOT / "requirements"
 DIST_NAMES = {"qlib": "pyqlib"}
+PROFILES = ["research-win-py312", "research-linux-py312", "research-macos-arm64-py312"]
 
 
 def _pins(path):
@@ -23,23 +24,23 @@ def _pins(path):
     return result
 
 
-def test_expected_versions_are_exactly_pinned_in_input_and_lock():
-    expected = json.loads(
-        (REQUIREMENTS / "research-win-py312.expected.json").read_text(
-            encoding="utf-8"
-        )
-    )
-    direct = _pins(REQUIREMENTS / "research-win-py312.in")
-    locked = _pins(REQUIREMENTS / "research-win-py312.lock")
+@pytest.mark.parametrize("profile", PROFILES)
+def test_expected_versions_are_exactly_pinned_in_input_and_lock(profile):
+    expected = json.loads((REQUIREMENTS / f"{profile}.expected.json").read_text(encoding="utf-8"))
+    direct = _pins(REQUIREMENTS / f"{profile}.in")
+    locked = _pins(REQUIREMENTS / f"{profile}.lock")
 
     for public_name, version in expected["packages"].items():
         distribution = DIST_NAMES.get(public_name, public_name).lower()
+        if profile == "research-linux-py312" and public_name == "xgboost":
+            distribution = "xgboost-cpu"
         assert direct[distribution] == version
         assert locked[distribution] == version
 
 
-def test_lock_contains_only_portable_exact_pins():
-    lock_path = REQUIREMENTS / "research-win-py312.lock"
+@pytest.mark.parametrize("profile", PROFILES)
+def test_lock_contains_only_portable_exact_pins(profile):
+    lock_path = REQUIREMENTS / f"{profile}.lock"
     text = lock_path.read_text(encoding="utf-8")
     assert "file://" not in text
     assert " @ " not in text

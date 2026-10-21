@@ -1,0 +1,104 @@
+{
+  "verified_on": "2026-10-21",
+  "status": "passed",
+  "python": "3.12.9",
+  "platform": "darwin",
+  "machine": "arm64",
+  "architecture": "64bit",
+  "isolation": {
+    "base_site_packages_leaked": false,
+    "user_site_enabled": false
+  },
+  "lock": {
+    "sha256": "2b41a866929e7b1438d281ae5c9ad452fe945d147c9eb634eb019947bdf2223c",
+    "exact_pin_count": 218,
+    "installed_distribution_count": 218,
+    "matches_installed_environment": true
+  },
+  "native_runtime": {
+    "provider": "Homebrew libomp",
+    "version": "23.1.4",
+    "sha256": "cb679440b0af57131274b6c0bcc11b8c18ef7ad45e2a6625ef57e90379fc2ae4",
+    "shared_openmp_runtime_count": 1,
+    "linked_libraries": [
+      "sklearn/.dylibs/libomp.dylib",
+      "torch/lib/libomp.dylib"
+    ]
+  },
+  "packages": {
+    "akshare": "1.18.54",
+    "cvxpy": "1.7.5",
+    "lightgbm": "4.6.0",
+    "numpy": "1.26.4",
+    "optuna": "4.6.0",
+    "pandas": "2.2.3",
+    "pyarrow": "19.0.1",
+    "qlib": "0.9.7",
+    "scikit-learn": "1.6.1",
+    "scipy": "1.13.1",
+    "statsmodels": "0.14.4",
+    "TA-Lib": "0.6.8",
+    "torch": "2.6.0",
+    "xgboost": "3.0.5"
+  },
+  "runtime_import_versions": {
+    "akshare": "1.18.54",
+    "cvxpy": "1.7.5",
+    "lightgbm": "4.6.0",
+    "numpy": "1.26.4",
+    "optuna": "4.6.0",
+    "pandas": "2.2.3",
+    "pyarrow": "19.0.1",
+    "qlib": "0.9.7",
+    "scikit-learn": "1.6.1",
+    "scipy": "1.13.1",
+    "statsmodels": "0.14.4",
+    "TA-Lib": "0.6.8",
+    "torch": "2.6.0",
+    "xgboost": "3.0.5"
+  },
+  "smoke_workloads": {
+    "qlib_binary_values": [
+      1.0,
+      2.0,
+      3.0,
+      4.0
+    ],
+    "talib_last_sma": 3.5,
+    "lightgbm_predictions": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "xgboost_predictions": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "cvxpy_status": "optimal",
+    "cvxpy_value": 2.0,
+    "optuna_trials": 1,
+    "torch_tensor_value": 5.0
+  },
+  "acceptance": {
+    "clean_environment_rebuild": "passed",
+    "dependency_compatibility": "passed",
+    "pytest": {
+      "passed": 403,
+      "failed": 0,
+      "warnings": 1
+    },
+    "repository_validation": {
+      "status": "passed",
+      "strategy_families": 12
+    },
+    "ruff": "passed",
+    "jupyterlab_version": "4.6.4"
+  },
+  "historical_data": {
+    "migration": "pending",
+    "full_data_backtests_executed": false
+  }
+}

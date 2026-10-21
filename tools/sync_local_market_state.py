@@ -26,6 +26,7 @@ from quant_research.data.market_sync import (  # noqa: E402
     print_market_sync_summary,
 )
 from quant_research.data.store import ResearchDataStore  # noqa: E402
+from quant_research.paths import data_path, dolt_executable  # noqa: E402
 
 
 def parse_args() -> argparse.Namespace:
@@ -39,20 +40,17 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--dolt-exe",
         type=Path,
-        default=Path(
-            "D:/code/_open-source/_tools/dolt-v2.2.2/"
-            "dolt-windows-amd64/bin/dolt.exe"
-        ),
+        default=dolt_executable(),
     )
     parser.add_argument(
         "--dolt-repository",
         type=Path,
-        default=Path("D:/code/_open-source/_data/investment-data-dolt"),
+        default=data_path("investment-data-dolt"),
     )
     parser.add_argument(
         "--qlib-root",
         type=Path,
-        default=Path("D:/code/_open-source/_data/qlib/cn_data"),
+        default=data_path("qlib/cn_data"),
     )
     parser.add_argument("--chunk-rows", type=int, default=250_000)
     parser.add_argument("--checkpoint-every", type=int, default=50)

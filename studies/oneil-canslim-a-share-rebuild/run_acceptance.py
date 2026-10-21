@@ -27,6 +27,7 @@ from quant_research.backtest import (  # noqa: E402
 )
 from quant_research.data.market_state import build_market_state  # noqa: E402
 from quant_research.data.store import ResearchDataStore  # noqa: E402
+from quant_research.paths import data_path  # noqa: E402
 
 
 def _load_holding_module():
@@ -331,7 +332,7 @@ def archive(args, selections, outputs, top_symbols, top_industry, liquidity_diag
 def parse_args():
     base = Path(__file__).resolve().parent / "results"
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--qlib-dir", type=Path, default=Path("D:/code/_open-source/_data/qlib/cn_data"))
+    parser.add_argument("--qlib-dir", type=Path, default=data_path("qlib/cn_data"))
     parser.add_argument("--data-root", type=Path, default=None)
     parser.add_argument("--benchmark", default="SH000905")
     parser.add_argument(
@@ -346,7 +347,7 @@ def parse_args():
     parser.add_argument(
         "--industry-history",
         type=Path,
-        default=Path("D:/code/_open-source/_data/oneil-rebuild/cninfo-industry-history.parquet"),
+        default=data_path("oneil-rebuild/cninfo-industry-history.parquet"),
     )
     parser.add_argument(
         "--entry-events",

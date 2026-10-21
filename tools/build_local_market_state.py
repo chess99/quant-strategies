@@ -20,6 +20,7 @@ from quant_research.data.market_state import (  # noqa: E402
     save_market_state,
 )
 from quant_research.data.store import ResearchDataStore  # noqa: E402
+from quant_research.paths import data_path  # noqa: E402
 
 
 def parse_args():
@@ -28,12 +29,12 @@ def parse_args():
     parser.add_argument(
         "--qlib-dir",
         type=Path,
-        default=Path("D:/code/_open-source/_data/qlib/cn_data"),
+        default=data_path("qlib/cn_data"),
     )
     parser.add_argument(
         "--symbols-from",
         type=Path,
-        default=Path("D:/code/_open-source/_data/oneil/financials.parquet"),
+        default=data_path("oneil/financials.parquet"),
     )
     parser.add_argument("--start", default="2019-01-01")
     parser.add_argument("--end", default="2025-12-31")

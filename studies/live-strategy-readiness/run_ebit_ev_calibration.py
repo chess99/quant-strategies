@@ -33,6 +33,7 @@ from quant_research.full_market import (  # noqa: E402
     build_fundamental_cross_sections,
 )
 from quant_research.portal import LocalDataPortal, QlibDailyBarSource  # noqa: E402
+from quant_research.paths import data_path  # noqa: E402
 
 
 CANDIDATE_ID = "ebit-ev-value"
@@ -48,7 +49,9 @@ CALIBRATION_START = pd.Timestamp("2009-01-05")
 CALIBRATION_END = pd.Timestamp("2019-12-31")
 INITIAL_CASH = 10_000_000.0
 HOLDING_COUNT = 50
-QLIB_DIR = Path("D:/code/_open-source/_data/qlib/cn_data")
+
+
+QLIB_DIR = data_path("qlib/cn_data")
 
 PUBLIC_METRICS = {
     "annualized_return": 0.22545580458148,

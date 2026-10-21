@@ -21,6 +21,7 @@ from quant_research.backtest import BacktestConfig, DailyBacktester, performance
 from quant_research.data.market_state import build_market_state  # noqa: E402
 from quant_research.data.store import ResearchDataStore  # noqa: E402
 from quant_research.portal import LocalDataPortal, QlibDailyBarSource  # noqa: E402
+from quant_research.paths import data_path  # noqa: E402
 
 
 POST_URL = "https://www.joinquant.com/post/30350"
@@ -273,7 +274,7 @@ def parse_args():
     parser.add_argument(
         "--qlib-dir",
         type=Path,
-        default=Path("D:/code/_open-source/_data/qlib/cn_data"),
+        default=data_path("qlib/cn_data"),
     )
     parser.add_argument("--start-date", default="2008-11-01")
     parser.add_argument("--end-date", default="2009-11-01")

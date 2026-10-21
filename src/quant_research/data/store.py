@@ -12,9 +12,10 @@ from typing import Iterable
 import pandas as pd
 
 from .contracts import DatasetManifest
+from ..paths import data_path, resolve_local_path
 
 
-DEFAULT_DATA_ROOT = Path("D:/code/_open-source/_data/quant-research")
+DEFAULT_DATA_ROOT = data_path("quant-research")
 
 
 def sha256_file(path: Path) -> str:
@@ -27,8 +28,7 @@ def sha256_file(path: Path) -> str:
 
 class ResearchDataStore:
     def __init__(self, root: Path | str | None = None):
-        configured = root or os.environ.get("QUANT_RESEARCH_DATA_DIR")
-        self.root = Path(configured or DEFAULT_DATA_ROOT).expanduser().resolve()
+        self.root = resolve_local_path(root) if root is not None else data_path("quant-research")
         self.raw_dir = self.root / "raw"
         self.normalized_dir = self.root / "normalized"
         self.manifest_dir = self.root / "manifests"

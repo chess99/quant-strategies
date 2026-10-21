@@ -32,12 +32,15 @@ from quant_research.full_market import (  # noqa: E402
     build_exact_cross_sections,
 )
 from quant_research.portal import LocalDataPortal, QlibDailyBarSource  # noqa: E402
+from quant_research.paths import data_path  # noqa: E402
 
 
 FAMILY = Path(__file__).resolve().parent
 STUDY_ROOT = ROOT / "studies" / "profitable-small-cap-rebuild"
-DEFAULT_DATA_ROOT = Path("D:/code/_open-source/_data/quant-research")
-DEFAULT_QLIB_ROOT = Path("D:/code/_open-source/_data/qlib/cn_data")
+
+
+DEFAULT_DATA_ROOT = data_path("quant-research")
+DEFAULT_QLIB_ROOT = data_path("qlib/cn_data")
 PRESELECT_COUNT = 500
 MINIMUM_LISTING_DAYS = 375
 POST_PUBLICATION_START = pd.Timestamp("2023-12-01")

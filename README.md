@@ -48,7 +48,8 @@ quant-strategies/
 本地研究基础设施：
 
 - `src/quant_research/`：日频数据契约、数据源适配、聚宽兼容接口与本地撮合器。
-- 外部数据默认保存在 `D:/code/_open-source/_data/quant-research/`，不提交仓库。
+- 研究环境使用仓库内 `.venv/`，数据默认保存在 `data/`；均不提交 Git。
+- 安装、数据迁移与跨平台配置见 [本地研究环境](docs/local-research/environment.md)。
 - 建设范围与质量要求见
   [`docs/local-research/roadmap.md`](docs/local-research/roadmap.md)。
 

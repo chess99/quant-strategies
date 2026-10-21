@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import sys
 import argparse
 import json
 import time
@@ -23,6 +24,10 @@ COLUMN_MAP = {
     "行业大类": "industry_major",
     "行业中类": "industry_middle",
 }
+
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "src"))
+from quant_research.paths import data_path  # noqa: E402
 
 
 def normalize_industry_rows(frame: pd.DataFrame, symbol: str) -> pd.DataFrame:
@@ -108,7 +113,7 @@ def parse_args():
     parser.add_argument(
         "--output",
         type=Path,
-        default=Path("D:/code/_open-source/_data/oneil-rebuild/cninfo-industry-history.parquet"),
+        default=data_path("oneil-rebuild/cninfo-industry-history.parquet"),
     )
     parser.add_argument("--workers", type=int, default=6)
     return parser.parse_args()

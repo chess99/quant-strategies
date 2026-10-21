@@ -5,12 +5,14 @@ from __future__ import annotations
 import argparse
 import importlib.util
 import json
-import os
 import sys
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
+from quant_research.paths import data_path  # noqa: E402
+
 STRATEGY_DIR = ROOT / "strategies" / "joinquant" / "ktv-macd-resonance"
 ENGINE_PATH = STRATEGY_DIR / "local_backtest.py"
 
@@ -31,7 +33,7 @@ def parse_args():
     )
     parser.add_argument(
         "--data-dir",
-        default=os.environ.get("QLIB_CN_DATA_DIR"),
+        default=data_path("qlib/cn_data"),
         help="Qlib cn_data 目录；也可设置 QLIB_CN_DATA_DIR",
     )
     parser.add_argument("--start", default="2019-01-01")
@@ -72,8 +74,6 @@ def parse_args():
     parser.add_argument("--no-archive", action="store_true")
     parser.add_argument("--verbose", action="store_true")
     args = parser.parse_args()
-    if not args.data_dir:
-        parser.error("--data-dir 或 QLIB_CN_DATA_DIR 必须提供")
     if args.cost_multiplier < 0.0:
         parser.error("--cost-multiplier 不能为负数")
     if args.cost_multiplier != 1.0 and not args.variant:

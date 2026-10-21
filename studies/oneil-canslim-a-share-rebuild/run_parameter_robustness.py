@@ -19,6 +19,7 @@ if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
 from quant_research.data.store import ResearchDataStore  # noqa: E402
+from quant_research.paths import data_path  # noqa: E402
 
 
 def _load_selection_module():
@@ -176,18 +177,18 @@ def archive(args, selections, outputs, segments):
 def parse_args():
     base = Path(__file__).resolve().parent / "results"
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--qlib-dir", type=Path, default=Path("D:/code/_open-source/_data/qlib/cn_data"))
+    parser.add_argument("--qlib-dir", type=Path, default=data_path("qlib/cn_data"))
     parser.add_argument("--data-root", type=Path, default=None)
     parser.add_argument(
-        "--financials", type=Path, default=Path("D:/code/_open-source/_data/oneil-all-a/financials.parquet")
+        "--financials", type=Path, default=data_path("oneil-all-a/financials.parquet")
     )
     parser.add_argument(
         "--price-feature-caches",
         nargs="+",
         type=Path,
         default=[
-            Path("D:/code/_open-source/_data/oneil-rebuild/monthly-price-features-2010-2014.parquet"),
-            Path("D:/code/_open-source/_data/oneil-rebuild/monthly-price-features.parquet"),
+            data_path("oneil-rebuild/monthly-price-features-2010-2014.parquet"),
+            data_path("oneil-rebuild/monthly-price-features.parquet"),
         ],
     )
     parser.add_argument("--benchmark", default="SH000905")

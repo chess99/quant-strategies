@@ -113,17 +113,19 @@
 本地执行层使用 Qlib 历史行情和指数成分，并从东方财富公开接口建立带公告日的财务缓存。
 首次运行先下载缓存：
 
-```powershell
-D:\code\_open-source\_venvs\qlib\Scripts\python.exe tools\download_oneil_financials.py
+运行前激活[研究环境](../../../docs/local-research/environment.md)。
+
+```bash
+python tools/download_oneil_financials.py
 ```
 
 之后可完全离线回测：
 
-```powershell
-D:\code\_open-source\_venvs\qlib\Scripts\python.exe tools\run_oneil_local_backtest.py `
-  --variant baseline `
-  --start-date 2019-01-01 `
-  --end-date 2025-12-31 `
+```bash
+python tools/run_oneil_local_backtest.py \
+  --variant baseline \
+  --start-date 2019-01-01 \
+  --end-date 2025-12-31 \
   --run-id local-qlib-eastmoney-2019-2025-v2
 ```
 

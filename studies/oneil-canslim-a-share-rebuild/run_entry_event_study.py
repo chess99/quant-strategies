@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import sys
 import argparse
 import hashlib
 import json
@@ -21,6 +22,10 @@ ENTRY_SIGNALS = {
     "structured-base-breakout": "h24",
 }
 HORIZONS = (5, 20, 60, 120)
+
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "src"))
+from quant_research.paths import data_path  # noqa: E402
 
 
 class DirectQlibReader:
@@ -375,7 +380,7 @@ def parse_args():
     base = Path(__file__).resolve().parent / "results"
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
-        "--qlib-dir", type=Path, default=Path("D:/code/_open-source/_data/qlib/cn_data")
+        "--qlib-dir", type=Path, default=data_path("qlib/cn_data")
     )
     parser.add_argument("--benchmark", default="SH000905")
     parser.add_argument(

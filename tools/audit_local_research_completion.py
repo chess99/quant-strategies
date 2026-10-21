@@ -14,6 +14,7 @@ if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
 from quant_research.completion_audit import build_completion_audit  # noqa: E402
+from quant_research.paths import data_path  # noqa: E402
 
 
 def parse_args() -> argparse.Namespace:
@@ -21,13 +22,13 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--data-root",
         type=Path,
-        default=Path("D:/code/_open-source/_data/quant-research"),
+        default=data_path("quant-research"),
     )
     parser.add_argument(
         "--qlib-root",
         type=Path,
-        default=None,
-        help="Qlib cn_data 目录；默认使用 data-root 的同级 qlib/cn_data",
+        default=data_path("qlib/cn_data"),
+        help="Qlib cn_data 目录",
     )
     parser.add_argument("--verify-hashes", action="store_true")
     parser.add_argument("--output", type=Path, default=None)

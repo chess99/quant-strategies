@@ -16,6 +16,7 @@ if str(SRC) not in sys.path:
 from quant_research.data.fundamentals import import_fundamentals  # noqa: E402
 from quant_research.data.industry import import_current_industry  # noqa: E402
 from quant_research.data.store import ResearchDataStore  # noqa: E402
+from quant_research.paths import data_path  # noqa: E402
 
 
 def parse_args():
@@ -24,7 +25,7 @@ def parse_args():
     parser.add_argument(
         "--source-dir",
         type=Path,
-        default=Path("D:/code/_open-source/_data/oneil"),
+        default=data_path("oneil"),
     )
     return parser.parse_args()
 

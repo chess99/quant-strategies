@@ -46,9 +46,9 @@
 - 每次数据更新执行字段、区间、重复、异常收益和点时可见性检查。
 - 免费数据无法恢复严格历史修订时必须标为 B 或 C，不以代理数据冒充 A 级。
 
-## 外部目录
+## 本地数据目录
 
-默认数据根目录：`D:/code/_open-source/_data/quant-research/`。
+默认数据根目录：仓库下的 `data/quant-research/`，由 Git 忽略。
 
 ```text
 quant-research/

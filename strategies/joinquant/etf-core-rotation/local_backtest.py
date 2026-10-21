@@ -29,9 +29,10 @@ if str(SRC_DIR) not in sys.path:
     sys.path.insert(0, str(SRC_DIR))
 
 from quant_research.data.store import ResearchDataStore  # noqa: E402
+from quant_research.paths import data_path  # noqa: E402
 
 
-DEFAULT_DATA_ROOT = Path("D:/code/_open-source/_data/quant-research")
+DEFAULT_DATA_ROOT = data_path("quant-research")
 DEFAULT_START = "2014-01-02"
 DEFAULT_END = "2026-07-24"
 ORIGINAL_DOWNLOAD_SHA256 = "6cb4b7b10cfb13dafffc4ad3c0b704c6ea96bb4f1891482ef553425f20de92d2"

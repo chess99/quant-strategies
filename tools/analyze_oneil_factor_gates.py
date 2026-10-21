@@ -1,5 +1,6 @@
 """诊断指定股票在欧奈尔月频因子模型中的逐月门控。"""
 
+import sys
 import argparse
 import importlib.util
 from pathlib import Path
@@ -28,6 +29,10 @@ DEFAULT_SYMBOLS = (
 )
 
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+from quant_research.paths import data_path  # noqa: E402
+
+
 def load_engine():
     spec = importlib.util.spec_from_file_location("oneil_factor_gate_cli", ENGINE_PATH)
     if spec is None or spec.loader is None:
@@ -49,12 +54,12 @@ def build_parser():
     parser.add_argument(
         "--qlib-dir",
         type=Path,
-        default=Path("D:/code/_open-source/_data/qlib/cn_data"),
+        default=data_path("qlib/cn_data"),
     )
     parser.add_argument(
         "--financial-dir",
         type=Path,
-        default=Path("D:/code/_open-source/_data/oneil"),
+        default=data_path("oneil"),
     )
     parser.add_argument("--output", type=Path)
     parser.add_argument("--verbose", action="store_true")

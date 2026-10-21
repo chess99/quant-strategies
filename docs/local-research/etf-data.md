@@ -44,10 +44,10 @@ SHA-256。同一观察日的上游快照若内容改变，同步器以内容哈�
 ## 更新与断点续跑
 
 ```powershell
-D:\code\_open-source\_venvs\quant-research-py312\Scripts\python.exe `
+.venv\Scripts\python.exe `
   tools\sync_local_etf_daily.py `
   --stage all `
-  --data-root D:\code\_open-source\_data\quant-research
+  --data-root data\quant-research
 ```
 
 同步器每 25 只更新一次 `etf_sync_status`。再次运行默认跳过行情与档案均成功的证券。

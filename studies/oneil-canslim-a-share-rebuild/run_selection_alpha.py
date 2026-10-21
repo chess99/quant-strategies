@@ -26,6 +26,7 @@ from quant_research.backtest import (  # noqa: E402
 )
 from quant_research.data.market_state import build_market_state  # noqa: E402
 from quant_research.data.store import ResearchDataStore  # noqa: E402
+from quant_research.paths import data_path  # noqa: E402
 
 
 MODELS = (
@@ -726,17 +727,17 @@ def archive(args, outputs, selections, schedule, data_files) -> Path:
 
 def parse_args():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--qlib-dir", type=Path, default=Path("D:/code/_open-source/_data/qlib/cn_data"))
+    parser.add_argument("--qlib-dir", type=Path, default=data_path("qlib/cn_data"))
     parser.add_argument("--data-root", type=Path, default=None)
     parser.add_argument(
         "--financials",
         type=Path,
-        default=Path("D:/code/_open-source/_data/oneil-all-a/financials.parquet"),
+        default=data_path("oneil-all-a/financials.parquet"),
     )
     parser.add_argument(
         "--price-feature-cache",
         type=Path,
-        default=Path("D:/code/_open-source/_data/oneil-rebuild/monthly-price-features.parquet"),
+        default=data_path("oneil-rebuild/monthly-price-features.parquet"),
     )
     parser.add_argument("--rebuild-price-cache", action="store_true")
     parser.add_argument("--start-date", default="2015-01-01")
